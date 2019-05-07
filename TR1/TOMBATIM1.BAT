@@ -1,3 +1,3 @@
 @echo off
-wineconsole.exe c:\TOMBATI\TOMBATIM2.BAT
+start wineconsole.exe c:\TOMBATI\TOMBATIM2.BAT
 exit
