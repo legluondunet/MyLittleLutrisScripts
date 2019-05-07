@@ -1,0 +1,87 @@
+files:
+- installer: N/A:Select the installer downloaded from GOG
+- tombati: http://download.glidos.net/TombATI/TombATI_v1.7.exe
+- hdtextures: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
+game:
+  exe: drive_c/TOMBATI/TOMBATIM1.BAT
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /VERYSILENT /SUPPRESSMSGBOXES
+    description: Running Setup, please wait...
+    executable: installer
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: vcrun2015
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: ddraw
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: winmm
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- execute:
+    command: mv $tombati $CACHE/TombATI_v1.7.zip
+- extract:
+    dst: $GAMEDIR/drive_c/TOMBATI/
+    file: $CACHE/TombATI_v1.7.zip
+- execute:
+    command: mv $hdtextures $CACHE/TombATI_HD_Textures_v1.0.zip
+- extract:
+    dst: $GAMEDIR/drive_c/TOMBATI/TR1HD/
+    file: $CACHE/TombATI_HD_Textures_v1.0.zip
+- write_file:
+    content: '@echo off
+
+      wineconsole.exe c:\TOMBATI\TOMBATIM2.BAT
+
+      exit'
+    file: $GAMEDIR/drive_c/TOMBATI/TOMBATIM1.BAT
+- write_file:
+    content: "@echo off\ngoto launcher\n\n:launcher\ncls\necho.\necho.\necho.\t------------------------------------------------\n\
+      echo.\tTOMB RAIDER 1 GOG Edition + GLRage + HD Textures\necho.\t------------------------------------------------\n\
+      echo.\necho.\t1) Tomb Raider 1 GLRage\necho.\t2) Tomb Raider 1 Unfinished Business\
+      \ GLRage\necho.\t3) TombATI configure HD textures\necho.\t4) exit\necho.\necho.\t\
+      ------------------------------------------------\necho.\necho.\n\n\nchoice /c1234\
+      \ /s /N Your choice? [1-4]:\nif errorlevel 4 goto exit\nif errorlevel 3 goto\
+      \ config\nif errorlevel 2 goto tombub\nif errorlevel 1 goto tr1\n\n:tr1\ncls\n\
+      tombati.exe\ngoto exit\n\n:tombub\ncls\ntombub.exe\ngoto exit\n\n:config\ncls\n\
+      TombATIConfigure.exe\ngoto launcher\n\n:exit\nexit"
+    file: $GAMEDIR/drive_c/TOMBATI/TOMBATIM2.BAT
+- task:
+    description: When the "Tomb Raider Importer" will appear, just click "install".
+    executable: $GAMEDIR/drive_c/TOMBATI/TombRaiderImporter.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- move:
+    dst: $CACHE/
+    src: $GAMEDIR/drive_c/GOG Games
+- move:
+    dst: $CACHE/
+    src: $GAMEDIR/drive_c/TOMBATI/INSTALL.BAT
+- move:
+    dst: $CACHE/
+    src: $GAMEDIR/drive_c/TOMBATI/shortcutJS.bat
+- move:
+    dst: $CACHE/
+    src: $GAMEDIR/drive_c/TOMBATI/vc_redist.x86.exe
+wine:
+  desktop: true
+
