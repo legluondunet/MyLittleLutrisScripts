@@ -6,6 +6,7 @@ files:
 - hdtextures:
     filename: TombATI_HD_Textures_v1.0.zip
     url: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
+- titletr1ub: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/TITLEHTR1UB.PCX
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/TOMBATIM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/TOMBATIM2.BAT
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/gamepad%20profiles/tr1_glati_x360.gamecontroller.amgp
@@ -72,6 +73,12 @@ installer:
     executable: $GAMEDIR/drive_c/TOMBATI/TombRaiderImporter.exe
     name: wineexec
     prefix: $GAMEDIR
+- move:
+    dst: $GAMEDIR/drive_c/TOMBATI/DATA/
+    src: titletr1ub
+- copy:
+    dst: $GAMEDIR/drive_c/TOMBATI/DATA/TITLEHTR1.PCX
+    src: $GAMEDIR/drive_c/TOMBATI/DATA/TITLEH.PCX
 - move:
     dst: $CACHE/
     src: $GAMEDIR/drive_c/GOG Games
