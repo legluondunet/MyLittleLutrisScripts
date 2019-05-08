@@ -10,7 +10,7 @@ You can download Antimicro here: https://github.com/AntiMicro/antimicro
 Steam controller profile to use with sc-controller --> tr3_steam.sccprofile
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-You will find gamepad profiles in your Lutris TR2 wineprefix: c:\GOG Games\Tomb Raider 2\gamepad profiles\
+You will find gamepad profiles in your Lutris TR3 wineprefix: c:\GOG Games\Tomb Raider 3\gamepad profiles\
 
 
                          ,==;,
