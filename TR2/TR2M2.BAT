@@ -12,7 +12,7 @@ echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider 2
 echo.	2) Setup dialog box
-echo.	4) How to play TR1 glATI with a gamepad
+echo.	4) How to play TR2 with a gamepad
 echo.	4) exit
 echo.
 echo.	------------------------------------------------
