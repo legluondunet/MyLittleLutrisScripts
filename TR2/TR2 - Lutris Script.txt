@@ -9,6 +9,9 @@ files:
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR2/gamepad%20profiles/tr2_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR2/gamepad%20profiles/tr2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR2/gamepad%20profiles/tr2_gamepad_profiles_readme.txt
+- oggconvert: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR2/ogg2mp3.bat
+- ffmpeg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
+- cscript: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR2/clean.sh
 game:
   exe: drive_c/GOG Games/Tomb Raider 2/TR2M1.BAT
   prefix: $GAMEDIR
@@ -101,13 +104,24 @@ installer:
     app: d3dcompiler_47
     name: winetricks
     prefix: $GAMEDIR
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
+    src: oggconvert
+- extract:
+    dst: $CACHE
+    src: ffmpeg
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
+    src: $CACHE/bin/ffmpeg.exe
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
+    src: cscript
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; for i in *.ogg; do ffmpeg
-      -i "$i" "${i%.*}.mp3"; done; for file in Track*.mp3; do mv -v "$file" "${file/Track/}";
-      done; rm -f -r *.ogg;
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; rm -f -r __support/ gog*
-      webcache.zip
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/"; chmod +x "clean.sh";
+      bash clean.sh;
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/audio/clean.sh
 wine:
   desktop: true
   dxvk: true
