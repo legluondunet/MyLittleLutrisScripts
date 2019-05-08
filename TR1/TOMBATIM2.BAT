@@ -22,7 +22,7 @@ echo.
 
 choice /c12345 /s /N Your choice? [1-5]:
 if errorlevel 5 goto exit
-if errorlevel 4 goto control
+if errorlevel 4 goto gamepad
 if errorlevel 3 goto config
 if errorlevel 2 goto tombub
 if errorlevel 1 goto tr1
@@ -48,7 +48,7 @@ cls
 TombATIConfigure.exe
 goto launcher
 
-:control
+:gamepad
 cls
 start explorer c:\TOMBATI\gamepad profiles\
 notepad c:\TOMBATI\gamepad profiles\tr1_glati_gamepad_profiles_readme.txt

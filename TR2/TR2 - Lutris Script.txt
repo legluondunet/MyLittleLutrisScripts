@@ -1,0 +1,113 @@
+files:
+- installer: N/A:Select the installer downloaded from GOG
+- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- artefact: http://www.trle.net/levels/levels/2013/1113/Tr1997-TheGoldenArtifact.zip
+- oggwinmm: https://github.com/mohzy83/ogg-winmm/releases/download/1.3.0.0/ogg-winmm-1.3.0.0.zip
+- wsp: http://tr-widescreen.ho.ua/tr-widescreen/widescreen_tr_234.rar
+game:
+  exe: drive_c/GOG Games/Tomb Raider 2/TR2M1.BAT
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" "$installer"
+    file: $CACHE/innoextract
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $CACHE/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    file: dgv
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/D3DImm.dll
+- task:
+    arch: win64
+    key: ddraw
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: winmm
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; mv dgVoodoo.conf dgVoodoo_original.conf
+- write_config:
+    data:
+      DirectX:
+        ForceVerticalSync: true
+        Resolution: max_qhd_isf
+        VRAM: 256
+      General:
+        CaptureMouse: false
+        FullScreenMode: false
+        ScalingMode: stretched_ar
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/dgVoodoo.conf
+- extract:
+    dst: $CACHE
+    file: artefact
+- extract:
+    dst: $CACHE
+    file: oggwinmm
+- extract:
+    dst: $CACHE
+    file: wsp
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $CACHE/winmm.dll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $CACHE/widescreen_tomb_raider_234.exe
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; mv Tomb2.exe Tomb2.gog
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
+    src: $CACHE/Tomb2.exe
+- write_file:
+    content: '@echo off
+
+      wineconsole.exe c:\GOG Games\Tomb Raider 2\TR2M2.BAT
+
+      exit'
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/TR2M1.BAT
+- write_file:
+    content: "@echo off\ngoto launcher\n\n\n:launcher\ncls\necho.\necho.\necho.\t\
+      ------------------------------------------------\necho.\tTOMB RAIDER 2 GOG Edition\n\
+      echo.\t------------------------------------------------\necho.\necho.\t1) Tomb\
+      \ Raider 2\necho.\t2) Setup dialog box\necho.\t3) Tomb Raider 2-3-4 Widescreen\
+      \ Patch\necho.\t4) exit\necho.\necho.\t------------------------------------------------\n\
+      echo.\necho.\n\n\n\n\nchoice /c1234 /s /N Your choice? [1-4]:\nif errorlevel\
+      \ 4 goto exit\nif errorlevel 3 goto wsp\nif errorlevel 2 goto setup\nif errorlevel\
+      \ 1 goto tr2\n\n\n:tr2\ncls\nstart Tomb2.exe\ngoto exit\n\n\n:setup\ncls\nstart\
+      \ Tomb2.exe -setup\ngoto launcher\n\n\n:wsp\ncls\nwidescreen_tomb_raider_234.exe\n\
+      goto launcher\n\n\n:exit\nexit"
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/TR2M2.BAT
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; rm -f -r __support/ gog*
+      webcache.zip
+wine:
+  desktop: true
+  dxvk: true
+
