@@ -1,0 +1,53 @@
+{
+    "_": "", 
+    "buttons": {
+        "A": {
+            "action": "button(Keys.KEY_LEFTALT)"
+        }, 
+        "B": {
+            "action": "button(Keys.KEY_LEFTCTRL)"
+        }, 
+        "BACK": {
+            "action": "button(Keys.KEY_ESC)"
+        }, 
+        "C": {
+            "action": "hold(menu('Default.menu'), menu('Default.menu'))"
+        }, 
+        "LB": {
+            "action": "button(Keys.KEY_DELETE)"
+        }, 
+        "RB": {
+            "action": "button(Keys.KEY_PAGEDOWN)"
+        }, 
+        "RGRIP": {
+            "action": "button(Keys.KEY_KP0)"
+        }, 
+        "START": {
+            "action": "button(Keys.KEY_LEFTSHIFT)"
+        }, 
+        "X": {
+            "action": "button(Keys.KEY_END)"
+        }, 
+        "Y": {
+            "action": "button(Keys.KEY_SPACE)"
+        }
+    }, 
+    "cpad": {}, 
+    "gyro": {}, 
+    "is_template": false, 
+    "menus": {}, 
+    "pad_left": {
+        "action": "click(dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT)))"
+    }, 
+    "pad_right": {}, 
+    "stick": {
+        "action": "dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT))"
+    }, 
+    "trigger_left": {
+        "action": "trigger(254, 255, button(Keys.KEY_F5))"
+    }, 
+    "trigger_right": {
+        "action": "trigger(254, 255, button(Keys.KEY_F6))"
+    }, 
+    "version": 1.4
+}

@@ -1,6 +1,6 @@
 files:
 - installer: N/A:Select the installer downloaded from GOG
-- tchernobog: https://dl.dropbox.com/s/kllfrpmur6qm2rx/Tchernobog_015.zip
+- tchernobog: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/Tchernobog_015.zip
 game:
   arch: win64
   exe: drive_c/Diablo Tchernobog/Tchernobog0.1.5.exe

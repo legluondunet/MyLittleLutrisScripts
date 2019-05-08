@@ -1,0 +1,46 @@
+files:
+- cncddraw: https://github.com/CnCNet/cnc-ddraw/files/3139881/ddraw.zip
+game:
+  exe: drive_c/Starship Titanic/St.exe
+  prefix: $GAMEDIR
+installer:
+- insert-disc:
+    requires: Autorun.exe
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/Autorun.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Starship Titanic/
+    file: cncddraw
+- execute:
+    command: cp "$GAMEDIR/drive_c/Starship Titanic/ddraw.ini" "$GAMEDIR/drive_c/Starship
+      Titanic/ddraw_original.ini"
+- write_config:
+    data:
+      ddraw:
+        border: false
+        fullscreen: false
+        height: $RESOLUTION_HEIGHT
+        maintas: true
+        maxfps: -1
+        renderer: opengl
+        singlecpu: false
+        vsync: true
+        width: $RESOLUTION_WIDTH
+        windowed: true
+    file: $GAMEDIR/drive_c/Starship Titanic/ddraw.ini
+    merge: true
+- task:
+    arch: win64
+    key: ddraw
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+wine:
+  Desktop: true
+

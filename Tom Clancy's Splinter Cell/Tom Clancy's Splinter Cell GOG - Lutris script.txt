@@ -1,0 +1,73 @@
+files:
+- scg: N/A:Please select the GOG installer
+- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+- scws: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/sc/SplinterCell.WidescreenFix.zip
+game:
+  exe: drive_c/GOG Games/Splinter Cell/system/SplinterCell.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: scg
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/
+    file: scws
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
+    file: dgv
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/
+    src: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/MS/D3D8.dll
+- task:
+    arch: win64
+    key: d3d8
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: msacm32
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: msvfw32
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Splinter Cell/system/"; mv dgVoodoo.conf
+      dgVoodoo_original.conf; cd scripts; mv modupdater.asi modupdater.asi.off;
+- write_config:
+    data:
+      DirectX:
+        AppControlledScreenMode: false
+        DisableAltEnterToToggleScreenMode: false
+        ForceVerticalSync: true
+        Resolution: unforced
+        VRAM: 256
+        dgVoodooWatermark: false
+      General:
+        CaptureMouse: false
+    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/dgVoodoo.conf
+wine:
+  dxvk: true
+
