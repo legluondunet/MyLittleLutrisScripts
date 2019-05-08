@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /music/; 
 for i in *.ogg;
 do ffmpeg -i "$i" "${i%.*}.mp3"; 
 done; 
