@@ -1,0 +1,107 @@
+files:
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
+- ijet: N/A:Please select the GOG installer
+- videos: https://dl.dropboxusercontent.com/s/r9jpia95hw0b0kh/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip
+game:
+  args: /r:0
+  exe: drive_c/dxwnd/dxwnd.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: MaxShaderModelVS
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: 0
+- task:
+    arch: win64
+    key: msvcrt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    args: /SP- /SUPPRESSMSGBOXES /SILENT
+    description: Installing...
+    executable: ijet
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/dxwnd
+    file: dxwnd
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/
+    file: videos
+- task:
+    app: vcrun6
+    name: winetricks
+    prefix: $GAMEDIR
+- write_config:
+    data:
+      target:
+        coord0: 3
+        dflag0: 0
+        dflag1: 0
+        fakec0: null
+        faked0: null
+        filterid0: 0
+        filterid1: 0
+        flag0: 673185833
+        flagg0: 1207959634
+        flagh0: 22
+        flagi0: 136347652
+        flagj0: 4224
+        flagk0: 65536
+        flagl0: 0
+        flagm0: 0
+        flagn0: 17825796
+        flago0: 0
+        icon0: null
+        icon1: null
+        initts0: 0
+        launchpath0: C:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin\indy.exe
+        maxddinterface0: 7
+        maxfps0: 0
+        maxres0: -1
+        module0: null
+        module1: null
+        monitorid0: -1
+        monitorid1: 0
+        notes0: null
+        opengllib0: null
+        opengllib1: null
+        path0: C:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin\indy.exe
+        posx0: 0
+        posy0: 0
+        registry0: null
+        renderer0: 3
+        renderer1: 2
+        scanline0: 0
+        scanline1: 1
+        slowratio0: 2
+        startfolder0: C:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin\
+        swapeffect0: 0
+        tflag0: 0
+        title0: Indiana Jones and the Emperor's Tomb
+        ver0: 0
+        winver0: 0
+      window:
+        exepath: C:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin\
+        expert: 1
+        exportpath: C:\dxwnd\exports\
+        posx: 1578
+        posy: 633
+        sizx: 320
+        sizy: 197
+    file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- execute:
+    command: sed -i -e 's+res_width=640+res_width=1280+g' -e 's+res_height=480+res_heigth=960+g'
+      "$GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/vars.cfg"
+
