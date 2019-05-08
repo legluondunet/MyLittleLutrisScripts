@@ -1,0 +1,26 @@
+files:
+- installer: N/A:Select the installer downloaded from GOG
+- tchernobog: https://dl.dropbox.com/s/kllfrpmur6qm2rx/Tchernobog_015.zip
+game:
+  arch: win64
+  exe: drive_c/Diablo Tchernobog/Tchernobog0.1.5.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /VERYSILENT /SUPPRESSMSGBOXES
+    description: Running Setup, please wait...
+    executable: installer
+    name: wineexec
+    prefix: $CACHE
+- extract:
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+    file: tchernobog
+- move:
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+    src: $CACHE/drive_c/GOG Games/Diablo/DIABDAT.MPQ
+
