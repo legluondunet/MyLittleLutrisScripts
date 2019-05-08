@@ -1,3 +1,3 @@
 @echo off
-wineconsole.exe TR2M3.BAT
+wineconsole.exe TR3M2.BAT
 exit
