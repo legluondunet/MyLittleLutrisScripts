@@ -6,11 +6,16 @@ files:
 - hdtextures:
     filename: TombATI_HD_Textures_v1.0.zip
     url: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/TOMBATIM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/TOMBATIM2.BAT
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/gamepad%20profiles/tr1_glati_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/TR1/gamepad%20profiles/tr1_glati_steam.sccprofile
-- gppreadme: https://raw.githubusercontent.com/legluondunet/MyLittleLutrisScripts/master/TR1/gamepad%20profiles/tr1_glati_gamepad_profiles_readme.txt
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/Tomb Raider
+    1/TOMBATIM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/Tomb Raider
+    1/TOMBATIM2.BAT
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/Tomb
+    Raider 1/gamepad%20profiles/tr1_glati_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/Tomb
+    Raider 1/gamepad%20profiles/tr1_glati_steam.sccprofile
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/Tomb
+    Raider 1//gamepad%20profiles/tr1_glati_gamepad_profiles_readme.txt
 game:
   exe: drive_c/TOMBATI/TOMBATIM1.BAT
   prefix: $GAMEDIR
