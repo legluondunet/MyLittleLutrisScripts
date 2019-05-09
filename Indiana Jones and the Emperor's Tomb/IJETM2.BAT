@@ -19,7 +19,7 @@ echo.
 echo.
 
 
-choice /c123 /s /N Your choice? [1-4]:
+choice /c123 /s /N Your choice? [1-3]:
 if errorlevel 3 goto exit
 if errorlevel 2 goto gamepad
 if errorlevel 1 goto ijet
@@ -33,7 +33,7 @@ goto exit
 :gamepad
 cls
 start explorer c:\GOG Games\Indiana Jones and the Emperor's Tomb\gamepad profiles\
-start iexplore c:\GOG Games\Indiana Jones and the Emperor's Tomb\gamepad profiles\tr1-2_gamepad_readme.html
+start iexplore c:\GOG Games\Indiana Jones and the Emperor's Tomb\gamepad profiles\ijet_gamepad_readme.html
 goto launcher
 
 :exit
