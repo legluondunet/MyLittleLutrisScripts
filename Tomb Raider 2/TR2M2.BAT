@@ -44,7 +44,7 @@ goto launcher
 :gamepad
 cls
 start explorer c:\GOG Games\Tomb Raider 2\gamepad profiles\
-notepad c:\GOG Games\Tomb Raider 2\gamepad profiles\tr2_gamepad_profiles_readme.txt
+iexplore c:\GOG Games\Tomb Raider 2\gamepad profiles\tr1-2_gamepad_readme.html
 goto launcher
 
 

@@ -5,7 +5,18 @@
     <!--The GUID for a joystick is included for informational purposes only.-->
     <guid>030000005e0400008e02000014010000</guid>
     <names>
-        <buttonname index="1">JUMP</buttonname>
+        <buttonname index="1">A</buttonname>
+        <buttonname index="2">B</buttonname>
+        <buttonname index="3">X</buttonname>
+        <buttonname index="4">Y</buttonname>
+        <buttonname index="5">SELECT</buttonname>
+        <buttonname index="10">LSHOULDER</buttonname>
+        <buttonname index="11">RSHOULDER</buttonname>
+        <axisname index="5">LTRIGGER SAVE GAME</axisname>
+        <axisname index="6">RTRIGGER LOAD GAME</axisname>
+        <controlstickbuttonname index="2" button="1">RSTICK UP</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="5">RSTICK DOWN</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="7">RSTICK LEFT</controlstickbuttonname>
     </names>
     <sets>
         <set index="1">
@@ -45,49 +56,28 @@
             </stick>
             <stick index="2">
                 <stickbutton index="1">
+                    <actionname>WALK</actionname>
                     <slots>
                         <slot>
-                            <code>0x11000006</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                        <slot>
-                            <code>0x1000013</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                    </slots>
-                </stickbutton>
-                <stickbutton index="3">
-                    <slots>
-                        <slot>
-                            <code>0x11000006</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                        <slot>
-                            <code>0x1000014</code>
+                            <code>0x1000020</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
                 <stickbutton index="5">
+                    <actionname>LOOK</actionname>
                     <slots>
                         <slot>
                             <code>0x11000006</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                        <slot>
-                            <code>0x1000015</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
                 <stickbutton index="7">
+                    <actionname>FLARE</actionname>
                     <slots>
                         <slot>
-                            <code>0x11000006</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                        <slot>
-                            <code>0x1000012</code>
+                            <code>0x3a</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -157,6 +147,7 @@
                 </slots>
             </button>
             <button index="2">
+                <actionname>ACTION</actionname>
                 <slots>
                     <slot>
                         <code>0x1000021</code>
@@ -165,6 +156,7 @@
                 </slots>
             </button>
             <button index="3">
+                <actionname>ROLL</actionname>
                 <slots>
                     <slot>
                         <code>0x1000011</code>
@@ -173,6 +165,7 @@
                 </slots>
             </button>
             <button index="4">
+                <actionname>DRAW WEAPON </actionname>
                 <slots>
                     <slot>
                         <code>0x20</code>
@@ -181,6 +174,7 @@
                 </slots>
             </button>
             <button index="5">
+                <actionname>INVENTORY</actionname>
                 <slots>
                     <slot>
                         <code>0x1000000</code>
@@ -188,15 +182,16 @@
                     </slot>
                 </slots>
             </button>
-            <button index="9">
+            <button index="7">
                 <slots>
                     <slot>
-                        <code>0x1000020</code>
+                        <code>0x21</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
             </button>
             <button index="10">
+                <actionname>STEP LEFT</actionname>
                 <slots>
                     <slot>
                         <code>0x1000007</code>
@@ -205,6 +200,7 @@
                 </slots>
             </button>
             <button index="11">
+                <actionname>STEP RIGHT</actionname>
                 <slots>
                     <slot>
                         <code>0x1000017</code>

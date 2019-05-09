@@ -50,8 +50,8 @@ goto launcher
 
 :gamepad
 cls
-start explorer c:\TOMBATI\gamepad profiles\
-notepad c:\TOMBATI\gamepad profiles\tr1_glati_gamepad_profiles_readme.txt
+explorer c:\TOMBATI\gamepad profiles\
+iexplore c:\TOMBATI\gamepad profiles\tr1-2_gamepad_readme.html
 goto launcher
 
 :exit
