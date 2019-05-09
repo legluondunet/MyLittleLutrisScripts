@@ -11,11 +11,11 @@ files:
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
     2/TR2M2.BAT
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
-    2/gamepad%20profiles/tr2_x360.gamecontroller.amgp
+    2/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
-    Raider 2/gamepad%20profiles/tr2_steam.sccprofile
+    Raider 2/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
-    Raider 2/gamepad%20profiles/tr2_gamepad_profiles_readme.txt
+    Raider 2/gamepad%20profiles/tr1-2_gamepad_readme.html
 - oggconvert: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
     Raider 2/ogg2mp3.bat
 - ffmpeg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip

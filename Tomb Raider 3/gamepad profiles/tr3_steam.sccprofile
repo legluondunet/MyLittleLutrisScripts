@@ -2,34 +2,35 @@
     "_": "", 
     "buttons": {
         "A": {
-            "action": "button(Keys.KEY_LEFTALT)"
+            "action": "button(Keys.KEY_LEFTALT)", 
+            "name": "JUMP (LEFT ALT)"
         }, 
         "B": {
-            "action": "button(Keys.KEY_LEFTCTRL)"
+            "action": "button(Keys.KEY_LEFTCTRL)", 
+            "name": "ACTION (LEFT CTRL)"
         }, 
         "BACK": {
-            "action": "button(Keys.KEY_ESC)"
+            "action": "button(Keys.KEY_ESC)", 
+            "name": "INVENTORY (ESC)"
         }, 
         "C": {
             "action": "hold(menu('Default.menu'), menu('Default.menu'))"
         }, 
         "LB": {
-            "action": "button(Keys.KEY_DELETE)"
+            "action": "button(Keys.KEY_DOT)", 
+            "name": "CROUCH (.)"
         }, 
         "RB": {
-            "action": "button(Keys.KEY_PAGEDOWN)"
-        }, 
-        "RGRIP": {
-            "action": "button(Keys.KEY_KP0)"
-        }, 
-        "START": {
-            "action": "button(Keys.KEY_LEFTSHIFT)"
+            "action": "button(Keys.KEY_SLASH)", 
+            "name": "DASH (/)"
         }, 
         "X": {
-            "action": "button(Keys.KEY_END)"
+            "action": "button(Keys.KEY_END)", 
+            "name": "ROLL (END)"
         }, 
         "Y": {
-            "action": "button(Keys.KEY_SPACE)"
+            "action": "button(Keys.KEY_SPACE)", 
+            "name": "DRAW WEAPON  (SPACE)"
         }
     }, 
     "cpad": {}, 
@@ -39,15 +40,19 @@
     "pad_left": {
         "action": "click(dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT)))"
     }, 
-    "pad_right": {}, 
+    "pad_right": {
+        "action": "click(dpad(button(Keys.KEY_LEFTSHIFT), button(Keys.KEY_KP0), button(Keys.KEY_COMMA)))"
+    }, 
     "stick": {
         "action": "dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT))"
     }, 
     "trigger_left": {
-        "action": "trigger(254, 255, button(Keys.KEY_F5))"
+        "action": "trigger(254, 255, button(Keys.KEY_F5))", 
+        "name": "SAVE GAME (F5)"
     }, 
     "trigger_right": {
-        "action": "trigger(254, 255, button(Keys.KEY_F6))"
+        "action": "trigger(254, 255, button(Keys.KEY_F6))", 
+        "name": "LOAD GAME (F6)"
     }, 
     "version": 1.4
 }

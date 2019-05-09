@@ -44,7 +44,7 @@ goto launcher
 :gamepad
 cls
 start explorer c:\GOG Games\Tomb Raider 3\gamepad profiles\
-notepad c:\GOG Games\Tomb Raider 3\gamepad profiles\tr3_gamepad_profiles_readme.txt
+start iexplore c:\GOG Games\Tomb Raider 3\gamepad profiles\tr3_gamepad_readme.html
 goto launcher
 
 

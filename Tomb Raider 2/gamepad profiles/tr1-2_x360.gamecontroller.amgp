@@ -12,8 +12,6 @@
         <buttonname index="5">SELECT</buttonname>
         <buttonname index="10">LSHOULDER</buttonname>
         <buttonname index="11">RSHOULDER</buttonname>
-        <axisname index="5">LTRIGGER SAVE GAME</axisname>
-        <axisname index="6">RTRIGGER LOAD GAME</axisname>
         <controlstickbuttonname index="2" button="1">RSTICK UP</controlstickbuttonname>
         <controlstickbuttonname index="2" button="5">RSTICK DOWN</controlstickbuttonname>
         <controlstickbuttonname index="2" button="7">RSTICK LEFT</controlstickbuttonname>
@@ -178,14 +176,6 @@
                 <slots>
                     <slot>
                         <code>0x1000000</code>
-                        <mode>keyboard</mode>
-                    </slot>
-                </slots>
-            </button>
-            <button index="7">
-                <slots>
-                    <slot>
-                        <code>0x21</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
