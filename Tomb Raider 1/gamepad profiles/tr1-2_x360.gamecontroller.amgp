@@ -75,7 +75,7 @@
                     <actionname>FLARE</actionname>
                     <slots>
                         <slot>
-                            <code>0x3a</code>
+                            <code>0x21</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
