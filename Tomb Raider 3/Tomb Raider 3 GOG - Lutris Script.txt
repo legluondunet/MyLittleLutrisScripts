@@ -10,7 +10,7 @@ files:
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
     Raider 3/gamepad%20profiles/tr3_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
-    Raider 3/gamepad%20profiles/tr3_gamepad_profiles_readme.txt
+    Raider 3/gamepad%20profiles/tr3_gamepad_readme.html
 game:
   exe: drive_c/GOG Games/Tomb Raider 3/TR3M1.BAT
   prefix: $GAMEDIR
