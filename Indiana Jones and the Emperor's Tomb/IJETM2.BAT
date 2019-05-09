@@ -1,0 +1,40 @@
+@echo off
+color 2E
+goto launcher
+
+:launcher
+cls
+echo.
+echo.
+echo.	------------------------------------------------
+echo.	      Indiana Jones and the Emperor's Tomb
+echo.	------------------------------------------------
+echo.
+echo.	1) Play IJET
+echo.	2) How to play IJET with a gamepad?
+echo.	3) exit
+echo.
+echo.	------------------------------------------------
+echo.
+echo.
+
+
+choice /c123 /s /N Your choice? [1-4]:
+if errorlevel 3 goto exit
+if errorlevel 2 goto gamepad
+if errorlevel 1 goto ijet
+
+:ijet
+cls
+cd c:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin
+start indy.exe
+goto exit
+
+:gamepad
+cls
+start explorer c:\GOG Games\Indiana Jones and the Emperor's Tomb\gamepad profiles\
+start iexplore c:\GOG Games\Indiana Jones and the Emperor's Tomb\gamepad profiles\tr1-2_gamepad_readme.html
+goto launcher
+
+:exit
+exit
