@@ -3,13 +3,14 @@ files:
 - ijetinstaller: N/A:Please select the GOG installer
 - videos: https://dl.dropboxusercontent.com/s/r9jpia95hw0b0kh/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip
 - ijetscript1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijetniceconfig.sh
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/indinana_emperor_tomb_gamepad_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/indinana_emperor_tomb_gamepad_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/indinana_emperor_tomb_gamepad_readme.html
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_steam.sccprofile
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_readme.html
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/IJETM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/IJETM2.BAT
+- wpp: 
 game:
-  exe: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/IJET1M1.BAT;
+  exe: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/IJETM1.BAT
   prefix: $GAMEDIR
 installer:
 - task:
@@ -124,9 +125,24 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\ijet.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 - execute:
-    command: cd $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/;
-      chmod +x ijetniceconfig.sh
-system:
-  prefix_command: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/ijetniceconfig.sh
+    command: cd "$GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/";
+      chmod +x ijetniceconfig.sh; cd ../..; rm gog* Launch* unin* webcache.zip Support.ico
+      EmperorsTomb.exe;
 

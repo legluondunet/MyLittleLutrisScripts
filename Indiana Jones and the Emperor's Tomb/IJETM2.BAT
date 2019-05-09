@@ -26,8 +26,8 @@ if errorlevel 1 goto ijet
 
 :ijet
 cls
-cd c:\GOG Games\Indiana Jones and the Emperor's Tomb\GameData\bin
-start indy.exe
+cd c:\dxwnd
+start dxwnd.exe /r:0
 goto exit
 
 :gamepad
