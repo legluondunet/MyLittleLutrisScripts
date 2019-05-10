@@ -2,7 +2,6 @@
 color 0E
 cd "c:\GOG Games\Indiana Jones and the Emperor's Tomb\sed4win"
 call ijetniceconfig.bat
-pause
 goto launcher
 
 :launcher
