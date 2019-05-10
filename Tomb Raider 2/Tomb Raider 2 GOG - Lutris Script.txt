@@ -21,6 +21,7 @@ files:
 - ffmpeg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
 - cscript: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
     2/clean.sh
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%202/tr2.bmp
 game:
   exe: drive_c/GOG Games/Tomb Raider 2/TR2M1.BAT
   prefix: $GAMEDIR
@@ -125,6 +126,41 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
     src: cscript
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr2.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 91 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 204 51 0
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/"; chmod +x "clean.sh";
       bash clean.sh;

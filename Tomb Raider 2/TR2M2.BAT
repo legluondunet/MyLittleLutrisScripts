@@ -1,4 +1,5 @@
 @echo off
+color 4E
 goto launcher
 
 
