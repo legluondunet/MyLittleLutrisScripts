@@ -1,6 +1,8 @@
 @echo off
 color 0E
-call "c:\GOG Games\Indiana Jones and the Emperor's Tomb\sed4win\ijetniceconfig.bat"
+cd "c:\GOG Games\Indiana Jones and the Emperor's Tomb\sed4win"
+call ijetniceconfig.bat
+pause
 goto launcher
 
 :launcher
