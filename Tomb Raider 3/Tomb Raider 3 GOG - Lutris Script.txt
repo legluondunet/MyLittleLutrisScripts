@@ -11,6 +11,7 @@ files:
     Raider 3/gamepad%20profiles/tr3_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
     Raider 3/gamepad%20profiles/tr3_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203/tr3.bmp
 game:
   exe: drive_c/GOG Games/Tomb Raider 3/TR3M1.BAT
   prefix: $GAMEDIR
@@ -87,6 +88,41 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
     src: gppreadme
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr3.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 177 94
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; rm -f -r __support/ gog*
       webcache.zip
