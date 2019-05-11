@@ -4,9 +4,12 @@ files:
 - zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
 - fg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
-- script: 
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
+- cdrt:
+    filename: CDR-Tools.zip
+    url: https://freefr.dl.sourceforge.net/project/cdrtoolswin/1.0/Binaries/CDR-Tools.exe
 game:
-  exe: drive_c/Heretic II/Heretic II.exe
+  exe: drive_c/Program Files (x86)/heretic ii/heretic2.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -39,13 +42,22 @@ installer:
 - extract:
     dst: $CACHE
     src: fg
+- extract:
+    dst: $CACHE
+    src: cdrt
 - merge:
     dst: $GAMEDIR/drive_c/tmp
     src: $CACHE/bin/
-- execute:
-    commande: cd $GAMEDIR/drive_c/tmp; wineconsole script.bat
+- move:
+    dst: $GAMEDIR/drive_c/tmp
+    src: script
+- task:
+    args: c:\\tmp\\script.bat
+    description: Working to make this game more Linux friendly
+    executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
+    name: wineexec
+    prefix: $GAMEDIR
 system:
   env:
     MESA_EXTENSION_MAX_YEAR: 2003
     __GL_ExtensionStringVersion: 17700
-
