@@ -10,4 +10,5 @@ cd ..
 move "Heretic II" ..\..\tmp\hereticiiold
 c:\tmp\bin\unzip -LL "..\..\tmp\hereticiiold\Heretic II.zip" -d "Heretic II"
 c:\tmp\bin\unzip -LL -o "..\..\tmp\patch\Heretic II.zip" -d "Heretic II"
+move "Heretic II\heretic2.exe" "Heretic II\Heretic2.exe"
 cd c:\tmp\bin
