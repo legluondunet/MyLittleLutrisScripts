@@ -5,4 +5,4 @@ zip -r -0 hereticiioldinstall.zip "c:\program files (x86)\heretic ii"
 move "c:\program files (x86)\heretic ii" "c:\tmp\hereticiioldinstall"
 unzip -LL hereticii.zip -d ../
 zip -r -0 "heretic ii.zip" "heretic ii"
-unzip -LL -o patch.zip -d "c:\program files (x86)"
+unzip -LL -o "heretic ii.zip" -d "c:\program files (x86)"
