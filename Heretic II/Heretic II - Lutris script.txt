@@ -1,0 +1,51 @@
+files:
+- patch107: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
+- zpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-bin.zip
+- zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
+- uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
+- fg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
+- script: 
+game:
+  exe: drive_c/Heretic II/Heretic II.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: h2_setup.exe
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/h2_setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/heretic ii/
+    src: patch107
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/heretic ii/
+    src: $GAMEDIR/drive_c/tmp/heretic ii/ht2_ep_v1-07.7z
+- extract:
+    dst: $CACHE
+    src: zpbin
+- extract:
+    dst: $CACHE
+    src: zpdep
+- extract:
+    dst: $CACHE
+    src: uzpbin
+- extract:
+    dst: $CACHE
+    src: fg
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: $CACHE/bin/
+- execute:
+    commande: cd $GAMEDIR/drive_c/tmp; wineconsole script.bat
+system:
+  env:
+    MESA_EXTENSION_MAX_YEAR: 2003
+    __GL_ExtensionStringVersion: 17700
+
