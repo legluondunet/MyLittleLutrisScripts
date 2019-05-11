@@ -1,5 +1,4 @@
 #!/bin/bash
-wineconsole ogg2mp3.bat
 for file in Track*.mp3
 do
 	mv -v "$file" "${file/Track/}"
