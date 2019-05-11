@@ -1,15 +1,13 @@
 files:
 - patch107: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
+- fg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
+- cdrt: https://freefr.dl.sourceforge.net/project/cdrtoolswin/1.0/Binaries/CDR-Tools.exe
 - zpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-bin.zip
 - zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
-- fg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
-- cdrt:
-    filename: CDR-Tools.zip
-    url: https://freefr.dl.sourceforge.net/project/cdrtoolswin/1.0/Binaries/CDR-Tools.exe
 game:
-  exe: drive_c/Program Files (x86)/heretic ii/heretic2.exe
+  exe: drive_c/Program Files (x86)/Heretic II/Heretic2.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -25,35 +23,36 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - merge:
-    dst: $GAMEDIR/drive_c/tmp/heretic ii/
+    dst: $GAMEDIR/drive_c/tmp/patch/
     src: patch107
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/heretic ii/
-    src: $GAMEDIR/drive_c/tmp/heretic ii/ht2_ep_v1-07.7z
+    dst: $GAMEDIR/drive_c/tmp/patch/
+    src: $GAMEDIR/drive_c/tmp/patch/ht2_ep_v1-07.7z
 - extract:
     dst: $CACHE
-    src: zpbin
+    file: zpbin
 - extract:
     dst: $CACHE
-    src: zpdep
+    file: zpdep
 - extract:
     dst: $CACHE
-    src: uzpbin
+    file: uzpbin
 - extract:
     dst: $CACHE
     src: fg
 - extract:
-    dst: $CACHE
+    dst: $CACHE/bin
+    format: Nsis
     src: cdrt
 - merge:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $GAMEDIR/drive_c/tmp/bin
     src: $CACHE/bin/
 - move:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $GAMEDIR/drive_c/tmp/
     src: script
 - task:
     args: c:\\tmp\\script.bat
-    description: Working to make this game more Linux friendly
+    description: Working to make this game more Linux Wine friendly
     executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
     name: wineexec
     prefix: $GAMEDIR
