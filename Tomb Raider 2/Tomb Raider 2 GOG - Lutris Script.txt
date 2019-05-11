@@ -161,6 +161,12 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 51 0
+- task:
+    args: c:\\GOG Games\\Tomb Raider 2\\music\\ogg2mp3.bat
+    description: Working to make this game more Linux Wine friendly
+    executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
+    name: wineexec
+    prefix: $GAMEDIR
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/"; chmod +x "clean.sh";
       bash clean.sh;
@@ -170,4 +176,3 @@ installer:
 wine:
   desktop: true
   dxvk: true
-
