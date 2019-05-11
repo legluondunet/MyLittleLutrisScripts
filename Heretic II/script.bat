@@ -1,5 +1,13 @@
-cd c:\tmp
-move "heretic ii\ht2_ep_v1-07.7z" .
-move "c:\program files (x86)\heretic ii" "c:\tmp\hereticiioldinstall"
-unzip -LL hereticiioldinstall.zip -d ../
-unzip -LL -o "heretic ii.zip" -d "c:\program files (x86)"
+@echo off
+color 0E
+c:
+cd c:\tmp\patch
+move ht2_ep_v1-07.7z ..
+c:\tmp\bin\zip -r -0 "Heretic II.zip" .
+cd c:\Program Files (x86)\Heretic II
+c:\tmp\bin\zip.exe -r -0 "Heretic II.zip" .
+cd ..
+move "Heretic II" ..\..\tmp\hereticiiold
+c:\tmp\bin\unzip -LL "..\..\tmp\hereticiiold\Heretic II.zip" -d "Heretic II"
+c:\tmp\bin\unzip -LL -o "..\..\tmp\patch\Heretic II.zip" -d "Heretic II"
+cd c:\tmp\bin
