@@ -1,5 +1,6 @@
 @echo off
 color 0E
+cd c:\Program Files (x86)\Heretic II\
 goto launcher
 
 :launcher
@@ -7,13 +8,13 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER 1 GOG Edition + GLRage + HD Textures
+echo.			HERETIC 2 v1.07
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider 1 GLRage
-echo.	2) Tomb Raider 1 Unfinished Business GLRage
-echo.	3) TombATI configure HD textures
-echo.	4) How to play TR1 glATI with a gamepad
+echo.	1) Play Heretic II
+echo.	2) Change resolution
+echo.	3) No soundtrack during game?
+echo.	4) The game does not launch anymore
 echo.	5) exit
 echo.
 echo.	------------------------------------------------
@@ -23,36 +24,81 @@ echo.
 
 choice /c12345 /s /N Your choice? [1-5]:
 if errorlevel 5 goto exit
-if errorlevel 4 goto gamepad
-if errorlevel 3 goto config
-if errorlevel 2 goto tombub
-if errorlevel 1 goto tr1
+if errorlevel 4 goto nostart
+if errorlevel 3 goto sound
+if errorlevel 2 goto resolution
+if errorlevel 1 goto heretic2
 
-:tr1
+:heretic2
 cls
-cd c:\TOMBATI\DATA
-copy /Y TITLEHTR1.PCX TITLEH.PCX
-cd c:\TOMBATI\
-start tombati.exe
+start Heretic2.exe
 goto exit
 
-:tombub
+:resolution
 cls
-cd c:\TOMBATI\DATA
-copy /Y TITLEHTR1UB.PCX TITLEH.PCX
-cd c:\TOMBATI\
-start tombub.exe
-goto exit
-
-:config
-cls
-TombATIConfigure.exe
+echo.
+echo.
+echo.	------------------------------------------------
+echo.			HERETIC 2 v1.07
+echo.	------------------------------------------------
+echo.
+echo. 	2) change resolution
+echo.
+echo. Enter your resolution into the Width and Height fields and press OK.
+echo. Launch the game and select the 640 x 480 resolution in the Video Settings menu.
+echo. Or if you prefer open console (press ~ or escape) and type in:
+echo. set vid_mode 3 
+echo.  
+echo.
+echo.
+echo.
+echo.
+h2resolution.exe
+pause
 goto launcher
 
-:gamepad
+:sound
 cls
-start explorer c:\TOMBATI\gamepad profiles\
-start iexplore c:\TOMBATI\gamepad profiles\tr1-2_gamepad_readme.html
+echo.
+echo.
+echo.	------------------------------------------------
+echo.			HERETIC 2 v1.07
+echo.	------------------------------------------------
+echo.
+echo. 	3) No soundtrack during game?
+echo.
+echo.  Something had not work correctly during install.
+echo.  It is a know issue for this game, not only on Linux.
+echo.  But there is a workaround: rip audio game cd to wav format in separate files,
+echo.  call each track "01.wav", "02.wav" etc...and put them in the aim game folder
+echo.  c:\Program Files (x86)\Heretic II\
+echo.  Launch the game you can now play with Heretic II soundtrack.
+echo.
+echo.
+pause
+goto launcher
+
+
+:nostart
+cls
+echo.
+echo.
+echo.	------------------------------------------------
+echo.			HERETIC 2 v1.07
+echo.	------------------------------------------------
+echo.
+echo. 	4) The game does not launch anymore
+echo.
+echo.  You tried to change some video options and the game does not launch anymore?
+echo.  Delete the config file located in this folder:
+echo.  c:\Program Files (x86)\Heretic II\user
+echo.  Then the game launch normally. 
+echo.
+echo.
+echo.
+echo.
+c:\windows\explorer.exe "c:\Program Files (x86)\Heretic II\user"
+pause
 goto launcher
 
 :exit
