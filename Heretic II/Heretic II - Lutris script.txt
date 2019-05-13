@@ -1,6 +1,7 @@
 files:
 - patch107: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
+- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
+- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.sh
 - zpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-bin.zip
 - zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
@@ -43,7 +44,10 @@ installer:
     src: $CACHE/bin/
 - move:
     dst: $GAMEDIR/drive_c/tmp/
-    src: script
+    src: script1
+- move:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: script2
 - task:
     args: c:\\tmp\\script.bat
     description: Working to make this game more Linux Wine friendly
@@ -71,3 +75,4 @@ system:
   env:
     MESA_EXTENSION_MAX_YEAR: 2003
     __GL_ExtensionStringVersion: 17700
+
