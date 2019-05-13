@@ -1,5 +1,4 @@
-@echo off
-color 0E
+rem @echo off
 c:
 cd c:\tmp\patch
 move ht2_ep_v1-07.7z ..
@@ -10,5 +9,3 @@ cd ..
 move "Heretic II" ..\..\tmp\hereticiiold
 c:\tmp\bin\unzip -LL "..\..\tmp\hereticiiold\Heretic II.zip" -d "Heretic II"
 c:\tmp\bin\unzip -LL -o "..\..\tmp\patch\Heretic II.zip" -d "Heretic II"
-move "Heretic II\heretic2.exe" "Heretic II\Heretic2.exe"
-cd c:\tmp\bin
