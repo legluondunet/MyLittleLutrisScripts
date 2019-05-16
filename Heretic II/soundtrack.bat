@@ -2,7 +2,7 @@
 c:
 cd c:\tmp
 for %%A in (d e f g h i) do (
-dir %%A:|grep -c "HERETIC">%%A.txt)
+dir %%A:|bin\grep -c "HERETIC">%%A.txt)
 
 set driv=
 set /p drivd=<d.txt

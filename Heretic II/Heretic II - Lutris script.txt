@@ -1,15 +1,18 @@
 files:
 - patch107: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
-- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/script.bat
-- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.sh
+- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lowercase.bat
+- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.bat
 - zpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-bin.zip
 - zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM2.BAT
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/winmm.dll
+- mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
+- grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
+- grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
 game:
-  exe: drive_c/Program Files/Heretic II/HERETICM1.BAT
+  exe: drive_c/Program Files (x86)/Heretic II/HERETICM1.BAT
   prefix: $GAMEDIR
 installer:
 - task:
@@ -39,6 +42,12 @@ installer:
 - extract:
     dst: $CACHE
     file: uzpbin
+- extract:
+    dst: $CACHE
+    file: grepbin
+- extract:
+    dst: $CACHE
+    file: grepdep
 - merge:
     dst: $GAMEDIR/drive_c/tmp/bin
     src: $CACHE/bin/
@@ -48,20 +57,32 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/tmp/
     src: script2
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/mplayer
+    src: mp
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/mplayer/
+    file: $GAMEDIR/drive_c/tmp/mplayer/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - task:
-    args: c:\\tmp\\script.bat
+    args: c:\\tmp\\lowercase.bat
+    description: Working to make this game more Linux Wine friendly
+    executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    args: c:\\tmp\\soundtrack.bat
     description: Working to make this game more Linux Wine friendly
     executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
     name: wineexec
     prefix: $GAMEDIR
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/Heretic II/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: menu1
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/Heretic II/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: menu2
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/Heretic II/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: audiodll
 - task:
     arch: win64
