@@ -1,14 +1,9 @@
 @echo off
 color 0d
 TITLE Heretic II
-nircmd win hide ititle "Heretic II"
-nircmd.exe win -style title "Heretic II" 0x00C00000 
-nircmd win setsize ititle "Heretic II" 10 520 650 470
-nircmd win show ititle "Heretic II"
-nircmd win trans ititle "Heretic II" 10
-nircmd win focus ititle "Heretic II"
 c:
-cd c:\Program Files (x86)\Heretic II\
+cd c:\Program Files (x86)\Heretic II
+
 goto launcher
 
 :launcher
@@ -53,8 +48,8 @@ echo.
 echo. 	2) change resolution
 echo.
 echo. Enter your resolution into the Width and Height fields and press OK.
-echo. Launch the game and select the 640 x 480 resolution in the Video 
-echo. Settings menu.
+echo. To use special resolution, you have to select the 640 x 480 resolution
+echo. in the Video Settings menu.
 echo. Or if you prefer open console (press ~ or escape) and type in:
 echo. set vid_mode 3 
 echo.  
@@ -66,6 +61,7 @@ h2resolution.exe
 pause
 goto launcher
 
+
 :sound
 cls
 echo.
@@ -76,13 +72,14 @@ echo.	------------------------------------------------
 echo.
 echo. 	3) No soundtrack ingame?
 echo.
-echo.  It is a known issue for this game, not only on Linux.
-echo.  But there is a workaround: rip audio game cd to wav format 
+echo.  Normally the Lutris script would have to rip the game soundtrack 
+echo.  during the installation. If this is not the case, if you do not
+echo.  hear the music during the game, rip audio game cd to wav format 
 echo.  in separate files, call each track "01.wav", "02.wav" etc...
-echo.  and put them in the aim game folder:
+echo.  and put them in the main game folder:
 echo.  c:\Program Files (x86)\Heretic II\
-echo.  Launch the game you can now play with Heretic II soundtrack.
-echo.
+echo.  Launch the game you can now hear Heretic II soundtrack during gaming.
+echo. 
 echo.
 pause
 goto launcher
