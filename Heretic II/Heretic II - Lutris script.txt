@@ -11,6 +11,8 @@ files:
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 - grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
+- thfmod: http://www.amwilliams.com/hereticii/thf_5.zip
 game:
   exe: drive_c/Program Files (x86)/Heretic II/HERETICM1.BAT
   prefix: $GAMEDIR
@@ -30,6 +32,9 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/tmp/patch/
     src: patch107
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/thf5
+    src: thfmod
 - extract:
     dst: $GAMEDIR/drive_c/tmp/patch/
     src: $GAMEDIR/drive_c/tmp/patch/ht2_ep_v1-07.7z
@@ -81,9 +86,12 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: menu2
-- copy:
+- move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: audiodll
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
 - task:
     arch: win64
     key: winmm
@@ -92,8 +100,47 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\heretic2.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 204 153 255
+- task:
+    description: Enter your resolution into the Width and Height fields and press
+      OK.
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/h2resolution.exe
+    name: wineexec
+    prefix: $GAMEDIR
 system:
   env:
     MESA_EXTENSION_MAX_YEAR: 2003
     __GL_ExtensionStringVersion: 17700
-
+wine:
+  Desktop: true
