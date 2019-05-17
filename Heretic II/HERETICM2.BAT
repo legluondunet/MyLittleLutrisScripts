@@ -15,7 +15,7 @@ echo.			HERETIC 2 v1.07
 echo.	------------------------------------------------
 echo.
 echo.	1) Play Heretic II
-echo. 2) Start Heretic server
+echo.  2) Start Heretic server
 echo.	3) Change resolution
 echo.	4) No soundtrack during game?
 echo.	5) The game does not launch anymore
