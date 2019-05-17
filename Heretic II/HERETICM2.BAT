@@ -48,7 +48,7 @@ echo.			HERETIC 2 v1.07 server
 echo.	------------------------------------------------
 echo.
 echo.	1) Start HERETIC 2 THF5 dedicated server
-echo. 2) Start HERETIC 2 THF5 listen server
+echo.	2) Start HERETIC 2 THF5 listen server
 echo.	3) return to main menu
 echo.
 echo.	------------------------------------------------
@@ -79,7 +79,7 @@ echo.	------------------------------------------------
 echo.			HERETIC 2 v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	2) change resolution
+echo. 	3) change resolution
 echo.
 echo. Enter your resolution into the Width and Height fields and press OK.
 echo. To use special resolution, you have to select the 640 x 480 resolution
@@ -104,7 +104,7 @@ echo.	------------------------------------------------
 echo.			HERETIC 2 v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	3) No soundtrack ingame?
+echo. 	4) No soundtrack ingame?
 echo.
 echo.  Normally the Lutris script would have to rip the game soundtrack 
 echo.  during the installation. If this is not the case, if you do not
@@ -127,7 +127,7 @@ echo.	------------------------------------------------
 echo.			HERETIC 2 v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	4) The game does not launch anymore
+echo. 	5) The game does not launch anymore
 echo.
 echo.  You tried to change some video options and the game does not 
 echo.  launch anymore?
