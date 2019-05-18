@@ -1,4 +1,5 @@
-rem @echo off
+@echo off
+color 0d
 c:
 cd c:\tmp\patch
 c:\tmp\bin\zip -r -0 "Heretic II.zip" .

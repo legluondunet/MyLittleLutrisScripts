@@ -125,8 +125,7 @@ echo.
 echo.
 echo.
 c:
-cd c:\Program Files (x86)\Heretic II\
-iexplore faq.html
+start iexplore c:\Program Files (x86)\Heretic II\faq.html
 pause
 goto launcher
 

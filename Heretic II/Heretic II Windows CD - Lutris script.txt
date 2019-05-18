@@ -14,6 +14,7 @@ files:
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
 - thfmod: http://www.amwilliams.com/hereticii/thf_5.zip
 - ffmpeg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
+- faqki: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
 game:
   exe: drive_c/Program Files (x86)/Heretic II/HERETICM1.BAT
   prefix: $GAMEDIR
@@ -30,45 +31,39 @@ installer:
     executable: $DISC/h2_setup.exe
     name: wineexec
     prefix: $GAMEDIR
-- merge:
-    dst: $GAMEDIR/drive_c/tmp/patch/
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/patch
     src: patch107
-- merge:
-    dst: $GAMEDIR/drive_c/tmp/thf5
-    src: thfmod
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/patch/
-    src: $GAMEDIR/drive_c/tmp/patch/ht2_ep_v1-07.7z
-- extract:
-    dst: $CACHE
-    file: zpbin
-- extract:
-    dst: $CACHE
-    file: zpdep
-- extract:
-    dst: $CACHE
-    file: uzpbin
-- extract:
-    dst: $CACHE
-    file: grepbin
-- extract:
-    dst: $CACHE
-    file: grepdep
-- merge:
-    dst: $GAMEDIR/drive_c/tmp/bin
-    src: $CACHE/bin/
-- move:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: script1
-- move:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: script2
 - extract:
     dst: $GAMEDIR/drive_c/tmp/mplayer/
     file: mp
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
     file: ffmpeg
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: zpbin
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: zpdep
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: uzpbin
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: grepbin
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: grepdep
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/thf5
+    src: thfmod
+- move:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: script1
+- move:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: script2
 - task:
     args: c:\\tmp\\lowercase.bat
     description: Working to make this game more Linux Wine friendly
@@ -81,12 +76,18 @@ installer:
     executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
     name: wineexec
     prefix: $GAMEDIR
-- copy:
+- move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: menu1
-- copy:
+- move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: menu2
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
+    src: faqki
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -184,9 +185,6 @@ installer:
         exepath: C:\Program Files (x86)\Heretic II\
         expert: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
-- move:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
 - task:
     arch: win64
     key: wallpaper
@@ -225,6 +223,9 @@ installer:
     executable: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/h2resolution.exe
     name: wineexec
     prefix: $GAMEDIR
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
 

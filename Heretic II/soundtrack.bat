@@ -1,4 +1,5 @@
 @echo off
+color 0d
 c:
 cd c:\tmp
 for %%A in (d e f g h i) do (
