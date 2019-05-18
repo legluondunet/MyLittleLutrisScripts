@@ -1,7 +1,6 @@
 rem @echo off
 c:
 cd c:\tmp\patch
-move ht2_ep_v1-07.7z ..
 c:\tmp\bin\zip -r -0 "Heretic II.zip" .
 cd c:\Program Files (x86)\Heretic II
 c:\tmp\bin\zip.exe -r -0 "Heretic II.zip" .
