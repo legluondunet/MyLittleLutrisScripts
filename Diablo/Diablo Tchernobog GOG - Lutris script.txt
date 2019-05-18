@@ -1,9 +1,9 @@
 files:
 - installer: N/A:Select the installer downloaded from GOG
-- tchernobog: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/Tchernobog_015.zip
+- tchernobog: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/Tchernobog.zip
 game:
   arch: win64
-  exe: drive_c/Diablo Tchernobog/Tchernobog0.1.5.exe
+  exe: drive_c/Diablo Tchernobog/Tchernobog.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -23,4 +23,28 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Diablo Tchernobog/
     src: $CACHE/drive_c/GOG Games/Diablo/DIABDAT.MPQ
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 242 59 13
 
