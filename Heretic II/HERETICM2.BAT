@@ -1,8 +1,6 @@
 @echo off
 color 0d
 TITLE Heretic II
-c:
-cd c:\Program Files (x86)\Heretic II
 
 goto launcher
 
@@ -36,6 +34,7 @@ if errorlevel 1 goto heretic2
 
 :heretic2
 cls
+c:
 cd c:\dxwnd
 start dxwnd.exe /r:0
 goto exit
@@ -49,9 +48,9 @@ echo.			HERETIC 2 v1.07 server
 echo.	------------------------------------------------
 echo.
 echo.	1) Start HERETIC 2 THF5 listen server
-echo.	2) Start HERETIC 2 EMO listen server (not yet available)
-echo.	3) Start HERETIC 2 TMO listen server (not yet available)
-echo.	4) dxwnd
+echo.	2) (not yet available)
+echo.	3) (not yet available)
+echo.	4) terminal DOS
 echo.	5) return to main menu
 echo.
 echo.	------------------------------------------------
@@ -61,31 +60,33 @@ echo.
 
 choice /c12345 /s /N Your choice? [1-5]:
 if errorlevel 5 goto launcher
-if errorlevel 4 goto dxwnd
+if errorlevel 4 goto dos
 if errorlevel 3 goto tmo
 if errorlevel 2 goto emo
 if errorlevel 1 goto thf
 
-:dxwnd
+:dos
 cls
-cd c:\dxwnd
-start dxwnd.exe
+c:
+cd c:\Program Files (x86)\Heretic II
+c:\windows\syswow64\wineconsole.exe
 goto :server
 
 :tmo
 cls
-echo. TMO mod not yet available 
+echo. not yet available 
 pause
 goto :server
 
 :emo
 cls
-echo. EMO mod not yet available 
+echo. not yet available 
 pause
 goto :server
 
 :thf
 cls
+c:
 cd c:\dxwnd
 start dxwnd.exe /r:1
 goto :server
@@ -127,10 +128,10 @@ echo. 	4) No soundtrack ingame?
 echo.
 echo.  Normally the Lutris script would have to rip the game soundtrack 
 echo.  during the installation. If this is not the case, if you do not
-echo.  hear the music during the game, rip audio game cd to wav format 
-echo.  in separate files, call each track "01.wav", "02.wav" etc...
+echo.  hear the music during the game, rip audio game cd to ogg format 
+echo.  in separate files, call each track "track01.ogg", "track02.ogg" etc...
 echo.  and put them in the main game folder:
-echo.  c:\Program Files (x86)\Heretic II\
+echo.  c:\Program Files (x86)\Heretic II\music
 echo.  Launch the game you can now hear Heretic II soundtrack during gaming.
 echo. 
 echo.
@@ -157,6 +158,7 @@ echo.
 echo.
 echo.
 echo.
+c:
 c:\windows\explorer.exe "c:\Program Files (x86)\Heretic II\user"
 pause
 goto launcher
