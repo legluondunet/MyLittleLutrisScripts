@@ -1,4 +1,4 @@
-# MyLittleLutrisScripts - Heretic CD + DXWND + MODS
+# MLLS - Heretic CD + DXWND + MODS
 
 This script will install "Heretic II" CD edition with support for modern computer configuration.
 
