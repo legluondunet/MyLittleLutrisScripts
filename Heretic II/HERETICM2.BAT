@@ -36,7 +36,8 @@ if errorlevel 1 goto heretic2
 
 :heretic2
 cls
-start Heretic2.exe
+cd c:\dxwnd
+start dxwnd.exe /r:0
 goto exit
 
 :server
@@ -47,29 +48,47 @@ echo.	------------------------------------------------
 echo.			HERETIC 2 v1.07 server
 echo.	------------------------------------------------
 echo.
-echo.	1) Start HERETIC 2 THF5 dedicated server
-echo.	2) Start HERETIC 2 THF5 listen server
-echo.	3) return to main menu
+echo.	1) Start HERETIC 2 THF5 listen server
+echo.	2) Start HERETIC 2 EMO listen server (not yet available)
+echo.	3) Start HERETIC 2 TMO listen server (not yet available)
+echo.	4) dxwnd
+echo.	5) return to main menu
 echo.
 echo.	------------------------------------------------
 echo.
 echo.
 
 
-choice /c123 /s /N Your choice? [1-3]:
-if errorlevel 3 goto launcher
-if errorlevel 2 goto thfl
-if errorlevel 1 goto thfd
+choice /c12345 /s /N Your choice? [1-5]:
+if errorlevel 5 goto launcher
+if errorlevel 4 goto dxwnd
+if errorlevel 3 goto tmo
+if errorlevel 2 goto emo
+if errorlevel 1 goto thf
 
-:thfd
+:dxwnd
 cls
-server dedicated.bat
-exit
+cd c:\dxwnd
+start dxwnd.exe
+goto :server
 
-:thfl
+:tmo
 cls
-server listen.bat
-exit
+echo. TMO mod not yet available 
+pause
+goto :server
+
+:emo
+cls
+echo. EMO mod not yet available 
+pause
+goto :server
+
+:thf
+cls
+cd c:\dxwnd
+start dxwnd.exe /r:1
+goto :server
 
 :resolution
 cls

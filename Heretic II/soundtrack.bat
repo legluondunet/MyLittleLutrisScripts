@@ -33,7 +33,13 @@ goto :eof
 
 :rip
 for %%x in (2,3,4,5,6,7,8,9) do (
-mplayer\mplayer -cdrom-device %driv% -ao pcm:file=0%%x.wav cdda://%%x )
+mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track0%%x.wav cdda://%%x )
 for %%y in (10,11,12,13,14,15) do (
-mplayer\mplayer -cdrom-device %driv% -ao pcm:file=%%y.wav cdda://%%y )
-xcopy /Y *.wav "c:\Program Files (x86)\Heretic II"
+mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track%%y.wav cdda://%%y )
+
+for %%a IN (*.wav) DO (
+	echo %%a & bin\ffmpeg -v warning -hide_banner -stats -i "%%a"  -c:a libvorbis -q:a 5 "%%~na.ogg"
+)
+ 
+mkdir "c:\Program Files (x86)\Heretic II\music"
+xcopy /Y *.ogg "c:\Program Files (x86)\Heretic II\music"
