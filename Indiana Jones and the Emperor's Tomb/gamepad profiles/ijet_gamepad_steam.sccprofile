@@ -2,35 +2,51 @@
     "_": "", 
     "buttons": {
         "A": {
-            "action": "button(Keys.KEY_LEFTALT)", 
-            "name": "JUMP (LEFT ALT)"
+            "action": "button(Keys.KEY_SPACE)", 
+            "name": "JUMP SPACE"
         }, 
         "B": {
-            "action": "button(Keys.KEY_LEFTCTRL)", 
-            "name": "ACTION (LEFT CTRL)"
+            "action": "button(Keys.BTN_RIGHT)", 
+            "name": "SECONDAY ATTACK"
         }, 
         "BACK": {
             "action": "button(Keys.KEY_ESC)", 
-            "name": "INVENTORY (ESC)"
-        }, 
-        "C": {
-            "action": "hold(menu('Default.menu'), menu('Default.menu'))"
+            "name": "MENU (ESC)"
         }, 
         "LB": {
-            "action": "button(Keys.KEY_DELETE)", 
-            "name": "STEP LEFT (DELETE)"
+            "action": "button(Keys.KEY_T)", 
+            "name": "DRAW/PACK"
+        }, 
+        "LGRIP": {
+            "action": "button(Keys.KEY_W)", 
+            "name": "WALL HUG PEEK LEFT"
         }, 
         "RB": {
-            "action": "button(Keys.KEY_PAGEDOWN)", 
-            "name": "STEP RIGHT (PAGE DOWN)"
+            "action": "button(Keys.KEY_LEFTALT)", 
+            "name": "WALK ALTL"
+        }, 
+        "RGRIP": {
+            "action": "button(Keys.KEY_X)", 
+            "name": "WALL HUG PEEK RIGHT"
+        }, 
+        "RPAD": {
+            "action": "button(Keys.KEY_LEFTSHIFT) and button(Keys.KEY_E)", 
+            "name": "ACTION E"
+        }, 
+        "START": {
+            "action": "button(Keys.KEY_ENTER)", 
+            "name": "MENU ENTER"
+        }, 
+        "STICKPRESS": {
+            "action": "button(Keys.KEY_C)"
         }, 
         "X": {
-            "action": "button(Keys.KEY_END)", 
-            "name": "ROLL (END)"
+            "action": "button(Keys.BTN_LEFT)", 
+            "name": "PRIMARY ATTACK"
         }, 
         "Y": {
-            "action": "button(Keys.KEY_SPACE)", 
-            "name": "DRAW WEAPON  (SPACE)"
+            "action": "button(Keys.KEY_Q)", 
+            "name": "SOMERSAULT"
         }
     }, 
     "cpad": {}, 
@@ -41,18 +57,19 @@
         "action": "click(dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT)))"
     }, 
     "pad_right": {
-        "action": "click(dpad(button(Keys.KEY_LEFTSHIFT), button(Keys.KEY_KP0), button(Keys.KEY_SLASH)))"
+        "action": "smooth(8, 0.78, 2.0, feedback(RIGHT, 256, ball(mouse())))"
     }, 
     "stick": {
-        "action": "dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT))"
+        "action": "dpad(button(Keys.KEY_W), button(Keys.KEY_S), button(Keys.KEY_A), button(Keys.KEY_D))", 
+        "name": "MOVEMENTS"
     }, 
     "trigger_left": {
-        "action": "trigger(254, 255, button(Keys.KEY_F5))", 
-        "name": "SAVE GAME (F5)"
+        "action": "trigger(254, 255, button(Keys.KEY_R))", 
+        "name": "RELOAD"
     }, 
     "trigger_right": {
-        "action": "trigger(254, 255, button(Keys.KEY_F6))", 
-        "name": "LOAD GAME (F6)"
+        "action": "trigger(254, 255, button(Keys.KEY_LEFTSHIFT))", 
+        "name": "GUARD MODE LSHIFT"
     }, 
     "version": 1.4
 }
