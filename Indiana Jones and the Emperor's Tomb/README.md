@@ -1,4 +1,4 @@
-#MLLS - Indiana Jones and the Emperor's Tomb Gog edition
+# MLLS - Indiana Jones and the Emperor's Tomb Gog edition
 
 This script will install "Indiana Jones and the Emperor's Tomb" Gog edition with support for modern resolution.
 
