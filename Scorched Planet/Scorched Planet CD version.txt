@@ -1,0 +1,69 @@
+files:
+- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+game:
+  exe: drive_c/splanet/spvoodoo.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: voodoo/spvoodoo.exe
+- merge:
+    dst: $GAMEDIR/drive_c/splanet
+    src: $DISC/splanet/
+- merge:
+    dst: $GAMEDIR/drive_c/splanet
+    src: $DISC/voodoo/
+- extract:
+    dst: $GAMEDIR/drive_c/splanet
+    file: dgv
+- execute:
+    command: cd "$GAMEDIR/drive_c/splanet/"; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *; mv
+      dgVoodoo.conf dgVoodoo_original.conf;
+- copy:
+    dst: $GAMEDIR/drive_c/splanet/
+    src: $GAMEDIR/drive_c/splanet/3Dfx/x86/Glide.dll
+- write_config:
+    data:
+      General:
+        CaptureMouse: false
+        ScalingMode: stretched_ar
+      Glide:
+        ForceEmulatingTruePCIAccess: true
+        ForceVerticalSync: true
+        OnboardRAM: 12
+        PointcastPalette: true
+        VideoCard: voodoo_2
+    file: $GAMEDIR/drive_c/splanet/dgVoodoo.conf
+- write_config:
+    data:
+      scorch:
+        HighQualityVideo: 1
+        settings: 1 0 1 1 5 95 127 0 0 5 320
+    file: $GAMEDIR/drive_c/splanet/splanet.ini
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  dxvk: true
+
