@@ -2,7 +2,7 @@
 color 0d
 TITLE Heretic II
 
-goto launcher
+goto :launcher
 
 :launcher
 cls
@@ -35,7 +35,7 @@ cls
 c:
 cd c:\dxwnd
 start dxwnd.exe /r:0
-goto launcher
+goto :exit
 
 :server
 cls
@@ -107,7 +107,7 @@ echo.
 echo.
 h2resolution.exe
 pause
-goto launcher
+goto :launcher
 
 :faq
 cls
@@ -127,7 +127,7 @@ echo.
 c:
 start iexplore c:\Program Files (x86)\Heretic II\faq.html
 pause
-goto launcher
+goto :launcher
 
 
 :exit
