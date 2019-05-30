@@ -1,6 +1,6 @@
 @echo off
 color 0d
-title "installing Heretic II 1.06 patch..."
+title "installing Heretic II 1.07 patch..."
 c:
 cd c:\tmp\patch
 c:\tmp\bin\zip -r -0 "Heretic II.zip" .
