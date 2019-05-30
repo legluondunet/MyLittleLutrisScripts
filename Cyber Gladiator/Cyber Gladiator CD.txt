@@ -39,7 +39,7 @@ installer:
       target:
         cdvol0: 100
         codepage0: 0
-        coord0: 2
+        coord0: 3
         country0: 0
         dflag0: 0
         dflagb0: 0
@@ -48,10 +48,10 @@ installer:
         fakec0: None
         faked0: None
         filterid0: 0
-        flag0: 673185824
+        flag0: 673185825
         flagg0: 1208025104
         flagh0: 22
-        flagi0: 139526148
+        flagi0: 137461764
         flagj0: 135296
         flagk0: 65536
         flagl0: 0

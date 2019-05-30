@@ -38,9 +38,10 @@ mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track0%%x.wav cdda://%%x )
 for %%y in (10,11,12,13,14,15) do (
 mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track%%y.wav cdda://%%y )
 
+mkdir gapless
 for %%a IN (*.wav) DO (
-	echo %%a & bin\ffmpeg -v warning -hide_banner -stats -i "%%a"  -c:a libvorbis -q:a 5 "%%~na.ogg"
+	echo %%a & bin\sox "%%a" "gapless\%%a" fade 0 -2.6 1 & bin\sox "gapless\%%a" "%%~na.flac"
 )
  
 mkdir "c:\Program Files (x86)\Heretic II\music"
-xcopy /Y *.ogg "c:\Program Files (x86)\Heretic II\music"
+xcopy /Y "gapless\*.flac" "c:\Program Files (x86)\Heretic II\music"

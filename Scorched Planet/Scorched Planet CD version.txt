@@ -31,10 +31,7 @@ installer:
         CaptureMouse: false
         ScalingMode: stretched_ar
       Glide:
-        ForceEmulatingTruePCIAccess: true
         ForceVerticalSync: true
-        OnboardRAM: 12
-        PointcastPalette: true
         VideoCard: voodoo_2
     file: $GAMEDIR/drive_c/splanet/dgVoodoo.conf
 - write_config:
