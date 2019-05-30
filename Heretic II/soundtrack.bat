@@ -1,5 +1,6 @@
 @echo off
 color 0d
+title "installing Heretic II soundtracks..."
 c:
 cd c:\tmp
 for %%A in (d e f g h i) do (
@@ -44,4 +45,4 @@ for %%a IN (*.wav) DO (
 )
  
 mkdir "c:\Program Files (x86)\Heretic II\music"
-xcopy /Y "gapless\*.flac" "c:\Program Files (x86)\Heretic II\music"
+xcopy /Y *.flac "c:\Program Files (x86)\Heretic II\music"

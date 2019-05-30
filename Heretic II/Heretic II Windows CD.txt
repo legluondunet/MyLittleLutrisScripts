@@ -7,13 +7,13 @@ files:
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM2.BAT
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_18_build.rar
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 - grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
 - thfmod: http://www.amwilliams.com/hereticii/thf_5.zip
-- ffmpeg: https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20190508-06ba478-win64-static.zip
+- gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
 - faqki: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
 game:
   exe: drive_c/Program Files (x86)/Heretic II/HERETICM1.BAT
@@ -38,8 +38,8 @@ installer:
     dst: $GAMEDIR/drive_c/tmp/mplayer/
     file: mp
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: ffmpeg
+    dst: $GAMEDIR/drive_c/tmp/bin
+    file: gnusox
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
     file: zpbin
@@ -228,4 +228,3 @@ installer:
     src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
-
