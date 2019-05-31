@@ -22,7 +22,7 @@ installer:
 - insert-disc:
     requires: cyber/cyber.exe
 - merge:
-    description: installing Cyber Gladiator
+    description: installing Cyber Gladiators
     dst: $GAMEDIR/drive_c/SIERRA/CYBER
     src: $DISC/cyber
 - execute:
@@ -148,6 +148,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
 

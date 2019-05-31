@@ -1,6 +1,6 @@
 @echo off
 color 0d
-title "installing Virtua FIghter soundtracks..."
+title "installing Virtua FIghter PC soundtracks..."
 c:
 cd c:\tmp
 for %%A in (d e f g h i) do (
