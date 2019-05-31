@@ -51,7 +51,7 @@ installer:
         flag0: 673185825
         flagg0: 1208025104
         flagh0: 22
-        flagi0: 137461764
+        flagi0: 136347652
         flagj0: 135296
         flagk0: 65536
         flagl0: 0
@@ -75,14 +75,14 @@ installer:
         maxy0: 0
         minx0: 0
         miny0: 0
-        module0: null
+        module0: None
         monitorid0: -1
-        notes0: null
-        opengllib0: null
+        notes0: None
+        opengllib0: None
         path0: C:\SIERRA\CYBER\CYBER.EXE
         posx0: 50
         posy0: 50
-        registry0: null
+        registry0: None
         renderer0: 3
         scanline0: 0
         sizx0: 800
@@ -94,12 +94,12 @@ installer:
         title0: Cyber Gladiator
         ver0: 0
         winver0: 0
-      window:
-        exepath: C:\SIERRA\CYBER\
-        expert: 1
-        exportpath: C:\dxwnd\exports\
-        iconview: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+    window:
+      exepath: C:\SIERRA\CYBER\
+      expert: 1
+      exportpath: C:\dxwnd\exports\
+      iconview: 1
 - task:
     arch: win64
     key: csmt
