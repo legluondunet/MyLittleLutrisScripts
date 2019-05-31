@@ -1,14 +1,15 @@
 files:
 - dxwnd: https://liquidtelecom.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_04_94_build.rar
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter/vfpatch.rar
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter/soundtrack.bat
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpatch.rar
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/soundtrack.bat
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 - grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+- start: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.bat
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.ini
 game:
-  args: /r:0
-  exe: drive_c/dxwnd/dxwnd.exe
+  exe: drive_c/SEGA/VFPC/vfpc.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -17,12 +18,23 @@ installer:
     prefix: $GAMEDIR
 - insert-disc:
     requires: ssp.exe
-- task:
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $DISC/ssp.exe
-    name: wineexec
-    prefix: $GAMEDIR
+- merge:
+    description: installing Virtua Fighters
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    src: $DISC/vfpc
+- copy:
+    description: installing Virtua Fighters
+    dst: $GAMEDIR/drive_c/SEGA/
+    src: $DISC/doc/readme.txt
+- execute:
+    command: cd "$GAMEDIR/drive_c/SEGA/VFPC/"; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *;mv
+      vfpc.exe vfpc.ori
+- copy:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC/
+    src: start
+- copy:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC/
+    src: conf
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -82,6 +94,8 @@ installer:
         exepath: C:\SEGA\VFPC\
         expert: 1
         exportpath: C:\dxwnd\exports\
+        posx: 786
+        posy: 506
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
     dst: $GAMEDIR/drive_c/SEGA/VFPC
@@ -115,6 +129,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
 

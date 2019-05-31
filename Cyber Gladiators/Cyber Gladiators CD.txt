@@ -3,9 +3,9 @@ files:
     filename: nGlide200_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
-- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiator/cyber.ini
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiator/soundtrack.bat
-- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiator/cyber.bat
+- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.ini
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/soundtrack.bat
+- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.bat
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
