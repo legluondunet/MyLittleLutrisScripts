@@ -11,7 +11,7 @@ Mplayer: http://www.mplayerhq.hu/design7/news.html
 sox: http://sox.sourceforge.net
 Thanks to the people who helped us play this game in the best conditions.
 
-[F4]	Quit
+[Alt + F4]	Quit
 [F5]	Key configuration (Joystick, X360 compatible)
 [F6]	Screen setting
 [F7]	Screen brightness, camera, and volume settings
