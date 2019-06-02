@@ -92,4 +92,5 @@ installer:
     type: REG_SZ
     value: 0 0 0
 wine:
-    Desktop: true
+  Desktop: true
+
