@@ -1,165 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gamecontroller configversion="18" appversion="2.15">
-<!--The SDL name for a joystick is included for informational purposes only.-->
-<sdlname>XInput Controller</sdlname>
-<!--The GUID for a joystick is included for informational purposes only.-->
-<guid>030000005e0400008e02000000010000</guid>
-<names/>
-<sets>
-<set index="1">
-<stick index="1">
-<stickbutton index="1">
-<slots>
-<slot>
-<code>0x1000013</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="3">
-<slots>
-<slot>
-<code>0x1000014</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="5">
-<slots>
-<slot>
-<code>0x1000015</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="7">
-<slots>
-<slot>
-<code>0x1000012</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</stickbutton>
-</stick>
-<stick index="2">
-<diagonalRange>65</diagonalRange>
-<stickbutton index="1">
-<slots>
-<slot>
-<code>1</code>
-<mode>mousemovement</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="3">
-<slots>
-<slot>
-<code>4</code>
-<mode>mousemovement</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="5">
-<slots>
-<slot>
-<code>2</code>
-<mode>mousemovement</mode>
-</slot>
-</slots>
-</stickbutton>
-<stickbutton index="7">
-<slots>
-<slot>
-<code>3</code>
-<mode>mousemovement</mode>
-</slot>
-</slots>
-</stickbutton>
-</stick>
-<trigger index="1">
-<triggerbutton index="2">
-<slots>
-<slot>
-<code>0x1000001</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</triggerbutton>
-</trigger>
-<trigger index="2">
-<triggerbutton index="2">
-<slots>
-<slot>
-<code>0x1000017</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</triggerbutton>
-</trigger>
-<button index="1">
-<slots>
-<slot>
-<code>1</code>
-<mode>mousebutton</mode>
-</slot>
-</slots>
-</button>
-<button index="2">
-<slots>
-<slot>
-<code>0x20</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-<button index="3">
-<slots>
-<slot>
-<code>3</code>
-<mode>mousebutton</mode>
-</slot>
-</slots>
-</button>
-<button index="4">
-<slots>
-<slot>
-<code>0x1000016</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-<button index="5">
-<slots>
-<slot>
-<code>0x1000000</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-<button index="7">
-<slots>
-<slot>
-<code>0x1000004</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-<button index="10">
-<slots>
-<slot>
-<code>0x41</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-<button index="11">
-<slots>
-<slot>
-<code>0x45</code>
-<mode>keyboard</mode>
-</slot>
-</slots>
-</button>
-</set>
-</sets>
-</gamecontroller> 
+    <!--The SDL name for a joystick is included for informational purposes only.-->
+    <sdlname>X360 Controller</sdlname>
+    <!--The GUID for a joystick is included for informational purposes only.-->
+    <guid>030000005e0400008e02000014010000</guid>
+    <names>
+        <buttonname index="1">KEYSPACE</buttonname>
+        <buttonname index="2">MOUSE BLEFT</buttonname>
+        <buttonname index="3">MOUSE BRIGHT</buttonname>
+        <buttonname index="4">KEY C</buttonname>
+        <buttonname index="5">KEY ESC</buttonname>
+        <buttonname index="8">KEY G</buttonname>
+        <buttonname index="9">KEY F</buttonname>
+        <buttonname index="10">KEY Z</buttonname>
+        <buttonname index="11">KEY Q</buttonname>
+    </names>
+    <sets>
+        <set index="1">
+            <stick index="1">
+                <stickbutton index="1">
+                    <slots>
+                        <slot>
+                            <code>0x5a</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="3">
+                    <slots>
+                        <slot>
+                            <code>0x44</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="5">
+                    <slots>
+                        <slot>
+                            <code>0x53</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="7">
+                    <slots>
+                        <slot>
+                            <code>0x51</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+            </stick>
+            <stick index="2">
+                <diagonalRange>65</diagonalRange>
+                <stickbutton index="1">
+                    <slots>
+                        <slot>
+                            <code>1</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="3">
+                    <slots>
+                        <slot>
+                            <code>4</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="5">
+                    <slots>
+                        <slot>
+                            <code>2</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="7">
+                    <slots>
+                        <slot>
+                            <code>3</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+            </stick>
+            <dpad index="1">
+                <dpadbutton index="1">
+                    <slots>
+                        <slot>
+                            <code>0x1000013</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x1000014</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="4">
+                    <slots>
+                        <slot>
+                            <code>0x1000015</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="8">
+                    <slots>
+                        <slot>
+                            <code>0x1000012</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+            </dpad>
+            <trigger index="1">
+                <triggerbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x58</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </triggerbutton>
+            </trigger>
+            <trigger index="2">
+                <triggerbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x45</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </triggerbutton>
+            </trigger>
+            <button index="1">
+                <actionname>JUMP</actionname>
+                <slots>
+                    <slot>
+                        <code>0x20</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="2">
+                <actionname>USE WEAPON</actionname>
+                <slots>
+                    <slot>
+                        <code>1</code>
+                        <mode>mousebutton</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="3">
+                <actionname>USE ITEM</actionname>
+                <slots>
+                    <slot>
+                        <code>3</code>
+                        <mode>mousebutton</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="4">
+                <actionname>CROUCH</actionname>
+                <slots>
+                    <slot>
+                        <code>0x43</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="5">
+                <actionname>MENU</actionname>
+                <slots>
+                    <slot>
+                        <code>0x1000000</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="7">
+                <slots>
+                    <slot>
+                        <code>0x1000004</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="8">
+                <actionname>CAMERA MODE</actionname>
+                <slots>
+                    <slot>
+                        <code>0x47</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="9">
+                <actionname>DRINK POTION</actionname>
+                <slots>
+                    <slot>
+                        <code>0x46</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="10">
+                <actionname>PREVIOUS WEAPON</actionname>
+                <slots>
+                    <slot>
+                        <code>0x57</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="11">
+                <actionname>NEXT WEAPON</actionname>
+                <slots>
+                    <slot>
+                        <code>0x41</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+        </set>
+    </sets>
+</gamecontroller>
