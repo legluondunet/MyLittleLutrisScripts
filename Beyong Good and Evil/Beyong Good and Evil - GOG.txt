@@ -1,0 +1,55 @@
+files:
+- setup: N/A:Select the EXE downloaded from GOG
+- wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/bgewidescreen.zip
+game:
+  exe: drive_c/GOG Games/Beyond Good and Evil/run.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SILENT /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil/
+    src: wds
+- write_config:
+    data:
+      MAIN:
+        Height: $RESOLUTION_HEIGHT
+        Width: $RESOLUTION_WIDTH
+    file: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil/bge.ini
+- task:
+    arch: win64
+    key: d3d9
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    description: Choose your resolution
+    executable: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil/SettingsApplication.exe
+    name: wineexec
+
