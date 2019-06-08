@@ -1,6 +1,7 @@
 files:
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
 - swr: N/A:Please select the GOG installer
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
+- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -11,7 +12,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    args: /SP- /SUPPRESSMSGBOXES
+    args: /SUPPRESSMSGBOXES
     description: Installing...
     executable: swr
     name: wineexec
@@ -73,6 +74,41 @@ installer:
         sizx: 320
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    src: audio
+- task:
+    arch: win64
+    key: dsound
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: mswsock
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: wsock32
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 wine:
   Desktop: true
 
