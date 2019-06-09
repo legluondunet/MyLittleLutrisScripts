@@ -73,7 +73,7 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    description: Choose your resolution
+    description: Please choose only your resolution, save and quit.
     executable: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil/SettingsApplication.exe
     name: wineexec
 wine:
