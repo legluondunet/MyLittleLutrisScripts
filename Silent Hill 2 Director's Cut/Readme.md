@@ -1,6 +1,6 @@
 CD Director's Cut MULTI 5 EU
 
-This script will install "Silent Hill 2 Director's Cut" CD MULTI 5 EU edition with enhancement packs to play this game on modern computer configuration. 
+This script will install "Silent Hill 2 Director's Cut" CD MULTI 5 EU edition with support for modern computer configuration. 
 This script uses differents projects:
 Sh2proxy: https://github.com/emoose/sh2proxy/releases
 Silent Hill 2 Enhancement: https://github.com/elishacloud/Silent-Hill-2-Enhancements 
