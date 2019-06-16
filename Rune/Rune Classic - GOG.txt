@@ -1,0 +1,64 @@
+files:
+- setup: N/A:Select the EXE downloaded from GOG
+- dumb: https://github.com/kozec/dumbxinputemu/releases/download/v0.3.3/dumbxinputemu-v0.3.3-dlls.tar.gz
+game:
+  exe: drive_c/GOG Games/Rune Classic/System/Rune.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SILENT /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: Select your preferred language
+    id: lang
+    options:
+    - int: English
+    - frt: French
+    - itt: Italian
+    - det: german
+    - est: spanish
+    - rut: russian
+    preselect: int
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_lang
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        UseDirectDraw: true
+        UseJoystick: false
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Rune.ini
+    merge: true
+- input_menu:
+    description: 'What is your screen ratio:'
+    id: ratio
+    options:
+    - 91: 16/9
+    - 85: 16/10
+    - autre: other or do not know
+    preselect: 91
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+
