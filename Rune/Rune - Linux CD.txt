@@ -1,0 +1,76 @@
+custom-name: RUNE Linux CD
+files:
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_gamepad_readme.html
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_steam.sccprofile
+game:
+  exe: RUNECDL/rune
+  prefix: $GAMEDIR
+installer:
+- insert-disc:
+    description: Please insert "RUNE" Linux CD and press autodetect
+    requires: data.tar.gz
+- merge:
+    description: Copying data from "RUNE" Linux CD, please wait
+    dst: $GAMEDIR/RUNECDL
+    src: $DISC/
+- extract:
+    dst: $GAMEDIR/RUNECDL/
+    src: $DISC/data.tar.gz
+- execute:
+    command: cd $GAMEDIR/RUNECDL/; mv bin/x86/rune .; rm -f -r DEMOS lok* setup.data
+      win32 data.tar.gz autorun.inf bin; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *; chmod
+      +x rune System/rune-bin
+- write_config:
+    data:
+      ALAudio.ALAudioSubsystem]:
+        Channels: 32
+        OutputRate: 44100Hz
+      Engine.Engine:
+        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        WindowedRenderDevice: OpenGLDrv.OpenGLRenderDevice
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      SDLDrv.SDLClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 30.0
+        UseJoystick: false
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+    file: $GAMEDIR/RUNECDL/System/Default.ini
+    merge: true
+- input_menu:
+    description: 'What is your screen ratio:'
+    id: fov
+    options:
+    - 91: 16/9
+    - 85: 16/10
+    - autre: other or do not know
+    preselect: 91
+- write_config:
+    data:
+      Engine.Input:
+        B: Look
+        MouseWheelUp: null
+        Shift: null
+        V: ZTargetToggle
+      Engine.PlayerPawn:
+        DefaultFOV: $INPUT_fov.000000
+        DesiredFOV: $INPUT_fov.000000
+    file: $GAMEDIR/RUNECDL/System/DefUser.ini
+    merge: true
+- merge:
+    dst: $GAMEDIR/RUNECDL/gamepad profiles/
+    src: gppx360
+- copy:
+    dst: $GAMEDIR/RUNECDL/gamepad profiles/
+    src: gppsteam
+- copy:
+    dst: $GAMEDIR/RUNECDL/gamepad profiles/
+    src: gppreadme
+

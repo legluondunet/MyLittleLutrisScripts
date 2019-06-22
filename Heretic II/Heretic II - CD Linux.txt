@@ -1,0 +1,35 @@
+custom-name: HERETIC II Linux CD
+files:
+- patch: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
+game:
+  args: +set vid_ref glx +set vid_mode 6 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
+  exe: HERETICIICDL/heretic2.sh
+  prefix: $GAMEDIR
+installer:
+- insert-disc:
+    description: Please insert "HERETIC II" Linux CD and press autodetect
+    requires: bin/x86/heretic2
+- merge:
+    description: Copying data from "HERETIC II" Linux CD, please wait
+    dst: $GAMEDIR/HERETICIICDL
+    src: $DISC/
+- extract:
+    dst: $GAMEDIR/HERETICIICDL/base
+    src: $DISC/data.tar.gz
+- extract:
+    dst: $CACHE
+    src: patch
+- extract:
+    dst: $GAMEDIR/HERETICIICDL/
+    src: $CACHE/data/patch-1.06c.tar.xz
+- extract:
+    dst: $GAMEDIR/HERETICIICDL/
+    src: $CACHE/data/dm-maps.tar.xz
+- copy:
+    dst: $GAMEDIR/HERETICIICDL/
+    src: $CACHE/data/heretic2.sh
+- copy:
+    dst: $GAMEDIR/HERETICIICDL/
+    src: $CACHE/data/heretic2.dynamic.sh
+- chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
+
