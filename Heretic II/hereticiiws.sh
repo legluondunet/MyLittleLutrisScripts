@@ -48,5 +48,5 @@ cp heretic2 heretic2.ori
 fi
 rm -f -r heretic2
 cp heretic2.ori heretic2
-echo sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x$wb2\x$wb1\x00\x00\x$hb2\x$hb1/g' heretic2
+echo sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
 sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
