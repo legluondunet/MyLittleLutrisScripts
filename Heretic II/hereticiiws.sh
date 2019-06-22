@@ -14,35 +14,29 @@ cd HERETICIICDL
 w=$1
 h=$2
 wb=$(echo 'obase=16;' $w | bc)
-#=780
 hb=$(echo 'obase=16;' $h | bc)
-#=438
 
-echo $w en hexa: $wb
-echo $h en hexa: $hb
-
-echo $w w a ${#w} caractères
-echo $wb wb a ${#wb} caractères
-echo $h h a ${#h} caractères
-echo $hb hb a ${#hb} caractères
+echo $w en hexa: $wb soit ${#wb} caractères
+echo $h en hexa: $hb soit ${#hb} caractères
 
 if [ ${#wb} = "1" ]; then wb="000$wb"
 elif [ ${#wb} = "2" ]; then wb="00$wb"
 elif [ ${#wb} = "3" ]; then wb="0$wb"
 fi
-echo $wb ${#wb}
+
+echo wb est à présent égal à $wb
 
 if [ ${#hb} = "1" ]; then hb="000$hb"
 elif [ ${#hb} = "2" ]; then hb="00$hb"
 elif [ ${#hb} = "3" ]; then hb="0$hb"
 fi
-echo $hb ${#hb}
+
+echo hb est à présent égal à $hb
 
 wb1=$(echo $wb |cut -c1-2)
 wb2=$(echo $wb |cut -c3-4)
 hb1=$(echo $hb |cut -c1-2)
 hb2=$(echo $hb |cut -c3-4)
-echo $wb1 $wb2 $hb1 $hb2
 
 echo "Maintenant il faut remplacer 40 01 00 00 F0 00 (video mode 1 resolution 320 x 240) par $wb2 $wb1 00 00 $hb2 $hb1 (video mode 1 aura à présent une resolution de $w x $h)"
 
@@ -56,4 +50,3 @@ rm -f -r heretic2
 cp heretic2.ori heretic2
 echo sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x$wb2\x$wb1\x00\x00\x$hb2\x$hb1/g' heretic2
 sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
-ll -s
