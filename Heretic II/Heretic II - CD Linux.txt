@@ -1,8 +1,9 @@
 custom-name: HERETIC II Linux CD
 files:
 - patch: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
+- ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
 game:
-  args: +set vid_ref glx +set vid_mode 6 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
+  args: +set vid_ref glx +set vid_mode 0 +set vid_fullscreen 0 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
   exe: HERETICIICDL/heretic2.sh
   prefix: $GAMEDIR
 installer:
@@ -28,8 +29,11 @@ installer:
 - copy:
     dst: $GAMEDIR/HERETICIICDL/
     src: $CACHE/data/heretic2.sh
+- chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
 - copy:
     dst: $GAMEDIR/HERETICIICDL/
-    src: $CACHE/data/heretic2.dynamic.sh
-- chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
-
+    src: ws
+- chmodx: $GAMEDIR/HERETICIICDL/hereticiiws.sh
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: $GAMEDIR/HERETICIICDL/hereticiiws.sh

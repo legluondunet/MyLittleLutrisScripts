@@ -10,7 +10,7 @@
 # and we finally get
 # 80 07 00 00 38 04 for video mode 1 (320x240)
 
-# cd heretic2
+cd HERETICIICDL
 w=$1
 h=$2
 wb=$(echo 'obase=16;' $w | bc)
@@ -56,3 +56,4 @@ rm -f -r heretic2
 cp heretic2.ori heretic2
 echo sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x$wb2\x$wb1\x00\x00\x$hb2\x$hb1/g' heretic2
 sed -i -e 's/\x40\x01\x00\x00\xF0\x00/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
+ll -s
