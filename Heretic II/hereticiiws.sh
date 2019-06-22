@@ -11,8 +11,8 @@
 # 80 07 00 00 38 04 for video mode 1 (320x240)
 
 # cd heretic2
-w=1920
-h=1080
+w=$1
+h=$2
 wb=$(echo 'obase=16;' $w | bc)
 #=780
 hb=$(echo 'obase=16;' $h | bc)
