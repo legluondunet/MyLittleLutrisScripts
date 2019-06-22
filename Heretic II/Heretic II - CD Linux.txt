@@ -2,6 +2,7 @@ custom-name: HERETIC II Linux CD
 files:
 - patch: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
+- loc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 game:
   args: +set vid_ref glx +set vid_mode 0 +set vid_fullscreen 1 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
   exe: HERETICIICDL/heretic2.sh
@@ -18,17 +19,17 @@ installer:
     dst: $GAMEDIR/HERETICIICDL/base
     src: $DISC/data.tar.gz
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR/HERETICIICDL/TMP
     src: patch
 - extract:
     dst: $GAMEDIR/HERETICIICDL/
-    src: $CACHE/data/patch-1.06c.tar.xz
+    src: $GAMEDIR/HERETICIICDL/TMP/data/patch-1.06c.tar.xz
 - extract:
     dst: $GAMEDIR/HERETICIICDL/
-    src: $CACHE/data/dm-maps.tar.xz
+    src: $GAMEDIR/HERETICIICDL/TMP/data/dm-maps.tar.xz
 - copy:
     dst: $GAMEDIR/HERETICIICDL/
-    src: $CACHE/data/heretic2.sh
+    src: $GAMEDIR/HERETICIICDL/TMP/data/heretic2.sh
 - chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
 - copy:
     dst: $GAMEDIR/HERETICIICDL/
@@ -37,4 +38,21 @@ installer:
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: $GAMEDIR/HERETICIICDL/hereticiiws.sh
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - ge: German
+    - it: Italian
+    - sp: Spanish
+    preselect: en
+- copy: 
+    dst: $GAMEDIR/HERETICIICDL/
+    src: loc
+- chmodx: $GAMEDIR/HERETICIICDL/h2local.sh
+- execute:
+    args: $INPUT_LANG
+    file: $GAMEDIR/HERETICIICDL/h2local.sh
 
