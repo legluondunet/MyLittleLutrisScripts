@@ -27,7 +27,7 @@ sed -i 's/set gl_sortmulti.*/set gl_sortmulti "1"/' default.cfg
 sed -i 's/set autoweapon.*/set autoweapon "0"/' default.cfg
 sed -i 's/set cl_run.*/set cl_run "1"/' default.cfg
 sed -i 's/set cl_doautoaim.*/set cl_doautoaim "0"/' default.cfg
-sed -i 's/bind ` "toggleconsole"/bind Tab "toggleconsole" toggleconsole"/' default.cfg
+sed -i 's/bind ` "toggleconsole"/bind Tab "toggleconsole"/' default.cfg
 sed -i 's/bind Tab "+lookaround"/bind "+lookaround"/' default.cfg
 
 
@@ -35,6 +35,6 @@ sed -i '$ a set con_alpha "0.5"' default.cfg
 sed -i '$ a set win_noalttab "0"' default.cfg
 sed -i '$ a set r_detail "3"' default.cfg
 sed -i '$ a set blood_level "3"' default.cfg
-sed -i '$ a set in_joystick "0"' default.cfg
-sed -i '$ a set set autoweapon "0"' default.cfg
+sed -i '$ a set in_joystick "none"' default.cfg
+sed -i '$ a set autoweapon "0"' default.cfg
 
