@@ -48,7 +48,7 @@ installer:
     - it: Italian
     - sp: Spanish
     preselect: en
-- copy: 
+- copy:
     dst: $GAMEDIR/HERETICIICDL/
     src: loc
 - chmodx: $GAMEDIR/HERETICIICDL/h2local.sh

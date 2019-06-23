@@ -23,5 +23,6 @@ During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions.
 
 known issues:
-alt-tab no active
-you have to keep the cd in the drive to hear soundtrack
+- change resolution crashes H2.
+- alt-tab no active
+- you have to keep the cd in the drive to hear soundtrack
