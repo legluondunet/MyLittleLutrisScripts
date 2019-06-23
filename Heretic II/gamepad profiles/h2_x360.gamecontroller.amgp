@@ -19,7 +19,7 @@
                 <stickbutton index="3">
                     <slots>
                         <slot>
-                            <code>0x4e</code>
+                            <code>0x1000014</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -35,7 +35,7 @@
                 <stickbutton index="7">
                     <slots>
                         <slot>
-                            <code>0x42</code>
+                            <code>0x1000012</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -119,6 +119,16 @@
                     </slots>
                 </triggerbutton>
             </trigger>
+            <trigger index="2">
+                <triggerbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x5b</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </triggerbutton>
+            </trigger>
             <button index="1">
                 <slots>
                     <slot>
@@ -130,7 +140,7 @@
             <button index="2">
                 <slots>
                     <slot>
-                        <code>0x20</code>
+                        <code>0x4d</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
@@ -138,7 +148,7 @@
             <button index="3">
                 <slots>
                     <slot>
-                        <code>0x56</code>
+                        <code>0x20</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
@@ -146,7 +156,7 @@
             <button index="4">
                 <slots>
                     <slot>
-                        <code>0x43</code>
+                        <code>0x2f</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
@@ -167,18 +177,10 @@
                     </slot>
                 </slots>
             </button>
-            <button index="8">
+            <button index="10">
                 <slots>
                     <slot>
-                        <code>0x4d</code>
-                        <mode>keyboard</mode>
-                    </slot>
-                </slots>
-            </button>
-            <button index="9">
-                <slots>
-                    <slot>
-                        <code>0x3a</code>
+                        <code>0x3b</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>

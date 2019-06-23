@@ -35,6 +35,3 @@ sed -i '$ a set r_detail "3"' default.cfg
 sed -i '$ a set blood_level "2"' default.cfg
 sed -i '$ a set in_joystick "none"' default.cfg
 sed -i '$ a set autoweapon "0"' default.cfg
-sed -i '$ a bind v "+moveright"' default.cfg
-sed -i '$ a bind c "toggleconsole"' default.cfg
-sed -i '$ a bind d "defprev"' default.cfg
