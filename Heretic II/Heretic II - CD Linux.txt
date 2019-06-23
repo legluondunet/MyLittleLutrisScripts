@@ -3,6 +3,7 @@ files:
 - patch: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
 - loc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
+- dcfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
 game:
   args: +set vid_ref glx +set vid_mode 0 +set vid_fullscreen 1 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
   exe: HERETICIICDL/heretic2.sh
@@ -55,4 +56,13 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: $GAMEDIR/HERETICIICDL/h2local.sh
+- copy:
+    dst: $GAMEDIR/HERETICIICDL/
+    src: dcfg
+- chmodx: $GAMEDIR/HERETICIICDL/defconfig.sh
+- execute:
+    file: $GAMEDIR/HERETICIICDL/defconfig.sh
+- execute:
+    command: cd $GAMEDIR/HERETICIICDL; rm -f -r bin* Parches setup.* TMP/ data.tar.gz
+      win32/ autorun.inf defconfig.sh h2local.sh heretic2.dynamic hereticiiws.sh
 

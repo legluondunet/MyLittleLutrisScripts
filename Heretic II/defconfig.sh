@@ -23,6 +23,13 @@ sed -i 's/set gl_modulate.*/set gl_modulate "3"/' default.cfg
 sed -i 's/set gl_particle_att_c.*/set gl_particle_att_c "0.01"/' default.cfg
 sed -i 's/set gl_particle_att_b.*/set gl_particle_att_b "0.01"/' default.cfg
 sed -i 's/set fov.*/set fov "90"/' default.cfg
+sed -i 's/s_volume.*/s_volume "0.5"/' default.cfg
+sed -i 's/set gl_sortmulti.*/set gl_sortmulti "1"/' default.cfg
+sed -i 's/set autoweapon.*/set autoweapon "0"/' default.cfg
+sed -i 'set in_joystick.*/set in_joystick "0"/' default.cfg
+
+
 sed -i '$ a set con_alpha "0.5"' default.cfg
 sed -i '$ a set win_noalttab "0"' default.cfg
 sed -i '$ a set r_detail "3"' default.cfg
+
