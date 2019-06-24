@@ -5,8 +5,8 @@ files:
 - loc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 - dcfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_gamepad_readme.html
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_cdl_x360.gamecontroller.amgp
-- gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_cdl_steam.sccprofile
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
+- gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
 game:
   args: +set vid_ref glx +set vid_mode 0 +set vid_fullscreen 1 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
   exe: HERETICIICDL/heretic2.sh
@@ -77,4 +77,6 @@ installer:
 - execute:
     command: cd $GAMEDIR/HERETICIICDL; rm -f -r TMP bin* Parches setup.* data.tar.gz
       win32/ autorun.inf defconfig.sh h2local.sh heretic2.dynamic hereticiiws.sh
+system:
+  use_us_layout: true
 
