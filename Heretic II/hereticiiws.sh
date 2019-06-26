@@ -47,8 +47,8 @@ echo sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$h
 sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
 fi
 
-if [ -f "../Program Files (x86)/Heretic II/quake2.dll" ]; then
-cd "../Program Files (x86)/Heretic II/"
+if [ -f "drive_c/Program Files (x86)/Heretic II/quake2.dll" ]; then
+cd "drive_c/Program Files (x86)/Heretic II/"
 cp quake2.dll quake2.dll.ori
 echo sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' quake2.dll
 sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' quake2.dll

@@ -8,7 +8,7 @@ files:
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
 game:
-  args: +set vid_ref glx +set vid_mode 0 +set vid_fullscreen 1 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
+  args: +set vid_ref glx +set vid_mode 3 +set vid_fullscreen 1 +set gl_driver /usr/lib/i386-linux-gnu/libGL.so.1
   exe: HERETICIICDL/heretic2.sh
   prefix: $GAMEDIR
 installer:
@@ -36,12 +36,12 @@ installer:
     src: $GAMEDIR/HERETICIICDL/TMP/data/heretic2.sh
 - chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
 - copy:
-    dst: $GAMEDIR/HERETICIICDL/
+    dst: $GAMEDIR/HERETICIICDL/TMP
     src: ws
-- chmodx: $GAMEDIR/HERETICIICDL/hereticiiws.sh
+- chmodx: $GAMEDIR/HERETICIICDL/TMP/hereticiiws.sh
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: $GAMEDIR/HERETICIICDL/hereticiiws.sh
+    file: $GAMEDIR/HERETICIICDL/TMP/hereticiiws.sh
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -53,18 +53,18 @@ installer:
     - sp: Spanish
     preselect: en
 - copy:
-    dst: $GAMEDIR/HERETICIICDL/
+    dst: $GAMEDIR/HERETICIICDL/TMP
     src: loc
-- chmodx: $GAMEDIR/HERETICIICDL/h2local.sh
+- chmodx: $GAMEDIR/HERETICIICDL/TMP/h2local.sh
 - execute:
     args: $INPUT_LANG
-    file: $GAMEDIR/HERETICIICDL/h2local.sh
+    file: $GAMEDIR/HERETICIICDL/TMP/h2local.sh
 - copy:
-    dst: $GAMEDIR/HERETICIICDL/
+    dst: $GAMEDIR/HERETICIICDL/TMP
     src: dcfg
-- chmodx: $GAMEDIR/HERETICIICDL/defconfig.sh
+- chmodx: $GAMEDIR/HERETICIICDL/TMP/defconfig.sh
 - execute:
-    file: $GAMEDIR/HERETICIICDL/defconfig.sh
+    file: $GAMEDIR/HERETICIICDL/TMP/defconfig.sh
 - merge:
     dst: $GAMEDIR/HERETICIICDL/gamepad profiles
     src: gppreadme
@@ -76,7 +76,7 @@ installer:
     src: gppsc
 - execute:
     command: cd $GAMEDIR/HERETICIICDL; rm -f -r TMP bin* Parches setup.* data.tar.gz
-      win32/ autorun.inf defconfig.sh h2local.sh heretic2.dynamic hereticiiws.sh
+      win32/ autorun.inf heretic2.dynamic Soundtrack
 system:
   use_us_layout: true
 
