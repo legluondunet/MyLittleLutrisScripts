@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd drive_c/HODCD
 if [ -f HeartOfDarkness_Fr.EXE ]; then 
 cp HeartOfDarkness_Fr.EXE HeartOfDarkness.EXE
 elif [ -f HeartOfDarkness_Ge.EXE ]; then 
