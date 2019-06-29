@@ -7,11 +7,11 @@ installer:
 - insert-disc:
     requires: Autorun.exe
 - task:
+    args: /desktop=StarshipTitanic,1024x780 $DISC/Autorun.exe
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
-    executable: $DISC/Autorun.exe
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
-    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/Starship Titanic/
     file: cncddraw
@@ -41,6 +41,22 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 wine:
   Desktop: true
 

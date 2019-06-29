@@ -1,7 +1,7 @@
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
-- patch:
-    filename: 106.rar
+- patch1:
+    filename: HDFRAMES.rar
     url: https://www.replaying.de/dateiguru/106
 game:
   args: /r:0
@@ -81,7 +81,7 @@ installer:
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
     dst: $GAMEDIR/drive_c/WESTWOOD/BLADE/
-    src: patch
+    src: patch1
 - task:
     arch: win64
     key: background

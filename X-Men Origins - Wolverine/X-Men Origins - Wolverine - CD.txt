@@ -1,0 +1,39 @@
+game:
+  exe: drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/Wolverine.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: /media/romain/WOLV_DVD/Setup/Data/Binaries/Wolverine.exe
+- task:
+    args: /desktop=Wolverine,1024x780 $DISC/setup.exe
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
+- task:
+    app: xact
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+
