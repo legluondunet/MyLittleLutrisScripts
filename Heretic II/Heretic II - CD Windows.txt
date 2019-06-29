@@ -10,7 +10,7 @@ files:
 - uzpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/unzip/5.51-1/unzip-5.51-1-bin.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM2.BAT
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_19_build.rar
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 - grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
@@ -33,9 +33,10 @@ installer:
 - insert-disc:
     requires: h2_setup.exe
 - task:
+    args: /desktop=HereticII,1024x780 $DISC/h2_setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
-    executable: $DISC/h2_setup.exe
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
 - extract:
@@ -92,9 +93,42 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: faqki
-- move:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
+    src: gppreadme
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
+    src: gppx360
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
+    src: gppsc
+- copy:
+    dst: $GAMEDIR/drive_c/tmp
+    src: ws
+- chmodx: $GAMEDIR/drive_c/tmp/hereticiiws.sh
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/tmp/hereticiiws.sh
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: patchlg
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - ge: German
+    - it: Italian
+    - sp: Spanish
+    preselect: en
+- copy:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: loc
+- chmodx: $GAMEDIR/drive_c/tmp/h2local.sh
+- execute:
+    args: $INPUT_LANG
+    file: $GAMEDIR/drive_c/tmp/h2local.sh
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -190,9 +224,11 @@ installer:
         winver0: 0
         winver1: 0
       window:
-        exepath: C:\Program Files (x86)\Heretic II\
         expert: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
 - task:
     arch: win64
     key: wallpaper
@@ -225,42 +261,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 153 255
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppreadme
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppx360
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppsc
-- copy:
-    dst: $GAMEDIR/drive_c/tmp
-    src: ws
-- chmodx: $GAMEDIR/drive_c/tmp/hereticiiws.sh
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/tmp/hereticiiws.sh
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: patchlg
-- input_menu:
-    description: 'Choose your game''s language:'
-    id: LANG
-    options:
-    - en: English
-    - fr: French
-    - ge: German
-    - it: Italian
-    - sp: Spanish
-    preselect: en
-- copy:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: loc
-- chmodx: $GAMEDIR/drive_c/tmp/h2local.sh
-- execute:
-    args: $INPUT_LANG
-    file: $GAMEDIR/drive_c/tmp/h2local.sh
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/tmp/
