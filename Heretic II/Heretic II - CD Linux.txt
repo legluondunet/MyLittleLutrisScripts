@@ -1,6 +1,6 @@
 custom-name: HERETIC II Linux CD
 files:
-- patch: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
+- patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
 - loc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 - dcfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
@@ -24,7 +24,7 @@ installer:
     src: $DISC/data.tar.gz
 - extract:
     dst: $GAMEDIR/HERETICIICDL/TMP
-    src: patch
+    src: patch106l
 - extract:
     dst: $GAMEDIR/HERETICIICDL/
     src: $GAMEDIR/HERETICIICDL/TMP/data/patch-1.06c.tar.xz

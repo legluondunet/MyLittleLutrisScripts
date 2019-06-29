@@ -10,16 +10,18 @@ game:
 installer:
 - task:
     arch: win64
+    description: Preparing Blade Runner CD Wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: autoplay.wav
+    description: Please insert Blade Runner CD 1
+    requires: cd1/outtake1.mix
 - task:
+    args: /desktop=BladeRunner,1024x780 $DISC/autorun.exe
     description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $DISC/autorun.exe
+      their defaults. Do not launch the game when asking.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
-    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd

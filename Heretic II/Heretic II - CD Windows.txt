@@ -1,7 +1,7 @@
 custom-name: HERETIC II Windows CD
 files:
-- patch107: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
-- patchlg: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
+- patch107w: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
+- patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lowercase.bat
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.bat
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
@@ -41,7 +41,7 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/tmp/patch
-    src: patch107
+    src: patch107w
 - extract:
     dst: $GAMEDIR/drive_c/tmp/mplayer/
     file: mp
@@ -111,7 +111,7 @@ installer:
     file: $GAMEDIR/drive_c/tmp/hereticiiws.sh
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
-    src: patchlg
+    src: patch106l
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -226,6 +226,22 @@ installer:
       window:
         expert: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: EAXEnabled
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
