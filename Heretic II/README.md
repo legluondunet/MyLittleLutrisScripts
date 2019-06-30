@@ -33,6 +33,6 @@ Thanks to the people who helped us play this game in the best conditions.
 Technical notes:
 known issues:
 - change resolution crashes H2. But it is not necessary as the game patched during install to use your desktop resolution.
-- alt-tab no active
-- you have to keep the cd in the drive to hear soundtrack
+- alt-tab not active
+- you have to keep the cd in the drive if you want to hear soundtrack
 H2 controller support is insufficient . Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
