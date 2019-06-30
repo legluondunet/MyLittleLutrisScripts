@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ -f "HERETICIICDL/base/default.cfg" ]; then
+echo "HERETICIICDL/base/default.cfg" existe
 cd HERETICIICDL/base
 cp default.cfg default.cfg.ori
 sed -i 's/set gl_shadows.*/set gl_shadows "1"/' default.cfg
@@ -32,10 +33,10 @@ sed -i '$ a set blood_level "2"' default.cfg
 sed -i '$ a set in_joystick "none"' default.cfg
 sed -i '$ a set autoweapon "0"' default.cfg
 sed -i '$ a bind F11 "screenshot"' default.cfg
-fi
 
-if [ -f "drive_c/Program Files (x86)/Heretic II/base/default.cfg" ]; then
-cd drive_c/Program Files (x86)/Heretic II/base/
+elif [ -f "drive_c/Program Files (x86)/Heretic II/base/default.cfg" ]; then
+echo "drive_c/Program Files (x86)/Heretic II/base/default.cfg" existe
+cd "drive_c/Program Files (x86)/Heretic II/base/"
 cp default.cfg default.cfg.ori
 sed -i 's/bind F5.*/bind F5 "menu_loadgame"/' default.cfg
 sed -i 's/bind F6.*/bind F6 "save quick"/' default.cfg
