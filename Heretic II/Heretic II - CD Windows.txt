@@ -4,6 +4,7 @@ files:
 - patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lowercase.bat
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.bat
+- dcfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
 - zpbin: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-bin.zip
 - zpdep: https://freefr.dl.sourceforge.net/project/gnuwin32/zip/3.0/zip-3.0-dep.zip
@@ -28,6 +29,7 @@ game:
 installer:
 - task:
     arch: win64
+    description: Preparing Heretic II Linux CD wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -226,6 +228,12 @@ installer:
       window:
         expert: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- copy:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: dcfg
+- chmodx: $GAMEDIR/drive_c/tmp/defconfig.sh
+- execute:
+    file: $GAMEDIR/drive_c/tmp/defconfig.sh
 - task:
     arch: win64
     key: csmt

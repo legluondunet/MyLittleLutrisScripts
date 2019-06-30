@@ -38,12 +38,11 @@ elif [ -f "drive_c/Program Files (x86)/Heretic II/base/default.cfg" ]; then
 echo "drive_c/Program Files (x86)/Heretic II/base/default.cfg" existe
 cd "drive_c/Program Files (x86)/Heretic II/base/"
 cp default.cfg default.cfg.ori
+sed -i 's/set blood_level.*/set blood_level "2"/' default.cfg
 sed -i 's/bind F5.*/bind F5 "menu_loadgame"/' default.cfg
 sed -i 's/bind F6.*/bind F6 "save quick"/' default.cfg
-sed -i 's/set blood_level.*/set blood_level "3"/' default.cfg
+sed -i 's/bind F4.*/bind F4 "menu_savegame"/' default.cfg
 
-
-sed -i '$ a bind F4 "menu_savegame"' default.cfg
 sed -i '$ a bind F7 "load quick"' default.cfg
 sed -i '$ a set r_detail "3"' default.cfg
 fi
