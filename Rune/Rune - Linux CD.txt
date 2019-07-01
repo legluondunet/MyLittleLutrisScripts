@@ -9,7 +9,7 @@ game:
 installer:
 - insert-disc:
     description: Please insert "RUNE" Linux CD and press autodetect
-    requires: data.tar.gz
+    requires: System/rune-bin
 - merge:
     description: Copying data from "RUNE" Linux CD, please wait
     dst: $GAMEDIR/RUNECDL
@@ -35,6 +35,7 @@ installer:
       IpServer.UdpServerUplink:
         MasterServerAddress: master.333networks.com
       SDLDrv.SDLClient:
+        Brightness: 0.3
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
@@ -56,6 +57,8 @@ installer:
     data:
       Engine.Input:
         B: Look
+        H: TurnLeft
+        J: TurnRight
         MouseWheelUp: null
         Shift: null
         V: ZTargetToggle

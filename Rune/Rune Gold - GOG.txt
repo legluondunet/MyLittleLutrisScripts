@@ -52,6 +52,8 @@ installer:
     data:
       Engine.Input:
         B: Look
+        H: TurnLeft
+        J: TurnRight
         MouseWheelUp: null
         Shift: null
         V: ZTargetToggle
