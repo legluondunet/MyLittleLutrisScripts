@@ -1,0 +1,67 @@
+files:
+- install: N/A:Select the EXE downloaded from GOG
+game:
+  exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES /SILENT
+    description: Installing...
+    executable: install
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
+- write_config:
+    data:
+      Engine.Engine:
+        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        Language: $INPUT_LANG
+      FirstRun:
+        FirstRun: 227
+      WinDrv.WindowsClient:
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.Engine:
+        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        Language: $INPUT_LANG
+      FirstRun:
+        FirstRun: 227
+      WinDrv.WindowsClient:
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
+    merge: true
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+
