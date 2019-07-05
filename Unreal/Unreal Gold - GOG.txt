@@ -1,5 +1,6 @@
 files:
 - install: N/A:Select the EXE downloaded from GOG
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
 game:
   exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
   prefix: $GAMEDIR
@@ -14,6 +15,9 @@ installer:
     executable: install
     name: wineexec
     prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
+    src: patch
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -46,7 +50,7 @@ installer:
       WinDrv.WindowsClient:
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Unreal.ini
     merge: true
 - task:
     arch: win64

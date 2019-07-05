@@ -39,6 +39,6 @@ mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track0%%x.wav cdda://%%x )
 for %%y in (10,11,12,13,14,15,16,17,18,19,20,21) do (
 mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track%%y.wav cdda://%%y )
 for %%a IN (*.wav) DO (
-	echo %%a & bin\sox "%%a" "%%~na.ogg")
+	echo %%a & bin\sox "%%a" "%%~na.flac")
 mkdir "c:\SEGA\VFPC\music"
-xcopy /Y *.ogg "c:\SEGA\VFPC\music"
+xcopy /Y *.flac "c:\SEGA\VFPC\music"

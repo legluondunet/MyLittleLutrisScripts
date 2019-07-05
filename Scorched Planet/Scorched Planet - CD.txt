@@ -1,6 +1,6 @@
 files:
 - ngl:
-    filename: nGlide200_setup.exe
+    filename: nGlide210_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
 game:
@@ -44,7 +44,7 @@ installer:
     path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
     prefix: $GAMEDIR
     type: REG_SZ
-    value: '0'
+    value: '1'
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
