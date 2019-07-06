@@ -12,7 +12,7 @@ sed -i 's/GameRenderDevice=.*/GameRenderDevice=OpenGLDrv.OpenGLRenderDevice/' De
 sed -i 's/Language=.*/Language='$lang'/' Default.ini
 sed -i 's/FirstRun=.*/FirstRun=227/' Default.ini
 sed -i 's/FullscreenViewportX=.*/FullscreenViewportX='$width'/' Default.ini
-sed -i 's/FullscreenViewportX=.*/FullscreenViewporty='$height'/' Default.ini
+sed -i 's/FullscreenViewportY=.*/FullscreenViewportY='$height'/' Default.ini
 
 
 cp Unreal.ini Unreal.ini.ori
@@ -20,7 +20,7 @@ sed -i 's/GameRenderDevice=.*/GameRenderDevice=OpenGLDrv.OpenGLRenderDevice/' Un
 sed -i 's/Language=.*/Language='$lang'/' Unreal.ini
 sed -i 's/FirstRun=.*/FirstRun=227/' Unreal.ini
 sed -i 's/FullscreenViewportX=.*/FullscreenViewportX='$width'/' Unreal.ini
-sed -i 's/FullscreenViewportX=.*/FullscreenViewporty='$height'/' Unreal.ini
+sed -i 's/FullscreenViewportY=.*/FullscreenViewportY='$height'/' Unreal.ini
 
 
 cp DefaultLinux.ini DefaultLinux.ini.ori

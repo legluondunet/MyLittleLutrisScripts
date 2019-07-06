@@ -1,6 +1,7 @@
 files:
 - install: N/A:Select the EXE downloaded from GOG
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/defconfig.sh
 game:
   exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
   prefix: $GAMEDIR
@@ -18,6 +19,10 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
     src: patch
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/lin_convenience_libs
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/Help/lin_convenience_libs.tar.bz2
+- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/UnrealLinux.bin
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -28,30 +33,10 @@ installer:
     - itt: Italian
     - est: Spanish
     preselect: int
-- write_config:
-    data:
-      Engine.Engine:
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
-        Language: $INPUT_LANG
-      FirstRun:
-        FirstRun: 227
-      WinDrv.WindowsClient:
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
-    merge: true
-- write_config:
-    data:
-      Engine.Engine:
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
-        Language: $INPUT_LANG
-      FirstRun:
-        FirstRun: 227
-      WinDrv.WindowsClient:
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Unreal.ini
-    merge: true
+- chmodx: script
+- execute:
+    args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 - task:
     arch: win64
     key: csmt
