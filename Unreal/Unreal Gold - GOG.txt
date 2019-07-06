@@ -37,6 +37,20 @@ installer:
 - execute:
     args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
+- write_file:
+    content: '#!/bin/sh
+
+      cd System
+
+      MESA_EXTENSION_MAX_YEAR=1999
+
+      #LD_LIBRARY_PATH=../lin_convenience_libs
+
+      #export LD_LIBRARY_PATH
+
+      exec ./UnrealLinux.bin -log'
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
+- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
 - task:
     arch: win64
     key: csmt
