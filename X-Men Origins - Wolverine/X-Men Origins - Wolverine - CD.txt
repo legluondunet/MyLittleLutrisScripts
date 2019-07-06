@@ -1,3 +1,5 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/X-Men%20Origins%20-%20Wolverine/wolv.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/Wolverine.exe
   prefix: $GAMEDIR
@@ -14,6 +16,9 @@ installer:
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/
+    src: patch
 - task:
     app: xact
     name: winetricks
