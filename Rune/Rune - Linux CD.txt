@@ -21,8 +21,8 @@ installer:
     src: $DISC/data.tar.gz
 - execute:
     command: cd $GAMEDIR/RUNECDL/; mv bin/x86/rune .; rm -f -r DEMOS lok* setup.data
-      win32 data.tar.gz autorun.inf bin; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *; chmod
-      +x rune System/rune-bin System/libSDL-1.2.so.0 System/User.ini
+      win32 data.tar.gz autorun.inf bin System/libSDL-1.2.so.0 System/User.ini; chmod
+      -R u-x,g-x,o-x,u+X,u+w,g+r *; chmod +x rune System/rune-bin
 - write_config:
     data:
       ALAudio.ALAudioSubsystem:
