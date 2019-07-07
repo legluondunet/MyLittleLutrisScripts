@@ -2,6 +2,7 @@ files:
 - install: N/A:Select the EXE downloaded from GOG
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/defconfig.sh
+- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/UnrealLinux.sh
 game:
   exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
   prefix: $GAMEDIR
@@ -37,19 +38,9 @@ installer:
 - execute:
     args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
-- write_file:
-    content: '#!/bin/sh
-
-      cd System
-
-      MESA_EXTENSION_MAX_YEAR=1999
-
-      #LD_LIBRARY_PATH=../lin_convenience_libs
-
-      #export LD_LIBRARY_PATH
-
-      exec ./UnrealLinux.bin -log'
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
+    src: script2
 - chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
 - task:
     arch: win64
