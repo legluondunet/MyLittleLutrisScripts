@@ -23,7 +23,7 @@ installer:
       +x rune System/rune-bin
 - write_config:
     data:
-      ALAudio.ALAudioSubsystem]:
+      ALAudio.ALAudioSubsystem:
         Channels: 32
         OutputRate: 44100Hz
       Engine.Engine:
@@ -35,11 +35,9 @@ installer:
       IpServer.UdpServerUplink:
         MasterServerAddress: master.333networks.com
       SDLDrv.SDLClient:
-        Brightness: 0.3
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-        MinDesiredFrameRate: 30.0
         UseJoystick: false
       UBrowserAll:
         ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
@@ -76,4 +74,7 @@ installer:
 - copy:
     dst: $GAMEDIR/RUNECDL/gamepad profiles/
     src: gppreadme
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/RUNECDL/System/libSDL-1.2.so.0
 

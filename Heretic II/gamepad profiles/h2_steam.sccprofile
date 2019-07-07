@@ -37,10 +37,10 @@
         "action": "click(dpad(button(Keys.KEY_I), button(Keys.KEY_O), button(Keys.KEY_P), button(Keys.KEY_U)))"
     }, 
     "pad_right": {
-        "action": "mouse()"
+        "action": "smooth(8, 0.78, 2.0, feedback(RIGHT, 256, ball(mouse())))"
     }, 
     "stick": {
-        "action": "dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_LEFT), button(Keys.KEY_RIGHT))"
+        "action": "dpad(button(Keys.KEY_UP), button(Keys.KEY_DOWN), button(Keys.KEY_COMMA), button(Keys.KEY_DOT))"
     }, 
     "trigger_left": {
         "action": "trigger(50, 255, button(Keys.KEY_K))"

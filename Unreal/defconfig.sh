@@ -37,4 +37,4 @@ cd ../lin_convenience_libs
 cp libalut* ../System
 cp libfmod* ../System
 cd ..
-rm -f -r gog* unins* Support.ico Launch* 
+rm -f -r gog* unins* Support.ico Launch* Gameux*
