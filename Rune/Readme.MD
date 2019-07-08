@@ -6,8 +6,8 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 
 Technical notes:
-- 1.08 HOV update
-- multiplayer
+- 1.07 HOV update
+- multiplayer ok
 Rune Classic has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 
 RUNE GOLD - GOG
