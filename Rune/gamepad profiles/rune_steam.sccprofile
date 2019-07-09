@@ -19,6 +19,9 @@
         "RB": {
             "action": "button(Keys.KEY_LEFTCTRL)"
         }, 
+        "START": {
+            "action": "button(Keys.KEY_Q)"
+        }, 
         "X": {
             "action": "button(Keys.BTN_LEFT)"
         }, 

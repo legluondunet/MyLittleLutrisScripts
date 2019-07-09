@@ -103,10 +103,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Rune.ini
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/OpenAL32.dll
-
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Gold"; rm -f -r System/User.ini System/Rune.ini System/OpenAL32.dll gog* Launch* Support* unins* webcache.zip redist ;
+system:
+  use_us_layout: true

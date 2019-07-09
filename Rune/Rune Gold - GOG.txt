@@ -41,7 +41,7 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Rune.ini
     src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Default.ini
 - input_menu:
-    description: 'What is your screen ratio:'
+    description: 'Please choose your screen ratio:'
     id: fov
     options:
     - 91: 16/9
@@ -95,7 +95,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-move:
-  dst: $CACHE
-  src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/User.ini
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Gold"; rm -f -r System/User.ini Gameux*
+      gog* Launch* Support* unins*;
+system:
+  use_us_layout: true
 

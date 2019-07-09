@@ -43,34 +43,44 @@
             </stick>
             <stick index="2">
                 <stickbutton index="1">
+                    <mousespeedx>35</mousespeedx>
+                    <mousespeedy>35</mousespeedy>
+                    <wheelspeedx>35</wheelspeedx>
+                    <wheelspeedy>35</wheelspeedy>
                     <slots>
                         <slot>
-                            <code>0x1000007</code>
-                            <mode>keyboard</mode>
+                            <code>1</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
                 <stickbutton index="3">
+                    <mousespeedx>35</mousespeedx>
+                    <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>0x1000014</code>
-                            <mode>keyboard</mode>
+                            <code>4</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
                 <stickbutton index="5">
+                    <mousespeedx>35</mousespeedx>
+                    <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>0x1000017</code>
-                            <mode>keyboard</mode>
+                            <code>2</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
                 <stickbutton index="7">
+                    <mousespeedx>35</mousespeedx>
+                    <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>0x1000012</code>
-                            <mode>keyboard</mode>
+                            <code>3</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
@@ -79,7 +89,7 @@
                 <dpadbutton index="1">
                     <slots>
                         <slot>
-                            <code>0x22</code>
+                            <code>0x33</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -87,7 +97,7 @@
                 <dpadbutton index="2">
                     <slots>
                         <slot>
-                            <code>0x27</code>
+                            <code>0x34</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -95,7 +105,7 @@
                 <dpadbutton index="4">
                     <slots>
                         <slot>
-                            <code>0x26</code>
+                            <code>0x31</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -103,7 +113,7 @@
                 <dpadbutton index="8">
                     <slots>
                         <slot>
-                            <code>0x600000e9</code>
+                            <code>0x32</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -113,7 +123,7 @@
                 <triggerbutton index="2">
                     <slots>
                         <slot>
-                            <code>0x29</code>
+                            <code>0x42</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -123,7 +133,7 @@
                 <triggerbutton index="2">
                     <slots>
                         <slot>
-                            <code>0x3a</code>
+                            <code>0x45</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -172,7 +182,7 @@
             <button index="7">
                 <slots>
                     <slot>
-                        <code>0x1000004</code>
+                        <code>0x51</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
