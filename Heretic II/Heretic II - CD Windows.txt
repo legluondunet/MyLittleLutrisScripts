@@ -29,7 +29,7 @@ game:
 installer:
 - task:
     arch: win64
-    description: Preparing Heretic II Linux CD wineprefix...
+    description: Preparing Heretic II Windows CD wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
