@@ -47,8 +47,8 @@
                     <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>1</code>
-                            <mode>mousemovement</mode>
+                            <code>0x1000007</code>
+                            <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
@@ -57,8 +57,8 @@
                     <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>4</code>
-                            <mode>mousemovement</mode>
+                            <code>0x1000014</code>
+                            <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
@@ -67,8 +67,8 @@
                     <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>2</code>
-                            <mode>mousemovement</mode>
+                            <code>0x1000017</code>
+                            <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
@@ -77,8 +77,8 @@
                     <mousespeedy>35</mousespeedy>
                     <slots>
                         <slot>
-                            <code>3</code>
-                            <mode>mousemovement</mode>
+                            <code>0x1000012</code>
+                            <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </stickbutton>
