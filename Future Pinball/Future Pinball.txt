@@ -1,0 +1,28 @@
+files:
+- fpb: http://members.iinet.net.au/~cleathley/downloads/FuturePinballSetup_v1.9.1.20101231.exe
+game:
+  exe: drive_c/Games/Future Pinball/Future Pinball.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /r
+    executable: fpb
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: oleaut32
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: vcrun6
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: wsh57
+    name: winetricks
+    prefix: $GAMEDIR
+
