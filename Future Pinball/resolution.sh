@@ -8,6 +8,9 @@ hb=$(echo 'obase=16;' $h | bc)
 echo $w en hexa: $wb soit ${#wb} caractères
 echo $h en hexa: $hb soit ${#hb} caractères
 
+cd drive_c/tmp/
 
-sed -i 's/"Width"=dword:*/"Width"=dword:'$wb'/' drive_c/tmp/fp.reg
-sed -i 's/"Height"=dword:*/"Height"=dword:'$hb'/' drive_c/tmp/fp.reg
+sed -i 's/"Width"\=dword\:.*/"Width"\=dword\:'$wb'/'  fp.reg
+sed -i 's/"Height"\=dword\:.*/"Height"\=dword\:'$hb'/' fp.reg
+
+iconv -f utf-8 -t utf16le fp.reg -o fp2.reg
