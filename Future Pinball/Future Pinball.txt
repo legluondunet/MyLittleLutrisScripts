@@ -1,16 +1,32 @@
 files:
-- fpb: http://members.iinet.net.au/~cleathley/downloads/FuturePinballSetup_v1.9.1.20101231.exe
+- fpball: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/fp_install.zip
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/fp.reg
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/resolution.sh
 game:
-  exe: drive_c/Games/Future Pinball/Future Pinball.exe
+  args: /open "C:\Future Pinball\Tables\Tron.fpt" /play
+  exe: drive_c/Future Pinball/Future Pinball.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Future Pinball/
+    src: fpball
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: regfile
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: script
+- chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/tmp/resolution.sh
 - task:
-    args: /r
-    executable: fpb
+    args: $GAMEDIR/drive_c/tmp/fp2.reg
+    executable: regedit
     name: wineexec
     prefix: $GAMEDIR
 - task:
@@ -25,4 +41,28 @@ installer:
     app: wsh57
     name: winetricks
     prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: EAXEnabled
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 
