@@ -2,8 +2,10 @@ files:
 - fpball: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/fp_install.zip
 - regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/fp.reg
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/resolution.sh
+- table1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/back_to_the_future_ultimate_3_0_mod-table.zip
 game:
-  args: /open "C:\Future Pinball\Tables\Tron.fpt" /play
+  args: /open "C:\Future Pinball\Tables\back_to_the_future_ultimate_3_0_mod-table\BTTFMOD.fpt"
+    /play
   exe: drive_c/Future Pinball/Future Pinball.exe
   prefix: $GAMEDIR
 installer:
@@ -14,6 +16,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Future Pinball/
     src: fpball
+- extract:
+    dst: $GAMEDIR/drive_c/Future Pinball/Tables/back_to_the_future_ultimate_3_0_mod-table\
+    src: table1
 - merge:
     dst: $GAMEDIR/drive_c/tmp
     src: regfile
@@ -65,4 +70,3 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-

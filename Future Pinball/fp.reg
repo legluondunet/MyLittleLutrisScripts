@@ -3,7 +3,40 @@
 [HKEY_CURRENT_USER\Software\Future Pinball]
 
 [HKEY_CURRENT_USER\Software\Future Pinball\Editor]
+"BackgroundColour"=dword:00ffffff
+"BackupTableWhenSaving"=dword:00000000
+"CustomColour01"=dword:00000000
+"CustomColour02"=dword:00000000
+"CustomColour03"=dword:00000000
+"CustomColour04"=dword:00000000
+"CustomColour05"=dword:00000000
+"CustomColour06"=dword:00000000
+"CustomColour07"=dword:00000000
+"CustomColour08"=dword:00000000
+"CustomColour09"=dword:00000000
+"CustomColour10"=dword:00000000
+"CustomColour11"=dword:00000000
+"CustomColour12"=dword:00000000
+"CustomColour13"=dword:00000000
+"CustomColour14"=dword:00000000
+"CustomColour15"=dword:00000000
+"CustomColour16"=dword:00000000
+"DecalColour"=dword:00ff4040
+"DragingShapePointColor"=dword:0000ff00
+"GridColour"=dword:00dcc8aa
+"GuideColour"=dword:00808080
+"LoadImagesIntoEditor"=dword:00000000
+"ModelColour"=dword:00004080
+"NumberShapePoints"=dword:00000001
+"ObjectLockedColour"=dword:00c0c0c0
+"OrnamentColour"=dword:000080ff
+"OutlineColour"=dword:00000000
+"PolygonInfo"=dword:00000001
+"ShapePointColour"=dword:000000ff
+"ShowShapePoints"=dword:00000000
 "ShowWhichLayers"=dword:000003ff
+"SurfaceColour"=dword:00a0a0a0
+"TextureBoundaryColour"=dword:00ff0080
 "Window Maximized"=dword:00000000
 "WindowSizeBottom"=dword:0000039c
 "WindowSizeLeft"=dword:000001bf
@@ -23,7 +56,7 @@
 "BitsPerPixel"=dword:00000020
 "CameraFollowsTheBall"=dword:00000001
 "CpuAffinity"=dword:00000000
-"DefaultCamera"=dword:00000001
+"DefaultCamera"=dword:00000003
 "DisableShaders"=dword:00000000
 "FlasherFlares"=dword:00000001
 "FullScreen"=dword:00000001
@@ -125,5 +158,5 @@
 
 [HKEY_CURRENT_USER\Software\Future Pinball\RecentDir]
 "LoadDir"="C:\\Future Pinball\\Tables\\"
-"TableFileName0"="C:\\Future Pinball\\Tables\\back_to_the_future_ultimate_3_0_mod-table_(ultimate_3_0_mod)\\BTTFMOD.fpt"
+"TableFileName0"="C:\\Future Pinball\\Tables\\back_to_the_future_ultimate_3_0_mod-table\\BTTFMOD.fpt"
 
