@@ -71,7 +71,7 @@
 "InsertCoinKey"=dword:00000006
 "JoypadNameNum"=dword:00000000
 "Left2ndFlipper"=dword:0000001e
-"LeftFlipperKey"=dword:0000002a
+"LeftFlipperKey"=dword:000000cb
 "LightFacets"=dword:00000040
 "ModelRenderQuality"=dword:00000002
 "NonPowerOf2Textures"=dword:00000000
@@ -90,7 +90,7 @@
 "RenderGameRoom"=dword:00000000
 "RenderOrnaments"=dword:00000001
 "Right2ndFlipper"=dword:00000028
-"RightFlipperKey"=dword:00000036
+"RightFlipperKey"=dword:000000cd
 "RotateDegrees"=dword:00000000
 "RubberFacets"=dword:00000040
 "RubberSides"=dword:00000014
@@ -106,13 +106,57 @@
 "Test"=dword:00000014
 "TextureCompression"=dword:00000000
 "TextureFilter"=dword:00000001
-"ToggleHudKey"=dword:00000029
+"ToggleHudKey"=dword:00000023
 "TrackIRPlayerHeight"=dword:00000002
 "TrackIRSupport"=dword:00000000
 "VerticalSync"=dword:00000001
 "Width"=dword:00000780
 "WireGuideSides"=dword:00000014
 "ZBufferDepth"=dword:00000018
+
+[HKEY_CURRENT_USER\Software\Future Pinball\GamePlayer\Joypads]
+
+[HKEY_CURRENT_USER\Software\Future Pinball\GamePlayer\Joypads\Microsoft X-Box 360 pad (event)]
+"JoypadBackbox"=dword:00000004
+"JoypadDeadZone"=dword:00000064
+"JoypadDigitalPlunger"=dword:00000000
+"JoypadExit"=dword:0000000a
+"JoypadInsertCoin"=dword:00000005
+"JoypadInsertCoin2"=dword:ffffffff
+"JoypadInsertCoin3"=dword:ffffffff
+"JoypadLeft2ndFlipper"=dword:ffffffff
+"JoypadLeftFlipper"=dword:00000006
+"JoypadMusicDown"=dword:ffffffff
+"JoypadMusicUp"=dword:ffffffff
+"JoypadNextCamera"=dword:00000003
+"JoypadNudgeAxisX"=dword:ffffffff
+"JoypadNudgeAxisY"=dword:ffffffff
+"JoypadNudgeGainX"=dword:000003e8
+"JoypadNudgeGainXMax"=dword:00000002
+"JoypadNudgeGainY"=dword:000003e8
+"JoypadNudgeGainYMax"=dword:00000002
+"JoypadPause"=dword:ffffffff
+"JoypadPinballRoller"=dword:ffffffff
+"JoypadPinballRollerAxisX"=dword:ffffffff
+"JoypadPinballRollerAxisY"=dword:ffffffff
+"JoypadPinballRollerGainX"=dword:000003e8
+"JoypadPinballRollerGainXMax"=dword:00000002
+"JoypadPinballRollerGainY"=dword:000003e8
+"JoypadPinballRollerGainYMax"=dword:00000002
+"JoypadPlungerAxis"=dword:00000001
+"JoypadPlungerGain"=dword:000003e8
+"JoypadPlungerGainMax"=dword:00000002
+"JoypadRight2ndFlipper"=dword:ffffffff
+"JoypadRightFlipper"=dword:00000007
+"JoypadService"=dword:ffffffff
+"JoypadSpecial1"=dword:00000001
+"JoypadSpecial2"=dword:00000002
+"JoypadStartGame"=dword:00000008
+"JoypadSupport"=dword:00000000
+"JoypadTest"=dword:ffffffff
+"JoypadToggleHud"=dword:ffffffff
+"JoypadVolumeDown"=dword:ffffffff
+"JoypadVolumeUp"=dword:ffffffff
 
 [HKEY_CURRENT_USER\Software\Future Pinball\GamePlayer\Joypads\Mouse]
 "JoypadBackbox"=dword:ffffffff
