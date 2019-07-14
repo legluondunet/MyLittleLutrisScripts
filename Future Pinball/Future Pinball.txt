@@ -3,6 +3,9 @@ files:
 - regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/fp.reg
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/resolution.sh
 - table1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/back_to_the_future_ultimate_3_0_mod-table.zip
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/gamepad%20profiles/fp_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/gamepad%20profiles/fp_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Future%20Pinball/gamepad%20profiles/fp_steam.sccprofile
 game:
   args: /open "C:\Future Pinball\Tables\back_to_the_future_ultimate_3_0_mod-table\BTTFMOD.fpt"
     /play
@@ -17,7 +20,7 @@ installer:
     dst: $GAMEDIR/drive_c/Future Pinball/
     src: fpball
 - extract:
-    dst: $GAMEDIR/drive_c/Future Pinball/Tables/back_to_the_future_ultimate_3_0_mod-table\
+    dst: $GAMEDIR/drive_c/Future Pinball/Tables/back_to_the_future_ultimate_3_0_mod-table/
     src: table1
 - merge:
     dst: $GAMEDIR/drive_c/tmp
@@ -34,6 +37,15 @@ installer:
     executable: regedit
     name: wineexec
     prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Future Pinball/gamepad profiles/
+    src: gpreadme
+- merge:
+    dst: $GAMEDIR/drive_c/Future Pinball/gamepad profiles/
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/Future Pinball/gamepad profiles/
+    src: gpsteam
 - task:
     app: oleaut32
     name: winetricks
@@ -70,3 +82,4 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+
