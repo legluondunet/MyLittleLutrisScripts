@@ -128,5 +128,5 @@ installer:
     dst: $CACHE/
     src: $GAMEDIR/drive_c/TOMBATI/vc_redist.x86.exe
 wine:
-  desktop: true
+  Desktop: true
 

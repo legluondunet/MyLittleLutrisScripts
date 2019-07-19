@@ -12,9 +12,10 @@ echo.	TOMB RAIDER 2 GOG Edition
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider 2
-echo.	2) Setup dialog box
-echo.	3) How to play TR2 with a gamepad
-echo.	4) exit
+echo.	2) Tomb Raider 2 - Golden Mask
+echo.	3) Setup dialog box
+echo.	4) How to play TR2 with a gamepad
+echo.	5) exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -23,16 +24,22 @@ echo.
 
 
 
-choice /c1234 /s /N Your choice? [1-4]:
-if errorlevel 4 goto exit
-if errorlevel 3 goto gamepad
-if errorlevel 2 goto setup
+choice /c12345 /s /N Your choice? [1-5]:
+if errorlevel 5 goto exit
+if errorlevel 4 goto gamepad
+if errorlevel 3 goto setup
+if errorlevel 2 goto tr2gm
 if errorlevel 1 goto tr2
 
 
 :tr2
 cls
 start Tomb2.exe
+goto exit
+
+:tr2gm
+cls
+start Tomb2.exe -gold
 goto exit
 
 

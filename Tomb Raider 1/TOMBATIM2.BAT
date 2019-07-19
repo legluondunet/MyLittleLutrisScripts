@@ -13,7 +13,7 @@ echo.
 echo.	1) Tomb Raider 1 GLRage
 echo.	2) Tomb Raider 1 Unfinished Business GLRage
 echo.	3) TombATI configure HD textures
-echo.	4) How to play TR1 glATI with a gamepad
+echo.	4) How to play TR1 with a gamepad
 echo.	5) exit
 echo.
 echo.	------------------------------------------------
