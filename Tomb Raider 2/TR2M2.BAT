@@ -39,6 +39,7 @@ goto exit
 
 :tr2gm
 cls
+cd "c:\GOG Games\Tomb Raider 2 Golden Mask"
 start Tomb2.exe -gold
 goto exit
 
