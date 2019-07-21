@@ -1,5 +1,5 @@
 @echo off
-color 0E
+color 1F
 goto launcher
 
 
