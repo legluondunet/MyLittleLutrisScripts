@@ -122,9 +122,6 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
     src: $CACHE/bin/ffmpeg.exe
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/
-    src: cscript
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
@@ -166,12 +163,17 @@ installer:
     executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
     name: wineexec
     prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- chmodx: cscript
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/music/"; chmod +x "clean.sh";
-      bash clean.sh;
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/audio/clean.sh
+    file: cscript
 wine:
   Desktop: true
   dxvk: true
