@@ -1,3 +1,4 @@
+custom-name: Tomb Raider I Gold
 files:
 - installer: N/A:Select the installer downloaded from GOG
 - tombati:
@@ -129,4 +130,3 @@ installer:
     src: $GAMEDIR/drive_c/TOMBATI/vc_redist.x86.exe
 wine:
   Desktop: true
-

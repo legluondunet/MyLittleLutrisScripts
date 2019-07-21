@@ -1,14 +1,12 @@
+custom-name: Tomb Raider III - The Lost Artefact
 files:
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
-- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
-    3/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
-    Raider 3/gamepad%20profiles/tr3_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
-    Raider 3/gamepad%20profiles/tr3_gamepad_readme.html
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/tr3tla.bmp
 game:
   exe: drive_c/TR3TLA/TR3TLAM1.BAT
@@ -27,8 +25,7 @@ installer:
     dst: $GAMEDIR/drive_c/TR3TLA/
     src: $DISC
 - execute:
-    command: cd $GAMEDIR/drive_c/TR3TLA/; rm -f -r DIRECTX Script autorun* data1*
-      DSETUP* _* setup.* tomb3.exe; chmod -R u-x,g-x,o-x,u+X,u+w,g+r * ;
+    command: cd $GAMEDIR/drive_c/TR3TLA/; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA/
     file: arsunt
@@ -109,6 +106,10 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- execute:
+    command: cd $GAMEDIR/drive_c/TR3TLA/; rm -f -r 3Dfx Doc MS DIRECTX Script autorun*
+      data1* DSETUP* _* setup.* layout.bin os.dat tomb3.exe DATA.TAG lang.dat Setup.exe
+      SETUP.INI
 wine:
   Desktop: true
   dxvk: true

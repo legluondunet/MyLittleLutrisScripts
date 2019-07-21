@@ -1,3 +1,4 @@
+custom-name: Tomb Raider II Gold
 files:
 - installer: N/A:Select the installer downloaded from GOG
 - tr2main: https://github.com/Arsunt/TR2Main/releases/download/v0.8.2/TR2Main_v0.8.2.zip

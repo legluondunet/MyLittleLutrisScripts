@@ -38,7 +38,7 @@ goto exit
 
 :setup
 cls
-start Tomb3.exe -setup
+start tr3gold.exe -setup
 goto launcher
 
 
