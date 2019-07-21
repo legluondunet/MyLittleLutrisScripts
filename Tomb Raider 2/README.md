@@ -7,7 +7,7 @@ This script uses different projects:
 dgvoodoo2:: http://www.dege.freeweb.hu/
 TR2Main by Arsunt: https://github.com/Arsunt/TR2Main
 innoextract: http://constexpr.org/innoextract/
-ffmpeg: https://ffmpeg.org/
+libzplay: http://libzplay.sourceforge.net/WELCOME.html
 other sources: https://www.tombraiderforums.com
 Thanks to the people who contributed to play this game in the best conditions.
 

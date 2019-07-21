@@ -1,7 +1,7 @@
 #Tomb Raider I Gold - Gog
 
 Description:
-This script will install "Tomb Raider I" Gog edition with strong graphics improvements.
+This script will install "Tomb Raider I Gold" Gog edition with strong graphics improvements.
 During install please let all options by default.
 This script uses different projects:
 GLRage: https://github.com/ata4/glrage
