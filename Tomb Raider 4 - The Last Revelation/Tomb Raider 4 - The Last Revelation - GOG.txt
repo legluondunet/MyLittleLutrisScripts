@@ -1,17 +1,15 @@
-custom-name: Tomb Raider III - Adventures of Lara Croft
+custom-name: Tomb Raider IV - The Last Revelation
 files:
 - installer: N/A:Select the installer downloaded from GOG
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3M1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3M2.BAT
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/tr3.bmp
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TR4TLRM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TR4TLRM2.BAT
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/tr4tlr.bmp
 game:
-  exe: drive_c/GOG Games/Tomb Raider 3/TR3M1.BAT
+  exe: drive_c/GOG Games/Tomb Raider 4/TR4TLRM1.BAT
   prefix: $GAMEDIR
 installer:
 - task:
@@ -19,31 +17,23 @@ installer:
     description: Creating WINE prefix
     name: create_prefix
     prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: installer
+    name: wineexec
+    prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE" "$installer"
-    file: $CACHE/innoextract
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    src: $CACHE/app
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; mv tomb3.exe tomb3.gog;
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    file: arsunt
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
     file: dgv
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/DDraw.dll
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/MS/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/D3DImm.dll
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/MS/D3DImm.dll
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; mv dgVoodoo.conf dgVoodoo_original.conf
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:
     data:
       DirectX:
@@ -55,7 +45,7 @@ installer:
         CaptureMouse: false
         FullScreenMode: false
         ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/dgVoodoo.conf
 - task:
     arch: win64
     key: ddraw
@@ -68,24 +58,24 @@ installer:
     app: d3dcompiler_47
     name: winetricks
     prefix: $GAMEDIR
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
     src: menu1
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
     src: menu2
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
-    src: gppx360
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
-    src: gppsteam
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
-    src: gppreadme
-- move:
+- copy:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles/
+    src: gpreadme
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles/
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles/
+    src: gpsteam
 - task:
     arch: win64
     key: wallpaper
@@ -93,7 +83,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\tr3.bmp
+    value: c:\\tr4tlr.bmp
 - task:
     arch: win64
     key: background
@@ -102,26 +92,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 177 94
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; rm -f -r __support/ gog*
-      webcache.zip 3Dfx Doc MS os.dat layout.bin  lang.dat data.bin DATA.TAG config.txt
-      tr3gold.exe
 - task:
     arch: win64
     key: csmt
