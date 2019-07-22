@@ -8,6 +8,7 @@ files:
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/tr4tlr.bmp
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
 game:
   exe: drive_c/GOG Games/Tomb Raider 4/TR4TLRM1.BAT
   prefix: $GAMEDIR
@@ -46,6 +47,9 @@ installer:
         FullScreenMode: false
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/dgVoodoo.conf
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/
+    src: patch
 - task:
     arch: win64
     key: ddraw
@@ -100,6 +104,25 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 191 166 12
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; rm -f -r rm -f -r unins000.*
+      webcache.zip support.ico Launch* gog* 3Dfx MS
 wine:
   Desktop: true
   dxvk: true
