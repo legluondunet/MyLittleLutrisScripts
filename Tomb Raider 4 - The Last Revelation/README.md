@@ -5,7 +5,8 @@ This script will install "Tomb Raider IV: The Last Revelation" GOG edition with 
 During install please let all options by default.
 This script uses different projects:
 dgvoodoo2:: http://www.dege.freeweb.hu/
-Arsunt Patch FOV FMV Sunglasses: https://www.tombraiderforums.com/index.php
+Tomb Raider 2-3-4 Widescreen Patch created by Mr.Blackfour : https://tombraiders.net/stella/downloads/widescreen.html
+other sources: https://www.tombraiderforums.com
 Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
