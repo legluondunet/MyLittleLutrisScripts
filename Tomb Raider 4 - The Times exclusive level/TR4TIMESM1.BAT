@@ -1,3 +1,3 @@
 @echo off
-wineconsole.exe TR4TLRM2.BAT
+wineconsole.exe TR4TIMESM2.BAT
 exit

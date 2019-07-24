@@ -8,10 +8,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER IV - The Last Revelation
+echo.	Tomb Raider 4 - The Times exclusive level
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider IV - The Last Revelation
+echo.	1) Tomb Raider 4 - The Times exclusive level
 echo.	2) Setup dialog box
 echo.	3) Set ratio and FOV
 echo.	4) How to play TR4 with a gamepad
@@ -29,10 +29,10 @@ if errorlevel 5 goto exit
 if errorlevel 4 goto gamepad
 if errorlevel 3 goto patch
 if errorlevel 2 goto setup
-if errorlevel 1 goto tr4
+if errorlevel 1 goto tr4times
 
 
-:tr4
+:tr4times
 cls
 start tomb4.exe
 goto exit
@@ -51,8 +51,8 @@ goto launcher
 
 :gamepad
 cls
-start explorer c:\GOG Games\Tomb Raider 4\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 4\gamepad profiles\tr3_gamepad_readme.html
+start explorer c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\
+start iexplore c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\tr4times_gamepad_readme.html
 goto launcher
 
 :exit
