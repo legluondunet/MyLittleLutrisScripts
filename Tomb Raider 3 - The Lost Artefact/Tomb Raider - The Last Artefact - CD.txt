@@ -4,9 +4,9 @@ files:
 - arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3tla_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3tla_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3tla_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/tr3tla.bmp
 game:
   exe: drive_c/TR3TLA/TR3TLAM1.BAT
@@ -72,13 +72,13 @@ installer:
     src: menu2
 - merge:
     dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles/
-    src: gppx360
+    src: gpx360
 - merge:
     dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles/
-    src: gppsteam
+    src: gpsteam
 - merge:
     dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles/
-    src: gppreadme
+    src: gpreadme
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
