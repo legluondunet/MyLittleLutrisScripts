@@ -121,8 +121,8 @@ installer:
     type: REG_SZ
     value: 191 166 12
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; rm -f -r rm -f -r unins000.*
-      webcache.zip support.ico Launch* gog* 3Dfx MS
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; rm -f -r unins000.*
+      webcache.zip support.ico Launch* gog* 3Dfx MS Doc
 wine:
   Desktop: true
   dxvk: true
