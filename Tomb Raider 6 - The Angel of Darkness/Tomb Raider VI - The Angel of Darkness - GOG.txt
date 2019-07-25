@@ -3,6 +3,7 @@ files:
 - setuptr6: N/A:Please select the GOG installer
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/tr6.bmp
 - lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
+- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/EAX4Unified_redist_4001.exe
 game:
   exe: drive_c/GOG Games/Tomb Raider 6/Launcher.exe
   prefix: $GAMEDIR
@@ -15,6 +16,11 @@ installer:
 - task:
     args: /sp- /suppressmsgboxes
     executable: setuptr6
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    args: /silent
+    executable: eax
     name: wineexec
     prefix: $GAMEDIR
 - task:
@@ -68,3 +74,4 @@ installer:
       support.ico gog* "Launch T"*
 wine:
   Desktop: true
+
