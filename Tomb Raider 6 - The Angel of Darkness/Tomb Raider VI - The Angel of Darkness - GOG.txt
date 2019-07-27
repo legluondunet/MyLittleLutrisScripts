@@ -4,6 +4,9 @@ files:
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/tr6.bmp
 - lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
 - eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/eax.dll
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_gamepad_readme.html
 game:
   exe: drive_c/GOG Games/Tomb Raider 6/Launcher.exe
   prefix: $GAMEDIR
@@ -72,6 +75,15 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles/
+    src: gpreadme
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles/
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles/
+    src: gpsteam
 - input_menu:
     description: 'Choose your preferred interface language (menu and subtitles):'
     id: LANG
