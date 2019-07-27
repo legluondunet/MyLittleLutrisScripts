@@ -180,6 +180,22 @@
                     </slot>
                 </slots>
             </button>
+            <button index="7">
+                <slots>
+                    <slot>
+                        <code>0x1000004</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="9">
+                <slots>
+                    <slot>
+                        <code>0x50</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
             <button index="10">
                 <actionname>CROUCH</actionname>
                 <slots>

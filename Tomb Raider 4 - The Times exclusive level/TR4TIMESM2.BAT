@@ -65,7 +65,7 @@ goto launcher
 :gamepad
 cls
 start explorer c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\
-start iexplore c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\tr4times_gamepad_readme.html
+start iexplore c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\tr4_gamepad_readme.html
 goto launcher
 
 :exit

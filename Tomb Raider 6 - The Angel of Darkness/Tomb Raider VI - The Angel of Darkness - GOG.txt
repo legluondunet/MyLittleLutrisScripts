@@ -3,7 +3,7 @@ files:
 - setuptr6: N/A:Please select the GOG installer
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/tr6.bmp
 - lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
-- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/EAX4Unified_redist_4001.exe
+- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/eax.dll
 game:
   exe: drive_c/GOG Games/Tomb Raider 6/Launcher.exe
   prefix: $GAMEDIR
@@ -18,9 +18,12 @@ installer:
     executable: setuptr6
     name: wineexec
     prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c/windows/syswow64/
+    src: eax
 - task:
-    args: /silent
-    executable: eax
+    args: eax.dll
+    executable: $GAMEDIR/drive_c/windows/syswow64/regsvr32.exe
     name: wineexec
     prefix: $GAMEDIR
 - task:
@@ -69,9 +72,24 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- input_menu:
+    description: 'Choose your preferred interface language (menu and subtitles):'
+    id: LANG
+    options:
+    - uk: English
+    - fr: French
+    - gr: German
+    - it: Italian
+    - jpa: Japonese
+    - kor: Korean
+    - por: Portuguese
+    - sp: Spanish
+    preselect: uk
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 6/"; rm -f -r unins000.* webcache.zip
-      support.ico gog* "Launch T"*
+      support.ico gog* "Launch T"* ; cd Data/locale; for f in *; do mv -v "$f" "`echo
+      $f | tr '[A-Z]' '[a-z]'`"; done; mv text_$INPUT_LANG.db TEXT_UK.DB; mv text_uk.db
+      text_uk.db.bak;
 wine:
   Desktop: true
 

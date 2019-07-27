@@ -1,11 +1,11 @@
-#Tomb Raider IV: The Last Revelation - Gog
+#Tomb Raider VI - The Angel of Darkness - GOG
 
 Description:
-This script will install "Tomb Raider IV: The Last Revelation" GOG edition with support for modern resolution.
+This script will install "Tomb Raider VI: The Angel of Darkness" GOG edition with support for modern computer configuration.
 During install please let all options by default.
 This script uses different projects:
-dgvoodoo2:: http://www.dege.freeweb.hu/
-Arsunt Patch FOV FMV Sunglasses: https://www.tombraiderforums.com/index.php
+LAV Filters: https://github.com/Nevcairiel/LAVFilters
+other sources: https://www.tombraiderforums.com
 Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:

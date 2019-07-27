@@ -4,9 +4,9 @@ files:
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TR4TLRM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TR4TLRM2.BAT
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4tlr_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/tr4tlr.bmp
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
 game:
@@ -121,8 +121,8 @@ installer:
     type: REG_SZ
     value: 191 166 12
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; rm -f -r unins000.*
-      webcache.zip support.ico Launch* gog* 3Dfx MS Doc
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4/"; rm -f -r unins000.* webcache.zip
+      support.ico Launch* gog* 3Dfx MS Doc
 wine:
   Desktop: true
   dxvk: true

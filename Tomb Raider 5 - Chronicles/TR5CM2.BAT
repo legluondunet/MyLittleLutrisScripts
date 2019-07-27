@@ -52,7 +52,7 @@ goto launcher
 :gamepad
 cls
 start explorer c:\GOG Games\Tomb Raider 5\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 5\gamepad profiles\tr5c_gamepad_readme.html
+start iexplore c:\GOG Games\Tomb Raider 5\gamepad profiles\tr5_gamepad_readme.html
 goto launcher
 
 :exit

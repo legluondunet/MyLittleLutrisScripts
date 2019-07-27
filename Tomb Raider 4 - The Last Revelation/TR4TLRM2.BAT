@@ -52,7 +52,7 @@ goto launcher
 :gamepad
 cls
 start explorer c:\GOG Games\Tomb Raider 4\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 4\gamepad profiles\tr3_gamepad_readme.html
+start iexplore c:\GOG Games\Tomb Raider 4\gamepad profiles\tr4_gamepad_readme.html
 goto launcher
 
 :exit

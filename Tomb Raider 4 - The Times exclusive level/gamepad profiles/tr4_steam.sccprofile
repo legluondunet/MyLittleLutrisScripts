@@ -11,18 +11,22 @@
         }, 
         "BACK": {
             "action": "button(Keys.KEY_ESC)", 
-            "name": "INVENTORY (ESC)"
+            "name": "INVENTORY/MENU (ESC)"
         }, 
         "C": {
             "action": "hold(menu('Default.menu'), menu('Default.menu'))"
         }, 
         "LB": {
             "action": "button(Keys.KEY_DOT)", 
-            "name": "CROUCH (.)"
+            "name": "DUCK/CROUCH (.)"
         }, 
         "RB": {
             "action": "button(Keys.KEY_SLASH)", 
             "name": "DASH (/)"
+        }, 
+        "START": {
+            "action": "button(Keys.KEY_ENTER)", 
+            "name": "MENU RETURN"
         }, 
         "X": {
             "action": "button(Keys.KEY_END)", 
