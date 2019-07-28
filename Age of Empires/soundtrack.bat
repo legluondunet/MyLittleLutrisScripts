@@ -4,7 +4,7 @@ title "installing Age of Empires soundtracks..."
 c:
 cd c:\tmp
 for %%A in (d e f g h i) do (
-dir %%A:|bin\grep -c "AGE">%%A.txt)
+dir %%A:|bin\grep -cw "AOE">%%A.txt)
 
 set driv=
 set /p drivd=<d.txt
