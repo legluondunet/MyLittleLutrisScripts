@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "drive_c/GOG Games/RollerCoaster Tycoon Deluxe"
+
 w=$1
 h=$2
 lang=$3
@@ -29,7 +31,10 @@ hb1=$(echo $hb |cut -c1-2)
 hb2=$(echo $hb |cut -c3-4)
 
 
-if [ ! -f "RCT.EXE.BAK" ]; then 
+if [ $lang = "en" ] 
+mv RCT.EXE RCT.EXE.PACKED
+cp ../../tmp/RCT.EXE.EN RCT.EXE
+elif [ ! -f "RCT.EXE.BAK" ]; then 
 cp RCT.EXE RCT.EXE.BAK
 elif [ -f "RCT.EXE.BAK" ]; then 
 rm -f -r RCT.EXE
