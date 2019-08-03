@@ -31,10 +31,12 @@ hb1=$(echo $hb |cut -c1-2)
 hb2=$(echo $hb |cut -c3-4)
 
 
-if [ $lang = "en" ] 
+if [ $lang = "en" ] ; then
 cp RCT.EXE RCT.EXE.PACKED
 cp ../../tmp/RCT.EXE.EN RCT.EXE.BAK
-elif [ ! -f "RCT.EXE.BAK" ]; then 
+fi
+
+if [ ! -f "RCT.EXE.BAK" ]; then 
 cp RCT.EXE RCT.EXE.BAK
 elif [ -f "RCT.EXE.BAK" ]; then 
 rm -f -r RCT.EXE
