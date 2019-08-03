@@ -1,0 +1,40 @@
+game:
+  main_file: $GAMEDIR/D.conf
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: d/laura.exe
+- merge:
+    dst: $GAMEDIR/CD
+    src: $DISC
+- insert-disc:
+    description: Please insert disc 2
+    requires: efc/baby.raw
+- execute:
+    command: cd $GAMEDIR; cp -fR $DISC/* $GAMEDIR/CD/;
+- task:
+    commands:
+    - 'd:'
+    - call D:\install.bat
+    - exit
+    drives:
+      c: $GAMEDIR
+      d: $GAMEDIR/CD
+    name: makeconfig
+    path: $GAMEDIR/D_install.conf
+- task:
+    commands:
+    - 'c:'
+    - cd c:\ACCLAIM\D
+    - LAURA.EXE
+    - exit
+    drives:
+      c: $GAMEDIR
+      d: $GAMEDIR/CD
+    name: makeconfig
+    path: $GAMEDIR/D.conf
+- task:
+    config_file: $GAMEDIR/D_install.conf
+    name: dosexec
+    working_dir: $GAMEDIR
+

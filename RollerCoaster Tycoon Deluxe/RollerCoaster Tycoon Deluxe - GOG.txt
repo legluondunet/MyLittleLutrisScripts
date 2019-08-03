@@ -1,0 +1,109 @@
+custom-name: RUNE Classic GOG
+files:
+- setup: N/A:Select the EXE downloaded from GOG
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_gamepad_readme.html
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_steam.sccprofile
+game:
+  exe: drive_c/GOG Games/Rune Classic/System/Rune.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SILENT /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: Select your preferred language
+    id: lang
+    options:
+    - int: English
+    - frt: French
+    - itt: Italian
+    - det: german
+    - est: spanish
+    - rut: russian
+    preselect: int
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_lang
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        UseDirectDraw: true
+        UseJoystick: false
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Default.ini
+    merge: true
+- input_menu:
+    description: 'What is your screen ratio:'
+    id: fov
+    options:
+    - 91: 16/9
+    - 85: 16/10
+    - autre: other or do not know
+    preselect: 91
+- write_config:
+    data:
+      Engine.Input:
+        B: Look
+        H: TurnLeft
+        J: TurnRight
+        MouseWheelUp: null
+        Shift: null
+        V: ZTargetToggle
+      Engine.PlayerPawn:
+        DefaultFOV: $INPUT_fov.000000
+        DesiredFOV: $INPUT_fov.000000
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/DefUser.ini
+    merge: true
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/gamepad profiles/
+    src: gppx360
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/gamepad profiles/
+    src: gppsteam
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/gamepad profiles/
+    src: gppreadme
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: EAXEnabled
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Gold"; rm -f -r System/User.ini System/Rune.ini System/OpenAL32.dll gog* Launch* Support* unins* webcache.zip redist ;
+system:
+  use_us_layout: true

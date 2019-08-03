@@ -1,7 +1,7 @@
 files:
 - mr2: N/A:Please select the GOG installer
-- ipxw: http://www.solemnwarning.net/ipxwrapper/ipxwrapper-0.6.1.zip
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
+- lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -86,25 +86,6 @@ installer:
         sizx: 320
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/
-    src: ipxw
-- task:
-    arch: win64
-    key: mswsock
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: wsock32
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
 - task:
     arch: win64
     key: winmm
@@ -121,6 +102,33 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/lavf
+    src: lavf
+- task:
+    executable: $GAMEDIR/drive_c/tmp/lavf/install_video.bat
+    name: wineexec
+    prefix: $GAMEDIR/
+- task:
+    executable: $GAMEDIR/drive_c/tmp/lavf/install_splitter.bat
+    name: wineexec
+    prefix: $GAMEDIR/
+- task:
+    executable: $GAMEDIR/drive_c/tmp/lavf/install_audio.bat
+    name: wineexec
+    prefix: $GAMEDIR/
+- task:
+    app: amstream
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: quartz
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: directplay
+    name: winetricks
+    prefix: $GAMEDIR
 wine:
   Desktop: true
 

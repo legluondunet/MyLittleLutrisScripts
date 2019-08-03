@@ -1,5 +1,5 @@
 files:
-- dxwnd: https://liquidtelecom.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_20_build.rar
+- dxwnd: https://liquidtelecom.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpatch.rar
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/soundtrack.bat
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
@@ -116,9 +116,8 @@ installer:
     dst: $GAMEDIR/drive_c/tmp/
     file: grepdep
 - task:
-    args: c:\\tmp\\soundtrack.bat
     description: Working to make this game more Linux Wine friendly
-    executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
+    executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
     name: wineexec
     prefix: $GAMEDIR
 - task:

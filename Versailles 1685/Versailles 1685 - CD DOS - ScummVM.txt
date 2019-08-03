@@ -1,0 +1,20 @@
+game:
+  game_id: versailles
+  path: $GAMEDIR/Versailles 1685/
+installer:
+- insert-disc:
+    description: Please insert "Versailles 1685" CD 1
+    requires: DATA_V/CDVER1.BIN
+- merge:
+    dst: $GAMEDIR/Versailles 1685/DATA_V/
+    src: $DISC/DATA_V/
+- merge:
+    dst: $GAMEDIR/Versailles 1685/
+    src: $DISC/INSTALL/VERSAILL.PGM
+- insert-disc:
+    description: Please insert "Versailles 1685" 2
+    requires: DATA_V/CDVER2.BIN
+- merge:
+    dst: $GAMEDIR/Versailles 1685/DATA_V/
+    src: $DISC/DATA_V/
+

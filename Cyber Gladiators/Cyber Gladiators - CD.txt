@@ -2,7 +2,7 @@ files:
 - ngl:
     filename: nGlide210_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_20_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 - config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.ini
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/soundtrack.bat
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.bat
@@ -53,9 +53,8 @@ installer:
     dst: $GAMEDIR/drive_c/tmp/
     file: grepdep
 - task:
-    args: c:\\tmp\\soundtrack.bat
     description: Working to make this game more Linux Wine friendly
-    executable: $GAMEDIR/drive_c/windows/syswow64/wineconsole.exe
+    executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
     name: wineexec
     prefix: $GAMEDIR
 - task:

@@ -1,7 +1,6 @@
 files:
 - mr1: N/A:Please select the GOG installer
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
-- ipxw: http://www.solemnwarning.net/ipxwrapper/ipxwrapper-0.6.1.zip
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -86,25 +85,6 @@ installer:
         sizx: 320
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer/
-    src: ipxw
-- task:
-    arch: win64
-    key: mswsock
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: wsock32
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
 - task:
     arch: win64
     key: winmm

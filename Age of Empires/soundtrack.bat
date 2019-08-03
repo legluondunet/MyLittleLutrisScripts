@@ -36,7 +36,7 @@ goto :eof
 :rip
 for %%x in (2,3,4,5,6,7,8,9) do (
 mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track0%%x.wav cdda://%%x )
-for %%y in (10,11,12,13,14) do (
+for %%y in (10,11,12,13,14,15) do (
 mplayer\mplayer -cdrom-device %driv% -ao pcm:file=track%%y.wav cdda://%%y )
 for %%a IN (*.wav) DO (
 	echo %%a & bin\sox "%%a" "%%~na.flac")

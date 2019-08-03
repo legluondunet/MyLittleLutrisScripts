@@ -1,4 +1,4 @@
-custom-name: Age of Empires I
+custom-name: Age of Empires I - Gold edtion
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
@@ -16,19 +16,15 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    app: directplay
-    name: winetricks
-    prefix: $GAMEDIR
+- insert-disc:
+    requires: Game/EMPIRESX.EXE
 - task:
     app: winxp
     name: winetricks
     prefix: $GAMEDIR
-- insert-disc:
-    requires: AOEINST.EXE
 - task:
-    args: /desktop=AgeOfEmpiresI,1024x780 $DISC/AOEINST.EXE
-    description: Installing Age of Empires I...
+    args: /desktop=AgeOfEmpiresIGoldEdition,1024x780 $DISC/AOEInst.Exe
+    description: Installing Age of Empires I Gold edition...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
 - merge:
@@ -88,7 +84,7 @@ installer:
         initx0: 0
         inity0: 0
         lang0: 0
-        launchpath0: C:\Program Files (x86)\Microsoft Games\Age of Empires\Empires.exe
+        launchpath0: C:\Program Files (x86)\Microsoft Games\Age of Empires\Empiresx.exe
         maxddinterface0: 7
         maxfps0: 0
         maxres0: -1
@@ -100,7 +96,7 @@ installer:
         monitorid0: -1
         notes0: None
         opengllib0: None
-        path0: C:\Program Files (x86)\Microsoft Games\Age of Empires\empires.exe
+        path0: C:\Program Files (x86)\Microsoft Games\Age of Empires\empiresx.exe
         posx0: 50
         posy0: 50
         registry0: None
@@ -112,7 +108,7 @@ installer:
         startfolder0: C:\Program Files (x86)\Microsoft Games\Age of Empires\
         swapeffect0: 0
         tflag0: 0
-        title0: Age of Empires
+        title0: Age of Empires - Rise of Rome
         ver0: 0
         winver0: 0
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
@@ -127,11 +123,6 @@ installer:
     - sp: Spanish
     - po: Portuguese
     preselect: en
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires";
-      ls | grep -iw avi | xargs rm -fr; ls | grep -i empires.exe | xargs rm; ls |
-      grep -i language.dll | xargs rm; cp "$GAMEDIR/drive_c/tmp/exe/empires.exe" .
-      ; cp "$GAMEDIR/drive_c/tmp/$INPUT_LANG/"* . ;
 - task:
     arch: win64
     key: csmt
@@ -149,12 +140,25 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
+    app: directplay
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: icodecs
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
     app: win7
     name: winetricks
     prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires";
+      ls | grep -iw avi | xargs rm -fr; ls | grep -i empires.exe | xargs rm; ls |
+      grep -i empiresx.exe | xargs rm; ls | grep -i language.dll | xargs rm; cp "$GAMEDIR/drive_c/tmp/exe/"*
+      . ; cp "$GAMEDIR/drive_c/tmp/$INPUT_LANG/"* . ;
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires/AVI/
-    src: $DISC/GAME/AVI
+    src: $DISC/game/AVI
 wine:
   Desktop: true
 

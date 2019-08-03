@@ -1,0 +1,40 @@
+game:
+  main_file: $GAMEDIR/versailles_1685.conf
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: DATAS_V/CDVER1.BIN
+- merge:
+    dst: $GAMEDIR/CD
+    src: $DISC
+- insert-disc:
+    description: Please insert disc 2
+    requires: DATAS_V/CDVER2.BIN
+- execute:
+    command: cd $GAMEDIR; cp -fR $DISC/* $GAMEDIR/CD/;
+- task:
+    commands:
+    - 'd:'
+    - D:\INSTALL.EXE
+    - exit
+    drives:
+      c: $GAMEDIR
+      d: $GAMEDIR/CD
+    name: makeconfig
+    path: $GAMEDIR/versailles_1685_install.conf
+- task:
+    commands:
+    - 'c:'
+    - cd VERSAILL
+    - VERSAILL.EXE
+    - exit
+    drives:
+      c: $GAMEDIR
+      d: $GAMEDIR/CD
+    name: makeconfig
+    path: $GAMEDIR/versailles_1685.conf
+- task:
+    config_file: $GAMEDIR/versailles_1685_install.conf
+    name: dosexec
+    working_dir: $GAMEDIR
+

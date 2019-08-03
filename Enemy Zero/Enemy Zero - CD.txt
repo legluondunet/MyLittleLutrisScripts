@@ -1,0 +1,73 @@
+execute:
+  command: cd $GAMEDIR/drive_c/SEGA/Enemy Zero/; rm -f -r 3Dfx MS Doc;
+files:
+- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+game:
+  exe: drive_c/SEGA/Enemy Zero/EZERO.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing "Enemy Zero" folder
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert "Enemy Zero" CD1 and press autodetect
+    requires: ezero/e0l.exe
+- task:
+    args: /desktop=EnemyZero,1024x780 $DISC/ezero/e0l.exe
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/SEGA/Enemy Zero/
+    file: dgv
+- copy:
+    dst: $GAMEDIR/drive_c/SEGA/Enemy Zero/
+    src: $GAMEDIR/drive_c/SEGA/Enemy Zero/MS/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/SEGA/Enemy Zero/
+    src: $GAMEDIR/drive_c/SEGA/Enemy Zero/MS/D3DImm.dll
+- execute:
+    command: cd "$GAMEDIR/drive_c/SEGA/Enemy Zero/"; mv dgVoodoo.conf dgVoodoo_original.conf
+- write_config:
+    data:
+      DirectX:
+        ForceVerticalSync: true
+        Resolution: max_qhd_isf
+        VRAM: 256
+        dgVoodooWatermark: false
+      General:
+        CaptureMouse: false
+        FullScreenMode: false
+        ScalingMode: stretched_ar
+    file: $GAMEDIR/drive_c/SEGA/Enemy Zero/dgVoodoo.conf
+- task:
+    arch: win64
+    key: ddraw
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  dxvk: true
+
