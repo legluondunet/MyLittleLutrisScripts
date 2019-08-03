@@ -32,8 +32,8 @@ hb2=$(echo $hb |cut -c3-4)
 
 
 if [ $lang = "en" ] 
-mv RCT.EXE RCT.EXE.PACKED
-cp ../../tmp/RCT.EXE.EN RCT.EXE
+cp RCT.EXE RCT.EXE.PACKED
+cp ../../tmp/RCT.EXE.EN RCT.EXE.BAK
 elif [ ! -f "RCT.EXE.BAK" ]; then 
 cp RCT.EXE RCT.EXE.BAK
 elif [ -f "RCT.EXE.BAK" ]; then 
