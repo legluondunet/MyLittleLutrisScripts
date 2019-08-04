@@ -1,3 +1,4 @@
+custom-name: Syberia - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
 - nircmd: https://www.nirsoft.net/utils/nircmd-x64.zip

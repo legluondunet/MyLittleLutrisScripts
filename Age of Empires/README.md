@@ -12,8 +12,10 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - 1.0c update
-- support multilanguage cd install: eng,fra,ger,ita,por,spa
-- you will need the cd only one time during install
+- Support multilanguage cd install: eng,fra,ger,ita,por,spa
+- You will need the cd only one time during install
+- Please report issue concerning this script on my github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
 
 #Age of Empires - Rise of Rome - CD
 
@@ -29,8 +31,10 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - 1.0c update for AOE et 1.0a update for ROR
-- support multilanguage cd install: eng,fra,ger,ita,por,spa
-- you will need the 2 cd only one time during install
+- Support multilanguage cd install: eng,fra,ger,ita,por,spa
+- You will need the 2 cd only one time during install
+- Please report issue concerning this script on my github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
 
 #Age of Empires - Gold Edition - CD
 
@@ -46,5 +50,7 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - 1.0c update for AOE et 1.0a update for ROR
-- support multilanguage cd install: eng,fra,ger,ita,por,spa
-- you will need the cd only one time during install
+- Support multilanguage cd install: eng,fra,ger,ita,por,spa
+- You will need the cd only one time during install
+- Please report issue concerning this script on my github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/

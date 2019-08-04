@@ -1,4 +1,4 @@
-custom-name: RUNE Linux CD
+custom-name: RUNE - CD - Linux
 files:
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_gamepad_readme.html
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_x360.gamecontroller.amgp

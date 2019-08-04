@@ -1,4 +1,4 @@
-custom-name: RUNE Classic GOG
+custom-name: RUNE Classic - GOG
 files:
 - setup: N/A:Select the EXE downloaded from GOG
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/gamepad%20profiles/rune_gamepad_readme.html

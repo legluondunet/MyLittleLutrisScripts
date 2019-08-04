@@ -1,4 +1,4 @@
-# MLLS - Indiana Jones and the Emperor's Tomb Gog edition
+# Indiana Jones and the Emperor's Tomb - GOG
 
 Description:
 This script will install "Indiana Jones and the Emperor's Tomb" Gog edition with support for modern resolution.
@@ -10,4 +10,6 @@ gnuwin32: https://sourceforge.net/projects/gnuwin32/
 Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
-- as IJET has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- IJET has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- Please report issue concerning this script on my github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
