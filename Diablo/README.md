@@ -1,4 +1,3 @@
-# MLLS
 # Diablo GOG + Devilutionx win32 version 
 
 This script will install "Diabo" Gog edition win32 DevilutionX port.
@@ -9,6 +8,16 @@ During install please let all options by default.
 This script uses different projects:
 DevilutionX: https://github.com/diasurgical/devilutionX
 innoextract: http://constexpr.org/innoextract/
+
+# Diablo GOG + Devilutionx Linux 64 bits version 
+
+Description:
+This script will install "Diablo" GOG edition with DevilutionX Linux native 64 bits port. It has multiplayer  and  others new features/corrected bugs. 
+During install please let all options by default.
+This script uses different projects:
+DevilutionX: https://github.com/diasurgical/devilutionX
+innoextract: http://constexpr.org/innoextract/
+Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 # Diablo GOG + Tchernobog
 

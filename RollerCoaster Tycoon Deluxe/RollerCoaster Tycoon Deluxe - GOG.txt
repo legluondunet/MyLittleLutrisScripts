@@ -1,7 +1,8 @@
 files:
 - setup: N/A:Select the Windows installer downloaded from GOG
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/rct_multi5_exe.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/resolution.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/resolang.sh
+- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/Game.cfg
 game:
   exe: drive_c/GOG Games/RollerCoaster Tycoon Deluxe/RCT.EXE
   prefix: $GAMEDIR
@@ -30,11 +31,13 @@ installer:
     - it: Italian
     - sp: Spanish
     preselect: en
-- task:
+- chmodx: script
+- execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT $INPUT_LANG
-    executable: script
-    name: wineexec
-    prefix: $GAMEDIR
+    file: script
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/RollerCoaster Tycoon Deluxe/Data
+    src: config
 - task:
     arch: win64
     key: csmt
