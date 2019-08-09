@@ -1,4 +1,4 @@
-custom-name: Versailles 1685 - CD DOS - ScummVM
+custom-name: Versailles 1685 - CD DOS/Windows - ScummVM
 files:
 - dat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Versailles%201685/cryomni3d.dat
 game:
@@ -9,19 +9,42 @@ installer:
     description: Please insert "Versailles 1685" CD 1
     requires: DATAS_V/CDVER1.BIN
 - merge:
-    dst: $GAMEDIR/Versailles 1685/
-    src: $DISC/DATAS_V/
-- copy:
-    dst: $GAMEDIR/Versailles 1685/
-    src: $DISC/INSTALL/VERSAILL.PGM
-- execute:
-    command: cp -fR $DISC/INSTALL/DATAS_V/* "$GAMEDIR/Versailles 1685/"
+    dst: $GAMEDIR/Versailles 1685/cd1
+    src: $DISC
 - insert-disc:
     description: Please insert "Versailles 1685" 2
     requires: DATAS_V/CDVER2.BIN
+- merge:
+    dst: $GAMEDIR/Versailles 1685/cd2
+    src: $DISC
 - execute:
-    command: cp -fR $DISC/DATAS_V/* "$GAMEDIR/Versailles 1685/"; chmod +rw -R *
+    command: cd "$GAMEDIR/Versailles 1685/"; chmod -R +rw *; for SRC in `find * -depth`/;
+      do DST=`dirname "${SRC}"`/`basename "${SRC}" | tr '[a-z]' '[A-Z]'`; if [ "${SRC}"
+      != "${DST}" ]; then  [ ! -e "${DST}" ] && mv -T "${SRC}" "${DST}" || echo "${SRC}
+      was not renamed"; fi; done;
+- merge:
+    dst: $GAMEDIR/Versailles 1685/
+    src: $GAMEDIR/Versailles 1685/CD1/DATAS_V/
+- execute:
+    command: cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATA/"* "$GAMEDIR/Versailles
+      1685"; cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/WIN/PROGRAM.Z" "$GAMEDIR/Versailles
+      1685/";
+    description: in case of CD hybrid DOS/Windows
+- execute:
+    command: cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATAS_V/"* "$GAMEDIR/Versailles
+      1685"; cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/VERSAILL.PGM" "$GAMEDIR/Versailles
+      1685/";
+    description: in case of CD DOS
+- merge:
+    dst: $GAMEDIR/Versailles 1685/
+    src: $GAMEDIR/Versailles 1685/CD2/DATAS_V/
 - copy:
     dst: $GAMEDIR/Versailles 1685/
     src: dat
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/Versailles 1685/CD1
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/Versailles 1685/CD2
 
