@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cdname=$1
 
 drive=$(mount |grep /media/romain/$cdname |cut -d " " -f 1)
