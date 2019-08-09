@@ -13,7 +13,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 # Versailles 1685 - CD DOS/Windows - DOSBOX
 
 Description:
-This script will install "Versailles 1685" DOS/Windows CD edition for Dosbox./p
+This script will install "Versailles 1685" DOS/Windows CD edition for Dosbox.
 During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
