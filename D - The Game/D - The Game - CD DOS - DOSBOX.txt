@@ -1,41 +1,35 @@
 custom-name: D - The Game - CD DOS - DOSBOX
+files:
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tools/Scripts/copycd.sh
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman/rayman_dosbox.conf
 game:
-  main_file: $GAMEDIR/D.conf
+  main_file: $GAMEDIR/D_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc 1
     requires: d/laura.exe
-- merge:
-    dst: $GAMEDIR/CD
-    src: $DISC
+- chmodx: script
+- execute:
+    args: D_
+    file: script
 - insert-disc:
     description: Please insert disc 2
     requires: efc/baby.raw
 - execute:
-    command: cd $GAMEDIR; cp -fR $DISC/* $GAMEDIR/CD/;
+    args: disk
+    file: script
 - task:
     commands:
+	- imgmount d "disk.cue" "D_.cue"
     - 'd:'
     - call D:\install.bat
     - exit
     drives:
-      c: $GAMEDIR
-      d: $GAMEDIR/CD
+      c: .
     name: makeconfig
     path: $GAMEDIR/D_install.conf
 - task:
-    commands:
-    - 'c:'
-    - cd c:\ACCLAIM\D
-    - LAURA.EXE
-    - exit
-    drives:
-      c: $GAMEDIR
-      d: $GAMEDIR/CD
-    name: makeconfig
-    path: $GAMEDIR/D.conf
-- task:
-    config_file: $GAMEDIR/D_install.conf
+    config_file: $GAMEDIR/D_dosbox_install.conf
     name: dosexec
     working_dir: $GAMEDIR
 

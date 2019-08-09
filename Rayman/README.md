@@ -1,4 +1,4 @@
-Rayman - CD DOS - DOSBOX
+# Rayman - CD DOS - DOSBOX
 
 Description:
 This script will install "Rayman" DOS CD edition for Dosbox.
@@ -10,5 +10,6 @@ Technical notes:
 On Debian and Ubuntu type in a terminal: 
 sudo apt-get install cdrdao
 - You will need the CD only one time during install
+- x360 gamepad support
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
