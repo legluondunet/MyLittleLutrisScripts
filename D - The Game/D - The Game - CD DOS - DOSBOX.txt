@@ -18,9 +18,13 @@ installer:
 - execute:
     args: D_
     file: script
+- execute:
+    command: cd $GAMEDIR; rm -f -r *.toc; mv disk.cue D_CD1.cue; mv disk.bin D_CD1.bin;
+      mv D_.cue D_CD2.cue; mv D_.bin D_CD2.bin; sed -i 's/disk.bin/D_CD1.bin/g' D_CD1.cue;
+      sed -i 's/D_.bin/D_CD2.bin/g' D_CD2.cue
 - task:
     commands:
-    - imgmount d "disk.cue" "D_.cue" -t iso
+    - imgmount d "D_CD1.cue" "D_CD2.cue" -t iso
     - 'd:'
     - call D:\install.bat
     - exit

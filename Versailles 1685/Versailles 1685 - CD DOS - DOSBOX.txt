@@ -1,9 +1,9 @@
 custom-name: Versailles 1685 - CD DOS/Windows - DOSBOX
 files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tools/Scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Versailles%201685/versailles_1685.conf
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Versailles%201685/versailles-1685_dosbox.conf
 game:
-  main_file: $GAMEDIR/versailles_1685.conf
+  main_file: $GAMEDIR/versailles-1685_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc 1
@@ -27,9 +27,9 @@ installer:
     drives:
       c: .
     name: makeconfig
-    path: $GAMEDIR/versailles_1685_install.conf
+    path: $GAMEDIR/versailles-1685_dosbox_install.conf
 - task:
-    config_file: $GAMEDIR/versailles_1685_install.conf
+    config_file: $GAMEDIR/versailles-1685_dosbox_install.conf
     name: dosexec
     working_dir: $GAMEDIR
 - copy:
