@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $GAMEDIR
+cd "GOG Games/Rayman Forever"
 rm -f -r app/ commonappdata/ DOSBOX/ __redist/ __support/ tmp/ goggame-1207658919.* 
 sed -i 's=Music\\=Music/=g' game.ins
 cd Dosbox
