@@ -1,7 +1,10 @@
 custom-name: Alone in the Dark - The New Nightmare - GOG
 files:
 - aitd4: N/A:Please select the GOG installer
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare/gamepad%20profiles/aitd4_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare/gamepad%20profiles/aitd4_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare/gamepad%20profiles/aitd4_steam.sccprofile
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
