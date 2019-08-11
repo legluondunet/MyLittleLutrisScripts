@@ -1,3 +1,4 @@
+custom-name: Tom Clancy's Splinter Cell - GOG
 files:
 - scg: N/A:Please select the GOG installer
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip

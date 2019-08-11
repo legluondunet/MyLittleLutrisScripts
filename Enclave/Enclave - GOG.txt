@@ -1,3 +1,4 @@
+custom-name: Enclave - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/ENCLAVEM1.BAT

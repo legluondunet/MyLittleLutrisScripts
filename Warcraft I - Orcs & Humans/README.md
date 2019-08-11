@@ -1,13 +1,11 @@
-# Tom Clancy's Splinter Cell GOG - GOG - Wine
+# Shivers - CD - ScummVM
 
 Description:
-This script will install "Tom Clancy's Splinter Cell" Gog edition with support for modern resolution.
+This script will install "Warcraft I - Orcs & Humans" GOG edition for Dosbox.
 During install please let all options by default.
-This script uses different projects:
-dgVoodoo2: http://www.dege.freeweb.hu/
-ThirteenAG: https://thirteenag.github.io/wfp#sc
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
+- If you don't have music background at aim menu or during gaming, launch the setup program (option 2) and change the music sound card by a "Sound Blaster Pro II/SB 16".
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
