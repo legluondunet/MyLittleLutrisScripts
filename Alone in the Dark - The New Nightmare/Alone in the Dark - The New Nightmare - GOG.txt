@@ -1,6 +1,7 @@
+custom-name: Alone in the Dark - The New Nightmare - GOG
 files:
 - aitd4: N/A:Please select the GOG installer
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_14_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -25,8 +26,6 @@ installer:
         coord0: 3
         dflag0: 0
         dflag1: 0
-        fakec0: null
-        faked0: null
         filterid0: 0
         filterid1: 0
         flag0: 673185824
@@ -55,17 +54,11 @@ installer:
         maxy0: 0
         minx0: 0
         miny0: 0
-        module0: null
-        module1: null
         monitorid0: -1
         monitorid1: 0
-        notes0: null
-        opengllib0: null
-        opengllib1: null
         path0: C:\GOG Games\Alone in the Dark - The New Nightmare\alone4.exe
         posx0: 50
         posy0: 50
-        registry0: null
         renderer0: 3
         renderer1: 3
         scanline0: 0
@@ -73,7 +66,6 @@ installer:
         sizx0: 800
         sizy0: 600
         slowratio0: 2
-        startfolder0: null
         swapeffect0: 0
         tflag0: 0
         title0: Alone In The Dark - The New Nightmare

@@ -1,3 +1,4 @@
+custom-name: Beyond Good & Evil - GOG
 files:
 - setup: N/A:Select the EXE downloaded from GOG
 - wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/bgewidescreen.zip
