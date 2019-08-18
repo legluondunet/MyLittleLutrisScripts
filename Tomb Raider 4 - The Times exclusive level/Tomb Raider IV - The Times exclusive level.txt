@@ -1,4 +1,4 @@
-custom-name: Tomb Raider 4 - The Times exclusive level
+custom-name: Tomb Raider IV - The Times exclusive level
 files:
 - setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip

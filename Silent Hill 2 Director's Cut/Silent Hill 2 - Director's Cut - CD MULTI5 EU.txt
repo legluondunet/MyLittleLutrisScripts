@@ -1,3 +1,4 @@
+custom-name: Silent Hill 2 - CD
 files:
 - sh2proxy: https://github.com/emoose/sh2proxy/releases/download/v0.1/sh2proxy_0.1.zip
 - sh2e1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip

@@ -84,6 +84,34 @@ installer:
         sizx: 320
         sizy: 225
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/gamepad
+      profiles/
+    src: gpreadme
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/gamepad
+      profiles/
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/gamepad
+      profiles/
+    src: gpsteam
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 wine:
   Desktop: true
 

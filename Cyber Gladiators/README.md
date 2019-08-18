@@ -1,4 +1,4 @@
-# Cyber Gladiators CD
+# Cyber Gladiators - CD
 
 Description:
 This script will install "Cyber Gladiators" CD edition with support for modern computer configuration.
@@ -8,7 +8,7 @@ DxWnd: https://sourceforge.net/projects/dxwnd/
 NGlide: http://www.zeus-software.com/
 GNU32 tools: http://gnuwin32.sourceforge.net/
 Mplayer: http://www.mplayerhq.hu/design7/news.html
-sox: http://sox.sourceforge.net/
+Sox: http://sox.sourceforge.net/
 Thanks to the people who helped us play this game in the best conditions.
 
 Technical notes:

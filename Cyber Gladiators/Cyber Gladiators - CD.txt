@@ -1,3 +1,4 @@
+custom-name: Cyber Gladiators - CD
 files:
 - ngl:
     filename: nGlide210_setup.exe
@@ -152,4 +153,3 @@ installer:
     src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
-

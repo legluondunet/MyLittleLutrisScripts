@@ -1,3 +1,4 @@
+custom-name: X-Men Origins - Wolverine - DVD
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/X-Men%20Origins%20-%20Wolverine/wolv.zip
 game:
@@ -41,4 +42,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-

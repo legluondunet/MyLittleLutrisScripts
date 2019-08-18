@@ -1,7 +1,7 @@
-#Tomb Raider III - The Lost Artefact - Gog
+#Tomb Raider III - The Lost Artefact - CD
 
 Description:
-This script will install "Tomb Raider III: The Last Artefact" CD edition with support for modern resolution.
+This script will install "Tomb Raider III: The Lost Artefact" CD edition with support for modern resolution.
 During install please let all options by default.
 This script uses different projects:
 dgVoodoo2: http://www.dege.freeweb.hu/

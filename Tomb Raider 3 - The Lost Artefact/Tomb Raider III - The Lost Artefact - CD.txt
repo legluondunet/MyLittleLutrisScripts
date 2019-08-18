@@ -1,4 +1,4 @@
-custom-name: Tomb Raider III - The Lost Artefact
+custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
 - arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
@@ -18,7 +18,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    description: Please insert "Tomb Raider III - The Last Artefact" CD and press
+    description: Please insert "Tomb Raider III - The Lost Artefact" CD and press
       "Autodetect"
     requires: data/trtla.dat
 - merge:

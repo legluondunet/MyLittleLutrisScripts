@@ -1,5 +1,4 @@
-execute:
-  command: cd $GAMEDIR/drive_c/SEGA/Enemy Zero/; rm -f -r 3Dfx MS Doc;
+custom-name: Enemy Zero - CD
 files:
 - dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
 game:
@@ -43,6 +42,8 @@ installer:
         FullScreenMode: false
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/SEGA/Enemy Zero/dgVoodoo.conf
+- execute:
+    command: cd "$GAMEDIR/drive_c/SEGA/Enemy Zero/"; rm -f -r 3Dfx MS Doc;
 - task:
     arch: win64
     key: ddraw
