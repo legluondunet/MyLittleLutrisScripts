@@ -8,11 +8,11 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER 2 GOG Edition
+echo.	TOMB RAIDER II GOG Edition
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider 2
-echo.	2) Tomb Raider 2 - Golden Mask
+echo.	1) Tomb Raider II
+echo.	2) Tomb Raider II - Golden Mask
 echo.	3) Setup dialog box
 echo.	4) How to play TR2 with a gamepad
 echo.	5) exit

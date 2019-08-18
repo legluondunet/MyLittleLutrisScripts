@@ -8,10 +8,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	Tomb Raider 4 - The Times exclusive level
+echo.	Tomb Raider IV - The Times exclusive level
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider 4 - The Times exclusive level
+echo.	1) Tomb Raider IV - The Times exclusive level
 echo.	2) Bonus: play Tomb Raider Jigsaw
 echo.	3) Bonus: play Tomb Raider Clicker
 echo.	4) Setup dialog box

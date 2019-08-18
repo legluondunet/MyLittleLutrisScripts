@@ -8,10 +8,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER 3 GOG Edition
+echo.	TOMB RAIDER III GOG Edition
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider 3
+echo.	1) Tomb Raider III
 echo.	2) Setup dialog box
 echo.	3) How to play TR3 with a gamepad
 echo.	4) exit

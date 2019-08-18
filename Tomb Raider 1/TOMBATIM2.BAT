@@ -7,11 +7,11 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER 1 GOG Edition + GLRage + HD Textures
+echo.	TOMB RAIDER I GOG Edition + GLRage + HD Textures
 echo.	------------------------------------------------
 echo.
-echo.	1) Tomb Raider 1 GLRage
-echo.	2) Tomb Raider 1 Unfinished Business GLRage
+echo.	1) Tomb Raider I GLRage
+echo.	2) Tomb Raider I Unfinished Business GLRage
 echo.	3) TombATI configure HD textures
 echo.	4) How to play TR1 with a gamepad
 echo.	5) exit
