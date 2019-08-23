@@ -70,5 +70,5 @@ installer:
         CaptureMouse: false
     file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/dgVoodoo.conf
 wine:
+  Desktop: true
   dxvk: true
-
