@@ -1,17 +1,35 @@
 custom-name: The Longest Journey - GOG - ResidualVM
 files:
-- tljsetup: N/A:Select the EXE downloaded from GOG
 - innoextract: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
+- multi5:
+    filename: tlj_multi5_sub.zip
+    url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
+- setup: N/A:Select the EXE downloaded from GOG
 game:
-  game_id: tlj-win
+  game_id: tlj
   path: $GAMEDIR/GOG Games/The Longest Journey/
 installer:
 - extract:
     dst: $CACHE/innoextract
     file: innoextract
 - execute:
-    args: --extract $tljsetup --output-dir $CACHE/tlj/
+    args: --extract $setup --output-dir "$GAMEDIR/The Longest Journey"
     file: $CACHE/innoextract/innoextract
-- merge:
-    dst: $GAMEDIR/GOG Games/The Longest Journey
-    src: $CACHE/tlj
+- extract:
+    dst: $GAMEDIR/tmp
+    file: multi5
+- input_menu:
+    description: 'Choose the game''s language for inteface and subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - it: Italian
+    - sp: Spanish
+    preselect: en
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
+

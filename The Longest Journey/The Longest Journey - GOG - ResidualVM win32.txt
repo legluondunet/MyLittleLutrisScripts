@@ -1,18 +1,64 @@
-custom-name: The Longest Journey - GOG - ResidualVM
+custom-name: The Longest Journey - GOG - ResidualVM win32
 files:
-- tljsetup: N/A:Select the EXE downloaded from GOG
-- innoextract: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- rvm: https://www.residualvm.org/downloads/residualvm-win32.exe
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
+- multi5:
+    filename: tlj_multi5_sub.zip
+    url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
+- install: N/A:Please select the GOG installer
 game:
-  game_id: tlj-win
-  path: $GAMEDIR/GOG Games/TLJ/
+  args: -p "c:\GOG Games\The Longest Journey" --auto-detect --game=tlj-win --fullscreen
+    --subtitles
+  exe: drive_c/ResidualVM/residualvm.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Preparing Wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/innoextract
-    file: innoextract
+    dst: $CACHE
+    file: inno
 - execute:
-    args: --extract $tljsetup --output-dir $CACHE/tlj/
-    file: $CACHE/innoextract/innoextract
-- merge:
-    dst: $GAMEDIR/GOG Games/TLJ/
-    src: $CACHE/tlj
+    args: -d "$GAMEDIR/drive_c/The Longest Journey" "$install"
+    file: $CACHE/innoextract
+- execute:
+    args: -d "$GAMEDIR/drive_c/ResidualVM" "$rvm"
+    file: $CACHE/innoextract
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: multi5
+- input_menu:
+    description: 'Choose the game''s language for inteface and subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - it: Italian
+    - sp: Spanish
+    preselect: en
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+wine:
+  Desktop: true
 
