@@ -21,13 +21,12 @@ cd ..
 fi
 
 
-if [ "$lang" == "en" ]; then
-echo "english version is already installed (default)"
-exit
-else
+if [ "$lang" != "en" ]; then
 cd tmp/$lang
 echo installing $lang files...
 cp -R * "../../GOG Games/The Longest Journey"
-fi
 cd ../..
+else
+echo "english version is already installed (default)"
+fi
 rm -f -r tmp
