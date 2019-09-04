@@ -1,12 +1,10 @@
-Rayman Origins - GOG
+# Call of Cthulhu - Prisoner of Ice - GOG
 
 Description:
-This script will install "Rayman Origins" GOG edition.
+This script will install "Call of Cthulhu: Prisoner of Ice" GOG edition for Dosbox.
 During install please let all options by default.
-This script uses kozec dumbxinputemu: https://github.com/kozec/dumbxinputemu
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
-- x360 gamepad compatible
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
