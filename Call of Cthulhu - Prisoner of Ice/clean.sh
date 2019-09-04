@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mv __support/app dosbox_conf
-mv Dosbox/ICE/ .
+mv dosbox_conf/ICE/ .
 rm -f -r DOSBOX/ __support/ gog* webcache.zip
 cd dosbox_conf
 
