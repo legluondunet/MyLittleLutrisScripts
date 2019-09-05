@@ -1,5 +1,10 @@
 #!/bin/bash
 
+lang=$1
+echo installing $lang files
+cp -f tmp/$lang/* TREKCD
+
+
 mv __support/app dosbox_conf
 rm -f -r app DOSBOX/ __support/ gog* __redist tmp commonappdata
 cd dosbox_conf
