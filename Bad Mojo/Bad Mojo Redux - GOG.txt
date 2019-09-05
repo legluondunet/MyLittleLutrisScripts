@@ -1,0 +1,37 @@
+custom-name: Bad Mojo Redux - GOG
+files:
+- install: N/A:Please select the GOG installer
+game:
+  exe: drive_c/GOG Games/Bad Mojo/launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing Wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES /SILENT
+    description: Installing...
+    executable: install
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+wine:
+  Desktop: true
+

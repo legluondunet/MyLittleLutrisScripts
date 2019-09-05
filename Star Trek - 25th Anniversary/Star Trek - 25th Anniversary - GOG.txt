@@ -1,0 +1,23 @@
+custom-name: Star Trek - 25th Anniversary - GOG
+files:
+- install: N/A:Please select the GOG installer
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Call%20of%20Cthulhu%20-%20Prisoner%20of%20Ice/clean.sh
+game:
+  config_file: $GAMEDIR/dosbox_conf/dosbox_poi_single.conf
+  main_file: dosbox_conf/dosbox_poi.conf
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" "$install"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/app
+- chmodx: script
+- execute:
+    file: script
+
