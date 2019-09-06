@@ -7,7 +7,7 @@ echo installing $lang files...
 
 for i in {0,1,2,3,4} 
 do
-	sed -i -e 's/\x31\x0'$i'\xff\x03/\x31\x0'$lang'\xff\x03/g' INDARK2/INDARK2.CFG
+	sed -i -e 's/\x31\x0'$i'\xff\x03/\x31\x0'$lang'\xff\x03/g' "INDARK2/INDARK2.CFG"
 done
 
 mv __support/app dosbox_conf
