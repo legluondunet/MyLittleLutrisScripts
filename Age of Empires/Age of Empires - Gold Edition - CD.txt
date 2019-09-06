@@ -1,4 +1,4 @@
-custom-name: Age of Empires I - Gold edtion
+custom-name: Age of Empires I - Gold edtion - CD
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat

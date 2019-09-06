@@ -39,7 +39,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 #Age of Empires - Gold Edition - CD
 
 Description:
-This script will install "Age of Empires I - Gold edition" with support for modern resolution.
+This script will install "Age of Empires I - Gold edition" CD with support for modern resolution.
 During install please let all options by default.
 This script uses different projects:
 DxWnd: https://sourceforge.net/projects/dxwnd/
