@@ -16,6 +16,7 @@ rm -f -r app commonappdata/ DOSBOX/ __redist/ __support/ tmp/ gog*
 cd dosbox_conf
 
 sed -i 's=..\\=../=g' dosboxAlone3_single.conf
+sed -i 's=GAME.\INS=game.\ins=g' dosboxAlone3_single.conf
 
 sed -i 's/fullscreen=true/fullscreen=false/g' dosboxAlone3.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosboxAlone3.conf
