@@ -13,18 +13,7 @@ installer:
 - execute:
     args: -d "$GAMEDIR" "$setup"
     file: $CACHE/innoextract
-- input_menu:
-    description: Please choose your preferred game's text language
-    id: LANG
-    options:
-    - 0: "Fran\xE7ais"
-    - 1: English
-    - 2: "Espa\xF1ol"
-    - 3: Deutsch
-    - 4: Italiano
-    preselect: 1
 - chmodx: script
 - execute:
-    args: $INPUT_LANG
     file: script
 

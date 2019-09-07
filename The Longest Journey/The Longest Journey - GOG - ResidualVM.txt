@@ -5,6 +5,7 @@ files:
 - multi5:
     filename: tlj_multi5_sub.zip
     url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
+- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/engines.zip
 - setup: N/A:Select the EXE downloaded from GOG
 game:
   game_id: tlj
@@ -33,6 +34,9 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
+- extract:
+    dst: $GAMEDIR/GOG Games/The Longest Journey/engines
+    file: rvmengine
 residualvm:
   fullscreen: true
 
