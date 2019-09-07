@@ -7,8 +7,8 @@ echo installing $lang files...
 for i in {0,1,2,3,4} 
 do
 	sed -i -e 's/\x30\x0'$i'\x04\x03/\x30\x0'$lang'\x04\x03/g' "INFOGRAM/SHADOW.CD/SHADO_CD.CFG"
+	sed -i -e 's/\x30\x0'$i'\x04\x03/\x30\x0'$lang'\x04\x03/g' "CD/SHADO_CD.CFG"
 done
-cp -R "tmp/$lang/"* 
 
 mv __support/app dosbox_conf
 rm -f -r app commonappdata/ DOSBOX/ __redist/ gog* __support/ tmp/
