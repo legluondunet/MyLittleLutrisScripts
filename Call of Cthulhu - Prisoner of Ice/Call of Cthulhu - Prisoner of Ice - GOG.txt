@@ -5,8 +5,7 @@ files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Call%20of%20Cthulhu%20-%20Prisoner%20of%20Ice/clean.sh
 game:
   config_file: $GAMEDIR/dosbox_conf/dosbox_poi_single.conf
-  main_file: dosbox_conf/dosbox_poi.conf
-  prefix: $GAMEDIR
+  main_file: $GAMEDIR/dosbox_conf/dosbox_poi.conf
 installer:
 - extract:
     dst: $CACHE

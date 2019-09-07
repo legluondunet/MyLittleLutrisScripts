@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #Pour changer la langue du jeu:
-#copier les fichiers du répertoire music 22, puis 24  à 60.
+#copier les fichiers du répertoire music 22, puis 24  à 61.
 #ajouter le fichier des textes (english.pak, francais.pak, italiano.pak, deutsch.pak)
-#et enfin patcher le fichierINDARK3.CFG comme suit:
+#et enfin patcher le fichier INDARK3.CFG comme suit:
 #lang=$1
 #echo $lang
 

@@ -19,6 +19,5 @@ installer:
     src: $CACHE/app
 - chmodx: script
 - execute:
-    args: $INPUT_LANG
     file: script
 

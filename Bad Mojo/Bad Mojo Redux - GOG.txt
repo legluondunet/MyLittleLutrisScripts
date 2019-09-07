@@ -32,6 +32,8 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+system:
+  reset_desktop: true
 wine:
-  Desktop: true
+  Desktop: false
 
