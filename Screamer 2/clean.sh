@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm -f -r DOSBOX/ gog* nglide* support.ico GameuxInstallHelper.dll gfw_high.ico
-
+rm -f -r DOSBOX/ gog* nglide* support.ico GameuxInstallHelper.dll gfw_high.ico support.ico
+mv glide2x.dll glide2x.dll.bak
 for i in dosbox_screamer2_*; do
     sed -i 's=.\\=./=g'  $i
     sed -i 's=\.\.=\.=g' $i

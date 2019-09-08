@@ -1,10 +1,10 @@
-custom-name: Tomb Raider II Gold
+custom-name: Tomb Raider II Gold - GOG
 files:
-- installer: N/A:Select the installer downloaded from GOG
+- setup: N/A:Select the installer downloaded from GOG
 - tr2main: https://github.com/Arsunt/TR2Main/releases/download/v0.8.2/TR2Main_v0.8.2.zip
 - ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%202/gold.zip
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%202/zplaymm.zip
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
     2/TR2M1.BAT
@@ -16,7 +16,7 @@ files:
     Raider 2/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb
     Raider 2/gamepad%20profiles/tr1-2_gamepad_readme.html
-- cscript: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb Raider
     2/clean.sh
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%202/tr2.bmp
 game:
@@ -32,7 +32,7 @@ installer:
     dst: $CACHE
     file: inno
 - execute:
-    args: -d "$CACHE" "$installer"
+    args: -d "$CACHE" "$setup"
     file: $CACHE/innoextract
 - move:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
@@ -47,10 +47,10 @@ installer:
     file: dgv
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/DDraw.dll
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/D3DImm.dll
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 2/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:
@@ -154,9 +154,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
-- chmodx: cscript
+- chmodx: script
 - execute:
-    file: cscript
+    file: script
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 2 Golden Mask/data/
     src: ext

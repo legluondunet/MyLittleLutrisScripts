@@ -1,11 +1,10 @@
 #Tomb Raider III - Adventures of Lara Croft - Gog
 
 Description:
-This script will install "Tomb Raider III - Adventures of Lara Croft" Gog edition with support for modern resolution.
+This script will install "Tomb Raider III - Adventures of Lara Croft" Gog edition with support for modern computer config.
 During install please let all options by default.
 This script uses different projects:
 dgVoodoo2: http://www.dege.freeweb.hu/
-Innoextract: http://constexpr.org/innoextract/
 Arsunt Patch FOV FMV Sunglasses: https://www.tombraiderforums.com/index.php
 Thanks to the people who contributed to play this game in the best conditions.
 
