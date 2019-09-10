@@ -1,7 +1,7 @@
 # Tom Clancy's Splinter Cell GOG - GOG - Wine
 
 Description:
-This script will install "Tom Clancy's Splinter Cell" Gog edition with support for modern resolution.
+This script will install "Tom Clancy's Splinter Cell" Gog edition with support for modern computer config.
 During install please let all options by default.
 This script uses different projects:
 dgVoodoo2: http://www.dege.freeweb.hu/

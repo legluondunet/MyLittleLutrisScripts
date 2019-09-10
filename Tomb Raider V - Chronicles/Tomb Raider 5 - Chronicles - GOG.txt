@@ -1,14 +1,14 @@
-custom-name: Tomb Raider V - Chronicles
+custom-name: Tomb Raider V - Chronicles - GOG
 files:
 - installer: N/A:Select the installer downloaded from GOG
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/TR5CM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/TR5CM2.BAT
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/gamepad%20profiles/tr5_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/gamepad%20profiles/tr5_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/gamepad%20profiles/tr5_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%205%20-%20Chronicles/tr5c.bmp
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/TR5CM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/TR5CM2.BAT
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bmp
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
 game:
   exe: drive_c/GOG Games/Tomb Raider 5/TR5CM1.BAT
   prefix: $GAMEDIR
@@ -29,10 +29,10 @@ installer:
     file: dgv
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/MS/DDraw.dll
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/MS/D3DImm.dll
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 5/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:

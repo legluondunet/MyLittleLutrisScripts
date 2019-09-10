@@ -1,4 +1,4 @@
-# Tomb Raider II Gold - Gog
+# Tomb Raider II Gold - GOG
 
 Description:
 This script will install "Tomb Raider II" Gog edition with support for modern computer config.

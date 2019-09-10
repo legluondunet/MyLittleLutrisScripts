@@ -1,14 +1,14 @@
 custom-name: Tomb Raider IV - The Times exclusive level
 files:
-- setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/TR4TIMESM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/TR4TIMESM2.BAT
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Times%20exclusive%20level/tr4times.bmp
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%204%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
+- setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/TR4TIMESM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/TR4TIMESM2.BAT
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bmp
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
 game:
   exe: drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb Raider Level/TR4TIMESM1.BAT
   prefix: $GAMEDIR
@@ -36,12 +36,12 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level/
     src: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/MS/DDraw.dll
+      Raider Level/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level/
     src: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/MS/D3DImm.dll
+      Raider Level/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive
       Tomb Raider Level/"; mv dgVoodoo.conf dgVoodoo_original.conf

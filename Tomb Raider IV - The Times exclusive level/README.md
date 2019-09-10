@@ -1,4 +1,4 @@
-#Tomb Raider 4 - The Times exclusive level
+# Tomb Raider IV - The Times exclusive level
 
 Description:
 This script will install "Tomb Raider IV: The Times exclusive level" with support for modern resolution.

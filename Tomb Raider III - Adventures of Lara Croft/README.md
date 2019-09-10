@@ -1,4 +1,4 @@
-#Tomb Raider III - Adventures of Lara Croft - Gog
+# Tomb Raider III - Adventures of Lara Croft - Gog
 
 Description:
 This script will install "Tomb Raider III - Adventures of Lara Croft" Gog edition with support for modern computer config.

@@ -1,13 +1,13 @@
 custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
-- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%203%20-%20The%20Lost%20Artefact/tr3tla.bmp
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bmp
 game:
   exe: drive_c/TR3TLA/TR3TLAM1.BAT
   prefix: $GAMEDIR
@@ -34,10 +34,10 @@ installer:
     file: dgv
 - copy:
     dst: $GAMEDIR/drive_c/TR3TLA/
-    src: $GAMEDIR/drive_c/TR3TLA/MS/DDraw.dll
+    src: $GAMEDIR/drive_c/TR3TLA/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/TR3TLA/
-    src: $GAMEDIR/drive_c/TR3TLA/MS/D3DImm.dll
+    src: $GAMEDIR/drive_c/TR3TLA/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/TR3TLA/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:

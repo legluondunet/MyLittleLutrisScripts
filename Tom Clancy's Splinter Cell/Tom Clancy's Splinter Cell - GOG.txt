@@ -1,7 +1,7 @@
 custom-name: Tom Clancy's Splinter Cell - GOG
 files:
 - scg: N/A:Please select the GOG installer
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - scws: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/sc/SplinterCell.WidescreenFix.zip
 game:
   exe: drive_c/GOG Games/Splinter Cell/system/SplinterCell.exe
@@ -29,7 +29,7 @@ installer:
     file: dgv
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/
-    src: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/MS/D3D8.dll
+    src: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/MS/x86/D3D8.dll
 - task:
     arch: win64
     key: d3d8
@@ -72,3 +72,4 @@ installer:
 wine:
   Desktop: true
   dxvk: true
+

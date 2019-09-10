@@ -11,4 +11,4 @@ cp -r "Tomb Raider 2" "Tomb Raider 2 Golden Mask"
 
 cd "Tomb Raider 2 Golden Mask"
 rm -f -r Tomb2.gog "Tomb Raider"* *.BAT manual.pdf CHANGELOG.html COPYING.txt "gamepad profiles" "ExtraOptions" QuickGuide.html readme.txt fmv/* dgVoodoo_original.conf data/*
-cp "../Tomb Raider 2/fmv/LOGO.RPL" fmv/
+cp "../Tomb Raider 2/fmv/logo.rpl" fmv/
