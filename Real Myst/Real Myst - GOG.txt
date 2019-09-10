@@ -1,7 +1,8 @@
 custom-name: Real Myst - GOG
 files:
 - setup: N/A:Select the EXE downloaded from GOG
-- dgv: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2_55_4_1.zip
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Real%20Myst/resolution.sh
 game:
   exe: drive_c/GOG Games/realMyst/RealMYST.exe
   prefix: $GAMEDIR
@@ -9,6 +10,8 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -22,10 +25,10 @@ installer:
     file: dgv
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/realMyst/
-    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/DDraw.dll
+    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/realMyst/
-    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/D3DImm.dll
+    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/realMyst/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:
@@ -72,6 +75,15 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/realMyst" ; rm -f -r 3Dfx* Doc MS ddraw.dll
+      webcache.zip glide* gog* Launch* nglide_* nGlideEULA.txt QuickGuide.html support.ico
+      unins000.* ;
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 wine:
   Desktop: true
+  dxvk: true
 

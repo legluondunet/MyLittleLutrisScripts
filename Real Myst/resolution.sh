@@ -49,12 +49,8 @@ wb2=$(echo $wb |cut -c3-4)
 hb1=$(echo $hb |cut -c1-2)
 hb2=$(echo $hb |cut -c3-4)
 
-#echo "Maintenant il faut remplacer "9a99 193e 0000 0000 .... 0000 .... 0000 .000" par "9a99 193e 0000 0000 $wb2 $wb1 0000 $hb2 $hb1 0000 2000"
-#sed -i 's/\x9a\x99\x19\x3e\x00\x00\x00\x00\x..\x..\x00\x00\x..\x..\x00\x00\x.0\x00/\x9a\x99\x19\x3e\x00\x00\x00\x00\x80\x07\x00\x00\x38\x04\x00\x00\x20\x00/g'
-#	    9a  99  19  3e  00  00  00  00  80  07  00  00  38  04  00  00  20  00   9a  99  19  3e  00  00  00  00  80  07  00  00  38  04  00  00  20  00
-#sed -i 's/9a99 193e 0000 0000 .... 0000 .... 0000/9a99 193e 0000 0000 8002 0000 e001 0000/g' dev_mode.dat.hex
+#echo "Maintenant il faut remplacer "9a99 193e 0000 0000 .... 0000 .... 0000 1000" par "9a99 193e 0000 0000 $wb2 $wb1 0000 $hb2 $hb1 0000 2000"
 
-#sed -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' dev_mode.dat
 
 cd "drive_c/GOG Games/realMyst/INIT"
 echo "00000000: 0700 0000 0000 0000 0200 0000 1800 0000  ................
@@ -69,7 +65,6 @@ echo "00000000: 0700 0000 0000 0000 0200 0000 1800 0000  ................
 00000090: 9a99 193e 0000 0000 0780 0000 0438 0000  ...>............
 000000a0: 2000 0000 6400                           ....d.">dev_mode.dat.hex
 
-sed -i 's/9a99 193e 0000 0000 .... 0000 .... 0000/9a99 193e 0000 0000 '$wb1''$wb2' 0000 '$hb1''$hb2' 0000/g' dev_mode.dat.hex
-#sed -i 's/.000 0000 6400/2000 0000 6400/g' dev_mode.dat.hex
-#sed -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' dev_mode.dat
+sed -i 's/9a99 193e 0000 0000 .... 0000 .... 0000/9a99 193e 0000 0000 '$wb2''$wb1' 0000 '$hb2''$hb1' 0000/g' dev_mode.dat.hex
 xxd -r dev_mode.dat.hex > dev_mode.dat
+rm -f -r dev_mode.dat.hex
