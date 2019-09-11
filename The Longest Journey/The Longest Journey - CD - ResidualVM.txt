@@ -6,47 +6,60 @@ files:
     url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
 game:
   game_id: tlj
-  path: $GAMEDIR/
+  path: $GAMEDIR/TLJCD
   subtitles: true
 installer:
 - insert-disc:
     description: Please insert The Longest journey CD 1
     requires: game.exe
 - merge:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR/TLJCD
     src: $DISC/
 - execute:
-    command: cd $GAMEDIR; chmod -R +w *
+    command: cd $GAMEDIR/TLJCD; chmod -R +w *
 - insert-disc:
     description: Please insert The Longest journey CD 2
     requires: slide2.avi
 - merge:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR/TLJCD
     src: $DISC/
 - execute:
-    command: cd $GAMEDIR; chmod -R +w *
+    command: $GAMEDIR/TLJCD; chmod -R +w *
 - insert-disc:
     description: Please insert The Longest journey CD 3
     requires: slide3.avi
 - merge:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR/TLJCD
     src: $DISC/
 - execute:
-    command: cd $GAMEDIR; chmod -R +w *
+    command: cd $GAMEDIR/TLJCD; chmod -R +w *
 - insert-disc:
     description: Please insert The Longest journey CD 4
     requires: slide4.avi
 - merge:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR/TLJCD
     src: $DISC/
 - execute:
-    command: cd $GAMEDIR; chmod -R +w *
+    command: cd $GAMEDIR/TLJCD; chmod -R +w *
 - extract:
     dst: $GAMEDIR/tmp
     file: multi5
 - extract:
     dst: $GAMEDIR/engines
     file: rvmengine
+- input_menu:
+    description: 'Do you want to use another language for menus and subtitles:'
+    id: LANG
+    options:
+    - false: I prefer to keep default install language for menus and subtitles
+    - fr: French
+    - it: Italian
+    - sp: Spanish
+    preselect: false
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
 residualvm:
   fullscreen: true
 
