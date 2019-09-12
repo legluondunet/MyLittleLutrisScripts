@@ -5,7 +5,7 @@ files:
 - multi5:
     filename: tlj_multi5_sub.zip
     url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
-- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/engines.zip
+- rvmengine: https://lutris.nyc3.digitaloceanspaces.com/games/the-longest-journey/engines-stark.tar.xz
 - setup: N/A:Select the EXE downloaded from GOG
 game:
   game_id: tlj
@@ -22,14 +22,14 @@ installer:
     dst: $GAMEDIR/tmp
     file: multi5
 - input_menu:
-    description: 'Choose the game''s language for inteface and subtitles:'
+    description: 'Do you want to use another language for menus and subtitles:'
     id: LANG
     options:
-    - en: English
+    - keep: I prefer to keep default install language for menus and subtitles
     - fr: French
     - it: Italian
     - sp: Spanish
-    preselect: en
+    preselect: keep
 - chmodx: script
 - execute:
     args: $INPUT_LANG

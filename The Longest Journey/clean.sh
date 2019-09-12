@@ -37,7 +37,7 @@ rm -f -r *.dll *.cab *.hdr *.tag dset* dx* setup* autorun.inf DATA.TAG directx.i
 cd ..
 fi
 
-if [ "$lang" != "no" ]; then
+if [ "$lang" != "keep" ]; then
 echo installing $lang files...
 cp -R "tmp/$lang/"* "$folder"
 echo "tmp/$lang/" "$folder"
