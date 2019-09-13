@@ -1,6 +1,6 @@
 custom-name: D - The Game - CD DOS - DOSBOX
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tools/Scripts/copycd.sh
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/D%20-%20The%20Game/D_dosbox.conf
 game:
   main_file: $GAMEDIR/D_dosbox.conf
