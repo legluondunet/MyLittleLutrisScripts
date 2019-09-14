@@ -1,0 +1,43 @@
+custom-name: Toonstruck - CD - Dosbox
+files:
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Toonstruck/toonstruck_dosbox.conf
+game:
+  main_file: $GAMEDIR/toonstruck_dosbox.conf
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: act1/arcaddbl/arcaddbl.pak
+- chmodx: script
+- execute:
+    args: TOON
+    file: script
+- insert-disc:
+    description: Please insert disc 2
+    requires: act2/armory/armory.pak
+- execute:
+    args: TOONS
+    file: script
+- execute:
+    command: cd $GAMEDIR; rm -f -r *.toc; mv TOON.cue TOONSTRUCK_CD1.cue; mv TOON.bin
+      TOONSTRUCK_CD1.bin; mv TOONS.cue TOONSTRUCK_CD2.cue; mv TOONS.bin TOONSTRUCK_CD2.bin;
+      sed -i 's/TOON.bin/TOONSTRUCK_CD1.bin/g' TOONSTRUCK_CD1.cue; sed -i 's/TOONS.bin/TOONSTRUCK_CD2.bin/g'
+      TOONSTRUCK_CD2.cue;
+- task:
+    commands:
+    - imgmount d "TOONSTRUCK_CD1.cue" "TOONSTRUCK_CD2.cue" -t iso
+    - 'd:'
+    - call install.bat
+    - exit
+    drives:
+      c: .
+    name: makeconfig
+    path: $GAMEDIR/toonstruck_dosbox_install.conf
+- task:
+    config_file: $GAMEDIR/toonstruck_dosbox_install.conf
+    name: dosexec
+    working_dir: $GAMEDIR
+- copy:
+    dst: $GAMEDIR
+    src: conf
+

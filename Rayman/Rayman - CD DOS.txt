@@ -1,6 +1,6 @@
 custom-name: Rayman - CD DOS - DOSBOX
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tools/Scripts/copycd.sh
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman/rayman_dosbox.conf
 game:
   main_file: $GAMEDIR/rayman_dosbox.conf

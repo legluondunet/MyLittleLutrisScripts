@@ -1,4 +1,4 @@
-# Call of Cthulhu - Shadow of the Comet - GOG Windows setup exe
+# Call of Cthulhu - Shadow of the Comet - GOG Windows setup exe - Dosbox
 
 Description:
 This script will install "Call of Cthulhu: Shadow of the Comet" GOG edition for Dosbox.

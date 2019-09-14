@@ -32,6 +32,8 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Bad Mojo/" ; rm -f -r unins000.* "Launch Bad Mojo.lnk" webcache.zip Support.ico gog* GameuxInstallHelper.dll;
 system:
   reset_desktop: true
 wine:

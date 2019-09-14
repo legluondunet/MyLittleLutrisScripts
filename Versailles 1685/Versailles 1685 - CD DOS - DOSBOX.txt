@@ -1,6 +1,6 @@
 custom-name: Versailles 1685 - CD DOS/Windows - DOSBOX
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tools/Scripts/copycd.sh
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Versailles%201685/versailles-1685_dosbox.conf
 game:
   main_file: $GAMEDIR/versailles-1685_dosbox.conf
