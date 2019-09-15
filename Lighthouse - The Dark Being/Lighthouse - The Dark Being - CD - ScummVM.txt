@@ -1,43 +1,26 @@
-custom-name: Lighthouse - The Dark Being - CD - Dosbox
+custom-name: Lighthouse - The Dark Being - CD - ScummVM
 files:
-- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lighthouse%20-%20The%20Dark%20Being/lighthouse_dosbox.conf
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lighthouse%20-%20The%20Dark%20Being/clean.sh
 game:
-  main_file: $GAMEDIR/lighthouse_dosbox.conf
+  game_id: lighthouse
+  path: $GAMEDIR/LIGHTCD
+  subtitles: true
 installer:
 - insert-disc:
     description: Please insert disc 1
     requires: 9.CSC
-- chmodx: script
-- execute:
-    args: VOL
-    file: script
+- merge:
+    dst: $GAMEDIR/LIGHTCD1
+    src: $DISC
 - insert-disc:
     description: Please insert disc 2
     requires: movies/5.vmd
+- merge:
+    dst: $GAMEDIR/LIGHTCD2
+    src: $DISC
+- chmodx: script
 - execute:
-    args: VOLU
     file: script
-- execute:
-    command: cd $GAMEDIR; rm -f -r *.toc; mv VOL.cue LIGHTHOUSE_CD1.cue; mv VOL.bin
-      LIGHTHOUSE_CD1.bin; mv VOLU.cue LIGHTHOUSE_CD2.cue; mv VOLU.bin LIGHTHOUSE_CD2.bin;
-      sed -i 's/VOL.bin/LIGHTHOUSE_CD1.bin/g' LIGHTHOUSE_CD1.cue; sed -i 's/VOLU.bin/LIGHTHOUSE_CD2.bin/g'
-      LIGHTHOUSE_CD2.cue;
-- task:
-    commands:
-    - imgmount d "LIGHTHOUSE_CD1.cue" "LIGHTHOUSE_CD2.cue" -t iso
-    - 'd:'
-    - call install.bat
-    - exit
-    drives:
-      c: .
-    name: makeconfig
-    path: $GAMEDIR/lighthouse_dosbox_install.conf
-- task:
-    config_file: $GAMEDIR/lighthouse_dosbox_install.conf
-    name: dosexec
-    working_dir: $GAMEDIR
-- copy:
-    dst: $GAMEDIR
-    src: conf
+scummvm:
+  fullscreen: true
 
