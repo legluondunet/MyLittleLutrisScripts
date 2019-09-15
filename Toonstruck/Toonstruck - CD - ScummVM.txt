@@ -1,6 +1,7 @@
 custom-name: Toonstruck - CD - ScummVM
 files:
 - dat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Toonstruck/toon.dat
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Toonstruck/clean.sh
 game:
   game_id: toon
   path: $GAMEDIR/TOONSTRUCKCD/
@@ -10,19 +11,17 @@ installer:
     description: Please insert "Toonstruck" CD1 and press autodetect
     requires: act1/arcaddbl/422m.smk
 - merge:
-    dst: $GAMEDIR/TOONSTRUCKCD/
+    dst: $GAMEDIR/TOONSTRUCKCD1/
     src: $DISC/
-- execute:
-    command: cd $GAMEDIR/TOONSTRUCKCD/; chmod -R +w *
 - insert-disc:
     description: Please insert "Toonstruck" CD2 and press autodetect
     requires: act2/armory/armory.pak
 - merge:
-    dst: $GAMEDIR/TOONSTRUCKCD/
+    dst: $GAMEDIR/TOONSTRUCKCD2/
     src: $DISC/
+- chmodx: script
 - execute:
-    command: cd $GAMEDIR/TOONSTRUCKCD/; chmod -R +w *; rm -f -r burst/ auto* dos4gw.exe
-      install.bat readme.pif setup.* readme.exe;
+    file: script
 - copy:
     dst: $GAMEDIR/TOONSTRUCKCD/
     src: dat
