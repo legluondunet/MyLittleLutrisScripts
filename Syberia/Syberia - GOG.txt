@@ -119,7 +119,7 @@ installer:
     dst: $GAMEDIR/drive_c/tmp
     file: multi5
 - input_menu:
-    description: Please choose language you prefer to display menus and subtitles?
+    description: 'Please choose language you prefer to display menus and subtitles:'
     id: LANG
     options:
     - en: English

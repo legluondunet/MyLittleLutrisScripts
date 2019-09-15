@@ -1,4 +1,4 @@
-custom-name: HERETIC II Linux CD
+custom-name: HERETIC II - Linux CD
 files:
 - patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
 - ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
@@ -14,7 +14,7 @@ game:
 installer:
 - insert-disc:
     description: Please insert "HERETIC II" Linux CD and press autodetect
-    requires: bin/x86/heretic2
+    requires: base/video/bumper.mpg
 - merge:
     description: Copying data from "HERETIC II" Linux CD, please wait
     dst: $GAMEDIR/HERETICIICDL
@@ -43,7 +43,7 @@ installer:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: $GAMEDIR/HERETICIICDL/TMP/hereticiiws.sh
 - input_menu:
-    description: 'Choose your game''s language:'
+    description: 'Please choose wich language you would like to install this game:'
     id: LANG
     options:
     - en: English
