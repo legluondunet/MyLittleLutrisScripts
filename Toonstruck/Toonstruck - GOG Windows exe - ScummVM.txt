@@ -25,4 +25,5 @@ installer:
 - copy:
     dst: $GAMEDIR/TOONSTRUCK/
     src: dat
-
+scummvm:
+  fullscreen: true
