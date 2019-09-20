@@ -1,7 +1,7 @@
 custom-name: Battle Chess - Collection - CD - DOSBOX
 files:
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/D%20-%20The%20Game/D_dosbox.conf
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Battle%20Chess%20-%20Collection/bcc_dosbox.conf
 game:
   main_file: $GAMEDIR/D_dosbox.conf
 installer:
@@ -12,20 +12,6 @@ installer:
 - execute:
     args: BATTLECHESS
     file: script
-- task:
-    commands:
-    - imgmount d "BATTLECHESS.cue" -t iso
-    - 'd:'
-    - call D:\chess.bat
-    - exit
-    drives:
-      c: .
-    name: makeconfig
-    path: $GAMEDIR/bcc_dosbox_install.conf
-- task:
-    config_file: $GAMEDIR/bcc_dosbox_install.conf
-    name: dosexec
-    working_dir: $GAMEDIR
 - copy:
     dst: $GAMEDIR
     src: conf
