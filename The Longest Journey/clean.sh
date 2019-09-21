@@ -1,7 +1,6 @@
 #!/bin/bash
 
 lang=$1
-echo $lang
 
 if [ -d "drive_c" ]; then 
 cd drive_c
@@ -39,8 +38,8 @@ fi
 
 if [ "$lang" != "keep" ]; then
 echo installing $lang files...
-cp -R "tmp/$lang/"* "$folder"
-echo "tmp/$lang/" "$folder"
+cp -R "tmp/tlj_4cd_gog_menus_sub_multi5/$lang/"* "$folder"
+echo "tmp/tlj_4cd_gog_menus_sub_multi5/$lang/" "$folder"
 else
 echo "I prefer to keep default install language for menus and subtitles"
 fi
