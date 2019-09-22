@@ -1,9 +1,9 @@
-custom-name: The Longest Journey - CD - ResidualVM
+custom-name: The Longest Journey - 4 CD - ResidualVM
 files:
 - rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/engines.zip
 - multi5:
-    filename: tlj_multi5_sub.zip
-    url: https://www.dropbox.com/s/h4mvsozrudz7lf3/tlj_multi5_sub.zip?dl=1
+    filename: tlj_4cd_gog_menus_sub_multi5.zip
+    url: https://www.dropbox.com/s/h2mfqt8bw7xygt2/tlj_4cd_gog_menus_sub_multi5.zip?dl=1
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
 game:
   game_id: tlj
@@ -49,7 +49,7 @@ installer:
     dst: $GAMEDIR/TLJCD/engines
     file: rvmengine
 - input_menu:
-    description: 'Do you want to use another language for menus and subtitles:'
+    description: Do you want to use another language for menus and subtitles?
     id: LANG
     options:
     - keep: I prefer to keep default install language for menus and subtitles

@@ -23,14 +23,14 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# The Longest Journey - CD - ResidualVM
+# The Longest Journey - 4 CD - ResidualVM
 
 Description:
-Play the first opus of "The Longest Journey" CD version on Linux with ResidualVM.
+Play the first opus of "The Longest Journey" 4 CD version on Linux with ResidualVM.
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
-- You will need 4 cd game only during install.
+- You will need 4 CD game only during install.
 - Multilanguage: you will be able to select others languages for menus and subtitles during install between french, spanish or italian. Credits: Legluondunet (fr), Danixu86 (sp), LiefLayer (it).
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

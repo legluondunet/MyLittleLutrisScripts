@@ -1,0 +1,26 @@
+SH2 Enhancements Module d3d8
+http://enhanced.townofsilenthill.com/SH2/#installSH2Enhancements
+https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/169#issuecomment-533455211
+https://github.com/elishacloud/Silent-Hill-2-Enhancements/files/3634795/d3d8.zip
+20/09/2019
+
+Enhanced Edition Essential Files
+http://enhanced.townofsilenthill.com/SH2/#installEssentialFiles
+http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.0.4.zip
+
+IndirectSound
+http://enhanced.townofsilenthill.com/SH2/#installIndirectSound
+http://enhanced.townofsilenthill.com/SH2/files/IndirectSound_0.17.zip
+
+FMV Enhancement Pack
+http://enhanced.townofsilenthill.com/SH2/#installFMVPack
+http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_FMV_Pack_16-10_Aspect_Ratio_1.0.2.zip
+
+Audio Enhancement Pack
+http://enhanced.townofsilenthill.com/SH2/#installAudioEnhancementPack
+http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Audio_Enhancement_Pack_2.0.1.zip
+
+exe_str
+https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/129#issuecomment-501854811
+https://github.com/elishacloud/Silent-Hill-2-Enhancements/files/3287890/exe_str.zip
+13/06/2019
