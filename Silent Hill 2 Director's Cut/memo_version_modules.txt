@@ -1,3 +1,6 @@
+SH2Proxy
+https://github.com/emoose/sh2proxy
+
 SH2 Enhancements Module d3d8
 http://enhanced.townofsilenthill.com/SH2/#installSH2Enhancements
 https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/169#issuecomment-533455211
