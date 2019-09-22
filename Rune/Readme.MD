@@ -1,4 +1,4 @@
-#RUNE - CD - Linux 
+# RUNE - CD - Linux 
 
 Description:
 This script will install "Rune" Linux CD edition.
@@ -9,15 +9,16 @@ Technical notes:
 - 1.08 HOV update
 - Multiplayer OK
 - Known issues:
-- Multiplayer, join button, miss the "j" of "join"
-- Multiplayer, join, tab news is empty
-- When joining servers, sometimes the game crashes and complains: "The file '..\Textures\Drgnkeep.utx' contains unrecognizable data free(): invalid pointer". Same result with Decap1.utx and Galleon.utx files.
-- If you obtain "maps mismatch" error message, just erase the maps then the game will automatically upload the right map.
-- Gamepad: Rune Classic has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
-- Please report issue concerning this script on my github page:
+  - Multiplayer, join button, miss the "j" of "join"
+  - Multiplayer, join, tab news is empty
+  - When joining servers, sometimes the game crashes and complains: "The file '..\Textures\Drgnkeep.utx' contains unrecognizable data free(): invalid pointer". Same result with Decap1.utx and Galleon.utx files.
+  - If you obtain "maps mismatch" error message, just erase the maps then the game will automatically upload the right map.
+  - Gamepad: Rune Classic has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
+
+Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#RUNE GOLD - GOG - Wine
+# RUNE GOLD - GOG - Wine
 
 Description:
 This script will install "Rune Gold" GOG edition with support for modern screen resolution.
@@ -29,7 +30,7 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#RUNE CLASSIC - GOG - Wine
+# RUNE CLASSIC - GOG - Wine
 
 Description:
 This script will install "Rune Classic" GOG edition with support for modern screen resolution.
