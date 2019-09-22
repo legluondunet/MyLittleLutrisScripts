@@ -1,4 +1,4 @@
-#RUNE - CD - Linux 
+# RUNE - CD - Linux 
 
 Description:
 This script will install "Rune" Linux CD edition.
@@ -17,7 +17,7 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#RUNE GOLD - GOG - Wine
+# RUNE GOLD - GOG - Wine
 
 Description:
 This script will install "Rune Gold" GOG edition with support for modern screen resolution.
@@ -29,7 +29,7 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#RUNE CLASSIC - GOG - Wine
+# RUNE CLASSIC - GOG - Wine
 
 Description:
 This script will install "Rune Classic" GOG edition with support for modern screen resolution.
