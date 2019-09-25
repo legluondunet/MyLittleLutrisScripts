@@ -1,9 +1,11 @@
-custom-name: Silent Hill 2 - CD
+custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
 - sh2proxy: https://github.com/emoose/sh2proxy/releases/download/v0.1/sh2proxy_0.1.zip
-- sh2e1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
-- sh2e2: http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.0.4.zip
-- sh2e3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2dclogomenu.zip
+- sh2ed3d8: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
+- sh2efiles: http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.0.4.zip
+- sh2esound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/IndirectSound.zip
+- sh2estr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/exe_str.zip
+- sh2dcscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2dclogomenu.zip
 game:
   exe: drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
   prefix: $GAMEDIR
@@ -14,24 +16,24 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    description: Please insert "Silent Hill 2 Director's Cut" CD1 and press autodetect
+    description: Please insert "Silent Hill 2 Director's Cut" CD 1 and press autodetect
     requires: sh2.ico
 - merge:
-    description: Copying data from "Silent Hill 2 Director's Cut" CD1, please wait
+    description: Copying data from "Silent Hill 2 Director's Cut" CD 1, please wait
     dst: $GAMEDIR/drive_c/sh2dccd
     src: $DISC
 - insert-disc:
-    description: Please insert "Silent Hill 2 Director's Cut" CD2 and press autodetect
+    description: Please insert "Silent Hill 2 Director's Cut" CD 2 and press autodetect
     requires: data3.cab
 - merge:
-    description: Copying data from "Silent Hill 2 Director's Cut" CD2, please wait
+    description: Copying data from "Silent Hill 2 Director's Cut" CD 2, please wait
     dst: $GAMEDIR/drive_c/sh2dccd
     src: $DISC
 - insert-disc:
-    description: Please insert "Silent Hill 2 Director's Cut" CD3 and press autodetect
+    description: Please insert "Silent Hill 2 Director's Cut" CD 3 and press autodetect
     requires: data4.cab
 - merge:
-    description: Copying data from "Silent Hill 2 Director's" Cut CD3, please wait
+    description: Copying data from "Silent Hill 2 Director's" Cut CD 3, please wait
     dst: $GAMEDIR/drive_c/sh2dccd
     src: $DISC
 - write_file:
@@ -130,13 +132,25 @@ installer:
     src: $CACHE/bin/sh2pc.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
-    file: sh2e1
+    file: sh2ed3d8
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
-    file: sh2e2
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/data/
-    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/
+    file: sh2efiles
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
+    src: sh2esound
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/text/
+    src: sh2estr
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/splash_logo_ps2.tex
+    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/splash_logo.tex
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/start00_ps2.tex
+    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/start00.tex
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/
+    file: sh2dcscreens
 - input_menu:
     description: 'Please choose your preferred interface language:'
     id: LANG
@@ -165,9 +179,9 @@ installer:
 
       SET DX_CONFIG_USE_LORES_TEXTURES 0
 
-      SET DX_CONFIG_3D_SOUND_HARDWARE 0
+      SET DX_CONFIG_3D_SOUND_HARDWARE 1
 
-      SET DX_CONFIG_3D_SOUND_HARDWARE_AVAILABLE 0
+      SET DX_CONFIG_3D_SOUND_HARDWARE_AVAILABLE 1
 
       SET DX_CONFIG_BRIGHTNESS 3
 
@@ -209,13 +223,13 @@ installer:
     type: REG_SZ
     value: native,builtin
 - task:
-    app: d3dcompiler_43
-    name: winetricks
+    arch: win64
+    key: dsound
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
     prefix: $GAMEDIR
-- task:
-    app: d3dx9_43
-    name: winetricks
-    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
 - task:
     arch: win64
     key: csmt
@@ -240,15 +254,17 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- task:
+    app: d3dcompiler_43
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: d3dx9_43
+    name: winetricks
+    prefix: $GAMEDIR
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/sh2dccd/
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/data/pic/etc/
-    file: sh2e3
 wine:
   Desktop: true
 

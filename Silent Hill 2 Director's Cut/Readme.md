@@ -1,18 +1,31 @@
-# Silent Hill 2 - Director's Cut - CD EU MULTI5
+# Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 
 Description:
-This script will install "Silent Hill 2 - Director's Cut" CD EU MULTI5 edition with support for modern computer configuration. 
-This script uses differents projects:
+This script will install the CD EU release of "Silent Hill 2 - Director's Cut" with many fixes and enhancements to support recent computer configurations.
+This script uses different projects: 
 Sh2proxy: https://github.com/emoose/sh2proxy/releases
-Silent Hill 2 Enhancement: https://github.com/elishacloud/Silent-Hill-2-Enhancements 
-Others enhancement packs: http://enhanced.townofsilenthill.com/SH2/
-Thanks to the people who contributed to play this game in the best conditions.
+SH2e: http://www.enhanced.townofsilenthill.com/SH2/
+Thanks to the people who contributed to play this game in the best conditions, particularly Elisha Riedlinger and all SH2e devs team.
 
 Technical notes:
-- This game is natively x360 compatible.
-- Known issue: when you launch the game, you obtain a black screen during more than 15 seconds.
-- After install, I invite you to install remastered video and audio packs: 
-http://enhanced.townofsilenthill.com/SH2/#installFMVPack 
+- You will need the 3 CD only during install
+- Multilanguage: you can choose language to display menus and subtitles during install between english, french, german, italian, spanish. 
+- This game supports natively x360 controller.
+- After installation, I invite you to click on "SH2e FMV-Audio remastered packs" installer and so complete enhanced Silent Hill 2 gaming experience.
+- Known issue: When you start the game, you have to wait about 15 seconds before the game starts.
+- Please report issue concerning this script on my github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
+
+# Silent Hill 2 DC - SH2e FMV-Audio remastered packs
+
+Description:
+This installer is complementary to "CD Director's Cut EU + SH2e" one, it will add SH2e FMV-Audio remastered packs to previous install.
+It uses SH2e project:  
+http://enhanced.townofsilenthill.com/SH2/#installFMVPack
 http://enhanced.townofsilenthill.com/SH2/#installAudioEnhancementPack
+Thanks to the people who contributed to play this game in the best conditions, particularly Elisha Riedlinger and all SH2e devs team.
+
+Technical notes:
+- This installer will not install "Silent Hill 2 Director's Cut EU" but only SH2e FMV-Audio remastered packs. I separated the two installations because the download of these two files is too heavy: FMV --> 3,2 Go and audio --> 1,6 Go.
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
