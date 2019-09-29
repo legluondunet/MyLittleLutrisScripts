@@ -7,9 +7,6 @@ cd "c:\Program Files (x86)\Heretic II\tmp3"
 for %%A in (d e f g h i) do (
 dir %%A:|bin\grep -c "HERETIC">%%A.txt)
 
-echo pause 1b
-pause
-
 set driv=
 set /p drivd=<d.txt
 echo %drivd%

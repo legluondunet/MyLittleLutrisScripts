@@ -8,14 +8,15 @@ DxWnd: https://sourceforge.net/projects/dxwnd/
 GNU32 tools: http://gnuwin32.sourceforge.net/
 Mplayer: http://www.mplayerhq.hu/design7/news.html
 Sox: http://sox.sourceforge.net
-THF5: http://www.amwilliams.com/hereticii/news.html
 Thanks to the people who helped us play this game in the best conditions.
 
 Technical notes:
-- The game patched during install to use your desktop native resolution.
-- Multilanguage: you will be able to select  game  language during install between english, french, german, spanish or italian.
-- You just need the H2 cd during install, then you could play game without it.
-Know issues:
+*Read Me*
+- WS patch: the game will be patch during install to use your desktop native resolution.
+- Multilanguage: you will be able to select  others game  language during install between french, german, spanish or italian.
+- 1.07 update.
+- You just need the H2 CD during install.
+*Knowns issues*
 - Heretic II will crash if you launch directly a new game (Wine Bug 40468 https://bugs.winehq.org/show_bug.cgi?id=40468). Workaround: start the tutorial level first, escape to the main menu, start a new game. This bug only occurs if you launch a new game directly, not when you load or save a game.
 - Changing resolution will crash H2.
 - H2 controller support is insufficient . Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.

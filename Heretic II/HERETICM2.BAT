@@ -45,7 +45,7 @@ echo.	------------------------------------------------
 echo.			HERETIC II v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	3) change resolution
+echo. 	2) change resolution
 echo.
 echo. Enter your resolution into the Width and Height fields and press OK.
 echo. To use special resolution, you have to select the 640 x 480 resolution
@@ -61,7 +61,7 @@ h2resolution.exe
 pause
 goto :launcher
 
-:faq
+:gamepad
 cls
 echo.
 echo.
@@ -69,7 +69,7 @@ echo.	------------------------------------------------
 echo.			HERETIC II v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	3) FAQ/Know issues
+echo. 	3) How to play Heretic II with a gamepad?
 echo.
 echo.  
 echo.
@@ -77,7 +77,7 @@ echo.
 echo.
 echo.
 c:
-start iexplore c:\Program Files (x86)\Heretic II\faq.html
+start iexplore c:\Program Files (x86)\Heretic II\gamepad profiles\h2_gamepad_readme.html
 pause
 goto :launcher
 
@@ -89,7 +89,7 @@ echo.	------------------------------------------------
 echo.			HERETIC II v1.07
 echo.	------------------------------------------------
 echo.
-echo. 	4) How to play Heretic II with a gamepad?
+echo. 	4) FAQ/Know issues
 echo.
 echo.  
 echo.
@@ -97,7 +97,7 @@ echo.
 echo.
 echo.
 c:
-start iexplore c:\Program Files (x86)\Heretic II\gamepad profiles\h2_gamepad_readme.html
+start iexplore c:\Program Files (x86)\Heretic II\faq.html
 pause
 goto :launcher
 
