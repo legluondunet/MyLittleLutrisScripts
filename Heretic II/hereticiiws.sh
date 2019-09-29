@@ -41,6 +41,7 @@ echo "Maintenant il faut remplacer 80 02 00 00 E0 01 (video mode 3 resolution 64
 
 
 if [ -f "HERETICIICDL/heretic2" ]; then 
+"installation Linux présente"
 cd HERETICIICDL/
 cp heretic2 heretic2.ori
 echo sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' heretic2
@@ -48,6 +49,7 @@ sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g
 fi
 
 if [ -f "drive_c/Program Files (x86)/Heretic II/quake2.dll" ]; then
+"installation Windows présente"
 cd "drive_c/Program Files (x86)/Heretic II/"
 cp quake2.dll quake2.dll.ori
 echo sed -i -e 's/\x80\x02\x00\x00\xE0\x01/\x'$wb2'\x'$wb1'\x00\x00\x'$hb2'\x'$hb1'/g' quake2.dll

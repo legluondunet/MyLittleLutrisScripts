@@ -1,16 +1,18 @@
 #!/bin/bash
 
 lang=$1
-echo $lang
+dir="../tmp2/data"
+ls $dir
+echo "Language choisi: " $lang
 
 if [ -f "HERETICIICDL/heretic2" ]; then 
-dir=../TMP/data
+echo "installation CD Linux localisée"
 cd HERETICIICDL/base
 rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak
 fi
 
-if [ -f "drive_c//Program Files (x86)/Heretic II/heretic2.exe" ]; then
-dir="../../../tmp/data"
+if [ -f "drive_c/Program Files (x86)/Heretic II/heretic2.exe" ]; then
+echo "installation CD Windows localisée"
 cd "drive_c/Program Files (x86)/Heretic II/base"
 rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak
 fi
@@ -27,3 +29,6 @@ mv italian-1.pak htic2-1.pak
 elif [ $lang = "sp" ]; then tar xfv $dir/spanish-1.pak.tar.xz
 mv spanish-1.pak htic2-1.pak
 fi
+
+echo "ls -l $dir"
+ls -l $dir
