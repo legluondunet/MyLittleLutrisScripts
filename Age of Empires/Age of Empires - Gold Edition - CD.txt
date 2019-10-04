@@ -1,7 +1,8 @@
-custom-name: Age of Empires I - Gold edtion - CD
+custom-name: Age of Empires I - Gold edition - CD
 files:
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
+- scriptsound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
+- scriptclean: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/clean.sh
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
 - mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
@@ -17,7 +18,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: Game/EMPIRESX.EXE
+    requires: game/empiresx.exe
 - task:
     app: winxp
     name: winetricks
@@ -27,28 +28,6 @@ installer:
     description: Installing Age of Empires I Gold edition...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
-- merge:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: script
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/mplayer/
-    file: mp
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/bin
-    file: gnusox
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: grepbin
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: grepdep
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: updt
-- task:
-    executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -112,6 +91,25 @@ installer:
         ver0: 0
         winver0: 0
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: grepbin
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: grepdep
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/
+    file: updt
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/mplayer/
+    file: mp
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/bin
+    file: gnusox
+- task:
+    executable: scriptsound
+    name: wineexec
+    prefix: $GAMEDIR
 - input_menu:
     description: 'Please precise your CD language:'
     id: LANG
@@ -123,6 +121,14 @@ installer:
     - sp: Spanish
     - po: Portuguese
     preselect: en
+- task:
+    app: directplay
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: icodecs
+    name: winetricks
+    prefix: $GAMEDIR
 - task:
     arch: win64
     key: csmt
@@ -139,26 +145,14 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    app: directplay
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: icodecs
-    name: winetricks
-    prefix: $GAMEDIR
+- chmodx: scriptclean
+- execute:
+    args: $INPUT_LANG "$DISC"
+    file: scriptclean
 - task:
     app: win7
     name: winetricks
     prefix: $GAMEDIR
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires";
-      ls | grep -iw avi | xargs rm -fr; ls | grep -i empires.exe | xargs rm; ls |
-      grep -i empiresx.exe | xargs rm; ls | grep -i language.dll | xargs rm; cp "$GAMEDIR/drive_c/tmp/exe/"*
-      . ; cp "$GAMEDIR/drive_c/tmp/$INPUT_LANG/"* . ;
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires/AVI/
-    src: $DISC/game/AVI
 wine:
   Desktop: true
 
