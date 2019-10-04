@@ -1,9 +1,9 @@
 custom-name: HERETIC II - Linux CD
 files:
 - patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
-- ws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
-- loc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
-- dcfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
+- scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
+- scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
+- scriptconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_gamepad_readme.html
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
@@ -35,36 +35,27 @@ installer:
     dst: $GAMEDIR/HERETICIICDL/
     src: $GAMEDIR/HERETICIICDL/TMP/data/heretic2.sh
 - chmodx: $GAMEDIR/HERETICIICDL/heretic2.sh
-- copy:
-    dst: $GAMEDIR/HERETICIICDL/TMP
-    src: ws
-- chmodx: $GAMEDIR/HERETICIICDL/TMP/hereticiiws.sh
+- chmodx: scriptws
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: $GAMEDIR/HERETICIICDL/TMP/hereticiiws.sh
+    file: scriptws
 - input_menu:
     description: 'Please choose wich language you would like to install this game:'
     id: LANG
     options:
-    - en: English
+    - keep: I prefer to use default install language
     - fr: French
     - ge: German
     - it: Italian
     - sp: Spanish
-    preselect: en
-- copy:
-    dst: $GAMEDIR/HERETICIICDL/TMP
-    src: loc
-- chmodx: $GAMEDIR/HERETICIICDL/TMP/h2local.sh
+    preselect: keep
+- chmodx: scriptlocal
 - execute:
     args: $INPUT_LANG
-    file: $GAMEDIR/HERETICIICDL/TMP/h2local.sh
-- copy:
-    dst: $GAMEDIR/HERETICIICDL/TMP
-    src: dcfg
-- chmodx: $GAMEDIR/HERETICIICDL/TMP/defconfig.sh
+    file: scriptlocal
+- chmodx: scriptconf
 - execute:
-    file: $GAMEDIR/HERETICIICDL/TMP/defconfig.sh
+    file: scriptconf
 - merge:
     dst: $GAMEDIR/HERETICIICDL/gamepad profiles
     src: gppreadme
@@ -77,6 +68,4 @@ installer:
 - execute:
     command: cd $GAMEDIR/HERETICIICDL; rm -f -r TMP bin* Parches setup.* data.tar.gz
       win32/ autorun.inf heretic2.dynamic Soundtrack
-system:
-  use_us_layout: true
 
