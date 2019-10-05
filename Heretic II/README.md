@@ -11,7 +11,6 @@ Sox: http://sox.sourceforge.net
 Thanks to the people who helped us play this game in the best conditions.
 
 Technical notes:
-=Read Me=
 - 1.07 update.
 - WS patch: the game will be patch during install to use your desktop native resolution.
 - Multilanguage: you will be able to select others game language during install between french, german, spanish or italian.
@@ -31,7 +30,6 @@ During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions.
 
 Technical notes:
-*Read Me*
 - update to 1.06c
 - WS patch: the game will be patch during install to use your desktop native resolution.
 - Multilanguage: you will be able to select others game language during install between french, german, spanish or italian.
