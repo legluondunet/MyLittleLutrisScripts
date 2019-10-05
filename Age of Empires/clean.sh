@@ -19,19 +19,18 @@ fi
 
 dirtmp="../../../tmp"
 
+echo "update de la version $aoeversion en $lang"
 if [ $aoeversion = "gold" ] 
 then
-echo "update de la version Gold en $lang"
 cp "$dirtmp/exe/"* .
 elif [ $aoeversion = "standard" ] 
 then
-echo "update de la version Standard en $lang"
 cp "$dirtmp/exe/empires.exe" .
 fi
 
 cp "$dirtmp/$lang/"* .
 echo "$dirtmp/exe/" "$dirtmp/$lang/"
-#rm -f -r "$dirtmp"
+rm -f -r "$dirtmp"
 mkdir avi
 cp "$cdpath/game/avi/"* avi/
 
