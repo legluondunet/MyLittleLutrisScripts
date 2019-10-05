@@ -10,7 +10,7 @@ Mplayer: http://www.mplayerhq.hu/design7/news.html
 Sox: http://sox.sourceforge.net
 Thanks to the people who contributed to play this game in the best conditions.
 
-Technical notes:
+##### Technical notes:
 - Read Me
     - 1.0c update
     - Support multilanguage cd install: eng,fra,ger,ita,por,spa
