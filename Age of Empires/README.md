@@ -1,6 +1,6 @@
 # Age of Empires - CD
 
-Description:
+##### Description:
 This script will install "Age of Empires I" CD edition with support for modern resolution.
 During install please let all options by default.
 This script uses different projects:
