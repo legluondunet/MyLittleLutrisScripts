@@ -11,7 +11,7 @@ Sox: http://sox.sourceforge.net
 Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
-- Read Me -
+- Read Me
 -- 1.0c update
 -- Support multilanguage cd install: eng,fra,ger,ita,por,spa
 -- You will need the cd only one time during install
