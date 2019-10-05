@@ -1,4 +1,4 @@
-#Age of Empires - CD
+# Age of Empires - CD
 
 Description:
 This script will install "Age of Empires I" CD edition with support for modern resolution.
@@ -17,7 +17,7 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#Age of Empires - Rise of Rome - CD
+# Age of Empires - Rise of Rome - CD
 
 Description:
 This script will install "Age of Empires I" and his extension "Rise of Rome" CD edition with support for modern resolution.
@@ -36,7 +36,7 @@ Technical notes:
 - Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-#Age of Empires - Gold Edition - CD
+# Age of Empires - Gold Edition - CD
 
 Description:
 This script will install "Age of Empires I - Gold edition" CD with support for modern resolution.
