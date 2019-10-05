@@ -12,11 +12,11 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - Read Me
-  -- 1.0c update
-  -- Support multilanguage cd install: eng,fra,ger,ita,por,spa
-  -- You will need the cd only one time during install
-  -- Please report issue concerning this script on my github page:
-     https://github.com/legluondunet/MyLittleLutrisScripts/
+    - 1.0c update
+    - Support multilanguage cd install: eng,fra,ger,ita,por,spa
+    - You will need the cd only one time during install
+    - Please report issue concerning this script on my github page:
+       https://github.com/legluondunet/MyLittleLutrisScripts/
 
 # Age of Empires - Rise of Rome - CD
 
