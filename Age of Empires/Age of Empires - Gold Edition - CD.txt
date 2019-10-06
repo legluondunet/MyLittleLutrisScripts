@@ -147,7 +147,7 @@ installer:
     value: 0 0 0
 - chmodx: scriptclean
 - execute:
-    args: $INPUT_LANG "$DISC"
+    args: $INPUT_LANG "$DISC" gold
     file: scriptclean
 - task:
     app: win7

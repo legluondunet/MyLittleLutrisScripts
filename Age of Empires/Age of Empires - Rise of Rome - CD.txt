@@ -1,11 +1,6 @@
-custom-name: Age of Empires I - Rise of Rome
+extends: age-of-empires
 files:
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
-- gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
-- mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
-- grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
-- grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/clean.sh
 - updt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1_update_1.0c_multi.zip
 game:
   args: /r:0
@@ -13,42 +8,12 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
-    name: create_prefix
-    prefix: $GAMEDIR
-- task:
     app: winxp
     name: winetricks
     prefix: $GAMEDIR
-- insert-disc:
-    requires: GAME/EMPIRES.EXE
-- task:
-    args: /desktop=AgeOfEmpiresI,1024x780 $DISC/AOEINST.EXE
-    description: Installing Age of Empires I...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    name: wineexec
-- merge:
-    dst: $GAMEDIR/drive_c/tmp/
-    src: script
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/mplayer/
-    file: mp
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/bin
-    file: gnusox
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: grepbin
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: grepdep
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
     file: updt
-- task:
-    executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
-    name: wineexec
-    prefix: $GAMEDIR
 - insert-disc:
     requires: game/empiresx.exe
 - task:
@@ -56,9 +21,6 @@ installer:
     description: Installing Rise of Rome extension...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
-- extract:
-    dst: $GAMEDIR/drive_c/dxwnd
-    file: dxwnd
 - write_config:
     data:
       target:
@@ -130,42 +92,14 @@ installer:
     - sp: Spanish
     - po: Portuguese
     preselect: en
+- chmodx: scriptclean
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires";
-      ls | grep -iw avi | xargs rm -fr; ls | grep -i empires.exe | xargs rm; ls |
-      grep -i empiresx.exe | xargs rm; ls | grep -i language.dll | xargs rm; cp "$GAMEDIR/drive_c/tmp/exe/"*
-      . ; cp "$GAMEDIR/drive_c/tmp/$INPUT_LANG/"* . ;
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    app: directplay
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: icodecs
-    name: winetricks
-    prefix: $GAMEDIR
+    args: $INPUT_LANG "$DISC" ror
+    file: scriptclean
 - task:
     app: win7
     name: winetricks
     prefix: $GAMEDIR
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires/AVI/
-    src: $DISC/game/AVI
 wine:
   Desktop: true
 

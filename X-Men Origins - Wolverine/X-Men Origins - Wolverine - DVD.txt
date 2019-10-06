@@ -10,7 +10,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: /media/romain/WOLV_DVD/Setup/Data/Binaries/Wolverine.exe
+    requires: $DISC/Setup/Data/Binaries/Wolverine.exe
 - task:
     args: /desktop=Wolverine,1024x780 $DISC/setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
