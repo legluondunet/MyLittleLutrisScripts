@@ -16,8 +16,15 @@ installer:
     file: updt
 - insert-disc:
     requires: game/empiresx.exe
+- input_menu:
+    description: 'Please select your CD language:'
+    id: VERSION
+    options:
+    - aoeinst.exe: English or other
+    - aoesetup.exe: German
+    preselect: aoeinst.exe
 - task:
-    args: /desktop=ROR,1024x780 $DISC/AOEinst.Exe
+    args: /desktop=ROR,1024x780 $DISC/$INPUT_VERSION
     description: Installing Rise of Rome extension...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
