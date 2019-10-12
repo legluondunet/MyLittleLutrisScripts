@@ -17,14 +17,21 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- input_menu:
+    description: 'Please select your CD language:'
+    id: VERSION
+    options:
+    - aoeinst.exe: English or other
+    - aoesetup.exe: German
+    preselect: aoeinst.exe
 - insert-disc:
-    requires: aoeinst.exe
+    requires: empires.ico
 - task:
     app: winxp
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    args: /desktop=AgeOfEmpiresI,1024x780 $DISC/aoeinst.exe
+    args: /desktop=AgeOfEmpiresI,1024x780 $DISC/$INPUT_VERSION
     description: Installing Age of Empires I...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
