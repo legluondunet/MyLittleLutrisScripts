@@ -10,7 +10,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: $DISC/Setup/Data/Binaries/Wolverine.exe
+    requires: Setup/Data/Binaries/Wolverine.exe
 - task:
     args: /desktop=Wolverine,1024x780 $DISC/setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
@@ -42,3 +42,4 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
+
