@@ -36,3 +36,5 @@ avipath=$(find "$cdpath" |grep -i -m1 avi)
 echo "$avipath"
 cp "$avipath/"* avi/
 
+# Delete installation batch file
+[ -e installaoe.bat ] && rm installaoe.bat
