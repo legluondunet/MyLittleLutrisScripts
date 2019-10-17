@@ -6,4 +6,4 @@ setupfile=$(grep -E '^open=[A-Za-z]+\.exe' $cdpath/autorun.inf | grep -Eo '[A-Za
 echo "Determined name of executable to be $setupfile"
 
 winpath=$(sed -e 's#/#\\#g' <<< "$cdpath/$setupfile")
-echo $winpath > installaoe.bat
+echo "Z:$winpath" > installaoe.bat
