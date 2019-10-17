@@ -14,5 +14,5 @@ else
 echo "AOE setup file not found"
 exit
 fi
-echo "$cdpath"/"$setupfile">aoeinstall.bat
+echo "$cdpath"/"$setupfile">drive_c/tmp/aoeinstall.bat
 
