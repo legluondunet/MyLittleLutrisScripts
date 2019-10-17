@@ -1,6 +1,7 @@
 custom-name: Age of Empires I - CD
 files:
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_30_build.rar
+- scriptinstall: https://raw.githubusercontent.com/BifbofII/MyLittleLutrisScripts/bugfix/aoe-ger-disc-not-found/Age%20of%20Empires/findaoe.sh
 - scriptsound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
 - scriptclean: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/clean.sh
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
@@ -15,16 +16,22 @@ game:
 installer:
 - task:
     arch: win64
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    requires: aoeinst.exe
 - task:
     app: winxp
     name: winetricks
     prefix: $GAMEDIR
+- insert-disc:
+    requires: empires.ico
+- chmodx: scriptinstall
+- execute:
+    args: $DISC
+    file: scriptinstall
+- chmodx: $GAMEDIR/installaoe.bat
 - task:
-    args: /desktop=AgeOfEmpiresI,1024x780 $DISC/aoeinst.exe
+    args: /desktop=AOEI,1024x780 $GAMEDIR/installaoe.bat
     description: Installing Age of Empires I...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
@@ -111,7 +118,8 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - input_menu:
-    description: 'Please precise your CD language:'
+    description: Please choose AOE I CD language (do not choose another language other
+      than your CD's one)
     id: LANG
     options:
     - en: English
@@ -122,11 +130,11 @@ installer:
     - po: Portuguese
     preselect: en
 - task:
-    app: directplay
+    app: icodecs
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    app: icodecs
+    app: directplay
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -138,6 +146,9 @@ installer:
     type: REG_DWORD
     value: '00000000'
 - chmodx: scriptclean
+- execute:
+    args: $INPUT_LANG "$DISC" standard
+    file: scriptclean
 - task:
     arch: win64
     key: background
@@ -146,13 +157,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- execute:
-    args: $INPUT_LANG "$DISC" standard
-    file: scriptclean
 - task:
     app: win7
     name: winetricks
     prefix: $GAMEDIR
 wine:
   Desktop: true
-
