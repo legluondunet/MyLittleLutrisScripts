@@ -3,10 +3,10 @@ color 4E
 goto launcher
 
 
-cd aoecovers
+cd aoe1covers
 copy /Y 1.bmp ../aoe.bmp
 move 1.bmp 1a.bmp
-move  3.bmp 1.bmp
+move 3.bmp 1.bmp
 move 2.bmp 3.bmp
 move 1a.bmp 2.bmp
 cd ..
