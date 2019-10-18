@@ -1,11 +1,11 @@
 @echo off
-#color 4E
+color 0f
 
 c:
 cd c:\aoe1covers
-copy /Y 1.bmp ../aoe.bmp
+copy 1.bmp ..\aoe1.bmp
 move 1.bmp 1a.bmp
-move  3.bmp 1.bmp
+move 3.bmp 1.bmp
 move 2.bmp 3.bmp
 move 1a.bmp 2.bmp
 cd ..
