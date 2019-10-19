@@ -30,7 +30,7 @@ fi
 
 cp "$dirtmp/$lang/"* .
 echo "$dirtmp/exe/" "$dirtmp/$lang/"
-#rm -f -r "$dirtmp"
+rm -f -r "$dirtmp"
 mkdir avi
 avipath=$(find "$cdpath" |grep -i -m1 avi)
 echo "$avipath"

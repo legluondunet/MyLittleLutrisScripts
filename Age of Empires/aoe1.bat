@@ -21,7 +21,7 @@ echo.	------------------------------------------------
 echo.
 echo.	1) Age of Empires 1
 echo.	2) Age of Empires 1: Rise of Rome
-echo.	3) exit
+echo.	3) Exit
 echo.
 echo.	------------------------------------------------
 echo.
