@@ -21,7 +21,8 @@ echo.	------------------------------------------------
 echo.
 echo.	1) Age of Empires 1
 echo.	2) Age of Empires 1: Rise of Rome
-echo.	3) Exit
+echo.	3) Age of Empires 1: Rise of Rome Upatch HD 1.1-R4
+echo.	4) Exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -30,8 +31,9 @@ echo.
 
 
 
-choice /c123 /s /N Your choice? [1-3]:
-if errorlevel 3 goto exit
+choice /c1234 /s /N Your choice? [1-4]:
+if errorlevel 4 goto exit
+if errorlevel 3 goto upatch
 if errorlevel 2 goto ror
 if errorlevel 1 goto aoe1
 
@@ -45,6 +47,12 @@ goto exit
 cls
 cd c:\dxwnd
 start dxwnd.exe /r:2
+goto exit
+
+:upatch
+cls
+cd c:\dxwnd
+start dxwnd.exe /r:3
 goto exit
 
 :exit
