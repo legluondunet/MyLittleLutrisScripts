@@ -15,24 +15,26 @@ goto :launcher
 cls
 echo.
 echo.
-echo.	----------------------------------------------------
-echo.			Age of Empires I
-echo.	----------------------------------------------------
+echo.	-------------------------------------------------------------
+echo.			     Age of Empires I
+echo.	-------------------------------------------------------------
 echo.
-echo.	 1) Age of Empires I 1.0c
-echo.	 2) Age of Empires I: Rise of Rome 1.0a
-echo.	 3) Age of Empires I: Rise of Rome Upatch HD 1.1-R4
-echo.	 4) Exit
+echo.	 1) Age of Empires I v 1.0c (DxWnd)
+echo.	 2) Age of Empires I: Rise of Rome v 1.0a (DxWnd)
+echo.	 3) Age of Empires I: Rise of Rome Upatch HD 1.1-R4 (DxWnd)
+echo.	 4) Age of Empires I: Rise of Rome Upatch HD 1.1-R4 
+echo.	    Upatch HD setup window, HD resolution, change language,
+echo. 	    others options, no DxWnd
+echo.	 5) Exit
 echo.
-echo.	----------------------------------------------------
+echo.	-------------------------------------------------------------
 echo.
 echo.
+echo.  	 Your choice? [1-5]:
 
-
-
-
-choice /c1234 /s /N Your choice? [1-4]:
-if errorlevel 4 goto exit
+choice /s /N	/c12345
+if errorlevel 5 goto exit
+if errorlevel 4 goto upatch2
 if errorlevel 3 goto upatch
 if errorlevel 2 goto ror
 if errorlevel 1 goto aoe1
@@ -52,7 +54,16 @@ goto :exit
 :upatch
 cls
 if not exist "c:\program files (x86)\microsoft games\age of empires\gamex" goto :notinstall
-goto :launchpatchhd
+cd c:\dxwnd
+start dxwnd.exe /r:3
+goto :exit
+
+:upatch2
+cls
+if not exist "c:\program files (x86)\microsoft games\age of empires\gamex" goto :notinstall
+cd "c:\program files (x86)\microsoft games\age of empires\gamex"
+start launcher.exe
+goto :exit
 
 :notinstall
 cls
@@ -89,13 +100,6 @@ goto :choice
 cd "c:\program files (x86)\microsoft games\age of empires\"
 "UPatch HD 1.1-R4 Setup.exe"
 goto :launcher
-
-:launchpatchhd
-cd "c:\program files (x86)\microsoft games\age of empires\gamex"
-start launcher.exe
-goto :exit
-
-
 
 :exit
 exit
