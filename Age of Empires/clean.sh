@@ -23,6 +23,7 @@ echo "update de la version $aoeversion en $lang"
 if [ $aoeversion = "gold" ] || [ $aoeversion = "ror" ]
 then
 cp "$dirtmp/exe/"* .
+ls | grep -i empiresx.exe | xargs -I {} cp {} empiresx1a.exe
 cp "../../../aoe1covers/1.bmp" "../../../aoe1.bmp"
 elif [ $aoeversion = "standard" ] 
 then
