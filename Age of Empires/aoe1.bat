@@ -20,7 +20,7 @@ echo.			Age of Empires I
 echo.	----------------------------------------------------
 echo.
 echo.	 1) Age of Empires I 1.0c
-echo.    2) Age of Empires I: Rise of Rome 1.0a
+echo.	 2) Age of Empires I: Rise of Rome 1.0a
 echo.	 3) Age of Empires I: Rise of Rome Upatch HD 1.1-R4
 echo.	 4) Exit
 echo.
