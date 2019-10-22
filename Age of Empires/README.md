@@ -54,7 +54,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 # Age of Empires - Rise of Rome - Upatch HD
 
 ##### Description:
-This script is a complement installer to "Age of Empires I" and "Age of Empires I: Rise of Rome" one, they should be installed before to launch this installer, 
+This script is a complement installer to "Age of Empires I" and "Age of Empires I: Rise of Rome" or "Age of Empires I: Gold Edition", they should be installed before to launch this installer, 
 During install please let all options by default.
 Credits: https://upatch-hd.weebly.com/
 Thanks to the people who contributed to play this game in the best conditions.
