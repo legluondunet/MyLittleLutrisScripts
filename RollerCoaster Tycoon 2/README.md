@@ -8,6 +8,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 
 Technical notes:
+- I wrote this installer in case using native Linux port of OpenRCT2 would not work on your distribution.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
