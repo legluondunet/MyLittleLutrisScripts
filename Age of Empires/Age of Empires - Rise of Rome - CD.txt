@@ -3,7 +3,6 @@ files:
 - scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/findaoe.sh
 - updt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1_update_1.0c_multi.zip
 - scriptclean: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/clean.sh
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1.bat
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1covers.zip
 installer:
 - task:
@@ -63,9 +62,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\aoe1.bmp
-- copy:
-    dst: $GAMEDIR/drive_c/
-    src: menu
 - chmodx: scriptclean
 - execute:
     args: $INPUT_LANG "$DISC" ror

@@ -2,6 +2,9 @@
 color 0f
 
 c:
+
+if not exist "c:\program files (x86)\microsoft games\age of empires\empiresx1a.exe" goto :aoe1
+
 cd c:\aoe1covers
 copy 1.bmp ..\aoe1.bmp
 move 1.bmp 1a.bmp
@@ -9,6 +12,7 @@ move 3.bmp 1.bmp
 move 2.bmp 3.bmp
 move 1a.bmp 2.bmp
 cd ..
+
 goto :launcher
 
 :launcher

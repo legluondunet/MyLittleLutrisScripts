@@ -162,9 +162,9 @@ installer:
         posy2: 50
         registry0: None
         registry2: null
-        renderer0: 3
-        renderer1: 3
-        renderer2: 3
+        renderer0: 7
+        renderer1: 7
+        renderer2: 7
         scanline0: 0
         scanline1: 0
         scanline2: 0

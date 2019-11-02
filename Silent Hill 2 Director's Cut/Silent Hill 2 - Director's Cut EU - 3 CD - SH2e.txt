@@ -267,4 +267,5 @@ installer:
     src: $GAMEDIR/drive_c/sh2dccd/
 wine:
   Desktop: true
+  version: ge-protonified-nofshack-4.9-x86_64
 
