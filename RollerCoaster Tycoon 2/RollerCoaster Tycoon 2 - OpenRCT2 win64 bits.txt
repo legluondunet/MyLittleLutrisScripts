@@ -1,6 +1,6 @@
 custom-name: RollerCoaster Tycoon 2 - GOG - OpenRCT2 win64 bits
 files:
-- orct2win: https://github.com/Limetric/OpenRCT2-binaries/releases/download/v0.2.3-2d443b5/OpenRCT2-0.2.3-develop-2d443b5-windows-x64.zip
+- orct2win: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.2.4/OpenRCT2-0.2.4-windows-portable-x64.zip
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
 - rct2setup: N/A:Select the Windows installer downloaded from GOG
 game:
@@ -44,12 +44,14 @@ installer:
 - write_config:
     data:
       general:
+        fullscreen_height: $RESOLUTION_HEIGHT
         fullscreen_mode: 1
+        fullscreen_width: $RESOLUTION_WIDTH
         game_path: $GAMEDIR/drive_c/RCT2
-    file: $GAMEDIR/drive_c/OpenRCT2/config.ini
+    file: $CACHE/config.ini
 - merge:
     dst: $GAMEDIR/drive_c/OpenRCT2/config
-    src: $GAMEDIR/drive_c/OpenRCT2/config.ini
+    src: $CACHE/config.ini
 - execute:
     command: cd $GAMEDIR/drive_c/RCT2/ ; rm -f -r __support/ gog* webcache.zip RCT2.EXE
 wine:
