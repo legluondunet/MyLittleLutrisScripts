@@ -9,10 +9,9 @@ Back to the future utlimate 3.0 mod and others nice tables here: http://www.pins
 Thanks to the people who helped us play this game in the best conditions.
 
 Technical notes:
-- Main controls: F5=launch table, ESC=exit table, 5=add coins, 1=start, ENTER=pull plunger, mouse right button and left button click: flippers
+- Main controls:  left and right SHIFT key for flippers, 5=add coins, 1=start, ENTER=pull plunger, ESC=exit table, F5=launch table.
 - FP supports natively x360 gamepad. But if like me you prefer use triggers as flippers, you will find x360 (Antimicro) and Steam controller (sc-controller) profiles in "gamepad profiles" folder.
-- Known issues:
+- Known issue:
 Not BAM tables compatible
-Use mouse or gamepad for flippers, keyboard keys does not respond enough faster to play
-- Please report issue concerning this script on my github page:
+- Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

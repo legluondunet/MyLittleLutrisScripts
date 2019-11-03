@@ -194,7 +194,7 @@
 "JoypadSpecial1"=dword:ffffffff
 "JoypadSpecial2"=dword:ffffffff
 "JoypadStartGame"=dword:ffffffff
-"JoypadSupport"=dword:00000000
+"JoypadSupport"=dword:00000001
 "JoypadTest"=dword:ffffffff
 "JoypadToggleHud"=dword:ffffffff
 "JoypadVolumeDown"=dword:ffffffff

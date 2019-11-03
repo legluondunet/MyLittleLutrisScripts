@@ -82,4 +82,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+wine:
+  Desktop: true
+  version: lutris-nofshack-4.18-x86_64
 
