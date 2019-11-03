@@ -1,17 +1,16 @@
 custom-name: Enclave - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/ENCLAVEM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/ENCLAVEM2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/ENCLAVE.BAT
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/enclave.bmp
 - gppr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/gamepad%20profiles/enclave_gamepad_readme.html
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/gamepad%20profiles/enclave_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/gamepad%20profiles/enclave_steam.sccprofile
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
 - setup: N/A:Select the GOG setup exe
 game:
   arch: win64
-  exe: drive_c/GOG Games/Enclave/ENCLAVEM1.BAT
+  args: c:\\Enclave\\ENCLAVE.BAT
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -20,33 +19,22 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE" "$setup"
-    file: $CACHE/innoextract
+    format: gog
+    src: setup
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/
+    dst: $GAMEDIR/drive_c/Enclave/
     src: $CACHE/app
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/
-    src: menu1
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/
-    src: menu2
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/
-    src: menu1
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/
-    src: menu2
+    dst: $GAMEDIR/drive_c/Enclave/
+    src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
     src: gppr
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
     src: gppx360
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
     src: gppsc
 - copy:
     dst: $GAMEDIR/drive_c/
@@ -63,7 +51,7 @@ installer:
         country0: 0
         dflag0: 0
         dflagb0: 0
-        exepath: C:\GOG Games\Enclave\
+        exepath: C:\Enclave\
         expert: 1
         fakec0: None
         faked0: None
@@ -87,7 +75,7 @@ installer:
         initx0: 0
         inity0: 0
         lang0: 0
-        launchpath0: C:\GOG Games\Enclave\Enclave.exe
+        launchpath0: C:\Enclave\Enclave.exe
         maxddinterface0: 7
         maxfps0: 0
         maxres0: -1
@@ -95,20 +83,16 @@ installer:
         maxy0: 0
         minx0: 0
         miny0: 0
-        module0: null
         monitorid0: -1
-        notes0: null
-        opengllib0: null
-        path0: C:\GOG Games\Enclave\Enclave.exe
+        path0: C:\Enclave\Enclave.exe
         posx0: 50
         posy0: 50
-        registry0: null
         renderer0: 3
         scanline0: 0
         sizx0: 800
         sizy0: 600
         slowratio0: 2
-        startfolder0: C:\GOG Games\Enclave\
+        startfolder0: C:\Enclave\
         swapeffect0: 0
         tflag0: 0
         title0: Enclave
@@ -152,15 +136,22 @@ installer:
 
       XR_SHADOWDECALTEXTURESIZE=2048
 
-      VID_MODE=$RESOLUTION_WIDTH $RESOLUTION_HEIGHT 32 60'
-    file: $GAMEDIR/drive_c/GOG Games/Enclave/environment.cfg
-    mode: a
+      VID_MODE=$RESOLUTION_WIDTH $RESOLUTION_HEIGHT 32 60
+
+      CON_ENABLE=1
+
+      '
+    file: $GAMEDIR/drive_c/Enclave/environment.cfg
 - write_file:
-    content: SUBTITLES_OFF=1
-    file: $GAMEDIR/drive_c/GOG Games/Enclave/options.cfg
+    content: 'SUBTITLES_OFF=1
+
+      KB_INGAME_MENU=ESC
+
+      '
+    file: $GAMEDIR/drive_c/Enclave/options.cfg
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Enclave/"; mv __support/app/Sbz1/User.cfg
-      Sbz1/; rm -f -r GL RenderSelector gog* webcache.zip __support;
+    command: cd "$GAMEDIR/drive_c/Enclave/"; mv __support/app/Sbz1/User.cfg Sbz1/;
+      rm -f -r GL RenderSelector gog* webcache.zip __support;
 wine:
   Desktop: true
 
