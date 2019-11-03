@@ -33,8 +33,8 @@ goto exit
 
 :gamepad
 cls
-start explorer "c:\gog games\enclave\gamepad profiles\"
-start iexplore "c:\gog games\enclave\gamepad profiles\enclave_gamepad_readme.html"
+start explorer "c:\enclave\gamepad profiles\"
+start iexplore "c:\enclave\gamepad profiles\enclave_gamepad_readme.html"
 goto launcher
 
 :exit
