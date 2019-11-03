@@ -1,0 +1,68 @@
+custom-name: RollerCoaster Tycoon 3 - Steam
+game:
+  exe: drive_c/RCT3/RCT3plus.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: rct3plus.exe
+- merge:
+    dst: $GAMEDIR/drive_c/RCT3
+    src: $DISC
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - Spanish: Spanish
+    - Swedish: Swedish
+    - Norwegian: Norwegian
+    - Italian: Italian
+    - German: German
+    - Finnish: Finnish
+    - English: English
+    - Dutch: Dutch
+    - Danish: Danish
+    - French: French
+    preselect: English
+- write_file:
+    content: 'Resolution $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+
+      Language "$INPUT"'
+    file: $GAMEDIR/drive_c/Options.txt
+- write_file:
+    content: 'c:
+
+      mkdir "C:\users\romain\Application Data\Atari\RCT3\"
+
+      move c:\Options.txt "%APPDATA%\Atari\RCT3\"'
+    file: $GAMEDIR/drive_c/config.bat
+- task:
+    executable: $GAMEDIR/drive_c/config.bat
+    name: wineexec
+    prefix: $GAMEDIR
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/config.bat
+wine:
+  Desktop: true
+
