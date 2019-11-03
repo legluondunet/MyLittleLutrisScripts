@@ -1,0 +1,14 @@
+custom-name: Unmechanical - GOG
+files:
+- setup: N/A:Please select the GOG.com Linux installer
+game:
+  exe: start.sh
+installer:
+- extract:
+    dst: $CACHE
+    file: setup
+    format: zip
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/data/noarch
+

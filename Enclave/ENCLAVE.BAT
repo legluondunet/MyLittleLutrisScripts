@@ -1,5 +1,6 @@
 @echo off
 color 06
+c:
 goto launcher
 
 :launcher
@@ -11,7 +12,7 @@ echo.			Enclave
 echo.	------------------------------------------------
 echo.
 echo.	1) Play Enclave
-echo.	2) How to play ENclave with a gamepad
+echo.	2) How to play Enclave with a gamepad
 echo.	3) exit
 echo.
 echo.	------------------------------------------------
@@ -26,14 +27,12 @@ if errorlevel 1 goto :enclave
 
 :enclave
 cls
-c:
 cd c:\dxwnd
 start dxwnd.exe /r:0
 goto exit
 
 :gamepad
 cls
-c:
 start explorer "c:\gog games\enclave\gamepad profiles\"
 start iexplore "c:\gog games\enclave\gamepad profiles\enclave_gamepad_readme.html"
 goto launcher
