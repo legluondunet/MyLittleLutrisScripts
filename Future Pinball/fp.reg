@@ -71,7 +71,7 @@
 "InsertCoinKey"=dword:00000006
 "JoypadNameNum"=dword:00000000
 "Left2ndFlipper"=dword:0000001e
-"LeftFlipperKey"=dword:000000cb
+"LeftFlipperKey"=dword:0000002a
 "LightFacets"=dword:00000040
 "ModelRenderQuality"=dword:00000002
 "NonPowerOf2Textures"=dword:00000000
@@ -90,7 +90,7 @@
 "RenderGameRoom"=dword:00000000
 "RenderOrnaments"=dword:00000001
 "Right2ndFlipper"=dword:00000028
-"RightFlipperKey"=dword:000000cd
+"RightFlipperKey"=dword:00000036
 "RotateDegrees"=dword:00000000
 "RubberFacets"=dword:00000040
 "RubberSides"=dword:00000014
@@ -194,7 +194,7 @@
 "JoypadSpecial1"=dword:ffffffff
 "JoypadSpecial2"=dword:ffffffff
 "JoypadStartGame"=dword:ffffffff
-"JoypadSupport"=dword:00000001
+"JoypadSupport"=dword:00000000
 "JoypadTest"=dword:ffffffff
 "JoypadToggleHud"=dword:ffffffff
 "JoypadVolumeDown"=dword:ffffffff
