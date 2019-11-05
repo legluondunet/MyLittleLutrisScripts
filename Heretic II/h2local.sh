@@ -11,14 +11,14 @@ dir="../tmp2/data/"
 if [ -f "HERETICIICDL/heretic2" ]; then 
 echo "installation CD Linux localisée"
 cd HERETICIICDL/base
-rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
 fi
 
 if [ -f "drive_c/Program Files (x86)/Heretic II/heretic2.exe" ]; then
 echo "installation CD Windows localisée"
 cd "drive_c/Program Files (x86)/Heretic II/base"
-rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
 fi
+
+rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
 
 echo "The script you are running has basename `basename "$0"`, dirname `dirname "$0"`"
 echo "The present working directory is `pwd`"

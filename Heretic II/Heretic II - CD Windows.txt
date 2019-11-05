@@ -12,15 +12,15 @@ files:
 - gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
 - grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
 - grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETICM2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETIC2.BAT
 - faq: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_gamepad_readme.html
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
 game:
-  exe: drive_c/Program Files (x86)/Heretic II/HERETICM1.BAT
+  args: c:\\heretic2.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -141,11 +141,8 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
-    src: menu1
-- move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
-    src: menu2
+    dst: $GAMEDIR/drive_c/
+    src: menu
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
     src: faq

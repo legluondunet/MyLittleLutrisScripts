@@ -2,6 +2,8 @@
 color 0d
 TITLE Heretic II
 
+c:
+
 goto :launcher
 
 :launcher
@@ -32,7 +34,6 @@ if errorlevel 1 goto heretic2
 
 :heretic2
 cls
-c:
 cd c:\dxwnd
 start dxwnd.exe /r:0
 goto :exit
@@ -57,7 +58,7 @@ echo.
 echo.
 echo.
 echo.
-h2resolution.exe
+"c:\Program Files (x86)\Heretic II\h2resolution.exe"
 pause
 goto :launcher
 
@@ -76,7 +77,7 @@ echo.
 echo.
 echo.
 echo.
-c:
+start explorer c:\Program Files (x86)\Heretic II\gamepad profiles\
 start iexplore c:\Program Files (x86)\Heretic II\gamepad profiles\h2_gamepad_readme.html
 pause
 goto :launcher
@@ -96,7 +97,6 @@ echo.
 echo.
 echo.
 echo.
-c:
 start iexplore c:\Program Files (x86)\Heretic II\faq.html
 pause
 goto :launcher
