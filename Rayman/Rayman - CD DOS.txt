@@ -16,19 +16,6 @@ installer:
 - execute:
     args: rayman
     file: script
-- task:
-    commands:
-    - imgmount d "rayman.cue" -t iso
-    - 'd:'
-    - call D:\install.bat
-    drives:
-      c: .
-    name: makeconfig
-    path: $GAMEDIR/rayman_dosbox_install.conf
-- task:
-    config_file: $GAMEDIR/rayman_dosbox_install.conf
-    name: dosexec
-    working_dir: $GAMEDIR
 - copy:
     dst: $GAMEDIR
     src: conf
