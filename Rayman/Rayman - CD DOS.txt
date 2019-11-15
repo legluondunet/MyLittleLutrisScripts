@@ -1,5 +1,6 @@
-custom-name: Rayman - CD DOS - DOSBOX
+custom-name: Rayman - CD DOS - DOSBox
 files:
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman/rayman_dosbox.conf
 game:
@@ -8,16 +9,18 @@ installer:
 - insert-disc:
     description: Please insert disc 1
     requires: rayman/rayman.exe
+- extract:
+    dst: $GAMEDIR
+    src: cdrtools
 - chmodx: script
 - execute:
-    args: RAYMAN
+    args: rayman
     file: script
 - task:
     commands:
-    - imgmount d "RAYMAN.cue" -t iso
+    - imgmount d "rayman.cue" -t iso
     - 'd:'
     - call D:\install.bat
-    - exit
     drives:
       c: .
     name: makeconfig
