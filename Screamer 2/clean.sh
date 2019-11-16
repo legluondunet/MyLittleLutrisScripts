@@ -10,4 +10,4 @@ done
 sed -i 's/fulldouble=false/fulldouble=true/g' dosbox_screamer2.conf
 sed -i 's/output=ddraw/output=opengl/g' dosbox_screamer2.conf
 sed -i 's/aspect=false/aspect=true/g' dosbox_screamer2.conf
-
+sed -i 's/mididevice=default/mididevice=none/g' dosbox_screamer2.conf

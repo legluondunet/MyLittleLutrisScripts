@@ -9,3 +9,4 @@ sed -i 's/output=overlay/output=opengl/g' Rayman_Forever_dosbox.conf
 sed -i 's/fullscreen=true/fullscreen=false/g' Rayman_Forever_dosbox.conf
 sed -i 's/core=normal/core=auto/g' Rayman_Forever_dosbox.conf
 sed -i 's/cycles=80000/cycles=auto/g' Rayman_Forever_dosbox.conf
+sed -i 's/mididevice=default/mididevice=none/g' Rayman_Forever_dosbox.conf
