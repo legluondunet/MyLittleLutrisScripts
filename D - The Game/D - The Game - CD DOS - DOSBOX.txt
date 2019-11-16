@@ -14,13 +14,13 @@ installer:
     src: cdrtools
 - chmodx: script
 - execute:
-    args: disk
+    args: disk 0
     file: script
 - insert-disc:
     description: Please insert disc 2
     requires: efc/baby.raw
 - execute:
-    args: D_
+    args: D_ 1
     file: script
 - execute:
     command: cd $GAMEDIR; rm -f -r *.toc; mv disk.cue D_CD1.cue; mv disk.bin D_CD1.bin;

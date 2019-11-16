@@ -1,5 +1,6 @@
-custom-name: Versailles 1685 - CD DOS/Windows - DOSBOX
+custom-name: Versailles 1685 - CD DOS/Windows - DOSBox
 files:
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Versailles%201685/versailles-1685_dosbox.conf
 game:
@@ -8,9 +9,12 @@ installer:
 - insert-disc:
     description: Please insert disc 1
     requires: DATAS_V/CDVER1.BIN
+- extract:
+    dst: $GAMEDIR
+    src: cdrtools
 - chmodx: script
 - execute:
-    args: VERSAILL_1
+    args: VERSAILL_1 0
     file: script
 - insert-disc:
     description: Please insert disc 2
@@ -18,20 +22,6 @@ installer:
 - execute:
     args: VERSAILL_2
     file: script
-- task:
-    commands:
-    - imgmount d VERSAILL_1.cue VERSAILL_2.cue -t iso
-    - 'd:'
-    - INSTALL.EXE
-    - exit
-    drives:
-      c: .
-    name: makeconfig
-    path: $GAMEDIR/versailles-1685_dosbox_install.conf
-- task:
-    config_file: $GAMEDIR/versailles-1685_dosbox_install.conf
-    name: dosexec
-    working_dir: $GAMEDIR
 - copy:
     dst: $GAMEDIR
     src: conf
