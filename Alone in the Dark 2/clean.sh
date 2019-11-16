@@ -21,4 +21,4 @@ sed -i 's/fullscreen=true/fullscreen=false/g' dosboxAlone2.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosboxAlone2.conf
 sed -i 's/output=overlay/output=opengl/g' dosboxAlone2.conf
 sed -i 's/aspect=false/aspect=true/g' dosboxAlone2.conf
-
+sed -i 's/mididevice=default/mididevice=none/g' dosboxAlone2.conf

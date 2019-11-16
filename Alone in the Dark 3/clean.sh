@@ -25,4 +25,4 @@ sed -i 's=GAME.\INS=game.\ins=g' dosboxAlone3_single.conf
 sed -i 's/fullscreen=true/fullscreen=false/g' dosboxAlone3.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosboxAlone3.conf
 sed -i 's/output=overlay/output=opengl/g' dosboxAlone3.conf
-
+sed -i 's/mididevice=default/mididevice=none/g' dosboxAlone3.conf

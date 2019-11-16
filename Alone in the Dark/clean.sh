@@ -23,6 +23,7 @@ sed -i 's/fullscreen=true/fullscreen=false/g' dosboxAlone1.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosboxAlone1.conf
 sed -i 's/output=overlay/output=opengl/g' dosboxAlone1.conf
 sed -i 's/aspect=false/aspect=true/g' dosboxAlone1.conf
+sed -i 's/mididevice=default/mididevice=none/g' dosboxAlone1.conf
 
 sed -i 's=c:==g' dosboxAlone1_single.conf
 sed -i 's/overlay/&\nc:/g' dosboxAlone1_single.conf
