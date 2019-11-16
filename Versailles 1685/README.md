@@ -7,10 +7,10 @@ Big thanks to people who gave their time to permit us playing this game in the b
 Technical notes:
 - You will need the 2 CD only one time during install
 - Script compatible CD DOS or CD Hybrid DOS/Windows
-- Please report issue concerning this script on my github page:
+- Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Versailles 1685 - CD DOS/Windows - DOSBOX
+# Versailles 1685 - CD DOS/Windows - DOSBox
 
 Description:
 This script will install "Versailles 1685" DOS/Windows CD edition for DOSBox.
