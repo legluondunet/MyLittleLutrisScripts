@@ -10,7 +10,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 Technical notes:
 - Dependencies: You have to install libasan5, libsdl2-2.0-0, libsdl2-ttf-2.0-0, libsdl2-mixer-2.0-0 libraries.
-- Please report issue concerning this script on my github page:
+- Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Diablo
 
 # Diablo Wine GOG + Tchernobog
@@ -22,6 +22,7 @@ Tchernobog site: https://mod.diablo.noktis.pl/
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
+- Project Tchernobog  v0.1.6c
 - To find others players for online games, ask on Discord: https://discord.gg/82BaSAP.
-- Please report issue concerning this script on my github page:
+- Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

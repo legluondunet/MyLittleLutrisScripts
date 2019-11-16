@@ -7,6 +7,7 @@ sed -i 's/fullscreen=true/fullscreen=false/g' dosbox_warcraft.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosbox_warcraft.conf
 sed -i 's/30000/50000/g' dosbox_warcraft.conf
 sed -i 's/mididevice=default/mididevice=none/g' dosbox_warcraft.conf
+
 for i in dosbox_warcraft_*; do
     sed -i 's=c:==g' $i
 done
