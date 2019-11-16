@@ -1,13 +1,17 @@
-custom-name: Battle Chess - Collection - CD - DOSBOX
+custom-name: Battle Chess - Collection - CD - DOSBox
 files:
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Battle%20Chess%20-%20Collection/bcc_dosbox.conf
 game:
-  main_file: $GAMEDIR/D_dosbox.conf
+  main_file: $GAMEDIR/bcc_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc
     requires: chess.bat
+- extract:
+    dst: $GAMEDIR
+    src: cdrtools
 - chmodx: script
 - execute:
     args: BATTLECHESS

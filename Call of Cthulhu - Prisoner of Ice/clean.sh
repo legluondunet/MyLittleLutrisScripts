@@ -12,4 +12,4 @@ sed -i 's/fulldouble=false/fulldouble=true/g' dosbox_poi.conf
 sed -i 's/fullresolution=original/fullresolution=desktop/g' dosbox_poi.conf
 sed -i 's/output=surface/output=opengl/g' dosbox_poi.conf
 sed -i 's/aspect=false/aspect=true/g' dosbox_poi.conf
-
+sed -i 's/mididevice=default/mididevice=none/g' dosbox_poi.conf

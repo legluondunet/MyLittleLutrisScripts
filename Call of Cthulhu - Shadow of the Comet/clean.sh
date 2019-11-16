@@ -21,4 +21,4 @@ sed -i 's/fullscreen=true/fullscreen=false/g' dosbox_sotc.conf
 sed -i 's/fulldouble=false/fulldouble=true/g' dosbox_sotc.conf
 sed -i 's/output=overlay/output=opengl/g' dosbox_sotc.conf
 sed -i 's/aspect=false/aspect=true/g' dosbox_sotc.conf
-
+sed -i 's/mididevice=default/mididevice=none/g' dosbox_sotc.conf
