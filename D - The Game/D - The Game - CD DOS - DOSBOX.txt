@@ -1,5 +1,6 @@
-custom-name: D - The Game - CD DOS - DOSBOX
+custom-name: D - The Game - CD DOS - DOSBox
 files:
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/D%20-%20The%20Game/D_dosbox.conf
 game:
@@ -8,6 +9,9 @@ installer:
 - insert-disc:
     description: Please insert disc 1
     requires: d/laura.exe
+- extract:
+    dst: $GAMEDIR
+    src: cdrtools
 - chmodx: script
 - execute:
     args: disk
@@ -22,20 +26,6 @@ installer:
     command: cd $GAMEDIR; rm -f -r *.toc; mv disk.cue D_CD1.cue; mv disk.bin D_CD1.bin;
       mv D_.cue D_CD2.cue; mv D_.bin D_CD2.bin; sed -i 's/disk.bin/D_CD1.bin/g' D_CD1.cue;
       sed -i 's/D_.bin/D_CD2.bin/g' D_CD2.cue
-- task:
-    commands:
-    - imgmount d "D_CD1.cue" "D_CD2.cue" -t iso
-    - 'd:'
-    - call D:\install.bat
-    - exit
-    drives:
-      c: .
-    name: makeconfig
-    path: $GAMEDIR/D_dosbox_install.conf
-- task:
-    config_file: $GAMEDIR/D_dosbox_install.conf
-    name: dosexec
-    working_dir: $GAMEDIR
 - copy:
     dst: $GAMEDIR
     src: conf
