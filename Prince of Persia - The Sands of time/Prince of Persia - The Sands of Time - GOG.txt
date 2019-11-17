@@ -1,4 +1,4 @@
-custom-name: Prince of Persia - Sands of Time - GOG
+custom-name: Prince of Persia - The Sands of Time - GOG
 files:
 - goginstaller: N/A:Please select the GOG.com Windows installer
 - wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Prince%20of%20Persia%20-%20Sands%20of%20time/pop.7z
