@@ -1,0 +1,32 @@
+custom-name: Zork Nemesis - The forbidden Lands - CD - ScummVM
+files:
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Zork%20Nemesis/clean.sh
+game:
+  game_id: znemesis
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: zsplash.exe
+- merge:
+    dst: $GAMEDIR/ZNCD1
+    src: $DISC
+- insert-disc:
+    description: Please insert disc 2
+    requires: zassets/conserv/vb3ea31c.avi
+- merge:
+    dst: $GAMEDIR/ZNCD2
+    src: $DISC
+- insert-disc:
+    description: Please insert disc 3
+    requires: zassets/asylum/ab4fa11c.avi
+- merge:
+    dst: $GAMEDIR/ZNCD3
+    src: $DISC
+- chmodx: script
+- execute:
+    file: script
+scummvm:
+  fullscreen: true
+

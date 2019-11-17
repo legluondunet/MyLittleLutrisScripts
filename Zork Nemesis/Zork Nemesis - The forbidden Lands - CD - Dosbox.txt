@@ -1,31 +1,33 @@
-custom-name: Lighthouse - The Dark Being - CD - DOSBox
+custom-name: Zork Nemesis - The forbidden Lands - CD - DOSBox
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lighthouse%20-%20The%20Dark%20Being/lighthouse_dosbox.conf
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Zork%20Nemesis/zork_nemesis_tfl_dosbox.conf
 game:
-  main_file: $GAMEDIR/lighthouse_dosbox.conf
+  main_file: $GAMEDIR/zork_nemesis_tfl_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc 1
-    requires: 9.CSC
+    requires: zsplash.exe
 - extract:
     dst: $GAMEDIR
     src: cdrtools
 - chmodx: script
 - execute:
-    args: VOL 0
+    args: ZORKNEM_I 0
     file: script
 - insert-disc:
     description: Please insert disc 2
-    requires: movies/5.vmd
+    requires: zassets/conserv/vb3ea31c.avi
 - execute:
-    args: VOLU
+    args: ZORKNEM_II 0
     file: script
+- insert-disc:
+    description: Please insert disc 3
+    requires: zassets/asylum/ab4fa11c.avi
 - execute:
-    command: cd $GAMEDIR; mv VOL.cue LIGHTHOUSE_CD1.cue; mv VOL.bin LIGHTHOUSE_CD1.bin;
-      mv VOLU.cue LIGHTHOUSE_CD2.cue; mv VOLU.bin LIGHTHOUSE_CD2.bin; sed -i 's/VOL.bin/LIGHTHOUSE_CD1.bin/g'
-      LIGHTHOUSE_CD1.cue; sed -i 's/VOLU.bin/LIGHTHOUSE_CD2.bin/g' LIGHTHOUSE_CD2.cue;
+    args: ZORKNEM_III
+    file: script
 - copy:
     dst: $GAMEDIR
     src: conf
