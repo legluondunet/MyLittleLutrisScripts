@@ -1,6 +1,7 @@
+custom-name: Atlantis - The Lost Tales - GOG
 files:
 - installer: N/A:Select the EXE downloaded from GOG
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_16_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_35_build.rar
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
