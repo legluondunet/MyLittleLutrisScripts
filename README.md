@@ -12,8 +12,6 @@ Lorsque j'écris un script, voici mes lignes directrices:
 Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes scripts d'installation.
 
 
-
-1661/5000
 Who wants to spend hours, see whole days installing old DOS / Windows games on Linux before you can finally play it? Nobody, well, almost nobody because it amuses me. That said I understand very well that most players do not want to spend time installing their games, they should not have to do it. The ideal would be to play Linux as a console, we start the game and it plays immediately, no settings or hacks. Lutris allows Linux players to get closer to this goal: once the installation of the scripted game, click on "Install" then on "Play" and play! No need to have advanced computer skills to make a game work. Former user of PlayOnLinux, I am migrating my list of games to Lutris and I decided to share my scripts with you. It's ridiculous to spend each one of your own time trying to play Linux games when someone has already done so and you can automate it later.
 
 When I write a script, here are my guidelines:
