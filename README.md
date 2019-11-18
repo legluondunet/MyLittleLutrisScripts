@@ -16,10 +16,10 @@ Who wants to spend hours, see whole days installing old DOS / Windows games on L
 
 When I write a script, here are my guidelines:
 
-    minimum interaction with the player, the game installed must be immediately operational without additional settings or hacks.
-    include the latest updates and patches that improve gameplay.
-    multilanguage when possible.
-    maintain the script and improve it if needed.
-    the code must remain simple to understand so that neophytes can reuse it.
+- minimum interaction with the player, the game installed must be immediately operational without additional settings or hacks.
+- include the latest updates and patches that improve gameplay.
+- multilanguage when possible.
+- maintain the script and improve it if needed.
+- the code must remain simple to understand so that neophytes can reuse it.
 
 You can here declare a bug or propose a modification for one of my installation scripts.
