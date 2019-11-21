@@ -1,34 +1,36 @@
-custom-name: Star Wars - Episode I Racer - GOG
+custom-name: Star Wars - Episode I Racer - CD
 files:
-- swr: N/A:Please select the GOG installer
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
 game:
-  exe: /drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
+  exe: drive_c/Program Files/LucasArts/RACER/swep1rcr.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- insert-disc:
+    requires: racer.exe
 - task:
-    args: /SP- /SUPPRESSMSGBOXES
-    description: Installing...
-    executable: swr
+    args: /desktop=SWE1Racer,1024x780 $DISC/setup.exe
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
     file: dgv
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
-    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/DDraw.dll
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER//MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
-    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/D3DImm.dll
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/MS/x86/D3DImm.dll
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; mv dgVoodoo.conf dgVoodoo_original.conf;
-      rm -f -r ddraw.dll;
+    command: cd "$GAMEDIR/drive_c/Program Files/LucasArts/RACER/"; mv dgVoodoo.conf
+      dgVoodoo_original.conf
 - write_config:
     data:
       DirectX:
@@ -40,7 +42,7 @@ installer:
         CaptureMouse: false
         FullScreenMode: false
         ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo.conf
 - task:
     arch: win64
     key: ddraw
@@ -49,8 +51,12 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
     src: audio
 - task:
     arch: win64
@@ -96,7 +102,7 @@ installer:
 
 
       end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/force.cfg
+    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/force.cfg
 - write_file:
     content: '
 
@@ -225,7 +231,7 @@ installer:
 
 
       end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/current_control.map
+    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/current_control.map
 - write_file:
     content: '
 
@@ -254,10 +260,10 @@ installer:
 
 
       end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/video.cfg
+    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/video.cfg
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx/ Doc/
-      MS gog* support.ico unins000.* webcache.zip website.exe *.lnk
+    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx/ Doc
+      MS DeIsL1.isu register.exe *.lnk Website.exe
 wine:
   Desktop: true
   dxvk: true
