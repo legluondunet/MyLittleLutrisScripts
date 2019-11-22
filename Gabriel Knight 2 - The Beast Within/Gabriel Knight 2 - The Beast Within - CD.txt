@@ -1,0 +1,43 @@
+custom-name: Gabriel Knight 2 - The Beast Within - CD - ScummVM
+game:
+  game_id: sci
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: gk2r1.001
+- merge:
+    dst: $GAMEDIR/CD1
+    src: $CACHE
+- insert-disc:
+    description: Please insert disc 2
+    requires: gk2r1.002
+- merge:
+    dst: $GAMEDIR/CD2
+    src: $CACHE
+- insert-disc:
+    description: Please insert disc 3
+    requires: gk2r1.003
+- merge:
+    dst: $GAMEDIR/CD3
+    src: $CACHE
+- insert-disc:
+    description: Please insert disc 4
+    requires: gk2r1.004
+- merge:
+    dst: $GAMEDIR/CD4
+    src: $CACHE
+- insert-disc:
+    description: Please insert disc 5
+    requires: gk2r1.005
+- merge:
+    dst: $GAMEDIR/CD5
+    src: $CACHE
+- insert-disc:
+    description: Please insert disc 6
+    requires: gk2r1.006
+- merge:
+    dst: $GAMEDIR/CD5
+    src: $CACHE
+
