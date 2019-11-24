@@ -1,0 +1,6 @@
+- extract:
+    dst: $CACHE/
+    src: inno
+- execute:
+    args: -d "$CACHE" "$rct2setup"
+    file: $CACHE/innoextract
