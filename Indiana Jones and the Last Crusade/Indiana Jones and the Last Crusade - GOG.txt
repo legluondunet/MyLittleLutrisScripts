@@ -1,0 +1,17 @@
+custom-name: Indiana Jones and the Last Crusade - GOG - ScummVM
+files:
+- goginstaller: N/A:Please select the GOG.com Linux installer
+game:
+  game_id: indy3
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE/GOG
+    file: goginstaller
+    format: zip
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/GOG/data/noarch/data
+scummvm:
+  aspect: true
+

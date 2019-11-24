@@ -22,10 +22,11 @@ cd ../CD6
 mv RESOURCE.AUD RESAUD.006
 mv RESOURCE.SFX RESSFX.006
 cd ..
-cp -Rf CD2/* CD1/
-cp -Rf CD3/* CD1/
-cp -Rf CD4/* CD1/
-cp -Rf CD5/* CD1/
-cp -Rf CD6/* CD1/
-rm -rf CD2 CD3 CD4 CD5 CD6
-mv CD1 GK2
+mv -f CD1/* .
+mv -f CD2/* .
+mv -f CD3/* .
+mv -f CD4/* .
+mv -f CD5/* .
+mv -f CD6/* .
+rm -rf CD1 CD2 CD3 CD4 CD5 CD6
+
