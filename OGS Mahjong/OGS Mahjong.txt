@@ -1,6 +1,6 @@
 files:
 - install: https://master.dl.sourceforge.net/project/osrpgcreation/Mahjong/1.1.0/ogs-mahjong-full-1.1.0-linux64.tar.lzma
-- installlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OGS%20Mahjong/OGS%20Mahjong_libs.zip
+- installaddons: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OGS%20Mahjong/OGS%20Mahjong_addons.zip
 game:
   exe: mj
 installer:
@@ -12,6 +12,6 @@ installer:
     format: tar
     src: $CACHE/ogs-mahjong-full-1.1.0-linux64.tar
 - extract:
-    dst: $GAMEDIR/lib
-    src: installlibs
+    dst: $GAMEDIR/
+    src: installaddons
 
