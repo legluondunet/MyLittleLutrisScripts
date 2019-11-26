@@ -1,21 +1,17 @@
-custom-name: Theme Hospital - GOG - CorsixTH
 files:
-- goginstaller: N/A:Please select the GOG.com Linux installer
-- corsixth: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/corsixth.zip
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- install: https://master.dl.sourceforge.net/project/osrpgcreation/Mahjong/1.1.0/ogs-mahjong-full-1.1.0-linux64.tar.lzma
+- installlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OGS%20Mahjong/OGS%20Mahjong_libs.zip
 game:
-  exe: $GAMEDIR/CorsixTH/CorsixTH
+  exe: mj
 installer:
 - extract:
-    dst: $CACHE/
-    src: inno
-- execute:
-    args: -d "$GAMEDIR/TH" "$goginstaller"
-    file: $CACHE/innoextract
+    dst: $CACHE
+    src: install
 - extract:
-    dst: $GAMEDIR/CorsixTH
-    src: corsixth
-- execute:
-    command: cd $GAMEDIR; sed -i "s=../app/=../TH/=g" CorsixTH/config.txt; cd TH;
-      rm -f -r app commonappdata DOSBOX __redist tmp __support goggame-1207659026.*
+    dst: $GAMEDIR
+    format: tar
+    src: $CACHE/ogs-mahjong-full-1.1.0-linux64.tar
+- extract:
+    dst: $GAMEDIR/lib
+    src: installlibs
 
