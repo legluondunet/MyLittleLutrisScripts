@@ -23,3 +23,11 @@ When I write a script, here are my guidelines:
 - the code must remain simple to understand so that neophytes can reuse it.
 
 You can here declare a bug or propose a modification for one of my installation scripts.
+
+# Supported distributions
+
+all scripts tested and should be compatible on 
+- Ubuntu 18.04 (Debian)
+- Manjaro 18.1.2 (Arch)
+- Fedora 30 ( Red Hat)
+- Solus 4.4
