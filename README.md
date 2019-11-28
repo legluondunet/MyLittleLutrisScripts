@@ -31,4 +31,5 @@ all scripts tested and should be compatible on
 - Manjaro 18.1.2 (Arch)
 - Fedora 30 (Red Hat)
 - Solus 4.4
+
 and superior version.
