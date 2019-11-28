@@ -1,3 +1,4 @@
+custom-name: OGS Mahjong Full
 files:
 - install: https://master.dl.sourceforge.net/project/osrpgcreation/Mahjong/1.1.0/ogs-mahjong-full-1.1.0-linux64.tar.lzma
 - installaddons: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OGS%20Mahjong/OGS%20Mahjong_addons.zip

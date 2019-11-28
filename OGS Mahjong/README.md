@@ -1,7 +1,7 @@
-# OGS Mahjong Solitaire
+# OGS Mahjong Full Edition
 
 Description:
-This script will install "OGS Mahjong Solitaire" with support for modern computer configuration. 
+This script will install "OGS Mahjong" full edition with support for modern computer configuration. 
 During install please let all options by default.
 More about this game: https://sourceforge.net/projects/osrpgcreation/
 
