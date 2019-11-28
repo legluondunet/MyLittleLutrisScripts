@@ -29,5 +29,6 @@ Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes s
 all scripts tested and should be compatible on 
 - Ubuntu 18.04 (Debian)
 - Manjaro 18.1.2 (Arch)
-- Fedora 30 ( Red Hat)
+- Fedora 30 (Red Hat)
 - Solus 4.4
+and superior version.
