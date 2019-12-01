@@ -9,13 +9,13 @@ while true; do
   case "${choice}" in
     "Soulcaster: Part I" )
        echo "Soulcaster: Part I"
-	cd SC1
+	if [ -d "SC1" ] && cd SC1
 	./Soulcaster1.bin.x86_64
 	exit
     ;;
     "Soulcaster: Part II" )
         echo "Soulcaster: Part II"
-	cd SC2
+	if [ -d "SC2" ] && cd SC2
 	./Soulcaster2.bin.x86_64
 	exit
     ;;
