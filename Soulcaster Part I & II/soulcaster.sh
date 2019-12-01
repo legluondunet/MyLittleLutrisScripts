@@ -9,13 +9,19 @@ while true; do
   case "${choice}" in
     "Soulcaster: Part I" )
        echo "Soulcaster: Part I"
-	if [ -d "SC1" ] && cd SC1
+		if [ -d "SC1" ]; then
+		cd SC1
+		echo "version Humble Bundle identfiée"
+		fi
 	./Soulcaster1.bin.x86_64
 	exit
     ;;
     "Soulcaster: Part II" )
         echo "Soulcaster: Part II"
-	if [ -d "SC2" ] && cd SC2
+		if [ -d "SC2" ]; then
+		cd SC2
+		echo "version Humble Bundle identfiée"
+		fi
 	./Soulcaster2.bin.x86_64
 	exit
     ;;
