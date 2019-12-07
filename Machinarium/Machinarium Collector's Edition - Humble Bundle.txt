@@ -1,0 +1,17 @@
+custom-name: Machinarium Collector's Edition - Humble Bundle - Wine
+files:
+- install: N/A:Please select the Humble archive
+game:
+  exe: drive_c/Machinarium/Machinarium.exe
+  prefix: $GAMEDIR/
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Machinarium
+    src: install
+
+
