@@ -25,11 +25,12 @@ Lorsque j'écris un script, voici mes lignes directrices:
 
 Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes scripts d'installation.
 
-# Supported Linux distributions
+# Supported Linux distributions (>= GLIBC 2.7)
 all scripts tested and should be compatible on 
 - Ubuntu 18.04 (Debian)
 - Manjaro 18.1.3 (Arch)
 - Fedora 30 (Red Hat)
 - Solus 4.4
+- OpenSUSE Thumberweed (not Leap 15.1)
 
 and superior version.
