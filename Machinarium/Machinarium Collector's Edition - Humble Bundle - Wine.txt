@@ -8,10 +8,21 @@ installer:
 - task:
     arch: win64
     description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/Machinarium
     src: install
-
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
 
