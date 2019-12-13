@@ -14,7 +14,7 @@ installer:
     src: cdrtools
 - chmodx: script
 - execute:
-    args: CIT
+    args: cite
     file: script
 - copy:
     dst: $GAMEDIR
