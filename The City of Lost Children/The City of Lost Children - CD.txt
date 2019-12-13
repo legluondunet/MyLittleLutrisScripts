@@ -1,20 +1,20 @@
-custom-name: Rayman - CD DOS - DOSBox
+custom-name: The City of Lost Children - CD - DOSBox
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman/rayman_dosbox.conf
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20City%20of%20Lost%20Children/tcolc_dosbox.conf
 game:
-  main_file: $GAMEDIR/rayman_dosbox.conf
+  main_file: $GAMEDIR/tcolc_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc 1
-    requires: rayman/rayman.exe
+    requires: city.ico
 - extract:
     dst: $GAMEDIR
     src: cdrtools
 - chmodx: script
 - execute:
-    args: rayman
+    args: CIT
     file: script
 - copy:
     dst: $GAMEDIR
