@@ -1,0 +1,34 @@
+custom-name: Machinarium Collector's Edition - GOG - Wine
+files:
+- install: N/A:Please select the Humble archive
+game:
+  exe: drive_c/GOG Games/Machinarium/Machinarium.exe
+  prefix: $GAMEDIR/
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    src: install
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Machinarium/
+    src: $CACHE/app
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Machinarium/"; rm -f -r __support goggame-1207659017.*
+      webcache.zip
+wine:
+  Desktop: true
+

@@ -1,0 +1,60 @@
+custom-name: The Deadly Tower of Monsters - GOG - Wine
+execute:
+  command: cd $GAMEDIR; rm -f -r __support goggame-1458826738.* language_setup.* webcache.zip
+files:
+- gog: N/A:Please select the Humble archive 1
+game:
+  exe: drive_c/GOG Games/The Deadly Tower of Monsters/Binaries/Win32/TS.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    src: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/The Deadly Tower of Monsters
+    src: $CACHE/app
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- input_menu:
+    description: 'Please choose your preferred language for subtitles:'
+    id: LANG
+    options:
+    - INT: English
+    - FRA: French
+    - DEU: German
+    - CHN: Chinese
+    - ITA: Italian
+    - RUS: Russian
+    - ESN: Spanish
+    preselect: INT
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/The Deadly Tower of Monsters"; rm -f -r
+      __support goggame-1458826738.* language_setup.* webcache.zip;
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/The Deadly Tower of Monsters"; sed -i
+      "s/^Language=.*/Language=$INPUT_LANG/" Engine/Config/BaseEngine.ini; sed -i
+      -e "s/ResX=.*/ResX=$RESOLUTION_WIDTH/" -e "s/ResY=.*/ResY=$RESOLUTION_HEIGTH/"
+      -e "s/Fullscreen=.*/Fullscreen=True/" -e "s/UseVsync=.*/UseVsync=True/" Engine/Config/BaseSystemSettings.ini;
+wine:
+  Desktop: true
+

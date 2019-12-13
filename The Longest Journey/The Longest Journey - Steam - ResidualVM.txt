@@ -1,0 +1,20 @@
+custom-name: The Longest Journey - Steam - ResidualVM
+files:
+- rvmengine: https://lutris.nyc3.digitaloceanspaces.com/games/the-longest-journey/engines-stark.tar.xz
+game:
+  game_id: tlj
+  path: $GAMEDIR/
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please browse to the The Long Journey Steam Edition game folder
+    requires: x.xarc
+- merge:
+    dst: $GAMEDIR/
+    src: $DISC
+- extract:
+    dst: $GAMEDIR/engines
+    file: rvmengine
+residualvm:
+  fullscreen: true
+
