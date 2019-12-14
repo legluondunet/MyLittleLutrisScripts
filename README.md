@@ -21,7 +21,7 @@ Lorsque j'écris un script, voici mes lignes directrices:
 - inclures les dernières mises à jour et des patchs qui améliorent la jouabilité.
 - multilangage quand c'est possible.
 - maintenir le script et l'améliorer si besoin.
-- le code doit rester simple à comprendre pour que d'aurtes néophytes puissent le réutiliser.
+- le code doit rester simple à comprendre pour que d'autres néophytes puissent le réutiliser.
 
 Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes scripts d'installation.
 
