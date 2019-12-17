@@ -1,7 +1,7 @@
 custom-name: Moto Racer 1 - GOG
 files:
 - mr1: N/A:Please select the GOG installer
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
+- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_39_build.rar
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -9,6 +9,8 @@ game:
 installer:
 - task:
     arch: win64
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -59,7 +61,8 @@ installer:
         initresh0: 600
         initresw0: 800
         initts0: 0
-        launchpath0: C:\GOG Games\Moto Racer\game.EXE -$INPUT_LANG
+        launchpath0: C:\GOG Games\Moto Racer\game.EXE -$INPUT_LANG -DoRealLock -OpaqueBlackLevel3
+          -TextureSquareOnly -Pal16 -CorrectRatioTextures -NoDither -TextureVideoMem268435456
         maxddinterface0: 7
         maxfps0: 8
         maxres0: -1
@@ -77,14 +80,6 @@ installer:
         title0: Moto Racer 1
         ver0: 0
         winver0: 1
-      window:
-        exepath: C:\GOG Games\Moto Racer\
-        expert: 1
-        exportpath: C:\dxwnd\exports\
-        posx: 1422
-        posy: 417
-        sizx: 320
-        sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - task:
     arch: win64

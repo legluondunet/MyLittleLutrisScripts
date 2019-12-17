@@ -1,7 +1,7 @@
 # Moto Racer 1 - GOG
 
 Description:
-This script will install "Moto Racer 1" Gog edition with support for modern resolution.
+This script will install "Moto Racer 1" GOG edition with support for modern computer configuration.
 During install please let all options by default.
 This script uses DxWnd: https://sourceforge.net/projects/dxwnd/
 Many thanks to the people who helped us to play this game in the best conditions.
