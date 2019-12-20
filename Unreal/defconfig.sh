@@ -33,8 +33,5 @@ sed -i 's/Language=.*/Language='$lang'/' UnrealLinux.ini
 sed -i 's/FullscreenViewportX=.*/FullscreenViewportX='$width'/' UnrealLinux.ini
 sed -i 's/FullscreenViewportY=.*/FullscreenViewportY='$height'/' UnrealLinux.ini
 
-cd ../lin_convenience_libs
-cp libalut* ../System
-cp libfmod* ../System
 cd ..
 rm -f -r gog* unins* Support.ico Launch* Gameux*

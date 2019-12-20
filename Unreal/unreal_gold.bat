@@ -1,5 +1,5 @@
 @echo off
-color 06
+color 0E
 c:\
 goto launcher
 
