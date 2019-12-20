@@ -1,0 +1,27 @@
+custom-name: Lone's Survivor - The Director's Cut - Humble Bundle - Wine
+files:
+- install: N/A:Please select the Humble Bundle archive
+game:
+  arch: win64
+  exe: drive_c/Lone Survivor/LoneSurvivor.exe
+  install_gecko: false
+  install_mono: false
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE
+    file: install
+- move:
+    dst: $GAMEDIR/drive_c/Lone Survivor
+    src: $CACHE/LoneSurvivor-PC/LoneSurvivor
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+
