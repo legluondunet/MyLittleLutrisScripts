@@ -1,0 +1,18 @@
+custom-name: Blade Runner - GOG - ScummVM
+files:
+- gog: N/A:Please select the GOG.com Linux installer
+game:
+  game_id: bladerunner
+  path: $GAMEDIR/Blade Runner/
+  subtitles: true
+installer:
+- extract:
+    dst: $CACHE/BR/
+    format: zip
+    src: gog
+- merge:
+    dst: $GAMEDIR/Blade Runner/
+    src: $CACHE/BR/data/noarch/game/data/
+scummvm:
+  fullscreen: true
+

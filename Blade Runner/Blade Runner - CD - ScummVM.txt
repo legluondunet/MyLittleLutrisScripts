@@ -2,6 +2,7 @@ custom-name: Blade Runner - CD - ScummVM
 game:
   game_id: bladerunner
   path: $GAMEDIR/Blade Runner/
+  subtitles: true
 installer:
 - insert-disc:
     description: Please insert Blade Runner CD 1
@@ -72,4 +73,6 @@ installer:
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes4.dat
     src: $GAMEDIR/Blade Runner/cdframes.dat
+scummvm:
+  fullscreen: true
 
