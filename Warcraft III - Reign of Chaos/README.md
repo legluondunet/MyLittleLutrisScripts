@@ -1,7 +1,7 @@
-# Warcraft III - Blizzard digital edition
+# Warcraft III - Reign of Chaos - Blizzard digital edition
 
 ### Description:
-This script will install "Warcraft III" Blizzard digital edition.
+This script will install "Warcraft III - Reign of Chaos" Blizzard digital edition.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions.
 
