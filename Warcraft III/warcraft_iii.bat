@@ -3,6 +3,11 @@ TITLE Warcraft III
 color 09
 
 c:
+cd \
+copy warcraft_iiib.bmp warcraft_iii.bmp 
+copy warcraft_iiia.bmp warcraft_iiib.bmp
+copy warcraft_iii.bmp warcraft_iiia.bmp 
+
 
 goto :launcher
 
