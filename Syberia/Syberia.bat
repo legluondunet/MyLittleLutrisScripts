@@ -12,7 +12,7 @@ if %errorlevel% EQU 0 set result=0
 winedbg --command "info proc" | find Game.exe
 echo %errorlevel%
 if %errorlevel% EQU 0 set result=0
-ping 127.0.0.1 -n 2 > nul
+#ping 127.0.0.1 -n 2 > nul
 echo  %result%
 IF %result% NEQ 0 GOTO :search
 

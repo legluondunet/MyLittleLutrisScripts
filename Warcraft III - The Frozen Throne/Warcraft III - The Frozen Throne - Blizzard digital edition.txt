@@ -1,305 +1,65 @@
+custom-name: Warcraft III - The Frozen Throne - Blizzard digital edtion
 files:
-- install: N/A:Select the EXE downloaded from GOG
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/defconfig.sh
-- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/UnrealLinux.sh
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/warcraftiii_utf8.reg
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/resolution.sh
+- w3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/Warcraft-III-Setup_TFT.exe
 game:
-  exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
+  exe: drive_c/Warcraft III/x86_64/Warcraft III.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    name: create_prefix
-    prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: install
-    name: wineexec
-    prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: patch
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/lin_convenience_libs
-    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/Help/lin_convenience_libs.tar.bz2
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/UnrealLinux.bin
-- input_menu:
-    description: 'Choose your game''s language:'custom-name: Unreal Gold 227i - GOG
-files:
-- gog: N/A:Select the EXE downloaded from GOG
-- libs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_libs_i386.tar.bz2
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/defconfig.sh
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bmp
-- gpr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_gamepad_readme.html
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_x360.gamecontroller.amgp
-- gpsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_steam.sccprofile
-game:
-  args: c:\\GOG Games\\Unreal Gold\\unreal_gold.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
-  prefix: $GAMEDIR
-installer:
-- task:
-    arch: win64
-    install_gecko: true
+    install_gecko: false
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    args: /SP- /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: gog
+    arch: win64
+    key: CSMT
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    description: Setting Windows XP mode for Wine
+    key: Version
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine
+    prefix: $GAMEDIR
+    value: winxp
+- task:
+    args: /desktop=WarcraftIII,1024x780 $w3
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/libs
-    src: libs
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: patch
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/UnrealLinux.bin
-- input_menu:
-    description: 'Choose your game''s language:'
-    id: LANG
-    options:
-    - int: English
-    - frt: French
-    - det: German
-    - itt: Italian
-    - est: Spanish
-    preselect: int
-- chmodx: script
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: regfile
+- merge:
+    dst: $GAMEDIR/drive_c/tmp/
+    src: script
+- chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
 - execute:
-    args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
-- write_file:
-    content: '#!/bin/sh
-
-      cd System
-
-      MESA_EXTENSION_MAX_YEAR=1999
-
-      #LD_LIBRARY_PATH=../lin_convenience_libs
-
-      #export LD_LIBRARY_PATH
-
-      #exec ./UnrealLinux.bin -log
-
-      LD_LIBRARY_PATH=../libs ./UnrealLinux.bin -log'
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/tmp/resolution.sh
 - task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64custom-name: Unreal Gold 227i - GOG
-files:
-- gog: N/A:Select the EXE downloaded from GOG
-- libs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_libs_i386.tar.bz2
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/defconfig.sh
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bmp
-- gpr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_gamepad_readme.html
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_x360.gamecontroller.amgp
-- gpsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_steam.sccprofile
-game:
-  args: c:\\GOG Games\\Unreal Gold\\unreal_gold.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
-  prefix: $GAMEDIR
-installer:
-- task:
-    arch: win64
-    install_gecko: true
-    install_mono: false
-    name: create_prefix
-    prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: gog
+    args: $GAMEDIR/drive_c/tmp/warcraftiii.reg
+    executable: regedit
     name: wineexec
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/libs
-    src: libs
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: patch
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/UnrealLinux.bin
-- input_menu:
-    description: 'Choose your game''s language:'
-    id: LANG
-    options:
-    - int: English
-    - frt: French
-    - det: German
-    - itt: Italian
-    - est: Spanish
-    preselect: int
-- chmodx: script
-- execute:
-    args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
-- write_file:
-    content: '#!/bin/sh
-
-      cd System
-
-      MESA_EXTENSION_MAX_YEAR=1999
-
-      #LD_LIBRARY_PATH=../lin_convenience_libs
-
-      #export LD_LIBRARY_PATH
-
-      #exec ./UnrealLinux.bin -log
-
-      LD_LIBRARY_PATH=../libs ./UnrealLinux.bin -log'
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\unreal_gold.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpr
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpx360
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpsc
 wine:
   Desktop: true
-
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\unreal_gold.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpr
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpx360
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles/
-    src: gpsc
-wine:
-  Desktop: true
-
-    id: LANG
-    options:
-    - int: English
-    - frt: French
-    - det: German
-    - itt: Italian
-    - est: Spanish
-    preselect: int
-- chmodx: script
-- execute:
-    args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/
-    src: script2
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.sh
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+  dxvk: true
 
