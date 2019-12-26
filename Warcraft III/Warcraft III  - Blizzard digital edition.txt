@@ -1,16 +1,20 @@
-custom-name: Warcraft III - The Frozen Throne - Blizzard digital edtion
+custom-name: Warcraft III - Blizzard digital edtion
 files:
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/warcraftiii_utf8.reg
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/resolution.sh
-- w3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20The%20Frozen%20Throne/Warcraft-III-Setup_TFT.exe
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraftiii_utf8.reg
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
+- w3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/Warcraft-III-Setup.exe
+- wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
+- wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii.bat
 game:
-  exe: drive_c/Warcraft III/x86_64/Warcraft III.exe
+  args: c:\\Program Files\\Warcraft III\\warcraft_iii.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
+    install_gecko: true
+    install_mono: true
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -31,7 +35,7 @@ installer:
     value: 0 0 0
 - task:
     arch: win64
-    description: Setting Windows XP mode for Wine
+    description: Setting Windows 7 mode for Wine
     key: Version
     name: set_regedit
     path: HKEY_CURRENT_USER\Software\Wine
@@ -59,6 +63,35 @@ installer:
     executable: regedit
     name: wineexec
     prefix: $GAMEDIR
+- task:
+    app: win7
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\warcraft_iii.bmp
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files/Warcraft III/
+    src: menu
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppa
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppb
 wine:
   Desktop: true
   dxvk: true
