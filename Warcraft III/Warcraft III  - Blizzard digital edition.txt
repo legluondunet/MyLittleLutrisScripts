@@ -13,8 +13,8 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: true
-    install_mono: true
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -92,6 +92,9 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c
     src: wppb
+- execute:
+    command: cd $GAMEDIR/drive_c; cp warcraft_iiia.bmp warcraft_iii.bmp; rm -f -r
+      tmp;
 wine:
   Desktop: true
   dxvk: true
