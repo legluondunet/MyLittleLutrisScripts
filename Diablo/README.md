@@ -9,7 +9,7 @@ innoextract: http://constexpr.org/innoextract/
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
-- Dependencies: You have to install libasan5, libsdl2-2.0-0, libsdl2-ttf-2.0-0, libsdl2-mixer-2.0-0 libraries.
+- version 0.5.0 dev (23/12/2019)
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Diablo
 
