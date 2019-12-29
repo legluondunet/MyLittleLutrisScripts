@@ -37,6 +37,8 @@ if errorlevel 2 goto :update
 if errorlevel 1 goto :play
 
 :key
+if not exist "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\" md "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\"
+
 cls
 echo.
 echo.
