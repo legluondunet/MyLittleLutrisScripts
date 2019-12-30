@@ -8,6 +8,7 @@ copy warcraft_iiib.bmp warcraft_iii.bmp
 copy warcraft_iiia.bmp warcraft_iiib.bmp
 copy warcraft_iii.bmp warcraft_iiia.bmp 
 
+IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\" md "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\"
 IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\roc.w3k" goto :key
 IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\user.w3k" goto :key
 
@@ -37,8 +38,6 @@ if errorlevel 2 goto :update
 if errorlevel 1 goto :play
 
 :key
-if not exist "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\" md "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\"
-
 cls
 echo.
 echo.
@@ -64,13 +63,13 @@ pause
 goto :launcher
 
 :play
-"c:\program files\warcraft iii\x86_64\warcraft iii.exe"
+start "" "c:\program files\warcraft iii\x86_64\warcraft iii.exe" > nul
 goto :exit
 
 :update
-"c:\programdata\battle.net\agent\agent.exe"
+start "" "c:\programdata\battle.net\agent\agent.exe"
 ping 127.0.0.1 -n 2 > nul
-"c:\program files\warcraft iii\warcraft III launcher.exe"
+start "" "c:\program files\warcraft iii\warcraft III launcher.exe"
 
 :exit
 exit
