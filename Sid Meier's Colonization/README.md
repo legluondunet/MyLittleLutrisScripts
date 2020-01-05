@@ -1,7 +1,7 @@
 # Sid Meier's Colonization - GOG - DOSBox
 
 Description:
-This script will install "Sid Meier's Colonization" CD edition for DOSBox.
+This script will install "Sid Meier's Colonization" GOG edition for DOSBox.
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
