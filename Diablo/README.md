@@ -3,13 +3,11 @@
 Description:
 This script will install "Diablo" GOG edition with DevilutionX Linux native 64 bits port. It has multiplayer  and  others new features/corrected bugs. 
 During install please let all options by default.
-This script uses different projects:
-DevilutionX: https://github.com/diasurgical/devilutionX
-innoextract: http://constexpr.org/innoextract/
+This script uses DevilutionX: https://github.com/diasurgical/devilutionX
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 Technical notes:
-- version 0.5.0 dev (23/12/2019)
+- version 1.0.0 (git 2dcf237 07/01/2020)
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Diablo
 

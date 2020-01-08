@@ -1,7 +1,7 @@
-# Alone in the Dark- GOG
+# The Secret of Monkey Island - CD
 
 Description:
-This script will install "Alone in the Dark" GOG edition for DOSBox.
+This script will install "The Secret of Monkey Island" CD edition for DOSBox.
 During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
