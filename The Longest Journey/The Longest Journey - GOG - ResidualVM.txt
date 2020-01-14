@@ -29,6 +29,7 @@ installer:
     - fr: French
     - it: Italian
     - sp: Spanish
+    - ge: German
     preselect: keep
 - chmodx: script
 - execute:

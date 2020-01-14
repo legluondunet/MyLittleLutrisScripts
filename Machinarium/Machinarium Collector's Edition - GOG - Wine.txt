@@ -1,6 +1,7 @@
 custom-name: Machinarium Collector's Edition - GOG - Wine
 files:
-- install: N/A:Please select the Humble archive
+- gog: N/A:Please select the GOG installer
+- inno: https://constexpr.org/innoextract/files/innoextract-1.8-linux.tar.xz
 game:
   exe: drive_c/GOG Games/Machinarium/Machinarium.exe
   prefix: $GAMEDIR/
@@ -13,8 +14,11 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    src: install
+    dst: $CACHE/
+    file: inno
+- execute:
+    args: --extract $gog --output-dir $CACHE
+    file: $CACHE/innoextract
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Machinarium/
     src: $CACHE/app
