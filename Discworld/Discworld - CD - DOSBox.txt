@@ -1,0 +1,25 @@
+custom-name: The Secret of Monkey Island - enhanced  CD - DOSBox
+files:
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Secret%20of%20Monkey%20Island/mki1_dosbox.conf
+game:
+  main_file: $GAMEDIR/mki1_dosbox.conf
+installer:
+- insert-disc:
+    description: Please insert The Secret of Monkey Island disc
+    requires: english/monkey.exe
+- extract:
+    dst: $GAMEDIR
+    src: cdrtools
+- chmodx: script
+- execute:
+    args: 1992-
+    file: script
+- execute:
+    command: cd $GAMEDIR; mv 1992-.cue mki1.cue; mv 1992-.bin mki1.bin; sed -i 's/1992-.bin/mki1.bin/g'
+      mki1.cue;
+- copy:
+    dst: $GAMEDIR
+    src: conf
+
