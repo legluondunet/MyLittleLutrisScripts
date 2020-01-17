@@ -1,25 +1,38 @@
-custom-name: The Secret of Monkey Island - enhanced  CD - DOSBox
+custom-name: The Secret of Monkey Island - enhanced  CD - ScummVM
 files:
-- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Secret%20of%20Monkey%20Island/mki1_dosbox.conf
+- rip: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotracks2flac.sh
 game:
-  main_file: $GAMEDIR/mki1_dosbox.conf
+  game_id: monkey
+  path: $GAMEDIR
+  subtitles: true
 installer:
 - insert-disc:
     description: Please insert The Secret of Monkey Island disc
     requires: english/monkey.exe
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - german: German
+    - italian: Italian
+    - spanish: Spanish
+    preselect: english
+- merge:
+    dst: $GAMEDIR/
+    src: $DISC/$INPUT_LANG
 - extract:
     dst: $GAMEDIR
-    src: cdrtools
+    src: rip
 - chmodx: script
+- move:
+    dst: $GAMEDIR
+    src: script
 - execute:
     args: 1992-
     file: script
-- execute:
-    command: cd $GAMEDIR; mv 1992-.cue mki1.cue; mv 1992-.bin mki1.bin; sed -i 's/1992-.bin/mki1.bin/g'
-      mki1.cue;
-- copy:
-    dst: $GAMEDIR
-    src: conf
+scummvm:
+  fullscreen: true
 
