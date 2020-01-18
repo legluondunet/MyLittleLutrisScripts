@@ -1,22 +1,30 @@
 custom-name: DiscWorld - CD - DOSBox
 files:
-- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_dosbox.conf
+- upd: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/DISC104_lgdn.zip
+- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_multi5.zip
+- dbxconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_dosbox.conf
 game:
   main_file: $GAMEDIR/discworld_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert DiscWorld CD
     requires: dwu.exe
+- merge:
+    dst: $GAMEDIR/cd
+    src: $DISC
 - extract:
-    dst: $GAMEDIR
-    src: cdrtools
-- chmodx: script
-- execute:
-    args: DISCWORLD
-    file: script
+    dst: $GAMEDIR/c
+    src: upd
 - copy:
-    dst: $GAMEDIR
-    src: conf
+    dst: $GAMEDIR/c/discwld.cd/
+    src: $DISC/discwld/dwu.exe
+- extract:
+    dst: $GAMEDIR/c/lang
+    src: multi5
+- copy:
+    dst: $GAMEDIR/cd/discwld/
+    src: $GAMEDIR/c/lang/english.txt
+- copy:
+    dst: $GAMEDIR/
+    src: dbxconf
 
