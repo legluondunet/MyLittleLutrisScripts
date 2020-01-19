@@ -1,6 +1,10 @@
+copy:
+  dst: $GAMEDIR
+  src: $GAMEDIR/lang/$INPUT_LANG.txt
 custom-name: Discworld - CD - ScummVM
 files:
 - music: https://dl.dropboxusercontent.com/s/8kcnavvu4n848do/discworld_v2_1_ogg.zip
+- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_multi5.zip
 game:
   game_id: dw
   path: $GAMEDIR
@@ -13,10 +17,24 @@ installer:
     dst: $GAMEDIR
     src: $DISC/discwld
 - extract:
+    dst: $GAMEDIR/lang
+    src: multi5
+- extract:
     dst: $GAMEDIR
     src: music
+- input_menu:
+    description: 'Choose your preferred game''s language for game menus and subtitles:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - spanish: Spanish
+    - italian: Italian
+    - german: German
+    preselect: english
 - execute:
-    command: cd $GAMEDIR; rm -f -r drivers dwu.exe dwb.exe;
+    command: cd $GAMEDIR; rm -f -r drivers dwu.exe dwb.exe french.txt german.txt english.txt
+      italian.txt spanish.txt; cp lang/$INPUT_LANG.txt english.txt ;
 scummvm:
   fullscreen: true
 

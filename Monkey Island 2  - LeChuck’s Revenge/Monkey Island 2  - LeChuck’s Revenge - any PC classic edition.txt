@@ -1,0 +1,18 @@
+custom-name: "Monkey Island 2 - LeChuck\u2019s Revenge - PC classic edition"
+game:
+  game_id: monkey2
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please show me where are monkey2.000 and monkey2.001 files stored
+    requires: monkey2.000
+- execute:
+    command: cd "$DISC"; ls | grep -i monkey | grep -vi exe | xargs cp -t "$GAMEDIR/"
+      ;
+- execute:
+    command: cd "$GAMEDIR"; ls | grep -i monkey | xargs chmod +rw ;
+scummvm:
+  aspect: true
+  fullscreen: true
+
