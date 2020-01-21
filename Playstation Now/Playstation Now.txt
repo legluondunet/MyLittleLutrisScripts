@@ -1,0 +1,53 @@
+files:
+- psnow: https://download-psnow.playstation.com/downloads/psnow/pc/PlayStationNow-11.0.2.exe
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/PlayStationNow/psnowlauncher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: arial
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: vcrun2013
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: windowmanagerdecorated=n
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    args: /extract "c:"
+    executable: psnow
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    args: /i "C:\294C619\PlayStationNow.msi" SETUPEXEDIR="C:\294C619"
+    executable: msiexec
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+move:
+  dst: $CACHE
+  src: $GAMEDIR/drive_c/294C619
+wine:
+  Desktop: true
+  dxvk: true
+
