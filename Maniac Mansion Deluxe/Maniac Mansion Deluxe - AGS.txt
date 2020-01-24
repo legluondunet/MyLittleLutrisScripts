@@ -1,0 +1,39 @@
+custom-name: Maniac Mansion Deluxe - AGS
+ags:
+  fullscreen: false
+game:
+  main_file: $GAMEDIR/Maniac.exe
+installer:
+- insert-disc:
+    description: 'Choose your preferred game''s language:'
+    requires: Maniac.exe
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - English: English
+    - French: French
+    - Portuguese: Portuguese
+    - Spanish: Spanish
+    - German: German
+    - Norwegian: Norwegian
+    - Russian: Russian
+    - Hungarian: Hungarian
+    - Finnish: Finnish
+    - Brazilian: Brazilian
+    - Dutch: Dutch
+    - Esperanto: Esperato
+    - Italian: Italian
+    - Maltese: Maltese
+    preselect: English
+- write_config:
+    data:
+      graphics:
+        windowed: 1
+      language:
+        translation: $INPUT_LANG
+    file: $GAMEDIR/acsetup.cfg
+

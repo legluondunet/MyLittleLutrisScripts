@@ -6,9 +6,9 @@ goto launcher
 cls
 echo.
 echo.
-echo.	------------------------------------------------
-echo.	TOMB RAIDER I GOG Edition + GLRage + HD Textures
-echo.	------------------------------------------------
+echo. ------------------------------------------------------
+echo.	 TOMB RAIDER I GOG Edition + GLRage + HD Textures
+echo. ------------------------------------------------------
 echo.
 echo.	1) Tomb Raider I GLRage
 echo.	2) Tomb Raider I Unfinished Business GLRage
@@ -16,9 +16,9 @@ echo.	3) TombATI configure HD textures
 echo.	4) How to play TR1 with a gamepad
 echo.	5) exit
 echo.
-echo.	------------------------------------------------
-echo.
-echo.
+echo. ------------------------------------------------------
+echo.	script by Le Gluon du Net   
+echo. ------------------------------------------------------
 
 
 choice /c12345 /s /N Your choice? [1-5]:
