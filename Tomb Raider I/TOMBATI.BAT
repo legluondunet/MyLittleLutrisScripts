@@ -19,7 +19,8 @@ echo.
 echo. ------------------------------------------------------
 echo.	script by Le Gluon du Net   
 echo. ------------------------------------------------------
-
+echo.
+echo.
 
 choice /c12345 /s /N Your choice? [1-5]:
 if errorlevel 5 goto exit
