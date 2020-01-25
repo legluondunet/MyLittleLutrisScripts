@@ -1,0 +1,16 @@
+custom-name: Day of the Tentacle - PC classic edition - ScummVM
+game:
+  game_id: tentacle
+  path: $GAMEDIR
+installer:
+- insert-disc:
+    description: Please show me where are "tentacle.OOO", "tentacle.001"..." Day of
+      the Tentacle game files stored
+    requires: tentacle.000
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+scummvm:
+  aspect: true
+  fullscreen: true
+
