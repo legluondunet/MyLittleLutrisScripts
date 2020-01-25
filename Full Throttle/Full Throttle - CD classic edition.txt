@@ -1,0 +1,17 @@
+custom-name: Full Throttle - CD classic edition - ScummVM
+game:
+  game_id: ft
+  path: $GAMEDIR/
+installer:
+- insert-disc:
+    description: Please insert disc
+    requires: RESOURCE/THROTTLE.UB
+- execute:
+    command: cd "$DISC"; ls | grep -i resource |  xargs cp -r -t "$GAMEDIR/" ;
+- execute:
+    command: cd "$GAMEDIR/"; ls | grep -i resource | xargs mv resource ; chmod -R
+      +w resource; mv resource/* . ; rm -f -r resource ;
+scummvm:
+  aspect: true
+  fullscreen: true
+
