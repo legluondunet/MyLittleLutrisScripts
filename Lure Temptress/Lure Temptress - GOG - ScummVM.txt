@@ -4,7 +4,6 @@ files:
 - gog: 'N/A: Plese select the GOG.com installer'
 game:
   game_id: lure
-  path: $GAMEDIR
 installer:
 - extract:
     dst: $CACHE/innoextract
