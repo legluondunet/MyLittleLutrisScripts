@@ -13,4 +13,4 @@ fi
 
 wget https://www.scummvm.org/frs/extras/Lure%20of%20the%20Temptress/$lurezip
 unzip -j $lurezip
-rm -f -r $lurezip *.ega 
+rm -f -r $lurezip *.ega *.EGA
