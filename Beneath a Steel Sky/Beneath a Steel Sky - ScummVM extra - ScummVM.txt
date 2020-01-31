@@ -1,0 +1,26 @@
+custom-name: Lure of the Temptress - ScummVM extra
+files:
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20Temptress/clean.sh
+game:
+  game_id: lure
+  path: $GAMEDIR/
+  subtitles: true
+installer:
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - it: Italian
+    - es: Spanish
+    preselect: en
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
+scummvm:
+  aspect: true
+  fullscreen: true
+
