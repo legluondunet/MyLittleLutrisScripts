@@ -1,7 +1,7 @@
-# Lure of the Temptress - GOG - ScummVM
+# Beneath a Steel Sky - GOG - ScummVM
 
 ### Description:
-This script will install "Lure of the Temptress" GOG edition for ScummVM.
+This script will install "Beneath a Steel Sky" GOG edition for ScummVM.
 Thanks to the people who helped us play this game in the best conditions.
 
 
@@ -9,10 +9,10 @@ Thanks to the people who helped us play this game in the best conditions.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Lure of the Temptress - extra ScummVM - ScummVM
+# Beneath a Steel Sky - extra ScummVM - ScummVM
 
 ### Description:
-This script will install "Lure of the Temptress" extra download from  ScummVM for ScummVM.
+This script will install "Beneath a Steel Sky" extra download from  ScummVM for ScummVM.
 Thanks to the people who helped us play this game in the best conditions.
 
 
@@ -22,8 +22,10 @@ Thanks to the people who helped us play this game in the best conditions.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
+# Beneath a Steel Sky - extra ScummVM - Dosbox
+
 ### Description:
-This script will install "Lure of the Temptress" extra download from  ScummVM for DOSBox.
+This script will install "Beneath a Steel Sky" extra download from  ScummVM for DOSBox.
 Thanks to the people who helped us play this game in the best conditions.
 
 

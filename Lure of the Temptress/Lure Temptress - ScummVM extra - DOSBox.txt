@@ -1,7 +1,7 @@
 custom-name: Lure of the Temptress - ScummVM extra - DOSBox
 files:
-- dbxconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20Temptress/lt_dosbox.conf
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20Temptress/clean.sh
+- dbxconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20of%20the%20Temptress/lt_dosbox.conf
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20of%20the%20Temptress/clean.sh
 game:
   main_file: $GAMEDIR/lt_dosbox.conf
 installer:

@@ -1,6 +1,6 @@
-custom-name: Lure of the Temptress - ScummVM extra
+custom-name: Lure of the Temptress - ScummVM extra - ScummVM
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20Temptress/clean.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20of%20the%20Temptress/clean.sh
 game:
   game_id: lure
   path: $GAMEDIR/
