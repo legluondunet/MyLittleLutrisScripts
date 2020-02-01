@@ -1,0 +1,13 @@
+custom-name: Figment - GOG - Linux
+exe: start.sh
+files:
+- game: N/A:Please select the GOG.com Linux installer
+installer:
+- extract:
+    dst: $CACHE
+    file: game
+    format: zip
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/data/noarch/
+

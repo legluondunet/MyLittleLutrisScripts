@@ -1,26 +1,16 @@
-custom-name: Lure of the Temptress - ScummVM extra
+custom-name: Beneath a Steel Sky - ScummVM extra - ScummVM
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lure%20Temptress/clean.sh
+- bassfiles: https://www.scummvm.org/frs/extras/Beneath%20a%20Steel%20Sky/bass-cd-1.2.zip
 game:
-  game_id: lure
+  game_id: sky
   path: $GAMEDIR/
   subtitles: true
 installer:
-- input_menu:
-    description: 'Choose your preferred game''s language:'
-    id: LANG
-    options:
-    - en: English
-    - fr: French
-    - de: German
-    - it: Italian
-    - es: Spanish
-    preselect: en
-- chmodx: script
-- execute:
-    args: $INPUT_LANG
-    file: script
+- extract:
+    args: $GAMEDIR
+    file: bassfiles
 scummvm:
   aspect: true
   fullscreen: true
+
 

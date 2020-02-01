@@ -1,12 +1,12 @@
-custom-name: Tomb Raider VI - The Angel of Darkness - GOG
+custom-name: Tomb Raider VI - The Angel of Darkness
 files:
 - setuptr6: N/A:Please select the GOG installer
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/tr6.bmp
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/tr6.bmp
 - lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
-- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/eax.dll
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%206%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_gamepad_readme.html
+- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/eax.dll
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_gamepad_readme.html
 game:
   exe: drive_c/GOG Games/Tomb Raider 6/Launcher.exe
   prefix: $GAMEDIR
@@ -14,6 +14,8 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
