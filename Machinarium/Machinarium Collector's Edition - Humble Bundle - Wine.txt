@@ -1,6 +1,6 @@
 custom-name: Machinarium Collector's Edition - Humble Bundle - Wine
 files:
-- install: N/A:Please select the Humble archive
+- install: N/A:Please select the Windows setup game file downloaded from Humble Bundle
 game:
   exe: drive_c/Machinarium/Machinarium.exe
   prefix: $GAMEDIR/

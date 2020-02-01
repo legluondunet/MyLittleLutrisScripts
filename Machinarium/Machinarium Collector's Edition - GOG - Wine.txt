@@ -1,6 +1,6 @@
 custom-name: Machinarium Collector's Edition - GOG - Wine
 files:
-- gog: N/A:Please select the GOG installer
+- gog: N/A:Please select the Windows setup game file downloaded from GOG
 - inno: https://constexpr.org/innoextract/files/innoextract-1.8-linux.tar.xz
 game:
   exe: drive_c/GOG Games/Machinarium/Machinarium.exe

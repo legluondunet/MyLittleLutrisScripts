@@ -1,4 +1,4 @@
-custom-name: Tomb Raider VI - The Angel of Darkness
+custom-name: Tomb Raider VI - The Angel of Darkness - GOG - Wine
 files:
 - setuptr6: N/A:Please select the GOG installer
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/tr6.bmp
