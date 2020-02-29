@@ -12,6 +12,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 ### Technical notes:
 - Gold extension and HD textures packs included.
+- Multilanguage: available interface and audio cutscenes translations for English, French and German, only audio cutscenes translation for Japanese, only interface translation for Spanish, Finish, Hungarian, Indonesian, Italian, , Dutch, Portuguese and Swedish.
 - Known issue: TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
 - Please report issue concerning this script directly on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
