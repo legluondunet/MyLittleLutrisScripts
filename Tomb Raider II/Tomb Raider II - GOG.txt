@@ -14,7 +14,9 @@ files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/clean.sh
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
 game:
-  exe: drive_c/GOG Games/Tomb Raider 2/TR2M1.BAT
+  arch: win64
+  args: c:\\GOG Games\\Tomb Raider 2\TR2M1.BAT
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:

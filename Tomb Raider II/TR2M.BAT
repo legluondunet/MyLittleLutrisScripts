@@ -34,6 +34,7 @@ if errorlevel 1 goto tr2
 
 :tr2
 cls
+cd "c:\GOG Games\Tomb Raider 2"
 start Tomb2.exe
 goto exit
 
@@ -46,6 +47,7 @@ goto exit
 
 :setup
 cls
+cd "c:\GOG Games\Tomb Raider 2"
 start Tomb2.exe -setup
 goto launcher
 
