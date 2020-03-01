@@ -13,6 +13,8 @@ files:
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
+- multilang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tombati_multi_lang/tombati_locale.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean.sh
 game:
   arch: win64
   args: c:\\TOMBATI\\TOMBATI.BAT
@@ -58,12 +60,9 @@ installer:
     dst: $CACHE/app
     src: $DISC
 - execute:
-    command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ; ./bchunk GAME.GOG game.cue
-      tr1 ;
-- extract:
-    dst: $CACHE/app
-    format: iso
-    src: $CACHE/app/tr101.iso
+    command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
+      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
+      7z x -y $cd;
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA/
     src: $CACHE/app/DATA
@@ -76,6 +75,30 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- extract:
+    dst: $GAMEDIR/drive_c/TOMBATI/patches/locale
+    src: multilang
+- input_menu:
+    description: 'Choose your preferred game''s language for menus:'
+    id: LANG
+    options:
+    - en_gb: English (interface + audio cutscenes)
+    - fr_fr: French (interface + audio cutscenes)
+    - de_de: German (interface + audio cutscenes)
+    - jp_jp: Japanese (audio cutscenes)
+    - es_es: Spanish (interface)
+    - fi_fi: Finish (interface)
+    - hu_hu: Hungarian (interface)
+    - id_id: Indonesian (interface)
+    - it_it: Italian (interface)
+    - nl_nl: Dutch (interface)
+    - pt_pt: Portuguese (interface)
+    - sv_se: Swedish (interface)
+    preselect: en_gb
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
 - task:
     arch: win64
     key: ddraw
@@ -132,15 +155,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 179 102
-- move:
-    dst: $CACHE/
-    src: $GAMEDIR/drive_c/TOMBATI/INSTALL.BAT
-- move:
-    dst: $CACHE/
-    src: $GAMEDIR/drive_c/TOMBATI/shortcutJS.bat
-- move:
-    dst: $CACHE/
-    src: $GAMEDIR/drive_c/TOMBATI/vc_redist.x86.exe
 wine:
   Desktop: true
 
