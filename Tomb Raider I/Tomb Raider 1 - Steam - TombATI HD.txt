@@ -54,7 +54,7 @@ installer:
     dst: $CACHE/app
     src: cdrtools
 - insert-disc:
-    description: Please insert Tomb Raider 1 CD and press autodetect.
+    description: Please select Tomb Raider 1 Steam folder install.
     requires: GAME.GOG
 - merge:
     dst: $CACHE/app
