@@ -1,4 +1,4 @@
-custom-name: Diablo GOG DevilutionX Linux 64 bits
+custom-name: Diablo - GOG - DevilutionX Linux x64
 files:
 - diablosetup: N/A:Select the EXE downloaded from GOG
 - dvltx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/devilutionx-linux-64.tar.gz

@@ -1,0 +1,47 @@
+custom-name: Diablo - The Hell 2 mod
+files:
+- th2exe:
+    filename: th2.zip
+    url: https://www.moddb.com/downloads/mirror/170128/122/f7200295aabee4b9d1bcca82c87d02a3/
+- th2music:
+    filename: th2_music.rar
+    url: https://www.moddb.com/downloads/mirror/170123/123/e08ce95dccff092c96144cc138e7df43/
+game:
+  arch: win64
+  exe: drive_c/Program Files/DiabloTH2/TH2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: diabdat.mpq
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/DiabloTH2
+    file: th2exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/DiabloTH2
+    file: th2music
+- execute:
+    command: cd "$DISC"; ls | grep -i diabdat.mpq | xargs cp -t "$GAMEDIR/drive_c/Program
+      Files/DiabloTH2";
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files/DiabloTH2"; sed -i -e "s/screenwidth.*/screenwidth
+      $RESOLUTION_WIDTH/g" -e "s/screenheight.*/screenheight $RESOLUTION_HEIGHT/g"
+      -e "s/fullscreen off.*/fullscreen on/g" -e "s/Vsync off.*/Vsync on/g" config.ini;
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  dxvk: false
+
