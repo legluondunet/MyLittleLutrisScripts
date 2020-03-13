@@ -1,27 +1,31 @@
-SH2Proxy
-https://github.com/emoose/sh2proxy
+SH2PC Enhanced EXE NA
+http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_EXE_NA_v1.0.zip
+v 1.030 - november 2017
 
 SH2 Enhancements Module d3d8
 http://enhanced.townofsilenthill.com/SH2/#installSH2Enhancements
-https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/169#issuecomment-533455211
-https://github.com/elishacloud/Silent-Hill-2-Enhancements/files/3634795/d3d8.zip
-20/09/2019
+https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/169
+Release v1.5.1700.0 13 february 2020
 
 Enhanced Edition Essential Files
 http://enhanced.townofsilenthill.com/SH2/#installEssentialFiles
-http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.0.4.zip
+http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.1.1.zip
+2020-02-16 
 
 IndirectSound
 http://enhanced.townofsilenthill.com/SH2/#installIndirectSound
 http://enhanced.townofsilenthill.com/SH2/files/IndirectSound_0.17.zip
+2018-07-25
 
 FMV Enhancement Pack
 http://enhanced.townofsilenthill.com/SH2/#installFMVPack
-http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_FMV_Pack_16-10_Aspect_Ratio_1.0.2.zip
+http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_FMV_Pack_1.5.0.zip
+2020-02-13 
 
 Audio Enhancement Pack
 http://enhanced.townofsilenthill.com/SH2/#installAudioEnhancementPack
 http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Audio_Enhancement_Pack_2.0.1.zip
+2018-11-27
 
 exe_str
 https://github.com/elishacloud/Silent-Hill-2-Enhancements/issues/129#issuecomment-501854811

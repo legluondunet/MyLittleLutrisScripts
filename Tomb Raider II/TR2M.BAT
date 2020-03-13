@@ -1,5 +1,6 @@
 @echo off
 color 4E
+c:\
 goto launcher
 
 
@@ -34,28 +35,28 @@ if errorlevel 1 goto tr2
 
 :tr2
 cls
-cd "c:\GOG Games\Tomb Raider 2"
+cd "c:\Tomb Raider 2"
 start Tomb2.exe
 goto exit
 
 :tr2gm
 cls
-cd "c:\GOG Games\Tomb Raider 2 Golden Mask"
+cd "c:\Tomb Raider 2 Golden Mask"
 start Tomb2.exe -gold
 goto exit
 
 
 :setup
 cls
-cd "c:\GOG Games\Tomb Raider 2"
+cd "c:\Tomb Raider 2"
 start Tomb2.exe -setup
 goto launcher
 
 
 :gamepad
 cls
-start explorer c:\GOG Games\Tomb Raider 2\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 2\gamepad profiles\tr1-2_gamepad_readme.html
+start explorer c:\Tomb Raider 2\gamepad profiles\
+start iexplore c:\Tomb Raider 2\gamepad profiles\tr1-2_gamepad_readme.html
 goto launcher
 
 
