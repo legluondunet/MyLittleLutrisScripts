@@ -9,9 +9,11 @@ cd music
 ls {2..9}.mp3 | xargs -I {} mv {} 0{}
 ls *.mp3 | xargs -I {} mv {} Track{}
 #rm -f -r *.mp3 cdparanoia flac lame metaflac versions.txt libs
-
 cd "../../Tomb Raider 2 Golden Mask"
 cp -r "../Tomb Raider 2/"* .
-rm -f -r data/ fmv/ "gamepad profiles/"
+rm -f -r data/ fmv/*
 cp  "../Tomb Raider 2/fmv/LOGO.RPL" fmv
+mv data2 data
+cd data
+rm -f -r autorun.* *.cab setup.* *.dll *.EXE _I* SETUP* data DATA.TAG lang* layout.bin os.dat
 
