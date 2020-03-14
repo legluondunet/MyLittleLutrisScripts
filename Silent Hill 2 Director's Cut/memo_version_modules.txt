@@ -13,6 +13,7 @@ http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_
 2020-02-16 
 
 IndirectSound
+https://www.indirectsound.com/
 http://enhanced.townofsilenthill.com/SH2/#installIndirectSound
 http://enhanced.townofsilenthill.com/SH2/files/IndirectSound_0.17.zip
 2018-07-25
