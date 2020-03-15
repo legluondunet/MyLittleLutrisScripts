@@ -9,7 +9,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER II GOG Edition
+echo.			TOMB RAIDER II
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider II

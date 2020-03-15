@@ -1,6 +1,6 @@
 custom-name: Tomb Raider II - Steam
 files:
-- tr2main: https://github.com/Arsunt/TR2Main/releases/download/v0.8.2/TR2Main_v0.8.2.zip
+- tr2main: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/TR2Main.zip
 - ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gold.zip
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
@@ -9,7 +9,7 @@ files:
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
-- audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/clean-steam.sh
 game:
   arch: win64
   args: c:\\TR2M.BAT
@@ -19,20 +19,23 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    description: Please select Tomb Raider 2 Steam folder install.
+    description: Please press "Browse" button and select Tomb Raider 2 Steam folder
+      install.
     requires: Tomb2.exe
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     src: $DISC
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/music
-    src: audiotools
-- extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     file: dgv
+- move:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo_original.conf
+    src: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
 - copy:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86/DDraw.dll
@@ -42,13 +45,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     file: audiodll
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/"; mv Tomb2.exe Tomb2.steam; mv dgVoodoo.conf
-      dgVoodoo.conf.bak; rm -f -r 3Dfx Doc audio msvcp90.dll msvcr90.dll sound.dll
-      audiere.dll MS; cd music; for i in *.mp3; do LD_LIBRARY_PATH=libs ./lame --decode
-      $i "$(basename "$i" .mp3).wav"; done; ls {2..9}.wav | xargs -I {} mv {} 0{};
-      ls *.wav | xargs -I {} mv {} Track{}; rm -f -r *.mp3 cdparanoia flac lame metaflac
-      versions.txt ;
 - write_config:
     data:
       DirectX:
@@ -61,9 +57,17 @@ installer:
         FullScreenMode: false
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
+- execute:
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/"; mv Tomb2.exe Tomb2.steam
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     file: tr2main
+- extract:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data2/
+    src: ext
+- chmodx: script
+- execute:
+    file: script
 - move:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -76,6 +80,14 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
     src: gppreadme
+- task:
+    arch: win64
+    key: InvBackgroundMode
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000002'
 - task:
     arch: win64
     key: ddraw
@@ -92,14 +104,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
-- task:
-    arch: win64
-    key: InvBackgroundMode
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000002'
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
@@ -143,14 +147,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/
-    src: $GAMEDIR/drive_c/Tomb Raider 2
-- execute:
-    command: rm -f -r "$GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data";
-- extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data/
-    src: ext
 wine:
   Desktop: true
   dxvk: true
