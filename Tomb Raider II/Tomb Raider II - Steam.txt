@@ -62,12 +62,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/
     file: tr2main
-- extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data2/
-    src: ext
-- chmodx: script
-- execute:
-    file: script
 - move:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -80,6 +74,17 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
     src: gppreadme
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr2.bmp
 - task:
     arch: win64
     key: InvBackgroundMode
@@ -104,17 +109,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
-- move:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr2.bmp
 - task:
     arch: win64
     key: background
@@ -147,6 +141,12 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- chmodx: script
+- execute:
+    file: script
+- extract:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data
+    src: ext
 wine:
   Desktop: true
   dxvk: true

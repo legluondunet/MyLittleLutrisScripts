@@ -75,6 +75,17 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
     src: gppreadme
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr2.bmp
 - task:
     arch: win64
     key: ddraw
@@ -103,17 +114,6 @@ installer:
     app: d3dcompiler_47
     name: winetricks
     prefix: $GAMEDIR
-- move:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr2.bmp
 - task:
     arch: win64
     key: background

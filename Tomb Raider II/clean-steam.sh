@@ -14,7 +14,7 @@ ls *.mp3 | xargs -I {} mv {} Track{}
 
 cd "../../Tomb Raider 2 Golden Mask"
 cp -r "../Tomb Raider 2/"* .
-rm -f -r data/ fmv/* ExtraOptions dgVoodoo_original.conf Tomb2.steam data/*
+rm -f -r data/ fmv/* ExtraOptions dgVoodoo_original.conf Tomb2.steam data/
 find "../Tomb Raider 2/fmv" -iname "LOGO.RPL" -exec cp "{}" fmv/ \;
 
 
