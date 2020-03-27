@@ -7,20 +7,17 @@ game:
 installer:
 - task:
     arch: win64
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: arial
+    app: win7
     arch: win64
     name: winetricks
     prefix: $GAMEDIR
 - task:
     app: vcrun2013
-    arch: win64
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: windowmanagerdecorated=n
     arch: win64
     name: winetricks
     prefix: $GAMEDIR

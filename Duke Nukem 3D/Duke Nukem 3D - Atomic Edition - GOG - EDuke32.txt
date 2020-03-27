@@ -1,0 +1,18 @@
+custom-name: Duke Nukem 3D - Atomic Edition - GOG - EDuke32
+files:
+- gog: N/A:Select the EXE downloaded from GOG
+game:
+  exe: $GAMEDIR/dn3d/dn3d.sh
+installer:
+- extract:
+    dst: $CACHE/
+    src: inno
+- execute:
+    args: -d "$CACHE" "$gog"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/dn3d
+    src: $CACHE/app
+- execute:
+    command: cd $GAMEDIR/RCT2/ ; 
+

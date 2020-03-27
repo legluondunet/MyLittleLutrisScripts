@@ -1,0 +1,13 @@
+EDuke32 r(?)
+Built Mar 27 2020 23:38:49, GCC 9.2.1, 64-bit 
+Application parameters: -usecwd -cfg config.cfg -j /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot -j /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/dc -j /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/nw -j /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/vacation 
+Using /home/romain/Documents/Informatique/Programmation/Projets GIT/MyLittleLutrisScripts/Duke Nukem 3D/eduke32/ for game data
+Using /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/ for game data
+Using /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/dc/ for game data
+Using /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/nw/ for game data
+Using /home/romain/Autres_applications/Jeux/Duke Nukem 3D/Duke Nukem 3D Megaton Edition Steam/gameroot/addons/vacation/ for game data
+CPU:        Intel
+Initializing SDL 2.0.10
+Using "x11" video driver
+Using config file "config.cfg".
+Searching for game data...
