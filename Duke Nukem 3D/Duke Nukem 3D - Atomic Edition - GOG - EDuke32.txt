@@ -1,18 +1,18 @@
 custom-name: Duke Nukem 3D - Atomic Edition - GOG - EDuke32
 files:
-- gog: N/A:Select the EXE downloaded from GOG
+- eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.zip
+- gog: N/A:Please select the Linux .sh install file downloaded from GOG
 game:
-  exe: $GAMEDIR/dn3d/dn3d.sh
+  exe: $GAMEDIR/eduke32.sh
 installer:
 - extract:
-    dst: $CACHE/
-    src: inno
-- execute:
-    args: -d "$CACHE" "$gog"
-    file: $CACHE/innoextract
+    dst: $CACHE
+    format: zip
+    src: gog
 - merge:
-    dst: $GAMEDIR/dn3d
-    src: $CACHE/app
-- execute:
-    command: cd $GAMEDIR/RCT2/ ; 
+    dst: $GAMEDIR/dn3d-ae
+    src: $CACHE/data/noarch/data
+- extract:
+    dst: $GAMEDIR/
+    src: eduke32
 

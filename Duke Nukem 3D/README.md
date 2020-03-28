@@ -8,7 +8,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 
 ### Technical notes:
-- EDuke32 version 
+- EDuke32 revision 8784 - 13 march 2020
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
