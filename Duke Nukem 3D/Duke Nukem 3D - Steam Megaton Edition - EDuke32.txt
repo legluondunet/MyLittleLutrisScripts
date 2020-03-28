@@ -1,4 +1,4 @@
-custom-name: Duke Nukem 3D - All versions - EDuke32
+custom-name: Duke Nukem 3D - Steam Megaton Edition - EDuke32
 files:
 - eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
 game:
@@ -10,7 +10,7 @@ installer:
     dst: $GAMEDIR/
     format: txz
     src: eduke32
-- execute:
-    command: cd "$DISC" ; find *.grp -iname "DUKE3D.GRP" -exec cp "{}" "$GAMEDIR/dn3d/all"
-      \;
+- merge:
+    dst: $GAMEDIR/dn3d/steam
+    src: $DISC
 
