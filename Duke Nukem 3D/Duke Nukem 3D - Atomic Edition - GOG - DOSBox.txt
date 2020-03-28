@@ -10,7 +10,7 @@ installer:
     format: zip
     src: gog
 - merge:
-    dst: $GAMEDIR/dn3d
+    dst: $GAMEDIR/dn3d/
     src: $CACHE/data/noarch/data
 - extract:
     dst: $GAMEDIR/
