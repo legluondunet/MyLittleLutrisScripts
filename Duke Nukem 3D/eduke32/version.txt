@@ -1,7 +1,0 @@
-EDuke32 for Linux
-revision 8784 13 march 2020
-
-svn checkout http://svn.eduke32.com/eduke32
-make
-
-
