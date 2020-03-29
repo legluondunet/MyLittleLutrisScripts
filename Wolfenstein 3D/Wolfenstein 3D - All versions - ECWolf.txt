@@ -1,16 +1,15 @@
-custom-name: Duke Nukem 3D - All versions - EDuke32
+custom-name: Wolfenstein 3D - All versions - ECWolf
 files:
-- eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
+- ecwolf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Wolfenstein%203D/ecwolf.tar.xz
 game:
-  exe: $GAMEDIR/eduke32.sh
+  exe: $GAMEDIR/ecwolf.sh
 installer:
 - insert-disc:
-    requires: duke3d.grp
+    requires: vgadict.wl6
 - extract:
     dst: $GAMEDIR/
     format: txz
-    src: eduke32
+    src: ecwolf
 - execute:
-    command: cd "$DISC" ; find * -iname "DUKE3D.GRP" -exec cp "{}" "$GAMEDIR/dn3d/all"
-      \;
+    command: cd "$DISC"; find * -iname *.wl6 -exec cp {} "$GAMEDIR/wolf3d/all" \;
 
