@@ -1,0 +1,19 @@
+extends: duke-nukem-3d
+files:
+- hrp1: http://www.duke4.org/files/nightfright/hrp/duke3d_hrp.zip
+- hrp2:
+    filename: hrpmusic.zip
+    url: https://www.dropbox.com/s/i7gsyz81x1xtvqh/duke3d_music-sc55.zip?dl=0
+installer:
+- merge:
+    dst: $GAMEDIR/hrp
+    src: hrp1
+- merge:
+    dst: $GAMEDIR/hrp
+    src: hrp2
+- write_config:
+    file: $GAMEDIR/config.cfg
+    key: Polymer
+    section: Screen Setup
+    value: '1'
+
