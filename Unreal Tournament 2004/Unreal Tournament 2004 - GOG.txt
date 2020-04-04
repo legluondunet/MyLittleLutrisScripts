@@ -1,0 +1,53 @@
+custom-name: Unreal Tournament 2004 - GOG
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
+game:
+  arch: win64
+  exe: drive_c/GOG Games/Unreal Tournament 2004/System/UT2004.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- write_config:
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/Default.ini
+    key: FullscreenViewportX
+    merge: true
+    section: WinDrv.WindowsClient
+    value: $RESOLUTION_WIDTH
+- write_config:
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/Default.ini
+    key: FullscreenViewportY
+    merge: true
+    section: WinDrv.WindowsClient
+    value: $RESOLUTION_HEIGHT
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/"; sed -i
+      "s/UseVSync=False/UseVSync=True/g" Default.ini;
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+

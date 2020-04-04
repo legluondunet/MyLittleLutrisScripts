@@ -1,0 +1,41 @@
+custom-name: Hexen II - Steam - uHexen2
+files:
+- uhx2: https://netix.dl.sourceforge.net/project/uhexen2/Hammer%20of%20Thyrion/1.5.9/Linux-x86_64/hexen2-1.5.9-linux-x86_64.tgz
+- music:
+    filename: Hexen_II_soundtrack_ogg.zip
+    url: https://www.dropbox.com/s/l0biucl9oyyt9zr/Hexen%20II%20soundtrack%20ogg.zip?dl=1
+game:
+  args: -vsync
+  exe: glhexen2
+installer:
+- insert-disc:
+    description: Please select Steam folder where pak0.pak and pak1.pak files are
+      located.
+    requires: pak0.pak
+- copy:
+    dst: $GAMEDIR/data1/
+    src: $DISC/pak0.pak
+- copy:
+    dst: $GAMEDIR/data1/
+    src: $DISC/pak1.pak
+- extract:
+    dst: $GAMEDIR
+    src: uhx2
+- extract:
+    dst: $GAMEDIR/data1/music
+    src: music
+- write_file:
+    content: 'bgmtype "midi"
+
+      vid_config_glx "$RESOLUTION_WIDTH"
+
+      vid_config_gly "$RESOLUTION_HEIGHT"
+
+      vid_config_fscr "1"
+
+      '
+    file: $GAMEDIR/config.cfg
+- merge:
+    dst: $HOME/.hexen2/data1/
+    src: $GAMEDIR/config.cfg
+
