@@ -1,4 +1,4 @@
-custom-name: Wolfenstein 3D - All versions - ECWolf
+custom-name: Wolfenstein 3D - All PC versions - ECWolf
 files:
 - ecwolf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Wolfenstein%203D/ecwolf.tar.xz
 game:

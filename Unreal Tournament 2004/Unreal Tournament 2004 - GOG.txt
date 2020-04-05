@@ -1,5 +1,6 @@
 custom-name: Unreal Tournament 2004 - GOG
 files:
+- wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/d3d8.zip
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
 game:
   arch: win64
@@ -14,9 +15,13 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
+    args: /SP /SILENT
     executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/
+    src: wrapper
 - write_config:
     file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/Default.ini
     key: FullscreenViewportX
@@ -32,6 +37,14 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/"; sed -i
       "s/UseVSync=False/UseVSync=True/g" Default.ini;
+- task:
+    arch: win64
+    key: d3d8
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
 - task:
     arch: win64
     key: csmt

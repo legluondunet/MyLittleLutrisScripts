@@ -1,0 +1,47 @@
+custom-name: Magic - The Gathering Arena
+files:
+- setup: https://mtgarena.downloads.wizards.com/Live/Windows32/versions/2144.774340/MTGAInstaller_0.1.2144.774340.msi
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/Wizards of the Coast/MTGA/MTGA.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=MTGA,1024x780 msiexec.exe /i "$setup"
+    description: Installing Magic the Gathering Arena
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  version: lutris-mtga-4.21-x86_64
+

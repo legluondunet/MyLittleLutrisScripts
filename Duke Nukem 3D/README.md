@@ -76,7 +76,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 # Duke Nukem 3D - HRP for EDuke32
 
 ### Description:
-This script will install "Hi Resolution Pack" for EDuke32: HD graphism, HD music, light effects and other enhancements..
+This script will install "Hi Resolution Pack" for EDuke32: HD graphism, HD music, light effects and other enhancements.
 Credits:
 Big thanks to the guys at Duke4.net:
 http://hrp.duke4.net/

@@ -1,0 +1,20 @@
+custom-name: Twitch App - Wine
+files:
+- app: https://desktop.twitchsvc.net/installer/windows/TwitchSetup.exe
+game:
+  arch: win64
+  exe: drive_c/users/$USER/Start Menu/Programs/Twitch.lnk
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    executable: app
+    name: wineexec
+    prefix: $GAMEDIR
+wine:
+  Desktop: true
+
