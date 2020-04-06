@@ -8,5 +8,6 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 
 ### Technical notes:
 - D3D8toD3D9 wrapper included to obtain better graphic quality and performance.
+- This script will install the Linux version too, you could choose which version to play in a menu at start.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
