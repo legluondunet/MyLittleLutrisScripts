@@ -1,5 +1,5 @@
 @echo off
-color 0E
+color 0b
 c:\
 goto launcher
 
@@ -13,17 +13,13 @@ echo.	-----------------------------------------------------
 echo.
 echo.	1) Play Unreal Tournament 2004 (Windows version)
 echo.	2) Play Unreal Tournament 2004 (Linux version)
-echo.	3) How to play Unreal Gold with a gamepad (TODO)
-echo.	4) exit
+echo.	3) exit
 echo.
 echo.	-----------------------------------------------------
 echo.
-echo.
-
-
-choice /c1234 /s /N Your choice? [1-4]:
-if errorlevel 4 goto :exit
-if errorlevel 3 goto :launcher
+echo.   Your choice? [1-3]: 
+choice /c123 /s /N 	
+if errorlevel 3 goto :exit
 if errorlevel 2 goto :playlinux
 if errorlevel 1 goto :play
 
