@@ -43,5 +43,5 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-  version: lutris-mtga-4.21-x86_64
+  version: lutris-mtga-5.5-2-x86_64
 

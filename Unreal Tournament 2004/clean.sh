@@ -16,7 +16,7 @@ sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 echo "Create cdkey file for Linux version"
 
 time=1
-while [ $time -le 30 ] || [ -z "$cdkey" ]
+while [ $time -le 30 ] && [ -z "$cdkey" ]
 do
 	echo "waiting for cdkey since "$time" s"
 	sleep 1s

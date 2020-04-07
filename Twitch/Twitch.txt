@@ -12,7 +12,16 @@ installer:
     prefix: $GAMEDIR
 - task:
     arch: win64
-    executable: app
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=TwitchApp,1024x780 "$app"
+    description: Installing Magic the Gathering Arena
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
 wine:
