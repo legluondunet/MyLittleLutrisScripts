@@ -1,0 +1,43 @@
+custom-name: The Walking Dead - Season One - GOG
+files:
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- gogsetup: N/A:Select the windows setup exe file provided by GOG
+game:
+  exe: drive_c/GOG Games/The Walking Dead Season One/WalkingDead100.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/GOG Games/" "$gogsetup"
+    description: Installing game...
+    file: $CACHE/innoextract
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/" ; mv app "The Walking Dead Season One";
+      cd "The Walking Dead Season One" ; rm -f -r "../tmp/" __support/ goggame-1432207977.*
+      GalaxyPeer.dll Galaxy.dll webcache.zip ;
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+
