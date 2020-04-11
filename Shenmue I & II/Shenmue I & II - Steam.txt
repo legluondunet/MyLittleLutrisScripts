@@ -1,0 +1,53 @@
+custom-name: SHenmue I & II - Steam
+files:
+- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bmp
+game:
+  exe: drive_c/sleepingdogs.bat
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /S
+    description: Installing Steam...
+    executable: steamsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/
+    src: menu
+- merge:
+    dst: $GAMEDIR/drive_c/
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\sleepingdogs.bmp
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+wine:
+  Desktop: true
+

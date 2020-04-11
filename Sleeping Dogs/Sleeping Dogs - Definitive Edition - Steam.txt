@@ -1,10 +1,10 @@
 custom-name: Sleeping Dogs - Definitive Edition - Steam
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bmp
 game:
-  exe: drive_c/justcause2.bat
+  exe: drive_c/sleepingdogs.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -26,10 +26,6 @@ installer:
     executable: steamsetup
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    app: d3dcompiler_47 d3dx10_43 win7
-    name: winetricks
-    prefix: $GAMEDIR
 - merge:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -43,7 +39,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\justcause2.bmp
+    value: c:\\sleepingdogs.bmp
 - task:
     arch: win64
     key: csmt
