@@ -1,12 +1,10 @@
-custom-name: L.A. Noire - Steam
+custom-name: Just Cause 2 - Steam
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- gamesettings: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/L.A.Noire/settings.ini
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/L.A.Noire/lanoire.bat
-- dx2010: https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/L.A.Noire/lanoire.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bmp
 game:
-  exe: drive_c/lanoire.bat
+  exe: drive_c/justcause2.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -28,21 +26,14 @@ installer:
     executable: steamsetup
     name: wineexec
     prefix: $GAMEDIR
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: gamesettings
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/directx_2010
-    src: dx2010
 - task:
-    args: /silent
-    description: Installing DirectX Runtime 2010...
-    executable: $GAMEDIR/drive_c/tmp/directx_2010/DXSETUP.exe
-    name: wineexec
-- move:
+    app: d3dcompiler_47 d3dx10_43 win7
+    name: winetricks
+    prefix: $GAMEDIR
+- merge:
     dst: $GAMEDIR/drive_c/
     src: menu
-- move:
+- merge:
     dst: $GAMEDIR/drive_c/
     src: wpp
 - task:
@@ -52,7 +43,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\lanoire.bmp
+    value: c:\\justcause2.bmp
 - task:
     arch: win64
     key: csmt
@@ -61,21 +52,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
-- task:
-    app: dotnet35sp1 win7
-    description: Installing Dotnet 3.5 sp1, could take a long time, 10-20 mn...
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    name: winekill
-    prefix: $GAMEDIR
-- execute:
-    command: cd "$GAMEDIR/drive_c/tmp"; sed -i "s/Resolution:.*/Resolution:"$RESOLUTION_WIDTH"x"$RESOLUTION_HEIGHT"x60/g"
-      settings.ini ;
 wine:
   Desktop: true
-  dxvk: true
-  dxvk_version: 1.4.6
-  version: tkg-4.5-x86_64
 

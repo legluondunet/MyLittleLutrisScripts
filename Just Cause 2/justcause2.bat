@@ -6,7 +6,7 @@ for /f "tokens=2* delims= " %%a in ('reg query "HKCU\Software\Microsoft\Windows\
 echo My Documents points to %MyDocs%
 if not exist %MyDocs%"\Rockstar Games\L.A. Noire\" mkdir %MyDocs%"\Rockstar Games\L.A. Noire\"
 if not exist %MyDocs%"\Rockstar Games\L.A. Noire\settings.ini" copy "c:\tmp\settings.ini" %MyDocs%"\Rockstar Games\L.A. Noire\"
-"c:\program files (x86)\steam\steam.exe" steam://run/8190
+"c:\program files (x86)\steam\steam.exe" -no-browser steam://run/8190
 
 
 
