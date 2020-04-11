@@ -71,7 +71,7 @@ installer:
     name: winekill
     prefix: $GAMEDIR
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp"; sed -i "s/Resolution.*/Resolution:"$RESOLUTION_WIDTH"x"$RESOLUTION_HEIGHT"x60/g"
+    command: cd "$GAMEDIR/drive_c/tmp"; sed -i "s/Resolution:.*/Resolution:"$RESOLUTION_WIDTH"x"$RESOLUTION_HEIGHT"x60/g"
       settings.ini ;
 wine:
   Desktop: true

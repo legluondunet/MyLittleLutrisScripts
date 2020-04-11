@@ -24,6 +24,15 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
+- task:
+    app: dotnet48
+    description: Installing Dotnet 4.8 sp1, could take a long time, 10-20 mn...
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    name: winekill
+    prefix: $GAMEDIR
 wine:
   Desktop: true
 
