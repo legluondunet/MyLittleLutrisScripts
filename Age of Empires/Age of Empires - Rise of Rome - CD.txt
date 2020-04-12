@@ -22,6 +22,7 @@ installer:
     args: /desktop=ROR,1024x780 $GAMEDIR/drive_c/tmp/aoeinstall.bat
     description: Installing Rise of Rome extension...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
 - input_menu:
     description: Please choose AOE I CD language (do not choose another language other

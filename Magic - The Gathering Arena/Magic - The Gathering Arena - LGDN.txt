@@ -23,6 +23,7 @@ installer:
     args: /desktop=MTGA,1024x780 msiexec.exe /i "$setup"
     description: Installing Magic the Gathering Arena
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
     prefix: $GAMEDIR
 - task:

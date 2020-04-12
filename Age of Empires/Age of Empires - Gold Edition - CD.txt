@@ -36,6 +36,7 @@ installer:
     args: /desktop=AOEIGoldEdition,1024x780 $GAMEDIR/drive_c/tmp/aoeinstall.bat
     description: Installing Age of Empires I Gold edition...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd

@@ -35,6 +35,7 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
     prefix: $GAMEDIR
+    include_processes: explorer.exe
 - task:
     arch: win64
     key: wallpaper

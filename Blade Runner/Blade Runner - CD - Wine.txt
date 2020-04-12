@@ -22,6 +22,7 @@ installer:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults. Do not launch the game when asking.
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd

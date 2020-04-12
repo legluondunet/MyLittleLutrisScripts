@@ -17,6 +17,7 @@ installer:
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
+    include_processes: explorer.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/
     src: patch

@@ -1,10 +1,10 @@
-custom-name: SHenmue I & II - Steam
+custom-name: Shenmue I & II - Steam
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/sleepingdogs.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Shenmue%20I%20%26%20II/shenmue1-2.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Shenmue%20I%20%26%20II/shenmue1-2.bmp
 game:
-  exe: drive_c/sleepingdogs.bat
+  exe: drive_c/shenmue1-2.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -26,6 +26,15 @@ installer:
     executable: steamsetup
     name: wineexec
     prefix: $GAMEDIR
+- task:
+    app: dotnet46 faudio win7
+    description: Installing Dotnet 4.6, could take a long time, 10-20 mn...
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    name: winekill
+    prefix: $GAMEDIR
 - merge:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -39,7 +48,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\sleepingdogs.bmp
+    value: c:\\shenmue1-2.bmp
 - task:
     arch: win64
     key: csmt
@@ -48,6 +57,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+system:
+  env:
+    PULSE_LATENCY_MSEC: '45'
 wine:
   Desktop: true
 

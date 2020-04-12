@@ -36,6 +36,7 @@ installer:
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
+    include_processes: explorer.exe
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
