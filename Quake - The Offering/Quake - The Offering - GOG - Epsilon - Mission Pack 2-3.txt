@@ -1,0 +1,19 @@
+custom-name: Quake - The Offering - GOG - Epsilon - Mission Pack 2-3
+files:
+- mp2:
+    filename: epsilon_mp2_addon_v2_54_18-12-2016.zip
+    url: https://www.dropbox.com/s/p0xr74p2kftytfy/epsilon_mp3_addon_v2_54_18-12-2016.zip?dl=1
+- mp3:
+    filename: epsilon_mp3_addon_v2_54_18-12-2016.zip
+    url: https://www.dropbox.com/s/ai4i3f029aks5al/epsilon_mp3_addon_v2_54_18-12-2016.1.zip?dl=1
+game:
+  args: -basedir $GAMEDIR/ -rogue -game abyss
+  exe: $GAMEDIR/darkplaces-linux-x86_64-sdl
+installer:
+- extract:
+    dst: $GAMEDIR/
+    src: mp2
+- extract:
+    dst: $GAMEDIR/
+    src: mp3
+
