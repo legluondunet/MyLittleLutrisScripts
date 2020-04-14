@@ -1,5 +1,8 @@
 #!/bin/bash
 
+width=$1
+height=$2
+
 ##################
 # Jeu Principal  #
 ##################
@@ -33,4 +36,10 @@ mv gamea/HIPNOTIC/* ../../Epsilon/hipnotic/
 mkdir -p gamed/ROGUE/sound/cdtracks
 mv *.wav gamed/ROGUE/sound/cdtracks
 mv gamed/ROGUE/* ../../Epsilon/rogue/
+
+cd ../../Epsilon
+sed -i -e "/vid_width/d" -e "/vid_height/d" -e '/vid_vsync/d' id1/config.cfg hipnotic/CONFIG.CFG rogue/config.cfg abyss/config.cfg
+sed -i -e '$a \"vid_width" "'$width'"' -e '$a \"vid_height" "'$height'"' -e '$a \"vid_vsync" "1"' id1/config.cfg hipnotic/CONFIG.CFG rogue/config.cfg abyss/config.cfg
+
+
 
