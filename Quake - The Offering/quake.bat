@@ -1,5 +1,5 @@
 @echo off
-color 0b
+color 08
 c:\
 goto launcher
 
@@ -7,23 +7,24 @@ goto launcher
 cls
 echo.
 echo.
-echo.	-----------------------------------------------------
-echo.		 Quake - The Offering - GOG - Epsilon
-echo.	-----------------------------------------------------
+echo.	--------------------------------------------------------------
+echo.		   Quake - The Offering - GOG - Epsilon
+echo.	--------------------------------------------------------------
 echo.
-echo.	1) Play Quake - The Offering (Windows version)
-echo.	2) Play Quake - The Offering - MP1 (Windows version)
-echo.	3) Play Quake - The Offering - MP2 (Windows version)
-echo.	4) Play Quake - The Offering - MP3 (Windows version)
+echo.	1) Play Quake - The Offering - Windows version
+echo.	2) Play QTO - Mission Pack 1 - Scourge of Armagon 
+echo.	3) Play QTO - Mission Pack 2 - Dissolution of Eternity 
+echo.	4) Play QTO - Mission Pack 3 - Abyss of Pandemonium 
 echo.
-echo.			Linux
-echo.	5) Play Unreal Tournament 2004 (Linux version)
-echo.	6) Play Quake - The Offering - MP1 (Linux version)
-echo.	7) Play Quake - The Offering - MP2 (Linux version)
-echo.	8) Play Quake - The Offering - MP3 (Linux version)
+echo.	--------------------------------------------------------------
+echo.
+echo.	5) Play Quake - The Offering - Linux version
+echo.	6) Play QTO - Mission Pack 1 - Scourge of Armagon 
+echo.	7) Play QTO - Mission Pack 2 - Dissolution of Eternity 
+echo.	8) Play QTO - Mission Pack 3 - Abyss of Pandemonium 
 echo.	9) exit
 echo.
-echo.	-----------------------------------------------------
+echo.	--------------------------------------------------------------
 echo.
 echo.   Your choice? [1-9]: 
 choice /c123456789 /s /N 	
@@ -45,17 +46,17 @@ goto :launcher
 
 :playwin2
 cd c:\Epsilon
-start darkplaces.exe -game rogue
+start darkplaces.exe -hipnotic
 goto :launcher
 
 :playwin3
 cd c:\Epsilon
-start darkplaces.exe -game hipnotic
+start darkplaces.exe -rogue
 goto :launcher
 
 :playwin4
 cd c:\Epsilon
-start darkplaces.exe -game abyss
+start darkplaces.exe -rogue -game abyss
 goto :launcher
 
 :playlinux5
@@ -65,19 +66,18 @@ goto :launcher
 
 :playlinux6
 cd c:\Epsilon
-start /unix ./darkplaces-linux-x86_64-sdl -game rogue
+start /unix ./darkplaces-linux-x86_64-sdl -hipnotic
 goto :launcher
 
 :playlinux7
 cd c:\Epsilon
-start /unix ./darkplaces-linux-x86_64-sdl -game hipnotic
+start /unix ./darkplaces-linux-x86_64-sdl -rogue
 goto :launcher
 
 :playlinux8
 cd c:\Epsilon
-start /unix ./darkplaces-linux-x86_64-sdl -game abyss
+start /unix ./darkplaces-linux-x86_64-sdl -rogue -game abyss
 goto :launcher
-
 
 
 :exit
