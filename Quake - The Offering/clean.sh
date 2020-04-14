@@ -1,19 +1,36 @@
 #!/bin/bash
 
-rmp=$1
+##################
+# Jeu Principal  #
+##################
 
-cd drive_c/id1
+cd drive_c/Epsilon/id1
 mv PAK0.PAK PAK0.PAK.DEMO
+cp ../../tmp/app/id1/PAK* .
+mkdir music
 
-cp $tmp/app/td1/id1/PAK0.PAK drive_c/id1/
-cp $tmp/app/td1/id1/PAK1.PAK drive_c/id1/
+cd ../../tmp/app/
+./bchunk game.gog game.cue track0 -w
+mv *.wav ../../Epsilon/id1/music
 
-- merge:
-    dst: $GAMEDIR/id1/
-    src: $CACHE/app/id1/PAK1.PAK
-- execute:
-    command: cd "$GAMEDIR"; rm -f -r *.exe *.dll
+##################
+# Mission pack 1 #
+##################
 
-./bchunk game.gog game.cue test2 -w
+./bchunk gamea.gog gamea.cue track0 -w
+./7z x track001.iso -ogamea
+mkdir gamea/HIPNOTIC/music
+mv *.wav gamea/HIPNOTIC/music
+mv gamea/HIPNOTIC/* ../../Epsilon/hipnotic/
 
-7z x test01.iso
+
+##################
+# Mission pack 2 #
+##################
+
+./bchunk gamed.gog gamed.cue track0 -w
+./7z x track001.iso -ogamed
+mkdir gamed/ROGUE/music
+mv *.wav gamed/ROGUE/music
+mv gamed/ROGUE/* ../../Epsilon/rogue/
+
