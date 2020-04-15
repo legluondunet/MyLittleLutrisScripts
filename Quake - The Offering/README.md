@@ -15,7 +15,7 @@ Moddb: https://www.moddb.com/mods/quake-epsilon-build/downloads/quake-epsilon-bu
 - Epsilon pack v2.54 - 18/12/2016
 - Included 3 Mission Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Dissolution of Eternity".
 - Included all needed original soundtracks
+- Install Windows AND Linux version. You could choose which one to play at start.
 - x360 gamepad compatible.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
-
