@@ -1,15 +1,12 @@
 #!/bin/bash
-mkdir dosbox_conf
-mv app/*.conf dosbox_conf
-rm -f -r app commonappdata/ DOSBOX/ __redist/ __support/ tmp/ gog*
+rm -f -r app
+mv __support/* .
+mv app dosbox_conf
+rm -f -r commonappdata/ DOSBOX/ __redist/ __support/ tmp/ goggame-1435828982*
+
 cd dosbox_conf
 
-sed -i 's/Mgenmidi.adv/Msbfm.adv/g' dosbox_arena_single.conf
-sed -i 's/IOM330/IOM220/g' dosbox_arena_single.conf
-sed -i 's/IRQM2/IRQM7/g' dosbox_arena_single.conf
+sed -i -e 's/Mgenmidi.adv/Msbfm.adv/g' -e 's/IOM330/IOM220/g' -e 's/IRQM2/IRQM7/g' dosbox_arena_single.conf
 
-sed -i 's/fullscreen=true/fullscreen=false/g' dosbox_arena.conf
-sed -i 's/fulldouble=false/fulldouble=true/g' dosbox_arena.conf
-sed -i 's/output=overlay/output=opengl/g' dosbox_arena.conf
-sed -i 's/aspect=false/aspect=true/g' dosbox_arena.conf
-sed -i 's/mididevice=default/mididevice=none/g' dosbox_arena.conf
+sed -i -e 's/fullscreen=true/fullscreen=false/g' -e 's/fulldouble=false/fulldouble=true/g' -e 's/output=overlay/output=opengl/g' -e 's/aspect=false/aspect=true/g' -e 's/mididevice=default/mididevice=none/g' dosbox_arena.conf
+
