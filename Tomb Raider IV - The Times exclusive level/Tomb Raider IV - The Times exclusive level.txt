@@ -26,9 +26,9 @@ installer:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
     prefix: $GAMEDIR
-    include_processes: explorer.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level/
