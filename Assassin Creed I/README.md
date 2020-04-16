@@ -1,4 +1,4 @@
-# L.A.Noire - Steam
+# Assassin Creed - Definitive Edition - Steam
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
@@ -8,9 +8,8 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 
 ### Technical notes:
-This game is fully playable on Linux with this Lutris script, but read carefully:
 - Known issues: 
-* Steam is not fully usable, but it's not important, it's just installed to launch the game. 
+-- Steam is not fully usable, but it's not important, it's just installed to launch the game. 
 - x360 compatible
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

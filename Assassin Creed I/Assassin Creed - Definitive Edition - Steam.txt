@@ -39,6 +39,10 @@ installer:
     description: Installing DirectX Runtime 2010...
     executable: $CACHE/directx_2010/DXSETUP.exe
     name: wineexec
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
 - move:
     dst: $GAMEDIR/drive_c/
     src: menu
