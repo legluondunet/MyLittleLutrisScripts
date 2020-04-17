@@ -1,4 +1,4 @@
-custom-name: The Elder Scrolls II - Daggerfall - GOG
+custom-name: Dragon Age Origins - Ultimate Edition - GOG
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
