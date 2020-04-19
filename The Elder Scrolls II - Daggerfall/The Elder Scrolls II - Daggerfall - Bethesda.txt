@@ -1,19 +1,25 @@
-custom-name: The Elder Scrolls - Arena - Bethesda
+custom-name: The Elder Scrolls II - Daggerfall - Bethesda
 files:
-- setup: https://cdnstatic.bethsoft.com/elderscrolls.com/assets/files/tes/extras/Arena106Setup.zip
-- dosboxconfig: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20-%20Arena/dosbox_arena.conf
+- dosboxconfig: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20II%20-%20Daggerfall/dosbox_daggerfall.conf
+- plus: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20II%20-%20Daggerfall/es2_daggerfall_cfg.7z
+- setupfile: https://cdnstatic.bethsoft.com/elderscrolls.com/assets/files/tes/extras/DFInstall.zip
 game:
-  main_file: dosbox_arena.conf
-  prefix: $GAMEDIR
+  main_file: $GAMEDIR/dosbox_daggerfall.conf
 installer:
 - extract:
-    dst: $CACHE
-    file: setup
-- extract:
     dst: $GAMEDIR/
-    file: $CACHE/Arena106.exe
-    format: rar
-- copy:
-    dst: $GAMEDIR
+    file: setupfile
+    format: zip
+- merge:
+    dst: $GAMEDIR/
     src: dosboxconfig
+- merge:
+    dst: $GAMEDIR/DAGGER/DAGGER/
+    src: $GAMEDIR/DFCD/DAGGER/
+- merge:
+    dst: $GAMEDIR/DAGGER/DAGGER/DATA/
+    src: $GAMEDIR/DFCD/DATA/
+- extract:
+    dst: $GAMEDIR/DAGGER/DAGGER/
+    src: plus
 
