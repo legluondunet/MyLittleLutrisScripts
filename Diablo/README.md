@@ -33,9 +33,9 @@ Diablo 1 with The Hell 2 mod https://www.patreon.com/thmod
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 ### Technical notes:
-- TH2 v 1.0146 - 10 march 2020 
-- TH2 music v 8.4
-- You will need to provide diabdat.mpq during script install.
-- Knows issues: move the mouse for the menu to appear.
+- Before to launch this script, you will need to download TH2 build and TH2 music expansion from this page: https://www.patreon.com/thmod. You will need to provide diabdat.mpq during script install too.
+- Known issues: 
+-- move the mouse for menus to appear.
+-- support and credits show only a black screen.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

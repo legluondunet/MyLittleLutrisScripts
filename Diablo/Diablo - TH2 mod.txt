@@ -1,11 +1,7 @@
 custom-name: Diablo - The Hell 2 mod
 files:
-- th2exe:
-    filename: th2.zip
-    url: https://www.moddb.com/downloads/mirror/170128/122/f7200295aabee4b9d1bcca82c87d02a3/
-- th2music:
-    filename: th2_music.rar
-    url: https://www.moddb.com/downloads/mirror/170123/123/e08ce95dccff092c96144cc138e7df43/
+- th2exe: N/A:Provide last TH2 build from "https://www.moddb.com/mods/diablo-the-hell-2/downloads/th2"
+- th2music: N/A:Provide last TH2 music expansion from "https://www.moddb.com/mods/diablo-the-hell-2/downloads/th2-music"
 game:
   arch: win64
   exe: drive_c/Program Files/DiabloTH2/TH2.exe
