@@ -1,7 +1,6 @@
 custom-name: The Elder Scrolls II - Daggerfall - Bethesda
 files:
 - dosboxconfig: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20II%20-%20Daggerfall/dosbox_daggerfall.conf
-- plus: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20II%20-%20Daggerfall/es2_daggerfall_cfg.7z
 - setupfile: https://cdnstatic.bethsoft.com/elderscrolls.com/assets/files/tes/extras/DFInstall.zip
 game:
   main_file: $GAMEDIR/dosbox_daggerfall.conf
@@ -13,13 +12,4 @@ installer:
 - merge:
     dst: $GAMEDIR/
     src: dosboxconfig
-- merge:
-    dst: $GAMEDIR/DAGGER/DAGGER/
-    src: $GAMEDIR/DFCD/DAGGER/
-- merge:
-    dst: $GAMEDIR/DAGGER/DAGGER/DATA/
-    src: $GAMEDIR/DFCD/DATA/
-- extract:
-    dst: $GAMEDIR/DAGGER/DAGGER/
-    src: plus
 
