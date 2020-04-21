@@ -1,6 +1,6 @@
 ﻿Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Gameplay]
+[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III Public Test\Gameplay]
 "allyFilter"=dword:00000001
 "ammmaphashes"=""
 "ammmapprefs"=""
@@ -30,7 +30,7 @@
 "terrainFilter"=dword:00000001
 "tooltips"=dword:00000001
 
-[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Video]
+[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III Public Test\Video]
 "animquality"=dword:00000002
 "colordepth"=dword:00000020
 "gamma"=dword:0000001e

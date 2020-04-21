@@ -8,9 +8,9 @@ copy warcraft_iiib.bmp warcraft_iii.bmp
 copy warcraft_iiia.bmp warcraft_iiib.bmp
 copy warcraft_iii.bmp warcraft_iiia.bmp 
 
-IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\" md "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\"
-IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\roc.w3k" goto :key
-IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\user.w3k" goto :key
+IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\" md "%PROGRAMDATA%\Blizzard Entertainment\\Warcraft III Public Test\"
+IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III Public Test\roc.w3k" goto :key
+IF NOT EXIST "%PROGRAMDATA%\Blizzard Entertainment\Warcraft III Public Test\user.w3k" goto :key
 
 goto :launcher
 
@@ -23,18 +23,18 @@ echo.	      Warcraft III Blizzard digital edition
 echo.	------------------------------------------------
 echo.
 echo.	1) Play
-echo.	2) Check update
-echo.	3) insert or change Warcraft III licence key
-echo.	4) exit
+rem echo.	2) Check update
+echo.	2) insert or change Warcraft III licence key
+echo.	3) exit
 echo.
 echo.	------------------------------------------------
 echo.
 echo.
 
-choice /c1234 /s /N Your choice? [1-4]:
-if errorlevel 4 goto :exit
-if errorlevel 3 goto :key
-if errorlevel 2 goto :update
+choice /c123 /s /N Your choice? [1-3]:
+if errorlevel 3 goto :exit
+if errorlevel 2 goto :key
+rem if errorlevel 2 goto :update
 if errorlevel 1 goto :play
 
 :key
@@ -46,7 +46,7 @@ echo.	      Warcraft III Blizzard digital edition
 echo.	------------------------------------------------
 echo.
 
-set Output="%PROGRAMDATA%\Blizzard Entertainment\Warcraft III\"
+set Output="%PROGRAMDATA%\Blizzard Entertainment\Warcraft III Public Test\"
 
 set /p VarOne=	Please enter Warcraft III Reign of Chaos key: 
 echo.
@@ -63,13 +63,13 @@ pause
 goto :launcher
 
 :play
-start "" "c:\program files\warcraft iii\x86_64\warcraft iii.exe" > nul
+start "" "c:\program files\warcraft iii Public Test\x86_64\warcraft iii.exe" > nul
 goto :exit
 
-:update
-start "" "c:\programdata\battle.net\agent\agent.exe"
-ping 127.0.0.1 -n 2 > nul
-start "" "c:\program files\warcraft iii\warcraft III launcher.exe"
+rem :update
+rem start "" "c:\programdata\battle.net\agent\agent.exe"
+rem ping 127.0.0.1 -n 2 > nul
+rem start "" "c:\program files\warcraft iii\warcraft III launcher.exe"
 
 :exit
 exit
