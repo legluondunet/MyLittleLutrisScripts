@@ -62,7 +62,7 @@ installer:
     type: REG_DWORD
     value: '00000000'
 - task:
-    app: dotnet35sp1 win7
+    app: dotnet35sp1 win7 dxvk
     description: Installing Dotnet 3.5 sp1, could take a long time, 10-20 mn...
     name: winetricks
     prefix: $GAMEDIR
@@ -75,7 +75,8 @@ installer:
       settings.ini ;
 wine:
   Desktop: true
-  dxvk: true
-  dxvk_version: 1.4.6
-  version: tkg-4.5-x86_64
+  dxvk: false
+  overrides:
+    d3d9: b
+  version: lutris-lanoire-4.5-x86_64
 
