@@ -4,6 +4,7 @@ goto launcher
 
 
 :launcher
+c:
 cls
 echo.
 echo.
@@ -38,12 +39,12 @@ if errorlevel 1 goto tr4times
 
 :tr4times
 cls
-start tomb4.exe
-goto exit
+start c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\tomb4.exe
+goto :launcher
 
 :jigsaw
 cls
-start jigsaw.exe
+start c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\jigsaw.exe
 goto launcher
 
 :clicker

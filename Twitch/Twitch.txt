@@ -20,14 +20,14 @@ installer:
     value: 0 0 0
 - task:
     args: /desktop=TwitchApp,1024x780 "$app"
-    description: Installing Magic the Gathering Arena
+    description: Installing Twitch App...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
     prefix: $GAMEDIR
 - task:
     app: dotnet48
-    description: Installing Dotnet 4.8 sp1, could take a long time, 10-20 mn...
+    description: Installing Dotnet 4.8, could take a long time, 10-20 mn...
     name: winetricks
     prefix: $GAMEDIR
 - task:

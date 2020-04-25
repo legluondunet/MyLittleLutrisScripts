@@ -7,5 +7,6 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 
 ### Technical notes:
 - This script will automatically download the latest official Twitch App version.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Known issue: if Dotnet 4.8 never ending install, open a terminal and execute this command:
+killall -9 explorer.exe services.exe plugplay.exe mscorsvw.exe winedevice.exe regedit.exe
+Then you can still reinstall it later using Winetricks.
