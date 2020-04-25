@@ -2,6 +2,7 @@ custom-name: Beneath a Steel Sky - ScummVM extra - ScummVM
 files:
 - bassfiles: https://www.scummvm.org/frs/extras/Beneath%20a%20Steel%20Sky/bass-cd-1.2.zip
 game:
+  args: --language=$INPUT_LANG
   game_id: sky
   path: $GAMEDIR/
   subtitles: true
@@ -9,8 +10,17 @@ installer:
 - extract:
     args: $GAMEDIR
     file: bassfiles
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - es: Spanish
+    - it: Italian
+    preselect: en
 scummvm:
   aspect: true
   fullscreen: true
-
 
