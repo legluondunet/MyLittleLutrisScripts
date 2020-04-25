@@ -2,15 +2,15 @@ custom-name: Tomb Raider IV - The Times exclusive level
 files:
 - setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/TR4TIMESM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/TR4TIMESM2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/gamepad%20profiles/tr4_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bmp
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/TombRaider234_Patch.zip
 game:
-  exe: drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb Raider Level/TR4TIMESM1.BAT
+  args: c:\\tr4times.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -21,6 +21,30 @@ installer:
 - extract:
     dst: $CACHE
     file: setup
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
 - task:
     args: /desktop=TombRaider4Times,1024x780 $CACHE/Setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
@@ -63,15 +87,10 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level/
     src: patch
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/
-    src: menu1
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/
-    src: menu2
-- copy:
+- move:
+    dst: $GAMEDIR/drive_c/
+    src: menu
+- move:
     dst: $GAMEDIR/drive_c/
     src: wpp
 - merge:
@@ -96,12 +115,44 @@ installer:
     value: c:\\tr4times.bmp
 - task:
     arch: win64
-    key: background
+    key: D3D
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider IV (Demo)\System
     prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+    type: REG_DWORD
+    value: '00000002'
+- task:
+    arch: win64
+    key: TFormat
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider IV (Demo)\System
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000002'
+- task:
+    arch: win64
+    key: VMode
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider IV (Demo)\System
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000032'
+- task:
+    arch: win64
+    key: Setup
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider IV (Demo)\System
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000001'
+- task:
+    arch: win64
+    key: SoundQuality
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider IV (Demo)\Game
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000002'
 - task:
     arch: win64
     key: csmt
@@ -112,29 +163,15 @@ installer:
     value: '00000000'
 - task:
     arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 255 255
-- task:
-    arch: win64
     key: ddraw
     name: set_regedit
     path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive
+      Tomb Raider Level/"; rm -f -r 3Dfx Doc MS QuickGuide.html;
 wine:
   Desktop: true
-  dxvk: true
 
