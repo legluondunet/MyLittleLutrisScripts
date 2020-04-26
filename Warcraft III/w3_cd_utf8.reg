@@ -1,0 +1,27 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Video]
+"animquality"=dword:00000002
+"cinematicbpp"=dword:00000020
+"cinematicheight"=dword:00000258
+"cinematicoverrides"=dword:00000001
+"cinematicrefresh"=dword:0000004b
+"cinematicwidth"=dword:00000320
+"colordepth"=dword:00000020
+"maxfps"=dword:000000c8
+"modeldetail"=dword:00000001
+"refreshrate"=dword:0000003c
+"resheight"=dword:00000438
+"reswidth"=dword:00000780
+"vsync"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Sound]
+"ambient"=dword:00000001
+"environmental"=dword:00000001
+"movement"=dword:00000001
+"music"=dword:00000001
+"musicvolume"=dword:00000028
+"sfx"=dword:00000001
+"sfxvolume"=dword:00000064
+"softwaremidi"=dword:00000001
+"subtitles"=dword:00000001

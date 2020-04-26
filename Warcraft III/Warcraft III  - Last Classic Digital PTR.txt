@@ -1,4 +1,4 @@
-custom-name: Warcraft III - Last CLassic digital PT version
+custom-name: Warcraft III - Last CLassic digital PTR version
 files:
 - regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraftiii_utf8.reg
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
