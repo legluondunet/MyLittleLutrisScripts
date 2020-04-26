@@ -9,10 +9,10 @@ Windows Registry Editor Version 5.00
 "cinematicwidth"=dword:00000320
 "colordepth"=dword:00000020
 "maxfps"=dword:000000c8
-"modeldetail"=dword:00000001
+"modeldetail"=dword:00000002
 "refreshrate"=dword:0000003c
-"resheight"=dword:00000438
-"reswidth"=dword:00000780
+"resheight"=dword:258
+"reswidth"=dword:320
 "vsync"=dword:00000001
 
 [HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\Sound]
