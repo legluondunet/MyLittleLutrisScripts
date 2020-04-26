@@ -10,6 +10,11 @@ hb=$(echo 'obase=16;' $h | bc)
 echo $w en hexa: $wb soit ${#wb} caractères
 echo $h en hexa: $hb soit ${#hb} caractères
 
+wbf=$(printf "%08d\n" $wb)
+hbf=$(printf "%08d\n" $hb)
+
+echo "importation de la résolution en hexadécimale dans la base de registre: " $wbf " x " $hbf
+
 cd drive_c/tmp/
 
 if [ $file == "warcraft_iii_cd_utf8.reg" ]; then
@@ -21,7 +26,7 @@ fi
 if [ $file == "warcraft_iii_ptr_utf8.reg" ]; then
 echo "fichier reconnu: warcraft_iii_ptr_utf8.reg"
 echo "la variable file: " $file
-sed -i -e 's/"windowwidth"\=dword\:.*/"windowwidth"\=dword\:'$wb'/' -e 's/"windowheight"\=dword\:.*/"windowheight"\=dword\:'$hb'/' $file
+sed -i -e 's/"windowwidth"\=dword\:.*/"windowwidth"\=dword\:'$wbf'/' -e 's/"windowheight"\=dword\:.*/"windowheight"\=dword\:'$hbf'/' $file
 fi
 
 iconv -f utf-8 -t utf16le $file -o warcraft_iii.reg
