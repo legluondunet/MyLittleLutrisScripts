@@ -1,6 +1,6 @@
 @echo off
 TITLE Warcraft III
-color 09
+color 07
 
 c:
 cd \
@@ -22,20 +22,22 @@ echo.	------------------------------------------------
 echo.	      Warcraft III Blizzard digital edition
 echo.	------------------------------------------------
 echo.
-echo.	1) Play
+echo.	1) Play Warcraft III - Reign of Chaos
 rem echo.	2) Check update
-echo.	2) insert or change Warcraft III licence key
-echo.	3) exit
+echo.	2) Play Warcraft III - The Frozen Throne
+echo.	3) insert or change Warcraft III licence key
+echo.	4) exit
 echo.
 echo.	------------------------------------------------
 echo.
 echo.
 
-choice /c123 /s /N Your choice? [1-3]:
-if errorlevel 3 goto :exit
-if errorlevel 2 goto :key
+choice /c1234 /s /N Your choice? [1-4]:
+if errorlevel 4 goto :exit
+if errorlevel 3 goto :key
 rem if errorlevel 2 goto :update
-if errorlevel 1 goto :play
+if errorlevel 2 goto :playtft
+if errorlevel 1 goto :playroc
 
 :key
 cls
@@ -62,9 +64,15 @@ echo. Done! Now press a key to return to main menu.
 pause
 goto :launcher
 
-:play
-start "" "c:\program files\warcraft iii Public Test\x86_64\warcraft iii.exe" > nul
-goto :exit
+:playroc
+reg add "HKCU\Software\Blizzard Entertainment\Warcraft III Public Test" /v "Preferred Game Version" /t REG_DWORD /d 0 /f
+start "" "c:\program files\warcraft iii Public Test\x86_64\warcraft iii.exe"
+goto :launcher
+
+:playtft
+reg add "HKCU\Software\Blizzard Entertainment\Warcraft III Public Test" /v "Preferred Game Version" /t REG_DWORD /d 1 /f
+start "" "c:\program files\warcraft iii Public Test\x86_64\warcraft iii.exe"
+goto :launcher
 
 rem :update
 rem start "" "c:\programdata\battle.net\agent\agent.exe"
