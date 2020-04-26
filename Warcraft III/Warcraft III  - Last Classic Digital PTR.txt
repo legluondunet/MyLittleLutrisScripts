@@ -1,20 +1,18 @@
 custom-name: Warcraft III - Last CLassic digital PTR version
 files:
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraftiii_utf8.reg
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_ptr_utf8.reg
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
 - w3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/Warcraft-III-Public-Test-Setup.exe
 - wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
 - wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii.bat
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_ptr.bat
 game:
-  args: c:\\warcraft_iii.bat
+  args: c:\\warcraft_iii_ptr.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -35,12 +33,20 @@ installer:
     value: 0 0 0
 - task:
     arch: win64
-    description: Setting Windows 7 mode for Wine
-    key: Version
+    key: ActiveTitle
     name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
-    value: winxp
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
 - task:
     args: /desktop=WarcraftIII,1024x780 "$w3"
     description: Running setup of the game. Just proceed and keep all settings at
@@ -57,16 +63,12 @@ installer:
     src: script
 - chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_ptr_utf8.reg
     file: $GAMEDIR/drive_c/tmp/resolution.sh
 - task:
-    args: $GAMEDIR/drive_c/tmp/warcraftiii.reg
+    args: $GAMEDIR/drive_c/tmp/warcraft_iii.reg
     executable: regedit
     name: wineexec
-    prefix: $GAMEDIR
-- task:
-    app: win7
-    name: winetricks
     prefix: $GAMEDIR
 - task:
     arch: win64
@@ -76,14 +78,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\warcraft_iii.bmp
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - copy:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -94,8 +88,7 @@ installer:
     dst: $GAMEDIR/drive_c
     src: wppb
 - execute:
-    command: cd $GAMEDIR/drive_c; cp warcraft_iiia.bmp warcraft_iii.bmp; rm -f -r
-      tmp ;
+    command: cd $GAMEDIR/drive_c; cp warcraft_iiia.bmp warcraft_iii.bmp;
 wine:
   Desktop: true
 

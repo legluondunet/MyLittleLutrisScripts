@@ -44,8 +44,8 @@
 "particles"=dword:00000002
 "previouswindowmode"=dword:00000002
 "refreshrate"=dword:0000003c
-"resheight"=dword:00000438
-"reswidth"=dword:00000780
+"resheight"=dword:
+"reswidth"=dword:
 "spellfilter"=dword:00000002
 "texcolordepth"=dword:00000020
 "texquality"=dword:00000002

@@ -25,8 +25,8 @@ echo.
 echo.	1) Play Warcraft III - Reign of Chaos
 rem echo.	2) Check update
 echo.	2) Play Warcraft III - The Frozen Throne
-echo.	3) insert or change Warcraft III licence key
-echo.	4) exit
+echo.	3) Insert or change Warcraft III licence key
+echo.	4) Exit
 echo.
 echo.	------------------------------------------------
 echo.
