@@ -2,10 +2,7 @@
 
 [HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III Public Test\Gameplay]
 "allyFilter"=dword:00000001
-"ammmaphashes"=""
-"ammmapprefs"=""
 "ammrace"=dword:00000020
-"ammstyles"=""
 "ammtype"=dword:00000000
 "autosaveReplay"=dword:00000000
 "creepFilter"=dword:00000001
@@ -44,13 +41,13 @@
 "particles"=dword:00000002
 "previouswindowmode"=dword:00000002
 "refreshrate"=dword:0000003c
-"resheight"=dword:
-"reswidth"=dword:
+"resheight"=dword:00000258
+"reswidth"=dword:00000320
 "spellfilter"=dword:00000002
 "texcolordepth"=dword:00000020
 "texquality"=dword:00000002
 "unitshadows"=dword:00000001
 "vsync"=dword:00000001
-"windowheight"=dword:
-"windowmode"=dword:00000002
-"windowwidth"=dword:
+"windowheight"=dword:00000438
+"windowmode"=dword:00000258
+"windowwidth"=dword:00000320
