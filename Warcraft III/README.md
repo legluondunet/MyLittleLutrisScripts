@@ -3,7 +3,7 @@
 ### Description:
 This script will facilitate you install of this game on Linux OS:
 "Warcraft III - Reign of Chaos" CD edition.
-This script uses "Widescreen fix for Warecraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
@@ -13,10 +13,31 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - You will need the CD only one time during install.
 - Widescreen compliant without stretch.
 - Known issues:
--- you can not read the first CD screen launcher. Just click on first line to launch install and last line to quit.
--- you can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead. 
+-- If you can not read the first CD screen launcher. Just click on first line to launch install and last line to quit.
+-- You can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead. 
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
+
+# Warcraft III - The Frozen Throne - CD
+
+### Description:
+This script will facilitate you install of this game on Linux OS: 
+"Warcraft III - The Frozen Throne" CD edition. 
+This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/ 
+During install please let all options by default. Thanks to the people who helped us play this game in the best conditions on Linux platform.
+
+### Technical notes:
+- You need to install "Warcraft III - ROC" first before to install this extension this script installer is only compatible with Lutris script installer called "CD + patch 1.27b + WS").
+- This script is compatible with all "Warcraft III - TFT" PC CD whatever the language is. The game will ask you a valid key at first launch.
+- During install, your game will be updated with last available version for  CD: 1.27b.
+- You will need the CD only one time during install.
+- Widescreen compliant without stretch.
+- Known issues:
+-- You can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead. 
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
+
+
 
 # Warcraft III - Last Classic digital PTR
 

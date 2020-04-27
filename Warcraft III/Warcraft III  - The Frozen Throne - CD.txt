@@ -1,0 +1,38 @@
+extends: warcraft-iii-reign-of-chaos
+installer:
+- insert-disc:
+    requires: war3tft.ico
+- task:
+    args: /desktop=WarcraftIII,1024x780 "$DISC/installer.exe"
+    description: Installing Warcraft III - The Frozen Throne...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- input_menu:
+    description: Please choose your CD native language in the list. Do not choose
+      another language than the one from your CD or the update will not install and
+      you will have to reinstall all the game.
+    id: LANG
+    options:
+    - English: English
+    - Francais: "Fran\xE7ais"
+    - Italiano: Italiano
+    - Deutsch: Deutsch
+    - Castellano: Castellano
+    - Cesky: Cesky
+    - Chinese_Simp: simplified Chinese
+    - Chinese_Trad: traditionnal Chinese
+    - Japanese: Japanese
+    - Korean: Korean
+    - Polski: Polski
+    - Russian: Russian
+    preselect: English
+- execute:
+    command: cd "$GAMEDIR/drive_c/"; cd tmp; wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$INPUT_LANG.exe;
+- task:
+    args: /desktop=WarcraftIIIupdate,$RESOLUTION '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
+    description: Updating Warcraft III to 1.27b...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+

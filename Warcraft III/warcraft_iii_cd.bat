@@ -18,8 +18,8 @@ echo.	------------------------------------------------
 echo.	    Warcraft III Blizzard CD Classic edition
 echo.	------------------------------------------------
 echo.
-echo.	1) Play ROC
-echo.	2) Play TFT (not availble yet)
+echo.	1) Play Warcraft III - Reign Of Chaos
+echo.	2) Play Warcraft III - The Frozen Throne
 echo. 	3) About official CD update 2.27b
 echo.	4) exit
 echo.

@@ -40,11 +40,15 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 255 255
+- task:
+    app: baekmuk
+    name: winetricks
+    prefix: $GAMEDIR
 - insert-disc:
     requires: war3.ico
 - task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/autoplay.exe"
-    description: You can not read the screen launcher menu. Just click on first line
+    description: If you can not read the screen launcher menu. Just click on first line
       to launch install and last line to quit. Installing Warcraft III...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
