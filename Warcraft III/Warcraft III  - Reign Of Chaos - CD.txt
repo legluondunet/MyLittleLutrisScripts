@@ -1,30 +1,21 @@
-custom-name: Warcraft III - Last CLassic digital PTR version
+custom-name: Warcraft III - CD
 files:
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraftiii_utf8.reg
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
-- w3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/Warcraft-III-Public-Test-Setup.exe
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd.bat
+- codecs: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-Installer.exe
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd_utf8.reg
 - wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
 - wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii.bat
+- rew: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/RenderEdge_Widescreen.mix
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
 game:
-  args: c:\\warcraft_iii.bat
+  args: c:\\warcraft_iii_cd.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: CSMT
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - task:
     arch: win64
     key: background
@@ -35,20 +26,57 @@ installer:
     value: 0 0 0
 - task:
     arch: win64
-    description: Setting Windows 7 mode for Wine
-    key: Version
+    key: ActiveTitle
     name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
-    value: winxp
+    type: REG_SZ
+    value: 0 0 0
 - task:
-    args: /desktop=WarcraftIII,1024x780 "$w3"
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
+- insert-disc:
+    requires: war3.ico
+- task:
+    args: /desktop=WarcraftIII,1024x780 "$DISC/autoplay.exe"
+    description: You can not read the screen launcher menu. Just click on first line
+      to launch install and last line to quit. Installing Warcraft III...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-    prefix: $GAMEDIR
+- task:
+    args: /desktop=LAVFilters,1024x780 "$codecs" /silent
+    description: Installing LAVFilters...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- input_menu:
+    description: Please choose your CD native language in the list. Do not choose
+      another language than the one from your CD or the update will not install and
+      you will have to reinstall all the game.
+    id: LANG
+    options:
+    - English: English
+    - Francais: "Fran\xE7ais"
+    - Italiano: Italiano
+    - Deutsch: Deutsch
+    - Castellano: Castellano
+    - Cesky: Cesky
+    - Chinese_Simp: simplified Chinese
+    - Chinese_Trad: traditionnal Chinese
+    - Japanese: Japanese
+    - Korean: Korean
+    - Polski: Polski
+    - Russian: Russian
+    preselect: English
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/
+    src: rew
 - merge:
     dst: $GAMEDIR/drive_c/tmp
     src: regfile
@@ -57,17 +85,21 @@ installer:
     src: script
 - chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_cd_utf8.reg
     file: $GAMEDIR/drive_c/tmp/resolution.sh
 - task:
-    args: $GAMEDIR/drive_c/tmp/warcraftiii.reg
+    args: $GAMEDIR/drive_c/tmp/warcraft_iii_cd_utf8.reg
     executable: regedit
     name: wineexec
     prefix: $GAMEDIR
 - task:
-    app: win7
-    name: winetricks
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
     prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
 - task:
     arch: win64
     key: wallpaper
@@ -76,14 +108,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\warcraft_iii.bmp
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - copy:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -94,8 +118,14 @@ installer:
     dst: $GAMEDIR/drive_c
     src: wppb
 - execute:
-    command: cd $GAMEDIR/drive_c; cp warcraft_iiia.bmp warcraft_iii.bmp; rm -f -r
-      tmp ;
+    command: cd "$GAMEDIR/drive_c/"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
+      wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
+- task:
+    args: /desktop=WarcraftIIIupdate,$RESOLUTION '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
+    description: Updating Warcraft III to 1.27b...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
 wine:
   Desktop: true
 
