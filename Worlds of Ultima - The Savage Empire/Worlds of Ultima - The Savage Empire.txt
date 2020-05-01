@@ -1,0 +1,30 @@
+custom-name: Worlds of Ultima - The Savage Empire - GOG
+files:
+- gamesetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+game:
+  config_file: $GAMEDIR/dosbox_conf/dosboxSAVAGE.conf
+  main_file: dosbox_conf/dosboxSAVAGE_single.conf
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR" "$gamesetup"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/SAVAGE
+    src: $GAMEDIR/app/SAVAGE
+- merge:
+    dst: $GAMEDIR/SAVAGE
+    src: $GAMEDIR/__support/save/SAVAGE
+- merge:
+    dst: $GAMEDIR/dosbox_conf
+    src: $GAMEDIR/__support/app
+- execute:
+    command: cd "$GAMEDIR"; rm -f -r app commonappdata DOSBOX __redist __support tmp/
+      goggame-1207659061.* ; cd dosbox_conf; sed -i -e 's/fullscreen=true/fullscreen=false/g'
+      -e 's/fulldouble=false/fulldouble=true/g' -e 's/output=overlay/output=opengl/g'
+      -e 's/aspect=.*/aspect=true/g' -e 's/mididevice=default/mididevice=none/g' dosboxSAVAGE.conf;
+

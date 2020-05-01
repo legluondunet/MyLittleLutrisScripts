@@ -18,10 +18,10 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 # DiscWorld - CD - ScummVM
 
 ### Description:
-This script will install "DiscWorld" CD edition for ScummVM.
+This script will install "Discworld" CD edition for ScummVM.
 During install please let all options by default.
 This script uses remastered soundtracks from James Woodcock. Visit his site to find more adventure games quality soundtracks replacement for ScummVM: http://scummvm.jameswoodcock.co.uk/
-Thanks to the people who contributed to play this game in the best conditions.
+Thanks to the people who contributed to play this game in the best conditions on Linux platform.
 
 
 ### Technical notes:

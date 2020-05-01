@@ -47,15 +47,7 @@ installer:
     dst: $GAMEDIR/drive_c/Future Pinball/gamepad profiles/
     src: gpsteam
 - task:
-    app: oleaut32
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: vcrun6
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: wsh57
+    app: oleaut32 vcrun6 wsh57
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -84,5 +76,5 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-  version: lutris-nofshack-4.18-x86_64
+  version: lutris-4.21-x86_64
 
