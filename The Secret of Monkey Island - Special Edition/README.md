@@ -1,8 +1,8 @@
 # The Secret of Monkey Island - Special Edition - GOG - Wine
 
 ### Description:
-This script will facilitate you install "The Secret of Monkey Island - Special Edition" on Linux OS.
-It is only compatible with GOG edition and uses Lutris Wine runner. 
+This script will facilitate you install of this game on Linux OS:
+"The Secret of Monkey Island - Special Edition" provided by GOG using Lutris Wine runner. 
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 

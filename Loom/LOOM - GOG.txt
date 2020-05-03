@@ -1,37 +1,40 @@
-custom-name: Indiana Jones and the Last Crusade - GOG - ScummVM
+custom-name: LOOM - GOG - ScummVM
 files:
+- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Loom/loom_multi_5.tar.xz
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Last%20Crusade/indy3_patch_multi5.zip
-- gog: N/A:Please select the game Windows setup exe file downloaded from GOG
+- gamesetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
 game:
-  game_id: indy3
+  game_id: loom
   path: $GAMEDIR
 installer:
 - extract:
-    dst: $CACHE/innoextract
+    dst: $CACHE
     file: inno
 - execute:
-    args: --extract $gog --output-dir "$CACHE/"
-    file: $CACHE/innoextract/innoextract
+    args: -d "$GAMEDIR" "$gamesetup"
+    file: $CACHE/innoextract
 - execute:
-    command: cd $CACHE; ls | grep -i .lfl | xargs mv -t "$GAMEDIR/";
+    command: cd $GAMEDIR; rm -f -r app commonappdata _other __redist scummvm __support
+      goggame-1425293328.* tmp;
 - extract:
     dst: $CACHE
+    format: txz
     src: multi5
 - input_menu:
-    description: 'Choose your preferred game''s language:'
+    description: 'Please choose your preferred game''s language for subtitles and
+      menus:'
     id: LANG
     options:
-    - en: English
-    - fr: French
-    - it: Italian
-    - sp: Spanish
-    - ge: German
-    preselect: en
-- execute:
-    command: cd $GAMEDIR; if [ "$INPUT_LANG" == "en" ]; then  exit ; fi ; echo "lang
-      = $INPUT_LANG"; for i in *.LFL ; do echo "traitement du fichier $i"; j=$(basename
-      $i); patch < $CACHE/$INPUT_LANG/$j.patch $i; done ;
+    - EN: English
+    - FR: French
+    - IT: Italian
+    - SP: Spanish
+    - GE: German
+    preselect: EN
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/$INPUT_LANG/
 scummvm:
   aspect: true
   fullscreen: true

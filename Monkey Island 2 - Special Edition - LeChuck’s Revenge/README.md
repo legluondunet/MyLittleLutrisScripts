@@ -1,9 +1,10 @@
 # Monkey Island 2 - Special Edition - LeChuck’s Revenge - GOG - Wine
 
 ### Description:
-This script will install "Monkey Island 2 - Special Edition - LeChuck’s Revenge" GOG edition.
+This script will assit you to install this gae on Linux OS:
+"Monkey Island 2 Special Edition: LeChuck’s Revenge" provided by GOG using Lutris Wine runner.
 During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - Press F1 to change classic/modern version.

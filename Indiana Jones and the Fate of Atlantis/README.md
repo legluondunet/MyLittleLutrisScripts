@@ -1,9 +1,10 @@
 # Indiana Jones and the Fate of Atlantis - GOG - ScummVM
 
 ### Description:
-This script will install "Indiana Jones and the Fate of Atlantis" GOG edition for ScummVM.
+This script will assist you to install this game on Linux OS:
+"Indiana Jones and the Fate of Atlantis" provided by GOG using ScummVM runner.
 During install please let all options by default.
-Thanks to the people who contributed to play this game in the best conditions.
+Thanks to the people who contributed to play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - This script is only compatible with the game installation file for Windows in exe format provided by GOG.
