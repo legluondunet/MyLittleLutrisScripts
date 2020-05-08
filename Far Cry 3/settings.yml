@@ -1,0 +1,7 @@
+overlay:
+  enabled: false
+  forceunhookgame: false
+  fps_enabled: false
+user:
+  closebehavior: CloseBehavior_Close
+
