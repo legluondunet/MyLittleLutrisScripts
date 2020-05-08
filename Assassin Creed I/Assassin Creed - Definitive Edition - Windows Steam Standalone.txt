@@ -1,10 +1,10 @@
-custom-name: Shenmue I & II - Steam
+custom-name: Assassin Creed - Definitive Edition - Windows Steam Standalone
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Shenmue%20I%20%26%20II/shenmue1-2.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Shenmue%20I%20%26%20II/shenmue1-2.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Assassin%20Creed%20I/acreed.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Assassin%20Creed%20I/acreed.bmp
 game:
-  exe: drive_c/shenmue1-2.bat
+  exe: drive_c/acreed.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -27,18 +27,21 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - task:
-    app: dotnet46 faudio win7
-    description: Installing Dotnet 4.6, could take a long time, 10-20 mn...
+    app: d3dcompiler_47
     name: winetricks
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    name: winekill
-    prefix: $GAMEDIR
+- write_config:
+    file: $CACHE/Assassin.ini
+    key: VSynch
+    section: Graphics
+    value: '1'
 - merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: $CACHE/Assassin.ini
+- move:
     dst: $GAMEDIR/drive_c/
     src: menu
-- merge:
+- move:
     dst: $GAMEDIR/drive_c/
     src: wpp
 - task:
@@ -48,7 +51,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\shenmue1-2.bmp
+    value: c:\\acreed.bmp
 - task:
     arch: win64
     key: csmt
@@ -57,9 +60,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
-system:
-  env:
-    PULSE_LATENCY_MSEC: '45'
 wine:
   Desktop: true
 

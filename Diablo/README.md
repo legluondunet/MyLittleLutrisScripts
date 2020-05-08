@@ -20,7 +20,7 @@ Tchernobog site: https://mod.diablo.noktis.pl/
 Big thanks to people who gave their time to permit us playing this game in the best conditions.
 
 ### Technical notes:
-- Tchernobog  v0.1.6c
+- Tchernobog  v0.1.6d
 - To find others players for online games, ask on Discord: https://discord.gg/82BaSAP.
 - You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options".
 - Please report issue concerning this script on my Github page:
