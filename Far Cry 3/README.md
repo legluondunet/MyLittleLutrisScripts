@@ -1,4 +1,4 @@
-# Far Cry 3 - Steam
+# Far Cry 3 - Windows Steam Standalone
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
@@ -10,7 +10,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 ### Technical notes:
 - x360 gamepad compatible
 - Known issues:
-* Steam is not fully usable, but it's not important, it's just installed to launch the game. 
+-- Steam is not fully usable, but it's not important, it's just installed to launch the game. 
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
