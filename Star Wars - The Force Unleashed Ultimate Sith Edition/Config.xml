@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <r>
 	<s id="Version">1</s>
-	<s id="VideoWidth">1920</s>
-	<s id="VideoHeight">1080</s>
+	<s id="VideoWidth">resolutionx</s>
+	<s id="VideoHeight">resolutiony</s>
 	<s id="LowDetail">0</s>
-	<s id="IsKBAndMouse">FALSE</s>
+	<s id="IsKBAndMouse">TRUE</s>
 	<s id="MovementForward">DIK_W</s>
 	<s id="MovementLeft">DIK_A</s>
 	<s id="MovementBack">DIK_S</s>
