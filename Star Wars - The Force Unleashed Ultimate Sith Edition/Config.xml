@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<r>
+	<s id="Version">1</s>
+	<s id="VideoWidth">1920</s>
+	<s id="VideoHeight">1080</s>
+	<s id="LowDetail">0</s>
+	<s id="IsKBAndMouse">FALSE</s>
+	<s id="MovementForward">DIK_W</s>
+	<s id="MovementLeft">DIK_A</s>
+	<s id="MovementBack">DIK_S</s>
+	<s id="MovementRight">DIK_D</s>
+	<s id="ForceDash">DIK_LSHIFT</s>
+	<s id="Jump">DIK_SPACE</s>
+	<s id="Pause">DIK_RETURN</s>
+	<s id="CenterCamera">DIK_C</s>
+	<s id="Options">DIK_ESCAPE</s>
+	<s id="LightSaberAttack">MOUSE_B0</s>
+	<s id="Block">DIK_R</s>
+	<s id="ForceGrip">MOUSE_B1</s>
+	<s id="ForcePush">DIK_E</s>
+	<s id="ForceLightning">DIK_Q</s>
+	<s id="LockOn">DIK_LCONTROL</s>
+	<s id="ActivateActionCamera">DIK_V</s>
+	<s id="PlayerOptions">DIK_ESCAPE</s>
+	<s id="IsMouseXAxisInverted">FALSE</s>
+	<s id="IsMouseYAxisInverted">FALSE</s>
+</r>
