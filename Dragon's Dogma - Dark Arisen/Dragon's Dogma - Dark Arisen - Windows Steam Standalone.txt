@@ -1,10 +1,10 @@
 custom-name: Dragon's Dogma - Dark Arisen - Windows Steam Standalone
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Saint%20Seiya%20-%20Soldiers%20Souls/sseiyass.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Saint%20Seiya%20-%20Soldiers%20Souls/sseiyass.bmp
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dragon's%20Dogma%20-%20Dark%20Arisen/dddarisen.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dragon's%20Dogma%20-%20Dark%20Arisen/dddarisen.bmp
 game:
-  exe: drive_c/sseiyass.bat
+  exe: drive_c/dddarisen.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -26,6 +26,10 @@ installer:
     executable: steamsetup
     name: wineexec
     prefix: $GAMEDIR
+- task:
+    app: wmp9
+    name: winetricks
+    prefix: $GAMEDIR
 - merge:
     dst: $GAMEDIR/drive_c/
     src: menu
@@ -39,7 +43,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\sseiyass.bmp
+    value: c:\\dddarisen.bmp
 - task:
     arch: win64
     key: csmt
