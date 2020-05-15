@@ -11,8 +11,10 @@ goto :launcher
 
 :launcher
 rem create config folder
-rem if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\"
-rem if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\"
 
 rem replace game launcher that is not compatible with wine by main game exe
 rem if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" copy "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" & move /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.ori"
@@ -45,23 +47,16 @@ if errorlevel 2 goto :play2
 if errorlevel 1 goto :play1
 
 :play1
-c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
-start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
+c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (copy /Y "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G") & start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
 goto :launcher
 
 :play2
-c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">FALSE<\/s>/g" c:\tmp\config.xml
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
-start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
+c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">FALSE<\/s>/g" c:\tmp\config.xml & for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (copy /Y "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G") & start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
 goto :launcher
 
 :config
 notepad.exe c:\tmp\Config.xml
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
+for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (echo Found %%G & copy "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G")
 goto :launcher
 
 :exit

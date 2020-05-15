@@ -24,4 +24,5 @@
 	<s id="PlayerOptions">DIK_ESCAPE</s>
 	<s id="IsMouseXAxisInverted">FALSE</s>
 	<s id="IsMouseYAxisInverted">FALSE</s>
+	<s id="ClothLevel">1</s>
 </r>
