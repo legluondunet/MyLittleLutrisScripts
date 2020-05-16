@@ -3,8 +3,8 @@ title Star Wars - The Force Unleashed - Ultimate Sith Edition
 color FC
 c:
 
-rem if game is not installed start directly downloading
-if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\" goto :play1
+rem if game oe Steam are not installed 
+if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\" goto :firstlaunch
 
 goto :launcher
 
@@ -49,6 +49,10 @@ if errorlevel 4 goto :language
 if errorlevel 3 goto :config
 if errorlevel 2 goto :play2
 if errorlevel 1 goto :play1
+
+:firstlaunch
+c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & call :copyconfig
+call "c:\program files (x86)\steam\steam.exe" -no-cef-sandbox steam://run/32430 & goto :exit
 
 :play1
 c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & call :copyconfig
