@@ -1,16 +1,17 @@
-custom-name: Star Wars - The Force Unleashed Ultimate Sith Edition - Windows Steam
-  Standalone
+custom-name: Star Wars - The Force Unleashed Ultimate Sith Edition - GOG
 files:
-- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20The%20Force%20Unleashed%20Ultimate%20Sith%20Edition/swtfu.bat
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20The%20Force%20Unleashed%20Ultimate%20Sith%20Edition/swtfu_gog.bat
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20The%20Force%20Unleashed%20Ultimate%20Sith%20Edition/swtfu.bmp
 - config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20The%20Force%20Unleashed%20Ultimate%20Sith%20Edition/Config.xml
 - fix:
     filename: SWTFU_Fixed_Files.7z
     url: https://www.dropbox.com/s/svgytg5fnd0mwb3/SWTFU_Fixed_Files.7z?dl=1
 - gnutils: https://github.com/legluondunet/mlls-tools/raw/master/sed/sed_win32.zip
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- gamesetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
 game:
-  args: c:\\swtfu.bat
+  args: c:\\swtfu_gog.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
@@ -27,18 +28,42 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    args: /S
-    description: Installing Steam...
-    executable: steamsetup
-    name: wineexec
-    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract $gamesetup --output-dir "$GAMEDIR/drive_c/GOG Games"
+    file: $CACHE/innoextract/innoextract
 - merge:
     dst: $GAMEDIR/drive_c/tmp/
     src: config
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/swtfu_fixed_files
+    dst: $GAMEDIR/drive_c/GOG Games/app/LevelPacks/
     file: fix
+- input_menu:
+    description: 'Please choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - it: Italian
+    - es: Spanish
+    - pl: Polish
+    - ru: Russian
+    preselect: en
+- task:
+    arch: win64
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\aspyr\star wars the force unleashed\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: $INPUT_LANG
+- task:
+    app: d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
     file: gnutils
@@ -66,7 +91,10 @@ installer:
     value: '00000000'
 - execute:
     command: cd "$GAMEDIR/drive_c/tmp/"; sed -i -e "s/resolutionx/"$RESOLUTION_WIDTH"/g"
-      -e "s/resolutiony/"$RESOLUTION_HEIGHT"/g" Config.xml;
+      -e "s/resolutiony/"$RESOLUTION_HEIGHT"/g" Config.xml; cd .. ; cd "GOG Games";
+      mv app "Star Wars - The Force Unleashed Ultimate Sith Edition"; cd "Star Wars
+      - The Force Unleashed Ultimate Sith Edition"; rm -f -r ../tmp __support GameuxInstallHelper.dll
+      goggame-1189268228.* language_setup.* webcache.zip;
 wine:
   Desktop: true
 

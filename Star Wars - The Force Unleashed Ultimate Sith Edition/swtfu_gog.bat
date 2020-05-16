@@ -1,5 +1,6 @@
 @echo off
-color 0f
+title Star Wars - The Force Unleashed - Ultimate Sith Edition
+color FC
 c:
 
 goto :launcher
@@ -36,16 +37,17 @@ if errorlevel 2 goto :play2
 if errorlevel 1 goto :play1
 
 :play1
-c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (copy /Y "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G") & start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
+c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & call :copyconfig
+start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
 goto :launcher
 
 :play2
-c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">FALSE<\/s>/g" c:\tmp\config.xml & for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (copy /Y "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G") & start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
+c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">FALSE<\/s>/g" c:\tmp\config.xml & call :copyconfig 
+start "" "c:\GOG Games\Star Wars - The Force Unleashed Ultimate Sith Edition\swtfu.exe"
 goto :launcher
 
 :config
-notepad.exe c:\tmp\Config.xml
-for /f "tokens=*" %%G in ('dir /b /a:d "%userprofile%/local settings/application data/aspyr"') do (echo Found %%G & copy "c:\tmp\config.xml" "%userprofile%/local settings/application data/aspyr/%%G")
+notepad.exe c:\tmp\Config.xml & call :copyconfig
 goto :launcher
 
 :language
@@ -103,6 +105,11 @@ if "%1" == "it" set varlang2=Italian
 if "%1" == "es" set varlang2=Spanish
 if "%1" == "pl" set varlang2=Polish
 if "%1" == "ru" set varlang2=Russian
+goto :eof
+
+:copyconfig
+copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
+copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
 goto :eof
 
 :exit
