@@ -3,23 +3,22 @@ title Star Wars - The Force Unleashed - Ultimate Sith Edition
 color FC
 c:
 
-rem if game oe Steam are not installed 
-if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\" goto :firstlaunch
+rem install default config files
+call :copyconfig
+
+rem verify if game is correctly installed 
+if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\unins000.msg" goto :firstlaunch
+if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.exe" goto :firstlaunch
+if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe" goto :firstlaunch
 
 goto :launcher
 
 :launcher
-rem create config folder
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\"
-
 rem do not launch dotnet installing or change language at each game start
-if exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.vdf" move /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.vdf" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.bak"
+if exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.vdf" copy /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.vdf" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.bak" & del /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\installscript.vdf"
 
 rem replace game launcher that is not compatible with wine by main game exe
-if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" copy "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" & move /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.ori"
+if not exist "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" copy "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" & copy /Y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.ori"
 
 copy /y "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.ori" "c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe"
 
@@ -51,8 +50,28 @@ if errorlevel 2 goto :play2
 if errorlevel 1 goto :play1
 
 :firstlaunch
-c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & call :copyconfig
-call "c:\program files (x86)\steam\steam.exe" -no-cef-sandbox steam://run/32430 & goto :exit
+start "" "c:\program files (x86)\steam\steam.exe" -no-cef-sandbox steam://open/downloads
+start "" "c:\program files (x86)\steam\steam.exe" -no-cef-sandbox steam://validate/32430
+cls
+echo.
+echo.
+echo.	-------------------------------------------------------
+echo.	Star Wars - The Force Unleashed - Ultimate Sith Edition
+echo.	-------------------------------------------------------
+echo.
+echo.	Installing game, waiting for the task to complete...
+echo.
+SET LookForFile1="c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\unins000.msg"
+SET LookForFile2="c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU.exe"
+SET LookForFile3="c:\Program Files (x86)\Steam\steamapps\Common\Star Wars The Force Unleashed\SWTFU Launcher.exe"
+:wait4dl
+if exist %LookForFile1% if exist %LookForFile2% if exist %LookForFile3% call :killsteam & GOTO :launcher
+REM If we get here, the file is not found.
+REM Wait 60 seconds and then recheck.
+PING localhost -n 10 >NUL
+echo.	Installing game, waiting for the task to complete...
+echo.
+goto :wait4dl
 
 :play1
 c:\tmp\sed.exe -i "s/IsKBAndMouse\".*/IsKBAndMouse\">TRUE<\/s>/g" c:\tmp\config.xml & call :copyconfig
@@ -126,12 +145,21 @@ if "%1" == "ru" set varlang2=Russian
 goto :eof
 
 :copyconfig
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\"
+if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\"
+
 copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
 copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
 goto :eof
 
+:killsteam
+call taskkill /F /IM steam.exe > nul
+call taskkill /F /IM steamwebhelper.exe > nul
+goto :eof
+
 :exit
-call taskkill /F /IM steam.exe
-call taskkill /F /IM steamwebhelper.exe
+call :killsteam
 exit
 
