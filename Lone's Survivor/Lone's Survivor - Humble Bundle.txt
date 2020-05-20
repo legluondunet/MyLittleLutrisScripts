@@ -1,4 +1,4 @@
-custom-name: Lone's Survivor - The Director's Cut - Humble Bundle - Wine
+custom-name: Lone's Survivor - The Director's Cut - Humble Bundle
 files:
 - install: N/A:Please select the Windows game file downloaded from Humble Bundle.
 game:

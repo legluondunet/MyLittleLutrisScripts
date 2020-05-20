@@ -1,4 +1,4 @@
-custom-name: Lone's Survivor - The Director's Cut - Steam - Wine
+custom-name: Lone's Survivor - The Director's Cut - Steam data
 game:
   arch: win64
   exe: drive_c/Lone Survivor/LoneSurvivor.exe

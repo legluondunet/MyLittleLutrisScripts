@@ -1,6 +1,6 @@
 @echo off
 title Star Wars - The Force Unleashed - Ultimate Sith Edition
-color FC
+color F9
 c:
 
 rem install default config files

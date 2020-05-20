@@ -38,7 +38,8 @@ start "" "c:\program files (x86)\warcraft iii\warcraft iii.exe"
 goto :launcher
 
 :TFT
-rem start "" "c:\program files (x86)\warcraft iii\warcraft iii.exe"
+if not exist "c:\program files (x86)\warcraft iii\frozen throne.exe" goto :notft
+start "" "c:\program files (x86)\warcraft iii\frozen throne.exe"
 goto :launcher
 
 :update
@@ -46,6 +47,26 @@ cls
 start "" iexplore "https://gaming-tools.com/warcraft-3/patches/"
 goto :launcher
 
+:notft
+cls
+echo.
+echo.
+echo.	------------------------------------------------
+echo.	    Warcraft III Blizzard CD Classic edition
+echo.	------------------------------------------------
+echo.
+echo.	Warcraft III - The Frozen Throne extension is 
+echo.	not installed.If you own the CD, install it with
+echo. 	Lutris script installer called:
+echo.	"Wine CD + patch 1.27b + WS version
+echo.	available on this web page.
+echo.
+echo.	------------------------------------------------
+echo.
+echo.
+start "" iexplore "https://lutris.net/games/warcraft-iii-the-frozen-throne/"
+pause
+goto :launcher
 
 :exit
 exit
