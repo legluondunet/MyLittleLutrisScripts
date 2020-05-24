@@ -1,10 +1,11 @@
 # Enclave - GOG - Wine
 
 ### Description:
-This script will install "Enclave" Gog edition with support for modern computer configuration.
+This script will assist you to install this game on Linux OS:
+"Enclave" provided by GOG using Lutris Wine runner.
 During install please let all options by default.
-This script uses DxWnd: https://sourceforge.net/projects/dxwnd/
-Thanks to the people who helped us play this game in the best conditions.
+This script uses DxWnd project: https://sourceforge.net/projects/dxwnd/
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - This script is only compatible with Enclave Windows setup exe file provided by GOG.
@@ -13,16 +14,18 @@ Thanks to the people who helped us play this game in the best conditions.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Enclave - Steam - Wine
+# Enclave - Steam data - Wine
 
 ### Description:
-This script will install "Enclave" Steam edition with support for modern computer configuration.
+This script will assist you to install this game on Linux OS:
+"Enclave" provided by Steam using Lutris Wine runner.
 During install please let all options by default.
-This script uses DxWnd: https://sourceforge.net/projects/dxwnd/
-Thanks to the people who helped us play this game in the best conditions.
+This script uses DxWnd project: https://sourceforge.net/projects/dxwnd/
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - You have to install Enclave in Steam before to launch this installer script.
+- This game does not need Steam to launch and this script will launch it without it.
 - Enclave has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

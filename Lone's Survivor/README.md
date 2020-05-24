@@ -2,7 +2,7 @@
 
 ### Description:
 This script will assist you to install this game on Linux OS:
-"Lone's Survivor - The Director's Cut" provided by Humble Bundle.
+"Lone's Survivor - The Director's Cut" provided by Humble Bundle using Lutris Wine runner.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
@@ -12,11 +12,11 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Lone's Survivor - The Director's Cut - Steam
+# Lone's Survivor - The Director's Cut - Steam data
 
 ### Description:
 This script will assist you to install this game on Linux OS:
-"Lone's Survivor - The Director's Cut" provided by Steam.
+"Lone's Survivor - The Director's Cut" provided by Steam using Lutris Wine runner.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
