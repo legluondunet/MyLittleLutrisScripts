@@ -1,25 +1,19 @@
-custom-name: Tomb Raider I - GOG - OpenLara
+custom-name: Tomb Raider I - Steam data - OpenLara
 files:
 - tr1audio: https://github.com/Carlmundo/TombRaider-AutomatedFix/archive/master.zip
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
 - audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
-- gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
-    GOG account
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
 game:
   exe: $GAMEDIR/OpenLara
 installer:
-- extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE" "$gogsetup"
-    file: $CACHE/innoextract
+- insert-disc:
+    description: Please select Tomb Raider 1 Steam folder install.
+    requires: GAME.GOG
 - merge:
-    dst: $GAMEDIR
-    src: $CACHE/app
+    dst: $GAMEDIR/
+    src: $DISC
 - extract:
     dst: $CACHE
     src: tr1audio
