@@ -13,14 +13,20 @@ fi
 echo $cd
 ./7z x -y $cd
 
-rm -f -r Data.now DOSBOX EXTRAS EXTRAS PATCHES INFO __support 3dfxSpl2.dll *.DLL *.dll Autorun.inf goggame* webcache.zip Setup* Support.ico *.ocx *.OCX glide* INSTALL.* HMI* DOS4GW.EXE TOMBPATH.TXT tr1setup.exe VDMSound2[1].1.0.exe 7z bchunk bin2iso cdrdao;
+mkdir video
+mv FMV video/1
 
-cd audio
+# mkdir level
+# mv DATA level/1
+
+rm -f -r Data.now DOSBOX EXTRAS EXTRAS PATCHES INFO __support 3dfxSpl2.dll *.DLL *.dll Autorun.inf goggame* webcache.zip Setup* Support.ico *.ocx *.OCX glide* INSTALL.* HMI* DOS4GW.EXE TOMBPATH.TXT tr1setup.exe VDMSound2[1].1.0.exe *.mp3 GAME* TOMB* game.cue 7z bchunk bin2iso cdrdao toc2cue about*;
+
+cd audio/1
 find . -type f -name 'Track*' | while read FILE ; do
 	newfile="$(echo ${FILE} |sed -e 's/Track/track_/')"
 	mv "${FILE}" "${newfile}"
 done 
 
 LD_LIBRARY_PATH=libs ./flac -d *.flac
-# rm -f -r *.flac .libs cdparanoia flac lame metaflac versions.txt
+rm -f -r *.flac libs cdparanoia flac lame metaflac about_audiotools.txt
 
