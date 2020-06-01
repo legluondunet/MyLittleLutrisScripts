@@ -1,5 +1,7 @@
 files:
-- psnow: https://download-psnow.playstation.com/downloads/psnow/pc/PlayStationNow-11.0.2.exe
+- psnowsetup:
+    filename: psnowlatest.exe
+    url: https://download-psnow.playstation.com/downloads/psnow/pc/latest
 game:
   arch: win64
   exe: drive_c/Program Files (x86)/PlayStationNow/psnowlauncher.exe
@@ -12,35 +14,15 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: win7
-    arch: win64
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: vcrun2013
+    app: d3dcompiler_47 win7
     arch: win64
     name: winetricks
     prefix: $GAMEDIR
 - task:
     arch: win64
-    args: /extract "c:"
-    executable: psnow
+    executable: psnowsetup
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    args: /i "C:\294C619\PlayStationNow.msi" SETUPEXEDIR="C:\294C619"
-    executable: msiexec
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - task:
     arch: win64
     key: background
@@ -49,10 +31,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-move:
-  dst: $CACHE
-  src: $GAMEDIR/drive_c/294C619
 wine:
   Desktop: true
-  dxvk: true
 
