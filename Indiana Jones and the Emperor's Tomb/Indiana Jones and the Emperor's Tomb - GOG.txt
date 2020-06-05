@@ -1,31 +1,35 @@
 custom-name: Indiana Jones and the Emperor's Tomb - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
-- ijetinstaller: N/A:Please select the GOG installer
 - videos: https://dl.dropboxusercontent.com/s/r9jpia95hw0b0kh/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip
-- ijetscript1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijetniceconfig.bat
+- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet_multi5.tar.xz
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_readme.html
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/IJETM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/IJETM2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bat
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bmp
-- gnused1: https://freefr.dl.sourceforge.net/project/gnuwin32/sed/4.2.1/sed-4.2.1-dep.zip
-- gnused2: https://freefr.dl.sourceforge.net/project/gnuwin32/sed/4.2.1/sed-4.2.1-bin.zip
+- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
 game:
-  exe: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/IJETM1.BAT
+  arch: win64
+  args: c:\\ijet.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: ijetinstaller
-    name: wineexec
-    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
+    file: $CACHE/innoextract
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -91,35 +95,20 @@ installer:
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/
+    dst: $GAMEDIR/drive_c/GOG Games/app/GameData/indy/
     file: videos
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/gamepad profiles
+    dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppsteam
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/gamepad profiles
+    dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppx360
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/gamepad profiles
+    dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppreadme
 - move:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/
-    src: menu1
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/
-    src: menu2
-- extract:
-    dst: $CACHE
-    file: gnused1
-- extract:
-    dst: $CACHE
-    file: gnused2
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/sed4win/
-    src: $CACHE/bin
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/sed4win/
-    src: ijetscript1
+    dst: $GAMEDIR/drive_c/
+    src: menu
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
@@ -127,14 +116,6 @@ installer:
     app: vcrun6
     name: winetricks
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: MaxShaderModelVS
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: 0
 - task:
     arch: win64
     key: msvcrt
@@ -183,9 +164,29 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
+- extract:
+    dst: $CACHE
+    format: txz
+    src: multi5
+- input_menu:
+    description: 'Please choose your preferred game''s language for menus and subtitles:'
+    id: LANG
+    options:
+    - keep: Keep the default language from the downloaded installer
+    - fr: French
+    - es: Spanish
+    - it: Italian
+    - de: German
+    - ru: Russian
+    preselect: keep
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/";
-      cd ../..; rm gog* Launch* unin* webcache.zip Support.ico EmperorsTomb.exe;
+    command: cd "$GAMEDIR/drive_c/GOG Games"; mv app "Indiana Jones and the Emperor's
+      Tomb"; cd "Indiana Jones and the Emperor's Tomb"; rm -f -r ../tmp __support
+      GameuxInstallHelper.dll  goggame-1425034773.* webcache.zip; sed -i -e "s/\(^res_width=\).*/\11280/"
+      -e "s/\(^res_height=\).*/\1960/" -e "s/\(^res_bpp=\).*/\132/" -e "s/\(^fpsLimit=\).*/\160/"
+      GameData/indy/vars.cfg ; if [ $INPUT_LANG != "keep" ];  then echo "language
+      choisi " $INPUT_LANG; cp -f -r "$CACHE/"$INPUT_LANG/gameinfo/ GameData/indy;
+      else echo "keep" ; fi;
 wine:
   Desktop: true
 

@@ -13,7 +13,7 @@ echo.	------------------------------------------------
 echo.
 echo.	1) Play IJET
 echo.	2) How to play IJET with a gamepad?
-echo.	3) exit
+echo.	3) Exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -29,7 +29,7 @@ if errorlevel 1 goto ijet
 cls
 cd c:\dxwnd
 start dxwnd.exe /r:0
-goto exit
+goto launcher
 
 :gamepad
 cls
