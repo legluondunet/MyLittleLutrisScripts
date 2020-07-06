@@ -14,7 +14,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: d3dcompiler_47 win7
+    app: d3dcompiler_47 vcrun2013 win7
     arch: win64
     name: winetricks
     prefix: $GAMEDIR
