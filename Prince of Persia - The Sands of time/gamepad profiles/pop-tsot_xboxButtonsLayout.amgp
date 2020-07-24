@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gamecontroller configversion="19" appversion="2.23">
+    <!--The SDL name for a joystick is included for informational purposes only.-->
+    <sdlname>Speedlink TORID Wireless Gamepad</sdlname>
+    <!--The GUID for a joystick is included for informational purposes only.-->
+    <guid>030000005e0400008e02000073050000</guid>
+    <names>
+        <buttonname index="1">Action</buttonname>
+        <buttonname index="2">Cancel</buttonname>
+        <buttonname index="3">Attack</buttonname>
+        <buttonname index="4">Dagger</buttonname>
+        <buttonname index="8">Movement</buttonname>
+        <buttonname index="9">Camera</buttonname>
+        <buttonname index="10">First Person Look</buttonname>
+        <buttonname index="11">Landscape view</buttonname>
+        <controlstickbuttonname index="1" button="1">Movement</controlstickbuttonname>
+        <controlstickbuttonname index="1" button="3">Movement</controlstickbuttonname>
+        <controlstickbuttonname index="1" button="5">Movement</controlstickbuttonname>
+        <controlstickbuttonname index="1" button="7">Movement</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="1">Camera Movement</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="3">Camera  Movement</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="5">Camera Movement</controlstickbuttonname>
+        <controlstickbuttonname index="2" button="7">Camera Movement</controlstickbuttonname>
+    </names>
+    <sets>
+        <set index="1">
+            <stick index="1">
+                <stickbutton index="1">
+                    <actionname>Move Forward</actionname>
+                    <slots>
+                        <slot>
+                            <code>0x57</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="3">
+                    <actionname>Move Right</actionname>
+                    <slots>
+                        <slot>
+                            <code>0x44</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="5">
+                    <actionname>Move Backward</actionname>
+                    <slots>
+                        <slot>
+                            <code>0x53</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="7">
+                    <actionname>Move Left</actionname>
+                    <slots>
+                        <slot>
+                            <code>0x41</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+            </stick>
+            <stick index="2">
+                <diagonalRange>65</diagonalRange>
+                <stickbutton index="1">
+                    <actionname>Camera Forward</actionname>
+                    <slots>
+                        <slot>
+                            <code>1</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="3">
+                    <actionname>Camera Right</actionname>
+                    <slots>
+                        <slot>
+                            <code>4</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="5">
+                    <actionname>Camera Backward</actionname>
+                    <slots>
+                        <slot>
+                            <code>2</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+                <stickbutton index="7">
+                    <actionname>Camera Left</actionname>
+                    <slots>
+                        <slot>
+                            <code>3</code>
+                            <mode>mousemovement</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
+            </stick>
+            <dpad index="1">
+                <dpadbutton index="8">
+                    <slots>
+                        <slot>
+                            <code>0x1000012</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="1">
+                    <slots>
+                        <slot>
+                            <code>0x1000013</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x1000014</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="4">
+                    <slots>
+                        <slot>
+                            <code>0x1000015</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+            </dpad>
+            <trigger index="1">
+                <throttle>positivehalf</throttle>
+                <triggerbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x52</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </triggerbutton>
+            </trigger>
+            <trigger index="2">
+                <throttle>positivehalf</throttle>
+                <triggerbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>3</code>
+                            <mode>mousebutton</mode>
+                        </slot>
+                    </slots>
+                </triggerbutton>
+            </trigger>
+            <button index="1">
+                <actionname>Jump, Roll</actionname>
+                <slots>
+                    <slot>
+                        <code>0x20</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="2">
+                <actionname>let go, put away sword</actionname>
+                <slots>
+                    <slot>
+                        <code>0x43</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="3">
+                <actionname>Sword</actionname>
+                <slots>
+                    <slot>
+                        <code>1</code>
+                        <mode>mousebutton</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="4">
+                <actionname>Use Dagger</actionname>
+                <slots>
+                    <slot>
+                        <code>0x45</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="7">
+                <slots>
+                    <slot>
+                        <code>0x1000000</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="8">
+                <toggle>true</toggle>
+                <actionname>Walk Toggle</actionname>
+                <slots>
+                    <slot>
+                        <code>0x1000020</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="9">
+                <actionname>Camera Reset</actionname>
+                <slots>
+                    <slot>
+                        <code>0x58</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="10">
+                <slots>
+                    <slot>
+                        <code>0x46</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="11">
+                <slots>
+                    <slot>
+                        <code>0x51</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+        </set>
+    </sets>
+</gamecontroller>
