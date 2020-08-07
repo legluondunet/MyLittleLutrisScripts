@@ -1,41 +1,22 @@
-custom-name: Dune - CD DOS - DOSBox
+custom-name: Dune II - CD DOS - DOSBox
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune/dune_dosbox.conf
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune%20II/dune_ii_dosbox.conf
 game:
-  main_file: $GAMEDIR/dune_dosbox.conf
+  main_file: $GAMEDIR/dune_ii_dosbox.conf
 installer:
 - insert-disc:
     description: Please insert disc Dune
-    requires: dune.exe
+    requires: hdinstal.bat
 - extract:
     dst: $GAMEDIR
     src: cdrtools
 - chmodx: script
 - execute:
-    args: dune
+    args: dune2
     file: script
 - copy:
     dst: $GAMEDIR
     src: conf
-- input_menu:
-    description: 'Choose your preferred game''s language for menu and subtitles:'
-    id: LANG
-    options:
-    - ENG: English
-    - FRA: French
-    - SPA: Spanish
-    - ITA: Italian
-    - GER: German
-    preselect: ENG
-- write_file:
-    content: '@echo off
-
-      REM *** DUNE-CD launcher V3.6 ***
-
-      D:
-
-      DNCDPRG $INPUT_LANG ADP220 SBP2227 EMS 386 WRIC:\DUNECD\'
-    file: $GAMEDIR/DUNECD/DUNE.BAT
 
