@@ -1,9 +1,9 @@
 custom-name: Warcraft III - Reforged - LGDN
 files:
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii.bmp
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reforged/warcraft_iii_reforged.bmp
 - wiiir: N/A:Please select Warcraft-III-Setup.exe file downloaded from Blizzard
 game:
-  exe: drive_c/Program Files (x86)/Warcraft III/x86_64/Warcraft III.exe
+  exe: drive_c/Program Files (x86)/Warcraft III/Warcraft III Launcher.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -33,9 +33,9 @@ installer:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
     prefix: $GAMEDIR
-    include_processes: explorer.exe
 - task:
     arch: win64
     key: wallpaper

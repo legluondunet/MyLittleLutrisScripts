@@ -1,38 +1,30 @@
 custom-name: Dragon Age - Origins - Ultimate Edition - GOG
 files:
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
 - gogupdate: N/A:Please select the Windows patch exe file downloaded from your GOG
     account called "Bonus DLC + hotfix".
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dragon%20Age%20-%20Origins/daorigins.reg
 game:
   exe: drive_c/GOG Games/Dragon Age Origins/DAOriginsLauncher.exe
   prefix: $GAMEDIR
 installer:
-- extract:
-    dst: $CACHE
-    file: inno
 - task:
     arch: win64
     description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- execute:
-    args: -g -d "$GAMEDIR/drive_c/GOG Games/" "$gogsetup"
-    description: Installing game, could take a while...
-    file: $CACHE/innoextract
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Dragon Age Origins/
-    src: $GAMEDIR/drive_c/GOG Games/game
+- task:
+    args: /SP- /SUPPRESSMSGBOXES
+    description: Installing Dragon Age - Origins - Ultimate Edition, could take several
+      minutes...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
 - task:
     app: physx
     name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    filename: regfile
-    name: set_regedit_file
     prefix: $GAMEDIR
 - task:
     executable: gogupdate
@@ -46,10 +38,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/"; rm -f -r MSVC2005* support/ tmp/ __unpacker/
-      userdocs/; cd "Dragon Age Origins"; rm -f -r gog* redist regkey-switch.cmd unins000.*
-      webcache.zip;
 wine:
   Desktop: true
 

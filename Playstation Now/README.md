@@ -9,4 +9,3 @@ Play Playstation 1,2,3,4 games on Linux.
 - Known issues: 
 -- "PlayStation Now" does not exit cleanly with Wine, you have to force application exit with Lutris "Stop" button or "Kill all wine process".
 -- White rectangular window at the right bottom corner. Workaround: open PSNow window in fullscreen.
-

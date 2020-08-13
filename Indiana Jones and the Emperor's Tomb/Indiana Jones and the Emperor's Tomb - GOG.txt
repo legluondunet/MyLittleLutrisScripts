@@ -1,7 +1,7 @@
 custom-name: Indiana Jones and the Emperor's Tomb - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
-- videos: https://dl.dropboxusercontent.com/s/r9jpia95hw0b0kh/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip
+- videos: https://www.dropbox.com/s/njmsltpw3xghg0k/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip?dl=1
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet_multi5.tar.xz
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_steam.sccprofile
@@ -97,6 +97,7 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/app/GameData/indy/
     file: videos
+    format: zip
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppsteam
@@ -189,4 +190,5 @@ installer:
       else echo "keep" ; fi;
 wine:
   Desktop: true
+  version: lutris-4.21-x86_64
 
