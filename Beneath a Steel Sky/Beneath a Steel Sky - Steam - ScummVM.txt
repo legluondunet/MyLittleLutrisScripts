@@ -1,0 +1,28 @@
+custom-name: Beneath a Steel Sky - Steam - ScummVM
+game:
+  args: --language=$INPUT_LANG
+  game_id: sky
+  path: $GAMEDIR/
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please browse to the Steam Beneath a Steel Sky path where "sky.dsk"
+      stored
+    requires: sky.dsk
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - es: Spanish
+    - it: Italian
+    preselect: en
+scummvm:
+  aspect: true
+  fullscreen: true
+
