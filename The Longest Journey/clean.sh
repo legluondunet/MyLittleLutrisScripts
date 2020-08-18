@@ -36,10 +36,11 @@ fi
 #cd ..
 #fi
 
-echo $lang
+echo la variable lang est $lang et folder est $folder
 if [ "$lang" = "keep" ]
 then
 echo "I prefer to keep default install language for menus and subtitles"
+touch tlj_4cd-gog_menus_sub_multi5.7z
 exit
 elif [ "$lang" = "fr" ]
 then
@@ -55,7 +56,7 @@ then
 file="https://www.dropbox.com/s/vcx8l7vry3kdmm2/tlj_4cd-gog_menus_sub_sp.7z?dl=1"
 fi
 
-echo "$lang" "$folder" "$file"
+echo la variable file est "$file"
 wget -O tlj_4cd-gog_menus_sub_multi5.7z "$file"
 
 #rm -f -r tmp tlj_4cd-gog_menus_sub_multi5.7z
