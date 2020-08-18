@@ -1,6 +1,6 @@
 custom-name: The Longest Journey - Steam - ResidualVM
 files:
-- rvmengine: https://lutris.nyc3.digitaloceanspaces.com/games/the-longest-journey/engines-stark.tar.xz
+- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/residualvm_stark_engine.zip
 game:
   game_id: tlj
   path: $GAMEDIR/

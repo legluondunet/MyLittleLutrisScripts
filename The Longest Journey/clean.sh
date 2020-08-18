@@ -2,10 +2,19 @@
 
 lang=$1
 
-# TLJ GOG
+# TLJ GOG with ResidualVM
 if [ -d "app" ]
 then
+folder="."
 rm -f -r app commonappdata __redist station_fix tmp *.dll dxsetup.ini DX_Module.dll goggame* TLJRegFix.* 
+fi
+
+# TLJ CD with ResidualVM
+if [ -d "TLJCD" ]; then 
+folder="TLJCD"
+cd "$folder"
+rm -f -r *.dll *.cab *.hdr *.tag dset* dx* setup* autorun.inf DATA.TAG directx.inf EngineRoot.exe _inst32i.ex_ _ISDel.exe launcher.exe layout.bin longestjourney.url Setup.exe Uninstall.ini SETUP.INI os.dat lang.dat
+cd ..
 fi
 
 #if [ -d "drive_c" ]; then 
@@ -28,19 +37,12 @@ fi
 #cd ../..
 #fi
 
-#TLJ CD ResidualVM Wine installer:
-#if [ -d "TLJCD" ]; then 
-#folder="TLJCD"
-#cd "$folder"
-#rm -f -r *.dll *.cab *.hdr *.tag dset* dx* setup* autorun.inf DATA.TAG directx.inf EngineRoot.exe _inst32i.ex_ _ISDel.exe launcher.exe layout.bin longestjourney.url Setup.exe Uninstall.ini SETUP.INI os.dat lang.dat
-#cd ..
-#fi
 
-echo la variable lang est $lang et folder est $folder
+
+echo la variable lang est "$lang" et folder est "$folder"
 if [ "$lang" = "keep" ]
 then
 echo "I prefer to keep default install language for menus and subtitles"
-touch tlj_4cd-gog_menus_sub_multi5.7z
 exit
 elif [ "$lang" = "fr" ]
 then
@@ -58,5 +60,9 @@ fi
 
 echo la variable file est "$file"
 wget -O tlj_4cd-gog_menus_sub_multi5.7z "$file"
+ls tlj_4cd-gog_menus_sub_multi5.7z
+7z x tlj_4cd-gog_menus_sub_multi5.7z
+cp -r "$lang/"* "$folder"
 
-#rm -f -r tmp tlj_4cd-gog_menus_sub_multi5.7z
+rm -f -r tlj_4cd-gog_menus_sub_multi5.7z $lang
+

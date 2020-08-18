@@ -1,9 +1,6 @@
 custom-name: The Longest Journey - 4 CD - ResidualVM
 files:
-- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/engines.zip
-- multi5:
-    filename: tlj_4cd_gog_menus_sub_multi5.zip
-    url: https://www.dropbox.com/s/h2mfqt8bw7xygt2/tlj_4cd_gog_menus_sub_multi5.zip?dl=1
+- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/residualvm_stark_engine.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
 game:
   game_id: tlj
@@ -42,9 +39,6 @@ installer:
     src: $DISC/
 - execute:
     command: cd $GAMEDIR/TLJCD; chmod -R +w *
-- extract:
-    dst: $GAMEDIR/tmp
-    file: multi5
 - extract:
     dst: $GAMEDIR/TLJCD/engines
     file: rvmengine
