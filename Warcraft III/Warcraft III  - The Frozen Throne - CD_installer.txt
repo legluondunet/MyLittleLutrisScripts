@@ -1,7 +1,7 @@
 extends: warcraft-iii-reign-of-chaos
 installer:
 - insert-disc:
-    requires: war3tft.ico
+    requires: installer.exe
 - task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/installer.exe"
     description: Installing Warcraft III - The Frozen Throne...

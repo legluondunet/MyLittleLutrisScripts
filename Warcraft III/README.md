@@ -28,7 +28,7 @@ During install please let all options by default. Thanks to the people who helpe
 
 ### Technical notes:
 - You need first to install "Warcraft III - ROC" called "CD + patch 1.27b + WS before to install this extension 
-- This script is compatible with all "Warcraft III - TFT" PC CD which contain war3tft.ico and installer.exe files, whatever the language is. 
+- This script is compatible with all "Warcraft III - TFT" PC CD which contain "installer.exe" file, whatever the language is. 
 - During install, your game will be updated with last available version for  CD: 1.27b.
 - You will need the CD only one time during install.
 - The game will ask you a valid key at first launch.
@@ -48,7 +48,7 @@ During install please let all options by default. Thanks to the people who helpe
 
 ### Technical notes:
 - You need first to install "Warcraft III - ROC" called "CD + patch 1.27b + WS before to install this extension 
-- This script is compatible with all "Warcraft III - TFT" PC CD which contain war3tft.ico and install.exe files, whatever the language is. 
+- This script is compatible with all "Warcraft III - TFT" PC CD which contain "trailers/wowgameplay.blz" and "install.exe" files, whatever the language is. 
 - During install, your game will be updated with last available version for  CD: 1.27b.
 - You will need the CD only one time during install.
 - The game will ask you a valid key at first launch.

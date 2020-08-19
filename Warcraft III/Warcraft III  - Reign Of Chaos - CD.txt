@@ -45,11 +45,11 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - insert-disc:
-    requires: war3.ico
+    requires: trailers/wowtrailer.avi
 - task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/autoplay.exe"
-    description: If you can not read the screen launcher menu. Just click on first line
-      to launch install and last line to quit. Installing Warcraft III...
+    description: If you can not read the screen launcher menu. Just click on first
+      line to launch install and last line to quit. Installing Warcraft III...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
