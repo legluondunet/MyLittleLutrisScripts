@@ -1,0 +1,29 @@
+custom-name: The Curse of Monkey Island - GOG
+files:
+- gogsetup: N/A:Select the setup exe file downloaded from your GOG account.
+- innoextract: http://constexpr.org/innoextract/files/innoextract-1.7/innoextract-1.7-linux.tar.xz
+game:
+  game_id: comi
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE/inno
+    file: $innoextract
+- execute:
+    args: --extract $gogsetup --output-dir $CACHE/comi --gog
+    file: $CACHE/inno/innoextract
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/comi/COMI.LA0
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/comi/COMI.LA1
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/comi/COMI.LA2
+- merge:
+    dst: $GAMEDIR/RESOURCE
+    src: $CACHE/comi/RESOURCE
+scummvm:
+  aspect-ratio: true
+
