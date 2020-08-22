@@ -32,8 +32,7 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/PlayStationNow/"; sed -i "s/URL.*/URL=/"
-      unidater.ini;
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/PlayStationNow/"; sed -i "s/URL.*/URL=/" unidater.ini;
 wine:
   Desktop: true
 
