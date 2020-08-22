@@ -27,9 +27,7 @@ installer:
     args: -r $GAMEDIR/app/. $GAMEDIR
     file: /bin/cp
 - execute:
-    command: cd "$GAMEDIR"; rm -f -r app commonappdata __redist scummvm __support
-      tmp goggame-1207658818.* language_setup.exe language_setup.ini language_setup.png
-      Launch_MystME.exe source;
+    command: cd "$GAMEDIR"; rm -f -r app commonappdata __redist source __support tmp goggame-1207658818.* language_setup.* Launch_MystME.exe;
 scummvm:
   aspect: true
   fullscreen: true

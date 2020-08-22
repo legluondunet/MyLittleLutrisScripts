@@ -8,7 +8,7 @@ files:
     url: https://www.dropbox.com/s/jxbwntnfqw25m0n/epsilon_mp1_addon_v2_54_18-12-2016.zip?dl=1
 - mp2:
     filename: epsilon_mp2_addon_v2_54_18-12-2016.zip
-    url: https://www.dropbox.com/s/p0xr74p2kftytfy/epsilon_mp3_addon_v2_54_18-12-2016.zip?dl=1
+    url: https://www.dropbox.com/s/p0xr74p2kftytfy/epsilon_mp2_addon_v2_54_18-12-2016.zip?dl=1
 - mp3:
     filename: epsilon_mp3_addon_v2_54_18-12-2016.zip
     url: https://www.dropbox.com/s/ai4i3f029aks5al/epsilon_mp3_addon_v2_54_18-12-2016.1.zip?dl=1
