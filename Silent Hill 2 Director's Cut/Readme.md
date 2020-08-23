@@ -1,11 +1,9 @@
 # Silent Hill 2 - Director's Cut EU - CD - SH2e
 
 ### Description:
-This script will install "Silent Hill 2 - Director's Cut" 3 CD EU release with many fixes and enhancements to support recent computer configurations.
-This script uses different projects: 
-Sh2proxy: https://github.com/emoose/sh2proxy/releases
-SH2e: http://www.enhanced.townofsilenthill.com/SH2/
-Thanks to the people who contributed to play this game in the best conditions, particularly Elisha Riedlinger and all SH2e devs team.
+This script will facilitate you install of this game on Linux OS:
+"Silent Hill 2 - Director's Cut" 3 CD EU release using Lutris Wine runner and Silent Hill 2 enhancement project: http://www.enhanced.townofsilenthill.com/SH2/
+Thanks to the people who contributed to play this game in the best conditions on Linux platform, particularly Elisha Riedlinger and all SH2e devs team.
 
 ### Technical notes:
 - You will need the 3 CD only during install

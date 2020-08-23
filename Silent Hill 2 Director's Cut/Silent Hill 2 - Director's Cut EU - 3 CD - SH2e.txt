@@ -1,10 +1,9 @@
 custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
-- sh2exe: http://enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_EXE_NA_v1.0.zip
-- sh2ed3d8: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
-- sh2efiles: http://enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.1.1.zip
+- sh2exe: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_EXE_NA_v1.0.zip
+- sh2ed3d8: https://github.com/elishacloud/Silent-Hill-2-Enhancements/releases/download/v1.5.1750.0/d3d8.zip
+- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.1.2.zip
 - sh2estr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/exe_str.zip
-- sh2esound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/IndirectSound.zip
 game:
   exe: drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
   prefix: $GAMEDIR
@@ -12,6 +11,8 @@ installer:
 - task:
     arch: win64
     description: Preparing "Silent Hill 2 - Directors Cut" folder
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -132,9 +133,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
     file: sh2efiles
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
-    src: sh2esound
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/text/
     src: sh2estr
