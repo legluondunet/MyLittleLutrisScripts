@@ -1,0 +1,24 @@
+custom-name: Origin Online
+files:
+- oosetup: N/A:Provide last Origin Online setup file from "https://playorigin.com/download.html"
+game:
+  arch: win64
+  exe: drive_c/Program Files/DiabloTH2/TH2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+

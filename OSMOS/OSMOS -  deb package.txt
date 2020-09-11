@@ -1,0 +1,21 @@
+custom-name: OSMOS - Linux deb package
+files:
+- gamesetup: N/A:Please select OSMOS Linux deb package
+game:
+  exe: $GAMEDIR/Osmos.bin64
+installer:
+- extract:
+    dst: $CACHE
+    file: gamesetup
+    format: ar
+- extract:
+    dst: $CACHE
+    file: $CACHE/data.tar.gz
+    format: tgz
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/opt/Osmos
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/opt/Osmos
+

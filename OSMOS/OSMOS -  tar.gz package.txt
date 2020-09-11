@@ -1,0 +1,11 @@
+custom-name: OSMOS - Linux tar.gz package
+files:
+- gamesetup: N/A:Please select OSMOS Linux tar.gz package
+game:
+  exe: $GAMEDIR/Osmos.bin64
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gamesetup
+    format: tgz
+
