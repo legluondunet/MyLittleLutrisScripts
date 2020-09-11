@@ -4,14 +4,15 @@ files:
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3M1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3M2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3.bmp
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bmp
 game:
-  exe: drive_c/GOG Games/Tomb Raider 3/TR3M1.BAT
+  arch: win64
+  args: c:\\tr3aolc.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -25,11 +26,12 @@ installer:
 - execute:
     args: -d "$CACHE" --gog gogsetup
     file: $CACHE/innoextract
-- move:
+- merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     src: $CACHE/app
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; mv tomb3.exe tomb3.gog;
+- copy:
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.exe
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.gog
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     file: arsunt
@@ -42,6 +44,9 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/x86/D3DImm.dll
+- move:
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo_original.conf
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:
