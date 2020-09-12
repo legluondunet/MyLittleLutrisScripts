@@ -49,7 +49,8 @@ echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
-echo.	Output Resolution	- prefer a resolution with 
+echo.	Output Resolution	- for a native game experience
+echo.				prefer a resolution with 
 echo.				4:3 ratio and 32 bits colors
 echo.				if you are not sure choose 640x480x32
 echo.				- if you choose a resolution with a ratio 

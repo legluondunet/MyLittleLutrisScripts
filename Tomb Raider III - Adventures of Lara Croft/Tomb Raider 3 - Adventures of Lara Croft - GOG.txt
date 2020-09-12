@@ -29,26 +29,24 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     src: $CACHE/app
-- copy:
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.exe
+- move:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.gog
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.exe
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     file: arsunt
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     file: dgv
-- copy:
+- merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/x86/DDraw.dll
-- copy:
+- merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/x86/D3DImm.dll
 - move:
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo_original.conf
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; mv dgVoodoo.conf dgVoodoo_original.conf
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
 - write_config:
     data:
       DirectX:
@@ -61,6 +59,7 @@ installer:
         FullScreenMode: false
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+    merge: false
 - task:
     arch: win64
     key: ddraw
@@ -69,16 +68,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
-- task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    src: menu1
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/
-    src: menu2
+- merge:
+    dst: $GAMEDIR/drive_c/
+    src: menu
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
     src: gppx360
@@ -88,9 +80,17 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles/
     src: gppreadme
-- move:
+- merge:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
 - task:
     arch: win64
     key: wallpaper
@@ -125,17 +125,9 @@ installer:
     value: 255 177 94
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; rm -f -r __support/ gog*
-      webcache.zip 3Dfx Doc MS os.dat layout.bin  lang.dat data.bin DATA.TAG config.txt
-      tr3gold.exe
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
+      webcache.zip 3Dfx Doc MS os.dat layout.bin  lang.dat data.bin DATA.TAG tr3gold.exe;
+      sed -i -e "s/D3DTF.*/D3DTF 2/g" -e "s/MUSIC.*/MUSIC 7/g" -e "s/VM.*/VM 25/g"
+      config.txt;
 wine:
   Desktop: true
-  dxvk: true
 
