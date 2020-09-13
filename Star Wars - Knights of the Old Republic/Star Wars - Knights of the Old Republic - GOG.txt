@@ -1,19 +1,59 @@
-custom-name: Lone's Survivor - The Director's Cut - Humble Bundle - Wine
+custom-name: Star Wars - Knights of the Old Republic - GOG
 files:
-- install: N/A:Please select the Humble Bundle archive
+- gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- kotorwspatch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/kotor_widescreens_patchs_mods.7z
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/resolution.sh
 game:
   arch: win64
-  exe: drive_c/Lone Survivor/LoneSurvivor.exe
-  install_gecko: false
-  install_mono: false
+  exe: drive_c/GOG Games/Star Wars - KotOR/swkotor.exe
   prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: install
-- move:
-    dst: $GAMEDIR/drive_c/Lone Survivor
-    src: $CACHE/LoneSurvivor-PC/LoneSurvivor
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$CACHE/Star Wars - KotOR/"
+    file: $CACHE/innoextract/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/
+    src: $CACHE/Star Wars - KotOR/
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/
+    src: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/__support/app/swkotor.ini
+- write_config:
+    data:
+      Graphics Options:
+        AllowWindowedMode: 1
+        Anti Aliasing: 2
+        FullScreen: 1
+        Height: $RESOLUTION_HEIGHT
+        RefreshRate: 60
+        Texture Quality: 2
+        V-Sync: 1
+        Width: $RESOLUTION_WIDTH
+    file: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/swkotor.ini
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: kotorwspatch
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
+- task:
+    arch: win64
+    key: CSMT
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
 - task:
     arch: win64
     key: background
@@ -22,6 +62,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/" ; rm -f -r app commonappdata
+      __redist __support tmp goggame-1207666283.* ../../tmp ;
 wine:
   Desktop: true
 
