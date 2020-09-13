@@ -98,7 +98,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\tr3.bmp
+    value: c:\\tr3aolc.bmp
 - task:
     arch: win64
     key: background

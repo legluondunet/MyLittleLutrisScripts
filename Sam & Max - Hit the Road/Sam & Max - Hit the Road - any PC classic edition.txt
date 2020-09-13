@@ -1,4 +1,4 @@
-custom-name: Sam & Max Hit the Road - PC classic editiob - ScummVM
+custom-name: Sam & Max Hit the Road - PC classic edition - ScummVM
 game:
   game_id: samnmax
   path: $GAMEDIR
@@ -8,7 +8,7 @@ installer:
     requires: MONSTER.SOU
 - merge:
     dst: $GAMEDIR
-    src: $DISC/SAMNMAX
+    src: $DISC/
 scummvm:
   fullscreen: true
   aspect: true
