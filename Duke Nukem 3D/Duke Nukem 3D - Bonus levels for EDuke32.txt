@@ -5,7 +5,7 @@ files:
     url: https://www.dropbox.com/s/eixab4972tx6ork/eduke32_addons313.exe?dl=1
 - dznii:
     filename: dukezoneii.zip
-    url: https://www.dropbox.com/s/0tf8oaqozuy58te/dukezone2.zip?dl=1
+    url: https://www.dropbox.com/s/kwntvzyvpmsbj1b/dukezone2.zip?dl=1
 installer:
 - extract:
     dst: $GAMEDIR/dn3d/addons/frightnight

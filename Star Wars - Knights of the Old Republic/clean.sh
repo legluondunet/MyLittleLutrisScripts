@@ -45,5 +45,5 @@ patch < swkotor_gog_ws_"$rwidth"x"$rheight".patch swkotor.exe
 fi
 
 # clean
-rm -f -r app commonappdata __redist __support tmp goggame-1207666283.* swkotor_gog_ws_"$rwidth"x"$rheight".patch;
+rm -f -r app commonappdata __redist __support tmp goggame-1207666283.* swkotor_gog_ws_"$rwidth"x"$rheight".patch ../../tmp;
 
