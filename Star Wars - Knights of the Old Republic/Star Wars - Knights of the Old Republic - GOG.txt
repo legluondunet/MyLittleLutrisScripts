@@ -2,8 +2,7 @@ custom-name: Star Wars - Knights of the Old Republic - GOG
 files:
 - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- kotorwspatch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/kotor_widescreens_patchs_mods.7z
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/resolution.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/clean.sh
 game:
   arch: win64
   exe: drive_c/GOG Games/Star Wars - KotOR/swkotor.exe
@@ -39,9 +38,6 @@ installer:
         V-Sync: 1
         Width: $RESOLUTION_WIDTH
     file: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/swkotor.ini
-- extract:
-    dst: $GAMEDIR/drive_c/tmp
-    file: kotorwspatch
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
@@ -62,9 +58,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/" ; rm -f -r app commonappdata
-      __redist __support tmp goggame-1207666283.* ../../tmp ;
 wine:
   Desktop: true
 
