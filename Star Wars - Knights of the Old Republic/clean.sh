@@ -39,7 +39,7 @@ cp 'movies_HD/'"$rwidth"'x'"$rheight"'/'* "../GOG Games/Star Wars - KotOR/movies
 
 # widescreen patch
 cd "../GOG Games/Star Wars - KotOR/"
-wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/resolution_patchs/swkotor_gog_ws_"$rwidth"x"$rheight".patch
+wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Knights%20of%20the%20Old%20Republic/resolution_patchs/swkotor1_gog_ws_"$rwidth"x"$rheight".patch
 cp swkotor.exe swkotor.exe.ori
 patch < swkotor1_gog_ws_"$rwidth"x"$rheight".patch swkotor.exe
 fi
