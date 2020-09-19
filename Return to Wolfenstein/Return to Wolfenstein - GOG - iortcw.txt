@@ -1,0 +1,38 @@
+custom-name: Return to Castle Wolfenstein - GOG - iortcw
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Select the Windows setup file downloaded from GOG
+- iortcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/iortcw.7z
+- confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig.cfg
+- confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig_mp.cfg
+game:
+  exe: iowolfsp.x86_64
+installer:
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$CACHE/"
+    file: $CACHE/innoextract/innoextract
+- merge:
+    dst: $GAMEDIR/main
+    src: $CACHE/app/Main
+- merge:
+    dst: $GAMEDIR/docs
+    src: $CACHE/app/Docs
+- extract:
+    dst: $CACHE/
+    file: iortcw
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/sp_build/release-linux-x86_64/
+- merge:
+    dst: $GAMEDIR/
+    src: $CACHE/mp_build/release-linux-x86_64/
+- copy:
+    dst: $GAMEDIR/main/
+    src: confsp
+- copy:
+    dst: $GAMEDIR/main/
+    src: confmp
+
