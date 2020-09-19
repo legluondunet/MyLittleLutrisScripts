@@ -1,4 +1,4 @@
-# Wolfenstein 3D - All versions - ECWolf
+# Return to Castle Wolfenstein - GOG - iortcw
 
 ### Description:
 This script will assist you to install "Wolfenstein 3D" all versions on modern computer configurations with Linux OS.
