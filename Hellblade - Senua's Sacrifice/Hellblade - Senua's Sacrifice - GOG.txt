@@ -1,0 +1,46 @@
+custom-name: Hellblade - Senua's Sacrifice - GOG
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
+game:
+  arch: win64
+  exe: drive_c/GOG Games/HellbladeSenuasSacrifice/HellbladeGame.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$CACHE/HellbladeSenuasSacrifice/"
+    file: $CACHE/innoextract/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/HellbladeSenuasSacrifice/
+    src: $CACHE/HellbladeSenuasSacrifice/
+- task:
+    arch: win64
+    key: CSMT
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/HellbladeSenuasSacrifice" ; rm -f -r app
+      commonappdata __redist tmp goggame-1573355755.* ;
+wine:
+  Desktop: true
+

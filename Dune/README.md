@@ -1,4 +1,4 @@
-# Rayman - CD DOS - DOSBox
+# Dune - CD DOS - DOSBox
 
 
 ### Description:
