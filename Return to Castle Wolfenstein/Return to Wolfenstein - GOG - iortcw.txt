@@ -55,4 +55,3 @@ installer:
       '
     file: $GAMEDIR/main/autoexec.cfg
 
-

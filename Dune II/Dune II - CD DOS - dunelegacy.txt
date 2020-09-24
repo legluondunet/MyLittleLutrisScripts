@@ -1,22 +1,16 @@
-custom-name: Dune II - CD DOS - DOSBox
+custom-name: Dune II - CD DOS - dunelegacy
 files:
-- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/copycd.sh
-- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune%20II/dune_ii_dosbox.conf
+- dlegacy: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune%20II/dunelegacy_x64.7z
 game:
-  main_file: $GAMEDIR/dune_ii_dosbox.conf
+  exe: dunelegacy
 installer:
 - insert-disc:
-    description: Please insert disc Dune
-    requires: hdinstal.bat
+    description: Please insert disc Dune II
+    requires: virgin/dune2/dune2.exe
+- merge:
+    dst: $GAMEDIR/data
+    src: $DISC/virgin/dune2/
 - extract:
     dst: $GAMEDIR
-    src: cdrtools
-- chmodx: script
-- execute:
-    args: dune2
-    file: script
-- copy:
-    dst: $GAMEDIR
-    src: conf
+    file: dlegacy
 
