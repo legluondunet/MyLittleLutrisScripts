@@ -2,10 +2,10 @@ custom-name: Return to Castle Wolfenstein - GOG - iortcw
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Select the Windows setup file downloaded from GOG
-- iortcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/iortcw_x64.7z
-- confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig.cfg
-- confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig_mp.cfg
-- gamepad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/x360.cfg
+- iortcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/iortcw_x64.7z
+- confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/wolfconfig.cfg
+- confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/wolfconfig_mp.cfg
+- gamepad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/x360.cfg
 game:
   exe: $GAMEDIR/iowolf.sh
 installer:
