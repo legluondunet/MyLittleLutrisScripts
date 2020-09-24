@@ -5,6 +5,7 @@ files:
 - iortcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/iortcw_x64.7z
 - confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig.cfg
 - confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig_mp.cfg
+- gamepad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/x360.cfg
 game:
   exe: $GAMEDIR/iowolf.sh
 installer:
@@ -35,6 +36,9 @@ installer:
 - copy:
     dst: $GAMEDIR/main/
     src: confmp
+- copy:
+    dst: $GAMEDIR/main/
+    src: gamepad
 - write_file:
     content: '    #!/bin/bash
 
@@ -43,4 +47,12 @@ installer:
       '
     file: $GAMEDIR/iowolf.sh
 - chmodx: $GAMEDIR/iowolf.sh
+- write_file:
+    content: 'set fs_homepath ./
+
+      exec x360
+
+      '
+    file: $GAMEDIR/main/autoexec.cfg
+
 

@@ -1,12 +1,15 @@
-custom-name: Return to Castle Wolfenstein - GOG - iortcw
+custom-name: Return to Castle Wolfenstein - GOG - RealRTCW
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- gogsetup: N/A:Select the Windows setup file downloaded from GOG
-- iortcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/iortcw.7z
+- realrtcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/RealRTCW_x64.7z
 - confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig.cfg
 - confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/wolfconfig_mp.cfg
+- gamepad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Wolfenstein/x360.cfg
+- gogsetup: N/A:Please select the RTCW setup exe file downloaded from your GOG account.
+- realmod: N/A:Please select the RealRTCW Complete Edition or RealRTCW Lite Edition
+    archive downloaded from https://www.moddb.com/mods/realrtcw-realism-mod
 game:
-  exe: iowolfsp.x86_64
+  exe: realrtcw.sh
 installer:
 - extract:
     dst: $CACHE/innoextract
@@ -22,17 +25,39 @@ installer:
     src: $CACHE/app/Docs
 - extract:
     dst: $CACHE/
-    file: iortcw
+    file: realrtcw
 - merge:
     dst: $GAMEDIR/
-    src: $CACHE/sp_build/release-linux-x86_64/
-- merge:
-    dst: $GAMEDIR/
-    src: $CACHE/mp_build/release-linux-x86_64/
+    src: $CACHE/release-linux-x86_64/
 - copy:
     dst: $GAMEDIR/main/
     src: confsp
 - copy:
     dst: $GAMEDIR/main/
     src: confmp
+- copy:
+    dst: $GAMEDIR/main/
+    src: gamepad
+- write_file:
+    content: '    #!/bin/bash
+
+      ./RealRTCW.x86_64&
+
+      '
+    file: $GAMEDIR/realrtcw.sh
+- chmodx: $GAMEDIR/realrtcw.sh
+- write_file:
+    content: 'set fs_homepath ./
+
+      exec x360
+
+      '
+    file: $GAMEDIR/main/autoexec.cfg
+- extract:
+    dst: $GAMEDIR/tmp
+    file: $realmod
+- execute:
+    command: cd "$GAMEDIR/tmp"; $CACHE/innoextract/innoextract *.exe ; mv app/Main/*.pk3
+      $GAMEDIR/main/; cd app ; rm -f -r Main *.dll *.exe ; cd $GAMEDIR ; mv tmp/app
+      RTCW_mods; rm -f -r tmp ;
 
