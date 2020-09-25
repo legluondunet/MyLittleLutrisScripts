@@ -1,5 +1,5 @@
 @echo off
-color 0E
+color 08
 c:\
 goto launcher
 
@@ -8,12 +8,12 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.		Unreal Gold - GOG - version 227i
+echo.	Unreal Tournament (1999) - CD + OldUnreal patch
 echo.	------------------------------------------------
 echo.
-echo.	1) Play Unreal Gold (Windows version)
-echo.	2) Play Unreal Gold (Linux version)
-echo.	3) How to play Unreal Gold with a gamepad
+echo.	1) Play Unreal Tournament (Windows version)
+echo.	2) Play Unreal Tournament (Linux version)
+echo.	3) How to play Unreal Gold with a gamepad (WIP)
 echo.	4) exit
 echo.
 echo.	------------------------------------------------
@@ -25,22 +25,22 @@ choice /c1234 /s /N Your choice? [1-4]:
 if errorlevel 4 goto :exit
 if errorlevel 3 goto :gamepad
 if errorlevel 2 goto :playlinux
-if errorlevel 1 goto :play
+if errorlevel 1 goto :playws
 
-:play
-cd c:\GOG Games\Unreal Gold\System\
-start Unreal.exe
+:playws
+cd c:\UnrealTournament\System\
+start UnrealTournament.exe
 goto :launcher
 
 :playlinux
-cd c:\GOG Games\Unreal Gold\
-start /unix ./UnrealLinux.sh
+cd c:\UnrealTournament\System\
+start /unix ./ut-bin
 goto :launcher
 
 :gamepad
 cls
-start explorer "c:\GOG Games\Unreal Gold\gamepad profiles\"
-start iexplore "c:\GOG Games\Unreal Gold\gamepad profiles\unreal_gamepad_readme.html"
+rem start explorer "c:\GOG Games\Unreal Gold\gamepad profiles\"
+rem start iexplore "c:\GOG Games\Unreal Gold\gamepad profiles\unreal_gamepad_readme.html"
 goto launcher
 
 :exit
