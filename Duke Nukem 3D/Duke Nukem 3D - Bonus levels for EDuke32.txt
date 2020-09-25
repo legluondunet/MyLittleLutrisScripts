@@ -7,6 +7,8 @@ files:
     filename: dukezoneii.zip
     url: https://www.dropbox.com/s/kwntvzyvpmsbj1b/dukezone2.zip?dl=1
 installer:
+- execute:
+    command: chmod -R +rw $GAMEDIR/dn3d/addons/
 - extract:
     dst: $GAMEDIR/dn3d/addons/frightnight
     src: fngt
