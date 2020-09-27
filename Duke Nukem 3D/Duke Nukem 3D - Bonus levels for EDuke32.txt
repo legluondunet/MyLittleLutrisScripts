@@ -1,7 +1,7 @@
 extends: duke-nukem-3d
 files:
 - fngt:
-    filename: addons.exe
+    filename: addons.7z
     url: https://www.dropbox.com/s/eixab4972tx6ork/eduke32_addons313.exe?dl=1
 - dznii:
     filename: dukezoneii.zip
@@ -11,6 +11,7 @@ installer:
     command: chmod -R +rw $GAMEDIR/dn3d/addons/
 - extract:
     dst: $GAMEDIR/dn3d/addons/frightnight
+    format: 7z
     src: fngt
 - extract:
     dst: $GAMEDIR/dn3d/addons/frightnight/

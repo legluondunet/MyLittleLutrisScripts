@@ -79,6 +79,14 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/
     src: wpp
+- write_file:
+    content: '#!/bin/bash
+
+      sed -i "s/ViewportManager=.*/ViewportManager=WinDrv.WindowsClient/g" UnrealTournament.ini
+
+      '
+    file: $GAMEDIR/drive_c/UnrealTournament/System/modifyoptions.sh
+- chmodx: $GAMEDIR/drive_c/UnrealTournament/System/modifyoptions.sh
 - task:
     arch: win64
     key: csmt
@@ -118,7 +126,7 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: 62 7 13
+    value: 117 7 16
 wine:
   Desktop: true
 

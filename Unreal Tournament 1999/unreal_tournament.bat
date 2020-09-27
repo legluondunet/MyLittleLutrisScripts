@@ -1,6 +1,6 @@
 @echo off
-color 08
-c:\
+color 0F
+c:
 goto launcher
 
 :launcher
@@ -29,6 +29,7 @@ if errorlevel 1 goto :playws
 
 :playws
 cd c:\UnrealTournament\System\
+start /unix modifyoptions.sh
 start UnrealTournament.exe
 goto :launcher
 
