@@ -1,0 +1,25 @@
+custom-name: HERETIC - ZDoom and Brutal Heretic RPG mod
+files:
+- brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://forum.zdoom.org/viewtopic.php?f=43&t=68735
+game:
+  files:
+  - mods/BrutalHereticRPG_V2.2.pk3
+  - mods/H20MUS.wad
+  - mods/heretic_gz.pk3
+  main_file: heretic.wad
+  savedir: Saves
+installer:
+- extract:
+    dst: $CACHE
+    src: brutalmod
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -name "*.pk3" -o -name "*.wad"
+      \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: heretic.wad
+- execute:
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
+      cd "$GAMEDIR"; rm -f -r *.exe *.dll *.pk3;
+
