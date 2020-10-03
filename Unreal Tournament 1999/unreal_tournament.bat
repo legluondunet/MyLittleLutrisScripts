@@ -28,13 +28,21 @@ if errorlevel 2 goto :playlinux
 if errorlevel 1 goto :playws
 
 :playws
-cd c:\UnrealTournament\System\
+IF EXIST "c:\UnrealTournament\" (
+  cd c:\UnrealTournament\System\
+) ELSE (
+  cd c:\GOG Games\Unreal Tournament GOTY\System\
+)
 start /unix modifyoptions.sh
 start UnrealTournament.exe
 goto :launcher
 
 :playlinux
-cd c:\UnrealTournament\System\
+IF EXIST "c:\UnrealTournament\" (
+  cd c:\UnrealTournament\System\
+) ELSE (
+  cd c:\GOG Games\Unreal Tournament GOTY\System\
+)
 start /unix ./ut-bin
 goto :launcher
 
