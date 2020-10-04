@@ -1,0 +1,28 @@
+custom-name: DOOM - The Ultimate - ZDoom and Brutal Doom mod
+files:
+- hdmod1: N/A:Please select the Brutal Doom mod available at https://www.moddb.com/mods/brutal-doom
+- hdmod2: N/A:Please select the Brutal Doom mod expansion available at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v21-expansion-v040-stable
+game:
+  files:
+  - mods/brutalv21.pk3
+  - mods/brutalv21expansion0.4.0.pk3
+  main_file: doom.wad
+  savedir: saves
+installer:
+- extract:
+    dst: $CACHE
+    src: hdmod1
+- extract:
+    dst: $CACHE
+    src: hdmod2
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -name "*.pk3" -o -name "*.wad"
+      -o -name "*.avi" \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located DOOM.WAD file. Autodetect will
+      not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: ls "$DISC" | grep -i doom.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom.wad";
+      mkdir "$GAMEDIR/saves";
+

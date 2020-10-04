@@ -1,0 +1,26 @@
+custom-name: Hexen - Beyond Heretic - ZDoom and Brutal Hexen RPG mod
+files:
+- brutalmod: N/A:Please select the Brutal Hexen RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=65691
+game:
+  files:
+  - mods/3_HEXEN64.wad
+  - mods/BrutalHexenRPG_V4.7.pk3
+  - mods/hexen_gz.pk3
+  - mods/Hexen%20Intro%20Movie.avi
+  main_file: hexen.wad
+  savedir: saves
+installer:
+- extract:
+    dst: $CACHE
+    src: brutalmod
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -name "*.pk3" -o -name "*.wad"
+      -o -name "*.avi" \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located HEXEN.WAD file. "Autodetect"
+      button will not work here, use "Browse" button.
+    requires: hexen.wad
+- execute:
+    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexen.wad";
+      cd $GAMEDIR; mkdir saves;
+

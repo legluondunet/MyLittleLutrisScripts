@@ -1,0 +1,10 @@
+custom-name: HEXEN - ZDoom - All PC version
+installer:
+- insert-disc:
+    description: Please browse folder where is located HEXEN.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: hexen.wad
+- execute:
+    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR";
+main_file: hexen.wad
+

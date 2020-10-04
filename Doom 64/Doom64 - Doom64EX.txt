@@ -1,4 +1,4 @@
-custom-name: DOOM - The Ultimate - GZDoom + HD mods
+custom-name: DOOM - The Ultimate - ZDoom and HD mods
 files:
 - hdmods: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
 game:
