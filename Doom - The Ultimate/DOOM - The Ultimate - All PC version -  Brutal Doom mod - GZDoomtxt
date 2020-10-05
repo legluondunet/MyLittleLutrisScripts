@@ -1,4 +1,4 @@
-custom-name: DOOM - The Ultimate - ZDoom and Brutal Doom mod
+custom-name: DOOM - The Ultimate - Brutal Doom mod - GZDoom
 files:
 - hdmod1: N/A:Please select the Brutal Doom mod available at https://www.moddb.com/mods/brutal-doom
 - hdmod2: N/A:Please select the Brutal Doom mod expansion available at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v21-expansion-v040-stable
@@ -16,8 +16,8 @@ installer:
     dst: $CACHE
     src: hdmod2
 - execute:
-    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -name "*.pk3" -o -name "*.wad"
-      -o -name "*.avi" \) -exec cp {} "$GAMEDIR/mods" \;
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
+      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
 - insert-disc:
     description: Please browse folder where is located DOOM.WAD file. Autodetect will
       not work here, use "Browse" button.
@@ -25,4 +25,6 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i doom.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom.wad";
       mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
 

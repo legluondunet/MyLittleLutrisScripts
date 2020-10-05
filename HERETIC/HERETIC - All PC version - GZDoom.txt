@@ -1,0 +1,15 @@
+custom-name: HERETIC - GZDoom
+game:
+  main_file: heretic.wad
+  savedir: saves
+installer:
+- insert-disc:
+    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: heretic.wad
+- execute:
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
+      mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
+

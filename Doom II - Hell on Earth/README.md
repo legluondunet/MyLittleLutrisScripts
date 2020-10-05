@@ -1,14 +1,14 @@
-# Hexen - Beyond Heretic - GZDoom
+# Doom II - Hell on Earth
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Hexen - Beyond Heretic"  all PC version using GZDoom Lutris runner.
+"Doom II - Hell on Earth"  all PC version using GZDoom Lutris runner.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - During install, you will need to provide:
--- "HEXEN.WAD" file from "HEXEN" PC game
+-- "DOOM2.WAD" file from "HERETIC" PC game
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 

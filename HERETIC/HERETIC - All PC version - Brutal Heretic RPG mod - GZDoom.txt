@@ -1,4 +1,4 @@
-custom-name: HERETIC - ZDoom and Brutal Heretic RPG mod
+custom-name: HERETIC - Brutal Heretic RPG mod - GZDoom
 files:
 - brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=68735
 game:
@@ -13,7 +13,7 @@ installer:
     dst: $CACHE
     src: brutalmod
 - execute:
-    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -name "*.pk3" -o -name "*.wad"
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
       \) -exec cp {} "$GAMEDIR/mods" \;
 - insert-disc:
     description: Please browse folder where is located HERETIC.WAD file. Autodetect
@@ -22,4 +22,5 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
       mkdir "$GAMEDIR/saves";
-
+zdoom:
+  config: $GAMEDIR/gzdoom.ini

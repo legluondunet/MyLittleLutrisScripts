@@ -1,4 +1,4 @@
-custom-name: DOOM - The Ultimate - ZDoom and HD mods
+custom-name: DOOM - The Ultimate - HD texture pack mod - GZDoom
 files:
 - hdmods: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
 game:
@@ -29,4 +29,6 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i doom.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom.wad";
       cd "$GAMEDIR"; rm -f -r *.exe *.dll *.pk3;
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
 
