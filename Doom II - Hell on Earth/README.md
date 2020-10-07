@@ -12,18 +12,19 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Hexen - Beyond Heretic - Brutal HEXEN RPG mod - GZDoom
+# DOOM II - Brutal Doom mod - GZDoom
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Hexen - Beyond Heretic"  all PC version using GZDoom Lutris runner with "Brutal HEXEN RPG" mod.
+"DOOM II"  all PC version using GZDoom Lutris runner with "Brutal Doom" mod.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - During install, you will need to provide:
--- "HEXEN.WAD" file from "HERETIC" PC game
--- "Brutal Hexen RPG mod" available for download at https://forum.zdoom.org/viewtopic.php?t=65691
+-- "DOOM2.WAD" file from "DOOM II" PC game
+-- "Brutal Doom" mod archive and his expansion available for download at https://www.moddb.com/mods/brutal-doom
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
+
 

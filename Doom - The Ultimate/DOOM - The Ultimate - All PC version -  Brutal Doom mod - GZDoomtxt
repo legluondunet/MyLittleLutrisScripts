@@ -1,11 +1,9 @@
 custom-name: DOOM - The Ultimate - Brutal Doom mod - GZDoom
 files:
-- hdmod1: N/A:Please select the Brutal Doom mod available at https://www.moddb.com/mods/brutal-doom
-- hdmod2: N/A:Please select the Brutal Doom mod expansion available at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v21-expansion-v040-stable
+- hdmod: N/A:Please select the Brutal Doom mod 2.1 RC1 available at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v21-rc1-fixed
 game:
   files:
-  - mods/brutalv21.pk3
-  - mods/brutalv21expansion0.4.0.pk3
+  - mods/bd21rc1fix.pk3
   main_file: doom.wad
   savedir: saves
 installer:
