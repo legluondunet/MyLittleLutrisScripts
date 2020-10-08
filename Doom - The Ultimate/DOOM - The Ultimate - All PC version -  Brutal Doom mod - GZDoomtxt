@@ -1,18 +1,15 @@
 custom-name: DOOM - The Ultimate - Brutal Doom mod - GZDoom
 files:
-- hdmod: N/A:Please select the Brutal Doom mod 2.1 RC1 available at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v21-rc1-fixed
+- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
 game:
   files:
-  - mods/bd21rc1fix.pk3
+  - mods/brutalv21.pk3
   main_file: doom.wad
   savedir: saves
 installer:
 - extract:
     dst: $CACHE
-    src: hdmod1
-- extract:
-    dst: $CACHE
-    src: hdmod2
+    src: brutalmod
 - execute:
     command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
       -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
