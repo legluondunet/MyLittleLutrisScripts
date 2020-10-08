@@ -1,35 +1,18 @@
-custom-name: DOOM - HD texture pack mod - GZDoom
+custom-name: DOOM - Brutal Doom mod - GZDoom
 files:
-- hdmod: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
+- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
 game:
   files:
-  - mods/brightmaps.pk3
-  - mods/DHTP-2019_11_17.pk3
-  - mods/HRRP.pk3
-  - mods/JFO_UD.pk3
-  - mods/lights.pk3
-  - mods/NeuralUpscale2x_v0.95.pk3
-  - mods/R_Hud_Stuff_v1.pk3
-  - mods/zd_extra.pk3
+  - mods/brutalv21.pk3
   main_file: doom.wad
   savedir: saves
 installer:
 - extract:
     dst: $CACHE
-    src: hdmod
+    src: brutalmod
 - execute:
     command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
       -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
-- merge:
-    dst: $GAMEDIR/soundfonts
-    src: $CACHE/GZDoom x64/soundfonts
-- write_file:
-    content: '[SoundfontSearch.Directories]
-
-      Path=soundfonts
-
-      '
-    file: $GAMEDIR/gzdoom.ini
 - insert-disc:
     description: Please browse folder where is located DOOM.WAD file. Autodetect will
       not work here, use "Browse" button.
