@@ -26,14 +26,18 @@ Big thanks to people who gave their time to permit us playing this game in the b
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Diablo - TH2 mod
+# Diablo - The Hell 2 mod
 
 ### Description:
-Diablo 1 with The Hell 2 mod https://www.patreon.com/thmod
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+This script will facilitate you install of this game on Linux OS:
+"Diablo" all PC version using Wine Lutris runner with "The Hell 2" mode.
+During install please let all options by default.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- Before to launch this script, you will need to download TH2 build and TH2 music expansion from this page: https://www.patreon.com/thmod. You will need to provide diabdat.mpq during script install too.
+- During install, you will need to provide:
+-- "TH2 build" and "TH2 music" expansion available for download at https://www.patreon.com/thmod
+-- "diabdat.mpq" file from "Diablo" PC install.
 - Known issues: 
 -- move the mouse for menus to appear.
 -- support and credits show only a black screen.

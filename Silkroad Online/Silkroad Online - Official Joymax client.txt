@@ -1,0 +1,39 @@
+custom-name: Silkroad Online - Official Joymax client
+files:
+- sro: N/A:Please select the setup exe file downloaded from official Joymax Silkroad
+    Online site at http://www.joymax.com/silkroad
+game:
+  exe: drive_c/Program Files (x86)/Silkroad/Silkroad.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /desktop=SilkroadOnline,1024x780 "$sro"
+    description: Installing Silkroad Online...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- task:
+    arch: win64
+    key: CSMT
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+

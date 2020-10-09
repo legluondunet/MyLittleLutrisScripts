@@ -1,13 +1,13 @@
 # Theme Hospital - GOG - Corsix-TH
 
-Description:
-This script will install "Theme Hospital" GOG edition with support for modern computer configuration.
-This installer uses Corsix-TH project: https://github.com/CorsixTH/CorsixTH.
+### Description:
+This script will facilitate you install of this game on Linux OS:
+"Theme Hospital" provided by GOG using GZDoom Lutris runner with "Corsix-TH" project https://github.com/CorsixTH/CorsixTH.
 During install please let all options by default.
-Thanks to the people who contributed to play this game in the best conditions.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
-Technical notes:
-- Corsix-TH version: 0.63 stable
+### Technical notes:
+- Corsix-TH version: 0.64 git commit b8434f1 compiled the 9th october 2020.
 - Multilanguage: choose your preferred language for interface and game texts between German, Danish, Finnish, English, French, Italian, Portuguese, Brazilian Portuguese, Swedish, Norwegian and Spanish.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/

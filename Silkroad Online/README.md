@@ -1,41 +1,27 @@
-# Diablo - GOG - Devilutionx Linux x64
+# Silkroad Online - Joymax official client
 
 ### Description:
-This script will install "Diablo" GOG edition with DevilutionX Linux native 64 bits port. It has multiplayer  and  others new features/corrected bugs. 
+This script will facilitate you install of this game on Linux OS:
+"Silkroad Online" official Joymax client using Wine Lutris runner.
 During install please let all options by default.
-This script uses DevilutionX: https://github.com/diasurgical/devilutionX
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- Version 1.0.1 (git commit a09d961 - 9 march 2020)
+- During install, you will need to provide "Silkroad Online" Official full client available for download at http://www.joymax.com/silkroad/
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Diablo - GOG - Tchernobog
+
+# Silkroad Paradise
 
 ### Description:
-This script will install "Diablo" GOG edition with Tchernobog mod, it's the new name and last version of the Belzebub mod. It has multiplayer  and  others new features/corrected bugs. 
+This script will facilitate you install of this game on Linux OS:
+"Silkroad Paradise" using Wine Lutris runner.
 During install please let all options by default.
-Tchernobog site: https://mod.diablo.noktis.pl/
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- Tchernobog  v0.1.6d
-- To find others players for online games, ask on Discord: https://discord.gg/82BaSAP.
-- You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options".
+- During install, you will need to provide "Silkroad Paradise" full client in rar format available for download at https://silkroad.pw/
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Diablo - TH2 mod
-
-### Description:
-Diablo 1 with The Hell 2 mod https://www.patreon.com/thmod
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
-
-### Technical notes:
-- Before to launch this script, you will need to download TH2 build and TH2 music expansion from this page: https://www.patreon.com/thmod. You will need to provide diabdat.mpq during script install too.
-- Known issues: 
--- move the mouse for menus to appear.
--- support and credits show only a black screen.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/

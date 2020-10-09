@@ -1,7 +1,7 @@
 custom-name: Diablo - The Hell 2 mod
 files:
-- th2exe: N/A:Provide last TH2 build from "https://www.moddb.com/mods/diablo-the-hell-2/downloads/th2"
-- th2music: N/A:Provide last TH2 music expansion from "https://www.moddb.com/mods/diablo-the-hell-2/downloads/th2-music"
+- th2exe: N/A:Provide last TH2 build from https://www.patreon.com/thmod
+- th2music: N/A:Provide last TH2 music expansion from https://www.patreon.com/thmod
 game:
   arch: win64
   exe: drive_c/Program Files/DiabloTH2/TH2.exe
@@ -31,6 +31,14 @@ installer:
       -e "s/fullscreen off.*/fullscreen on/g" -e "s/Vsync off.*/Vsync on/g" config.ini;
 - task:
     arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -39,5 +47,4 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-  dxvk: false
 
