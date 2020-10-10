@@ -1,4 +1,4 @@
-# DOOM - Brutal Doom mod - GZDoom
+# Final DOOM - TNT - Brutal Doom mod - GZDoom
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
@@ -8,9 +8,26 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 
 ### Technical notes:
 - During install, you will need to provide:
--- "DOOM.WAD" file from "Doom" PC game
+-- "TNT.WAD" file from "Final Doom - TNT" PC game
 -- "Brutal Doom" v21 mod archive available for download at https://www.moddb.com/mods/brutal-doom/
-- To play "Doom" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- To play "Final Doom - TNT" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
+
+
+# Final Doom - Plutonia - Brutal Doom mod - GZDoom
+
+### Description:
+This script will facilitate you install of this game on Linux OS:
+"Final Doom - Plutonia" all PC version using GZDoom Lutris runner with "Brutal Doom" mod.
+During install please let all options by default.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
+
+### Technical notes:
+- During install, you will need to provide:
+-- "PLUTONIA.WAD" file from "Final Doom - Plutonia" PC game
+-- "Brutal Doom" v21 mod archive available for download at https://www.moddb.com/mods/brutal-doom/
+- To play "Final Doom - Plutonia" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 

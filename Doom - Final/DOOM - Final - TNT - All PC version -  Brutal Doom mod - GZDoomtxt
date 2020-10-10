@@ -1,10 +1,10 @@
-custom-name: DOOM - Brutal Doom mod - GZDoom
+custom-name: Final Doom - TNT - Brutal Doom mod - GZDoom
 files:
-- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
+- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom
 game:
   files:
   - mods/brutalv21.pk3
-  main_file: doom.wad
+  main_file: tnt.wad
   savedir: saves
 installer:
 - extract:
@@ -14,11 +14,11 @@ installer:
     command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
       -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
 - insert-disc:
-    description: Please browse folder where is located DOOM.WAD file. Autodetect will
+    description: Please browse folder where is located TNT.WAD file. Autodetect will
       not work here, use "Browse" button.
-    requires: doom.wad
+    requires: tnt.wad
 - execute:
-    command: ls "$DISC" | grep -i doom.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom.wad";
+    command: ls "$DISC" | grep -i tnt.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/tnt.wad";
       mkdir "$GAMEDIR/saves";
 zdoom:
   config: $GAMEDIR/gzdoom.ini
