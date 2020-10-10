@@ -1,0 +1,25 @@
+custom-name: DOOM - Brutal Doom mod - GZDoom
+files:
+- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
+game:
+  files:
+  - mods/brutalv21.pk3
+  main_file: doom.wad
+  savedir: saves
+installer:
+- extract:
+    dst: $CACHE
+    src: brutalmod
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
+      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located DOOM.WAD file. Autodetect will
+      not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: ls "$DISC" | grep -i doom.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom.wad";
+      mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
+
