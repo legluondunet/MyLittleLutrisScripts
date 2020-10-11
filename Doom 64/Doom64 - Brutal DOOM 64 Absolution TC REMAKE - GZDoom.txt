@@ -1,13 +1,12 @@
-custom-name: Doom 64 - Brutal Doom 64 mod - GZDoom
+custom-name: Doom 64 - Brutal DOOM 64 Absolution TC REMAKE mod - GZDoom
 files:
-- brutalmod: N/A:Please select the "Brutal Doom 64" mod archive available to dowload
-    at https://www.moddb.com/mods/brutal-doom-64
+- brutalmod: N/A:Please select the "Brutal DOOM 64 Absolution TC REMAKE" mod archive
+    available for dowload at https://www.moddb.com/mods/brutal-doom-64/downloads/brutal-doom-64-absolution-tc-remake
 game:
   files:
-  - mods/bd64gamev2.pk3
-  - mods/bd64mapsV2.pk3
-  - mods/STAnnouncerPack.pk3
-  - mods/ZD64MUSIC.PK3
+  - mods/bd64gamev2_TCREMAKEV1.4.pk3
+  - mods/bd64mapsV2_TCREMAKEV1.4.pk3
+  - mods/ZD64MUSIC_TCREMAKEV1.4.PK3
   main_file: doom2.wad
   savedir: saves
 installer:

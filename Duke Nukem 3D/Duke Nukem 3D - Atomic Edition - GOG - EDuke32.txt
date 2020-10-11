@@ -1,7 +1,7 @@
 custom-name: Duke Nukem 3D - Atomic Edition - GOG - EDuke32
 files:
 - eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
-- gog: N/A:Please select the Linux .sh install file downloaded from GOG
+- gog: N/A:Please select the Linux .sh install file downloaded from your GOG account
 game:
   exe: $GAMEDIR/eduke32.sh
 installer:

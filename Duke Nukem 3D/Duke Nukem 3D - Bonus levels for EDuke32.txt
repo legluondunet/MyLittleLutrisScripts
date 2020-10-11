@@ -2,7 +2,7 @@ extends: duke-nukem-3d
 files:
 - fngt:
     filename: addons.7z
-    url: https://www.dropbox.com/s/eixab4972tx6ork/eduke32_addons313.exe?dl=1
+    url: https://www.dropbox.com/s/7n0uqk2gd1i6rxh/eduke32_addons314.exe?dl=1
 - dznii:
     filename: dukezoneii.zip
     url: https://www.dropbox.com/s/kwntvzyvpmsbj1b/dukezone2.zip?dl=1
