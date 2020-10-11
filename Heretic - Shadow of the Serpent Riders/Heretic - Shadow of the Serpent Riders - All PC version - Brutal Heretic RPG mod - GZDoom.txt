@@ -1,0 +1,27 @@
+custom-name: Heretic - Shadow of the Serpent Riders - Brutal Heretic RPG mod - GZDoom
+files:
+- brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=68735
+game:
+  files:
+  - mods/BrutalHereticRPG_V2.2.pk3
+  - mods/H20MUS.wad
+  - mods/heretic_gz.pk3
+  main_file: heretic.wad
+  savedir: saves
+installer:
+- extract:
+    dst: $CACHE
+    src: brutalmod
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
+      \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: heretic.wad
+- execute:
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
+      mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
+

@@ -1,0 +1,26 @@
+custom-name: HERETIC - Neural texture pack - GZDoom
+files:
+- hdmod: N/A:Please select the Heretic Neural texture pack available at https://www.moddb.com/addons/heretic-neural-texture-pack
+game:
+  files:
+  - mods/heretic_gz.pk3
+  - mods/heretic_ds.pk3
+  main_file: heretic.wad
+  savedir: saves
+installer:
+- extract:
+    dst: $CACHE
+    src: hdmod
+- execute:
+    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
+      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
+- insert-disc:
+    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: heretic.wad
+- execute:
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
+      mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
+

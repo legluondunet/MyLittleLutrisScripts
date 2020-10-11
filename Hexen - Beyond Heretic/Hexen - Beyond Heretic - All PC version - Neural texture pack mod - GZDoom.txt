@@ -1,0 +1,23 @@
+custom-name: Hexen - Beyond Heretic - Neural texture pack mod - GZDoom
+files:
+- hdmod: N/A:Please select the Hexen Neural texture pack available for download at
+    https://www.doomworld.com/forum/topic/103770-hexen-neural-texture-pack
+game:
+  files:
+  - mods/hexen_gz.pk3
+  main_file: hexen.wad
+  savedir: saves
+installer:
+- merge:
+    dst: $GAMEDIR/mods
+    src: hdmod
+- insert-disc:
+    description: Please browse folder where is located HEXEN.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: hexen.wad
+- execute:
+    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexen.wad";
+      mkdir "$GAMEDIR/saves";
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
+
