@@ -12,7 +12,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 - EDuke32 revision 8784 - 13 march 2020.
 - Alt-tab: press escape to obtain EDuke32 menu then alt-tab is available.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Duke Nukem 3D - Atomic Edition - GOG - EDuke32
 
@@ -86,4 +86,5 @@ https://forums.duke4.net/
 ### Technical notes:
 - This script will not install "Duke Nukem 3D" nor EDuke32, it will only install Hi Resolution Packs provided by http://hrp.duke4.net/ and the "Duke Nukem 3D" community. So you have to install one of this scripts "Steam + EDuke32", "All versions + EDuke32" or "GOG + EDuke32" before this one.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
+

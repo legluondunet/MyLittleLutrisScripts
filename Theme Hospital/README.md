@@ -10,7 +10,7 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - Corsix-TH version: 0.64 git commit b8434f1 compiled the 9th october 2020.
 - Multilanguage: choose your preferred language for interface and game texts between German, Danish, Finnish, English, French, Italian, Portuguese, Brazilian Portuguese, Swedish, Norwegian and Spanish.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Theme Hospital - GOG - DOSBox
 

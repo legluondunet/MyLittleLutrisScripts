@@ -11,7 +11,7 @@ installer:
     dst: $CACHE/
     src: inno
 - execute:
-    args: -d "$GAMEDIR/TH" "$gogsetup"
+    args: -d "$GAMEDIR/TH" $gogsetup
     file: $CACHE/innoextract
 - extract:
     dst: $GAMEDIR/
