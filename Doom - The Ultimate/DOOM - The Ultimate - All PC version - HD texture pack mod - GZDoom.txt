@@ -28,6 +28,10 @@ installer:
 
       Path=soundfonts
 
+      [GlobalSettings]
+
+      freelook=true
+
       '
     file: $GAMEDIR/gzdoom.ini
 - insert-disc:

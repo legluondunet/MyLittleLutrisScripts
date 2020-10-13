@@ -3,10 +3,9 @@ files:
 - brutalmod: N/A:Please select the Brutal Hexen RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=65691
 game:
   files:
-  - mods/3_HEXEN64.wad
   - mods/BrutalHexenRPG_V4.7.pk3
   - mods/hexen_gz.pk3
-  - mods/Hexen%20Intro%20Movie.avi
+  - mods/3_HEXEN64.wad
   main_file: hexdd.wad
   savedir: saves
 installer:
@@ -29,6 +28,17 @@ installer:
     requires: hexdd.wad
 - execute:
     command: ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexdd.wad";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
 

@@ -20,6 +20,17 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i plutonia.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/plutonia.wad";
       mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
 

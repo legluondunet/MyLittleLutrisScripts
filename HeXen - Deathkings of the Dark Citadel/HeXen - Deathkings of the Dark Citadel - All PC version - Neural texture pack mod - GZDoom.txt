@@ -5,7 +5,6 @@ files:
 game:
   files:
   - mods/hexen_gz.pk3
-  - mods/hexen_ds.pk3
   main_file: hexdd.wad
   savedir: saves
 installer:
@@ -25,6 +24,17 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexdd.wad";
       mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
 
