@@ -38,8 +38,8 @@ installer:
 - chmodx: $GAMEDIR/corsix-th.sh
 - chmodx: $GAMEDIR/Wildmidi/wildmidi.sh
 - execute:
-    command: cd $GAMEDIR; sed -i -e "s=../app/=../TH/=g"  -e "s=../app/=../TH/=g"
-      -e "s/width = .*/width = $RESOLUTION_WIDTH/g" -e "s/height = .*/height = $RESOLUTION_HEIGHT/g"
-      -e "s/.*language.*/language = [[$INPUT_LANG]]/g" Corsix-TH/config.txt; cd TH;
-      rm -f -r app commonappdata DOSBOX __redist tmp __support goggame-1207659026.*
+    command: cd "$GAMEDIR"; sed -i -e "s=../app/=../TH/=g"  -e "s/width = .*/width
+      = $RESOLUTION_WIDTH/g" -e "s/height = .*/height = $RESOLUTION_HEIGHT/g" -e "s/.*language.*/language
+      = [[$INPUT_LANG]]/g" -e "s/audio_music = .*/audio_music = [[music]]/g" Corsix-TH/config.txt
+      ; cd TH; rm -f -r app commonappdata DOSBOX __redist tmp __support goggame-1207659026.*;
 
