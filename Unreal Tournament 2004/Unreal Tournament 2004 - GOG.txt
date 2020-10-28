@@ -1,9 +1,8 @@
 custom-name: Unreal Tournament 2004 - GOG
 files:
 - ut2004x: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004_linux.tar.xz
-- wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/d3d8.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bat
-- bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bmp
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bmp
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/clean.sh
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
 game:
@@ -14,7 +13,7 @@ game:
 installer:
 - task:
     arch: win64
-    description: Creating Wine prefix
+    description: Creating wine prefix...
     install_gecko: false
     install_mono: false
     name: create_prefix
@@ -28,9 +27,6 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/
     format: txz
     src: ut2004x
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/
-    src: wrapper
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
@@ -40,15 +36,7 @@ installer:
     src: menu
 - move:
     dst: $GAMEDIR/drive_c/
-    src: bgi
-- task:
-    arch: win64
-    key: d3d8
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
+    src: bmp
 - task:
     arch: win64
     key: wallpaper
@@ -68,6 +56,38 @@ installer:
 - task:
     arch: win64
     key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: InActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
+- task:
+    arch: win64
+    key: GradientInActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR

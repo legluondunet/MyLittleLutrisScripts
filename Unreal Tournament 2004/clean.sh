@@ -8,8 +8,9 @@ echo "modification de la configuration"
 
 cd "drive_c/GOG Games/Unreal Tournament 2004/System/"
 
+sed -i "s/RenderDevice=.*/RenderDevice=OpenGLDrv.OpenGLRenderDevice/g" Default.ini
 sed -i "s/FullscreenViewportX.*/FullscreenViewportX=$width/g" Default.ini
-sed -i "s/FullscreenViewportY.*/FullscreenViewportY=$heigth/g" Default.ini
+sed -i "s/FullscreenViewportY.*/FullscreenViewportY=$height/g" Default.ini
 sed -i "s/UseVSync=False/UseVSync=True/g" Default.ini
 sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 

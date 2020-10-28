@@ -1,13 +1,12 @@
 # Unreal Tournament - GOG - Wine
 
 ### Description:
-This script will assist you to install "Unreal Tournament" GOG edition on Linux OS.
+This script will facilitate you install of this game on Linux OS:
+"Unreal Tournament 2004" provided by GOG using Wine Lutris runner.
 During install please let all options by default.
-This script uses D3D8to9 project: https://github.com/crosire/d3d8to9/.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- D3D8toD3D9 wrapper included to obtain better graphic quality and performance.
-- This script will install the Linux version too, you could choose which version to play in a menu at start.
+- This script will install the Linux version too, you could choose which version to play in a menu at start
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
