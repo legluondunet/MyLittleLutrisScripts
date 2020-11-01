@@ -1,0 +1,56 @@
+custom-name: Doom 3 - dhewm3 - Steam data
+files:
+- doom3-engine: https://lutris.net/files/games/doom-3/dhewm-master-x86_64.tar.gz
+game:
+  args: +set fs_configpath .
+  exe: dhewm3
+installer:
+- insert-disc:
+    description: Please browse folder where is located "Doom 3" Steam files. Autodetect
+      will not work here, use "Browse" button.
+    requires: Doom3.exe
+- merge:
+    dst: $GAMEDIR/base
+    src: $DISC/base
+- extract:
+    dst: $GAMEDIR/
+    file: doom3-engine
+- chmodx: $GAMEDIR/dhewm3
+- input_menu:
+    description: 'Please choose your resolution ratio:'
+    id: RATIO
+    options:
+    - 1: 16/9
+    - 2: 16/10
+    - 0: 4/3
+    preselect: 1
+- input_menu:
+    description: 'Please choose your preferred game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - spanish: Spanish
+    - polish: Polish
+    - italian: Italian
+    preselect: english
+- write_file:
+    content: 'seta r_customHeight "$RESOLUTION_HEIGHT"
+
+      seta r_customWidth "$RESOLUTION_WIDTH"
+
+      seta r_fullscreen "1"
+
+      seta r_mode "-1"
+
+      seta sys_lang "$INPUT_LANG"
+
+      seta r_aspectRatio "$INPUT_RATIO"
+
+      '
+    file: $GAMEDIR/base/dhewm.cfg
+- execute:
+    command: cd "$GAMEDIR/base"; rm -f -r zpak*; wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.001
+      https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.002;
+      7z e doom3_$INPUT_LANG.7z.001; rm -f -r doom3_$INPUT_LANG.7z.001 doom3_$INPUT_LANG.7z.002;
+

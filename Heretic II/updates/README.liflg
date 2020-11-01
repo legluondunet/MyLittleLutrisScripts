@@ -1,0 +1,36 @@
+
+			Heretic 2: English version 1.06c
+		(http://www.lokigames.com/products/heretic2/)
+
+========================================
+
+ABOUT
+====
+
+	This is an updated installer for the Loki version of Heretic 2.
+	It contains the most recent patch and some workarounds to 
+	get this game working with current Linux distributions.
+
+SYSTEM REQUIREMENTS
+==============
+
+	- The Loki Heretic 2 disc
+
+RUNNING THE GAME
+============
+
+	Run "heretic2.sh" or "heretic2.dynamic.sh" to play
+
+NOTES
+====
+
+	- Some libraries are taken from Debian
+	  (http://www.debian.org/)
+
+TECHNICAL SUPPORT
+=============
+
+	Website: http://liflg.org/
+	Forum:   http://liflg.org/forum/
+
+The Linux Installers for Linux Gamers Team

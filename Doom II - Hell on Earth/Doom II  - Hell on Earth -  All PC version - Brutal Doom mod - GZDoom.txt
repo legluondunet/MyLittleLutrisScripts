@@ -1,6 +1,6 @@
 custom-name: DOOM II - Hell on Earth - Brutal Doom mod - GZDoom
 files:
-- hdmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
+- hdmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom
 game:
   files:
   - mods/brutalv21.pk3

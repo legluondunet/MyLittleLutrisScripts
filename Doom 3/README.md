@@ -1,33 +1,17 @@
-# DOOM - Brutal Doom mod - GZDoom
+# Doom 3 - dhewm3 - Steam data
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Doom" all PC version using GZDoom Lutris runner with "Brutal Doom" mod.
+"Doom 3" provided by Steam using dhewm3 project: 
+https://github.com/dhewm/dhewm3
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- During install, you will need to provide:
--- "DOOM.WAD" file from "Doom" PC game
--- "Brutal Doom" v21 mod archive available for download at https://www.moddb.com/mods/brutal-doom/
-- To play "Doom" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- You have to install "Doom 3" on Steam before to launch this Lutris script installer
+- During install you could choose:
+-- language: english (default), italian, polish, french, spanish
+-- ratio: 16/9, 16/10 and 4/3
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
-
-
-# DOOM - GZDoom - HD texture pack mod
-
-### Description:
-This script will facilitate you install of this game on Linux OS:
-"Doom" all PC version using GZDoom Lutris runner with "Doom HD texture pack" mod.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
-### Technical notes:
-- During install you will need to provide:
--- "DOOM.WAD" file from "Doom" PC game
--- "Doom HD texture pack" mod archive available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- To play "Doom" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 

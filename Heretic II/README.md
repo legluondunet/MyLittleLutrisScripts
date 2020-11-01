@@ -1,6 +1,6 @@
-# Heretic II - Windows CD - DxWnd + MODS
+# Heretic II - Windows CD EU + DxWnD + WS patch
 
-Description:
+### Description:
 This script will install "Heretic II" Windows CD edition with support for modern computer configuration.
 During install please let all options by default.
 This script uses different projects:
@@ -10,7 +10,7 @@ Mplayer: http://www.mplayerhq.hu/design7/news.html
 Sox: http://sox.sourceforge.net
 Thanks to the people who contribute to play this game in the best conditions.
 
-Technical notes:
+### Technical notes:
 - WS patch: the game will be patch during install to use your desktop native resolution.
 - Multilanguage: you will be able to select  others game  language during install between french, german, spanish or italian.
 - 1.07 update.
