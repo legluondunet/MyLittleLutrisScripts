@@ -17,17 +17,17 @@ installer:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
-    name: wineexec
     include_processes: explorer.exe
+    name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     file: dgv
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER//MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files/LucasArts/RACER/"; mv dgVoodoo.conf
@@ -57,7 +57,7 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     src: audio
 - task:
     arch: win64
@@ -263,8 +263,8 @@ installer:
       end.'
     file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/video.cfg
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx/ Doc
+    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx Doc
       MS DeIsL1.isu register.exe *.lnk Website.exe
 wine:
   Desktop: true
-  dxvk: true
+

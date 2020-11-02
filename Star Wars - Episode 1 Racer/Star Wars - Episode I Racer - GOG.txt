@@ -4,7 +4,7 @@ files:
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
 game:
-  exe: /drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
+  exe: drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
   prefix: $GAMEDIR
 installer:
 - task:
@@ -18,13 +18,13 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     file: dgv
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/D3DImm.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; mv dgVoodoo.conf dgVoodoo_original.conf;
@@ -50,7 +50,7 @@ installer:
     type: REG_SZ
     value: native,builtin
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     src: audio
 - task:
     arch: win64
@@ -256,8 +256,8 @@ installer:
       end.'
     file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/video.cfg
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx/ Doc/
-      MS gog* support.ico unins000.* webcache.zip website.exe *.lnk
+    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx Doc MS
+      gog* support.ico unins000.* webcache.zip website.exe *.lnk
 wine:
   Desktop: true
-  dxvk: true
+
