@@ -18,7 +18,7 @@ echo.	1) Play Heretic II
 echo.	2) Change resolution
 echo.	3) How to play Heretic II with a gamepad?
 echo.	4) FAQ/Known issues
-echo.	5) exit
+echo.	5) Exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -36,7 +36,7 @@ if errorlevel 1 goto heretic2
 cls
 cd c:\dxwnd
 start dxwnd.exe /r:0
-goto :exit
+goto :launcher
 
 :resolution
 cls

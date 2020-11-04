@@ -21,5 +21,5 @@ rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak gamem
 wget "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/"$lang"-1.pak.tar.xz"
 tar xfv $lang-1.pak.tar.xz
 mv $lang-1.pak htic2-1.pak
-rm -f -r $mang-1.pak.tar.xz
+rm -f -r $lang-1.pak.tar.xz
 

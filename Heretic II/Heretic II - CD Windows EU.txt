@@ -1,23 +1,19 @@
-custom-name: HERETIC II - Windows CD
+custom-name: HERETIC II - Windows CD EU
 files:
+- patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
+- maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
-- patch107w: http://heretics-hexens.ucoz.com/ht2_ep_v1-07.7z
-- patch106l: https://github.com/liflg/heretic.2_1.06c-english_x86/archive/master.zip
-- scriptcase: https://github.com/legluondunet/mlls-tools/raw/master/scripts/changecase.sh
-- scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
-- scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/hereticiiws.sh
-- scriptconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/defconfig.sh
-- scriptsound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/soundtrack.bat
-- mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
-- gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
-- grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
-- grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/HERETIC2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bat
 - faq: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_gamepad_readme.html
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
+- scriptcase: https://github.com/legluondunet/mlls-tools/raw/master/scripts/changecase.sh
+- scriptconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2defconf.sh
+- scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2ws.sh
+- scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
+- scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
 game:
   args: c:\\heretic2.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -26,17 +22,19 @@ installer:
 - task:
     arch: win64
     description: Preparing Heretic II Windows CD wineprefix...
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
     requires: h2_setup.exe
 - task:
-    args: /desktop=HereticII,1024x780 $DISC/h2_setup.exe
+    args: /desktop=Heretic_II,1024x780 $DISC/h2_setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
-    name: wineexec
     include_processes: explorer.exe
+    name: wineexec
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
@@ -84,7 +82,7 @@ installer:
         sizx0: 800
         sizy0: 600
         slowratio0: 2
-        startfolder0: C:\Program Files (x86)\Heretic II\
+        startfolder0: C:\Program Files (x86)\Heretic II
         swapeffect0: 0
         tflag0: 0
         title0: Heretic II
@@ -92,60 +90,48 @@ installer:
         winver0: 0
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp1/
-    src: patch107w
+    dst: $GAMEDIR/drive_c/tmp/
+    src: maps
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp2/
-    src: patch106l
+    dst: $GAMEDIR/drive_c/tmp/
+    src: patch107w
 - chmodx: scriptcase
 - execute:
-    args: '''$GAMEDIR/drive_c/Program Files (x86)/Heretic II/'' ''0'''
+    args: '"drive_c/Program Files (x86)/Heretic II" "0"'
     file: scriptcase
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
-    src: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp1/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
+    src: $GAMEDIR/drive_c/tmp
+- chmodx: scriptconf
+- execute:
+    file: scriptconf
 - chmodx: scriptws
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: scriptws
 - input_menu:
-    description: 'Please choose wich language you would like to install this game:'
+    description: 'Please choose which language you would like to install this game:'
     id: LANG
     options:
     - keep: I prefer to use default install language
-    - fr: French
-    - ge: German
-    - it: Italian
-    - sp: Spanish
+    - french: French
+    - german: German
+    - italian: Italian
+    - spanish: Spanish
     preselect: keep
 - chmodx: scriptlocal
 - execute:
     args: $INPUT_LANG
     file: scriptlocal
-- chmodx: scriptconf
+- chmodx: scriptmusic
 - execute:
-    file: scriptconf
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp3/
-    file: mp
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp3/
-    file: gnusox
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp3/
-    file: grepbin
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/tmp3/
-    file: grepdep
-- task:
-    executable: scriptsound
-    name: wineexec
-    prefix: $GAMEDIR
+    args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music"
+    file: scriptmusic
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: menu
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
     src: faq
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
@@ -164,14 +150,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000000'
-- task:
-    arch: win64
-    key: EAXEnabled
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
 - move:
     dst: $GAMEDIR/drive_c/
     src: wpp
@@ -207,9 +185,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 153 255
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/" ; rm -f -r tmp1
-      tmp2 tmp3;
 wine:
   Desktop: true
 
