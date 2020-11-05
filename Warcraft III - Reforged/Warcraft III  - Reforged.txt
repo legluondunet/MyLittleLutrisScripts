@@ -1,4 +1,4 @@
-custom-name: Warcraft III - Reforged - LGDN
+custom-name: Warcraft III - Reforged
 files:
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reforged/warcraft_iii_reforged.bmp
 - wiiir: N/A:Please select Warcraft-III-Setup.exe file downloaded from Blizzard

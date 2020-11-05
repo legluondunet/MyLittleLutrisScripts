@@ -1,9 +1,7 @@
 # Twitch App
 
 ### Description:
-This script will facilitate "Twitch App" install on Linux OS.
-During install, please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+This script will facilitate you install of this application on Linux OS: "Twitch App" provided by https://www.twitch.tv/. During install please let all options by default. Big thanks to people who gave their time to permit us using this application in the best conditions on Linux platform.
 
 ### Technical notes:
 - This script will automatically download the latest official Twitch App version.

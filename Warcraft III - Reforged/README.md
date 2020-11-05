@@ -9,4 +9,4 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 ### Technical notes:
 - Before to launch this script, be sure you installed dependencies listed here: https://github.com/lutris/lutris/wiki/Game:-Blizzard-App 
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts

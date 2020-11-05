@@ -1,4 +1,4 @@
-custom-name: Twitch App - Wine
+custom-name: Twitch App
 files:
 - app: https://desktop.twitchsvc.net/installer/windows/TwitchSetup.exe
 game:
@@ -26,13 +26,9 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - task:
-    app: dotnet48
+    app: dotnet40 dotnet48 dotnet_verifier
     description: Installing Dotnet 4.8, could take a long time, 10-20 mn...
     name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    name: winekill
     prefix: $GAMEDIR
 wine:
   Desktop: true

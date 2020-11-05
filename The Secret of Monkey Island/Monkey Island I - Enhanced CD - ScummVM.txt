@@ -1,7 +1,6 @@
 custom-name: The Secret of Monkey Island - enhanced  CD - ScummVM
 files:
-- rip: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
-- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotracks2flac.sh
+- scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
 game:
   game_id: monkey
   path: $GAMEDIR
@@ -23,16 +22,10 @@ installer:
 - merge:
     dst: $GAMEDIR/
     src: $DISC/$INPUT_LANG
-- extract:
-    dst: $GAMEDIR
-    src: rip
-- chmodx: script
-- move:
-    dst: $GAMEDIR
-    src: script
+- chmodx: scriptmusic
 - execute:
-    args: 1992-
-    file: script
+    args: 1992- "$GAMEDIR"
+    file: scriptmusic
 scummvm:
   fullscreen: true
 
