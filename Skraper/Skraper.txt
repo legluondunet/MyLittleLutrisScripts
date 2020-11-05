@@ -1,0 +1,35 @@
+custom-name: Skraper
+files:
+- app: https://www.skraper.net/download/beta/Skraper-1.1.1.7z
+game:
+  arch: win64
+  exe: drive_c/Skraper/SkraperUI.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    app: dotnet40 dotnet48 dotnet_verifier
+    description: Installing Dotnet 4.8, could take a long time, 10-20 mn...
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    name: winekill
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Skraper
+    src: app
+wine:
+  Desktop: true
+
