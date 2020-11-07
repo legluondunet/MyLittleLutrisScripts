@@ -10,7 +10,7 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 ### Technical notes:
 - You will need to provide Nintendo Doom 64 rom file during install (uncompressed).
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Doom64 - Retribution - GZDoom
 
@@ -25,7 +25,7 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 -- "doom2.wad" file from "Doom II" game
 -- "Doom 64 Retribution" mod archive. You can download it here: https://www.moddb.com/mods/doom-64-retribution
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Doom64 - Brutal DOOM 64 Absolution TC REMAKE - GZDoom
 
@@ -40,5 +40,5 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 -- "doom2.wad" file from "Doom II" game
 -- "Brutal DOOM 64 Absolution TC REMAKE" mod archive. You can download it here: https://www.moddb.com/mods/brutal-doom-64/downloads/brutal-doom-64-absolution-tc-remake
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 

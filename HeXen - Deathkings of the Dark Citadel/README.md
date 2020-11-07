@@ -10,7 +10,7 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - During install, you will need to provide:
 -- "HEXDD.WAD" file from "HeXen - Deathkings of the Dark Citadel" PC game
 - "Hexen Neural texture pack" mod available for download at https://www.doomworld.com/forum/topic/103770-hexen-neural-texture-pack
-- To play "HeXen - Deathkings of the Dark Citadel" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- To play "HeXen - Deathkings of the Dark Citadel" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
@@ -26,7 +26,7 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - During install, you will need to provide:
 -- "HEXEN.WAD" file from "HeXen - Deathkings of the Dark Citadel" PC game
 -- "Brutal Hexen RPG mod" available for download at https://forum.zdoom.org/viewtopic.php?t=65691
-- To play "HeXen - Deathkings of the Dark Citadel" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- To play "HeXen - Deathkings of the Dark Citadel" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 

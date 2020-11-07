@@ -9,10 +9,10 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 ### Technical notes:
 - During install, you will need to provide:
 -- "DOOM2.WAD" file from "Doom II" PC game
--- "Brutal Doom" v21 mod archive available for download at https://www.moddb.com/mods/brutal-doom/
+-- "Brutal Doom" v21 mod archive available for download at https://www.moddb.com/mods/brutal-doom
 - To play "Doom II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Doom II - Hell on Earth - HD texture pack mod - GZDoom
@@ -29,6 +29,6 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 -- "Doom HD texture pack" mod archive available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
 - To play "Doom II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 

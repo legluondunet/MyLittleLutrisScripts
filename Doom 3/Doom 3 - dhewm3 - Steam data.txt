@@ -13,7 +13,7 @@ installer:
     dst: $GAMEDIR/base
     src: $DISC/base
 - extract:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     file: doom3-engine
 - chmodx: $GAMEDIR/dhewm3
 - input_menu:

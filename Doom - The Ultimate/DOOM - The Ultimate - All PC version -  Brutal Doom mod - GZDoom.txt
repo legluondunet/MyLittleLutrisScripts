@@ -1,6 +1,6 @@
-custom-name: DOOM - Brutal Doom mod - GZDoom
+custom-name: DOOM - The Ultimate - Brutal Doom mod - GZDoom
 files:
-- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom/
+- brutalmod: N/A:Please select the Brutal Doom mod v21 available at https://www.moddb.com/mods/brutal-doom
 game:
   files:
   - mods/brutalv21.pk3

@@ -11,7 +11,7 @@ installer:
     dst: $GAMEDIR/d3xp
     src: $DISC
 - merge:
-    dst: $GAMEDIR/d3xp/
+    dst: $GAMEDIR/d3xp
     src: $GAMEDIR/base/dhewm.cfg
 requires: doom-3-dhewm3-steam-data
 

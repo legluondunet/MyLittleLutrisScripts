@@ -27,7 +27,7 @@ installer:
     dst: $GAMEDIR/soundfonts
     src: $CACHE/GZDoom x64/soundfonts
 - extract:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     src: mlmenu
 - insert-disc:
     description: Please browse folder where is located all Master Levels wad files.
