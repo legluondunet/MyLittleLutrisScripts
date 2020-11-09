@@ -1,0 +1,119 @@
+files:
+- lol_installer: N/A:Please select League of Legends client available for download
+    at https://na.leagueoflegends.com
+game:
+  args: --locale=$INPUT_LOCALE
+  exe: $GAMEDIR/drive_c/Riot Games/League of Legends/LeagueClient.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing...Please do not connect to your "League of Legends" account
+      or launching game during setup, just close the client once it finished downloading.
+    executable: lol_installer
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: d3dcompiler_47 d3dx9
+    name: winetricks
+    prefix: $GAMEDIR
+- write_file:
+    content: "#!/usr/bin/env sh\n\n# If abi.vsyscall32=0 is already set, no need to\
+      \ do anything\nif [ \"$(cat /proc/sys/abi/vsyscall32)\" -eq 0 ]; then\n    exit\
+      \ 0\nfi\n\ndialog() {\n    zenity \"$@\" --icon-name='lutris' --width=\"400\"\
+      \ --title=\"League of Legends anticheat compatibility check\"\n}\n\nfinal_check()\
+      \ {\n    if [ \"$(cat /proc/sys/abi/vsyscall32)\" -ne 0 ]; then\n        dialog\
+      \ --warning --text=\"As far as this script can detect, your system is not configured\
+      \ to work with League's anticheat. Please verify that you can get into the practice\
+      \ too before playing a multiplayer game.\"\n    fi\n}\n\ntrap final_check EXIT\n\
+      \nif grep -E -x -q \"abi.vsyscall32( )?=( )?0\" /etc/sysctl.conf; then\n   \
+      \ if dialog --question --text=\"It looks like you already configured your system\
+      \ to work with League anticheat, and saved the setting to persist across reboots.\
+      \ However, for some reason the persistence part did not work.\\n\\nFor now,\
+      \ would you like to enable the setting again until the next reboot?\"\n    then\n\
+      \        pkexec sh -c 'sysctl -w abi.vsyscall32=0'\n    fi\n    exit 0\nfi\n\
+      \nonce=\"Change setting until next reboot\"\npersist=\"Change setting and persist\
+      \ after reboot\"\nmanual=\"Show me the commands; I'll handle it myself\"\n\n\
+      if dialog --question --text=\"League of Legends' anticheat requires using a\
+      \ modified version of wine and changing a system setting. Otherwise, the game\
+      \ will crash after champion select. Wine-lol comes with the Lutris installer,\
+      \ but as far as this script can detect, the setting has not been changed yet.\\\
+      nNote: The setting (abi.vsyscall32=0) may reduce the performance of some 32\
+      \ bit applications.\\n\\nWould you like to change the setting now?\"\nthen\n\
+      \    # I tried to embed the command in the dialog and run the output, but\n\
+      \    # parsing variables with embedded quotes is an excercise in frustration.\n\
+      \    RESULT=$(dialog --list --radiolist --height=\"200\" \\\n        --column=\"\
+      \" --column=\"Command\" \\\n        \"TRUE\" \"$once\" \\\n        \"FALSE\"\
+      \ \"$persist\" \\\n        \"FALSE\" \"$manual\")\n\n    case \"$RESULT\" in\n\
+      \        \"$once\")\n            pkexec sh -c 'sysctl -w abi.vsyscall32=0'\n\
+      \            ;;\n        \"$persist\")\n            pkexec sh -c 'echo \"abi.vsyscall32\
+      \ = 0\" >> /etc/sysctl.conf && sysctl -p'\n            ;;\n        \"$manual\"\
+      )\n            dialog --info --no-wrap --text=\"To change the setting (a kernel\
+      \ parameter) until next boot, run:\\n\\nsudo sh -c 'sysctl -w abi.vsyscall32=0'\\\
+      n\\nTo persist the setting between reboots, run:\\n\\nsudo sh -c 'echo \\\"\
+      abi.vsyscall32 = 0\\\" >> /etc/sysctl.conf &amp;&amp; sysctl -p'\"\n       \
+      \     # Anyone who wants to do it manually doesn't need another warning\n  \
+      \          trap - EXIT\n            ;;\n        *)\n            echo \"Dialog\
+      \ canceled or unknown option selected: $RESULT\"\n            ;;\n    esac\n\
+      fi\n"
+    file: $GAMEDIR/syscall_check.sh
+- write_file:
+    content: "#!/bin/bash\n$(dirname \"$0\")/syscall_check.sh\nprocess=LeagueClientUx.exe\n\
+      uxpid=$(timeout 4m sh -c \"until pidof ${process}; do sleep 1; done\")\nif [[\
+      \ ! -n $uxpid ]]; then\n  echo \"Could not find process ${process}\"\n  exit\
+      \ 1\nfi\necho \"LeagueClientUx pid: ${uxpid}\"\nport=$(xargs -0 < /proc/${uxpid}/cmdline\
+      \ \\\n  | sed -n 's/.*--app-port=\\([[:digit:]]*\\).*/\\1/p')\nif [[ ! -n $port\
+      \ ]]; then\n  echo \"Could not find port\"\n  exit 1\nfi\necho \"Waiting for\
+      \ port ${port}\"\n\nkill -STOP ${uxpid}\ntimeout 5m /bin/bash -c \"\nuntil openssl\
+      \ s_client -connect :${port} <<< Q > /dev/null 2>&1; do\n  sleep 1\ndone\"\n\
+      kill -CONT ${uxpid}"
+    file: $GAMEDIR/launchhelper.sh
+- chmodx: $GAMEDIR/syscall_check.sh
+- chmodx: $GAMEDIR/launchhelper.sh
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LOCALE
+    options:
+    - cs_CZ: "\u010Ce\u0161tina"
+    - en_AU: English AUS
+    - en_GB: English U.K.
+    - en_US: English U.S.
+    - fr_FR: "Fran\xE7ais"
+    - de_DE: Deutsch
+    - es_ES: "Espa\xF1ol"
+    - es_MX: "Espa\xF1ol Mexicano"
+    - it_IT: Italiano
+    - ja_JP: "\u65E5\u672C\u8A9E"
+    - hu_HU: Magyar
+    - pl_PL: Polski
+    - pt_BR: "Portugu\xEAs do Brasil"
+    - ro_RO: Romanian
+    - ru_RU: "\u0440\u0443\u0441\u0441\u043A\u0438\u0439"
+    - tr_TR: "T\xFCrk\xE7e"
+    preselect: en_US
+- task:
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 40 40 40
+system:
+  disable_compositor: true
+  env:
+    DXVK_LOG_LEVEL: none
+    DXVK_STATE_CACHE_PATH: $GAMEDIR
+    STAGING_SHARED_MEMORY: 1
+    WINE_LARGE_ADDRESS_AWARE: 1
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+  prelaunch_command: $GAMEDIR/launchhelper.sh
+wine:
+  Desktop: true
+  MouseWarpOverride: enable
+  version: lutris-lol-5.5-2-x86_64
+
