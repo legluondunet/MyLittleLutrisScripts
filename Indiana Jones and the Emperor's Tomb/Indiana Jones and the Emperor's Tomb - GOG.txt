@@ -1,7 +1,6 @@
 custom-name: Indiana Jones and the Emperor's Tomb - GOG
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_23_build.rar
-- videos: https://www.dropbox.com/s/njmsltpw3xghg0k/Indiana_Jones_and_the_Emperors_Tomb_-_Movies_Loading_screens_fix_Full_Screen_1280x960_by.zip?dl=1
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet_multi5.tar.xz
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/gamepad%20profiles/ijet_gamepad_steam.sccprofile
@@ -9,8 +8,10 @@ files:
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bat
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bmp
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+- gogsetup: N/A:Please select the game setup Windows exe file downloaded from your
     GOG account.
+- videos: N/A:Please select the IJET "Movies, Loading screens fix (Full Screen 1280x960)"
+    archive available for download at https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960/downloads/movies-loading-screens-fix-full-screen-1280x960
 game:
   arch: win64
   args: c:\\ijet.bat
@@ -95,9 +96,9 @@ installer:
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/app/GameData/indy/
+    dst: $GAMEDIR/drive_c/GOG Games/app/GameData/indy
     file: videos
-    format: zip
+    format: rar
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppsteam
@@ -108,10 +109,10 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/app/gamepad profiles
     src: gppreadme
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: menu
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - task:
     app: vcrun6
@@ -183,12 +184,20 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games"; mv app "Indiana Jones and the Emperor's
       Tomb"; cd "Indiana Jones and the Emperor's Tomb"; rm -f -r ../tmp __support
-      GameuxInstallHelper.dll  goggame-1425034773.* webcache.zip; sed -i -e "s/\(^res_width=\).*/\11280/"
-      -e "s/\(^res_height=\).*/\1960/" -e "s/\(^res_bpp=\).*/\132/" -e "s/\(^fpsLimit=\).*/\160/"
-      GameData/indy/vars.cfg ; if [ $INPUT_LANG != "keep" ];  then echo "language
-      choisi " $INPUT_LANG; cp -f -r "$CACHE/"$INPUT_LANG/gameinfo/ GameData/indy;
-      else echo "keep" ; fi;
+      GameuxInstallHelper.dll  goggame-1425034773.* webcache.zip; if [ $INPUT_LANG
+      != "keep" ];  then echo "language choisi " $INPUT_LANG; cp -f -r "$CACHE/"$INPUT_LANG/gameinfo/
+      GameData/indy; else echo "keep" ; fi;
+- write_file:
+    content: 'fpsLimit=60
+
+      res_width=1280
+
+      res_height=960
+
+      res_bpp=32
+
+      subtitles=true'
+    file: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/vars.cfg
 wine:
   Desktop: true
-  version: lutris-4.21-x86_64
 
