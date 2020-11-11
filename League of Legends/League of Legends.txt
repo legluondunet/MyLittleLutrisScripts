@@ -2,6 +2,7 @@ files:
 - lol_installer: https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.na.exe
 - script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/launchhelper.sh
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/syscall_check.sh
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/lol.bmp
 game:
   args: --locale=$INPUT_LOCALE
   exe: $GAMEDIR/drive_c/Riot Games/League of Legends/LeagueClient.exe
@@ -19,7 +20,7 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - task:
-    app: d3dcompiler_47 d3dx9
+    app: d3dcompiler_47
     name: winetricks
     prefix: $GAMEDIR
 - input_menu:
@@ -51,13 +52,24 @@ installer:
 - copy:
     dst: $GAMEDIR
     src: script2
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: bmp
 - task:
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: 40 40 40
+    value: 0 0 0
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\lol.bmp
 require-binaries: zenity, openssl
 system:
   disable_compositor: true
