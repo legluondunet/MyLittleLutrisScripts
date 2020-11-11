@@ -1,6 +1,5 @@
 files:
-- lol_installer: N/A:Please select League of Legends client available for download
-    at https://na.leagueoflegends.com
+- lol_installer: https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.na.exe
 - script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/launchhelper.sh
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/syscall_check.sh
 game:
@@ -59,6 +58,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 40 40 40
+require-binaries: zenity, openssl
 system:
   disable_compositor: true
   env:
