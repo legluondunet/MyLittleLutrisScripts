@@ -200,4 +200,5 @@ installer:
     file: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/vars.cfg
 wine:
   Desktop: true
+  version: lutris-4.21-x86_64
 
