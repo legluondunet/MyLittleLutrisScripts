@@ -1,0 +1,30 @@
+files:
+- setup: https://swtor-a.akamaihd.net/installer/SWTOR_setup.exe
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/Electronic Arts/BioWare/Star Wars - The Old Republic/launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: winhttp d3dcompiler_47 d3dx9_41
+    arch: win64
+    description: Installing winetricks verbs
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Installing SWTOR
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
+system:
+  env:
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+    __GL_THREADED_OPTIMIZATIONS: 1
+    mesa_glthread: 'true'
+

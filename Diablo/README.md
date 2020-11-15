@@ -1,45 +1,47 @@
 # Diablo - GOG - Devilutionx Linux x64
 
 ### Description:
-This script will install "Diablo" GOG edition with DevilutionX Linux native 64 bits port. It has multiplayer  and  others new features/corrected bugs. 
+This script will facilitate you install on this game on Linux OS:
+"Diablo" provided by GOG using Lutris Wine runner and DevilutionX project https://github.com/diasurgical/devilutionX 
 During install please let all options by default.
-This script uses DevilutionX: https://github.com/diasurgical/devilutionX
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
 
 ### Technical notes:
-- Version 1.0.1 (git commit a09d961 - 9 march 2020)
+- Version 1.1.0 (git commit 5408576 - 11 october 2020)
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Diablo - GOG - Tchernobog
 
 ### Description:
-This script will install "Diablo" GOG edition with Tchernobog mod, it's the new name and last version of the Belzebub mod. It has multiplayer  and  others new features/corrected bugs. 
+This script will facilitate you install of this game on Linux OS:
+ "Diablo" provided by GOG using Lutris WIne runner and Tchernobog mod https://mod.diablo.noktis.pl , it's the new name and last version of the Belzebub mod.
 During install please let all options by default.
-Tchernobog site: https://mod.diablo.noktis.pl/
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
+Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - Tchernobog  v0.1.6d
-- To find others players for online games, ask on Discord: https://discord.gg/82BaSAP.
-- You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options".
+- To find others players for online games, ask on Discord: https://discord.gg/82BaSAP
+- You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options"
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Diablo - The Hell 2 mod
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Diablo" all PC version using Wine Lutris runner with "The Hell 2" mode.
+"Diablo" all PC version using Wine Lutris runner with "The Hell 2" mod.
 During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+Big thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
 - During install, you will need to provide:
--- "TH2 build" and "TH2 music" expansion available for download at https://www.patreon.com/thmod
--- "diabdat.mpq" file from "Diablo" PC install.
+-- "TH2 build" and "TH2 music" archives available for download at https://www.patreon.com/thmod
+-- "diabdat.mpq" file from any "Diablo" PC install
 - Known issues: 
--- move the mouse for menus to appear.
--- support and credits show only a black screen.
+-- not compatible with DXVK, you should inactivate option for this game
+-- black screen: move the mouse for menu to appear
+-- support and credits show only a black screen
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
+

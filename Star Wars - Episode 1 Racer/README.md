@@ -18,7 +18,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Star Wars Episode I: Racer" CD edition using dgVoodoo2 project: http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2.html
+"Star Wars Episode I: Racer" CD edition using dgVoodoo2 project http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2.html
 During install please let all options by default.
 Many thanks to the people who helped us to play this game in the best conditions on Linux platform.
 

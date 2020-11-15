@@ -22,8 +22,9 @@ echo.	5) Play Quake - The Offering - Linux version
 echo.	6) Play QTO - Mission Pack 1 - Scourge of Armagon 
 echo.	7) Play QTO - Mission Pack 2 - Dissolution of Eternity 
 echo.	8) Play QTO - Mission Pack 3 - Abyss of Pandemonium 
-echo.	9) exit
 echo.
+echo.	--------------------------------------------------------------
+echo.	9) Exit
 echo.	--------------------------------------------------------------
 echo.
 echo.   Your choice? [1-9]: 
