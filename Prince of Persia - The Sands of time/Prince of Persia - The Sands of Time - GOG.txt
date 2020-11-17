@@ -100,5 +100,4 @@ installer:
       rm -f -r app commonappdata __redist __support tmp goggame-1207658747.*;
 wine:
   Desktop: true
-  version: lutris-fshack-5.7-x86_64
 
