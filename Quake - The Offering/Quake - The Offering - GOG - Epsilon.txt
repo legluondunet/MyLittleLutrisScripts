@@ -1,24 +1,20 @@
 custom-name: Quake - The Offering - GOG - Epsilon
 files:
-- epsilonpack:
-    filename: quake_epsilon_v2_54_18-12-2016.zip
-    url: https://www.dropbox.com/s/cu3wtorm5ljx99z/quake_epsilon_v2_54_18-12-2016b.zip?dl=1
-- mp1:
-    filename: epsilon_mp1_addon_v2_54_18-12-2016.zip
-    url: https://www.dropbox.com/s/jxbwntnfqw25m0n/epsilon_mp1_addon_v2_54_18-12-2016.zip?dl=1
-- mp2:
-    filename: epsilon_mp2_addon_v2_54_18-12-2016.zip
-    url: https://www.dropbox.com/s/p0xr74p2kftytfy/epsilon_mp2_addon_v2_54_18-12-2016.zip?dl=1
-- mp3:
-    filename: epsilon_mp3_addon_v2_54_18-12-2016.zip
-    url: https://www.dropbox.com/s/ai4i3f029aks5al/epsilon_mp3_addon_v2_54_18-12-2016.1.zip?dl=1
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
+- epsilonpack: N/A:Please select "Quake Epsilon Build v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/quake-epsilon-build-v254
+- mp1: N/A:Please select "Epsilon Mission Pack 1 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-1-addon-v254
+- mp2: N/A:Please select "Epsilon Mission Pack 2 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-2-addon-v254
+- mp3: N/A:Please select "Epsilon Mission Pack 3 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v254
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bat
 - bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean.sh
-- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
-    GOG account.
 game:
   arch: win64
   args: c:\\quake.bat
