@@ -1,14 +1,14 @@
 # Moto Racer 1 - GOG
 
-Description:
-This script will install "Moto Racer 1" GOG edition with support for modern computer configuration.
+### Description:
+This script will facilitate you install of this game on Linux OS:
+ "Moto Racer 1" provided by GOG using Lutris WIne runner and DxWnd: https://sourceforge.net/projects/dxwnd project.
 During install please let all options by default.
-This script uses DxWnd: https://sourceforge.net/projects/dxwnd/
-Many thanks to the people who helped us to play this game in the best conditions.
+Many thanks to the people who helped us to play this game in the best conditions on Linux.
 
-Technical notes:
+### Technical notes:
 - x360 gamepad natively supported
-Known issue:
-- Multiplayer mode does not work and could crash the game
+- Known issue:
+-- Multiplayer mode does not work and could crash the game
 - Please report issue concerning this script on my GitHub page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts

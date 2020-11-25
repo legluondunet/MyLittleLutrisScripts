@@ -1,0 +1,12 @@
+custom-name: Shivers - CD - ScummVM
+game:
+  game_id: sci
+  path: $GAMEDIR/Shivers/
+installer:
+- insert-disc:
+    description: Please insert Shivers CD
+    requires: shivers.ico
+- merge:
+    dst: $GAMEDIR/Shivers/
+    src: $DISC/
+

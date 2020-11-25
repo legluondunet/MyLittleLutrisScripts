@@ -1,30 +1,51 @@
 files:
 - setup: https://swtor-a.akamaihd.net/installer/SWTOR_setup.exe
+- cfgfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20The%20Old%20Republic/launcher.settings
 game:
   arch: win64
-  exe: drive_c/Program Files (x86)/Electronic Arts/BioWare/Star Wars - The Old Republic/launcher.exe
+  exe: drive_c/Star Wars - The Old Republic/launcher.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: winhttp d3dcompiler_47 d3dx9_41
+    app: d3dcompiler_47 d3dx9_41
     arch: win64
     description: Installing winetricks verbs
     name: winetricks
     prefix: $GAMEDIR
-- task:
-    description: Installing SWTOR
-    executable: setup
-    name: wineexec
-    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: setup
+- extract:
+    dst: $GAMEDIR/drive_c/Star Wars - The Old Republic
+    format: rar
+    src: $CACHE/swtor.rar
+- copy:
+    dst: $GAMEDIR/drive_c/Star Wars - The Old Republic
+    src: cfgfile
+- input_menu:
+    description: 'Please choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en-us: English
+    - fr-fr: French
+    - de-de: German
+    preselect: en-us
+- execute:
+    command: cd "$GAMEDIR/drive_c/Star Wars - The Old Republic"; sed -i "s/en-us/"$INPUT_LANG"/g"
+      launcher.settings
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
     __GL_THREADED_OPTIMIZATIONS: 1
     mesa_glthread: 'true'
+wine:
+  Desktop: true
 

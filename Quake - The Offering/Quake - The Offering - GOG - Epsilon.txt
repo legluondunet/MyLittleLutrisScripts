@@ -38,9 +38,6 @@ installer:
     dst: $GAMEDIR/drive_c/Epsilon
     file: epsilonpack
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/app
-    src: cdrtools
-- extract:
     dst: $GAMEDIR/drive_c/Epsilon/
     src: mp1
 - extract:
@@ -49,6 +46,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Epsilon/
     src: mp3
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/app
+    src: cdrtools
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT

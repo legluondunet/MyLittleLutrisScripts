@@ -1,0 +1,16 @@
+exe: etl
+files:
+- et260: http://trackbase.eu/files/et/full/et260b.x86_full.zip
+- etlegacy: http://www.etlegacy.com/download/platform/lnx
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: et260
+- execute:
+    args: --target $GAMEDIR --noexec --keep
+    file: $GAMEDIR/et260b.x86_keygen_V03.run
+- chmodx: etlegacy
+- execute:
+    args: --prefix=$GAMEDIR --skip-license
+    file: etlegacy
+

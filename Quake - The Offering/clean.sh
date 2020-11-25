@@ -25,6 +25,7 @@ mv *.wav ../../Epsilon/id1/sound/cdtracks
 mkdir -p gamea/HIPNOTIC/sound/cdtracks
 mv *.wav gamea/HIPNOTIC/sound/cdtracks
 mv gamea/HIPNOTIC/* ../../Epsilon/hipnotic/
+mv ../../Epsilon/hipnotic/CONFIG.CFG ../../Epsilon/hipnotic/CONFIG.BAK
 
 
 ##################
@@ -38,8 +39,16 @@ mv *.wav gamed/ROGUE/sound/cdtracks
 mv gamed/ROGUE/* ../../Epsilon/rogue/
 
 cd ../../Epsilon
-sed -i -e "/vid_width/d" -e "/vid_height/d" -e '/vid_vsync/d' id1/config.cfg hipnotic/CONFIG.CFG rogue/config.cfg abyss/config.cfg
-sed -i -e '$a \"vid_width" "'$width'"' -e '$a \"vid_height" "'$height'"' -e '$a \"vid_vsync" "1"' id1/config.cfg hipnotic/CONFIG.CFG rogue/config.cfg abyss/config.cfg
+sed -i -e "/vid_width/d" -e "/vid_height/d" -e '/vid_vsync/d' -e '/crosshair/d' id1/config.cfg
+sed -i -e '$a \"vid_width" "'$width'"' -e '$a \"vid_height" "'$height'"' -e '$a \"vid_vsync" "1"' -e '$a \"crosshair" "1"' id1/config.cfg
 
+for dest in hipnotic rogue abyss
+do cp id1/config.cfg $dest
+done
 
+cd ..
+if [ -d tmp ]
+then
+rm -f -r tmp
+fi
 

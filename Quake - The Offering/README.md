@@ -19,4 +19,3 @@ Big thanks to people who gave their time to permit us playing this game in the b
 - x360 gamepad compatible
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
-
