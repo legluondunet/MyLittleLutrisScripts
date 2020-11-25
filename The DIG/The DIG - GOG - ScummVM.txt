@@ -1,12 +1,37 @@
-custom-name: Shivers - CD - ScummVM
+custom-name: The Dig - GOG - ScummVM
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
+- language: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20DIG/lang.7z
 game:
-  game_id: sci
-  path: $GAMEDIR/Shivers/
+  game_id: dig
+  path: $GAMEDIR
+  subtitles: true
 installer:
-- insert-disc:
-    description: Please insert Shivers CD
-    requires: shivers.ico
-- merge:
-    dst: $GAMEDIR/Shivers/
-    src: $DISC/
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract $gogsetup --output-dir "$GAMEDIR"
+    file: $CACHE/innoextract/innoextract
+- input_menu:
+    description: 'Please choose your preferred game''s language for subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - es: Spanish
+    - it: Italian
+    preselect: en
+- extract:
+    dst: $GAMEDIR/tmp
+    src: $language
+- execute:
+    command: cd "$GAMEDIR"; if [ "$INPUT_LANG" != "en" ]; then cp tmp/$INPUT_LANG/LANGUAGE.BND
+      "$GAMEDIR"; fi; rm -f -r app commonappdata __redist __support tmp goggame-1425299904.*;
+scummvm:
+  aspect: true
+  fullscreen: true
 
