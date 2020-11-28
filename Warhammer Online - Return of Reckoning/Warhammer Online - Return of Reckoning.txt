@@ -1,0 +1,38 @@
+game:
+  exe: drive_c/Program Files (x86)/Return of Reckoning/RoRLauncher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    message: Please provide a path to your game folder (it should contain RoRLauncher.exe).
+    requires: RoRLauncher.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning
+    src: $DISC
+- task:
+    app: dotnet40 dxvk
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    key: d3d9
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\RoRLauncher.exe\DllOverrides
+    type: REG_SZ
+    value: builtin
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  dxvk: false
+
