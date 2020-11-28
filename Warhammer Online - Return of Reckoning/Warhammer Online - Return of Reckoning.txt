@@ -15,7 +15,7 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning
     src: $DISC
 - task:
-    app: dotnet40 dxvk
+    app: dotnet40 dxvk d3dx9_34
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -24,14 +24,6 @@ installer:
     path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\RoRLauncher.exe\DllOverrides
     type: REG_SZ
     value: builtin
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 wine:
   Desktop: true
   dxvk: false
