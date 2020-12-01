@@ -9,13 +9,14 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    message: Please provide a path to your game folder (it should contain RoRLauncher.exe).
+    message: Please use browse button to select "Warhammer Online - Return of Reckoning"
+      game folder. Autodetect button is inactive here.
     requires: RoRLauncher.exe
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning
     src: $DISC
 - task:
-    app: dotnet40 dxvk
+    app: dotnet40 dxvk d3dx9_34
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -32,7 +33,10 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- write_file:
+    content: d3d9.customVendorId = 1002
+    file: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning/dxvk.conf
 wine:
-  Desktop: true
   dxvk: false
+  esync: true
 

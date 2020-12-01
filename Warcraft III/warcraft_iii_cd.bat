@@ -20,8 +20,8 @@ echo.	------------------------------------------------
 echo.
 echo.	1) Play Warcraft III - Reign Of Chaos
 echo.	2) Play Warcraft III - The Frozen Throne
-echo. 	3) About official CD update 2.27b
-echo.	4) exit
+echo. 	3) About official CD update 1.27b
+echo.	4) Exit
 echo.
 echo.	------------------------------------------------
 echo.
