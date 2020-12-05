@@ -1,4 +1,4 @@
-custom-name: HERETIC II - Windows CD EU
+custom-name: HERETIC II - Windows CD
 files:
 - patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
 - maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
@@ -125,7 +125,7 @@ installer:
     file: scriptlocal
 - chmodx: scriptmusic
 - execute:
-    args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music"
+    args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music" 2 flac
     file: scriptmusic
 - move:
     dst: $GAMEDIR/drive_c

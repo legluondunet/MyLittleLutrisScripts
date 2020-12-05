@@ -24,7 +24,7 @@ installer:
     src: $DISC/$INPUT_LANG
 - chmodx: scriptmusic
 - execute:
-    args: 1992- "$GAMEDIR"
+    args: 1992- "$GAMEDIR" 1 flac
     file: scriptmusic
 scummvm:
   fullscreen: true

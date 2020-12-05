@@ -2,12 +2,8 @@ custom-name: Age of Empires I - Gold edition - CD
 files:
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_30_build.rar
 - scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/findaoe.sh
-- scriptsound: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/soundtrack.bat
 - scriptclean: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/clean.sh
-- gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
-- mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
-- grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
-- grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+- scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
 - updt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1_update_1.0c_multi.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1.bat
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/aoe1covers.zip
@@ -199,32 +195,16 @@ installer:
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
     dst: $GAMEDIR/drive_c/tmp/
-    file: grepbin
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
-    file: grepdep
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/
     file: updt
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/mplayer/
-    file: mp
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/bin
-    file: gnusox
-- task:
-    executable: scriptsound
-    name: wineexec
-    prefix: $GAMEDIR
 - input_menu:
-    description: Please choose AOE I Gold Edition CD language (do not choose another
-      language other than your CD's one)
+    description: Please choose AOE I Gold Edition CD language (do not choose a language
+      different from your CD's one)
     id: LANG
     options:
     - en: English
     - fr: French
     - ge: German
-    - it: italian
+    - it: Italian
     - sp: Spanish
     - po: Portuguese
     preselect: en
@@ -286,11 +266,15 @@ installer:
 - execute:
     args: $INPUT_LANG "$DISC" gold
     file: scriptclean
+- chmodx: scriptmusic
+- execute:
+    args: AOE "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires/music"
+      2 flac
+    file: scriptmusic
 - task:
     app: win7
     name: winetricks
     prefix: $GAMEDIR
 wine:
   Desktop: true
-  version: ge-protonified-nofshack-4.9-x86_64
 

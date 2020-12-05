@@ -27,10 +27,15 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: Setup/Heretic.ico
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
-    src: $DISC/Setup/zip/h2.zip
+    requires: h2_setup.exe
+- task:
+    args: /desktop=Heretic_II,1024x780 $DISC/h2_setup.exe
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -101,6 +106,9 @@ installer:
 - execute:
     file: scriptconf
 - chmodx: scriptws
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: scriptws
 - input_menu:
     description: 'Please choose which language you would like to install this game:'
     id: LANG
@@ -115,12 +123,9 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: scriptlocal
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: scriptws
 - chmodx: scriptmusic
 - execute:
-    args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music"
+    args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music" 2 flac
     file: scriptmusic
 - move:
     dst: $GAMEDIR/drive_c

@@ -47,27 +47,27 @@ if errorlevel 1 goto aoe1
 cls
 cd c:\dxwnd
 start dxwnd.exe /r:1
-goto :exit
+goto :launcher
 
 :ror
 cls
 cd c:\dxwnd
 start dxwnd.exe /r:2
-goto :exit
+goto :launcher
 
 :upatch
 cls
 if not exist "c:\program files (x86)\microsoft games\age of empires\gamex" goto :notinstall
 cd c:\dxwnd
 start dxwnd.exe /r:3
-goto :exit
+goto :launcher
 
 :upatch2
 cls
 if not exist "c:\program files (x86)\microsoft games\age of empires\gamex" goto :notinstall
 cd "c:\program files (x86)\microsoft games\age of empires\gamex"
 start launcher.exe
-goto :exit
+goto :launcher
 
 :notinstall
 cls

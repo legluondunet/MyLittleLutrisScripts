@@ -1,14 +1,8 @@
 extends: age-of-empires
 files:
-- upatchhd:
-    filename: UPatch_HD_1.1-R4.zip
-    url: https://www.dropbox.com/s/nh7nudvgtrvlgwd/UPatch_HD_1.1-R4.zip?dl=1
-- winemono: http://dl.winehq.org/wine/wine-mono/4.9.3/wine-mono-4.9.3.msi
+- upatchhd: N/A:Please select Upatch HD archive available for download at https://upatch-hd.weebly.com
+- winemono: https://dl.winehq.org/wine/wine-mono/5.1.1/wine-mono-5.1.1-x86.msi
 installer:
-- execute:
-    command: 'cd $GAMEDIR/drive_c/; sed -i ''23s/.*/echo.    2) Age of Empires I:
-      Rise of Rome Upatch HD 1.1-R4/'' -i ''24s/.*/echo.    3) Age of Empires I: Rise
-      of Rome Upatch HD 1.1-R4 Setup/'' aoe1.bat;'
 - task:
     executable: winemono
     name: wineexec
@@ -20,5 +14,4 @@ installer:
     name: wineexec
 wine:
   Desktop: true
-  version: ge-protonified-nofshack-4.9-x86_64
 

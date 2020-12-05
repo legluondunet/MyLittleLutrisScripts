@@ -20,7 +20,7 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- Tchernobog  v0.1.6d
+- Tchernobog  v0.1.6g - 20 November 2020
 - To find others players for online games, ask on Discord: https://discord.gg/82BaSAP
 - You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options"
 - Please report issue concerning this script on my Github page:
