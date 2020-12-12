@@ -1,0 +1,59 @@
+game:
+  arch: win64
+  exe: $GAMEDIR/drive_c/Program Files (x86)/Wargaming.net/GameCenter/wgc.exe
+  prefix: $GAMEDIR
+installer:
+- input_menu:
+    description: 'Please choose your preferred client localisation:'
+    id: LOCAL
+    options:
+    - EU: Europe
+    - NA: US
+    - ASIA: Asia
+    - RU: Russia
+    preselect: EU
+- execute:
+    command: cd "$CACHE"; wget https://redirect.wargaming.net/WGC/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe;
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /desktop=Installing_WGC,1024x780 $CACHE/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
+    description: Installing Wargaming center...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- task:
+    arch: win64
+    name: winekill
+    prefix: $GAMEDIR
+- task:
+    app: win7
+    arch: win64
+    description: Setting Wine to Windows 7
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    name: winekill
+    prefix: $GAMEDIR
+system:
+  env:
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+wine:
+  desktop: true
+  esync: true
+

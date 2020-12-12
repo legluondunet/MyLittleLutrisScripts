@@ -10,6 +10,6 @@ installer:
     dst: $CACHE
     src: sh2eaudio
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/
-    src: $CACHE/SILENT HILL 2/sh2e/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e
+    src: $CACHE/SILENT HILL 2/sh2e
 

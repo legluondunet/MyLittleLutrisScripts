@@ -1,10 +1,11 @@
 custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
 - sh2exe: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_EXE_NA_v1.0.zip
-- sh2ed3d8: https://github.com/elishacloud/Silent-Hill-2-Enhancements/releases/download/v1.5.1750.0/d3d8.zip
-- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.1.2.zip
+- sh2ed3d8: https://github.com/elishacloud/Silent-Hill-2-Enhancements/releases/latest/download/d3d8.zip
+- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.2.0.zip
+- sh2eip: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Image_Enhancement_Pack_1.0.0.zip
 - sh2estr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/exe_str.zip
-- sh2eidts: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2esound.7z
+- sh2edsoal: http://www.enhanced.townofsilenthill.com/SH2/files/DSOAL_1.31a.02.zip
 game:
   exe: drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
   prefix: $GAMEDIR
@@ -119,27 +120,33 @@ installer:
 - task:
     args: /s /L0009
     description: Please just click "OK" when a dialog box will ask for Disk 1
-    executable: $GAMEDIR/drive_c/sh2dccd/setup
+    executable: $GAMEDIR/drive_c/sh2dccd/setup.exe
     name: wineexec
     prefix: $GAMEDIR
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.bak
     src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
     file: sh2exe
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
     file: sh2ed3d8
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
     file: sh2efiles
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/text/
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
+    src: sh2eip
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/text
     src: sh2estr
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/
-    src: sh2eidts
+    dst: $CACHE
+    src: sh2edsoal
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
+    src: $CACHE/SILENT HILL 2
 - input_menu:
     description: 'Please choose your preferred interface language:'
     id: LANG
@@ -259,4 +266,5 @@ installer:
     src: $GAMEDIR/drive_c/sh2dccd/
 wine:
   Desktop: true
+  version: lutris-4.21-x86_64
 
