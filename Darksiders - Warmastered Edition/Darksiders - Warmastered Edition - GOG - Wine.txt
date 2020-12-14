@@ -1,8 +1,10 @@
 custom-name: Darksiders - Warmastered Edition - GOG
 files:
-- mfplat: https://github.com/legluondunet/mlls-tools/raw/master/mfplat/mfplat.zip
+- mfplatinstall: https://github.com/z0z0z/mf-installcab/archive/master.zip
+- mfplatdll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/mfplat.7z
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- gogsetup: N/A:Select the Windows GOG setup file
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
 game:
   arch: win64
   exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.exe
@@ -22,13 +24,16 @@ installer:
     args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
     file: $CACHE/innoextract
 - extract:
-    dst: $CACHE
-    src: mfplat
+    dst: $GAMEDIR/drive_c/GOG Games/tmp
+    src: mfplatinstall
 - execute:
-    command: cd "$CACHE/"; WINEPREFIX="$GAMEDIR" ./install-mf-64.sh ; cd "$GAMEDIR/drive_c/GOG
-      Games"; mv app "Darksiders Warmastered Edition" ; cd "Darksiders Warmastered
-      Edition"; mv "$CACHE/mfplatds.dll" mfplat.dll; rm -f -r __support GameuxInstallHelper.dll
+    command: cd "$GAMEDIR/drive_c/GOG Games/tmp"; WINEPREFIX="$GAMEDIR" ./install-mf-64.sh
+      ; cd "$GAMEDIR/drive_c/GOG Games"; mv app "Darksiders Warmastered Edition" ;
+      cd "Darksiders Warmastered Edition"; rm -f -r __support GameuxInstallHelper.dll
       gog* *.lnk Support.ico unins000.* webcache.zip ../tmp;
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
+    src: mfplatdll
 - task:
     arch: win64
     key: csmt
@@ -45,6 +50,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+require-binaries: python2
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1
@@ -53,4 +59,5 @@ system:
 wine:
   Desktop: true
   esync: true
+  version: lutris-5.7-11-x86_64
 
