@@ -4,7 +4,7 @@ files:
 - gogsetup: N/A:Please select Windows setup exe file downloaded from your GOG account.
 game:
   args: --language=$INPUT_LANG --filtering
-  game_id: riven
+  game_id: mohawk:riven
   path: $GAMEDIR
 installer:
 - extract:

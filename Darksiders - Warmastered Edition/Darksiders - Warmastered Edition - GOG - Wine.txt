@@ -50,7 +50,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-require-binaries: python2
+require-binaries: python2 cabextract
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1

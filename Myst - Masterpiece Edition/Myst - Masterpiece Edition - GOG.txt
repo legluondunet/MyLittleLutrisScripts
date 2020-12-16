@@ -4,7 +4,7 @@ files:
 - gogsetup: N/A:Select the GOG setup file
 game:
   args: --language=$INPUT_LANG --filtering
-  game_id: mohawk
+  game_id: mohawk:myst
   path: $GAMEDIR
 installer:
 - extract:
@@ -24,10 +24,8 @@ installer:
     - es: Spanish
     preselect: en
 - execute:
-    args: -r $GAMEDIR/app/. $GAMEDIR
-    file: /bin/cp
-- execute:
-    command: cd "$GAMEDIR"; rm -f -r app commonappdata __redist source __support tmp goggame-1207658818.* language_setup.* Launch_MystME.exe;
+    command: cd "$GAMEDIR"; rm -f -r app commonappdata __redist source __support tmp
+      goggame-1207658818.* language_setup.* Launch_MystME.exe;
 scummvm:
   aspect: true
   fullscreen: true
