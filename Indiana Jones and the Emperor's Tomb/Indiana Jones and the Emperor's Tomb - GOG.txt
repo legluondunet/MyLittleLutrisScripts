@@ -115,7 +115,7 @@ installer:
     dst: $GAMEDIR/drive_c
     src: wpp
 - task:
-    app: vcrun6
+    app: vcrun6 winxp
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -201,4 +201,3 @@ installer:
 wine:
   Desktop: true
   version: lutris-4.21-x86_64
-

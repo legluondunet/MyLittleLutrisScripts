@@ -113,17 +113,9 @@ installer:
     name: wineexec
     prefix: $GAMEDIR/
 - task:
-    app: amstream
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: quartz
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: directplay
+    app: amstream quartz directplay winxp
     name: winetricks
     prefix: $GAMEDIR
 wine:
   Desktop: true
-
+  version: lutris-4.21-x86_64

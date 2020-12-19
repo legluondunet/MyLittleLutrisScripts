@@ -82,6 +82,10 @@ installer:
         winver0: 1
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - task:
+    app: winxp
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
     arch: win64
     key: winmm
     name: set_regedit
@@ -99,4 +103,4 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-
+  version: lutris-4.21-x86_64
