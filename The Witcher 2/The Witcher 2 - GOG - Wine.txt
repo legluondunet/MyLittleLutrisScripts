@@ -1,0 +1,54 @@
+custom-name: The Witcher 2 - GOG - Wine
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  arch: win64
+  exe: drive_c/GOG Games/The Witcher 2/bin/witcher2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
+    file: $CACHE/innoextract
+- task:
+    app: d3dcompiler_47 vcrun2010 dotnet40
+    name: winetricks
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games"; mv app "The Witcher 2"; cd "The Witcher
+      2"; rm -f -r ../tmp __support goggame-1207658930.* webcache.zip '
+- task:
+    arch: win64
+    key: InstallFolder
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\CD Projekt RED\The Witcher 2\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: C:\\GOG Games\\The Witcher 2
+system:
+  env:
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+wine:
+  Desktop: true
+  esync: true
+  version: lutris-5.7-11-x86_64
+

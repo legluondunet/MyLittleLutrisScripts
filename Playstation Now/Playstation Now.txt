@@ -3,8 +3,8 @@ files:
     filename: psnowlatest.exe
     url: https://download-psnow.playstation.com/downloads/psnow/pc/latest
 game:
-  arch: win64
-  exe: drive_c/Program Files (x86)/PlayStationNow/psnowlauncher.exe
+  args: c:\\psnow.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -14,7 +14,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: d3dcompiler_47 vcrun2013 win7
+    app: corefonts vcrun2013 win7
     arch: win64
     name: winetricks
     prefix: $GAMEDIR
@@ -23,6 +23,33 @@ installer:
     executable: psnowsetup
     name: wineexec
     prefix: $GAMEDIR
+- write_file:
+    content: '@echo off
+
+      title Focus this windows and press a key to force PS Now to quit.
+
+      c:
+
+      cd \
+
+      cd Program Files (x86)\PlayStationNow
+
+      start psnowlauncher.exe
+
+      echo. ===========================================================
+
+      echo. focus this windows and press a key to force PS Now to quit.
+
+      echo. ===========================================================
+
+      echo.
+
+      echo.
+
+      pause
+
+      taskkill /F /IM psnowlauncher.exe'
+    file: $GAMEDIR/drive_c/psnow.bat
 - task:
     arch: win64
     key: background
@@ -32,7 +59,9 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/PlayStationNow/"; sed -i "s/URL.*/URL=/" unidater.ini;
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/PlayStationNow/"; sed -i "s/URL.*/URL=/"
+      unidater.ini;
 wine:
   Desktop: true
+  version: lutris-4.21-x86_64
 
