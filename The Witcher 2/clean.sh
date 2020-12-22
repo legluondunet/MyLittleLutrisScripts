@@ -10,7 +10,7 @@ mv app "The Witcher 2"
 cd "The Witcher 2"
 rm -f -r ../tmp __support goggame-1207658930.* webcache.zip
 destpath="../../users/$USER/$mydocsname/Witcher 2/config"
-mkdir -P "$destpath"
+mkdir -p "$destpath"
 ls "$destpath"
 echo $destpath
 cp -r bin/config "$destpath"
