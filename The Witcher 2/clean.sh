@@ -13,4 +13,4 @@ destpath="../../users/$USER/$mydocsname/Witcher 2/Config"
 mkdir -p "$destpath"
 ls "$destpath"
 echo $destpath
-cp -r bin/config "$destpath"
+cp -r bin/config/* "$destpath"

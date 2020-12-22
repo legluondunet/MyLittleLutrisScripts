@@ -22,16 +22,6 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    args: /desktop=Installing_WGC,1024x780 $CACHE/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
-    description: Installing Wargaming center...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
-- task:
-    arch: win64
-    name: winekill
-    prefix: $GAMEDIR
-- task:
     app: win7
     arch: win64
     description: Setting Wine to Windows 7
@@ -45,6 +35,12 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- task:
+    args: /desktop=Installing_WGC,1024x780 $CACHE/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
+    description: Installing Wargaming center...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
 - task:
     arch: win64
     name: winekill
