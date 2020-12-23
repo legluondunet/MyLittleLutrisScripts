@@ -1,0 +1,47 @@
+files:
+- ffxivinstaller: https://gdl.square-enix.com/ffxiv/inst/ffxivsetup_ft.exe
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV/clean.sh
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/SquareEnix/FINAL FANTASY XIV - A Realm Reborn/boot/ffxivboot.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: dotnet48 win7
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    description: Adding Registry Entries for FFXIV Launcher
+    key: HideWineExports
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+- chmodx: script
+- execute:
+    file: script
+- task:
+    arch: win64
+    description: Running FFXIV Installer.
+    executable: ffxivinstaller
+    name: wineexec
+    prefix: $GAMEDIR
+system:
+  env:
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+  pulse_latency: true
+wine:
+  esync: true
+  version: lutris-5.7-11-x86_64
+
