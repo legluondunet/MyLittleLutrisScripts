@@ -1,0 +1,37 @@
+custum-name: FINAL FANTASY XIV - Shadowbringers Benchmark
+files:
+- ffxivbensetup: https://gdl.square-enix.com/ffxiv/nr2xkhecw9vrkuqy/ffxiv-shadowbringers-bench.zip
+game:
+  arch: win64
+  exe: $GAMEDIR/drive_c/Program Files/Shadowbringers Benchmark/ffxiv-shadowbringers-bench.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: dotnet48 win10
+    name: winetricks
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/Shadowbringers Benchmark
+    file: ffxivbensetup
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+  esync: true
+  overrides:
+    d3d9: d
+  version: lutris-5.7-11-x86_64
+
