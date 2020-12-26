@@ -1,6 +1,7 @@
 files:
-- ffxivinstaller: https://gdl.square-enix.com/ffxiv/inst/ffxivsetup_ft.exe
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV/clean.sh
+- ffxivinstaller: https://gdl.square-enix.com/ffxiv/inst/ffxivsetup.exe
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final Fantasy
+    XIV Online/clean.sh
 game:
   arch: win64
   exe: drive_c/Program Files (x86)/SquareEnix/FINAL FANTASY XIV - A Realm Reborn/boot/ffxivboot.exe

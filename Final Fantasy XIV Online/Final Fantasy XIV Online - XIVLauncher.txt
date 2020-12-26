@@ -1,10 +1,11 @@
 custom-name: Final Fantasy XIV - A Realm Reborn - XIVLauncher
 files:
 - launchersetup: https://github.com/goatcorp/FFXIVQuickLauncher/releases/download/5.2.0/Setup.exe
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV/clean.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final Fantasy
+    XIV Online/clean.sh
 game:
   arch: win64
-  exe: drive_c/users/legluondunet/Local Settings/Application Data/XIVLauncher/XIVLauncher.exe
+  exe: drive_c/users/$USER/Local Settings/Application Data/XIVLauncher/XIVLauncher.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -23,7 +24,7 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    app: dotnet48 win7 vc2015
+    app: dotnet48 win7 vcrun2015
     name: winetricks
     prefix: $GAMEDIR
 - extract:
@@ -51,7 +52,6 @@ system:
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
   pulse_latency: true
 wine:
-  Desktop: true
   esync: true
   version: lutris-5.7-11-x86_64
 
