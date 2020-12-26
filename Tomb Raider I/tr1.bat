@@ -35,7 +35,7 @@ cd c:\TOMBATI\DATA
 copy /Y TITLEHTR1.PCX TITLEH.PCX
 cd c:\TOMBATI\
 start tombati.exe
-goto exit
+goto launcher
 
 :tombub
 cls
@@ -43,7 +43,7 @@ cd c:\TOMBATI\DATA
 copy /Y TITLEHTR1UB.PCX TITLEH.PCX
 cd c:\TOMBATI\
 start tombub.exe
-goto exit
+goto launcher
 
 :config
 cls

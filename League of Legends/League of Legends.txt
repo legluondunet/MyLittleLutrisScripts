@@ -76,7 +76,6 @@ installer:
     name: wineexec
 require-binaries: zenity, dialog, openssl
 system:
-  disable_compositor: true
   env:
     DXVK_LOG_LEVEL: none
     DXVK_STATE_CACHE_PATH: $GAMEDIR
