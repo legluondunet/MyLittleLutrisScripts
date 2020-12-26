@@ -1,7 +1,8 @@
+custom-name: League of Legends - Testing
 files:
 - lol_installer: https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.na.exe
-- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/launchhelper.sh
-- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/syscall_check.sh
+- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/launchhelper_bis.sh
+- script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/syscall_check_bis.sh
 - bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/League%20of%20Legends/lol.bmp
 game:
   args: --locale=$INPUT_LOCALE
@@ -11,16 +12,12 @@ installer:
 - task:
     arch: win64
     description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    description: Installing...Please do not connect to your "League of Legends" account
-      or launching game during setup, just close the client once it finished downloading.
-    executable: lol_installer
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    app: d3dcompiler_47
+    app: d3dcompiler_47 win7
     name: winetricks
     prefix: $GAMEDIR
 - input_menu:
@@ -70,7 +67,14 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\lol.bmp
-require-binaries: zenity, openssl
+- task:
+    args: /desktop=LoL,$RESOLUTION $lol_installer
+    description: Do not log in during installation, just close the installation client
+      once it will finish downloading 2.1 Go.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+require-binaries: zenity, dialog, openssl
 system:
   disable_compositor: true
   env:
@@ -80,7 +84,7 @@ system:
     WINE_LARGE_ADDRESS_AWARE: 1
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-  prelaunch_command: $GAMEDIR/launchhelper.sh
+  prelaunch_command: $GAMEDIR/launchhelper_bis.sh
 wine:
   Desktop: true
   MouseWarpOverride: enable

@@ -7,7 +7,7 @@ using "launchhelper" and "syscall" scripts tweak.
 Big thanks to all people who permit us to play this game in best conditions on Linux platform.
 
 ### Technical notes:
-- Do not connect or launch game during setup, close the client once it finished download
+- Do not log in during installation, just close the installation client once it will finish downloading 2.1 Go
 - This installer is international, the game will be available in your native language after install
 - known issues:
 -- The game will take a lot of time to launch, after login you will obtain a black rectangle during several minutes. So be patient
