@@ -1,0 +1,71 @@
+custom-name: Beyond Good & Evil - Ubisoft Connect
+files:
+- uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+- wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/bgewidescreen.zip
+- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/dsound.dll
+game:
+  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond Good
+    and Evil/SettingsApplication.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- write_file:
+    content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
+      \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
+    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
+      Launcher/settings.yml
+- task:
+    app: arial d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    executable: uplay
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: d3d9
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
+      Good and Evil
+    src: audio
+- task:
+    arch: win64
+    key: dsound
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
+      Good and Evil
+    src: wds
+- write_config:
+    data:
+      MAIN:
+        Height: $RESOLUTION_HEIGHT
+        Width: $RESOLUTION_WIDTH
+    file: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
+      Good and Evil/bge.ini
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  esync: true
+  overrides:
+    nvapi,nvapi64: disabled
+

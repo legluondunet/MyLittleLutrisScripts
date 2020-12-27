@@ -1,6 +1,6 @@
 game:
   arch: win64
-  exe: $GAMEDIR/drive_c/Program Files (x86)/Wargaming.net/GameCenter/wgc.exe
+  exe: drive_c/ProgramData/Wargaming.net/GameCenter/wgc.exe
   prefix: $GAMEDIR
 installer:
 - input_menu:
@@ -36,15 +36,44 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    args: /desktop=Installing_WGC,1024x780 $CACHE/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
+    args: /SP- /SILENT
     description: Installing Wargaming center...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    executable: $CACHE/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
     include_processes: explorer.exe
     name: wineexec
 - task:
     arch: win64
     name: winekill
     prefix: $GAMEDIR
+- input_menu:
+    description: Please choose your preferred game's language. You will find more
+      languages choice in Wargaming.net Center general tab.
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: Deutsch
+    - sp: Spanish
+    - it: Italian
+    - ru: Russian
+    preselect: en
+- write_file:
+    content: '<?xml version="1.0" encoding="utf-8"?>
+
+      <protocol version="3.19" name="preferences">
+
+      <application>
+
+      <localization_manager>
+
+      <current_localization>$INPUT_LANG</current_localization>
+
+      </localization_manager>
+
+      </application>
+
+      </protocol>'
+    file: $GAMEDIR/drive_c/ProgramData/Wargaming.net/GameCenter/preferences.xml
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1
@@ -56,5 +85,4 @@ wine:
     nvapi: d
     nvapi64: d
     ucrtbase: b,n
-  version: lutris-5.7-11-x86_64
 
