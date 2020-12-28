@@ -1,11 +1,11 @@
 custom-name: Beyond Good & Evil - Ubisoft Connect
 files:
 - uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-- wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/bgewidescreen.zip
-- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyong%20Good%20and%20Evil/dsound.dll
+- wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/BGE%20widescreen%20fix.rar
+- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/dsound.dll
+- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/bgae.bat
 game:
-  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond Good
-    and Evil/SettingsApplication.exe
+  exe: drive_c/bgae.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -51,11 +51,23 @@ installer:
     src: wds
 - write_config:
     data:
-      MAIN:
-        Height: $RESOLUTION_HEIGHT
-        Width: $RESOLUTION_WIDTH
+      Display:
+        bBorderlessWindow: false
+        bPillarBox16to9: true
+      Resolution:
+        bUseOverride: false
+        resX: $RESOLUTION_HEIGHT
+        resY: $RESOLUTION_WIDTH
     file: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
-      Good and Evil/bge.ini
+      Good and Evil/d3d9.ini
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: launcher
+- task:
+    args: /desktop,1024x780 $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game
+      Launcher/UbisoftConnect.exe uplay://launch/232/0
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
 - task:
     arch: win64
     key: background
