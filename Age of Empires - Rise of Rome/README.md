@@ -1,35 +1,3 @@
-# Age of Empires - CD
-
-##### Description:
-This script will facilitate install of this game on Linux OS:
-"Age of Empires I" CD edition using WIne and DxWnd project
-https://sourceforge.net/projects/dxwnd
-During install please let all options by default.
-Big thanks to the people who contributed to play this game in the best conditions on Linux.
-
-##### Technical notes:
-- Update AOE to 1.0c
-- Support multilanguage: during install you could choose your preferred language betwen english (default), french, german, italian, portuguese and spanish
-- You will need the CD only one time during install
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
-# Age of Empires - Gold Edition - CD
-
-##### Description:
-This script will facilitate install of this game on Linux OS:
-"Age of Empires I Gold" CD edition using WIne and DxWnd project
-https://sourceforge.net/projects/dxwnd
-During install please let all options by default.
-Big thanks to the people who contributed to play this game in the best conditions on Linux.
-
-##### Technical notes:
-- "Age of Empires: Gold Edition" will be updated to official 1.0c update for AOE et 1.0a update for ROR
-- Support multilanguage CD install: English, German, French, Spanish, Portuguese, Italian
-- You will need the CD only one time during install
-- Please report issue concerning this script on my github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
 # Age of Empires - Rise of Rome - CD
 
 ##### Description:

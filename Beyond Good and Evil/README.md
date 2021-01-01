@@ -24,6 +24,5 @@ Thanks to the people who contributed to play this game in the best conditions on
 ### Technical notes:
 - Widescreen patch
 - Fix audio sync
-- Do not launch game during install process, just close all windows
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts

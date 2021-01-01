@@ -1,0 +1,54 @@
+custom-name: Starcraft - CD
+files:
+- dxwrapper: https://github.com/legluondunet/mlls-tools/raw/master/cnc-draw/cnc-ddraw.zip
+- patch: https://web.archive.org/web/20140908015808/http://ftp.blizzard.com/pub/starcraft/patches/PC/SC-1161.exe
+game:
+  exe: drive_c/Program Files/Starcraft/StarCraft.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- insert-disc:
+    requires: help/star.htm
+- task:
+    args: /desktop=Starcraft,1024x780 "$DISC/setup.exe"
+    description: Installing Starcraft...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/Starcraft
+    src: dxwrapper
+- task:
+    arch: win64
+    key: ddraw
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files/Starcraft"; sed -i -e 's/fullscreen=.*/fullscreen=true/'
+      -e 's/windowed=.*/windowed=true/' -e 's/maintas=.*/maintas=true/' -e 's/adjmouse=.*/adjmouse=true/'
+      ddraw.ini; find "$DISC/"* -iname install.exe | xargs -I {} cp {} starcraft.mpq;
+- task:
+    args: /desktop=Starcraft,$RESOLUTION $patch
+    description: Installing Starcraft update...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+wine:
+  Desktop: true
+

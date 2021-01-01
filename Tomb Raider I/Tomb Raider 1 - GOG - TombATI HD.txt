@@ -37,22 +37,22 @@ installer:
     args: -d "$CACHE/" "$gog"
     file: $CACHE/innoextract
 - extract:
-    dst: $GAMEDIR/drive_c/TOMBATI/
+    dst: $GAMEDIR/drive_c/TOMBATI
     file: tombati
 - extract:
-    dst: $GAMEDIR/drive_c/TOMBATI/TR1HD/
+    dst: $GAMEDIR/drive_c/TOMBATI/TR1HD
     file: hdtextures
 - move:
-    dst: $GAMEDIR/drive_c/TOMBATI/
+    dst: $GAMEDIR/drive_c
     src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppx360
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppsteam
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppreadme
 - task:
     app: vcrun2015
@@ -66,13 +66,13 @@ installer:
       if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
       ./7z x -y $cd;
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/DATA/
+    dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: $CACHE/app/DATA
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/FMV/
+    dst: $GAMEDIR/drive_c/TOMBATI/FMV
     src: $CACHE/app/FMV/
 - extract:
-    dst: $GAMEDIR/drive_c/TOMBATI/DATA/
+    dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
 - move:
     dst: $GAMEDIR/drive_c/

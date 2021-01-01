@@ -1,0 +1,48 @@
+custom-name: Dead Space - GOG
+files:
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  exe: drive_c/GOG Games/Dead Space/Dead Space.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: d3dcompiler_47 vcrun2005 win7
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- write_file:
+    content: 'Window.Width = $RESOLUTION_WIDTH
+
+      Window.Height = $RESOLUTION_HEIGHT
+
+      Window.Fullscreen = true'
+    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Electronic
+      Arts/Dead Space/settings.txt
+- task:
+    executable: $GAMEDIR/drive_c/GOG Games/Dead Space/language_setup.exe
+    name: wineexec
+wine:
+  Desktop: true
+  esync: true
+  version: lutris-5.7-11-x86_64
+

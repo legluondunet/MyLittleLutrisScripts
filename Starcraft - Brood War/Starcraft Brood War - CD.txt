@@ -1,0 +1,18 @@
+files:
+- patch: https://web.archive.org/web/20140908015808/http://ftp.blizzard.com/pub/starcraft/patches/PC/SC-1161.exe
+installer:
+- insert-disc:
+    requires: bw.ico
+- task:
+    description: Installing Starcraft Brood War...
+    executable: $DISC/setup.exe
+    name: wineexec
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files/Starcraft"; find "/$DISC/"* -iname
+      install.exe | xargs -I {} cp {} broodwar.mpq; chmod +rw broodwar.mpq;
+- task:
+    description: Installing Starcraft Brood War update...
+    executable: $patch
+    name: wineexec
+requires: starcraft
+

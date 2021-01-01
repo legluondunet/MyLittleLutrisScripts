@@ -13,6 +13,8 @@ installer:
 - task:
     arch: win64
     name: create_prefix
+    install_gecko: false
+    install_mono: false
     prefix: $GAMEDIR
 - task:
     args: /SILENT /SUPPRESSMSGBOXES

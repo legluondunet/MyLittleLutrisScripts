@@ -29,22 +29,22 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/TOMBATI/
+    dst: $GAMEDIR/drive_c/TOMBATI
     file: tombati
 - extract:
-    dst: $GAMEDIR/drive_c/TOMBATI/TR1HD/
+    dst: $GAMEDIR/drive_c/TOMBATI/TR1HD
     file: hdtextures
 - move:
-    dst: $GAMEDIR/drive_c/TOMBATI/
+    dst: $GAMEDIR/drive_c
     src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppx360
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppsteam
 - merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles/
+    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
     src: gppreadme
 - task:
     app: vcrun2015
@@ -64,7 +64,7 @@ installer:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/patches/locale
