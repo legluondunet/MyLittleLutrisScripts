@@ -71,7 +71,7 @@ Big thanks to the people who helped us play this game in the best conditions on 
 ### Technical notes:
 - x360 controller compatible.
 - known issue:
--- For the moment this script will install and use only english audio tracks. But you could choose menus and subtitles in your preferred language in OpenLara sound options parameters.
+-- For the moment this script will install and use only english audio tracks. But you could choose menus and subtitles in your preferred language in OpenLara sound options parameters
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
@@ -90,3 +90,4 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 -- For the moment this script will install and use only english audio tracks. But you could choose menus and subtitles in your preferred language in OpenLara sound options parameters.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
+
