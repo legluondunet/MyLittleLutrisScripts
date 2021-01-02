@@ -37,16 +37,30 @@ https://github.com/legluondunet/MyLittleLutrisScripts/
 # Tomb Raider II - GOG + OpenLara
 
 ## Description:
-This script will assist you to install this game on Linux OS:
-"Tomb Raider II" provided by GOG using OpenLara project.
+This script will facilitate install of this game on Linux OS:
+"Tomb Raider II" provided by GOG using OpenLara project https://github.com/XProger/OpenLara.
 During install please let all options by default.
-This script uses OpenLara project: https://github.com/XProger/OpenLara
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+Big thanks to the people who helped us play this game in the best conditions on Linux.
 
 ## Technical notes:
 - x360 controller compatible.
 - known issue:
--- For the moment this script will install and use only english audio tracks. But you could choose menus and subtitles in your preferred language in OpenLara sound options parameters.
+-- OpenLara support for "Tomb Raider II" is still work in progress and experimental, you can have issues
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
+
+# Tomb Raider III - GOG + OpenLara
+
+## Description:
+This script will facilitate install of this game on Linux OS:
+"Tomb Raider III" provided by GOG using OpenLara project https://github.com/XProger/OpenLara.
+During install please let all options by default.
+Big thanks to the people who helped us play this game in the best conditions on Linux.
+
+## Technical notes:
+- x360 controller compatible.
+- known issue:
+-- OpenLara support for "Tomb Raider III" is still work in progress and experimental, you can have issues
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts
 

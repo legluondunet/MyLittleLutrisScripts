@@ -1,0 +1,36 @@
+custom-name: Tomb Raider III - GOG - OpenLara
+files:
+- opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
+    GOG account
+game:
+  exe: $GAMEDIR/OpenLara
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" "$gogsetup"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/level/3
+    src: $CACHE/app/DATA
+- merge:
+    dst: $GAMEDIR/level/3
+    src: $CACHE/app/pix
+- merge:
+    dst: $GAMEDIR/video/3
+    src: $CACHE/app/fmv
+- merge:
+    dst: $GAMEDIR/audio/3
+    src: $CACHE/app/audio
+- extract:
+    dst: $GAMEDIR
+    src: opl
+- execute:
+    command: cd "$GAMEDIR/level/3"; cp MAIN.SFX ../../audio/3; for file in *.BMP;
+      do echo convert "$file" "${file/BMP/PNG}"; convert "$file" "${file/BMP/PNG}";
+      done; rm -f -r *.BMP;
+requires-binaries: convert
+
