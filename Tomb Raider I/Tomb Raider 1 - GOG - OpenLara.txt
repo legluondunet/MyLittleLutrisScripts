@@ -4,7 +4,7 @@ files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_tr1_openlara.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
 - audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
 - gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
     GOG account
