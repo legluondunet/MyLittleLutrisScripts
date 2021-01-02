@@ -35,14 +35,9 @@ LD_LIBRARY_PATH=libs ./flac -d *.flac
 
 for file in *.wav; do echo mv "$file" "${file/wav/ogg}"; mv "$file" "${file/wav/ogg}"; done;
 
-rm -f -r *.flac libs cdparanoia flac lame metaflac about_audiotools.txt
+rm -f -r *.flac *.wav libs cdparanoia flac lame metaflac about_audiotools.txt
 cd ../..
 
-#for i in `find . -type f -iname "*.pdf" -o -iname "*.doc" -o -iname "*.docx" -o -iname "*.txt"`;
-#do
-#  echo "$i"
-#done
-
-find . -type f -iname "*.pdf" -o -iname "*.doc" -o -iname "*.docx" -o -iname "*.txt" | xargs -d '\n' cp -t INFO
+find . -type f -iname "*.pdf" -o -iname "*.doc" -o -iname "*.docx" -o -iname "*.txt" | xargs -d '\n' mv -t INFO
 mv INFO docs
 
