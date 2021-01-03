@@ -5,6 +5,7 @@ files:
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
 - audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
+- lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/DELDATA.7z
 game:
   exe: $GAMEDIR/OpenLara
 installer:
@@ -32,4 +33,7 @@ installer:
 - extract:
     dst: $GAMEDIR
     src: opl
+- extract:
+    dst: $GAMEDIR/DELDATA
+    src: lscreens
 

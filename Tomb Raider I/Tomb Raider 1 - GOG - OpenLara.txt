@@ -6,6 +6,7 @@ files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
 - audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
+- lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/DELDATA.7z
 - gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
     GOG account
 game:
@@ -38,4 +39,7 @@ installer:
 - extract:
     dst: $GAMEDIR
     src: opl
+- extract:
+    dst: $GAMEDIR/DELDATA
+    src: lscreens
 
