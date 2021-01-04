@@ -16,7 +16,8 @@ cat <<EOF >"$profile_path/FFXIV_BOOT.cfg"
 <FINAL FANTASY XIV Config File>
 
 <Version>
-Browser 1
+Browser	1
+StartupCompleted	1
 EOF
 
 cat <<EOF >"$profile_path/FFXIV.cfg"
