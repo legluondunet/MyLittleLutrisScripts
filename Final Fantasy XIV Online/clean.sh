@@ -24,6 +24,6 @@ cat <<EOF >"$profile_path/FFXIV.cfg"
 <FINAL FANTASY XIV Config File>
 
 <Cutscene Settings>
-CutsceneMovieOpening 0
+CutsceneMovieOpening 1
 EOF
 
