@@ -1,0 +1,42 @@
+files:
+- aionsetup: http://dl.aion.gameforge.com/aion/client/20180104/20180103_AION_Setup.exe
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Aion/aion.bmp
+game:
+  arch: win64
+  args: /LauncherID:"GameForge" /CompanyID:"11" /GameID:"AION-LIVE" /LUpdateAddr:"update.aion.gfsrv.net"
+  exe: drive_c/Program Files (x86)/Gameforge/NCLauncher/NCLauncher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\aion.bmp
+- task:
+    args: /desktop=Aion,$RESOLUTION $aionsetup
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+    prefix: $GAMEDIR
+wine:
+  Desktop: true
+  esync: true
+
