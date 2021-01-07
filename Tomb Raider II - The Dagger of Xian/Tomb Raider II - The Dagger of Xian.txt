@@ -1,0 +1,20 @@
+files:
+- file1: N/A:Please select the setup executable file archive available for download
+    at the official dev website http://tombraider-dox.com
+game:
+  arch: win64
+  exe: drive_c/Program Files/Tomb Raider Dox Demo/TombRaiderDOX.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    executable: file1
+    name: wineexec
+    prefix: $GAMEDIR
+

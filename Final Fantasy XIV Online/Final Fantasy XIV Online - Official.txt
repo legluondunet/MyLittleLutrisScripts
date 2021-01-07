@@ -1,6 +1,7 @@
 files:
 - ffxivinstaller: https://gdl.square-enix.com/ffxiv/inst/ffxivsetup.exe
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV%20Online/clean.sh
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV%20Online/ffxivo.bmp
 game:
   arch: win64
   exe: drive_c/Program Files (x86)/SquareEnix/FINAL FANTASY XIV - A Realm Reborn/boot/ffxivboot.exe
@@ -13,10 +14,30 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wpp
 - task:
-    app: dotnet48 win7
     arch: win64
-    name: winetricks
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\ffxivo.bmp
+- task:
+    args: /desktop=FFXIV,$RESOLUTION $ffxivinstaller
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
     prefix: $GAMEDIR
 - task:
     arch: win64
@@ -29,18 +50,12 @@ installer:
 - chmodx: script
 - execute:
     file: script
-- task:
-    arch: win64
-    description: Running FFXIV Installer.
-    executable: ffxivinstaller
-    name: wineexec
-    prefix: $GAMEDIR
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
   pulse_latency: true
 wine:
+  Desktop: true
   esync: true
-  version: lutris-5.7-11-x86_64
 

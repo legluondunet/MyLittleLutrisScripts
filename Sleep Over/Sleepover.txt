@@ -10,9 +10,9 @@ installer:
     file: $file2
 - chmodx: $GAMEDIR/renpy.sh
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR/tmp
     file: $file1
-- merge:
-    dst: $GAMEDIR/sleepover/game
-    src: $CACHE/game
+- execute:
+    command: cd "$GAMEDIR"; sleepodir=$(dirname "$(find tmp -type f |grep -i archive.rpa)");
+      cp -r "$sleepodir" sleepover;
 
