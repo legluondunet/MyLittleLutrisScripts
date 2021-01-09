@@ -1,0 +1,16 @@
+files:
+- setupfile: N/A:Please select the executable file available for download at http://www.agdinteractive.com/games/kq2/download/download.html
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+game:
+  main_file: $GAMEDIR/Kq2vga.exe
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" "$setupfile"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/app
+

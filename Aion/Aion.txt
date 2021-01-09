@@ -31,7 +31,7 @@ installer:
     type: REG_SZ
     value: c:\\aion.bmp
 - task:
-    args: /desktop=Aion,$RESOLUTION $aionsetup
+    args: /desktop=Aion,$RESOLUTION $aionsetup /silent
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec

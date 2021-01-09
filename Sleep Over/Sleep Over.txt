@@ -1,6 +1,6 @@
 files:
 - file1: N/A:Please select the game archive
-- file2: https://www.renpy.org/dl/6.16.5/renpy-6.16.5-sdk.tar.bz2
+- file2: https://www.renpy.org/dl/7.4.0/renpy-7.4.0-sdk.tar.bz2
 game:
   args: sleepover
   exe: renpy.sh
