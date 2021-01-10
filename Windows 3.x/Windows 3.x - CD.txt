@@ -1,0 +1,16 @@
+custom-name: Maniac Mansion - PC official edition
+game:
+  game_id: maniac
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please show me where are 00.LFL, 01.LFL... Maniac Mansion files stored
+    requires: 00.LFL
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+scummvm:
+  aspect: true
+  fullscreen: true
+

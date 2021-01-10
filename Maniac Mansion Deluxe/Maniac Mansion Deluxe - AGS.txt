@@ -1,11 +1,10 @@
 custom-name: Maniac Mansion Deluxe - AGS
-ags:
-  fullscreen: false
 game:
   main_file: $GAMEDIR/Maniac.exe
 installer:
 - insert-disc:
-    description: 'Choose your preferred game''s language:'
+    description: Please browse folder where is located "Maniac Manson Deluxe" files.
+      Autodetect will not work here, use "Browse" button.
     requires: Maniac.exe
 - merge:
     dst: $GAMEDIR
@@ -31,8 +30,6 @@ installer:
     preselect: English
 - write_config:
     data:
-      graphics:
-        windowed: 1
       language:
         translation: $INPUT_LANG
     file: $GAMEDIR/acsetup.cfg

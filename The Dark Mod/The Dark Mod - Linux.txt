@@ -1,0 +1,41 @@
+files:
+- updater: http://darkmod.taaaki.za.net/release/tdm_update_linux.zip
+game:
+  exe: thedarkmod.x64
+installer:
+- extract:
+    dst: $GAMEDIR
+    src: updater
+- chmodx: $GAMEDIR/tdm_update.linux64
+- execute:
+    description: Downloading and installing The Dark Mod, please wait
+    file: $GAMEDIR/tdm_update.linux64
+- input_menu:
+    description: 'Please choose your preferred game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - german: German
+    - italian: Italian
+    - slovak: Slovak
+    - turkish: Turkish
+    - danish: Danish
+    - hungarian: Hungarian
+    - russian: Russian
+    - spanish: Spanish
+    - polish: Polish
+    - dutch: Dutch
+    - swedish: Swedish
+    - romanian: Romanian
+    - czech: Czech
+    - portuguese: Portuguese
+    preselect: english
+- write_file:
+    content: 'seta r_customHeight "$RESOLUTION_HEIGHT"
+
+      seta r_customWidth "$RESOLUTION_WIDTH"
+
+      seta sys_lang "$INPUT_LANG" '
+    file: $GAMEDIR/Darkmod.cfg
+
