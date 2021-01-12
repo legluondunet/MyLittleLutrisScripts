@@ -1,16 +1,28 @@
-custom-name: Maniac Mansion - PC official edition
+files:
+- vdrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/s3drivers.zip
+- adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/SB16W3x.zip
+- dconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/dosbox_win31cd.conf
 game:
-  game_id: maniac
-  path: $GAMEDIR
-  subtitles: true
+  main_file: $GAMEDIR/dosbox_win31cd.conf
 installer:
 - insert-disc:
-    description: Please show me where are 00.LFL, 01.LFL... Maniac Mansion files stored
-    requires: 00.LFL
+    description: Please insert Windows 3.1 CD
+    requires: WINVER._
 - merge:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/C/win31cd
     src: $DISC
-scummvm:
-  aspect: true
-  fullscreen: true
+- extract:
+    dst: $CACHE/s3
+    file: vdrivers
+- merge:
+    dst: $GAMEDIR/C/drivers/s3
+    src: $CACHE/s3
+- extract:
+    dst: $GAMEDIR/C/drivers/sb16
+    file: adrivers
+- copy:
+    dst: $GAMEDIR
+    src: dconf
+- execute:
+    command: cd "$GAMEDIR"; mkdir "D"; sed -i "s/user/$USER/" dosbox_win31cd.conf;
 
