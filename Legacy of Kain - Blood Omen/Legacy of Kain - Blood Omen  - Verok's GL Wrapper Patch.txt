@@ -24,10 +24,6 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-- task:
-    executable: null
-    name: wineexec
-    prefix: $GAMEDIR
 wine:
   Desktop: true
   overrides:
