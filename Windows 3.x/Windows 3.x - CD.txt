@@ -1,5 +1,6 @@
 files:
 - vdrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/s3drivers.zip
+- vdriversb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/drivers_s3_win31x.7z
 - adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/SB16W3x.zip
 - dconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/dosbox_win31cd.conf
 game:
@@ -23,6 +24,18 @@ installer:
 - copy:
     dst: $GAMEDIR
     src: dconf
+- task:
+    config_file: $GAMEDIR/dosbox_win31cd.conf
+    name: dosexec
+    working_dir: $GAMEDIR
+- task:
+    config_file: $GAMEDIR/dosbox_win31cd.conf
+    name: dosexec
+    working_dir: $GAMEDIR
+- extract:
+    dst: $GAMEDIR
+    src: vdriversb
+- chmodx: $GAMEDIR/install_drivers.sh
 - execute:
-    command: cd "$GAMEDIR"; mkdir "D"; sed -i "s/user/$USER/" dosbox_win31cd.conf;
+    file: $GAMEDIR/install_drivers.sh
 
