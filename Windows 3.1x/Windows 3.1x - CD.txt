@@ -1,23 +1,16 @@
 files:
-- vdrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/s3drivers.zip
-- vdriversb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/drivers_s3_win31x.7z
-- adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/SB16W3x.zip
-- dconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.x/dosbox_win31cd.conf
+- vdrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/drivers_s3_win31x.7z
+- adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/SB16W3x.zip
+- dconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/dosbox_win31x_cd.conf
 game:
-  main_file: $GAMEDIR/dosbox_win31cd.conf
+  main_file: $GAMEDIR/dosbox_win31x_cd.conf
 installer:
 - insert-disc:
-    description: Please insert Windows 3.1 CD
+    description: Please insert Windows 3.1x CD
     requires: WINVER._
 - merge:
     dst: $GAMEDIR/C/win31cd
     src: $DISC
-- extract:
-    dst: $CACHE/s3
-    file: vdrivers
-- merge:
-    dst: $GAMEDIR/C/drivers/s3
-    src: $CACHE/s3
 - extract:
     dst: $GAMEDIR/C/drivers/sb16
     file: adrivers
@@ -25,17 +18,17 @@ installer:
     dst: $GAMEDIR
     src: dconf
 - task:
-    config_file: $GAMEDIR/dosbox_win31cd.conf
+    config_file: $GAMEDIR/dosbox_win31x_cd.conf
     name: dosexec
     working_dir: $GAMEDIR
 - task:
-    config_file: $GAMEDIR/dosbox_win31cd.conf
+    config_file: $GAMEDIR/dosbox_win31x_cd.conf
     name: dosexec
     working_dir: $GAMEDIR
 - extract:
     dst: $GAMEDIR
-    src: vdriversb
-- chmodx: $GAMEDIR/install_drivers.sh
+    file: vdrivers
+- chmodx: $GAMEDIR/install_drivers_s3.sh
 - execute:
-    file: $GAMEDIR/install_drivers.sh
+    file: $GAMEDIR/install_drivers_s3.sh
 
