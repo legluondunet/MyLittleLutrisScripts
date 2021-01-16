@@ -12,7 +12,7 @@ installer:
     dst: $GAMEDIR/C/win31cd
     src: $DISC
 - extract:
-    dst: $GAMEDIR/C/drivers/sb16
+    dst: $GAMEDIR/C/DRIVERS/SB16
     file: adrivers
 - copy:
     dst: $GAMEDIR
