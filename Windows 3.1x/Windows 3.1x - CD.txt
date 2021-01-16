@@ -1,7 +1,8 @@
 files:
 - vdrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/drivers_s3_win31x.7z
-- adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/SB16W3x.zip
+- adrivers: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/drivers_sb16_win31x.7z
 - dconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Windows%203.1x/dosbox_win31x_cd.conf
+- utils: https://github.com/legluondunet/mlls-tools/raw/master/dos2unix-unix2dos/dos2unix-unix2dos.7z
 game:
   main_file: $GAMEDIR/dosbox_win31x_cd.conf
 installer:
@@ -11,9 +12,6 @@ installer:
 - merge:
     dst: $GAMEDIR/C/win31cd
     src: $DISC
-- extract:
-    dst: $GAMEDIR/C/DRIVERS/SB16
-    file: adrivers
 - copy:
     dst: $GAMEDIR
     src: dconf
@@ -21,10 +19,15 @@ installer:
     config_file: $GAMEDIR/dosbox_win31x_cd.conf
     name: dosexec
     working_dir: $GAMEDIR
-- task:
-    config_file: $GAMEDIR/dosbox_win31x_cd.conf
-    name: dosexec
-    working_dir: $GAMEDIR
+- extract:
+    dst: $GAMEDIR
+    file: utils
+- extract:
+    dst: $GAMEDIR
+    file: adrivers
+- chmodx: $GAMEDIR/install_drivers_sb16.sh
+- execute:
+    file: $GAMEDIR/install_drivers_sb16.sh
 - extract:
     dst: $GAMEDIR
     file: vdrivers
