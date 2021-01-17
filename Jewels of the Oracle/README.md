@@ -1,4 +1,4 @@
-# Jewels of the Oracle- CD + Windows 3.1x
+# Jewels of the Oracle - CD + Windows 3.1x
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
