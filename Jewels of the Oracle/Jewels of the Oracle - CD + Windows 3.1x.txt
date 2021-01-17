@@ -1,0 +1,31 @@
+custom-name: Legacy of Kain - Blood Omen - Verok's GL Wrapper/Patch
+files:
+- lok1mod: N/A:Please select "Legacy of Kain - Blood Omen - Verok's GL Wrapper/Patch"
+    available for download at https://verokster.blogspot.com/2018/05/legacy-of-kain-blood-omen-gl-wrapper.html
+game:
+  exe: $GAMEDIR/drive_c/Program Files/KAIN/KAIN.EXE
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE
+    file: lok1mod
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert Blood Omen - Legacy of Kain CD
+    requires: kain.exe
+- task:
+    args: /desktop=LOK1,800x600 $CACHE/SETUP.EXE
+    description: Installing Rise of Rome extension...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+wine:
+  Desktop: true
+  overrides:
+    ddraw.dll: n,b
+
