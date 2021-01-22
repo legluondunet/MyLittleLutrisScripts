@@ -4,8 +4,10 @@ files:
     your GOG account page.
 - engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/OpenJk.7z
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- modfx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/mods/FXMOD.zip
 game:
-  args: +set r_mode -2
+  args: +set fs_homepath . +set r_mode -2 +set r_noborder 1 +set r_centerWindow 1
+    +set s_kHz 44 +set cg_fovAspectAdjust 1 +set sp_language $INPUT_LANG
   exe: openjo_sp.x86_64
 installer:
 - extract:
@@ -20,4 +22,18 @@ installer:
 - merge:
     dst: $GAMEDIR/base
     src: $CACHE/app/GameData/base
+- input_menu:
+    description: 'Please choose your preferred game''s language for menu and subtitles:'
+    id: LANG
+    options:
+    - 0: English
+    - 1: French
+    - 2: German
+    preselect: 0
+- extract:
+    dst: $CACHE
+    src: modfx
+- merge:
+    dst: $GAMEDIR/base
+    src: $CACHE/assets8_Fx.pk3
 
