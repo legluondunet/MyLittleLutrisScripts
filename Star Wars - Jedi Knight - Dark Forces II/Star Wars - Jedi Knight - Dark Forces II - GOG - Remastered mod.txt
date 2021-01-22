@@ -1,12 +1,15 @@
-custom-name: Star Wars - Jedi Knight II - Jedi Outcast - GOG - JKMV
+custom-name: Star Wars - Jedi Knight - Dark Forces II - GOG - Remastered mod
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/jk2mv.tar.bz2
+- mod:
+    filename: jk-df-ii_remastered_mod.zip
+    url: https://www.dropbox.com/s/mapujt8vgrrokea/jk-df-ii_remastered_mod.zip?dl=1
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20-%20Dark%20Forces%20II/clean.sh
 game:
-  exe: bin/jk2mvmp
-installer:
+  exe: drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2/inject.exe
+  prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
@@ -18,9 +21,29 @@ installer:
     dst: $CACHE
     file: inno
 - execute:
-    args: gogsetup -d $CACHE
+    args: gogsetup -d "$GAMEDIR/drive_c/GOG Games"
     file: $CACHE/innoextract
-- merge:
-    dst: $GAMEDIR/drive_c/app
-    src: $CACHE/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/app
+    src: mod
+- task:
+    arch: win64
+    key: winmm
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: native,builtin
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 
