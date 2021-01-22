@@ -1,0 +1,23 @@
+custom-name: Star Wars - Jedi Knight II - Jedi Outcast - GOG - OpenJK
+files:
+- gogsetup: N/A:Please select the executable setup file available for download on
+    your GOG account page.
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/OpenJk.7z
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+game:
+  args: +set r_mode -2
+  exe: openjo_sp.x86_64
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: gogsetup -d $CACHE
+    file: $CACHE/innoextract
+- extract:
+    dst: $GAMEDIR
+    src: engine
+- merge:
+    dst: $GAMEDIR/base
+    src: $CACHE/app/GameData/base
+
