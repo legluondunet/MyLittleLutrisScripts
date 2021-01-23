@@ -46,6 +46,42 @@ installer:
     value: 0 0 0
 - task:
     arch: win64
+    key: 3DDeviceGUID
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Mysteries of the Sith\v1.0\
+    prefix: $GAMEDIR
+    type: REG_BINARY
+    value: 34,12,00,00,34,12,34,12,fe,ef,fe,ef,fe,ef,fe,ef
+- task:
+    arch: win64
+    key: b3DAccel
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Mysteries of the Sith\v1.0\
+    prefix: $GAMEDIR
+    type: REG_BINARY
+    value: 01,00,00,00
+- task:
+    arch: win64
+    key: displayDeviceGUID
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Mysteries of the Sith\v1.0\
+    prefix: $GAMEDIR
+    type: REG_BINARY
+    value: 00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+- task:
+    arch: win64
+    key: displayMode
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Mysteries of the Sith\v1.0\
+    prefix: $GAMEDIR
+    type: REG_BINARY
+    value: 01,00,00,00
+- task:
+    arch: win64
     key: viewSize
     name: set_regedit
     path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
