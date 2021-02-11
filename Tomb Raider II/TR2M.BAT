@@ -1,6 +1,7 @@
 @echo off
 color 4E
 c:\
+DEL "C:\Tomb Raider 2\Tomb2.dxvk-cache"
 goto launcher
 
 
