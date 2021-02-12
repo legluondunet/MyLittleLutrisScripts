@@ -1,8 +1,8 @@
 @echo off
 color 4E
-c:\
+c:
 goto launcher
-
+cd \
 
 :launcher
 cls
@@ -16,7 +16,7 @@ echo.	1) Tomb Raider II
 echo.	2) Tomb Raider II - Golden Mask
 echo.	3) Setup dialog box
 echo.	4) How to play TR2 with a gamepad
-echo.	5) exit
+echo.	5) Exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -35,28 +35,28 @@ if errorlevel 1 goto tr2
 
 :tr2
 cls
-cd "c:\Tomb Raider 2"
-start Tomb2.exe
-goto exit
+cd "c:\tomb raider 2"
+start tomb2.exe
+goto launcher
 
 :tr2gm
 cls
-cd "c:\Tomb Raider 2 Golden Mask"
-start Tomb2.exe -gold
-goto exit
+cd "c:\tomb raider 2 golden mask"
+start tomb2.exe -gold
+goto launcher
 
 
 :setup
 cls
-cd "c:\Tomb Raider 2"
-start Tomb2.exe -setup
+cd "c:\tomb raider 2"
+start tomb2.exe -setup
 goto launcher
 
 
 :gamepad
 cls
-start explorer c:\Tomb Raider 2\gamepad profiles\
-start iexplore c:\Tomb Raider 2\gamepad profiles\tr1-2_gamepad_readme.html
+start explorer c:\tomb raider 2\gamepad profiles\
+start iexplore c:\tomb raider 2\gamepad profiles\tr1-2_gamepad_readme.html
 goto launcher
 
 
