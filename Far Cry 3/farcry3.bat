@@ -9,6 +9,3 @@ if not exist %MyDocs%"\My Games\Far Cry 3\GamerProfile.xml" copy "c:\tmp\GamerPr
 
 "c:\program files (x86)\steam\steam.exe" -no-browser steam://run/220240
 
-
-
-
