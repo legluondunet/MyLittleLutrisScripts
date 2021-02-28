@@ -55,7 +55,7 @@ goto launcher
 
 :4
 cls
-cd cd "c:\gog games\civilization iv complete\civ4colonization"
+cd "c:\gog games\civilization iv complete\civ4colonization"
 start colonization.exe
 goto launcher
 
