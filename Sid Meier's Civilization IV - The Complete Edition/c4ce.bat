@@ -1,5 +1,5 @@
 @echo off
-color 4E
+color 0F
 c:
 goto launcher
 cd \
@@ -8,9 +8,9 @@ cd \
 cls
 echo.
 echo.
-echo.	------------------------------------------------
-echo.	 	CIVILIZATION IV Complete Edition
-echo.	------------------------------------------------
+echo.	---------------------------------------------------
+echo.	 Sid Meier's Civilization IV: The Complete Edition
+echo.	---------------------------------------------------
 echo.
 echo.	1) Civilization IV
 echo.	2) Civilization IV - Beyond Sword
@@ -18,7 +18,7 @@ echo.	3) Civilization IV - Warlords
 echo.	4) Civilization IV - Colonization
 echo.	5) Exit
 echo.
-echo.	------------------------------------------------
+echo.	---------------------------------------------------
 echo.
 echo.
 

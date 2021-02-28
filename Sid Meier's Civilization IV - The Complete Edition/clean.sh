@@ -7,6 +7,7 @@ lang=$3
 cd "drive_c/GOG Games"
 mv game "Civilization IV Complete"
 rm -f -r DirectXpackage app support tmp __unpacker userappdata userdocs
+cd ../..
 
 echo rwidth est égal à $rwidth
 echo rheight est égal à $rheight
