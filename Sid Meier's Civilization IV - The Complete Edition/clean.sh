@@ -4,12 +4,15 @@ rwidth=$1
 rheight=$2
 lang=$3
 
+cd "drive_c/GOG Games"
+mv game "Civilization IV Complete"
+rm -f -r DirectXpackage app support tmp __unpacker userappdata userdocs
+
 echo rwidth est égal à $rwidth
 echo rheight est égal à $rheight
 echo lang est égal à $lang
 
 sed -i -e 's/ScreenWidth = 0/ScreenWidth = '$rwidth'/g' -e 's/ScreenHeight = 0/ScreenHeight = '$rheight'/g' -e 's/Language = 0/Language = '$lang'/g' drive_c/tmp/CivilizationIV.ini
-
 
 mydoc=$(grep -i personal user.reg | grep $USER)
 echo mydoc est égal à $mydoc
