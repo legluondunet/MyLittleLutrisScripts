@@ -1,19 +1,34 @@
-custom-name: Far Cry 3 - Windows Steam Standalone
+custom-name: Far Cry 3 - Ubisoft Connect Standalone
 files:
-- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/farcry3.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/farcry3.bmp
+- ubisoftconnect: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
 - fc3cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
-- uplaycfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/settings.yml
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/farcry3.bmp
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/clean.sh
 game:
-  exe: drive_c/farcry3.bat
+  args: uplay://launch/46/0
+  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    description: Preparing wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
+- task:
+    app: corefonts d3dcompiler_47 faudio
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    executable: ubisoftconnect
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: fc3cfg
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 - task:
     arch: win64
     key: background
@@ -22,28 +37,8 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    args: /S
-    description: Installing Steam...
-    executable: steamsetup
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    app: corefonts d3dcompiler_47 faudio
-    name: winetricks
-    prefix: $GAMEDIR
 - merge:
-    dst: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
-      Launcher/
-    src: uplaycfg
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: fc3cfg
-- merge:
-    dst: $GAMEDIR/drive_c/
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - task:
     arch: win64
@@ -53,21 +48,14 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\farcry3.bmp
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- execute:
-    command: cd "$GAMEDIR/drive_c/tmp" ; sed -i -e 's/ResolutionX="0"/ResolutionX="$RESOLUTION_WIDTH"/g'
-      -e 's/ResolutionY="0"/ResolutionY="$RESOLUTION_HEIGHT"/g' GamerProfile.xml ;
 system:
   env:
     PULSE_LATENCY_MSEC: '90'
     WINE_FORCE_LARGE_ADDRESS_AWARE: '1'
 wine:
   Desktop: true
+  esync: true
+  overrides:
+    overlay: disabled
+    xaudio2_7: native,builtin
 

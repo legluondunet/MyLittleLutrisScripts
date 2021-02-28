@@ -13,7 +13,8 @@ installer:
     - RU: Russia
     preselect: EU
 - execute:
-    command: cd "$CACHE"; wget https://redirect.wargaming.net/WGC/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe;
+    command: cd "$CACHE"; wget https://redirect.wargaming.net/WGC/Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe
+      -O Wargaming_Game_Center_Install_WoT_$INPUT_LOCAL.exe;
 - task:
     arch: win64
     description: Creating Wine prefix

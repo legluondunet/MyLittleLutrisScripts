@@ -1,0 +1,18 @@
+custom-name: Quest for Glory II - Trial By Fire - ADGI Remake
+files:
+- setupfile: N/A:Please select the executable file available for download at http://www.agdinteractive.com/games/qfg2/downloads/thegame/downloads_snd.html
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+game:
+  main_file: $GAMEDIR/Qfg2vga.exe
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" "$setupfile"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/app
+
+
