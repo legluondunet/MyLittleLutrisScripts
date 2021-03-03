@@ -1,10 +1,105 @@
-exe: 0ad.sh
 files:
-- game: https://lutris.nyc3.digitaloceanspaces.com/games/0ad/0ad_Alpha_0.24.tar.xz
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/c4ce.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/c4ce.bmp
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/clean.sh
+- cfgfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/CivilizationIV.ini
+game:
+  arch: win64
+  args: c:\\c4ce.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR
-    file: game
-    format: txz
-- chmodx: $GAMEDIR/0ad.sh
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/drive_c/GOG Games"
+    file: $CACHE/innoextract/innoextract
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menu
+- task:
+    app: vcrun2003 win7
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Please choose game''s language:'
+    id: LANG
+    options:
+    - 0: English
+    - 1: French
+    - 2: German
+    - 3: Italian
+    - 4: Spanish
+    preselect: 0
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: cfgfile
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT $INPUT_LANG
+    file: script
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\c4ce.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: InactiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 225 10 10
+- task:
+    arch: win64
+    key: GradientInactiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 225 10 10
+wine:
+  Desktop: true
 
