@@ -26,7 +26,7 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- RealRTCW Git version 3-7da5805 x64 - 04 march 2021
+- RealRTCW Git version 3-4da50e6 x64 - 19 september 2020
 - You will need to download RealRTCW mod version 3.0, full or light edition,  from https://www.moddb.com/mods/realrtcw-realism-mod/news/realrtcw-30-complete-edition before to launch this installer
 - Use "Alt-Tab": press "shift + ²" to obtain console, then "Alt"+"Enter" to enter RealTCW window mode. Now you can use "Alt-Tab"
 - x360 gamepad compatible
