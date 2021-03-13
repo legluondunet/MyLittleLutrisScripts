@@ -1,4 +1,4 @@
-custom-name: Return to Castle Wolfenstein - GOG - RealRTCW
+custom-name: Return to Castle Wolfenstein - GOG - RealRTCW mod
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - realrtcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/RealRTCW_x64.7z

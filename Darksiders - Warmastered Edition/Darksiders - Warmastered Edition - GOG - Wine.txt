@@ -1,17 +1,16 @@
 custom-name: Darksiders - Warmastered Edition - GOG
 files:
-- mfplatinstall: https://github.com/z0z0z/mf-installcab/archive/master.zip
 - mfplatdll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/mfplat.7z
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
 game:
-  arch: win64
+  arch: win32
   exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.exe
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
+    arch: win32
     description: Creating WINE prefix
     install_gecko: false
     install_mono: false
@@ -23,34 +22,37 @@ installer:
 - execute:
     args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
     file: $CACHE/innoextract
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/tmp
-    src: mfplatinstall
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/tmp"; WINEPREFIX="$GAMEDIR" ./install-mf-64.sh
-      ; cd "$GAMEDIR/drive_c/GOG Games"; mv app "Darksiders Warmastered Edition" ;
-      cd "Darksiders Warmastered Edition"; rm -f -r __support GameuxInstallHelper.dll
+    command: cd "$GAMEDIR/drive_c/GOG Games"; mv app "Darksiders Warmastered Edition"
+      ; cd "Darksiders Warmastered Edition"; rm -f -r __support GameuxInstallHelper.dll
       gog* *.lnk Support.ico unins000.* webcache.zip ../tmp;
+- task:
+    app: mf
+    name: winetricks
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    component: mediafoundation
+    name: install_cab_component
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    component: mf_
+    name: install_cab_component
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    component: mfreadwrite
+    name: install_cab_component
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    component: wmadmod
+    name: install_cab_component
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    component: wmvdecod
+    name: install_cab_component
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
-    src: mfplatdll
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-require-binaries: python2 cabextract
+    file: mfplatdll
+requires-binaries: cabextract
 system:
   env:
     __GL_SHADER_DISK_CACHE: 1
@@ -58,6 +60,6 @@ system:
   pulse_latency: false
 wine:
   Desktop: true
+  dxvk: true
   esync: true
-  version: lutris-5.7-11-x86_64
 

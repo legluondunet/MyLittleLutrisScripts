@@ -21,7 +21,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts
 ### Description:
 This script will facilitate you install of this game on Linux OS:
 "Return to Castle Wolfenstein" provided by GOG using RealRTCW project:
-https://github.com/wolfetplayer/RealRTCW and RealRTCW mod.
+https://github.com/wolfetplayer/RealRTCW and RealRTCW mod 3.0.
 During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 

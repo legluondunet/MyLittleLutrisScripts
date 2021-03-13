@@ -8,22 +8,20 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	Unreal Tournament (1999) - CD + OldUnreal patch
+echo.	   Unreal Tournament (1999) + OldUnreal patch
 echo.	------------------------------------------------
 echo.
 echo.	1) Play Unreal Tournament (Windows version)
 echo.	2) Play Unreal Tournament (Linux version)
-echo.	3) How to play Unreal Gold with a gamepad (WIP)
-echo.	4) exit
+echo.	3) Exit
 echo.
 echo.	------------------------------------------------
 echo.
 echo.
 
 
-choice /c1234 /s /N Your choice? [1-4]:
-if errorlevel 4 goto :exit
-if errorlevel 3 goto :gamepad
+choice /c123 /s /N Your choice? [1-3]:
+if errorlevel 3 goto :exit
 if errorlevel 2 goto :playlinux
 if errorlevel 1 goto :playws
 
@@ -45,12 +43,6 @@ IF EXIST "c:\UnrealTournament\" (
 )
 start /unix ./ut-bin
 goto :launcher
-
-:gamepad
-cls
-rem start explorer "c:\GOG Games\Unreal Gold\gamepad profiles\"
-rem start iexplore "c:\GOG Games\Unreal Gold\gamepad profiles\unreal_gamepad_readme.html"
-goto launcher
 
 :exit
 exit

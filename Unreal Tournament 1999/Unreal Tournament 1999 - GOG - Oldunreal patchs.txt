@@ -1,7 +1,7 @@
 custom-name: Unreal Tournament (1999) - GOG and OldUnreal Patchs
 files:
-- patchws: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469a/OldUnreal-UTPatch469a-Windows.zip
-- patchlx: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469a/OldUnreal-UTPatch469a-Linux.tar.bz2
+- patchws: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Windows.zip
+- patchlx: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Linux.tar.bz2
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%201999/unreal_tournament.bmp
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%201999/unreal_tournament.bat
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
@@ -22,7 +22,7 @@ installer:
     args: /SILENT /SP- /NOCANCEL /SUPPRESSMSGBOXES
     executable: gogsetup
     name: wineexec
-    prefix: $GAMEDIR/
+    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
     file: patchws
@@ -71,10 +71,10 @@ installer:
         UseRawHIDInput: true
     file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.ini
 - copy:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: menu
 - copy:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - write_file:
     content: '#!/bin/bash
