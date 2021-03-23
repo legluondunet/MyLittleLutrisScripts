@@ -1,7 +1,7 @@
 custom-name: Assassin's Creed IV - Black Flag - Ubisoft Connect Standalone
 files:
 - ubisoftconnect: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Assassin's%20Creed%20IV%20-%20Black%20Flag/acreediv.bmp
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Assassin's%20Creed%20IV%20-%20Black%20Flag/ac4.bmp
 game:
   args: uplay://launch/273/0
   exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
