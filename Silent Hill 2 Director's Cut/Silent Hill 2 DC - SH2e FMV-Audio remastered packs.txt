@@ -1,4 +1,4 @@
-extends: silent-hill-2
+extends: silent-hill-2-directors-cut
 files:
 - sh2efmv: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_FMV_Pack_1.5.2.zip
 - sh2eaudio: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Audio_Enhancement_Pack_2.0.3.zip
