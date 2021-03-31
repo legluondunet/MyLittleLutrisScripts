@@ -31,7 +31,7 @@ installer:
     dst: $GAMEDIR/drive_c
     src: menu
 - task:
-    app: vcrun2003 win7
+    app: vcrun2003 msxml3 win7
     arch: win64
     name: winetricks
     prefix: $GAMEDIR

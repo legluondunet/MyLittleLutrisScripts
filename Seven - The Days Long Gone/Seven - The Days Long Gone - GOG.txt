@@ -1,0 +1,30 @@
+custom-name: Seven - The Days Long Gone - GOG
+files:
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account
+game:
+  arch: win64
+  exe: drive_c/GOG Games/Seven The Days Long Gone/Seven.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: vcrun2015
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: win7
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Installing...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+wine:
+  Desktop: true
+  esync: true
+

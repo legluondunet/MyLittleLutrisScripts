@@ -6,7 +6,7 @@ files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 game:
   args: +set fs_homepath . +set r_mode -2 +set r_noborder 1 +set r_centerWindow 1
-    +set s_kHz 44 +set cg_fovAspectAdjust 1 +set sp_language $INPUT_LANG
+    +set s_kHz 44 +set cg_fovAspectAdjust 1 +set se_language $INPUT_LANG
   exe: $GAMEDIR/openjk.x86_64
 installer:
 - extract:
