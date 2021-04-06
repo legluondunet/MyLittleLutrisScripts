@@ -1,7 +1,7 @@
 custom-name: Diablo - GOG - Tchernobog
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.1.6.g/Release0.1.6g.7z
+- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.0e/Release0.2.0e.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/Tchernobog_plus.7z
 - gog: N/A:Please select the gog installer for this game
 game:

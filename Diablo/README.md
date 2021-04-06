@@ -1,4 +1,4 @@
-# Diablo - GOG - Devilutionx Linux x64
+# Diablo - GOG - Devilutionx for Linux
 
 ### Description:
 This script will facilitate you install on this game on Linux OS:
@@ -7,7 +7,7 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
 
 ### Technical notes:
-- Version 1.1.0 (git commit 5408576 - 11 october 2020)
+- DevilutionX Appimage 1.2.0 version from official Github
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
@@ -20,7 +20,7 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- Tchernobog  v0.1.6g - 20 November 2020
+- Tchernobog  v0.2.0e
 - To find others players for online games, ask on Discord: https://discord.gg/82BaSAP
 - You will be able to change video options (fullscreen, resolution...) only during gaming: press "esc", "video options"
 - Please report issue concerning this script on my Github page:

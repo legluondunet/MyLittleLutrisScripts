@@ -1,0 +1,49 @@
+custom-name: Sherlock Holmes versus Jack the Ripper - GOG
+files:
+- gogsetup: N/A:Please select the executable setup file available for download on
+    your GOG account page.
+game:
+  exe: drive_c/GOG Games/Sherlock Holmes vs Jack the Ripper/game.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SP- /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Please choose your preferred game''s language for menus and subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - cz: Czech
+    - de: German
+    - it: Italian
+    - pl: Polish
+    - br: Portuguese-Brazil
+    - ru: Russian
+    - es: Spanish
+    preselect: en
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Sherlock Holmes vs Jack the Ripper"; sed
+      -i 's/^lang.*/lang = "$INPUT_LANG"/' game.ini ;
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
+
