@@ -26,18 +26,6 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/
     src: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/__support/app/swkotor.ini
-- write_config:
-    data:
-      Graphics Options:
-        AllowWindowedMode: 1
-        Anti Aliasing: 2
-        FullScreen: 1
-        Height: $RESOLUTION_HEIGHT
-        RefreshRate: 60
-        Texture Quality: 2
-        V-Sync: 1
-        Width: $RESOLUTION_WIDTH
-    file: $GAMEDIR/drive_c/GOG Games/Star Wars - KotOR/swkotor.ini
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT

@@ -8,6 +8,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 ### Technical notes:
 - DevilutionX Appimage 1.2.0 version from official Github
+- Choose to play between Diablo Classic or Hellfire version
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 

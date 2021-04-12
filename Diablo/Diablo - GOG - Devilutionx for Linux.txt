@@ -3,21 +3,33 @@ files:
 - diablosetup: N/A:Select the EXE downloaded from GOG
 - dvltx: https://github.com/diasurgical/devilutionX/releases/download/1.2.0/devilutionx-linux-x86_64.appimage
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/devilutionx_gog.sh
 game:
-  exe: $GAMEDIR/devilutionx-linux-x86_64.appimage
+  exe: $GAMEDIR/devilutionx_gog.sh
   prefix: $GAMEDIR
 installer:
 - copy:
     dst: $GAMEDIR
     src: dvltx
+- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
 - extract:
     dst: $CACHE/innoextract
     file: inno
 - execute:
-    args: --extract $diablosetup --output-dir $CACHE/diabdat
+    args: --extract $diablosetup --output-dir $CACHE
     file: $CACHE/innoextract/innoextract
-- move:
-    dst: $GAMEDIR/diabdat.mpq
-    src: $CACHE/diabdat/DIABDAT.MPQ
-- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
+- merge:
+    dst: $GAMEDIR/hellfire
+    src: $CACHE/hellfire
+- copy:
+    dst: $GAMEDIR/classic
+    src: $CACHE/DIABDAT.MPQ
+- chmodx: menu
+- copy:
+    dst: $GAMEDIR
+    src: menu
+- execute:
+    command: cd "$CACHE"; cp *.PDF "$GAMEDIR/classic"; cd "$GAMEDIR/hellfire"; ln
+      -s ../classic/DIABDAT.MPQ .; rm -f -r *.dll language.inf sierra.inf Standard.snp;
+require-binaries: zenity
 
