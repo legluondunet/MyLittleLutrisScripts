@@ -1,35 +1,56 @@
-custom-name: Diablo - GOG - DevilutionX for Linux
+custom-name: Diablo - GOG - Tchernobog
 files:
-- diablosetup: N/A:Select the EXE downloaded from GOG
-- dvltx: https://github.com/diasurgical/devilutionX/releases/download/1.2.0/devilutionx-linux-x86_64.appimage
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/devilutionx_gog.sh
+- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.0e/Release0.2.0e.zip
+- gog: N/A:Please select the gog installer for this game
 game:
-  exe: $GAMEDIR/devilutionx_gog.sh
+  arch: win64
+  exe: drive_c/Diablo Tchernobog/Tchernobog.exe
   prefix: $GAMEDIR
 installer:
-- copy:
-    dst: $GAMEDIR
-    src: dvltx
-- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
     dst: $CACHE/innoextract
     file: inno
 - execute:
-    args: --extract $diablosetup --output-dir $CACHE
+    args: --extract $gog --output-dir "$CACHE/"
     file: $CACHE/innoextract/innoextract
-- merge:
-    dst: $GAMEDIR/hellfire
-    src: $CACHE/hellfire
-- copy:
-    dst: $GAMEDIR/classic
+- extract:
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+    file: tchernobog
+- move:
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
     src: $CACHE/DIABDAT.MPQ
-- chmodx: menu
-- copy:
-    dst: $GAMEDIR
-    src: menu
-- execute:
-    command: cd "$CACHE"; cp *.PDF "$GAMEDIR/classic"; cd "$GAMEDIR/hellfire"; ln
-      -s ../classic/DIABDAT.MPQ .; rm -f -r *.dll language.inf sierra.inf Standard.snp;
-require-binaries: zenity
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 242 59 13
+wine:
+  Desktop: true
 

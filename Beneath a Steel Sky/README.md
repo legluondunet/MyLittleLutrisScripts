@@ -1,14 +1,14 @@
 # Beneath a Steel Sky - GOG - ScummVM
 
 ### Description:
-This script will facilitate you install of this game on Linux:
-"Beneath a Steel Sky" provided by GOG with Lutris ScummVM runner.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+This script will facilitate you install of this game on Linux OS:
+"Beneath a Steel Sky" provided by GOG using ScummVM.
+Thanks to the people who helped us play this game in the best conditions on Linux.
 
 ### Technical notes:
 - Multilanguage: you could choose your preferred game language during install between english (default), french, german, spanish and italian.
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Beneath a Steel Sky - extra ScummVM - ScummVM
 
