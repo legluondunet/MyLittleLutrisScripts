@@ -15,10 +15,10 @@ CHOICE=$(zenity_base --list --radiolist --height="200" \
 echo "valeur de la variable CHOICE: " $CHOICE
     case "$CHOICE" in
         "$singleplayer")
-            ./openjk_sp.x86_64 +set fs_homepath . +set r_mode -2 +set r_noborder 1 +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set se_language French
+            ./openjk_sp.x86_64 +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1 +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 2 +set se_language English
             ;;
         "$multiplayer")
-            ./openjk.x86_64 +set fs_homepath . +set r_mode -2 +set r_noborder 1 +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set se_language French
+            ./openjk.x86_64 +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1 +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 2 +set se_language English
 	     ;;
     esac
 
