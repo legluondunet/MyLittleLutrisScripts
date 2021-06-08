@@ -1,11 +1,13 @@
 custom-name: Caesar III - GOG - Augustus
 files:
-- engine: https://github.com/Keriew/augustus/releases/download/v2.0.1/augustus-2.0.1-linux-x86_64.zip
+- engine:
+    filename: augustus-linux.AppImage
+    url: https://github.com/Keriew/augustus/releases/download/v3.0.1/augustus-3.0.1-linux.AppImage
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 game:
-  exe: augustus
+  exe: augustus-linux.AppImage
 installer:
 - extract:
     dst: $CACHE
@@ -19,5 +21,5 @@ installer:
 - extract:
     dst: $GAMEDIR
     src: engine
-- chmodx: $GAMEDIR/augustus
+- chmodx: $GAMEDIR/augustus-linux.AppImage
 
