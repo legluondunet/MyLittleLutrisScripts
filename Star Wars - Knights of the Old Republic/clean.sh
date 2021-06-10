@@ -38,7 +38,7 @@ cp swkotor.exe swkotor.exe.ori
 LD_LIBRARY_PATH=/usr/lib patch < swkotor1_gog_ws_1920x1080.patch swkotor.exe
 
 # config file
-sed -i -e 's/Anti Aliasing=.*/Anti Aliasing=1/' -e '/\[Graphics Options\]/a Width\=1920' -e '/\[Graphics Options\]/a Height\=1080' -e '/\[Graphics Options\]/a AllowWindowedMode\=1' -e '/\[Graphics Options\]/a RefreshRate\=60' swkotor.ini
+sed -i -e 's/Anti Aliasing=.*/Anti Aliasing=1/' -e '/\[Graphics Options\]/a Width\=1920' -e '/\[Graphics Options\]/a Height\=1080' -e '/\[Graphics Options\]/a AllowWindowedMode\=1' -e '/\[Graphics Options\]/a RefreshRate\=60' -e 's/Disable Vertex Buffer Objects=.*/Disable Vertex Buffer Objects=0/' swkotor.ini
 
 # clean
 mkdir saves
