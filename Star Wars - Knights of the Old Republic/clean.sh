@@ -20,9 +20,9 @@ wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20War
 
 # extract all 7z archives
 7z x -aoa .
-mkdir -p "../GOG Games/Star Wars - KotOR/override"
 
 # install mods
+mkdir -p "../GOG Games/Star Wars - KotOR/override"
 cp "16-by-9/gui.1920x1080/"* "../GOG Games/Star Wars - KotOR/override"
 cp "[K1]_Main_Menu_Widescreen_Fix_v1.2/For Override/"* "../GOG Games/Star Wars - KotOR/override"
 cp "HD MENU AND UI Art v 1.0/"* "../GOG Games/Star Wars - KotOR/override"
@@ -38,8 +38,8 @@ cp swkotor.exe swkotor.exe.ori
 LD_LIBRARY_PATH=/usr/lib patch < swkotor1_gog_ws_1920x1080.patch swkotor.exe
 
 # config file
-sed -i -e 's/Anti Aliasing=.*/Anti Aliasing=1/' -e '/\[Graphics Options\]/a Width\=1920' -e '/\[Graphics Options\]/a Height\=1080' -e '/\[Graphics Options\]/a AllowWindowedMode\=1' -e '/\[Graphics Options\]/a RefreshRate\=60' swkotor.ini
+sed -i -e 's/Anti Aliasing=.*/Anti Aliasing=1/' -e '/\[Graphics Options\]/a Width\=1920' -e '/\[Graphics Options\]/a Height\=1080' -e '/\[Graphics Options\]/a AllowWindowedMode\=1' -e '/\[Graphics Options\]/a RefreshRate\=60' -e 's/Disable Vertex Buffer Objects=.*/Disable Vertex Buffer Objects=0/' swkotor.ini
 
 # clean
-# rm -f -r app commonappdata __redist __support tmp goggame-1207666283.* 'swkotor1_gog_ws_1920x1080.patch' ../../tmp ;
-
+mkdir saves
+rm -f -r app commonappdata __redist __support tmp goggame-1207666283.* 'swkotor1_gog_ws_1920x1080.patch' ../../tmp ;
