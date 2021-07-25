@@ -27,9 +27,11 @@ installer:
       ScreenHeight                $RESOLUTION_HEIGHT
 
       VerticalSync                1
+      
+      AspectRatio                 3
 
       '
-    file: "$GAMEDIR/drive_c/users/$USER/Application Data/LucasArts/LEGO\xAE Indiana\
+    file: "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/LucasArts/LEGO\xAE Indiana\
       \ Jones\u2122 2/pcconfig.txt"
 - task:
     app: d3dcompiler_47
@@ -52,7 +54,7 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - execute:
-    comand: cd "$GAMEDIR"; rm -f -r __support GameExplorerHelper.dll goggame-1432943043.*
+    command: cd "$GAMEDIR"; rm -f -r __support GameExplorerHelper.dll goggame-1432943043.*
       webcache.zip;
 wine:
   Desktop: true
