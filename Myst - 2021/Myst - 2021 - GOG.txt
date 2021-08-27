@@ -1,0 +1,30 @@
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
+game:
+  args: -d3d11
+  exe: drive_c/Myst/Myst.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/drive_c/MYST"
+    file: $CACHE/innoextract/innoextract
+- task:
+    app: vcrun2019
+    arch: win64
+    name: winetricks
+    prefix: $GAMEDIR
+wine:
+  Desktop: true
+

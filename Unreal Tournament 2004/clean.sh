@@ -14,18 +14,19 @@ sed -i "s/FullscreenViewportY.*/FullscreenViewportY=$height/g" Default.ini
 sed -i "s/UseVSync=False/UseVSync=True/g" Default.ini
 sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 
-echo "Create cdkey file for Linux version"
+#echo "Create cdkey file for Linux version"
 
-time=1
-while [ $time -le 30 ] && [ -z "$cdkey" ]
-do
-	echo "waiting for cdkey since "$time" s"
-	sleep 1s
-	time=$(( $time + 1 ))
-cdkey=$(cat "../../../../system.reg" |grep "CDKey" | cut -c10-32)
-done
+#time=1
+#while [ $time -le 30 ] && [ -z "$cdkey" ]
+#do
+#	echo "waiting for cdkey since "$time" s"
+#	sleep 1s
+#	time=$(( $time + 1 ))
+#cdkey=$(cat "../../../../system.reg" |grep "CDKey" | cut -c10-32)
+#done
 
-echo $cdkey > cdkey
+#echo $cdkey > cdkey
+touch cdkey
 
 cd ..
 rm -f -r gog* *.lnk support.ico unins000.* webcache.zip
