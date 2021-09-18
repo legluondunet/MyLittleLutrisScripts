@@ -8,7 +8,7 @@ During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- dhewm3 version 1.5.2pre.1305 (commit 443802b)
+- dhewm3 version 1.5.2pre.1305 commit 443802b
 - You have to install "Doom 3" on Steam before to launch this Lutris script installer
 - During install you could choose:
 -- language: english (default), italian, polish, french, spanish
