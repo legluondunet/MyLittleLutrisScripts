@@ -1,6 +1,6 @@
 custom-name: Doom 3 - dhewm3 - Steam data
 files:
-- doom3-engine: https://lutris.net/files/games/doom-3/dhewm-master-x86_64.tar.gz
+- doom3-engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/dhewm-master-x86_64.tar.xz
 game:
   args: +set fs_configpath .
   exe: dhewm3
@@ -53,4 +53,3 @@ installer:
     command: cd "$GAMEDIR/base"; rm -f -r zpak*; wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.001
       https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.002;
       7z e doom3_$INPUT_LANG.7z.001; rm -f -r doom3_$INPUT_LANG.7z.001 doom3_$INPUT_LANG.7z.002;
-
