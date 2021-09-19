@@ -49,5 +49,3 @@ system:
 wine:
   Desktop: true
   esync: true
-  version: lutris-5.7-11-x86_64
-
