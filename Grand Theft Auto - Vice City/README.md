@@ -7,4 +7,4 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
 
 ### Technical notes:
-- reVC compiled 21 september 2021 from Github, version: commit a16fcd8
+- reVC Github version commit a16fcd8, compiled 21 september 2021
