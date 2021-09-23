@@ -1,6 +1,6 @@
 custom-name: Grand Theft Auto III - Steam data - re3
 files:
-- engine: N/A:Please select re3 engine archive
+- engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/re3.tar.xz
 game:
   exe: re3
 installer:
