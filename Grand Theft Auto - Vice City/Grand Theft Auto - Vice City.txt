@@ -1,6 +1,6 @@
 custom-name: Grand Theft Auto III - Vice City - Steam data - reVC
 files:
-- engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/re3.tar.xz
+- engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/reVC.tar.xz
 game:
   exe: reVC
 installer:
