@@ -1,4 +1,4 @@
-custom-name: Quake - The Offering - GOG - Epsilon
+custom-name: Quake - The Offering - GOG - Epsilon for Linux
 files:
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
     GOG account.
@@ -12,93 +12,42 @@ files:
     download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v254
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bat
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
 - bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_linux.sh
 game:
-  arch: win64
-  args: c:\\quake.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
-  prefix: $GAMEDIR
+  args: quake.sh
 installer:
-- task:
-    arch: win64
-    description: Creating Wine prefix
-    install_gecko: false
-    install_mono: false
-    name: create_prefix
-    prefix: $GAMEDIR
 - extract:
     dst: $CACHE
     file: inno
 - execute:
-    args: -d "$GAMEDIR/drive_c/tmp/" --gog "$gogsetup"
+    args: -d "$GAMEDIR/tmp" --gog "$gogsetup"
     file: $CACHE/innoextract
 - extract:
-    dst: $GAMEDIR/drive_c/Epsilon
+    dst: $GAMEDIR/Epsilon
     file: epsilonpack
 - extract:
-    dst: $GAMEDIR/drive_c/Epsilon/
+    dst: $GAMEDIR/Epsilon
     src: mp1
 - extract:
-    dst: $GAMEDIR/drive_c/Epsilon/
+    dst: $GAMEDIR/Epsilon
     src: mp2
 - extract:
-    dst: $GAMEDIR/drive_c/Epsilon/
+    dst: $GAMEDIR/Epsilon
     src: mp3
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/app
+    dst: $GAMEDIR/tmp/app
     src: cdrtools
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
+- chmodx: menu
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR
     src: menu
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR
     src: bgi
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\quake.bmp
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
-wine:
-  Desktop: true
-
+require-binaries: zenity
