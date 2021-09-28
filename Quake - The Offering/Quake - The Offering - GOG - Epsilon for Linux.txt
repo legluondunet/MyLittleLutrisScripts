@@ -13,7 +13,6 @@ files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
-- bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_linux.sh
 game:
   args: quake.sh
@@ -47,7 +46,4 @@ installer:
 - move:
     dst: $GAMEDIR
     src: menu
-- move:
-    dst: $GAMEDIR
-    src: bgi
 require-binaries: zenity
