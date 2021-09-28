@@ -1,56 +1,37 @@
 #!/bin/bash
 
-@echo off
-color 08
-c:\
-goto launcher
-
-:launcher
-cls
-echo.
-echo.
-echo.	--------------------------------------------------------------
-echo.		   Quake - The Offering - GOG - Epsilon
-echo.	--------------------------------------------------------------
-echo.
-echo.	1) Play Quake - The Offering - Windows version
-echo.	2) Play QTO - Mission Pack 1 - Scourge of Armagon 
-echo.	3) Play QTO - Mission Pack 2 - Dissolution of Eternity 
-echo.	4) Play QTO - Mission Pack 3 - Abyss of Pandemonium 
-echo.
-echo.	--------------------------------------------------------------
-echo.	5) Exit
-echo.	--------------------------------------------------------------
-echo.
-echo.   Your choice? [1-5]: 
-choice /c12345 /s /N 	
-if errorlevel 5 goto :playlinux5
-if errorlevel 4 goto :playwin4
-if errorlevel 3 goto :playwin3
-if errorlevel 2 goto :playwin2
-if errorlevel 1 goto :playwin
+cd Epsilon
 
 
-:playwin
-cd c:\Epsilon
-start darkplaces.exe
-goto :launcher
+zenity_base() {
+zenity "$@" --icon-name='lutris' --width="450" --height="250"  --title="Quake - The offering"
+}
 
-:playwin2
-cd c:\Epsilon
-start darkplaces.exe -hipnotic
-goto :launcher
+classic="Play Quake Classic version"
+scourge="Play Quake - Mission Pack 1 - Scourge of Armagon"
+eternity="Play Quake - Mission Pack 2 - Dissolution of Eternity"
+abyss="Play Quake - Mission Pack 3 - Abyss of Pandemonium"
 
-:playwin3
-cd c:\Epsilon
-start darkplaces.exe -rogue
-goto :launcher
+CHOICE=$(zenity_base --list --radiolist  \
+        --column="" --column="" \
+        "TRUE" "$classic" \
+        "FALSE" "$scourge" \
+        "FALSE" "$eternity" \
+        "FALSE" "$abyss" )
 
-:playwin4
-cd c:\Epsilon
-start darkplaces.exe -rogue -game abyss
-goto :launcher
-
-:exit
-exit
+echo "valeur de la variable CHOICE: " $CHOICE
+    case "$CHOICE" in
+        "$classic")
+            ./darkplaces-linux-x86_64-sdl
+            ;;
+        "$scourge")
+            ./darkplaces-linux-x86_64-sdl -hipnotic
+	     ;;
+        "$eternity")
+            ./darkplaces-linux-x86_64-sdl -rogue
+	     ;;	 
+        "$abyss")
+            ./darkplaces-linux-x86_64-sdl -rogue -game abyss
+	     ;;	         
+    esac
 
