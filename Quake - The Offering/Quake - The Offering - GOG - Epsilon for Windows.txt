@@ -1,0 +1,53 @@
+custom-name: Quake - The Offering - GOG - Epsilon for Linux
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
+- epsilonpack: N/A:Please select "Quake Epsilon Build v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/quake-epsilon-build-v254
+- mp1: N/A:Please select "Epsilon Mission Pack 1 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-1-addon-v254
+- mp2: N/A:Please select "Epsilon Mission Pack 2 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-2-addon-v254
+- mp3: N/A:Please select "Epsilon Mission Pack 3 Addon v2.54" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v254
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
+- bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_linux.sh
+game:
+  args: quake.sh
+installer:
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/tmp" --gog "$gogsetup"
+    file: $CACHE/innoextract
+- extract:
+    dst: $GAMEDIR/Epsilon
+    file: epsilonpack
+- extract:
+    dst: $GAMEDIR/Epsilon
+    src: mp1
+- extract:
+    dst: $GAMEDIR/Epsilon
+    src: mp2
+- extract:
+    dst: $GAMEDIR/Epsilon
+    src: mp3
+- extract:
+    dst: $GAMEDIR/tmp/app
+    src: cdrtools
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
+- chmodx: menu
+- move:
+    dst: $GAMEDIR
+    src: menu
+- move:
+    dst: $GAMEDIR
+    src: bgi
+require-binaries: zenity
