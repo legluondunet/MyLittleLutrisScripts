@@ -1,10 +1,9 @@
-custom-name: Unreal Tournament 2004 - GOG
 files:
-- ut2004x: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004_linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bat
 - bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bmp
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/clean.sh
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.bat
 game:
   arch: win64
   args: c:\\ut2004.bat
@@ -18,15 +17,15 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP /SILENT
-    executable: gogsetup
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/
-    format: txz
-    src: ut2004x
+    dst: $CACHE/
+    src: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/Unreal Tournament 2004" -g $gogsetup
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/Unreal Tournament 2004
+    src: $GAMEDIR/drive_c/Unreal Tournament 2004/__support/app
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
@@ -37,6 +36,13 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/
     src: bmp
+- task:
+    arch: win64
+    key: CDKey
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004
+    type: REG_SZ
+    value: 3QHVC-DHA9K-A84RE-KYRT4
 - task:
     arch: win64
     key: wallpaper
@@ -95,4 +101,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-
