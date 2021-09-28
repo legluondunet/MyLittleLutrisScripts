@@ -50,5 +50,6 @@ cd ..
 if [ -d tmp ]
 then
 #rm -f -r tmp
+echo ok
 fi
 
