@@ -50,14 +50,14 @@ echo.	Do you want to change enter your UT2004 personnal CDKey
 echo.	provided by GOG support now?  
 set /p yesno=	(Y)es? (N)o?
 
-If /I "%INPUT%"=="y" goto yes 
-If /I "%INPUT%"=="n" goto :launcher
+If /I "%yesno%"=="y" goto :yes 
+If /I "%yesno%"=="n" goto :launcher
 
 :yes
-set /p id=	Enter your UT2004 personnal CDKey/n provided by GOG support: 
-echo %id%
-reg add "HKLM\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004" /t REG_SZ /v CDKey /d %id% /f
-echo. 	UT2004 CDKey %id% has been corrrectly changed.
+echo.	Enter your UT2004 personnal CDKey provided by GOG support:
+set /p CDKEY=	
+reg add "HKLM\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004" /t REG_SZ /v CDKey /d %CDKEY% /f
+echo. 	UT2004 CDKey %CDKEY% has been corrrectly changed.
 pause
 goto :launcher
 
