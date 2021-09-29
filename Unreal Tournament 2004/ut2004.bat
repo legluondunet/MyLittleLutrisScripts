@@ -52,10 +52,13 @@ set /p yesno=	(Y)es? (N)o?
 
 If /I "%yesno%"=="y" goto :yes 
 If /I "%yesno%"=="n" goto :launcher
+goto :cdkey
 
 :yes
 echo.	Enter your UT2004 personnal CDKey provided by GOG support:
+set CDKEY=
 set /p CDKEY=	
+if [%CDKEY%]==[] goto :emptycdkey
 reg add "HKLM\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004" /t REG_SZ /v CDKey /d %CDKEY% /f
 echo. 	UT2004 CDKey %CDKEY% has been corrrectly changed.
 pause
@@ -66,6 +69,12 @@ cls
 start explorer "c:\GOG Games\Unreal Gold\gamepad profiles\"
 start iexplore "c:\GOG Games\Unreal Gold\gamepad profiles\unreal_gamepad_readme.html"
 goto launcher
+
+:emptycdkey
+echo.	You didn't enter a new UT2004 CDKey,
+echo.	you will be redirected to the main menu
+pause
+goto :launcher
 
 :exit
 exit
