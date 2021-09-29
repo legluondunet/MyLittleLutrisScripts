@@ -28,7 +28,7 @@ installer:
     src: $GAMEDIR/drive_c/Unreal Tournament 2004/__support/app
 - chmodx: script
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT Windows
     file: script
 - move:
     dst: $GAMEDIR/drive_c/
