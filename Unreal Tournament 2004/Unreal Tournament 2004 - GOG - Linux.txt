@@ -5,7 +5,7 @@ files:
 - ut2004x: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004_linux.tar.xz
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.sh
 game:
-  exe: $GAMEDIR/System/ut2004-bin-linux-amd64
+  exe: $GAMEDIR/ut2004.sh
 installer:
 - extract:
     dst: $CACHE
@@ -19,6 +19,10 @@ installer:
 - extract:
     dst: $GAMEDIR
     src: ut2004x
+- chmodx: menu
+- move:
+    dst: $GAMEDIR
+    src: menu
 - chmodx: script
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT Linux
