@@ -2,11 +2,23 @@
 
 width=$1
 height=$2
+os=$3
+
+if [ $os = "Windows" ]
+then
+echo Windows
+mkdir -p "drive_c/GOG Games"
+mv "drive_c/Unreal Tournament 2004" "drive_c/GOG Games"
+cd "drive_c/GOG Games/Unreal Tournament 2004/System/"
+elif [ $os = "Linux" ]
+then
+echo Linux
+cd System
+ls -l
+fi
 
 echo "la résolution actuelle est $width x $height"
 echo "modification de la configuration"
-
-cd "drive_c/GOG Games/Unreal Tournament 2004/System/"
 
 sed -i "s/RenderDevice=.*/RenderDevice=OpenGLDrv.OpenGLRenderDevice/g" Default.ini
 sed -i "s/FullscreenViewportX.*/FullscreenViewportX=$width/g" Default.ini
@@ -14,20 +26,10 @@ sed -i "s/FullscreenViewportY.*/FullscreenViewportY=$height/g" Default.ini
 sed -i "s/UseVSync=False/UseVSync=True/g" Default.ini
 sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 
-#echo "Create cdkey file for Linux version"
+echo "Create cdkey file for Linux version"
 
-#time=1
-#while [ $time -le 30 ] && [ -z "$cdkey" ]
-#do
-#	echo "waiting for cdkey since "$time" s"
-#	sleep 1s
-#	time=$(( $time + 1 ))
-#cdkey=$(cat "../../../../system.reg" |grep "CDKey" | cut -c10-32)
-#done
-
-#echo $cdkey > cdkey
-touch cdkey
+echo 3QHVC-DHA9K-A84RE-KYRT4 > cdkey
 
 cd ..
-rm -f -r gog* *.lnk support.ico unins000.* webcache.zip
+#rm -f -r gog* *.lnk support.ico unins000.* webcache.zip
 
