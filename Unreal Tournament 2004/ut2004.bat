@@ -46,7 +46,7 @@ echo. 	http://www.gog.com/support/contact/technical_issues_with_games/unreal_tou
 echo.
 echo. 	Choose the multiplayer key request option for problem type.
 echo.
-echo.	Do you want to change enter your UT2004 personnal CDKey
+echo.	Do you want to enter your UT2004 personnal CDKey
 echo.	provided by GOG support now?  
 set /p yesno=	(Y)es? (N)o?
 
