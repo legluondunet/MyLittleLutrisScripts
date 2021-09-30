@@ -60,7 +60,7 @@ set CDKEY=
 set /p CDKEY=	
 if [%CDKEY%]==[] goto :emptycdkey
 reg add "HKLM\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004" /t REG_SZ /v CDKey /d %CDKEY% /f
-echo. 	UT2004 CDKey %CDKEY% has been corrrectly changed.
+echo. 	UT2004 CDKey has been corrrectly changed to %CDKEY%.
 pause
 goto :launcher
 
