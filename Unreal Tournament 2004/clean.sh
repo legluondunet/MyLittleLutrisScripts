@@ -31,5 +31,5 @@ echo "Create cdkey file for Linux version"
 echo 3QHVC-DHA9K-A84RE-KYRT4 > cdkey
 
 cd ..
-#rm -f -r gog* *.lnk support.ico unins000.* webcache.zip
 
+rm -f -r __redist __support tmp goggame-1207658691.* app
