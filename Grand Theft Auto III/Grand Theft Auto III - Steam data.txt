@@ -3,6 +3,7 @@ files:
 - engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/re3.tar.xz
 game:
   exe: re3
+  ld_library_path: $GAMEDIR/libs
 installer:
 - insert-disc:
     description: Please browse folder where is located "Grand Theft Auto - San Andreas"
