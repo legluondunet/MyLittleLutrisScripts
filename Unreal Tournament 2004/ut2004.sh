@@ -23,7 +23,7 @@ echo "valeur de la variable CHOICE: " $CHOICE
             ;;
         "$changecdkey") 
         
-if zenity --title="Unreal Tournament 2004" --question --text="	
+if zenity_base --question --text="	
 GOG provides UT2004 with a generic CDKey 
 3QHVC-DHA9K-A84RE-KYRT4
 that does not permit you to play in multiplayer mode,
@@ -39,18 +39,21 @@ Do you want to enter your UT2004 personnal CDKey
 provided by GOG support now?" --width=500
 
 then
-    	inputStr=$(zenity --entry --title "Unreal Tournament 2004" --text "Please enter your UT2004 personnal CDKey provided by GOG support:")
-    	echo $inputStr  $?
-		if [ -z $inputStr ] && [ $?=1 ] 
-		then
-		zenity_base --info --text "CDKey can not be empty" 
-		elif [ ! -z $inputStr ]
-		then
-		echo $inputStr > cdkey  
-		zenity_base --info --text "UT2004 CDKey has been corrrectly changed to 
-		"$inputStr"." 	
-		fi
+    	if inputStr=$(zenity_base --entry --title "Unreal Tournament 2004" --text "Please enter your UT2004 personnal CDKey provided by GOG support:")
+	then
+	      if [ "$inputStr" = "" ]
+	      then
+	      zenity_base --info --text "CDKey can not be empty" 
+	      echo variables input=$inputStr ?=$?
+	      elif [ ! -z $inputStr ]
+	      then
+	      zenity_base --info --text "UT2004 CDKey has been corrrectly changed to 
+		
+		"$inputStr"."
+	      echo variables input=$inputStr ?=$?
 fi
+   	fi
+   		fi
 zenity_main_menu
 	     ;;      
     esac
