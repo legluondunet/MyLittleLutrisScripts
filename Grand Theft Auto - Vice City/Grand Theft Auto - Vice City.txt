@@ -3,6 +3,7 @@ files:
 - engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/reVC.tar.xz
 game:
   exe: reVC
+  ld_library_path: $GAMEDIR/libs
 installer:
 - insert-disc:
     description: Please browse folder where is located "Grand Theft Auto - San Andreas"
