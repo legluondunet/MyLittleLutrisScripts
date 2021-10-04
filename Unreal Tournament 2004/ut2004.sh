@@ -48,9 +48,9 @@ then
 	      elif [ ! -z $inputStr ]
 	      then
 	      echo $inputStr > cdkey
-	      zenity_base --info --text "UT2004 CDKey has been corrrectly changed to 
-		
-		"$inputStr
+	      zenity_base --info --text "UT2004 CDKey has been corrrectly changed to
+	      
+	      "$inputStr
 	      echo variables input=$inputStr ?=$?
 fi
    	fi
