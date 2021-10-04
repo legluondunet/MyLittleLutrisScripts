@@ -8,3 +8,4 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 ### Technical notes:
 - reVC Github version commit a16fcd8, compiled 21 september 2021
+- You will need to install glfw-x11 or glfw-wayland libraries depending on the protocol used by the video server installed.
