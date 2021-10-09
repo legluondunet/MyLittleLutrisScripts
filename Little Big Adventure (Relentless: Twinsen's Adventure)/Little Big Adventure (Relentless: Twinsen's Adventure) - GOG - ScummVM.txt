@@ -1,0 +1,30 @@
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Select the GOG setup file
+game:
+  args: --language=$INPUT_LANG --filtering
+  game_id: lba
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/"
+    file: $CACHE/innoextract/innoextract
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English (audio + text)
+    - fr: French (audio + text)
+    - de: German (audio + text)
+    - it: Italian (text)
+    - es: Spanish (text)
+    preselect: en
+- execute:
+    command: cd "$GAMEDIR"; rm -f -r app commonappdata DOSBOX __redist __support tmp
+      goggame-1207658971.* ;
+scummvm:
+  aspect: true
+  fullscreen: true
