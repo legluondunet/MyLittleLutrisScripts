@@ -4,7 +4,7 @@ lang=$1
 width=$2
 height=$3
 
-echo $lang $width $height $os
+echo $lang $width $height
 
 if [ -d "drive_c/Unreal Gold" ]; then
 mkdir "drive_c/GOG Games"
