@@ -1,0 +1,106 @@
+custom-name: Unreal Gold 227i - GOG - Windows
+files:
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_patch_227i_MULTI5.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/clean.sh
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bat
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/unreal_gold.bmp
+- gpr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_x360.gamecontroller.amgp
+- gpsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal/gamepad%20profiles/unreal_steam.sccprofile
+game:
+  args: c:\\unreal_gold.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/Unreal Gold" --gog "$gogsetup"
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/Unreal Gold
+    src: $GAMEDIR/drive_c/Unreal Gold/app
+- extract:
+    dst: $GAMEDIR/drive_c/Unreal Gold
+    src: patch
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
+- chmodx: script
+- execute:
+    args: $INPUT_LANG $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\unreal_gold.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 179 102
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menu
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles
+    src: gpr
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles
+    src: gpx360
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/gamepad profiles
+    src: gpsc
+wine:
+  Desktop: true
+
