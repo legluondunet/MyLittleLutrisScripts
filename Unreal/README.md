@@ -1,4 +1,4 @@
-# GOG Gold + Patch 227i Windows
+# GOG + Patch 227i Windows
 
 ### Description:
 This script will install "Unreal Gold" GOG edition with last patch 227i from 
@@ -11,7 +11,7 @@ Thanks to the people who helped us play this game in the best conditions.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
-# GOG Gold + Patch 227i Linux
+# GOG + Patch 227i Linux
 
 ### Description:
 This script will install "Unreal Gold" GOG edition with last patch 227i from 
