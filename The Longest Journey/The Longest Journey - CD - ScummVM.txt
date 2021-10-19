@@ -1,10 +1,11 @@
-custom-name: The Longest Journey - 4 CD - ResidualVM
+custom-name: The Longest Journey - 4 CD - ScummVM
 files:
-- rvmengine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/residualvm_stark_engine.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
+- shaders: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/shaders_stark_scummvm.tar.xz
 game:
+  args: --filtering
   game_id: tlj
-  path: $GAMEDIR/TLJCD
+  path: $GAMEDIR
   subtitles: true
 installer:
 - insert-disc:
@@ -56,6 +57,5 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
-residualvm:
-  fullscreen: true
-
+scummvm:
+  aspect: true
