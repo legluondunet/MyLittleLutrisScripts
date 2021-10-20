@@ -1,0 +1,16 @@
+custom-name: The 7th Guest - Steam - ScummVM
+game:
+  args: --filtering
+  game_id: t7g
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please browse to The 7th Guest legacy edition Steam Edition game
+      folder
+    requires: t7g.bat
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+scummvm:
+  aspect: true
