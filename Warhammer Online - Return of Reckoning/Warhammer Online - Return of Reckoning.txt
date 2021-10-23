@@ -1,5 +1,5 @@
 game:
-  exe: drive_c/Program Files (x86)/Return of Reckoning/RoRLauncher.exe
+  exe: drive_c/Return_of_Reckoning/RoRLauncher.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,7 +13,7 @@ installer:
       game folder. Autodetect button is inactive here.
     requires: RoRLauncher.exe
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning
+    dst: $GAMEDIR/drive_c/Return_of_Reckoning
     src: $DISC
 - task:
     app: dotnet40 dxvk d3dx9_34
@@ -33,10 +33,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- write_file:
-    content: d3d9.customVendorId = 1002
-    file: $GAMEDIR/drive_c/Program Files (x86)/Return of Reckoning/dxvk.conf
 wine:
   dxvk: false
   esync: true
-
+  version: lutris-5.7-11-x86_64
