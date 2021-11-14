@@ -1,0 +1,35 @@
+custom-name: Twitch App
+files:
+- app: https://desktop.twitchsvc.net/installer/windows/TwitchSetup.exe
+game:
+  arch: win64
+  exe: drive_c/users/$USER/Start Menu/Programs/Twitch.lnk
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=TwitchApp,1024x780 "$app"
+    description: Installing Twitch App...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: dotnet40 dotnet48 dotnet_verifier
+    description: Installing Dotnet 4.8, could take a long time, 10-20 mn...
+    name: winetricks
+    prefix: $GAMEDIR
+wine:
+  Desktop: true
+
