@@ -1,4 +1,4 @@
-# Sanitarium - Steam data
+# Sanitarium - Steam data - ScummVM
 
 ### Description:
 This script will facilitate you install of this game on Linux OS: 
