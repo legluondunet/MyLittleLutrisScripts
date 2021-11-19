@@ -1,0 +1,14 @@
+game:
+  args: --filtering
+  game_id: asylum
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please browse to the Sanitarium Steam Edition game folder
+    requires: SNTRM.DAT
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+scummvm:
+  aspect: true
