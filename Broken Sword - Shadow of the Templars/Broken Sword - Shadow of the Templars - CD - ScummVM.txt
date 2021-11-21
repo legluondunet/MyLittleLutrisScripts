@@ -1,0 +1,36 @@
+custom-name: Broken Sword - The Shadow of the Templars - CD - ScummVM
+files:
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lighthouse%20-%20The%20Dark%20Being/clean.sh
+game:
+  args: --language=$INPUT_LANG --filtering
+  game_id: sword1
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- insert-disc:
+    description: Please insert disc 1
+    requires: cd1.id
+- merge:
+    dst: $GAMEDIR/cd1
+    src: $DISC
+- insert-disc:
+    description: Please insert disc 2
+    requires: cd2.id
+- merge:
+    dst: $GAMEDIR/cd2
+    src: $DISC
+- chmodx: script
+- execute:
+    file: script
+- input_menu:
+    description: 'Choose language for menus and subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - it: Italian
+    - es: Spanish
+    preselect: en
+scummvm:
+  fullscreen: true
