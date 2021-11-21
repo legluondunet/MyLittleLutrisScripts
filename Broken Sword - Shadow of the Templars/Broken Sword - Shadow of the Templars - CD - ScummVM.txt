@@ -1,6 +1,6 @@
 custom-name: Broken Sword - The Shadow of the Templars - CD - ScummVM
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Lighthouse%20-%20The%20Dark%20Being/clean.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Broken%20Sword%20-%20Shadow%20of%20the%20Templars/clean.sh
 game:
   args: --language=$INPUT_LANG --filtering
   game_id: sword1
