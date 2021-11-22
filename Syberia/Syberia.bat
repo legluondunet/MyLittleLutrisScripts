@@ -17,7 +17,7 @@ echo  %result%
 IF %result% NEQ 0 GOTO :search
 
 
-start nircmd.exe cmdwait 1000 win hide title Syberia
-start nircmd.exe cmdwait 1000 win hideshow title Syberia
+start nircmd.exe cmdwait 100 win hide title Syberia
+start nircmd.exe cmdwait 100 win hideshow title Syberia
 
 exit
