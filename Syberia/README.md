@@ -10,7 +10,7 @@ Thanks to the people who helped us play this game in the best conditions.
 
 ### Technical notes:
 - This script will use nircmd.exe as a workaround for the black window bug. 
-- Could not work with Wine fshack patch.
+- Could be not compatible with Wine fshack patch.
 - Multilanguage: you will be able to select menus and subtitle language during install between English, French, German, Spanish or Italian.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
