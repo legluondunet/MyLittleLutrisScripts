@@ -1,13 +1,12 @@
 custom-name: Return to Castle Wolfenstein - GOG - RealRTCW mod
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- realrtcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/RealRTCW_x64.7z
-- confsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/wolfconfig.cfg
-- confmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/wolfconfig_mp.cfg
-- gamepad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/x360.cfg
+- realrtcw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/release-linux-x86_64.tar.xz
 - gogsetup: N/A:Please select the RTCW setup exe file downloaded from your GOG account.
-- realmod: N/A:Please select the RealRTCW Complete Edition or RealRTCW Lite Edition
-    archive downloaded from https://www.moddb.com/mods/realrtcw-realism-mod
+- realmod: N/A:Please select the RealRTCW mod archive you downloaded from https://www.moddb.com/mods/realrtcw-realism-mod/downloads/realrtcw-31
+- realmodaddons: N/A:Please select the RealRTCW mod addons pack archive you downloaded
+    from https://www.moddb.com/mods/realrtcw-realism-mod/downloads/realrtcw-31-addons-pack
+- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Return%20to%20Castle%20Wolfenstein/realrtcwconfig.cfg
 game:
   exe: realrtcw.sh
 installer:
@@ -24,40 +23,28 @@ installer:
     dst: $GAMEDIR/docs
     src: $CACHE/app/Docs
 - extract:
-    dst: $CACHE/
+    dst: $GAMEDIR
+    file: $realmod
+- execute:
+    command: cd "$GAMEDIR/!copy the content of this folder into rtcw root directory";
+      cp -r Main/* ../main;
+- extract:
+    dst: $GAMEDIR
+    file: $realmodaddons
+- extract:
+    dst: $GAMEDIR
     file: realrtcw
-- merge:
-    dst: $GAMEDIR/
-    src: $CACHE/release-linux-x86_64/
 - copy:
-    dst: $GAMEDIR/main/
-    src: confsp
-- copy:
-    dst: $GAMEDIR/main/
-    src: confmp
-- copy:
-    dst: $GAMEDIR/main/
-    src: gamepad
+    dst: $GAMEDIR/main
+    src: config
 - write_file:
     content: '    #!/bin/bash
 
-      ./RealRTCW.x86_64&
+      ./RealRTCW.x86_64 +set fs_homepath .
 
       '
     file: $GAMEDIR/realrtcw.sh
 - chmodx: $GAMEDIR/realrtcw.sh
-- write_file:
-    content: 'set fs_homepath ./
-
-      exec x360
-
-      '
-    file: $GAMEDIR/main/autoexec.cfg
-- extract:
-    dst: $GAMEDIR/tmp
-    file: $realmod
 - execute:
-    command: cd "$GAMEDIR/tmp"; $CACHE/innoextract/innoextract *.exe ; mv app/Main/*.pk3
-      $GAMEDIR/main/; cd app ; rm -f -r Main *.dll *.exe ; cd $GAMEDIR ; mv tmp/app
-      RTCW_mods; rm -f -r tmp ;
-
+    command: cd "$GAMEDIR"; rm -f -r "!copy the content of this folder into rtcw root
+      directory"; cd main; rm -f -r *.dll ;
