@@ -21,13 +21,13 @@ https://github.com/legluondunet/MyLittleLutrisScripts
 ### Description:
 This script will facilitate you install of this game on Linux OS:
 "Return to Castle Wolfenstein" provided by GOG using RealRTCW project:
-https://github.com/wolfetplayer/RealRTCW and RealRTCW mod 3.0.
+https://github.com/wolfetplayer/RealRTCW and RealRTCW mod 3.3.
 During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- RealRTCW Git version 3-4da50e6 x64 - 19 september 2020
-- You will need to download RealRTCW mod version 3.0, full or light edition,  from https://www.moddb.com/mods/realrtcw-realism-mod/news/realrtcw-30-complete-edition before to launch this installer
+- RealRTCW version 3.3_GIT_50e4e51-2021-11-25 linux-x86_64
+- You will need to download RealRTCW mod version 3.3 and his addons pack  from https://www.moddb.com/mods/realrtcw-realism-mod
 - Use "Alt-Tab": press "shift + ²" to obtain console, then "Alt"+"Enter" to enter RealTCW window mode. Now you can use "Alt-Tab"
 - x360 gamepad compatible
 - Please report issue concerning this script on my Github page:
