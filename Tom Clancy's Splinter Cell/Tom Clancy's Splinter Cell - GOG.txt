@@ -22,7 +22,7 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
     file: scws
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
@@ -56,7 +56,7 @@ installer:
     value: native,builtin
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Splinter Cell/system/"; mv dgVoodoo.conf
-      dgVoodoo_original.conf; cd scripts; mv modupdater.asi modupdater.asi.off;
+      dgVoodoo_original.conf; cd scripts; mv modupdater.ini modupdater.ini.off;
 - write_config:
     data:
       DirectX:
@@ -65,11 +65,13 @@ installer:
         ForceVerticalSync: true
         Resolution: unforced
         VRAM: 256
+        VideoCard: geforce_ti_4800
         dgVoodooWatermark: false
       General:
         CaptureMouse: false
     file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/dgVoodoo.conf
+system:
+  single_cpu: true
 wine:
   Desktop: true
   dxvk: true
-
