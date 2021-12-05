@@ -5,7 +5,7 @@ game:
   files:
   - mods/heretic_gz.pk3
   - mods/heretic_ds.pk3
-  main_file: heretic.wad
+  main_file: $GAMEDIR/heretic.wad
   savedir: saves
 installer:
 - extract:
