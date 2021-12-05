@@ -8,8 +8,8 @@ game:
   - D64RTRDEV/interxx_template_ending.wad
   - D64RTRDEV/interxx_template_normal.wad
   - D64RTR[v1.5].WAD
-  main_file: doom2.wad
-  savedir: saves
+  main_file: $GAMEDIR/doom2.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $GAMEDIR
