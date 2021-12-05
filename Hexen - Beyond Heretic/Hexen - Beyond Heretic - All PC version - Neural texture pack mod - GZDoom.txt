@@ -5,8 +5,8 @@ files:
 game:
   files:
   - mods/hexen_gz.pk3
-  main_file: hexen.wad
-  savedir: saves
+  main_file: $GAMEDIR/hexen.wad
+  savedir: $GAMEDIR/saves
 installer:
 - merge:
     dst: $GAMEDIR/mods
@@ -31,4 +31,3 @@ installer:
     file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
-
