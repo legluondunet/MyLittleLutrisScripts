@@ -1,3 +1,19 @@
+# Heretic - Shadow of the Serpent Riders - Heretic RPG mod - GZDoom
+
+### Description:
+This script will facilitate you install of this game on Linux OS:
+"Heretic - Shadow of the Serpent Riders"  all PC version using GZDoom Lutris runner with "Brutal Heretic RPG mod".
+During install please let all options by default.
+Thanks to the people who helped us play this game in the best conditions on Linux platform.
+
+### Technical notes:
+- During install, you will need to provide:
+-- "HERETIC.WAD" file from "HERETIC" PC game
+-- "Brutal Heretic RPG" mod available for download at https://nzdoom.net/showthread.php?tid=3
+- To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts
+
 # HERETIC - Neural texture pack mod - GZDoom
 
 ### Description:
@@ -14,20 +30,5 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
-# Heretic - Shadow of the Serpent Riders - Heretic RPG mod - GZDoom
-
-### Description:
-This script will facilitate you install of this game on Linux OS:
-"Heretic - Shadow of the Serpent Riders"  all PC version using GZDoom Lutris runner with "Brutal Heretic RPG mod".
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
-### Technical notes:
-- During install, you will need to provide:
--- "HERETIC.WAD" file from "Heretic - Shadow of the Serpent Riders" PC game
--- "Brutal Heretic RPG" mod available for download at https://forum.zdoom.org/viewtopic.php?t=68735
-- To play "Heretic - Shadow of the Serpent Riders" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
 
 
