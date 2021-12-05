@@ -4,8 +4,8 @@ files:
 game:
   files:
   - mods/brutalv21.pk3
-  main_file: plutonia.wad
-  savedir: saves
+  main_file: $GAMEDIR/plutonia.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
