@@ -20,14 +20,17 @@ installer:
     requires: doom2.wad
 - execute:
     command: ls "$DISC" | grep -i doom2.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom2.wad";
-      mkdir "$GAMEDIR/saves";
+      cd "$GAMEDIR"; mkdir saves soundfonts; mv DOOMSND.SF2 soundfonts;
 - write_file:
     content: '[SoundfontSearch.Directories]
 
       Path=soundfonts
 
-      Path=.'
+      [GlobalSettings]
+
+      freelook=true
+
+      '
     file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
-
