@@ -1,12 +1,12 @@
-custom-name: Heretic - Shadow of the Serpent Riders - Brutal Heretic RPG mod - GZDoom
+custom-name: HERETIC - Brutal Heretic RPG mod - GZDoom
 files:
-- brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=68735
+- brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://nzdoom.net/showthread.php?tid=3
 game:
   files:
-  - mods/BrutalHereticRPG_V2.2.pk3
+  - mods/BrutalHereticRPG_V5.0.pk3
   - mods/H20MUS.wad
   - mods/heretic_gz.pk3
-  main_file: heretic.wad
+  main_file: $GAMEDIR/heretic.wad
   savedir: saves
 installer:
 - extract:
@@ -22,6 +22,16 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
       mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
-
