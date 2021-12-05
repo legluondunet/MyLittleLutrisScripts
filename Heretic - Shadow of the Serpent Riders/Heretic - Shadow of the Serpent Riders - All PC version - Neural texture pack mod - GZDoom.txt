@@ -1,4 +1,4 @@
-custom-name: Heretic - Shadow of the Serpent Riders - Neural texture pack - GZDoom
+custom-name: HERETIC - Neural texture pack - GZDoom
 files:
 - hdmod: N/A:Please select the Heretic Neural texture pack available at https://www.moddb.com/addons/heretic-neural-texture-pack
 game:
@@ -6,7 +6,7 @@ game:
   - mods/heretic_gz.pk3
   - mods/heretic_ds.pk3
   main_file: $GAMEDIR/heretic.wad
-  savedir: saves
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
@@ -21,6 +21,16 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
       mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
-
