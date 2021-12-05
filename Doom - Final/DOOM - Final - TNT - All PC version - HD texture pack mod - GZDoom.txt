@@ -11,8 +11,8 @@ game:
   - mods/NeuralUpscale2x_v0.95.pk3
   - mods/R_Hud_Stuff_v1.pk3
   - mods/zd_extra.pk3
-  main_file: tnt.wad
-  savedir: saves
+  main_file: $GAMEDIR/tnt.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
