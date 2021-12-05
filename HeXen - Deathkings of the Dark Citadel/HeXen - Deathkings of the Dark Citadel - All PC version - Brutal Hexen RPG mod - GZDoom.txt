@@ -1,12 +1,12 @@
 custom-name: HeXen - Deathkings of the Dark Citadel - Brutal Hexen RPG mod - GZDoom
 files:
-- brutalmod: N/A:Please select the Brutal Hexen RPG mod file available at https://forum.zdoom.org/viewtopic.php?t=65691
+- brutalmod: N/A:Please select the Brutal Hexen RPG mod file available at https://nzdoom.net/showthread.php?tid=2
 game:
   files:
-  - mods/BrutalHexenRPG_V4.7.pk3
-  - mods/hexen_gz.pk3
+  - mods/BrutalHexenRPG_V7.2.pk3
   - mods/3_HEXEN64.wad
-  main_file: hexdd.wad
+  - mods/hexen_gz.pk3
+  main_file: $GAMEDIR/hexdd.wad
   savedir: saves
 installer:
 - extract:
@@ -41,4 +41,3 @@ installer:
     file: $GAMEDIR/gzdoom.ini
 zdoom:
   config: $GAMEDIR/gzdoom.ini
-
