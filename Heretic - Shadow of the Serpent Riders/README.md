@@ -2,7 +2,7 @@
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Heretic - Shadow of the Serpent Riders"  all PC version using GZDoom Lutris runner with "Brutal Heretic RPG mod".
+"Heretic - Shadow of the Serpent Riders"  all PC version using GZDoom Lutris runner with "Brutal Heretic RPG" mod.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
