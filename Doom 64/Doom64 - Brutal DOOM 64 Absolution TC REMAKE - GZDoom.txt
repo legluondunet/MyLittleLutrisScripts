@@ -7,8 +7,8 @@ game:
   - mods/bd64gamev2_TCREMAKEV1.4.pk3
   - mods/bd64mapsV2_TCREMAKEV1.4.pk3
   - mods/ZD64MUSIC_TCREMAKEV1.4.PK3
-  main_file: doom2.wad
-  savedir: saves
+  main_file: $GAMEDIR/doom2.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
