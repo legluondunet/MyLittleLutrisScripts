@@ -1,16 +1,21 @@
 custom-name: Doom 64 - Doom64EX
 files:
 - d64ex: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%2064/Doom64EX_x64.7z
-- rom: N/A:Please select the Nintedo 64 Doom64 rom file (uncompressed).
+- rom: N/A:Please select the Nintedo 64 Doom64 rom file (uncompressed rom file with
+    .n64 extension).
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%2064/rom2wad.sh
 game:
   exe: $GAMEDIR/doom64ex
 installer:
 - extract:
     dst: $GAMEDIR
     src: d64ex
+- copy:
+    dst: $GAMEDIR
+    src: $rom
+- chmodx: $script
+- copy:
+    dst: $GAMEDIR
+    src: $script
 - execute:
-    args: -wadgen $rom
-    file: $GAMEDIR/doom64ex
-- execute:
-    command: mv "$HOME/.local/share/doom64ex/"* "$GAMEDIR";
-
+    file: $GAMEDIR/rom2wad.sh
