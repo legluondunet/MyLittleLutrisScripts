@@ -5,8 +5,8 @@ game:
   files:
   - QCDE--HDFaces2.7.pk3
   - QCDEv2.7.pk3
-  main_file: doom2.wad
-  savedir: saves
+  main_file: $GAMEDIR/doom2.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $GAMEDIR
