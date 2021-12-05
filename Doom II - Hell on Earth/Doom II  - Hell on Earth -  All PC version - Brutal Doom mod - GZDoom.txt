@@ -4,8 +4,8 @@ files:
 game:
   files:
   - mods/brutalv21.pk3
-  main_file: doom2.wad
-  savedir: saves
+  main_file: $GAMEDIR/doom2.wad
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
