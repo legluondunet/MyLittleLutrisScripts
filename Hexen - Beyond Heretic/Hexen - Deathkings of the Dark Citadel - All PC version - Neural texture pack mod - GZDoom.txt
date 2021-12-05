@@ -1,0 +1,39 @@
+custom-name: HeXen - Deathkings of the Dark Citadel - Neural texture pack mod - GZDoom
+files:
+- hdmod: N/A:Please select the Hexen Neural texture pack available for download at
+    https://www.doomworld.com/forum/topic/103770-hexen-neural-texture-pack
+game:
+  files:
+  - mods/hexen_gz.pk3
+  main_file: $GAMEDIR/hexdd.wad
+  savedir: $GAMEDIR/saves
+installer:
+- merge:
+    dst: $GAMEDIR/mods
+    src: hdmod
+- insert-disc:
+    description: Please browse folder where is located HEXEN.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: hexen.wad
+- execute:
+    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexen.wad";
+- insert-disc:
+    description: Please browse folder where is located HEXDD.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: hexdd.wad
+- execute:
+    command: ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexdd.wad";
+      mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[SoundfontSearch.Directories]
+
+      Path=soundfonts
+
+      [GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
