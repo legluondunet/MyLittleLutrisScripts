@@ -2,13 +2,13 @@
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
-"Doom64" using Doom64EX project:
-https://github.com/svkaiser/Doom64EX
+"Doom64" 
+using Doom64EX project https://github.com/svkaiser/Doom64EX
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
 
 ### Technical notes:
-- You will need to provide Nintendo Doom 64 rom file during install (uncompressed).
+- You will need to provide Nintendo Doom 64 rom file during install (uncompressed rom file with .n64 extension).
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
