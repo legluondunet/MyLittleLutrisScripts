@@ -7,7 +7,7 @@ game:
   - mods/H20MUS.wad
   - mods/heretic_gz.pk3
   main_file: $GAMEDIR/heretic.wad
-  savedir: saves
+  savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $CACHE
