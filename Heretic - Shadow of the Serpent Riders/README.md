@@ -24,11 +24,11 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 
 ### Technical notes:
 - During install, you will need to provide:
--- "HERETIC.WAD" file from "Heretic - Shadow of the Serpent Riders" PC game
+-- "HERETIC.WAD" file from "HERETIC" PC game
 -- "Heretic Neural texture pack" mod available at https://www.moddb.com/addons/heretic-neural-texture-pack
-- To play "Heretic - Shadow of the Serpent Riders" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
+- To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 - Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 
