@@ -1,4 +1,4 @@
-# Need for Speed II - NFSIISE - Linux
+# Need for Speed II - NFSIISE engine - Linux
 
 ### Description:
 This script will facilitate install of this game on Linux OS:
