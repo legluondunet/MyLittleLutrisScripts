@@ -1,0 +1,40 @@
+exe: nfs2se
+files:
+- engine: https://github.com/zaps166/NFSIISE/releases/download/v1.2.4/nfs2se-linux.tar.gz
+installer:
+- insert_disc:
+    message: Insert the NFSIISE CD-ROM
+    requires: fedata
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- write_file:
+    content: ' #!/bin/bash
+
+      find . -depth -exec sh -c ''
+
+      t=${0%/*}/$(printf %s "${0##*/}" | tr "[:upper:]" "[:lower:]");
+
+      [ "$t" = "$0" ] || mv -i "$0" "$t"
+
+      '' {} \; '
+    file: $GAMEDIR/convert_to_lowercase.sh
+- chmodx: $GAMEDIR/convert_to_lowercase.sh
+- execute:
+    command: cd $GAMEDIR; ./convert_to_lowercase.sh
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - german: German
+    - italian: Italian
+    - spanish: Spanish
+    - swedish: Swedish
+    preselect: english
+- execute:
+    command: cd "$GAMEDIR"; sed -i "s/english/$INPUT_LANG/" install.win
