@@ -1,6 +1,6 @@
 custom-name: Dune II - CD DOS - dunelegacy
 files:
-- dlegacy: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune%20II/dunelegacy_x64.7z
+- dlegacy: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Dune%20II/dunelegacy_x64.tar.xz
 game:
   exe: dunelegacy
 installer:
@@ -13,4 +13,3 @@ installer:
 - extract:
     dst: $GAMEDIR
     file: dlegacy
-
