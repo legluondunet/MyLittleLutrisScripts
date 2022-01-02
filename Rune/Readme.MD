@@ -37,6 +37,8 @@ During install please let all options by default.
 Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
+- Download "Rune Gold" version on your GOG games library page before to launch this script.
+- Multiplayer mode active using https://master.333networks.com 
 - Rune Gold has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
-- Please report issue concerning this script on my github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts
