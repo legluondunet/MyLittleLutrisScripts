@@ -1,0 +1,36 @@
+custom-name: Blood Omen - Legacy of Kain - Verok's GL Patch
+files:
+- gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
+- lok1mod: N/A:Please select "Legacy of Kain - Blood Omen - Verok's GL Wrapper/Patch"
+    available for download at https://verokster.blogspot.com/2018/05/legacy-of-kain-blood-omen-gl-wrapper.html
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+game:
+  exe: $GAMEDIR/drive_c/GOG Games/Blood Omen/Kain.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: $inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/Blood Omen" "$gogsetup"
+    file: $CACHE/innoextract
+- extract:
+    dst: $GAMEDIR/drive_c/Blood Omen/patch
+    file: lok1mod
+    format: 7z
+- execute:
+    command: cd "$GAMEDIR/drive_c"; mkdir "GOG Games"; mv "Blood Omen" "GOG Games";
+      cd "GOG Games/Blood Omen"; find "." -depth -exec sh -c 't=${0%/*}/$(printf %s
+      "${0##*/}" | tr "[:lower:]" "[:upper:]"); [ "$t" = "$0" ] || mv -i "$0" "$t"'
+      {} \;; cd "$GAMEDIR/drive_c/GOG Games/Blood Omen"; cp -R PATCH/* .; rm -f -r
+      APP COMMONAPPDATA PATCH __REDIST __SUPPORT TMP GOGGAME-1837805079.*; MKDIR SAVED;
+wine:
+  Desktop: true
+  overrides:
+    ddraw.dll: n,b
