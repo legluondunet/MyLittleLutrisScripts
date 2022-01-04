@@ -1,0 +1,39 @@
+files:
+- patch: https://notabug.org/Krock/dawn/archive/master.zip
+- giclient: N/A:Select Genshin Impact client setup file. You can download it from
+    official site https://genshin.mihoyo.com
+game:
+  exe: drive_c/Program Files/Genshin Impact/launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: vcrun2019 corefonts
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Installing Genshin Impact...Close Geshin Impact client once finished
+      download, do not execute the game yet.
+    executable: giclient
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/
+    file: patch
+    format: zip
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files/Genshin Impact/Genshin Impact game/
+    src: $CACHE/payload/
+- execute:
+    command: env GAMEDIR=$GAMEDIR CACHE=$CACHE  bash '$GAMEDIR/drive_c/Program Files/Genshin
+      Impact/Genshin Impact game/genshin-patcher.sh'
+    description: Applying a Community Patch...
+    terminal: true
+require-binaries: xdelta3
+wine:
+  Desktop: true
