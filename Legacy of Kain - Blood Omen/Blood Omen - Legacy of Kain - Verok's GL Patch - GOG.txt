@@ -29,7 +29,7 @@ installer:
       cd "GOG Games/Blood Omen"; find "." -depth -exec sh -c 't=${0%/*}/$(printf %s
       "${0##*/}" | tr "[:lower:]" "[:upper:]"); [ "$t" = "$0" ] || mv -i "$0" "$t"'
       {} \;; cd "$GAMEDIR/drive_c/GOG Games/Blood Omen"; cp -R PATCH/* .; rm -f -r
-      APP COMMONAPPDATA PATCH __REDIST __SUPPORT TMP GOGGAME-1837805079.*; MKDIR SAVED;
+      APP COMMONAPPDATA PATCH __REDIST __SUPPORT TMP GOGGAME-1837805079.*; mkdir SAVED;
 wine:
   Desktop: true
   overrides:
