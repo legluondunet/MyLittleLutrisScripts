@@ -1,9 +1,13 @@
 files:
-- patch: https://notabug.org/Krock/dawn/archive/master.zip
-- giclient: N/A:Select Genshin Impact client setup file. You can download it from
-    official site https://genshin.mihoyo.com
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_230.zip
+- giclient:
+    filename: GenshinImpact_install_mihoyo.exe
+    url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
+- menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.bat
+- menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.sh
 game:
-  exe: drive_c/Program Files/Genshin Impact/launcher.exe
+  args: c:\\menu.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -16,24 +20,26 @@ installer:
     app: vcrun2019 corefonts
     name: winetricks
     prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menubat
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menush
+- chmodx: $GAMEDIR/drive_c/menu.sh
+- extract:
+    dst: $GAMEDIR/drive_c/gi_patch_230
+    file: patch
+    format: zip
+- chmodx: $GAMEDIR/drive_c/gi_patch_230/ex_patch.sh
 - task:
     description: Installing Genshin Impact...Close Geshin Impact client once finished
       download, do not execute the game yet.
     executable: giclient
     name: wineexec
     prefix: $GAMEDIR
-- extract:
-    dst: $CACHE/
-    file: patch
-    format: zip
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files/Genshin Impact/Genshin Impact game/
-    src: $CACHE/payload/
-- execute:
-    command: env GAMEDIR=$GAMEDIR CACHE=$CACHE  bash '$GAMEDIR/drive_c/Program Files/Genshin
-      Impact/Genshin Impact game/genshin-patcher.sh'
-    description: Applying a Community Patch...
-    terminal: true
-require-binaries: xdelta3
+require-binaries: xdelta3, xterm
+system:
+  manual_command: $GAMEDIR/drive_c/menu.sh
 wine:
   Desktop: true
