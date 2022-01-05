@@ -15,40 +15,40 @@ echo.	-------------------------------------------------------------
 echo.
 echo.	 1) Play Genshin Impact (patched)
 echo.	 2) Update Genshin Impact(do not launch game)
-echo.	 3) Patch Genshin Impact
-echo.	 4) Revert Genshin Impact patch
-echo.	 5) Exit
+echo.	 3) Exit
 echo.
 echo.	-------------------------------------------------------------
 echo.
 echo.
-echo.  	 Your choice? [1-5]:
+echo.  	 Your choice? [1-3]:
 
 choice /s /N	/c12345
-if errorlevel 5 goto exit
-if errorlevel 4 goto rpatch
-if errorlevel 3 goto apatch
-if errorlevel 2 goto update
-if errorlevel 1 goto play
+if errorlevel 3 goto :exit
+if errorlevel 2 goto :update
+if errorlevel 1 goto :play
 
 
-play:
+:play
 cd "c:\Program Files\Genshin Impact\Genshin Impact game"
 start launcher.bat
+goto :launcher
 
-update:
+:update
 cd "c:\Program Files\Genshin Impact"
 start launcher.exe
-
-apatch:
-cd "c:\gi_patch_230"
-start /unix ex_patch.sh
 goto :launcher
 
-rpatch:
+:apatch
 cd "c:\gi_patch_230"
-start /unix patch_revert.sh
+start /unix ex_apatch.sh
+pause
 goto :launcher
 
-exit:
+:rpatch
+cd "c:\gi_patch_230"
+start /unix ex_rpatch.sh
+pause
+goto :launcher
+
+:exit
 exit
