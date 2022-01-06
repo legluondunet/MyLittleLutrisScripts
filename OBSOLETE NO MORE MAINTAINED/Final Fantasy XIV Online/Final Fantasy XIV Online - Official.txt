@@ -1,22 +1,36 @@
 files:
-- ffxivinstaller: https://gdl.square-enix.com/ffxiv/inst/ffxivsetup.exe
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV%20Online/clean.sh
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Final%20Fantasy%20XIV%20Online/ffxivo.bmp
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_230.zip
+- giclient:
+    filename: GenshinImpact_install_mihoyo.exe
+    url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
+- menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.bat
+- menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch.sh
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi.bmp
 game:
-  arch: win64
-  exe: drive_c/Program Files (x86)/SquareEnix/FINAL FANTASY XIV - A Realm Reborn/boot/ffxivboot.exe
+  args: c:\\menu.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    description: Creating Wine prefix
     install_gecko: false
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
+- task:
+    app: vcrun2019 corefonts
+    name: winetricks
+    prefix: $GAMEDIR
 - copy:
     dst: $GAMEDIR/drive_c
-    src: wpp
+    src: menubat
+- chmodx: menush
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menush
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: bmp
 - task:
     arch: win64
     key: background
@@ -32,30 +46,20 @@ installer:
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
     prefix: $GAMEDIR
     type: REG_SZ
-    value: c:\\ffxivo.bmp
+    value: c:\\gi.bmp
+- extract:
+    dst: $GAMEDIR/drive_c/gi_patch_230
+    file: patch
+    format: zip
 - task:
-    args: /desktop=FFXIV,$RESOLUTION $ffxivinstaller
+    args: /desktop=GI,1280x900 "$giclient"
+    description: Installing Genshin Impact...Close Geshin Impact client once finished
+      download, do not execute the game yet.
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: HideWineExports
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
-- chmodx: script
-- execute:
-    file: script
+require-binaries: xdelta3, xterm
 system:
-  env:
-    __GL_SHADER_DISK_CACHE: 1
-    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-  pulse_latency: true
+  manual_command: $GAMEDIR/drive_c/menu.sh
 wine:
   Desktop: true
-  esync: true
-
