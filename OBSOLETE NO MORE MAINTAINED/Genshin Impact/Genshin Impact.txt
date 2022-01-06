@@ -4,7 +4,8 @@ files:
     filename: GenshinImpact_install_mihoyo.exe
     url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
 - menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.bat
-- menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.sh
+- menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch.sh
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi.bmp
 game:
   args: c:\\menu.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -23,23 +24,42 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c
     src: menubat
+- chmodx: menush
 - copy:
     dst: $GAMEDIR/drive_c
     src: menush
-- chmodx: $GAMEDIR/drive_c/menu.sh
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\gi.bmp
 - extract:
     dst: $GAMEDIR/drive_c/gi_patch_230
     file: patch
     format: zip
-- chmodx: $GAMEDIR/drive_c/gi_patch_230/ex_patch.sh
 - task:
+    args: /desktop=GI,1280x900 "$giclient"
     description: Installing Genshin Impact...Close Geshin Impact client once finished
       download, do not execute the game yet.
-    executable: giclient
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
-    prefix: $GAMEDIR
 require-binaries: xdelta3, xterm
 system:
-  manual_command: $GAMEDIR/drive_c/menu.sh
+  manual_command: $GAMEDIR/drive_c/git_patch.sh
 wine:
   Desktop: true
