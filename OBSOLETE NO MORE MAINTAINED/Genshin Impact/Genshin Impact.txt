@@ -7,7 +7,7 @@ files:
 - menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch.sh
 - bmp: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi.bmp
 game:
-  args: c:\\menu.bat
+  args: c:\\gi_menu.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
