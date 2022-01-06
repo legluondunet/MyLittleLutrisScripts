@@ -40,7 +40,7 @@ installer:
     dst: $GAMEDIR/main/
     src: gamepad
 - write_file:
-    content: '    #!/bin/bash
+    content: '#!/bin/bash
 
       ./iowolfsp.x86_64&
 
@@ -54,4 +54,3 @@ installer:
 
       '
     file: $GAMEDIR/main/autoexec.cfg
-
