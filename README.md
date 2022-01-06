@@ -27,11 +27,9 @@ Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes s
 
 ## Supported Linux distributions (>= GLIBC 2.7)
 all scripts tested and should be compatible on 
-- Debian 10
-- Ubuntu 18.04
-- Manjaro 18.1.3 (Arch)
-- Fedora 30 (Red Hat)
-- Solus 4.4
-- OpenSUSE Tumbleweed (not Leap 15.1)
+
+- Ubuntu 20.04
+- Arch (Manjaro 21, Arcolinux...)
+- OpenSUSE Tumbleweed
 
 and superior version.
