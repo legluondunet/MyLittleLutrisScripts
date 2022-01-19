@@ -1,0 +1,40 @@
+files:
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sleeping%20Dogs/clean.sh
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Please select the executable setup file available for download on
+    your GOG account page.
+game:
+  arch: win64
+  exe: drive_c/GOG Games/Sleeping Dogs Definitive Edition/sdhdship.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$GAMEDIR/drive_c/Sleeping Dogs Definitive Edition" "$gogsetup"
+    file: $CACHE/innoextract
+- input_menu:
+    description: 'Choose your preferred game''s language for menus and subtitles:'
+    id: LANG
+    options:
+    - English: English (default)
+    - French: French
+    - Italian: Italian
+    - German: German
+    - Spanish: Spanish
+    - Polish: Polish
+    - Russian: Russian
+    preselect: English
+- chmodx: script
+- execute:
+    args: $INPUT_LANG
+    file: script
+wine:
+  Desktop: true
