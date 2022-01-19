@@ -5,7 +5,7 @@ files:
     url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
 - menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_menu.bat
 - menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch.sh
-- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/blob/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi.bmp
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi.bmp
 game:
   args: c:\\gi_menu.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -62,6 +62,6 @@ installer:
     name: wineexec
 require-binaries: xdelta3, xterm, zenity
 system:
-  manual_command: $GAMEDIR/drive_c/git_patch.sh
+  manual_command: $GAMEDIR/drive_c/gi_patch.sh
 wine:
   Desktop: true
