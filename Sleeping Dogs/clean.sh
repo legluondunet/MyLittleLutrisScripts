@@ -10,20 +10,20 @@ cp app/* .
 
 rm -f -r app Callstacks commonappdata __redist tmp webcache.zip
 
-if [ $lang1 = "French" ]; then
+if [ $lang1 = "English" ]; then
+exit
+elif [ $lang1 = "French" ]; then
 lang2="fr-FR"
 elif [ $lang1 = "Italian" ]; then
 lang2="it-IT"
 elif [ $lang1 = "German" ]; then
 lang2="ge-GE"
 elif [ $lang1 = "Spanish" ]; then
-lang2="sp-SP"
+lang2="es-ES"
 elif [ $lang1 = "Polish" ]; then
-lang2="po-PO"
+lang2="pl-PL"
 elif [ $lang1 = "Russian" ]; then
 lang2="ru-RU"
-elif [ $lang1 = "English" ]; then
-exit
 fi
 
 
