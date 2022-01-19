@@ -1,4 +1,15 @@
-# JSleeping Dogs - Definitive Edition - Windows Steam Standalone
+# Sleeping Dogs - Definitive Edition - GOG
+
+### Description:
+Play "Sleeping Dogs: Definitive Edition" on Linux!
+
+### Technical notes:
+- You can choose your prefered language for menus and subtitles during install between English, French, German, Italian, Spanish, Polish and Russian.
+- Please report issue concerning this script directly on my Github page: 
+https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Sleeping Dogs - Definitive Edition - Windows Steam Standalone
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
@@ -14,4 +25,3 @@ Big thanks to people who gave their time to permit us playing this game in the b
 -- White screen at start during les than 1 mn.
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts/
-
