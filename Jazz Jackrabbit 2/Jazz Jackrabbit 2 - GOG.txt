@@ -106,6 +106,38 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/"; mkdir "GOG Games"; mv "Jazz Jackrabbit 2" "GOG
       Games";
+- task:
+    key: Hardware Acceleration
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Secret Files\1.24
+    type: REG_BINARY
+    value: 01,00,00,00
+- task:
+    key: BPP
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Secret Files\1.24\VideoSize
+    type: REG_BINARY
+    value: 10,00,00,00
+- task:
+    key: Height
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Secret Files\1.24\VideoSize
+    type: REG_BINARY
+    value: e0,01,00,00
+- task:
+    key: Width
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Secret Files\1.24\VideoSize
+    type: REG_BINARY
+    value: 80,02,00,00
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
 wine:
   Desktop: true
   overrides:
