@@ -9,8 +9,7 @@ files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20-%20Dark%20Forces%20II%20-%20Mysteries%20of%20the%20Sith/clean.sh
 game:
-  exe: drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2 - Mysteries of the
-    Sith/inject.exe
+  exe: drive_c/GOG Games/Star Wars Jedi Knight - Mysteries of the Sith/inject.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -93,4 +92,3 @@ installer:
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
-
