@@ -13,7 +13,9 @@ Play Genshin Impact on Linux.
 
 ### Manual Installation:
 
-- Unzip gi_patch_(version).zip into your wine c: drive (default is '~/.wine')
+- Unzip gi_patch_(version).zip into your wine c: drive (default is '~/.wine/drive_c')
 - Your c drive should now have a gi_patch folder next to program files, users, windows ect.
 - Now run gi_patch.sh and patch game (in terminal type './gi_patch.sh')
-- 
+- Last run gi_menu.bat with wine and type 1
+- Game should open
+- If you want to create a desktop shortcut simply copy the path to where you downloaded gi_menu.bat and use the command 'wine gi_menu.bat'
