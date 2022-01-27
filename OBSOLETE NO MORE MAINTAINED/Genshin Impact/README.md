@@ -18,4 +18,16 @@ Play Genshin Impact on Linux.
 - Now run gi_patch.sh and patch game (in terminal type './gi_patch.sh')
 - Last run gi_menu.bat with wine and type 1
 - Game should open
-- If you want to create a desktop shortcut simply copy the path to where you downloaded gi_menu.bat and use the command 'wine gi_menu.bat'
+- If you want to create a desktop shortcut simply copy the path to where you downloaded gi_menu.bat and use the command 'wine (path)/gi_menu.bat'
+- To use a specific wine prefix use 'env WINEPREFIX='(wine_prefix) wine (path)/gi_menu.bat' 
+
+- Your .desktop file should have terminal enabled to input your choice of playing or updating or it will not launch anything
+
+Ex:
+[Desktop Entry]
+Name=Genshin Impact Linux
+Exec=wine /home/user/Downloads/Genshin\ Impact\ Patch/gi_menu.bat
+Comment=
+Terminal=true
+Icon=cinnamon-panel-launcher
+Type=Application
