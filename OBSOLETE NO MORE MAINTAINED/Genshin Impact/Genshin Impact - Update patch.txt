@@ -1,0 +1,10 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_250.zip
+installer:
+- move:
+    dst: $GAMEDIR/drive_c/gi_patch_bak
+    src: $GAMEDIR/drive_c/gi_patch
+- extract:
+    dst: $GAMEDIR/drive_c/gi_patch
+    file: patch
+    format: zip
