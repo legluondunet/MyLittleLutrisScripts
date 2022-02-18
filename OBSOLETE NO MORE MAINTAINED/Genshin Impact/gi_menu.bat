@@ -38,17 +38,5 @@ cd "c:\Program Files\Genshin Impact"
 start launcher.exe
 goto :launcher
 
-:apatch
-cd "c:\gi_patch"
-start /unix ex_apatch.sh
-pause
-goto :launcher
-
-:rpatch
-cd "c:\gi_patch"
-start /unix ex_rpatch.sh
-pause
-goto :launcher
-
 :exit
 exit
