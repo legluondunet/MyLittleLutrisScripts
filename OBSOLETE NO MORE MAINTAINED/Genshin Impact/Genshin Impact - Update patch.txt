@@ -8,3 +8,4 @@ installer:
     dst: $GAMEDIR/drive_c/gi_patch
     file: patch
     format: zip
+extends: genshin-impact
