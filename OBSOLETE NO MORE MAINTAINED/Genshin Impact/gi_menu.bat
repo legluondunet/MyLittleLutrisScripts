@@ -39,13 +39,13 @@ start launcher.exe
 goto :launcher
 
 :apatch
-cd "c:\gi_patch_230"
+cd "c:\gi_patch"
 start /unix ex_apatch.sh
 pause
 goto :launcher
 
 :rpatch
-cd "c:\gi_patch_230"
+cd "c:\gi_patch"
 start /unix ex_rpatch.sh
 pause
 goto :launcher
