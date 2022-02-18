@@ -1,3 +1,4 @@
+extends: genshin-impact
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_250.zip
 installer:
@@ -8,4 +9,3 @@ installer:
     dst: $GAMEDIR/drive_c/gi_patch
     file: patch
     format: zip
-extends: genshin-impact
