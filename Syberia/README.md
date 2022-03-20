@@ -1,12 +1,7 @@
 # Syberia - GOG
 
 ### Description:
-This script will install "Syberia" Gog edition with support for modern computer configuration.
-During install please let all options by default.
-This script uses different projects:
-DxWnd: https://sourceforge.net/projects/dxwnd/
-Nircmd: https://www.nirsoft.net/utils/nircmd.html
-Thanks to the people who helped us play this game in the best conditions.
+Play "Syberia" Gog edition on Linux! This script uses different projects: DxWnd https://sourceforge.net/projects/dxwnd/ , Nircmd https://www.nirsoft.net/utils/nircmd.html
 
 ### Technical notes:
 - This script will use nircmd.exe as a workaround for the black window bug. 
