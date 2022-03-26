@@ -62,3 +62,5 @@ installer:
 require-binaries: xdelta3, xterm, zenity
 system:
   manual_command: $GAMEDIR/drive_c/gi_patch.sh
+wine:
+  Desktop: true
