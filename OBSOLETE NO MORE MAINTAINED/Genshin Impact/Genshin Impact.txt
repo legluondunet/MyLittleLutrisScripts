@@ -1,5 +1,5 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_240.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_250.zip
 - giclient:
     filename: GenshinImpact_install_mihoyo.exe
     url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
@@ -21,6 +21,12 @@ installer:
     app: vcrun2019 corefonts
     name: winetricks
     prefix: $GAMEDIR
+- task:
+    args: /desktop=GI,1280x900 $giclient
+    description: Installing Genshin Impact...Close Geshin Impact client once finished
+      download, do not execute the game yet.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
 - copy:
     dst: $GAMEDIR/drive_c
     src: menubat
@@ -53,15 +59,6 @@ installer:
     format: zip
 - chmodx: $GAMEDIR/drive_c/gi_patch/ex_apatch.sh
 - chmodx: $GAMEDIR/drive_c/gi_patch/ex_rpatch.sh
-- task:
-    args: /desktop=GI,1280x900 "$giclient"
-    description: Installing Genshin Impact...Close Geshin Impact client once finished
-      download, do not execute the game yet.
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
 require-binaries: xdelta3, xterm, zenity
 system:
   manual_command: $GAMEDIR/drive_c/gi_patch.sh
-wine:
-  Desktop: true
