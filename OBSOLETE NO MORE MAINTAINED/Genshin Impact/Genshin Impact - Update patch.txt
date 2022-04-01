@@ -1,6 +1,6 @@
 extends: genshin-impact
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_250.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_260.zip
 installer:
 - move:
     dst: $GAMEDIR/drive_c/gi_patch_bak
