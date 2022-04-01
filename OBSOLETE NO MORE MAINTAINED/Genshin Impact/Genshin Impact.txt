@@ -1,5 +1,5 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_250.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/gi_patch_260.zip
 - giclient:
     filename: GenshinImpact_install_mihoyo.exe
     url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
