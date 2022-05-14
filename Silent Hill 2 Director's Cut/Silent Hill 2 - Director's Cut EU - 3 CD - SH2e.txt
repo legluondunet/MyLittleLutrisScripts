@@ -1,11 +1,9 @@
 custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
-- sh2exe: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Enhanced_EXE_NA_v1.0.zip
-- sh2ed3d8: https://github.com/elishacloud/Silent-Hill-2-Enhancements/releases/latest/download/d3d8.zip
-- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.2.0.zip
-- sh2eip: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Image_Enhancement_Pack_1.0.0.zip
-- sh2estr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/exe_str.zip
-- sh2edsoal: http://www.enhanced.townofsilenthill.com/SH2/files/DSOAL_1.31a.02.zip
+- sh2exe: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2pc_vDC.zip
+- sh2ed3d8: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
+- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.2.1.zip
+- sh2eip: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Image_Enhancement_Pack_1.1.0.zip
 game:
   exe: drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
   prefix: $GAMEDIR
@@ -141,15 +139,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
     src: sh2eip
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/text
-    src: sh2estr
-- extract:
-    dst: $CACHE
-    src: sh2edsoal
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
-    src: $CACHE/SILENT HILL 2
 - input_menu:
     description: 'Please choose your preferred interface language:'
     id: LANG
@@ -213,33 +202,6 @@ installer:
 
       SET DX_CONFIG_SE_VOLUME 12'
     file: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/options.ini
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors
-      Cut/" ; sed -i "s/AutoUpdateModule = 1/AutoUpdateModule = 0/g" d3d8.ini;
-- task:
-    arch: win64
-    key: d3d8
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: dsound
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: EAXEnabled
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
 - task:
     arch: win64
     key: background
@@ -253,3 +215,5 @@ installer:
     src: $GAMEDIR/drive_c/tmp/
 wine:
   Desktop: true
+  overrides:
+    d3d8: n,b
