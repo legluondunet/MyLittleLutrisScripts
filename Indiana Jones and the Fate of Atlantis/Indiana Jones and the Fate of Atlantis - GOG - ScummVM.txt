@@ -31,7 +31,8 @@ installer:
     command: cd "$GAMEDIR"; cp __support/app/atlantis.ini . ; if [ "$INPUT_LANG" ==
       "keep" ]; then  exit ; fi ; echo "lang = $INPUT_LANG"; LD_LIBRARY_PATH=. patch
       < lang/$INPUT_LANG/ATLANTIS.000.patch ATLANTIS.000; LD_LIBRARY_PATH=. patch
-      < lang/$INPUT_LANG/ATLANTIS.001.patch ATLANTIS.001;
+      < lang/$INPUT_LANG/ATLANTIS.001.patch ATLANTIS.001; rm -f -r app commonappdata
+      lang __redist scummvm __support tmp goggame-1207666293*
 require-binaries: patch
 scummvm:
   aspect: true
