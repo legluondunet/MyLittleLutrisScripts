@@ -1,13 +1,11 @@
 # Indiana Jones and the Fate of Atlantis - GOG - ScummVM
 
 ### Description:
-This script will assist you to install this game on Linux OS:
-"Indiana Jones and the Fate of Atlantis" provided by GOG using ScummVM runner.
-During install please let all options by default.
-Thanks to the people who contributed to play this game in the best conditions on Linux platform.
+This script will install "Indiana Jones and the Fate of Atlantis" english Talkie version from GOG with multilanguage subtitles.
 
 ### Technical notes:
-- This script is only compatible with the game installation file for Windows in exe format provided by GOG.
+- This script is only compatible with the game installation file for Windows in exe format and english language (Talkie version) provided by GOG.
+- Before to launch this installer, you have firstly to download game file installation in Windows exe format and "english" language from GOG. Then, in Lutris interface, select local file during install instead of "automatic download".
 - Multilanguage: you could choose your preferred subtitles language during install between english, french, italian, spanish and german. The voices will still stay in english.
 Credits: 
 (FR) https://www.planete-aventure.net/forums/viewtopic.php?f=50&t=6551
