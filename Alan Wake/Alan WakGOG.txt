@@ -45,6 +45,7 @@ installer:
     preselect: en
 - execute:
     command: cd "$GAMEDIR/drive_c"; mkdir "GOG Games"; mv "Alan Wake" "GOG Games";
-      cd GOG Games/Alan Wake";
+      cd "GOG Games/Alan Wake"; rm -f -r app commonappdata __redist tmp goggame-1207659037.*
+      ;
 wine:
   Desktop: true
