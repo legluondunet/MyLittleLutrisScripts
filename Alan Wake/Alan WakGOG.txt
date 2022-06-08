@@ -1,0 +1,50 @@
+files:
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Select the Windows setup file downloaded from GOG
+game:
+  arch: win64
+  args: -locale=$INPUT_LANG
+  exe: $GAMEDIR/drive_c/GOG Games/Alan Wake/alanwake.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/innoextract
+    file: inno
+- execute:
+    args: --extract $gogsetup --output-dir "$GAMEDIR/drive_c/Alan Wake"
+    file: $CACHE/innoextract/innoextract
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- input_menu:
+    description: 'Please choose your preferred language:'
+    id: LANG
+    options:
+    - en: English (audio + subtitles)
+    - fr: French  (audio + subtitles)
+    - es: Spanish  (audio + subtitles)
+    - de: German  (audio + subtitles)
+    - it: Italian  (audio + subtitles)
+    - jp: Japanese  (audio + subtitles)
+    - ko: Korean (subtitles)
+    - cht: Tchinese (subtitles)
+    - pl: Polish (subtitles)
+    - ru: Russian (subtitles)
+    - cz: Czech (subtitles)
+    preselect: en
+- execute:
+    command: cd "$GAMEDIR/drive_c"; mkdir "GOG Games"; mv "Alan Wake" "GOG Games";
+      cd GOG Games/Alan Wake";
+wine:
+  Desktop: true
