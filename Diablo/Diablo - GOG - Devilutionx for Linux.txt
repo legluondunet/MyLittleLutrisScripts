@@ -1,56 +1,29 @@
-custom-name: Diablo - GOG - Tchernobog
+custom-name: Diablo - GOG - DevilutionX for Linux
 files:
+- diablosetup: N/A:Select the EXE downloaded from GOG
+- dvltx: https://github.com/diasurgical/devilutionX/releases/download/1.4.0/devilutionx-linux-x86_64.appimage
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.0e/Release0.2.0e.zip
-- gog: N/A:Please select the gog installer for this game
 game:
-  arch: win64
-  exe: drive_c/Diablo Tchernobog/Tchernobog.exe
+  args: --save-dir . --config-dir .
+  exe: $GAMEDIR/devilutionx-linux-x86_64.appimage
   prefix: $GAMEDIR
 installer:
-- task:
-    arch: win64
-    description: Creating WINE prefix
-    install_gecko: false
-    install_mono: false
-    name: create_prefix
-    prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR
+    src: dvltx
+- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
 - extract:
     dst: $CACHE/innoextract
     file: inno
 - execute:
-    args: --extract $gog --output-dir "$CACHE/"
+    args: --extract $diablosetup --output-dir $CACHE
     file: $CACHE/innoextract/innoextract
-- extract:
-    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
-    file: tchernobog
-- move:
-    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/hellfire
+- copy:
+    dst: $GAMEDIR
     src: $CACHE/DIABDAT.MPQ
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 242 59 13
-wine:
-  Desktop: true
-
+- execute:
+    command: cd "$CACHE"; cp *.PDF "$GAMEDIR"; cd "$GAMEDIR"; rm -f -r *.dll language.inf
+      sierra.inf Standard.snp hellfire.exe;
