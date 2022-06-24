@@ -1,6 +1,6 @@
 custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
-- sh2exe: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2pc_vDC.zip
+- sh2exe: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/SH2PC_Enhanced_EXE_NA_v1.0.zip
 - sh2ed3d8: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
 - sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.2.1.zip
 - sh2eip: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Image_Enhancement_Pack_1.1.0.zip
@@ -11,7 +11,7 @@ installer:
 - task:
     arch: win64
     description: Preparing "Silent Hill 2 - Directors Cut" folder
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
@@ -212,7 +212,7 @@ installer:
     value: 0 0 0
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/tmp/
+    src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
   overrides:
