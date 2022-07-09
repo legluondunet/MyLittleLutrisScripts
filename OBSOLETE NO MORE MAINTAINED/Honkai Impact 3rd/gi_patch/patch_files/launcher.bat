@@ -52,5 +52,4 @@ REM ============= Launch the game =============
 REM https://docs.unity3d.com/Manual/PlayerCommandLineArguments.html
 REM Append the arguments to the command: launcher.bat arg1 arg2 ...
 
-pause
 start BH3.exe %*
