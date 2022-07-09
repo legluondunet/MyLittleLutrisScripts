@@ -10,11 +10,11 @@ cls
 echo.
 echo.
 echo.	-------------------------------------------------------------
-echo.			     Genshin Impact
+echo.			     Honkai Impact 3rd
 echo.	-------------------------------------------------------------
 echo.
-echo.	 1) Play Genshin Impact (patched)
-echo.	 2) Update Genshin Impact(do not launch game)
+echo.	 1) Play Honkai Impact 3rd (patched)
+echo.	 2) Update Honkai Impact 3rd (do not launch game)
 echo.	 3) Exit
 echo.
 echo.	-------------------------------------------------------------
