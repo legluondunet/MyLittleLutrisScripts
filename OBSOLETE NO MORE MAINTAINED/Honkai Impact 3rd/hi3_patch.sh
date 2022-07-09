@@ -1,12 +1,12 @@
 #!/bin/sh
 
 zenity_base() {
-zenity "$@" --icon-name='lutris' --width="450" --height="250"  --title="Genshin Impact Wine Patch"
+zenity "$@" --icon-name='lutris' --width="450" --height="250"  --title="Honkai Impact 3rd Wine Patch"
 }
 
 zenity_main_menu() { 
-gi_patch="Patch Genshin Impact"
-gi_unpatch="Unpatch Genshin Impact"
+gi_patch="Patch Honkai Impact 3rd"
+gi_unpatch="Unpatch Honkai Impact 3rd"
 
 CHOICE=$(zenity_base --list --radiolist  \
         --column="" --column="" \
