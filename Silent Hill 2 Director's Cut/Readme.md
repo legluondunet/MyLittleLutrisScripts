@@ -9,8 +9,8 @@
 - This game supports natively x360 controller
 
 ### Credits:
-Big thanks to Elisha Riedlinger and all Silent Hill 2 Enhancement project (SH2ee) devs team http://www.enhanced.townofsilenthill.com/SH2
-Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Big thanks to Elisha Riedlinger and all Silent Hill 2 Enhancement Edition project (SH2EE) devs team http://www.enhanced.townofsilenthill.com/SH2
+- Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Silent Hill 2 - Director's Cut EU - CD - SH2ee
 
