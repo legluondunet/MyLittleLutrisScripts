@@ -17,7 +17,7 @@ echo "valeur de la variable CHOICE: " $CHOICE
     case "$CHOICE" in
         "$gi_patch")
             cd drive_c/gi_patch
-            xterm ./ex_apatch.sh
+            xterm ex_apatch.sh
             ;;
         "$gi_unpatch") 
         cd drive_c/gi_patch
