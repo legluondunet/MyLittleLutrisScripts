@@ -1,0 +1,222 @@
+custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2EE setup
+files:
+- sh2eesetup: http://www.enhanced.townofsilenthill.com/SH2/files/SH2EEsetup.exe
+- menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2ee_menu.bat
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2ee.bmp
+game:
+  args: c:\\sh2ee_menu.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing "Silent Hill 2 - Directors Cut" folder
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert "Silent Hill 2 Director's Cut" CD 1 and press autodetect
+    requires: sh2.ico
+- merge:
+    description: Copying data from "Silent Hill 2 Director's Cut" CD 1, please wait
+    dst: $GAMEDIR/drive_c/tmp/cd1
+    src: $DISC
+- insert-disc:
+    description: Please insert "Silent Hill 2 Director's Cut" CD 2 and press autodetect
+    requires: data3.cab
+- merge:
+    description: Copying data from "Silent Hill 2 Director's Cut" CD 2, please wait
+    dst: $GAMEDIR/drive_c/tmp/cd2
+    src: $DISC
+- insert-disc:
+    description: Please insert "Silent Hill 2 Director's Cut" CD 3 and press autodetect
+    requires: data4.cab
+- merge:
+    description: Copying data from "Silent Hill 2 Director's" Cut CD 3, please wait
+    dst: $GAMEDIR/drive_c/tmp/cd3
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp"; chmod +rw -R cd1 cd2 cd3 ; mv cd2/* cd1; mv
+      cd3/* cd1;
+- write_file:
+    content: '[InstallShield Silent]
+
+      Version=v6.00.000
+
+      File=Response File
+
+      [File Transfer]
+
+      OverwrittenReadOnly=NoToAll
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-DlgOrder]
+
+      Dlg0={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdWelcome-0
+
+      Count=8
+
+      Dlg1={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdLicense-0
+
+      Dlg2={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdAskDestPath-0
+
+      Dlg3={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdSetupTypeEx-0
+
+      Dlg4={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdSelectFolder-0
+
+      Dlg5={D3C80E77-E549-4F76-BC07-61DDBD950345}-AskYesNo-0
+
+      Dlg6={D3C80E77-E549-4F76-BC07-61DDBD950345}-AskYesNo-1
+
+      Dlg7={D3C80E77-E549-4F76-BC07-61DDBD950345}-SdFinishReboot-0
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdWelcome-0]
+
+      Result=1
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdLicense-0]
+
+      Result=1
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdAskDestPath-0]
+
+      szDir=C:\Program Files (x86)\Konami\Silent Hill 2 - Directors Cut
+
+      Result=1
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdSetupTypeEx-0]
+
+      Result=Movies on Hard Disk
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdSelectFolder-0]
+
+      szFolder=Konami\Silent Hill 2 - Directors Cut
+
+      Result=1
+
+      [Application]
+
+      Name=Silent Hill 2 - Directors Cut
+
+      Version=1.00.000
+
+      Company=Konami
+
+      Lang=0009
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-AskYesNo-0]
+
+      Result=0
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-AskYesNo-1]
+
+      Result=1
+
+      [{D3C80E77-E549-4F76-BC07-61DDBD950345}-SdFinishReboot-0]
+
+      Result=1
+
+      BootOption=0'
+    file: $GAMEDIR/drive_c/tmp/cd1/setup.iss
+- task:
+    args: /s /L0009
+    description: Please just click "OK" when a dialog box will ask for Disk 1
+    executable: $GAMEDIR/drive_c/tmp/cd1/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=SH2E,1280x900 $sh2eesetup
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
+- input_menu:
+    description: 'Please choose your preferred interface language:'
+    id: LANG
+    options:
+    - 1: English
+    - 2: French
+    - 3: German
+    - 4: Italian
+    - 5: Spanish
+    preselect: 1
+- write_file:
+    content: SET DX_CONFIG_LANGUAGE $INPUT
+    file: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/language.ini
+- write_file:
+    content: 'SET DX_CONFIG_EFFECT_FOG_ON 1
+
+      SET DX_CONFIG_EFFECT_SHADOWS_ON 1
+
+      SET DX_CONFIG_EFFECT_LENS_FLARE_ON 1
+
+      SET DX_CONFIG_EFFECT_MOTION_BLUR_ON 1
+
+      SET DX_CONFIG_EFFECT_DEPTH_OF_FIELD_ON 1
+
+      SET DX_CONFIG_RES 2
+
+      SET DX_CONFIG_USE_LORES_TEXTURES 0
+
+      SET DX_CONFIG_3D_SOUND_HARDWARE 1
+
+      SET DX_CONFIG_3D_SOUND_HARDWARE_AVAILABLE 1
+
+      SET DX_CONFIG_BRIGHTNESS 3
+
+      SET DX_CONFIG_SCREEN_POS_X 0
+
+      SET DX_CONFIG_SCREEN_POS_Y 0
+
+      SET DX_CONFIG_NOISE 1'
+    file: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/settings.ini
+- write_file:
+    content: 'SET DX_CONFIG_WEAPON_CONTROL 0
+
+      SET DX_CONFIG_MAP 0
+
+      SET DX_CONFIG_WALK_RUN 0
+
+      SET DX_CONFIG_VIEW 0
+
+      SET DX_CONFIG_BLOOD 0
+
+      SET DX_CONFIG_BULLET 1
+
+      SET DX_CONFIG_CONTROL_STYLE 1
+
+      SET DX_CONFIG_VIBRATION 3
+
+      SET DX_CONFIG_SUBTITLES 1
+
+      SET DX_CONFIG_BGM_VOLUME 12
+
+      SET DX_CONFIG_SE_VOLUME 12'
+    file: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/options.ini
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menubat
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: bmp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\sh2ee.bmp
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
+wine:
+  Desktop: true
+  overrides:
+    d3d8: n,b
