@@ -4,7 +4,7 @@
 "Silent Hill 2 - Director's Cut" 3 CD EU release with Silent Hill 2 Enhancement project
 
 ### Technical notes:
- You will need the 3 CD only during install
+- You will need the 3 CD only during install
 - Multilanguage: you can choose language to display menus and subtitles during install between English, French, German, Italian and Spanish
 - This game supports natively x360 controller
 
