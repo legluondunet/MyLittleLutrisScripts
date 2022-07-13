@@ -1,7 +1,7 @@
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch.zip
-- giclient:
-    filename: bh3_glb_new_20220627162920.exe
+- hi3clientglb:
+    filename: bh3_glb_new.exe
     url: https://sg-public-api.hoyoverse.com/event/download_porter/link/bh3_os/pcglobal/default
 - menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu.bat
 - menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch.sh
@@ -22,8 +22,8 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    args: /desktop=GI,1280x900 $giclient
-    description: Installing Genshin Impact...Close Geshin Impact client once finished
+    args: /desktop=GI,1280x900 $hi3clientglb
+    description: Installing Honkai Impact 3rd...Close Honkai Impact 3rd client once finished
       download, do not execute the game yet.
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
