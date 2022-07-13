@@ -1,5 +1,5 @@
 @echo off
-color 0f
+color 0C
 
 c:
 
