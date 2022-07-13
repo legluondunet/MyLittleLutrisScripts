@@ -164,14 +164,14 @@ if [[ -e "$CEXE2" ]]; then
 fi
 
 # Registry entry to add on startup
-cp -f "$DIR/patch_files/mhyprot2_running.reg" .
+cp -f "$DIR/patch_files/mhyprotect_running.reg" .
 
 # Add launcher & force update to ensure the checks are performed
 echo "--- Adding launcher script"
 cp -f "$DIR/patch_files/launcher.bat" .
 if [[ "$reltype" != "os" ]]; then
 	# Same thing but different
-	sed -i "s/GenshinImpact/YuanShen/g" "launcher.bat"
+	sed -i "s/BH3/YuanShen/g" "launcher.bat"
 	sed -i "s/log-upload-os.hoyoverse/log-upload.mihoyo/g" "launcher.bat"
 	sed -i "s/overseauspider/uspider/g" "launcher.bat"
 fi
