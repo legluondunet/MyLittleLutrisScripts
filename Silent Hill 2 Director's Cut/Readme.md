@@ -1,4 +1,4 @@
-# Silent Hill 2 - Director's Cut EU - CD - SH2e
+# Silent Hill 2 - Director's Cut EU - CD - SH2ee
 
 ### Description:
 This script will facilitate you install of this game on Linux OS:
