@@ -1,7 +1,7 @@
 # Silent Hill 2 - Director's Cut EU - CD - SH2EE Setup
 
 ### Description:
-"Silent Hill 2 - Director's Cut" 3 CD EU release with Silent Hill 2 Enhancement project
+"Silent Hill 2 - Director's Cut" 3 CD EU release with Silent Hill 2 Enhancement Edition project
 
 ### Technical notes:
 - You will need the 3 CD only during install
@@ -9,7 +9,7 @@
 - This game supports natively x360 controller
 
 ### Credits:
-Big thanks to Elisha Riedlinger and all Silent Hill 2 Enhancement project (SH2e) devs team http://www.enhanced.townofsilenthill.com/SH2
+Big thanks to Elisha Riedlinger and all Silent Hill 2 Enhancement project (SH2ee) devs team http://www.enhanced.townofsilenthill.com/SH2
 Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Silent Hill 2 - Director's Cut EU - CD - SH2ee
