@@ -72,7 +72,7 @@ fi
 echo "--- Removing all newly added files"
 # The error messages for inexistent files are intended
 rm "launcher.bat"
-rm "mhyprot2_running.reg"
+rm "mhyprotect_running.reg"
 
 # dxvk files
 rm *.dxvk-cache
