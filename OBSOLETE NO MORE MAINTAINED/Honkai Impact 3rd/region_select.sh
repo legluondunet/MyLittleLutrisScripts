@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $GAMEDIR/drive_c/
+
 if test -f "hi3_menu_glb.sh"; then
     mv hi3_menu_glb.sh hi3_menu.sh
 fi
