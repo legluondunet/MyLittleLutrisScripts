@@ -1,16 +1,42 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch.zip
+- patchglb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch_glb.zip
+- patchsea: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch_sea.zip
+- patchtw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch_tw.zip
+- patchkr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch_kr.zip
 - hi3clientglb:
     filename: bh3_glb_new.exe
     url: https://sg-public-api.hoyoverse.com/event/download_porter/link/bh3_os/pcglobal/default
-- menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu.bat
+- hi3clientsea:
+    filename: bh3_sea_new.exe
+    url: https://sg-public-api.hoyoverse.com/event/download_porter/link/bh3_os/pcsea/default
+- hi3clienttw:
+    filename: bh3_tw_new.exe
+    url: https://sg-public-api.hoyoverse.com/event/download_porter/link/bh3_os/pctw/default
+- hi3clientkr:
+    filename: bh3_kr_new.exe
+    url: https://sg-public-api.hoyoverse.com/event/download_porter/link/bh3_os/pckr/default
+- menubatglb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu_glb.bat
+- menubatsea: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu_sea.bat
+- menubattw: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu_tw.bat
+- menubatkr: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_menu_kr.bat
 - menush: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3_patch.sh
+- regionslct: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/region_select.sh
 - bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OBSOLETE%20NO%20MORE%20MAINTAINED/Genshin%20Impact/hi3.bmp
 game:
   args: c:\\hi3_menu.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
+- input_menu:
+    description: "Select your region for the game:"
+    id: REGION
+    options:
+    - glb: Europe & Americas Servers
+    - sea: SEA Server
+    - tw: Traditional Chinese Server
+    - kr: KR Server
+    - "value and": "label can be anything, surround them with quotes to avoid issues"
+    preselect: glb
 - task:
     arch: win64
     install_gecko: false
@@ -22,14 +48,14 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    args: /desktop=GI,1280x900 $hi3clientglb
+    filename: bh3_glb_new.exefilename: bh3_glb_new.exeargs: /desktop=GI,1280x900 $hi3client$INPUT_REGION
     description: Installing Honkai Impact 3rd...Close Honkai Impact 3rd client once finished
       download, do not execute the game yet.
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
 - copy:
     dst: $GAMEDIR/drive_c
-    src: menubat
+    src: menubat$INPUT_REGION
 - chmodx: menush
 - copy:
     dst: $GAMEDIR/drive_c
@@ -57,6 +83,9 @@ installer:
     dst: $GAMEDIR/drive_c/hi3_patch
     file: patch
     format: zip
+- execute
+    file: regionslct
+    terminal: true
 - chmodx: $GAMEDIR/drive_c/hi3_patch/ex_apatch.sh
 - chmodx: $GAMEDIR/drive_c/hi3_patch/ex_rpatch.sh
 require-binaries: xdelta3, xterm, zenity
