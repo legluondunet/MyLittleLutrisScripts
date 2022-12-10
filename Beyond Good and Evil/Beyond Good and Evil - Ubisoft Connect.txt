@@ -64,7 +64,7 @@ installer:
     dst: $GAMEDIR/drive_c
     src: launcher
 - task:
-    args: /desktop,$RESOLUTION $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft
+    args: /desktop=BGAE,1024x768 $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft
       Game Launcher/UbisoftConnect.exe uplay://launch/232/0
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     name: wineexec
