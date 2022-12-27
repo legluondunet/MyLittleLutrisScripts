@@ -4,6 +4,7 @@ files:
 - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
 game:
   arch: win64
+  args: -d3d11
   exe: drive_c/GOG Games/HellbladeSenuasSacrifice/HellbladeGame.exe
   prefix: $GAMEDIR
 installer:
@@ -24,14 +25,6 @@ installer:
     src: $CACHE/HellbladeSenuasSacrifice/
 - task:
     arch: win64
-    key: CSMT
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -43,4 +36,3 @@ installer:
       commonappdata __redist tmp goggame-1573355755.* ;
 wine:
   Desktop: true
-
