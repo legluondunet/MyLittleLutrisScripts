@@ -27,6 +27,10 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- task:
+    app: xact
+    name: winetricks
+    silent: true
 - input_menu:
     description: 'Please choose your preferred language:'
     id: LANG
@@ -49,3 +53,4 @@ installer:
       ;
 wine:
   Desktop: true
+  dxvk_nvapi: false
