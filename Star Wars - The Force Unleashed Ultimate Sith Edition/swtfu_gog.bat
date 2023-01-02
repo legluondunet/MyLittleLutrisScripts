@@ -106,15 +106,16 @@ if "%1" == "ru" set varlang2=Russian
 goto :eof
 
 :copyconfig
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Il Potere della Forza\"
-if not exist "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\" mkdir "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars El Poder de la Fuerza\"
+if not exist "%userprofile%\AppData\Local\Aspyr\Star Wars Le Pouvoir de la Force" mkdir "%userprofile%\AppData\Local\Aspyr\Star Wars Le Pouvoir de la Force\"
+if not exist "%userprofile%\AppData\Local\Aspyr\Star Wars The Force Unleashed\" mkdir "%userprofile%\AppData\Local\Aspyr\Star Wars The Force Unleashed\"
+if not exist "%userprofile%\AppData\Local\Aspyr\Star Wars Il Potere della Forza\" mkdir "%userprofile%\AppData\Local\Aspyr\Star Wars Il Potere della Forza\"
+if not exist "%userprofile%\AppData\Local\Aspyr\Star Wars El Poder de la Fuerza\" mkdir "%userprofile%\AppData\Local\Aspyr\Star Wars El Poder de la Fuerza\"
 
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
-copy /Y "c:\tmp\Config.xml" "%userprofile%\Local Settings\Application Data\Aspyr\Star Wars The Force Unleashed\Config.xml"
+copy /Y "c:\tmp\Config.xml" "%userprofile%\AppData\Local\Aspyr\Star Wars Le Pouvoir de la Force\Config.xml"
+copy /Y "c:\tmp\Config.xml" "%userprofile%\AppData\Local\Aspyr\Star Wars The Force Unleashed\Config.xml"
+copy /Y "c:\tmp\Config.xml" "%userprofile%\AppData\Local\Aspyr\Star Wars Il Potere della Forza\Config.xml"
+copy /Y "c:\tmp\Config.xml" "%userprofile%\AppData\Local\Aspyr\Star Wars El Poder de la Fuerza\Config.xml"
 goto :eof
 
 :exit
 exit
-
