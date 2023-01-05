@@ -7,8 +7,8 @@ During install please let all options by default.
 Thanks to the people who contributed to play this game in the best conditions on Linux.
 
 ### Technical notes:
-- Widescreen patch
-- Fix audio sync
+- Widescreen patch with no borders
+- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
 - BGE Gog edition does not natively support controller, only Keyboard.  For a better gaming experience, you will find profiles for x360 and Steam Controller in the "gamepad profiles" folder
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
@@ -22,7 +22,7 @@ During install please let all options by default.
 Thanks to the people who contributed to play this game in the best conditions on Linux.
 
 ### Technical notes:
-- Widescreen patch
-- Fix audio sync
+- Widescreen patch with no borders
+- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
