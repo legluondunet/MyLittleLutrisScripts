@@ -2,7 +2,6 @@ custom-name: Rayman Origins - GOG
 files:
 - installer: N/A:Select the GOG setup exe
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- dumb: https://github.com/kozec/dumbxinputemu/releases/download/v0.3.3/dumbxinputemu-v0.3.3-dlls.tar.gz
 game:
   arch: win64
   exe: drive_c/GOG Games/Rayman Origins/Rayman Origins.exe
@@ -21,47 +20,10 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman Origins
     src: $CACHE/app
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman Origins" ; rm -f -r __support gog*
-      webcache.zip
-- task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
 - task:
     app: xact
     name: winetricks
     prefix: $GAMEDIR
-- extract:
-    dst: $CACHE
-    file: dumb
-- merge:
-    dst: $GAMEDIR/drive_c/windows/syswow64
-    src: $CACHE/32/
-- task:
-    arch: win64
-    key: xinput1_3
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: xinput1_4
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: xinput9_1_0
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
 - task:
     arch: win64
     key: background
@@ -71,17 +33,12 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
     description: Select your preferred language
     executable: $GAMEDIR/drive_c/GOG Games/Rayman Origins/language_setup.exe
     name: wineexec
     prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman Origins" ; rm -f -r __support gog*
+      webcache.zip
 wine:
   Desktop: true
