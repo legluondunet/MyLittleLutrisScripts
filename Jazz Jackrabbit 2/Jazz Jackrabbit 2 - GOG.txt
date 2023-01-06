@@ -1,8 +1,6 @@
 files:
-- dxwrapper1: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_78.zip
-- dxwrapper2: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_80_build.rar
+- dxwrapper: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_91_build.rar
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- configfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Jazz%20Jackrabbit%202/JAZZ2.CFG
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
 game:
@@ -28,31 +26,9 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Jazz Jackrabbit 2
     src: $CACHE/app
-- copy:
-    dst: $GAMEDIR/drive_c/Jazz Jackrabbit 2
-    src: configfile
-- extract:
-    dst: $GAMEDIR/drive_c/Jazz Jackrabbit 2
-    file: dxwrapper1
-- copy:
-    dst: $GAMEDIR/drive_c/Jazz Jackrabbit 2
-    src: $GAMEDIR/drive_c/Jazz Jackrabbit 2/MS/x86/DDraw.dll
-- copy:
-    dst: $GAMEDIR/drive_c/Jazz Jackrabbit 2
-    src: $GAMEDIR/drive_c/Jazz Jackrabbit 2/MS/x86/D3DImm.dll
-- execute:
-    command: cd "$GAMEDIR/drive_c/Jazz Jackrabbit 2"; mv dgVoodoo.conf dgVoodoo_original.conf;
-- write_config:
-    data:
-      DirectX:
-        dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-    file: $GAMEDIR/drive_c/Jazz Jackrabbit 2/dgVoodoo.conf
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
-    file: dxwrapper2
+    file: dxwrapper
 - write_config:
     data:
       target:
@@ -62,12 +38,12 @@ installer:
         dflag0: 0
         dflagb0: 0
         filterid0: 0
-        flag0: 673194016
-        flagg0: 1207959568
-        flagh0: 22
-        flagi0: 138412036
-        flagj0: 4224
-        flagk0: 98304
+        flag0: 673185824
+        flagg0: 134217776
+        flagh0: 18
+        flagi0: 136314884
+        flagj0: 4096
+        flagk0: 32768
         flagl0: 0
         flagm0: 0
         flagn0: 17825796
@@ -98,10 +74,12 @@ installer:
         swapeffect0: 0
         tflag0: 0
         title0: Jazz Jackrabbit 2
-        ver0: 0
-        winver0: 0
       window:
+        posx: 50
+        posy: 50
         showhelp: false
+        sizx: 320
+        sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - execute:
     command: cd "$GAMEDIR/drive_c/"; mkdir "GOG Games"; mv "Jazz Jackrabbit 2" "GOG
@@ -140,5 +118,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-  overrides:
-    ddraw: n
