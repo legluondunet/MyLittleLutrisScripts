@@ -2,6 +2,7 @@ custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- tr3config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/config.txt
 - menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
 - menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
@@ -25,7 +26,10 @@ installer:
     dst: $GAMEDIR/drive_c/TR3TLA/
     src: $DISC
 - execute:
-    command: cd $GAMEDIR/drive_c/TR3TLA/; chmod -R u-x,g-x,o-x,u+X,u+w,g+r *
+    command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA
+- copy:
+    dst: $GAMEDIR/drive_c/TR3TLA/
+    src: tr3config
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA/
     file: arsunt
@@ -60,10 +64,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: native,builtin
-- task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
 - move:
     dst: $GAMEDIR/drive_c/TR3TLA/
     src: menu1
@@ -98,19 +98,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - execute:
     command: cd $GAMEDIR/drive_c/TR3TLA/; rm -f -r 3Dfx Doc MS DIRECTX Script autorun*
       data1* DSETUP* _* setup.* layout.bin os.dat tomb3.exe DATA.TAG lang.dat Setup.exe
       SETUP.INI
 wine:
   Desktop: true
-  dxvk: true
-
