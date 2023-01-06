@@ -1,0 +1,42 @@
+custom-name: Beyond Good & Evil - Ubisoft Connect
+files:
+- uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+game:
+  args: uplay://launch/80/0
+  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: arial d3dcompiler_47
+    name: winetricks
+    prefix: $GAMEDIR
+- write_file:
+    content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
+      \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
+    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
+      Launcher/settings.yml
+- task:
+    args: /S
+    executable: uplay
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=BGAE,1024x768 $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft
+      Game Launcher/UbisoftConnect.exe uplay://launch/80/0
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
+wine:
+  Desktop: true
+  overrides:
+    nvapi,nvapi64: disabled
