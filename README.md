@@ -28,8 +28,8 @@ Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes s
 ## Supported Linux distributions (>= GLIBC 2.7)
 all scripts tested and should be compatible on 
 
-- Ubuntu 20.04
-- Arch (Manjaro 21, Arcolinux...)
+- Ubuntu 22.04
+- Arch (Manjaro 22, Endeavior, Arcolinux...)
 - OpenSUSE Tumbleweed
 
 and superior version.
