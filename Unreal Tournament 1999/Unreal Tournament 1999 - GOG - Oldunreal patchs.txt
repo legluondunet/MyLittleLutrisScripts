@@ -1,6 +1,6 @@
 custom-name: Unreal Tournament (1999) - GOG - OldUnreal Patchs
 files:
-- patchws: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469c/OldUnreal-UTPatch469c-Windows.zip
+- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469c/OldUnreal-UTPatch469c-Windows.zip
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%201999/unreal_tournament.bmp
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account
@@ -22,7 +22,7 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
-    file: patchws
+    file: patch
 - write_config:
     data:
       Engine.Engine:
