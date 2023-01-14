@@ -9,8 +9,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 
 ## Technical notes:
 - This Lutris script installer is only compatible with Windows CD
-- A menu let you choose playing between Windows and Linux version
-- OldUnreal Patchs v469c included for both versions
+- OldUnreal Patchs v469c
 - You will need the CD only one time during install
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
@@ -25,8 +24,7 @@ During install please let all options by default.
 Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
 
 ## Technical notes:
-- A menu let you choose playing between Windows and Linux version
-- OldUnreal Patchs v469c included for both versions
+- OldUnreal Patchs v469c
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
