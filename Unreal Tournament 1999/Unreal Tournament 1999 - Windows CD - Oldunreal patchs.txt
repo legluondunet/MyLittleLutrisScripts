@@ -1,12 +1,8 @@
 custom-name: Unreal Tournament (1999) - Windows CD - OldUnreal Patchs
 files:
-- patchws: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Windows.zip
-- patchlx: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Linux.tar.bz2
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%201999/unreal_tournament.bmp
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%201999/unreal_tournament.bat
+- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Windows.zip
 game:
-  args: c:\\unreal_tournament.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -28,11 +24,7 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/UnrealTournament
-    file: patchws
-- extract:
-    dst: $GAMEDIR/drive_c/UnrealTournament
-    file: patchlx
-    format: bz2
+    file: patch
 - write_config:
     data:
       Engine.Engine:
@@ -73,36 +65,6 @@ installer:
         StartupFullscreen: true
         UseRawHIDInput: true
     file: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.ini
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- write_file:
-    content: '#!/bin/bash
-
-      sed -i "s/ViewportManager=.*/ViewportManager=WinDrv.WindowsClient/g" UnrealTournament.ini
-
-      '
-    file: $GAMEDIR/drive_c/UnrealTournament/System/modifyoptions.sh
-- chmodx: $GAMEDIR/drive_c/UnrealTournament/System/modifyoptions.sh
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\unreal_tournament.bmp
 - task:
     arch: win64
     key: background
@@ -111,22 +73,5 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 117 7 16
 wine:
   Desktop: true
-
