@@ -34,12 +34,12 @@ if errorlevel 2 goto :TFT
 if errorlevel 1 goto :ROC
 
 :ROC
-start "" "c:\program files (x86)\warcraft iii\warcraft iii.exe"
+start "" "c:\program files (x86)\warcraft iii\warcraft iii.exe" -opengl
 goto :launcher
 
 :TFT
 if not exist "c:\program files (x86)\warcraft iii\frozen throne.exe" goto :notft
-start "" "c:\program files (x86)\warcraft iii\frozen throne.exe"
+start "" "c:\program files (x86)\warcraft iii\frozen throne.exe" -opengl
 goto :launcher
 
 :update
