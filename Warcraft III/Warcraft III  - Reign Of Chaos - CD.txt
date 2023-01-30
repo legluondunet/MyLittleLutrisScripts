@@ -1,7 +1,7 @@
 custom-name: Warcraft III - CD
 files:
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd.bat
-- codecs: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-Installer.exe
+- codecs: https://github.com/Nevcairiel/LAVFilters/releases/download/0.77.1/LAVFilters-0.77.1-Installer.exe
 - regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd_utf8.reg
 - wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
 - wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
@@ -14,6 +14,8 @@ game:
 installer:
 - task:
     arch: win64
+    install_gecko: true
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -45,11 +47,10 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - insert-disc:
-    requires: trailers/wowtrailer.avi
+    requires: war3.ico
 - task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/autoplay.exe"
-    description: If you can not read the screen launcher menu. Just click on first
-      line to launch install and last line to quit. Installing Warcraft III...
+    description: Installing Warcraft III...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
@@ -98,14 +99,6 @@ installer:
     prefix: $GAMEDIR
 - task:
     arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
     key: wallpaper
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
@@ -125,11 +118,10 @@ installer:
     command: cd "$GAMEDIR/drive_c/"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
       wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
 - task:
-    args: /desktop=WarcraftIIIupdate,$RESOLUTION '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
+    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
     description: Updating Warcraft III to 1.27b...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
 wine:
   Desktop: true
-
