@@ -1,22 +1,22 @@
 # Warcraft III - Reign of Chaos - CD
 
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Warcraft III - Reign of Chaos" CD edition.
-This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+"Warcraft III - Reign of Chaos" CD edition, updated to 1.27b with a Widescreen patch
 
 ### Technical notes:
-- This script is compatible with all "Warcraft III - ROC" PC CD whatever the language is. The game will ask you a valid key at first launch.
-- During install, your game will be updated with last available version for  CD: 1.27b.
+- This script is compatible with all "Warcraft III - ROC" PC CD whatever the language is. 
+- During install, your game will be updated with latest update available version for CD: 1.27b.
 - You will need the CD only one time during install.
-- Widescreen compliant without stretch.
-- Known issues:
--- If you can not read the first CD screen launcher. Just click on first line to launch install and last line to quit.
--- You can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead. 
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Widescreen mode without stretch.
+- You can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead.
+- You can see cinematics only in opengl mode with Proton GE 5.0-9, but with instability. In this mode, it's advised to regularly save your party.
+- in directx8 mode, no cinematics but game is more stable.
+
+### Credits:
+- This script uses "Widescreen fix for Warcraft III" project: 
+https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- Lutris script maintained by legluondunet 
+https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Warcraft III - The Frozen Throne - CD_installer
 
