@@ -3,6 +3,14 @@ installer:
 - insert-disc:
     requires: trailers/wowgameplay.blz
 - task:
+    arch: win64
+    key: UseXRandR
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+- task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/install.exe"
     description: Installing Warcraft III - The Frozen Throne...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
@@ -35,4 +43,11 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-
+- task:
+    arch: win64
+    key: UseXRandR
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: N
