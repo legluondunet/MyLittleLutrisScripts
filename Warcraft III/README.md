@@ -7,8 +7,8 @@
 - You will need the CD only one time during install.
 - Widescreen mode without stretch.
 - You can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead.
-- You can see cinematics only in opengl mode with Proton GE 5.0-9, but with instability. In this mode, it's advised to regularly save your party.
-- in directx8 mode, no cinematics but game is more stable.
+- Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
+- Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
 - This script uses "Widescreen fix for Warcraft III" project: 
 https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
