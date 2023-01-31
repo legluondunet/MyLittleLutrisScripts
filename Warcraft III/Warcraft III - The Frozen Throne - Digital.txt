@@ -1,0 +1,20 @@
+extends: warcraft-iii-reign-of-chaos
+installer:
+- input_menu:
+    description: 'Please choose same language of your already Warcraft III ROC install:'
+    id: LANG
+    options:
+    - enUS: English
+    - frFR: French
+    - itIT: Italian
+    - deDE: German
+    - esES: Spanish
+    - jaJA: Japanese
+    - koKR: Korean
+    - plPL: Polish
+    - ruRU: Russian
+    - zhZN: Chinese (S)
+    - zhTW: Chinese (T)
+    preselect: enUS
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp"; wget -O w3tft.exe "https://us.battle.net/download/getLegacy?product=W3XP&locale=$INPUT_LANG&os=WIN";
