@@ -12,6 +12,7 @@ goto :launcher
 
 :launcher
 if not exist "c:\Program Files (x86)\warcraft III\war3.exe" goto :download
+if not exist "c:\Program Files (x86)\warcraft III\RenderEdge_Widescreen.mix" copy "c:\tmp\RenderEdge_Widescreen.mix" "c:\Program Files (x86)\warcraft III"
 cls
 echo.
 echo.
