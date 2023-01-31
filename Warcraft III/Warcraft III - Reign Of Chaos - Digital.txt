@@ -1,0 +1,105 @@
+custom-name: Warcraft III - CD
+files:
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_digit.bat
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd_utf8.reg
+- wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
+- wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
+- rew: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/RenderEdge_Widescreen.mix
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/resolution.sh
+game:
+  args: c:\\warcraft_iii_digit.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: baekmuk arial lavfilters
+    name: winetricks
+    prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c/
+    src: menu
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppa
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppb
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: rew
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: regfile
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: script
+- chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_cd_utf8.reg
+    file: $GAMEDIR/drive_c/tmp/resolution.sh
+- task:
+    args: $GAMEDIR/drive_c/tmp/warcraft_iii_cd_utf8.reg
+    executable: regedit
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Please choose Warcraft III language version you want to install:'
+    id: LANG
+    options:
+    - enUS: English
+    - frFR: French
+    - itIT: Italian
+    - deDE: German
+    - esES: Spanish
+    - jaJA: Japanese
+    - koKR: Korean
+    - plPL: Polish
+    - ruRU: Russian
+    - zhZN: Chinese (S)
+    - zhTW: Chinese (T)
+    preselect: enUS
+- execute:
+    command: cd "$GAMEDIR/drive_c"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
+      wget -O w3client.exe "https://us.battle.net/download/getLegacy?product=WAR3&locale=$INPUT_LANG&os=WIN";
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 255 255
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\warcraft_iii.bmp
+wine:
+  Desktop: true
+  dxvk: false
+  vkd3d: false
