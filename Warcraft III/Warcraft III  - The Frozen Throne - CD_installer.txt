@@ -3,6 +3,14 @@ installer:
 - insert-disc:
     requires: installer.exe
 - task:
+    arch: win64
+    key: UseXRandR
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+- task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/installer.exe"
     description: Installing Warcraft III - The Frozen Throne...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
@@ -30,9 +38,16 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/"; cd tmp; wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$INPUT_LANG.exe;
 - task:
-    args: /desktop=WarcraftIIIupdate,$RESOLUTION '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
+    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
     description: Updating Warcraft III to 1.27b...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-
+- task:
+    arch: win64
+    key: UseXRandR
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: N
