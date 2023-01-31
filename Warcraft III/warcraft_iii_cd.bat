@@ -18,9 +18,9 @@ echo.	------------------------------------------------
 echo.	    Warcraft III Blizzard CD Classic edition
 echo.	------------------------------------------------
 echo.
-echo.	1) Play Warcraft III - Reign Of Chaos - Directx 8 mode
+echo.	1) Play Warcraft III - Reign Of Chaos - Directx 9 mode
 echo.	2) Play Warcraft III - Reign Of Chaos - OpenGL mode
-echo.	3) Play Warcraft III - The Frozen Throne - Directx 8 mode
+echo.	3) Play Warcraft III - The Frozen Throne - Directx 9 mode
 echo.	4) Play Warcraft III - The Frozen Throne - OpenGL mode
 echo. 	5) About official CD update 1.27b
 echo.	6) Exit
