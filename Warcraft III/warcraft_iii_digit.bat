@@ -97,7 +97,7 @@ echo.
 echo.	-------------------------------------------------
 echo.
 echo.
-c:\w3client.exe
+c:\tmp\w3client.exe
 
 
 :exit
