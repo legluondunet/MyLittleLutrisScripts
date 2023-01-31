@@ -1,7 +1,6 @@
 custom-name: Warcraft III - CD
 files:
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd.bat
-- codecs: https://github.com/Nevcairiel/LAVFilters/releases/download/0.77.1/LAVFilters-0.77.1-Installer.exe
 - regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iii_cd_utf8.reg
 - wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiia.bmp
 - wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III/warcraft_iiib.bmp
@@ -43,7 +42,7 @@ installer:
     type: REG_SZ
     value: 255 255 255
 - task:
-    app: baekmuk
+    app: baekmuk arial lavfilters
     name: winetricks
     prefix: $GAMEDIR
 - insert-disc:
@@ -51,12 +50,6 @@ installer:
 - task:
     args: /desktop=WarcraftIII,1024x780 "$DISC/autoplay.exe"
     description: Installing Warcraft III...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
-- task:
-    args: /desktop=LAVFilters,1024x780 "$codecs" /silent
-    description: Installing LAVFilters...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
@@ -79,7 +72,16 @@ installer:
     - Polski: Polski
     - Russian: Russian
     preselect: English
-- move:
+- copy:
+    dst: $GAMEDIR/drive_c/
+    src: menu
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppa
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wppb
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/
     src: rew
 - merge:
@@ -89,6 +91,15 @@ installer:
     dst: $GAMEDIR/drive_c/tmp/
     src: script
 - chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
+- execute:
+    command: cd "$GAMEDIR/drive_c/"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
+      wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
+- task:
+    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
+    description: Updating Warcraft III to 1.27b...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_cd_utf8.reg
     file: $GAMEDIR/drive_c/tmp/resolution.sh
@@ -105,23 +116,7 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\warcraft_iii.bmp
-- copy:
-    dst: $GAMEDIR/drive_c/
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wppa
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wppb
-- execute:
-    command: cd "$GAMEDIR/drive_c/"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
-      wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
-- task:
-    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
-    description: Updating Warcraft III to 1.27b...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
 wine:
   Desktop: true
+  dxvk: false
+  vkd3d: false
