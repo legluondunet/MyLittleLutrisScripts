@@ -29,3 +29,7 @@ Windows Registry Editor Version 5.00
 "sfxvolume"=dword:00000064
 "softwaremidi"=dword:00000001
 "subtitles"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"UseXRandR"="N"
+"UseXVidMode"="N"
