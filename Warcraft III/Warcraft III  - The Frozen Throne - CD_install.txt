@@ -38,7 +38,7 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/"; cd tmp; wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$INPUT_LANG.exe;
 - task:
-    args: /desktop=WarcraftIIIupdate,$RESOLUTION '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
+    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
     description: Updating Warcraft III to 1.27b...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
