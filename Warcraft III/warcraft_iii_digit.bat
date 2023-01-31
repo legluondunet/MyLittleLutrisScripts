@@ -11,7 +11,7 @@ copy warcraft_iii.bmp warcraft_iiia.bmp
 goto :launcher
 
 :launcher
-if not exist "c:\Program Files (x86)\warcraft III\war3.exe" goto :download
+if not exist "c:\Program Files (x86)\warcraft III\war3.exe" goto :dlroc
 if not exist "c:\Program Files (x86)\warcraft III\RenderEdge_Widescreen.mix" copy "c:\tmp\RenderEdge_Widescreen.mix" "c:\Program Files (x86)\warcraft III"
 cls
 echo.
@@ -64,6 +64,11 @@ start "" iexplore "https://gaming-tools.com/warcraft-3/patches/"
 goto :launcher
 
 :notft
+IF EXIST "c:\tmp\w3tft.exe" (
+    IF NOT EXIST "c:\program files (x86)\warcraft iii\frozen throne.exe" (
+        GOTO :dltft
+        )
+    )
 cls
 echo.
 echo.
@@ -72,9 +77,9 @@ echo.	Blizzard - Warcraft III - Classic/Digital edition
 echo.	-------------------------------------------------
 echo.
 echo.	Warcraft III - The Frozen Throne extension is 
-echo.	not installed.If you own the CD, install it with
+echo.	not installed.If you own this extension, install it with
 echo. 	Lutris script installer called:
-echo.	"Wine CD + patch 1.27b + WS version
+echo.	"Digital 1.27 + WS version"
 echo.	available on this web page.
 echo.
 echo.	-------------------------------------------------
@@ -84,7 +89,7 @@ start "" iexplore "https://lutris.net/games/warcraft-iii-the-frozen-throne/"
 pause
 goto :launcher
 
-:download
+:dlroc
 cls
 echo.
 echo.
@@ -92,12 +97,29 @@ echo.	-------------------------------------------------
 echo.	Blizzard - Warcraft III - Classic/Digital edition
 echo.	-------------------------------------------------
 echo.
-echo.   Downloading...
+echo.   Downloading Warcraft III - Reign of Chaos...
 echo.	
 echo.	-------------------------------------------------
 echo.
 echo.
-c:\tmp\w3client.exe
+c:\tmp\w3roc.exe
+goto :exit
+
+:dltft
+cls
+echo.
+echo.
+echo.	-------------------------------------------------
+echo.	Blizzard - Warcraft III - Classic/Digital edition
+echo.	-------------------------------------------------
+echo.
+echo.   Downloading Warcraft III - The Frozen Throne...
+echo.	
+echo.	-------------------------------------------------
+echo.
+echo.
+c:\tmp\w3tft.exe
+goto :exit
 
 
 :exit
