@@ -157,6 +157,13 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/Enclave/"; mv __support/app/Sbz1/User.cfg Sbz1/;
       rm -f -r GL RenderSelector gog* webcache.zip __support;
+- task:
+    arch: win64
+    key: UseXRandR
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: N
 wine:
   Desktop: true
-
