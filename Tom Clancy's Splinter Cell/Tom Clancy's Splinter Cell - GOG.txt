@@ -19,7 +19,7 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/
     file: scws
 wine:
   Desktop: true
