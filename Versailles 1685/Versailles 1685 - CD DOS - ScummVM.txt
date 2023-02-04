@@ -26,14 +26,15 @@ installer:
     dst: $GAMEDIR/Versailles 1685/
     src: $GAMEDIR/Versailles 1685/CD1/DATAS_V/
 - execute:
-    command: cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATA/"* "$GAMEDIR/Versailles
-      1685"; cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/WIN/PROGRAM.Z" "$GAMEDIR/Versailles
-      1685/";
+    command: if [ -d "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATA" ]; then cp -fR "$GAMEDIR/Versailles
+      1685/CD1/INSTALL/DATA/"* "$GAMEDIR/Versailles 1685" && cp -fR "$GAMEDIR/Versailles
+      1685/CD1/INSTALL/WIN/PROGRAM.Z" "$GAMEDIR/Versailles 1685"; fi;
     description: in case of CD hybrid DOS/Windows
 - execute:
-    command: cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATAS_V/"* "$GAMEDIR/Versailles
-      1685"; cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/VERSAILL.PGM" "$GAMEDIR/Versailles
-      1685/";
+    command: if [ -d "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATAS_V" ]; then cp -fR
+      "$GAMEDIR/Versailles 1685/CD1/INSTALL/DATAS_V/"* "$GAMEDIR/Versailles 1685";
+      cp -fR "$GAMEDIR/Versailles 1685/CD1/INSTALL/VERSAILL.PGM" "$GAMEDIR/Versailles
+      1685"; fi;
     description: in case of CD DOS
 - merge:
     dst: $GAMEDIR/Versailles 1685/
@@ -41,10 +42,3 @@ installer:
 - copy:
     dst: $GAMEDIR/Versailles 1685/
     src: dat
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/Versailles 1685/CD1
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/Versailles 1685/CD2
-
