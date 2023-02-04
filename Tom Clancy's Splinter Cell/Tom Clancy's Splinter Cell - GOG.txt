@@ -1,19 +1,16 @@
 custom-name: Tom Clancy's Splinter Cell - GOG
 files:
 - scg: N/A:Please select the GOG installer
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- scws: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/sc/SplinterCell.WidescreenFix.zip
+- scws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/SplinterCell.WidescreenFix.zip
 game:
   exe: drive_c/GOG Games/Splinter Cell/system/SplinterCell.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
+    install_gecko: false
+    install_mono: false
     name: create_prefix
-    prefix: $GAMEDIR
-- task:
-    app: d3dcompiler_47
-    name: winetricks
     prefix: $GAMEDIR
 - task:
     args: /SP- /SUPPRESSMSGBOXES
@@ -24,54 +21,8 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
     file: scws
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
-    file: dgv
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/
-    src: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/MS/x86/D3D8.dll
-- task:
-    arch: win64
-    key: d3d8
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: msacm32
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: msvfw32
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Splinter Cell/system/"; mv dgVoodoo.conf
-      dgVoodoo_original.conf; cd scripts; mv modupdater.ini modupdater.ini.off;
-- write_config:
-    data:
-      DirectX:
-        AppControlledScreenMode: false
-        DisableAltEnterToToggleScreenMode: false
-        ForceVerticalSync: true
-        Resolution: unforced
-        VRAM: 256
-        VideoCard: geforce_ti_4800
-        dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/dgVoodoo.conf
-system:
-  single_cpu: true
 wine:
   Desktop: true
-  dxvk: true
+  overrides:
+    msacm32: n,b
+    msvfw32: n,b
