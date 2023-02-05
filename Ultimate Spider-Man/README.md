@@ -2,7 +2,7 @@
 ### Description
 "Ultimate Spider-Man" DVD edition with Widescreen patch
 ### Technical notes:
-- you will need DVD the only one time during install.
+- you will need the DVD only one time during install.
 - Widescreen patch.
 - this game supports gamepad but you will to configure it in option menu before to play.
 ### Credits:
