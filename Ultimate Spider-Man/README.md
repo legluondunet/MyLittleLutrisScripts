@@ -1,6 +1,6 @@
 # Ultimate Spider-Man - DVD + Widescreen patch
 ### Description
-"Ultimate Spider-Man" CD edition using Widescreen patch
+"Ultimate Spider-Man" DVD edition with Widescreen patch
 ### Technical notes:
 - you will need DVD the only one time during install.
 - Widescreen patch.
