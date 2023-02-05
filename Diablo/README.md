@@ -1,16 +1,13 @@
 # Diablo - GOG - Devilutionx for Linux
 
 ### Description:
-This script will facilitate you install on this game on Linux OS:
-"Diablo" provided by GOG using Lutris Wine runner and DevilutionX project https://github.com/diasurgical/devilutionX 
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
-
+"Diablo" GOG Edition running with open source engine DevilutionX
 ### Technical notes:
-- DevilutionX Appimage 1.3.0 version from official Github
-- Choose to play between Diablo Classic or Hellfire version at start
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+- DevilutionX Appimage 1.4.1 version from official Github
+- You could choose your preferred language, resolution, playing DIablo classic or Hellfire extension in settings.
+### Credits:
+- DevilutionX project https://github.com/diasurgical/devilutionX
+- Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts"
 
 # Diablo - GOG - Tchernobog
 
