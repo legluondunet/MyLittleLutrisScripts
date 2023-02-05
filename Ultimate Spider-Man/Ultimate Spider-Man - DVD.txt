@@ -1,4 +1,5 @@
 files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Ultimate%20Spider-Man/USM_EU.zip
 - wsp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Ultimate%20Spider-Man/UltimateSpiderMan.WidescreenFix.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/USM.exe
@@ -29,6 +30,9 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/USM.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man
+    file: patch
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man
     file: wsp
