@@ -27,7 +27,7 @@ installer:
     include_processes: explorer.exe
     name: wineexec
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/USM.exe.bak
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man/USM.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Ultimate Spider-Man
