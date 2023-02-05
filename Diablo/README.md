@@ -4,7 +4,7 @@
 "Diablo" GOG Edition running with open source engine DevilutionX
 ### Technical notes:
 - DevilutionX Appimage 1.4.1 version from official Github
-- You could choose your preferred language, resolution, playing DIablo classic or Hellfire extension in settings.
+- You could choose your preferred language, resolution, playing Diablo classic or Hellfire extension from settings menu.
 ### Credits:
 - DevilutionX project https://github.com/diasurgical/devilutionX
 - Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts"
