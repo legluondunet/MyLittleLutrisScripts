@@ -1,4 +1,3 @@
-custom-name: X-Men Origins - Wolverine - DVD
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/X-Men%20Origins%20-%20Wolverine/wolv.zip
 game:
@@ -7,6 +6,8 @@ game:
 installer:
 - task:
     arch: win64
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -16,8 +17,8 @@ installer:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
     executable: $GAMEDIR/drive_c/windows/explorer.exe
-    name: wineexec
     include_processes: explorer.exe
+    name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/
     src: patch
@@ -25,14 +26,6 @@ installer:
     app: xact
     name: winetricks
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - task:
     arch: win64
     key: background
@@ -43,4 +36,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-
