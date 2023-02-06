@@ -2,7 +2,7 @@ custom-name: Elite SRO Online
 files:
 - client: N/A:Please select the Full client archive in rar format downloaded at http://elite-sro.com
 game:
-  exe: drive_c/eSROo/silkroad.exe
+  exe: drive_c/eSROo/ZSZCOnline.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -16,14 +16,6 @@ installer:
     src: client
 - task:
     arch: win64
-    key: CSMT
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -32,4 +24,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-
