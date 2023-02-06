@@ -7,8 +7,8 @@
 - Fix audio sync (dsound.dll + DXVK framerate set to 60 fps).
 - BGE Gog edition does not natively support controller, only Keyboard.  For a better gaming experience, you will find AntimicroX profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 ### Credits:
-
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- ps2wide widescreen patch http://ps2wide.net
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Beyond Good and Evil - Ubisoft Connect + WS + audio fix
@@ -19,8 +19,8 @@
 - Fix audio sync (dsound.dll + DXVK framerate set to 60 fps).
 - Gamepad natively supported by BGAE Ubisoft version.
 ### Credits:
-
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- ps2wide widescreen patch http://ps2wide.net
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Beyond Good and Evil - Windows Steam Standalone
@@ -37,5 +37,5 @@ More info about this patchs:
 https://steamcommunity.com/sharedfiles/filedetails/?id=950083683
 - Steam is not fully usable, but it's not important, it's just installed to launch the game.
 ### Credits:
-
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- ps2wide widescreen patch http://ps2wide.net
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
