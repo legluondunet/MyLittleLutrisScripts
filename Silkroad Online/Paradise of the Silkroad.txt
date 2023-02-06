@@ -1,0 +1,26 @@
+custom-name: Paradise of the Silkroad
+files:
+- pots: N/A:Please select the Full client archive in rar format downloaded at https://sroparadise.com
+game:
+  exe: drive_c/Silkroad Paradise/silkroad.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Silkroad Paradise
+    src: pots
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+wine:
+  Desktop: true
