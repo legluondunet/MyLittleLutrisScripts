@@ -1,0 +1,12 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Activision\Spider-Man 3\Settings\Display]
+"AutoExp"=dword:00000001
+"CityDetail"=dword:00000003
+"FSAA"=dword:00000004
+"Gamma"=dword:00000032
+"Resolution"=dword:0000000a
+"ShaderQuality"=dword:00000003
+"Shadow"=dword:00000001
+"VSync"=dword:00000000
+
