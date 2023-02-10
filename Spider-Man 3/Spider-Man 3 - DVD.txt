@@ -1,7 +1,8 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Ultimate%20Spider-Man/USM_EU.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%203/sm3.zip
+- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%203/sm3_display_utf8.reg
 game:
-  exe: drive_c/Program Files (x86)/Activision/Spider-Man 3/game.exe
+  exe: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 3/Game.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -26,8 +27,36 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 3/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 3/Game.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 3
     file: patch
+- input_menu:
+    description: Spider-Man 3 resolution choice is limited. Please choose one of this
+      supported resolution.
+    id: DISPLAY
+    options:
+    - a: 1920x1080 16:9
+    - b: 1920x1200 16:10
+    - 9: 1680x1050 16:10
+    - 7: 1440x900 16:10
+    - 3: 1280x720 16:9
+    preselect: a
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: regfile
+- execute:
+    command: cd $GAMEDIR/drive_c/tmp; sed -i s/0000000a/$INPUT_DISPLAY/ sm3_display_utf8.reg;
+      iconv -f utf-8 -t utf16le sm3_display_utf8.reg -o sm3_display_utf16le.reg;
+- task:
+    args: $GAMEDIR/drive_c/tmp/sm3_display_utf16le.reg
+    executable: regedit
+    name: wineexec
+    prefix: $GAMEDIR
+system:
+  env:
+    DXVK_FRAME_RATE: '30'
 wine:
   Desktop: true
