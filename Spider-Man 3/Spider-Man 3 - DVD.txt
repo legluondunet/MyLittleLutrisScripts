@@ -1,0 +1,33 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Ultimate%20Spider-Man/USM_EU.zip
+game:
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man 3/game.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- insert-disc:
+    requires: setup/rsrc/sm3.ico
+- task:
+    args: /desktop=SM3,1024x780 "$DISC/setup.exe"
+    description: Installing Spider-Man 3...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 3
+    file: patch
+wine:
+  Desktop: true
