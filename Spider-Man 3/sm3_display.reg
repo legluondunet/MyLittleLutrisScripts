@@ -5,7 +5,7 @@
 "CityDetail"=dword:00000003
 "FSAA"=dword:00000004
 "Gamma"=dword:00000032
-"Resolution"=dword:0000001
+"Resolution"=dword:000000a
 "ShaderQuality"=dword:00000003
 "Shadow"=dword:00000001
 "VSync"=dword:00000000
