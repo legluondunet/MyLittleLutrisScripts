@@ -12,7 +12,7 @@ files:
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - multilang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tombati_multi_lang/tombati_locale.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean.sh
@@ -20,7 +20,7 @@ files:
 game:
   arch: win64
   args: c:\\tr1.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/windows/system32/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -62,9 +62,9 @@ installer:
     dst: $CACHE/app
     src: cdrtools
 - execute:
-    command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
-      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
-      ./7z x -y $cd;
+    command: cd "$CACHE/app" && ./bin2iso game.cue -c GAME.GOG && ./bin2iso game.cue
+      && if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else cd=GAME.GOG; fi && echo
+      $cd && ./7z x -y $cd
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: $CACHE/app/DATA
@@ -102,31 +102,6 @@ installer:
     args: $INPUT_LANG
     file: script
 - task:
-    arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: winmm
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
     key: wallpaper
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
@@ -134,7 +109,6 @@ installer:
     type: REG_SZ
     value: c:\\tr1.bmp
 - task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -142,7 +116,6 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    arch: win64
     key: ActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -150,7 +123,6 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    arch: win64
     key: GradientActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -162,4 +134,6 @@ system:
     MESA_GL_VERSION_OVERRIDE: '3.3'
 wine:
   Desktop: true
-
+  overrides:
+    ddraw: n,b
+    winmm: n,b
