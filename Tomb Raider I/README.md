@@ -56,16 +56,14 @@ https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Tomb Raider I - GOG - OpenLara
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Tomb Raider I" provided by GOG using OpenLara project https://github.com/XProger/OpenLara
-During install please let all options by default.
-Big thanks to the people who helped us play this game in the best conditions on Linux.
+"Tomb Raider I" using OpenLara open source engine
 ### Technical notes:
-- x360 controller compatible.
-- known issue:
--- For the moment this script will install and use only english audio tracks. But you could choose menus and subtitles in your preferred language in OpenLara sound options parameters
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+- OpenLara supports natively gamepad
+- This script will install english audio tracks. But you could choose your preferred language for menus et subtitles in OpenLara sound parameters.
+### Credits:
+- OpenLara: https://github.com/XProger/OpenLara
+- other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
 
 
 # Tomb Raider I - Steam data - OpenLara
