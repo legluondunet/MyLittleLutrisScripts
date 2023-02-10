@@ -3,7 +3,7 @@
 "Tomb Raider I" provided by GOG using HD textures pack
 ### Technical notes:
 - Gold extension included.
-- Multilanguage: you could choose your preferred language for interface and audio cutscenes translations between English, French and German; only audio cutscenes translation for Japanese; only interface translation for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
+- Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
 - TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
 - GLrage could be not compatible with some Intel GPU.
 ### Credits:
