@@ -1,5 +1,5 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202/sm2.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202%20-%20The%20Game/sm2.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Webhead.exe
   prefix: $GAMEDIR
