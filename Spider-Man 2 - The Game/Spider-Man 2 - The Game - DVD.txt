@@ -1,0 +1,37 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202/sm2.zip
+game:
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Webhead.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: Setup/Data/Webhead.exe
+- task:
+    args: /desktop=sm2,1024x780 $DISC/setup.exe
+    description: Installing Spier-Man 2...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Webhead.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System
+    file: patch
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Default.ini
+- write_config:
+    data:
+      WinDrv.WindowsClient:
+        Brightness: 0.7
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Default.ini
+    merge: true
