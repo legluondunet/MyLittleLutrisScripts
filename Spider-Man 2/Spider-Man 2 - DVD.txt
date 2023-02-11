@@ -4,6 +4,12 @@ game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man 2/System/Webhead.exe
   prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - insert-disc:
     requires: Setup/Data/Webhead.exe
 - task:
