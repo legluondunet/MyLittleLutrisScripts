@@ -1,4 +1,4 @@
-# Spider-Man - The Movie - 2CD
+# Spider-Man (2002) - 2CD
 ### Description:
 Spider-Man - The Movie (2002) - 2CD Edition
 ### Technical notes:
