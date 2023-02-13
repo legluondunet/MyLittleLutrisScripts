@@ -1,6 +1,6 @@
-# Spider-Man (2002) - 2CD
+# Spider-Man (2002) - CD
 ### Description:
-Spider-Man (2002) - 2CD Edition
+Spider-Man (2002) - CD Edition
 ### Technical notes:
 - you have to let CD in your cd drive during play or the game will not launch.
 - If you go in "Options" menu, the game will reset your resolution to 640x480. Open game.ini file and change GAME_RESOLUTION value. 
