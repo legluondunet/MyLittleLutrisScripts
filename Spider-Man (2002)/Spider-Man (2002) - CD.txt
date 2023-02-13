@@ -1,0 +1,41 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/sm1.zip
+game:
+  exe: drive_c/sm1/SpiderMan.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: Setup/Data/SpiderMan.exe
+- merge:
+    dst: $GAMEDIR/drive_c/sm1
+    src: $DISC/Setup/Data
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw sm1;
+- insert-disc:
+    requires: Setup/Data/Spiderman.ico
+- merge:
+    dst: $GAMEDIR/drive_c/sm1
+    src: $DISC/Setup/Data
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw sm1;
+- merge:
+    dst: $GAMEDIR/drive_c/sm1/backup
+    src: $GAMEDIR/drive_c/sm1/SpiderMan.exe
+- extract:
+    dst: $GAMEDIR/drive_c/sm1
+    file: patch
+- write_config:
+    data:
+      Flags:
+        DETAIL_LEVEL: 2
+        GAME_RESOLUTION: $RESOLUTION
+        SHADOW_DETAIL: 2
+    file: $GAMEDIR/drive_c/sm1/game.ini
+wine:
+  Desktop: true
