@@ -1,6 +1,6 @@
 files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/sm1_install.bat
-- patch: https://www.dropbox.com/s/3s78xjallzel3d7/SM1_patched_files_1.3.zip?dl=1
+- patch: https://www.dropbox.com/s/ufbdc64m0wiiggy/SM1_patched_files_1.3.zip?dl=1
 - gpad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/Gamepad_files.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
