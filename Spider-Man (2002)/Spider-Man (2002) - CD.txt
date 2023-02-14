@@ -1,41 +1,55 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/sm1.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/sm1_install.bat
+- patch: https://www.dropbox.com/s/3s78xjallzel3d7/SM1_patched_files_1.3.zip?dl=1
+- gpad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/Gamepad_files.zip
 game:
-  exe: drive_c/sm1/SpiderMan.exe
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
     requires: Setup/Data/SpiderMan.exe
 - merge:
-    dst: $GAMEDIR/drive_c/sm1
-    src: $DISC/Setup/Data
-- execute:
-    command: cd "$GAMEDIR/drive_c"; chmod -R +rw sm1;
+    dst: $GAMEDIR/drive_c/sm1/cd1
+    src: $DISC
 - insert-disc:
     requires: Setup/Data/Spiderman.ico
 - merge:
-    dst: $GAMEDIR/drive_c/sm1
-    src: $DISC/Setup/Data
-- execute:
-    command: cd "$GAMEDIR/drive_c"; chmod -R +rw sm1;
+    dst: $GAMEDIR/drive_c/sm1/cd2
+    src: $DISC
 - merge:
-    dst: $GAMEDIR/drive_c/sm1/backup
-    src: $GAMEDIR/drive_c/sm1/SpiderMan.exe
-- extract:
     dst: $GAMEDIR/drive_c/sm1
+    src: script
+- execute:
+    command: cd "$GAMEDIR/drive_c/sm1"; chmod -R +rw cd1 cd2;
+- task:
+    args: /desktop=SM1,1024x780 "$GAMEDIR/drive_c/sm1/sm1_install.bat"
+    description: Installing Spider-Man (2002)...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    src: $GAMEDIR/drive_c/sm1/cd2/Setup/Data
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
     file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    file: gpad
 - write_config:
     data:
       Flags:
-        DETAIL_LEVEL: 2
         GAME_RESOLUTION: $RESOLUTION
-        SHADOW_DETAIL: 2
-    file: $GAMEDIR/drive_c/sm1/game.ini
+    file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/game.ini
+    merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/sm1
 wine:
   Desktop: true
