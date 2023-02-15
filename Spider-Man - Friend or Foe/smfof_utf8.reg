@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Activision\Spider-Man FoF\Settings]
 "Brightness"=dword:00000005
 "FSAA"=dword:00000004
-"QualityLevel"=dword:00000000
+"QualityLevel"=dword:00000002
 "ResolutionX"=dword:780
 "ResolutionY"=dword:438
 "VSync"=dword:80000000
