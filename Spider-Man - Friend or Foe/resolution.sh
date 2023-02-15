@@ -17,6 +17,8 @@ hbf=$(printf "%08d\n" $hb)
 
 echo "importation de la résolution en hexadécimale dans la base de registre: " $wbf " x " $hbf
 
+cd drive_c/tmp
+
 sed -i -e 's/"'$regkeyX'"\=dword\:.*/"'$regkeyX'"\=dword\:'$wb'/' -e 's/"'$regkeyY'"\=dword\:.*/"'$regkeyY'"\=dword\:'$hb'/' $file
 
 echo "sed -i -e 's/"'$regkeyX'"\=dword\:.*/"'$regkeyX'"\=dword\:'$wb'/' -e 's/"'$regkeyY'"\=dword\:.*/"'$regkeyY'"\=dword\:'$hb'/' $file"
