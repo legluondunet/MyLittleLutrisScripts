@@ -15,7 +15,9 @@ echo $h en hexa: $hb soit ${#hb} caractères
 wbf=$(printf "%08d\n" $wb)
 hbf=$(printf "%08d\n" $hb)
 
-echo "importation de la résolution en hexadécimale dans la base de registre: " $wbf " x " $hbf
+echo resolution en décimale: $wbf " x " $hbf
+
+cd drive_c/tmp
 
 sed -i -e 's/"'$regkeyX'"\=dword\:.*/"'$regkeyX'"\=dword\:'$wb'/' -e 's/"'$regkeyY'"\=dword\:.*/"'$regkeyY'"\=dword\:'$hb'/' $file
 
@@ -25,4 +27,5 @@ file2=${file::-9}
 echo "la variable file2: "$file2"--> "$file2"_utf16le.reg"
 
 iconv -f utf-8 -t utf16le $file -o $file2"_utf16le.reg"
+
 
