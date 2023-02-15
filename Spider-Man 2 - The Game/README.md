@@ -1,4 +1,4 @@
-# Spider-Man 2 - The Game - DVD MULTI5
+# Spider-Man 2 - The Game - DVD
 ### Description:
 "Spider-Man 2 - The Game" DVD MULTI5 edition
 ### Technical notes:
