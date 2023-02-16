@@ -1,7 +1,8 @@
 files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/sm1_install.bat
 - patch: https://www.dropbox.com/s/ufbdc64m0wiiggy/SM1_patched_files_1.3.zip?dl=1
-- gpad: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/Gamepad_files.zip
+- antimx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/Spider-Man%20(2002).gamecontroller.amgp
+- antimxdoc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2002)/Spider-Man%20(2002)_gamecontroller_readme.html
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
   prefix: $GAMEDIR
@@ -39,9 +40,12 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
     file: patch
-- extract:
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
-    file: gpad
+    src: antimx
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    src: antimxdoc
 - write_config:
     data:
       Flags:
