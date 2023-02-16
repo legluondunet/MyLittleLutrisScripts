@@ -1,0 +1,42 @@
+files:
+- spideyconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/Spidey.cfg
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- wrapperconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/dgVoodoo.conf
+- antimx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/Spider-Man%20-%202000.gamecontroller.amgp
+game:
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: Setup/SpideyPC.ico
+- task:
+    args: /desktop=SM2000,1024x780 $DISC/Setup.exe
+    description: Installing Spider-Man (2002)...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/MS/x86
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: wrapperconf
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: spideyconf
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: antimx
+wine:
+  Desktop: true
+  overrides:
+    ddraw: n,b
