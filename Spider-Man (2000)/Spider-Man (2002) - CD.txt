@@ -1,8 +1,8 @@
 files:
-- spideyconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/Spidey.cfg
+- spideyconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/Spidey.cfg
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- wrapperconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/dgVoodoo.conf
-- antimx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%202000/Spider-Man%20-%202000.gamecontroller.amgp
+- wrapperconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/dgVoodoo.conf
+- antimx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/Spider-Man%20-%202000.gamecontroller.amgp
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
   prefix: $GAMEDIR
