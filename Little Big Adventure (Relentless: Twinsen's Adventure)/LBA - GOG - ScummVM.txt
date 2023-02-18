@@ -10,7 +10,7 @@ installer:
     dst: $CACHE/innoextract
     file: inno
 - execute:
-    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/"
+    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/tmp"
     file: $CACHE/innoextract/innoextract
 - input_menu:
     description: 'Choose the game''s language:'
@@ -22,9 +22,15 @@ installer:
     - it: Italian (text)
     - es: Spanish (text)
     preselect: en
+- merge:
+    dst: $GAMEDIR
+    src: $GAMEDIR/tmp/Speedrun/Windows
+- merge:
+    dst: $GAMEDIR/
+    src: $GAMEDIR/tmp/Common
 - execute:
-    command: cd "$GAMEDIR"; rm -f -r app commonappdata DOSBOX __redist __support tmp
-      goggame-1207658971.* ;
+    command: cd $GAMEDIR; cp Music/Track_10.mp3 .; cp Music/Track_09.mp3 Track_255.mp3;
+      mv DOSBOX VOX tmp;
 scummvm:
   aspect: true
-  fullscreen: true
+  fullscreen: false
