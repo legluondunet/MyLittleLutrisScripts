@@ -3,14 +3,13 @@ files:
 - dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_92_build.rar
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.7z
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/soundtrack.bat
-- gnusox: https://freefr.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2-win32.zip
-- mp: https://freefr.dl.sourceforge.net/project/mplayer-win32/MPlayer%20and%20MEncoder/r38135%2Bgb272d5b9b6/MPlayer-generic-r38135%2Bgb272d5b9b6.7z
-- grepbin: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-bin.zip
-- grepdep: http://downloads.sourceforge.net/gnuwin32/grep-2.5.4-dep.zip
+- gnusox: https://github.com/legluondunet/mlls-tools/raw/master/sox/sox-14.4.2-win32.zip
+- mp: https://github.com/legluondunet/mlls-tools/raw/master/mplayer/MPlayer-generic-r38135%252Bgb272d5b9b6.7z
+- gnugrep: https://github.com/legluondunet/mlls-tools/raw/master/grep/grep-2.5.4.zip
 - start: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.bat
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.ini
 game:
-  exe: drive_c/SEGA/VFPC/vfpc.bat
+  exe: drive_c/vfpc.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -25,13 +24,17 @@ installer:
     description: installing Virtua Fighters
     dst: $GAMEDIR/drive_c/SEGA/VFPC
     src: $DISC/vfpc
+- merge:
+    description: installing Virtua Fighters
+    dst: $GAMEDIR/drive_c/SEGA
+    src: $DISC/doc/readme.txt
 - execute:
     command: cd "$GAMEDIR/drive_c"; chmod -R +rw SEGA;
 - merge:
     dst: $GAMEDIR/drive_c/SEGA/VFPC/backup
     src: $GAMEDIR/drive_c/SEGA/VFPC/vfpc.exe
 - copy:
-    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    dst: $GAMEDIR/drive_c
     src: start
 - copy:
     dst: $GAMEDIR/drive_c/SEGA/VFPC
@@ -108,10 +111,7 @@ installer:
     file: gnusox
 - extract:
     dst: $GAMEDIR/drive_c/tmp
-    file: grepbin
-- extract:
-    dst: $GAMEDIR/drive_c/tmp
-    file: grepdep
+    file: gnugrep
 - task:
     description: Working to make this game more Linux Wine friendly
     executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
@@ -125,5 +125,8 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/tmp
 wine:
   Desktop: true
