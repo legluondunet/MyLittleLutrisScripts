@@ -127,6 +127,6 @@ installer:
     value: 0 0 0
 - move:
     dst: $CACHE
-    src: $GAMEDIR/tmp
+    src: $GAMEDIR/drive_c/tmp
 wine:
   Desktop: true
