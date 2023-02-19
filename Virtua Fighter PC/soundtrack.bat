@@ -38,4 +38,3 @@ pause
 goto :fin
 
 :fin
-exit
