@@ -11,7 +11,6 @@ set /p driv=<%%A.txt
 echo lettre %%A fichier %%A.txt resultat %driv% !driv!
 pause
 if !driv!==1 	(echo drive est égal à 1
-		pause
 		set drivresult=%%A:
 		goto :rip 
 		)
@@ -29,12 +28,10 @@ for %%a IN (*.wav) DO (
 	echo %%a & bin\sox "%%a" "%%~na.flac")
 mkdir "c:\SEGA\VFPC\music"
 xcopy /Y *.flac "c:\SEGA\VFPC\music"
-pause
 goto :fin
 
 :notfound
 echo le CD SEGA VIRTUA FIGHTER est introuvable
-pause
 goto :fin
 
 :fin
