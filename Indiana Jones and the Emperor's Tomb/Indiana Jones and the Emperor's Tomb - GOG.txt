@@ -10,8 +10,8 @@ files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Please select the game setup Windows exe file downloaded from your
     GOG account.
-- videos: N/A:Please select the IJET "Movies, Loading screens fix (Full Screen 1280x960)"
-    archive available for download at https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960/downloads/movies-loading-screens-fix-full-screen-1280x960
+- videos: N/A:Please select the IJET "Movies, Loading screens fix fullscreen(Resolution
+    1280x960)" archive available for download at https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960/downloads/movies-loading-screens-fix-full-screen-1280x960
 game:
   arch: win64
   args: c:\\ijet.bat
@@ -21,7 +21,7 @@ installer:
 - task:
     arch: win64
     description: Creating Wine prefix
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
@@ -92,6 +92,7 @@ installer:
         exportpath: C:\dxwnd\exports\
         posx: 1578
         posy: 633
+        showhelp: false
         sizx: 320
         sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
@@ -158,14 +159,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 128 0
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - extract:
     dst: $CACHE
     format: txz
@@ -200,4 +193,3 @@ installer:
     file: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy/vars.cfg
 wine:
   Desktop: true
-  version: lutris-4.21-x86_64
