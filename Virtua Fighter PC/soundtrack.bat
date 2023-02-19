@@ -9,7 +9,6 @@ dir %%A:|bin\grep -c "SEGA">%%A.txt
 set driv=
 set /p driv=<%%A.txt
 echo lettre %%A fichier %%A.txt resultat %driv% !driv!
-pause
 if !driv!==1 	(echo drive est égal à 1
 		set drivresult=%%A:
 		goto :rip 
