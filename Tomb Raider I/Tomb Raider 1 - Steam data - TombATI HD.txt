@@ -101,30 +101,6 @@ installer:
     file: script
 - task:
     arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: winmm
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
     key: wallpaper
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
@@ -155,6 +131,11 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 179 102
+system:
+  env:
+    MESA_GL_VERSION_OVERRIDE: '3.3'
 wine:
   Desktop: true
-
+  overrides:
+    ddraw: n,b
+    winmm: n,b
