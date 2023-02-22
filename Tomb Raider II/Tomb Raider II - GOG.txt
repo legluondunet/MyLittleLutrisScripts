@@ -5,15 +5,14 @@ files:
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
 - dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/TR2M.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_gamepad_readme.html
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/clean-gog.sh
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
-- gog: N/A:Select the installer downloaded from GOG
+- gogsetup: N/A:Select the installer downloaded from GOG
 game:
-  arch: win64
   args: c:\\TR2M.BAT
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
@@ -21,33 +20,33 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
+    install_gecko: false
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
     dst: $CACHE
     file: inno
 - execute:
-    args: -d "$CACHE" "$gog"
+    args: -d "$CACHE" "$gogsetup"
     file: $CACHE/innoextract
 - merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
     src: $CACHE/app
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/"; mv Tomb2.exe Tomb2.gog
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/backup
+    src: $GAMEDIR/drive_c/Tomb Raider 2/Tomb2.exe
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: tr2main
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: dgv
 - copy:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
-    src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86/DDraw.dll
-- copy:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
-    src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86/D3DImm.dll
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86
 - execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/"; mv dgVoodoo.conf dgVoodoo_original.conf
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 2"; mv dgVoodoo.conf dgVoodoo_original.conf
 - write_config:
     data:
       DirectX:
@@ -61,25 +60,24 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: audiodll
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
     src: gppx360
 - merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
     src: gppsteam
 - merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
     src: gppreadme
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - task:
-    arch: win64
     key: wallpaper
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Desktop\
@@ -87,23 +85,6 @@ installer:
     type: REG_SZ
     value: c:\\tr2.bmp
 - task:
-    arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: winmm
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
     key: InvBackgroundMode
     name: set_regedit
     path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
@@ -111,11 +92,6 @@ installer:
     type: REG_DWORD
     value: '00000002'
 - task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -123,7 +99,6 @@ installer:
     type: REG_SZ
     value: 91 0 0
 - task:
-    arch: win64
     key: ActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -131,28 +106,20 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - task:
-    arch: win64
     key: GradientActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 51 0
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - chmodx: script
 - execute:
     file: script
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data/
+    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data
     src: ext
 wine:
   Desktop: true
-  dxvk: true
-
+  overrides:
+    ddraw: n,b
+    winmm: n,b
