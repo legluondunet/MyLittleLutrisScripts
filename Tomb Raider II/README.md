@@ -27,32 +27,26 @@
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Tomb Raider II - GOG + OpenLara
+### Description:
+"Tomb Raider II" provided by GOG using OpenLara open source engine
+### Technical notes:
+- Openlara Github version c7fe8ec 10 february 2023.
+- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing and report bugs.
+- Multilingual menus and subtitles.
+- Gamepad natively supported.
+### Credits:
+- OpenLara: https://github.com/XProger/OpenLara
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
-## Description:
-This script will facilitate install of this game on Linux OS:
-"Tomb Raider II" provided by GOG using OpenLara project https://github.com/XProger/OpenLara.
-During install please let all options by default.
-Big thanks to the people who helped us play this game in the best conditions on Linux.
 
-## Technical notes:
-- x360 controller compatible.
-- known issue:
--- OpenLara support for "Tomb Raider II" is still work in progress and experimental, you can have issues
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
-# Tomb Raider III - GOG + OpenLara
-
-## Description:
-This script will facilitate install of this game on Linux OS:
-"Tomb Raider III" provided by GOG using OpenLara project https://github.com/XProger/OpenLara.
-During install please let all options by default.
-Big thanks to the people who helped us play this game in the best conditions on Linux.
-
-## Technical notes:
-- x360 controller compatible.
-- known issue:
--- OpenLara support for "Tomb Raider III" is still work in progress and experimental, you can have issues
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
+# Tomb Raider III - Steam + OpenLara
+### Description:
+"Tomb Raider II" provided by Steam using OpenLara open source engine
+### Technical notes:
+- Openlara Github version c7fe8ec 10 february 2023.
+- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing and report bugs.
+- Multilingual menus and subtitles.
+- Gamepad natively supported.
+### Credits:
+- OpenLara: https://github.com/XProger/OpenLara
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
