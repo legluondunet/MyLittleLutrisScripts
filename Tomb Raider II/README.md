@@ -1,6 +1,6 @@
 # Tomb Raider II - GOG + dgVoodoo2 + TR2Main
 ### Description:
-"Tomb Raider II"  provided by GOG using dgVoodoo2 and TR2Main
+"Tomb Raider II" provided by GOG using dgVoodoo2 and TR2Main
 ### Technical notes:
 - This script uses TR2Main: for stability and features, like PS1 inventory animated background.
 - Tomb Raider II Gold extension included.
@@ -14,7 +14,7 @@
 
 # Tomb Raider II - Steam + dgVoodoo2 + TR2Main
 ### Description:
-"Tomb Raider II"  provided by Steam using dgVoodoo2 and TR2Main
+"Tomb Raider II" provided by Steam using dgVoodoo2 and TR2Main
 ### Technical notes:
 - This script uses TR2Main: for stability and features, like PS1 inventory animated background.
 - Tomb Raider II Gold extension included.
