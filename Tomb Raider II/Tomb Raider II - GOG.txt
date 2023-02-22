@@ -3,7 +3,8 @@ files:
 - tr2main: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/TR2Main.zip
 - ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gold.zip
 - inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- wrappercfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/dgVoodoo.conf
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
@@ -41,24 +42,16 @@ installer:
     file: tr2main
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
-    file: dgv
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/backup
+    src: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    src: wrappercfg
 - copy:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 2"; mv dgVoodoo.conf dgVoodoo_original.conf
-- write_config:
-    data:
-      DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
-        dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: audiodll
