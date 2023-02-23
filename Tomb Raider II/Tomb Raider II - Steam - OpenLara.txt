@@ -1,0 +1,38 @@
+custom-name: Tomb Raider II - Steam - OpenLara
+files:
+- opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
+- lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/PIX.7z
+game:
+  exe: $GAMEDIR/OpenLara
+installer:
+- insert-disc:
+    description: Please press "Browse" button and select Tomb Raider 2 Steam folder
+      install.
+    requires: Tomb2.exe
+- merge:
+    dst: $CACHE
+    src: $DISC
+- merge:
+    dst: $GAMEDIR/level/2
+    src: $CACHE/data
+- merge:
+    dst: $GAMEDIR/video/2
+    src: $CACHE/fmv
+- merge:
+    dst: $GAMEDIR/audio/2
+    src: $CACHE/music
+- extract:
+    dst: $GAMEDIR/PIX
+    src: lscreens
+- extract:
+    dst: $GAMEDIR
+    file: opl
+- extract:
+    dst: $GAMEDIR/lscreens
+    file: lscreens
+- execute:
+    command: cd "$GAMEDIR/level/2"; mv TITLE.tr2 TITLE.TR2; for file in *.PCX; do
+      echo mv "$file" "${file/PCX/png}"; mv "$file" "${file/PCX/PNG}"; done; cp TITLE.PNG
+      TITLEUS.PNG; cp MAIN.SFX ../../audio/2; cd ../../audio/2; echo $LD_LIBRARY_PATH
+      ; export LD_LIBRARY_PATH=""; for file in *.mp3;   do ffmpeg -i "${file}" track_"${file/%mp3/ogg}";
+      done; rm -f -r *.mp3;
