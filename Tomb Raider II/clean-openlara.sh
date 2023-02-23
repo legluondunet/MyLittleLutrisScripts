@@ -34,5 +34,25 @@ rm -f -r *.mp3
 fi
 
 if [ "$1" == "GOG" ]
+then
+cd "level/2"
+mv TITLE.tr2 TITLE.TR2
+	for file in *.PCX
+	do
+	echo mv "$file" "${file/PCX/png}"
+	mv "$file" "${file/PCX/PNG}"
+	done
+cp TITLE.PNG TITLEUS.PNG
+cp MAIN.SFX ../../audio/2
 
+cd ../../audio/2
+	for file in *.ogg
+	do mv "$file" "${file/Track/track_}" && echo mv "$file" "${file/Track/track_}"
+	done
+
+cd ../../video/2
+	for file in *
+	do
+	mv -- "$file" "${file^^}"
+	done
 fi
