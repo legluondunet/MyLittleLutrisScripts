@@ -31,7 +31,7 @@
 "Tomb Raider II" provided by GOG using OpenLara open source engine
 ### Technical notes:
 - Openlara Github version c7fe8ec 10 february 2023.
-- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing and report bugs.
+- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing.
 - Multilingual menus and subtitles.
 - Gamepad natively supported.
 ### Credits:
