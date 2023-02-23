@@ -33,4 +33,5 @@ installer:
     file: lscreens
 - chmodx: script
 - execute:
+    args: STEAM
     file: script
