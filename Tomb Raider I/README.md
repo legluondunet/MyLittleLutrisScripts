@@ -52,8 +52,10 @@
 ### Description:
 "Tomb Raider I" provided by GOG using OpenLara open source engine
 ### Technical notes:
-- OpenLara supports natively gamepad.
-- This script will install english audio tracks. But you could choose your preferred language for menus et subtitles in sound options.
+- Openlara Github version c7fe8ec 10 february 2023.
+- OpenLara support for "Tomb Raider I" is still work in progress and incomplete. Use this script only for testing.
+- Multilingual menus and subtitles.
+- Gamepad natively supported.
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - other sources: https://www.tombraiderforums.com
@@ -65,8 +67,10 @@
 "Tomb Raider I" provided by Steam using OpenLara open source engine
 ### Technical notes:
 - You have to install "Tomb Raider 1" on Steam before to launch this script installer.
-- OpenLara supports natively gamepad.
-- This script will install english audio tracks. But you could choose your preferred language for menus et subtitles in sound options.
+- Openlara Github version c7fe8ec 10 february 2023.
+- OpenLara support for "Tomb Raider I" is still work in progress and incomplete. Use this script only for testing.
+- Multilingual menus and subtitles.
+- Gamepad natively supported.
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - other sources: https://www.tombraiderforums.com
