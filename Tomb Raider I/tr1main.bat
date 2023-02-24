@@ -8,7 +8,7 @@ cls
 echo.
 echo.
 echo. ------------------------------------------------------
-echo.	      TOMB RAIDER I GOG Edition + TOMB1Main
+echo.	TOMB RAIDER I GOG Edition + TOMB1Main
 echo. ------------------------------------------------------
 echo.
 echo.	1) Play Tomb Raider I
@@ -21,7 +21,7 @@ echo. ------------------------------------------------------
 echo.
 echo.
 
-choice /c123 /s /N Your choice? [1-5]:
+choice /c123 /s /N Your choice? [1-3]:
 if errorlevel 3 goto exit
 if errorlevel 2 goto tombub
 if errorlevel 1 goto tr1
