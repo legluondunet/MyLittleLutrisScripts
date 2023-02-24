@@ -16,9 +16,8 @@ files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - multilang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tombati_multi_lang/tombati_locale.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean.sh
-- gog: N/A:Select the installer downloaded from GOG
+- gogsetup: N/A:Select the installer downloaded from GOG
 game:
-  arch: win64
   args: c:\\tr1.bat
   exe: drive_c/windows/system32/wineconsole.exe
   prefix: $GAMEDIR
@@ -26,7 +25,7 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
@@ -34,7 +33,7 @@ installer:
     dst: $CACHE
     file: inno
 - execute:
-    args: -d "$CACHE/" "$gog"
+    args: -d "$CACHE/" "$gogsetup"
     file: $CACHE/innoextract
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI
@@ -70,12 +69,12 @@ installer:
     src: $CACHE/app/DATA
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/FMV
-    src: $CACHE/app/FMV/
+    src: $CACHE/app/FMV
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/patches/locale
