@@ -16,3 +16,14 @@
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# Tomb Raider III - Adventures of Lara Croft - Steam + Arsunt patch + dgVoodoo2
+### Description:
+"Tomb Raider III" provided by Steam using Arsunt Patch and DgVoodoo2
+### Technical notes:
+- You have to install "Tomb Raider III" on Steam before to launch this script installer.
+- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+### Credits:
+- Arsunt Patch FOV FMV Sunglasses: https://www.tombraiderforums.com
+- dgVoodoo2: http://www.dege.freeweb.hu
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
