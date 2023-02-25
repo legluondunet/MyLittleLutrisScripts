@@ -1,0 +1,114 @@
+custom-name: Tomb Raider III - Adventures of Lara Croft - GOG
+files:
+- gogsetup: N/A:Select the installer downloaded from GOG
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bat
+- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
+- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
+- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bmp
+game:
+  args: c:\\tr3aolc.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" --gog gogsetup
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
+    src: $CACHE/app
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.gog
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/tomb3.exe
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
+    file: mod
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
+    file: dgv
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/MS/x86
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo_original.conf
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+- write_config:
+    data:
+      DirectX:
+        ForceVerticalSync: true
+        Resolution: max_qhd_isf
+        VRAM: 256
+        dgVoodooWatermark: false
+      General:
+        CaptureMouse: false
+        FullScreenMode: false
+        ScalingMode: stretched_ar
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+    merge: false
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: menu
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles
+    src: gppx360
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles
+    src: gppsteam
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/gamepad profiles
+    src: gppreadme
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr3aolc.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 177 94
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; rm -f -r __support/ gog*
+      webcache.zip 3Dfx Doc MS tr3gold.exe config.txt;
+wine:
+  Desktop: true
+  overrides:
+    ddraw: n,b
