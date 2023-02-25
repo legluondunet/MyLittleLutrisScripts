@@ -1,18 +1,14 @@
 custom-name: Tomb Raider II - Steam
 files:
-- tr2main: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/TR2Main.zip
+- tr2main: https://www.dropbox.com/s/qplzk22cmf9l6fi/20210920_TR2Main_developer_build.zip?dl=1
 - ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gold.zip
-- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- wrappercfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/dgVoodoo.conf
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gamepad%20profiles/tr1-2_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/clean-steam.sh
 game:
-  arch: win64
   args: c:\\TR2M.BAT
   exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
@@ -29,29 +25,37 @@ installer:
       install.
     requires: Tomb2.exe
 - merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    src: $DISC
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/data
+    src: $DISC/data
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/fmv
+    src: $DISC/fmv
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/music
+    src: $DISC/music
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    file: wrapper
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/backup
-    src: $GAMEDIR/drive_c/Tomb Raider 2/dgVoodoo.conf
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    src: wrappercfg
-- copy:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    src: $GAMEDIR/drive_c/Tomb Raider 2/MS/x86
-- extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    file: audiodll
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/backup
-    src: $GAMEDIR/drive_c/Tomb Raider 2/Tomb2.exe
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/data
+    src: ext
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: tr2main
+- task:
+    key: InvBackgroundMode
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000001'
+- task:
+    key: DetailLevel
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000002'
+- extract:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    file: audiodll
 - move:
     dst: $GAMEDIR/drive_c
     src: menu
@@ -77,14 +81,6 @@ installer:
     value: c:\\tr2.bmp
 - task:
     arch: win64
-    key: InvBackgroundMode
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000002'
-- task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
@@ -107,14 +103,10 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 51 0
-- chmodx: script
 - execute:
-    file: script
-- extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2 Golden Mask/data
-    src: ext
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/music"; ls {2..9}.mp3 | xargs -I {}
+      mv {} 0{} ; ls *.mp3 | xargs -I {} mv {} Track{};
 wine:
   Desktop: true
   overrides:
-    ddraw: n,b
     winmm: n,b
