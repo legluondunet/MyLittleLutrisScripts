@@ -20,7 +20,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    description: Please press "Browse" button and select Tomb Raider 2 Steam folder
+    description: Please press "Browse" button and select Tomb Raider 3 Steam folder
       install.
     requires: tomb3.exe
 - merge:
