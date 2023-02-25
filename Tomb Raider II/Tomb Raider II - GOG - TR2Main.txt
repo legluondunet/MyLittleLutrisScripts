@@ -105,6 +105,5 @@ installer:
     value: 204 51 0
 wine:
   Desktop: true
-  dxvk: false
   overrides:
     winmm: n,b
