@@ -1,6 +1,5 @@
 custom-name: Tomb Raider IV - The Last Revelation - GOG
 files:
-- gogsetup: N/A:Select the installer downloaded from GOG
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/tr4tlr.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
@@ -18,16 +17,19 @@ installer:
     description: Creating WINE prefix
     name: create_prefix
     prefix: $GAMEDIR
+- insert-disc:
+    description: Please press "Browse" button and select Tomb Raider 4 Steam folder
+      install.
+    requires: tomb4.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
+    src: $DISC
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
-    file: gogsetup
-    format: gog
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
     file: wrapper
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/MS/x86
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
+    src: $GAMEDIR/drive_c/Tomb Raider 4/MS/x86
 - write_config:
     data:
       DirectX:
@@ -39,13 +41,13 @@ installer:
         CaptureMouse: false
         FullScreenMode: false
         ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Tomb Raider 4/dgVoodoo.conf
     merge: false
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/backup
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/tomb4.exe
+    dst: $GAMEDIR/drive_c/Tomb Raider 4/backup
+    src: $GAMEDIR/drive_c/Tomb Raider 4/tomb4.exe
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
     src: patch
 - copy:
     dst: $GAMEDIR/drive_c
@@ -54,13 +56,13 @@ installer:
     dst: $GAMEDIR/drive_c
     src: wpp
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles
+    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
     src: gpreadme
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles
+    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
     src: gpx360
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/gamepad profiles
+    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
     src: gpsteam
 - task:
     arch: win64
@@ -95,8 +97,7 @@ installer:
     type: REG_SZ
     value: 191 166 12
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4"; rm -f -r unins000.* webcache.zip
-      support.ico Launch* gog* 3Dfx MS Doc D3D9.dll D3D8.dll
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 4"; rm -f -r 3Dfx MS Doc D3D9.dll D3D8.dll;
 wine:
   Desktop: true
   overrides:
