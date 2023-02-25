@@ -5,13 +5,12 @@
 - Gold extension included.
 - Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
 - TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
-- GLrage could be not compatible with some Intel GPU.
 ### Credits:
 - GLRage: https://github.com/ata4/glrage
 - TombATI: http://www.glidos.net/tombati.html
 - HD textures packs: http://www.tombraiderxtra.com
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider I - CD - TombATI HD
@@ -22,13 +21,12 @@
 - Gold extension included.
 - Multilanguage: available interface and audio cutscenes translations for English, French and German, only audio cutscenes translation for Japanese, only interface translation for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
 - TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
-- GLrage could be not compatible with some Intel GPU.
 ### Credits:
 - GLRage: https://github.com/ata4/glrage
 - TombATI: http://www.glidos.net/tombati.html
 - HD textures packs: http://www.tombraiderxtra.com
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider I - Steam data - TombATI HD
@@ -39,13 +37,12 @@
 - Gold extension included.
 - Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
 - TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
-- GLrage could be not compatible with some Intel GPU.
 ### Credits:
 - GLRage: https://github.com/ata4/glrage
 - TombATI: http://www.glidos.net/tombati.html
 - HD textures packs: http://www.tombraiderxtra.com
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider I - GOG - OpenLara
@@ -59,7 +56,7 @@
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider I - Steam data - OpenLara
@@ -74,7 +71,7 @@
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Tomb Raider I - GOG - TOMB1Main
 ### Description:
@@ -87,4 +84,4 @@
 ### Credits:
 - TOMB1Main: https://github.com/LostArtefacts/Tomb1Main
 - other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
