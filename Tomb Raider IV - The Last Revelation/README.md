@@ -1,15 +1,10 @@
-#Tomb Raider IV: The Last Revelation - Gog
-
-Description:
-This script will install "Tomb Raider IV: The Last Revelation" GOG edition with support for modern resolution.
-During install please let all options by default.
-This script uses different projects:
-dgVoodoo2: http://www.dege.freeweb.hu/
-Tomb Raider 2-3-4 Widescreen Patch created by Mr.Blackfour : https://tombraiders.net/stella/downloads/widescreen.html
-Other sources: https://www.tombraiderforums.com
-Thanks to the people who contributed to play this game in the best conditions.
-
-Technical notes:
-- "Tomb Raider IV: The Last Revelation" has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
-- Please report issue concerning this script on my github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+# Tomb Raider IV: The Last Revelation - Gog + WS patch + dgVoodoo2
+### Description:
+"Tomb Raider IV: The Last Revelation" provided by GOG using WS patch and DgVoodoo2
+### Technical notes:
+- TR4 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+### Credits:
+- Tomb Raider 2-3-4 Widescreen Patch created by Mr.Blackfour: https://tombraiders.net/stella/downloads/widescreen.html
+- dgVoodoo2: http://www.dege.freeweb.hu
+- Other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
