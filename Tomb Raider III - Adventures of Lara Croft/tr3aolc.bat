@@ -1,7 +1,10 @@
 @echo off
 color 0E
+
 c:
-cd c:\GOG Games\Tomb Raider 3
+if exist "c:\GOG Games\Tomb Raider 3" cd "c:\GOG Games\Tomb Raider 3"
+if exist "c:\Tomb Raider 3" cd "c:\Tomb Raider 3"
+
 goto launcher
 
 :launcher
@@ -9,7 +12,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER III GOG Edition
+echo.		TOMB RAIDER III
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider III
@@ -33,7 +36,7 @@ if errorlevel 1 goto tr3
 
 :tr3
 cls
-start Tomb3.exe
+start tomb3.exe
 goto :launcher
 
 
@@ -42,7 +45,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER III GOG Edition - Setup
+echo.		TOMB RAIDER III - Setup
 echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
@@ -59,15 +62,15 @@ echo.
 echo.	------------------------------------------------
 echo.
 echo.
-start Tomb3.exe -setup
+start tomb3.exe -setup
 pause
 goto :launcher
 
 
 :gamepad
 cls
-start explorer c:\GOG Games\Tomb Raider 3\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 3\gamepad profiles\tr3_gamepad_readme.html
+start explorer "gamepad profiles"
+start iexplore "gamepad profiles\tr3_gamepad_readme.html"
 goto :launcher
 
 
