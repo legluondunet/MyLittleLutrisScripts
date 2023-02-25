@@ -3,7 +3,7 @@ color 0E
 
 c:
 if exist "c:\GOG Games\Tomb Raider 4" cd "c:\GOG Games\Tomb Raider 4"
-if exist "c:\Tomb Raider 3" cd "c:\Tomb Raider 3"
+if exist "c:\Tomb Raider 4" cd "c:\Tomb Raider 4"
 
 goto launcher
 
