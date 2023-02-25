@@ -41,7 +41,7 @@ goto launcher
 
 :tr2gm
 cls
-cd "c:\tomb raider 2 golden mask"
+cd "c:\tomb raider 2"
 start tomb2.exe -gold
 goto launcher
 
