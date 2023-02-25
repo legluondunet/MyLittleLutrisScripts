@@ -1,7 +1,7 @@
 custom-name: Tomb Raider IV - The Last Revelation - GOG
 files:
 - gogsetup: N/A:Select the installer downloaded from GOG
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/tr4tlr.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
@@ -24,7 +24,7 @@ installer:
     format: gog
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
-    file: dgv
+    file: wrapper
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/MS/x86
@@ -48,7 +48,7 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
     src: patch
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    dst: $GAMEDIR/drive_c
     src: menu
 - copy:
     dst: $GAMEDIR/drive_c
@@ -96,7 +96,7 @@ installer:
     value: 191 166 12
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 4"; rm -f -r unins000.* webcache.zip
-      support.ico Launch* gog* 3Dfx MS Doc
+      support.ico Launch* gog* 3Dfx MS Doc D3D9.dll D3D8.dll
 wine:
   Desktop: true
   overrides:
