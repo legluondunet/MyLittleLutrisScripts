@@ -106,11 +106,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 177 94
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 3/"; rm -f -r __support/ gog*
-      webcache.zip 3Dfx Doc MS os.dat layout.bin  lang.dat data.bin DATA.TAG tr3gold.exe;
-      sed -i -e "s/D3DTF.*/D3DTF 2/g" -e "s/MUSIC.*/MUSIC 7/g" -e "s/VM.*/VM 25/g"
-      config.txt;
 wine:
   Desktop: true
   overrides:
