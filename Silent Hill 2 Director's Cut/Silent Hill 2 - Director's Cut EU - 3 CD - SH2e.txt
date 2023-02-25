@@ -1,11 +1,12 @@
 custom-name: Silent Hill 2 - Director's Cut EU - 3 CD - SH2e
 files:
-- sh2exe: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/SH2PC_Enhanced_EXE_NA_v1.0.zip
-- sh2ed3d8: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/d3d8.zip
-- sh2efiles: http://www.enhanced.townofsilenthill.com/SH2/files/Enhanced_Edition_Essential_Files_1.2.1.zip
-- sh2eip: http://www.enhanced.townofsilenthill.com/SH2/files/SH2PC_Image_Enhancement_Pack_1.1.0.zip
+- sh2eesetup: https://enhanced.townofsilenthill.com/files/SH2EE/SH2EEsetup.exe
+- menubat: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2ee_menu.bat
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/sh2ee.bmp
+- cursor: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Silent%20Hill%202%20Director's%20Cut/MousePointer.png
 game:
-  exe: drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
+  args: c:\\sh2ee_menu.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -124,21 +125,18 @@ installer:
     executable: $GAMEDIR/drive_c/tmp/cd1/setup.exe
     name: wineexec
     prefix: $GAMEDIR
-- move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.bak
-    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2pc.exe
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
-    file: sh2exe
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
-    file: sh2ed3d8
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
-    file: sh2efiles
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut
-    src: sh2eip
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=SH2E,1280x900 $sh2eesetup
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    name: wineexec
 - input_menu:
     description: 'Please choose your preferred interface language:'
     id: LANG
@@ -202,14 +200,42 @@ installer:
 
       SET DX_CONFIG_SE_VOLUME 12'
     file: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/options.ini
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menubat
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/MousePointer.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc/MousePointer.png
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Konami/Silent Hill 2 - Directors Cut/sh2e/pic/etc
+    src: cursor
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: bmp
 - task:
     arch: win64
-    key: background
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\sh2ee.bmp
+- task:
+    arch: win64
+    key: ActiveTitle
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 153 0 0
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/tmp
