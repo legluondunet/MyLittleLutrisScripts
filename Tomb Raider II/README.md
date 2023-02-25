@@ -13,7 +13,7 @@
 
 # Tomb Raider II - Steam + TR2Main
 ### Description:
-"Tomb Raider II" provided by Steam using and TR2Main
+"Tomb Raider II" provided by Steam using TR2Main
 ### Technical notes:
 - You have to install "Tomb Raider II" on Steam before to launch this script installer.
 - This script uses TR2Main: for stability and features, like PS1 inventory background.
@@ -23,7 +23,7 @@
 - TR2Main by Arsunt: https://github.com/Arsunt/TR2Main
 - MainLibzplay: http://libzplay.sourceforge.net/WELCOME.html
 - Other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Tomb Raider II - GOG + OpenLara
 ### Description:
