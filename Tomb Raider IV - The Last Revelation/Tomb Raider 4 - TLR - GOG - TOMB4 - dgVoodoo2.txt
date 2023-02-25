@@ -16,6 +16,8 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
