@@ -1,0 +1,98 @@
+custom-name: Tomb Raider III - The Lost Artefact - CD
+files:
+- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
+- arsunt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- tr3config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/config.txt
+- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
+- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bmp
+game:
+  exe: drive_c/TR3TLA/TR3TLAM1.BAT
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert "Tomb Raider III - The Lost Artefact" CD and press
+      "Autodetect"
+    requires: data/trtla.dat
+- merge:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    src: $DISC
+- execute:
+    command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA
+- copy:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    src: tr3config
+- extract:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    file: arsunt
+- extract:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    file: dgv
+- merge:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    src: $GAMEDIR/drive_c/TR3TLA/MS/x86
+- write_config:
+    data:
+      DirectX:
+        ForceVerticalSync: true
+        Resolution: max_qhd_isf
+        VRAM: 256
+        dgVoodooWatermark: false
+      General:
+        CaptureMouse: false
+        FullScreenMode: false
+        ScalingMode: stretched_ar
+    file: $GAMEDIR/drive_c/TR3TLA/dgVoodoo.conf
+    merge: false
+- move:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    src: menu1
+- move:
+    dst: $GAMEDIR/drive_c/TR3TLA
+    src: menu2
+- merge:
+    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
+    src: gpsteam
+- merge:
+    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
+    src: gpreadme
+- move:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr3tla.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r 3Dfx Doc MS DIRECTX Script autorun*
+      data1* DSETUP* _* setup.* layout.bin os.dat tomb3.exe DATA.TAG lang.dat Setup.exe
+      SETUP.INI
+wine:
+  Desktop: true
+  overrides:
+    ddraw: n,b
