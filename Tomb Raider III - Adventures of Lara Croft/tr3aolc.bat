@@ -70,7 +70,7 @@ goto :launcher
 :gamepad
 cls
 start explorer "gamepad profiles"
-start iexplore "gamepad profiles\tr3_gamepad_readme.html"
+start explorer "gamepad profiles\tr3_gamepad_readme.html"
 goto :launcher
 
 
