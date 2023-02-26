@@ -19,7 +19,7 @@ echo.	3) Bonus: play Tomb Raider Clicker
 echo.	4) Setup dialog box
 echo.	5) Set ratio and FOV
 echo.	6) How to play TR4 with a gamepad
-echo.	7) exit
+echo.	7) Exit
 echo.
 echo.	------------------------------------------------
 echo.
