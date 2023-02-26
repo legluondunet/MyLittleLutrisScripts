@@ -2,15 +2,15 @@ custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
-- menu1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM1.BAT
-- menu2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3TLAM2.BAT
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bmp
 - tr3cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/config.txt
 game:
-  exe: drive_c/TR3TLA/TR3TLAM1.BAT
+  args: c:\\tr3tla.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -58,11 +58,8 @@ installer:
     dst: $GAMEDIR/drive_c/TR3TLA
     src: tr3cfg
 - move:
-    dst: $GAMEDIR/drive_c/TR3TLA
-    src: menu1
-- move:
-    dst: $GAMEDIR/drive_c/TR3TLA
-    src: menu2
+    dst: $GAMEDIR/drive_c
+    src: menu
 - merge:
     dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
     src: gpx360
