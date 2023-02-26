@@ -58,12 +58,11 @@ echo.	------------------------------------------------
 echo.	Tomb Raider IV - The Times exclusive level
 echo.	------------------------------------------------
 echo.
-echo.	4) Setup dialog box
-echo.
-echo.
-echo.	When changing graphic options, always choose dgVoodoo 
-echo.	for "Graphic adaptater" and "Output settings" 
-echo.	or you will obtain a Directx error.
+echo.	Graphics Adapter	- choose ONLY dgVoodoo
+echo.	Output Settings 	- choose ONLY dgVoodoo
+echo.	Output Resolution	- choose your native desktop resolution
+echo.	Texture Bit Depth	- choose 32RGBA for better texture quality
+echo.	Others options		- You should not need to change others options
 echo.
 echo.	------------------------------------------------
 echo.
