@@ -11,15 +11,10 @@
 
 # Enclave - Steam data - Wine
 ### Description:
-This script will assist you to install this game on Linux OS:
-"Enclave" provided by Steam using Lutris Wine runner.
-During install please let all options by default.
-This script uses DxWnd project: https://sourceforge.net/projects/dxwnd/
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+"Enclave" provided by Steam using DxWnd
 ### Technical notes:
 - You have to install Enclave in Steam before to launch this installer script.
-- This game does not need Steam to launch and this script will launch it without it.
-- Enclave has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
+- Enclave has bad controller support. Instead I invite you to use a keymapper like AntimicroX or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 ### Credits:
-- This script uses DxWnd project: https://sourceforge.net/projects/dxwnd/
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- DxWnd: https://sourceforge.net/projects/dxwnd
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
