@@ -50,7 +50,8 @@ echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
-echo.	Output Resolution	- choose your Desktop resolution
+echo.	Output Resolution	- choose your native desktop resolution
+echo.	Texture Bit Depth	- choose 32RGBA for better texture quality
 echo.	Others options		- You should not need to change others options
 echo.
 echo.	------------------------------------------------
