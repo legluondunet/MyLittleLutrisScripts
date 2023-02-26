@@ -50,6 +50,9 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/dgVoodoo.conf
     merge: false
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/backup
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/PCTomb5.exe
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5
     src: patch
