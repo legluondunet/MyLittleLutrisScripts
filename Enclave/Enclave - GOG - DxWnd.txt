@@ -7,7 +7,7 @@ files:
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/gamepad%20profiles/enclave_x360.gamecontroller.amgp
 - gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Enclave/gamepad%20profiles/enclave_steam.sccprofile
 - inno: https://constexpr.org/innoextract/files/innoextract-1.8-linux.tar.xz
-- gog: N/A:Please select the Enclave Windows setup exe file downloaded from GOG
+- gogsetup: N/A:Please select the Enclave Windows setup exe file downloaded from GOG
 game:
   arch: win64
   args: c:\\Enclave\\ENCLAVE.BAT
@@ -16,33 +16,33 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/
+    dst: $CACHE
     file: inno
 - execute:
-    args: --extract $gog --output-dir $CACHE
+    args: --extract $gogsetup --output-dir $CACHE
     file: $CACHE/innoextract
 - merge:
-    dst: $GAMEDIR/drive_c/Enclave/
+    dst: $GAMEDIR/drive_c/Enclave
     src: $CACHE/app
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/
+    dst: $GAMEDIR/drive_c/Enclave
     src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppr
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppx360
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppsc
 - copy:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
