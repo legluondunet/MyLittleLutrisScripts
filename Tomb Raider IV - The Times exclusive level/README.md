@@ -1,18 +1,12 @@
-# Tomb Raider IV - The Times exclusive level
-
+# Tomb Raider IV - The Times exclusive level - WS patch + dgVoodoo2
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Tomb Raider IV: The Times exclusive level".
-During install please let all options by default.
-This script uses different projects:
-dgVoodoo2: http://www.dege.freeweb.hu/
-Tomb Raider 2-3-4 Widescreen Patch created by Mr.Blackfour : https://tombraiders.net/stella/downloads/widescreen.html
-Other sources: https://www.tombraiderforums.com
-Thanks to the people who contributed to play this game in the best conditions on Linux platform.
-
+"Tomb Raider IV: The Times exclusive level" using WideScreen patch and dgVoodoo2
 ### Technical notes:
-- When changing graphic options, always choose "dgVoodoo" for "Graphic adaptater" and "Output settings" or you will obtain a Directx error.
-- Press P to access Pause/Exit/Options menu.
-- "Tomb Raider IV: The Times exclusive level" has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (Antimicro) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Use WideScreen patch to set your native resolution, ratio and FOV.
+- Press "p" to access main menu.
+- "Tomb Raider IV: The Last Revelation" has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+### Credits:
+- Mr.Blackfour WideScreen patch: https://tombraiders.net/stella/downloads/widescreen.html
+- dgVoodoo2: http://www.dege.freeweb.hu
+- Other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
