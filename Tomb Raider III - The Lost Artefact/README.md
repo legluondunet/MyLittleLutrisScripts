@@ -1,6 +1,6 @@
 # Tomb Raider III - The Lost Artefact - CD + Arsunt patch + dgVoodoo2
 ### Description:
-"Tomb Raider III - The Lost Artefact" CD editin using Arsunt Patch and DgVoodoo2
+"Tomb Raider III - The Lost Artefact" CD edition using Arsunt patch and dgVoodoo2
 ### Technical notes:
 - TR3 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
 ### Credits:
