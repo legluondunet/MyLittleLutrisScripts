@@ -14,28 +14,30 @@ game:
 installer:
 - task:
     arch: win64
+    install_gecko: true
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
     description: Please browse to the Steam path where Enclave.exe stored
     requires: Enclave.exe
 - merge:
-    dst: $GAMEDIR/drive_c/Enclave/
+    dst: $GAMEDIR/drive_c/Enclave
     src: $DISC
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/
+    dst: $GAMEDIR/drive_c/Enclave
     src: menu
 - merge:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppr
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppx360
 - copy:
-    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles/
+    dst: $GAMEDIR/drive_c/Enclave/gamepad profiles
     src: gppsc
 - copy:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
