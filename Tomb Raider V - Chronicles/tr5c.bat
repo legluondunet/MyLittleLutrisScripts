@@ -1,9 +1,11 @@
 @echo off
 color 0E
-c:
-cd c:\GOG Games\Tomb Raider 5
-goto launcher
 
+c:
+if exist "c:\GOG Games\Tomb Raider 5" cd "c:\GOG Games\Tomb Raider 5"
+if exist "c:\Tomb Raider 5" cd "c:\Tomb Raider 5"
+
+goto launcher
 
 :launcher
 cls
@@ -60,8 +62,8 @@ goto :launcher
 
 :gamepad
 cls
-start explorer c:\GOG Games\Tomb Raider 5\gamepad profiles\
-start iexplore c:\GOG Games\Tomb Raider 5\gamepad profiles\tr5_gamepad_readme.html
+start explorer "gamepad profiles"
+start explorer "gamepad profiles\tr5_gamepad_readme.html"
 goto launcher
 
 :exit
