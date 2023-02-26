@@ -1,9 +1,9 @@
 @echo off
 color 1F
-goto launcher
 
 c:
 cd "c:\TR3TLA"
+goto :launcher
 
 :launcher
 cls
@@ -23,8 +23,6 @@ echo.
 echo.
 
 
-
-
 choice /c1234 /s /N Your choice? [1-4]:
 if errorlevel 4 goto exit
 if errorlevel 3 goto gamepad
@@ -35,20 +33,21 @@ if errorlevel 1 goto tr3tla
 :tr3tla
 cls
 start tr3gold.exe
-goto exit
+goto :launcher
 
 
 :setup
 cls
 start tr3gold.exe -setup
-goto launcher
+goto :launcher
 
 
 :gamepad
 cls
 start explorer c:\TR3TLA\gamepad profiles\
 start iexplore c:\TR3TLA\gamepad profiles\tr3_gamepad_readme.html
-goto launcher
+pause
+goto :launcher
 
 
 :exit
