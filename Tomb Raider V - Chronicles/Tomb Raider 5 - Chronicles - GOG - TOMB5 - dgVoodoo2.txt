@@ -1,0 +1,109 @@
+custom-name: Tomb Raider V - Chronicles - GOG
+files:
+- gogsetup: N/A:Select the installer downloaded from GOG
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bat
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_gamepad_readme.html
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bmp
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tomb5.zip
+- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+game:
+  arch: win64
+  args: c:\\tr5c.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: inno
+- execute:
+    args: -d "$CACHE" --gog gogsetup
+    file: $CACHE/innoextract
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5
+    src: $CACHE/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/MS/x86
+- write_config:
+    data:
+      DirectX:
+        ForceVerticalSync: true
+        Resolution: max_qhd_isf
+        VRAM: 256
+        dgVoodooWatermark: false
+      General:
+        CaptureMouse: false
+        FullScreenMode: false
+        ScalingMode: stretched_ar
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/dgVoodoo.conf
+    merge: false
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5
+    src: patch
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: menu
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/gamepad profiles
+    src: gpreadme
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/gamepad profiles
+    src: gpx360
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 5/gamepad profiles
+    src: gpsteam
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr5c.bmp
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 68 103 145
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 5"; rm -f -r 3Dfx Doc MS __support
+      goggame* QuickGuide.html webcache.zip D3D9.dll D3D8.dll;
+wine:
+  Desktop: true
+  overrides:
+    ddraw: n,b
