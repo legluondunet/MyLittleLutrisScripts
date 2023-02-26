@@ -2,6 +2,8 @@
 color 1F
 goto launcher
 
+c:
+cd "c:\TR3TLA"
 
 :launcher
 cls
