@@ -1,13 +1,13 @@
-# Enclave - GOG - Wine
+# Enclave - GOG - DxWnd
 ### Description:
-"Enclave" provided by GOG and using DxWnd for better stability.
+"Enclave" provided by GOG using DxWnd
 ### Technical notes:
-- This script is only compatible with Enclave Windows setup exe file provided by GOG.
+- This script is only compatible with Enclave Windows setup file provided by GOG.
 - Nota: The Linux version is a Windows version with an old Wine version no longer maintained. In this case they are advantages to use directly the Windows version, you could choose the Wine version and personalize others Wine options in Lutris interface.
-- Enclave has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
+- Enclave has bad controller support. Instead I invite you to use a keymapper like AntimicroX or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 ### Credits:
-- This script uses DxWnd project: https://sourceforge.net/projects/dxwnd/
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- DxWnd: https://sourceforge.net/projects/dxwnd
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Enclave - Steam data - Wine
 ### Description:
