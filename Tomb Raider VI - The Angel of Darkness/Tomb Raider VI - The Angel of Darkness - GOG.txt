@@ -1,12 +1,12 @@
-custom-name: Tomb Raider VI - The Angel of Darkness - GOG - Wine
+custom-name: Tomb Raider VI - The Angel of Darkness - GOG
 files:
 - gogsetup: N/A:Please select the game Windows install file, available for download
     from your GOG account page.
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/tr6.bmp
-- eax: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/eax.dll
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_gamepad_readme.html
+- codecs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/LAVFilters-0.77.1-x86.zip
 game:
   exe: drive_c/GOG Games/Tomb Raider 6/Launcher.exe
   prefix: $GAMEDIR
@@ -14,7 +14,7 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
@@ -23,30 +23,6 @@ installer:
     executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
-- copy:
-    dst: $GAMEDIR/drive_c/windows/syswow64
-    src: eax
-- task:
-    args: eax.dll
-    executable: $GAMEDIR/drive_c/windows/syswow64/regsvr32.exe
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000001'
-- task:
-    arch: win64
-    key: EAXEnabled
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
 - task:
     arch: win64
     key: wallpaper
@@ -75,23 +51,15 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles
     src: gpsteam
-- input_menu:
-    description: 'Choose your preferred interface language (menu and subtitles):'
-    id: LANG
-    options:
-    - uk: English
-    - fr: French
-    - gr: German
-    - it: Italian
-    - jpa: Japonese
-    - kor: Korean
-    - por: Portuguese
-    - sp: Spanish
-    preselect: uk
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Tomb Raider 6"; rm -f -r unins000.* webcache.zip
-      support.ico gog* "Launch T"* ; cd Data/locale; for f in *; do mv -v "$f" "`echo
-      $f | tr '[A-Z]' '[a-z]'`"; done; mv text_$INPUT_LANG.db TEXT_UK.DB; mv text_uk.db
-      text_uk.db.bak;
+- task:
+    app: devenum quartz_feb2010
+    name: winetricks
+    silent: true
+- extract:
+    dst: $GAMEDIR/drive_c/libavfilters
+    file: codecs
+- task:
+    executable: $GAMEDIR/drive_c/libavfilters/install_splitter.bat
+    name: wineexec
 wine:
   Desktop: true
