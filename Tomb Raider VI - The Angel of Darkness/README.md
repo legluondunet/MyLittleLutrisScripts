@@ -1,4 +1,4 @@
-#Tomb Raider VI - The Angel of Darkness - GOG
+# Tomb Raider VI - The Angel of Darkness - GOG
 ### Description:
 "Tomb Raider VI: The Angel of Darkness" provided by GOG
 ### Technical notes:
