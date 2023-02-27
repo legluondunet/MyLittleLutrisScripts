@@ -6,5 +6,6 @@
 - TR6 supports natively x360 gamepad. But you will obtain a better gaming experience if you use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
 - known issue: TR6 is unstable and could crash, save regularly your game.
 ### Credits:
+- LAVFilters: https://github.com/Nevcairiel/LAVFilters
 - Other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
