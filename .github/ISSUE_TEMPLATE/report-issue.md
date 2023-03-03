@@ -17,8 +17,8 @@ To report your issue, please follow this steps:
     At the end of the install, try to launch the game. 
     If the issue persists, please post the lutris.log debug file to this thread
     4) execute this commands then join txt files to your report:
-lsb_release -a > distribution.txt
-inxi -F > config.txt
+    lsb_release -a > distribution.txt
+    inxi -F > config.txt
     5) put the game name in the issue report title
 
 Thank you for your issue report.
