@@ -1,0 +1,84 @@
+game:
+  exe: drive_c/X-Files - The Game/xfiles.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert CD 1 and press "autodetect"
+    requires: CDICON.ICO
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 2 and press "autodetect"
+    requires: nav2.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 3 and press "autodetect"
+    requires: nav3.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 4 and press "autodetect"
+    requires: nav4.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 5 and press "autodetect"
+    requires: nav5.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 5 and press "autodetect"
+    requires: nav6.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- insert-disc:
+    description: Please insert CD 7 and press "autodetect"
+    requires: nav7.nmv
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $GAMEDIR/drive_c/X-Files - The Game/medinst
+- merge:
+    dst: $GAMEDIR/drive_c/X-Files - The Game
+    src: $GAMEDIR/drive_c/X-Files - The Game/mininst
+- task:
+    app: quicktime72
+    name: winetricks
+    silent: true
+- execute:
+    command: cd "$GAMEDIR/drive_c/X-Files - The Game"; rm -f -r mininst medinst directx
+      qtw graphics setup.* data* _* autorun.* lang.dat os.dat layout.bin;
+system:
+  gamescope: true
+wine:
+  Desktop: true
