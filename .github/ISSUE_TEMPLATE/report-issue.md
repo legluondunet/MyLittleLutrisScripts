@@ -11,7 +11,7 @@ Hello, to help you I need some minimum informations about your OS and hardware c
 To report your issue, please follow this steps:
     
     1) start Lutris in debug mode, in a terminal type this command:
-    lutris -d > lutris.log
+    lutris -d > lutris.txt
     2) if already installed, uninstall (remove) your game
     3) now come back to your game Lutris page installer and reinstall it. 
     At the end of the install, try to launch the game. 
