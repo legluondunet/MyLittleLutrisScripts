@@ -8,6 +8,7 @@ assignees: ''
 ---
 
 Hello, to help you I need some minimum informations about your OS and hardware config.
+
 To report your issue, please follow this steps:
     
     1) start Lutris in debug mode, in a terminal type this command:
