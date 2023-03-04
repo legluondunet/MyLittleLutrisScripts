@@ -100,6 +100,11 @@ installer:
         title0: Syberia
         ver0: 0
         winver0: 0
+      window:
+        exepath: C:\GOG Games\Syberia\
+        expert: 1
+        exportpath: C:\dxwnd\exports\
+        showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
     dst: $GAMEDIR/drive_c/Syberia/
