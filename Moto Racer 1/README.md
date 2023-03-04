@@ -1,4 +1,4 @@
-# Moto Racer 1 - GOG
+# Moto Racer 1 - GOG - DxWnd
 ### Description:
 "Moto Racer 1" provided by GOG using DxWnd open source project
 ### Technical notes:
