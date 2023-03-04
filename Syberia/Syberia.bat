@@ -1,7 +1,7 @@
 cd c:\dxwnd
-start "" dxwnd.exe
+start dxwnd.exe /r:1
 cd "c:\GOG Games\Syberia"
-start "" syberia.exe
+rem start "" syberia.exe
 
 goto :search
 
