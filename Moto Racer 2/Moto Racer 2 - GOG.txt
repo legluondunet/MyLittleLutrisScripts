@@ -1,8 +1,8 @@
 custom-name: Moto Racer 2 - GOG
 files:
-- gog: N/A:Please select the GOG installer
+- gogsetup: N/A:Please select the GOG installer
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_39_build.rar
-- lavf: https://github.com/Nevcairiel/LAVFilters/releases/download/0.74.1/LAVFilters-0.74.1-x86.zip
+- codecs: https://github.com/legluondunet/mlls-tools/raw/master/LAVFilters/LAVFilters-0.77.1-x86.zip
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -17,17 +17,9 @@ installer:
 - task:
     args: /SUPPRESSMSGBOXES /SILENT
     description: Installing...
-    executable: gog
+    executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: CSMT
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -62,7 +54,7 @@ installer:
         initresh0: 600
         initresw0: 800
         initts0: 0
-        launchpath0: C:\GOG Games\Moto Racer 2\moto.exe -$INPUT_LANG -d3d -KeepAvailableVram1073741824
+        launchpath0: C:\GOG Games\Moto Racer 2\moto.exe -$INPUT_LANG -d3d
         maxddinterface0: 7
         maxfps0: 8
         maxres0: -1
@@ -80,15 +72,24 @@ installer:
         title0: Moto Racer 2
         ver0: 0
         winver0: 1
+      window:
+        exepath: C:\GOG Games\Moto Racer 2\
+        expert: 1
+        exportpath: C:\dxwnd\exports\
+        posx: 42
+        posy: 108
+        showhelp: false
+        sizx: 320
+        sizy: 200
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - task:
     arch: win64
-    key: winmm
+    key: CSMT
     name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
     prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
+    type: REG_DWORD
+    value: '00000000'
 - task:
     arch: win64
     key: background
@@ -97,25 +98,18 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- extract:
-    dst: $GAMEDIR/drive_c/tmp/lavf
-    src: lavf
 - task:
-    executable: $GAMEDIR/drive_c/tmp/lavf/install_video.bat
-    name: wineexec
-    prefix: $GAMEDIR/
-- task:
-    executable: $GAMEDIR/drive_c/tmp/lavf/install_splitter.bat
-    name: wineexec
-    prefix: $GAMEDIR/
-- task:
-    executable: $GAMEDIR/drive_c/tmp/lavf/install_audio.bat
-    name: wineexec
-    prefix: $GAMEDIR/
-- task:
-    app: amstream quartz directplay winxp
+    app: directplay quartz_feb2010
     name: winetricks
     prefix: $GAMEDIR
+    silent: true
+- extract:
+    dst: $GAMEDIR/drive_c/lavfilters
+    src: codecs
+- task:
+    executable: $GAMEDIR/drive_c/lavfilters/install_splitter.bat
+    name: wineexec
 wine:
   Desktop: true
-  version: lutris-4.21-x86_64
+  overrides:
+    winmm: n,b
