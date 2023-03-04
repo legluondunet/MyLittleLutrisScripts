@@ -1,6 +1,6 @@
 # Syberia - GOG + DxWnd
 ### Description:
-"Syberia" provided by Gog using DxWnd
+"Syberia" provided by GOG using DxWnd
 ### Technical notes:
 - This script will use nircmd.exe as a workaround for the black window bug. See https://bugs.winehq.org/show_bug.cgi?id=21796
 - Could be not compatible with Wine fshack patch. Use wine vanilla or wine-staging instead.
