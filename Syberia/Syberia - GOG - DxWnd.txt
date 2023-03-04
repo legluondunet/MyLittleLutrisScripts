@@ -2,7 +2,6 @@ custom-name: Syberia - GOG
 files:
 - dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_23_build.rar
 - nircmd: https://github.com/legluondunet/mlls-tools/raw/master/nircmd/nircmd-x64.zip
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Syberia/syberia_multi5.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Syberia/clean.sh
 - launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Syberia/Syberia.bat
@@ -19,11 +18,9 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: -g $gogsetup --output-dir $GAMEDIR/drive_c/Syberia
-    file: $CACHE/innoextract/innoextract
+    dst: $GAMEDIR/drive_c/Syberia
+    file: gogsetup
+    format: gog
 - copy:
     dst: $GAMEDIR/drive_c
     src: launcher
@@ -107,7 +104,7 @@ installer:
         showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/Syberia/
+    dst: $GAMEDIR/drive_c/Syberia
     file: nircmd
 - extract:
     dst: $GAMEDIR/drive_c/tmp
