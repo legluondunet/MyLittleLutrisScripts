@@ -103,4 +103,3 @@ installer:
     value: 0 0 0
 wine:
   Desktop: true
-  version: lutris-4.21-x86_64
