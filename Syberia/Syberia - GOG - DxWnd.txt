@@ -1,6 +1,6 @@
 custom-name: Syberia - GOG
 files:
-- dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_92_build.rar
+- dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_23_build.rar
 - nircmd: https://www.nirsoft.net/utils/nircmd-x64.zip
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Syberia/syberia_multi5.zip
