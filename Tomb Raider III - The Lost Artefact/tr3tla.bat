@@ -17,7 +17,7 @@ echo.
 echo.	1) Tomb Raider III - The Lost Artefact
 echo.	2) Setup dialog box
 echo.	3) How to play TR3TLA with a gamepad
-echo.	4) exit
+echo.	4) Exit
 echo.
 echo.	------------------------------------------------
 echo.
