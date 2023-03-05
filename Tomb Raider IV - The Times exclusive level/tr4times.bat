@@ -1,11 +1,13 @@
 @echo off
 color 0F
+
+c:
+cd "c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level"
+
 goto launcher
 
-
 :launcher
-c:
-cd c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\
+
 cls
 echo.
 echo.
@@ -58,6 +60,8 @@ echo.	------------------------------------------------
 echo.	Tomb Raider IV - The Times exclusive level
 echo.	------------------------------------------------
 echo.
+echo. 	Setup:
+echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
 echo.	Output Resolution	- choose your native desktop resolution
@@ -72,8 +76,7 @@ pause
 goto :launcher
 
 :patch
-start TombRaider234_Patch.exe
-pause
+start "" TombRaider234_Patch.exe
 goto :launcher
 
 :gamepad
