@@ -6,3 +6,12 @@
 - You will need to provide "Jewels of the Oracle" and "Windows 3.1" CD only one time during install.
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Jewels of the Oracle - CD
+### Description:
+"Jewels of the Oracle"  CD edition
+### Technical notes:
+- This script does not work, waiting for Wine to support this game.
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
