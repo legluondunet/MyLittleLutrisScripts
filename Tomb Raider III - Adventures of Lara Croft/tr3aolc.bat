@@ -12,7 +12,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.			TOMB RAIDER III
+echo. 	TOMB RAIDER III - Adventures of Lara Croft
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider III
@@ -45,15 +45,14 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.			TOMB RAIDER III - Setup
+echo. 	TOMB RAIDER III - Adventures of Lara Croft - Setup
 echo.	------------------------------------------------
 echo.
-echo.	Graphics Adapter 	- choose ONLY dgVoodoo
+echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
-echo.	Resolution 		- choose your native 
-echo.				Desktop resolution
-echo.
-echo.	You should not need to change others options.
+echo.	Output Resolution	- choose your native desktop resolution
+echo.	Texture Bit Depth	- choose 32RGBA for better texture quality
+echo.	Others options		- You should not need to change others options
 echo.
 echo.	------------------------------------------------
 echo.
