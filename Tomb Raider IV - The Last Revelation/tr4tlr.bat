@@ -25,8 +25,6 @@ echo.
 echo.
 
 
-
-
 choice /c1234 /s /N Your choice? [1-4]:
 if errorlevel 4 goto exit
 if errorlevel 3 goto gamepad
@@ -45,8 +43,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER IV - The Last Revelations - Setup
+echo.	TOMB RAIDER IV - The Last Revelations
 echo.	------------------------------------------------
+echo.
+echo. Setup:
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
