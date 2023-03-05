@@ -1,4 +1,4 @@
-custom-name: Tomb Raider I - Steam data - OpenLara
+custom-name: Tomb Raider I - Steam - OpenLara
 files:
 - tr1audio: https://github.com/Carlmundo/TombRaider-AutomatedFix/archive/master.zip
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
