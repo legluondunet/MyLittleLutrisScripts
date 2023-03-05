@@ -1,4 +1,4 @@
-custom-name: Tomb Raider I - Steam data - TombATI HD
+custom-name: Tomb Raider I - Steam - TombATI HD
 files:
 - tombati:
     filename: TombATI_v1.7.rar
