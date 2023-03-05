@@ -87,8 +87,8 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe 3Dfx Doc MS DIRECTX
       Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat DATA.TAG lang.dat
-      Setup.exe SETUP.INI D3D9.dll D3D8.dll saves; ls -d */ | grep -i pix | xargs
-      -I {} -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv {} datag; mkdir
+      Setup.exe SETUP.INI D3D9.dll D3D8.dll; ls -d */ | grep -i pix | xargs -I {}
+      -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv {} datag; mv saves
       savesg;
 wine:
   Desktop: true
