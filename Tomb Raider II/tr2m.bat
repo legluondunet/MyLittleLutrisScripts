@@ -1,8 +1,10 @@
 @echo off
 color 4E
+
 c:
+cd "c:\tomb raider 2"
+
 goto launcher
-cd \
 
 :launcher
 cls
@@ -35,29 +37,39 @@ if errorlevel 1 goto tr2
 
 :tr2
 cls
-cd "c:\tomb raider 2"
 start tomb2.exe
-goto launcher
+goto :launcher
 
 :tr2gm
 cls
-cd "c:\tomb raider 2"
 start tomb2.exe -gold
-goto launcher
+goto :launcher
 
 
 :setup
 cls
-cd "c:\tomb raider 2"
+echo.
+echo.
+echo.	------------------------------------------------
+echo.		TOMB RAIDER II - Setup
+echo.	------------------------------------------------
+echo.
+echo.	Here just select your native Desktop resolution.
+echo.	You should not need to change others options.
+echo.
+echo.	------------------------------------------------
+echo.
+echo.
 start tomb2.exe -setup
-goto launcher
+pause
+goto :launcher
 
 
 :gamepad
 cls
 start explorer c:\tomb raider 2\gamepad profiles\
 start iexplore c:\tomb raider 2\gamepad profiles\tr1-2_gamepad_readme.html
-goto launcher
+goto :launcher
 
 
 :exit
