@@ -29,7 +29,7 @@
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Tomb Raider I - Steam data - TombATI HD
+# Tomb Raider I - Steam - TombATI HD
 ### Description:
 "Tomb Raider I" provided by Steam using GLRage engine and HD textures pack
 ### Technical notes:
@@ -59,7 +59,7 @@
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Tomb Raider I - Steam data - OpenLara
+# Tomb Raider I - Steam - OpenLara
 ### Description:
 "Tomb Raider I" provided by Steam using OpenLara open source engine
 ### Technical notes:
