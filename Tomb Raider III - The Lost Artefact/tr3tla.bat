@@ -41,7 +41,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER III - The Lost Artefact - Setup
+echo.	TOMB RAIDER III - The Lost Artefact
 echo.	------------------------------------------------
 echo.
 echo.	Setup:
