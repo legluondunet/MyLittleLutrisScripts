@@ -1,13 +1,17 @@
 @echo off
 color 0E
-goto launcher
+
+c:
+cd c:\TOMBATI
+
+goto :launcher
 
 :launcher
 cls
 echo.
 echo.
 echo. ------------------------------------------------------
-echo.	TOMB RAIDER I GOG Edition + TombATI + HD Textures
+echo.	TOMB RAIDER I + TombATI + HD Textures
 echo. ------------------------------------------------------
 echo.
 echo.	1) Play Tomb Raider I
@@ -16,8 +20,6 @@ echo.	3) Configure TombATI HD textures
 echo.	4) How to play TR1 with a gamepad
 echo.	5) Exit
 echo.
-echo. ------------------------------------------------------
-echo.	script by Le Gluon du Net   
 echo. ------------------------------------------------------
 echo.
 echo.
@@ -31,30 +33,40 @@ if errorlevel 1 goto tr1
 
 :tr1
 cls
-cd c:\TOMBATI\DATA
-copy /Y TITLEHTR1.PCX TITLEH.PCX
-cd c:\TOMBATI\
+copy /Y DATA\TITLEHTR1.PCX DATA\TITLEH.PCX
 start tombati.exe
-goto launcher
+goto :launcher
 
 :tombub
 cls
-cd c:\TOMBATI\DATA
-copy /Y TITLEHTR1UB.PCX TITLEH.PCX
-cd c:\TOMBATI\
+copy /Y DATA\TITLEHTR1UB.PCX DATA\TITLEH.PCX
 start tombub.exe
-goto launcher
+goto :launcher
 
 :config
 cls
-TombATIConfigure.exe
-goto launcher
+echo.
+echo.
+echo. ------------------------------------------------------
+echo.	TOMB RAIDER I + TombATI + HD Textures
+echo. ------------------------------------------------------
+echo.
+echo.	Here you can select HD textures pack
+echo.	Others textures packs available for download here:
+echo.	https://www.tombraiderxtra.com/ 
+echo.
+echo. ------------------------------------------------------
+echo.
+echo.
+start "" TombATIConfigure.exe
+pause
+goto :launcher
 
 :gamepad
 cls
 start explorer c:\TOMBATI\gamepad profiles\
 start iexplore c:\TOMBATI\gamepad profiles\tr1-2_gamepad_readme.html
-goto launcher
+goto :launcher
 
 :exit
 exit
