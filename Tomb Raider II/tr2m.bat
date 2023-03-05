@@ -25,8 +25,6 @@ echo.
 echo.
 
 
-
-
 choice /c12345 /s /N Your choice? [1-5]:
 if errorlevel 5 goto exit
 if errorlevel 4 goto gamepad
