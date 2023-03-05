@@ -46,8 +46,10 @@ echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- select ONLY dgVoodoo
 echo.	Output Settings 	- select ONLY dgVoodoo
-echo.	Output Resolution	- select your native Desktop resolution
-echo.	You should not need to change others options
+echo.	Output Resolution	- select your native 
+echo.                     Desktop resolution
+echo.
+echo. You should not need to change others options
 echo.
 echo.	------------------------------------------------
 echo.
