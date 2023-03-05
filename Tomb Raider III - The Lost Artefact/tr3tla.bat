@@ -63,7 +63,6 @@ goto :launcher
 cls
 start explorer c:\TR3TLA\gamepad profiles\
 start iexplore c:\TR3TLA\gamepad profiles\tr3_gamepad_readme.html
-pause
 goto :launcher
 
 
