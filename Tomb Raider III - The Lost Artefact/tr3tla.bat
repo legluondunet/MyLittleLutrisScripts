@@ -3,6 +3,7 @@ color 1F
 
 c:
 cd "c:\TR3TLA"
+
 goto :launcher
 
 :launcher
@@ -10,7 +11,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER III - The Lost Artefact - CD
+echo.	TOMB RAIDER III - The Lost Artefact
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider III - The Lost Artefact
@@ -32,13 +33,27 @@ if errorlevel 1 goto tr3tla
 
 :tr3tla
 cls
-start tr3gold.exe
+start tomb3.exe -gold
 goto :launcher
-
 
 :setup
 cls
-start tr3gold.exe -setup
+echo.
+echo.
+echo.	------------------------------------------------
+echo.	TOMB RAIDER III - The Lost Artefact - Setup
+echo.	------------------------------------------------
+echo.
+echo.	Graphics Adapter	- select ONLY dgVoodoo
+echo.	Output Settings 	- select ONLY dgVoodoo
+echo.	Output Resolution	- select your native Desktop resolution
+echo.	You should not need to change others options
+echo.
+echo.	------------------------------------------------
+echo.
+echo.
+start tomb3.exe -setup
+pause
 goto :launcher
 
 
