@@ -12,7 +12,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.		TOMB RAIDER III
+echo.			TOMB RAIDER III
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider III
@@ -45,19 +45,13 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.		TOMB RAIDER III - Setup
+echo.			TOMB RAIDER III - Setup
 echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
-echo.	Output Resolution	- for a native game experience
-echo.				prefer a resolution with 
-echo.				4:3 ratio and 32 bits colors
-echo.				if you are not sure choose 640x480x32
-echo.				- or you can choose your Desktop resolution as
-echo.				Arsunt patch will adapt TR3 ratio and fov 
-echo.				to your desktop resolution
-echo.	Others options		- You should not need to change others options
+echo.	Output Resolution	- choose your native Desktop resolution
+echo.	You should not need to change others options
 echo.
 echo.	------------------------------------------------
 echo.
@@ -70,7 +64,7 @@ goto :launcher
 :gamepad
 cls
 start explorer "gamepad profiles"
-start explorer "gamepad profiles\tr3_gamepad_readme.html"
+start iexplore "gamepad profiles\tr3_gamepad_readme.html"
 goto :launcher
 
 
