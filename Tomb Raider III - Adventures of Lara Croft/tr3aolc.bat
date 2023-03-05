@@ -64,7 +64,8 @@ goto :launcher
 :gamepad
 cls
 start explorer "gamepad profiles"
-start iexplore "gamepad profiles\tr3_gamepad_readme.html"
+if exist "c:\GOG Games\Tomb Raider 3" start iexplore "c:\GOG Games\Tomb Raider 3\gamepad profiles\tr3_gamepad_readme.html"
+if exist "c:\Tomb Raider 3" start iexplore "c:\Tomb Raider 3\gamepad profiles\tr3_gamepad_readme.html"
 goto :launcher
 
 
