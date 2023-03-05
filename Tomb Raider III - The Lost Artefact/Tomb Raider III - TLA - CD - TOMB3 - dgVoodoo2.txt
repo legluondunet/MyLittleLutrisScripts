@@ -1,13 +1,12 @@
 custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/TR3_Arsunt_Patch_FOV_FMV_Sunglasses.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tomb3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bat
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/gamepad%20profiles/tr3_gamepad_readme.html
+- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
+- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
+- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bmp
-- tr3cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/config.txt
 game:
   args: c:\\tr3tla.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -28,7 +27,7 @@ installer:
     dst: $GAMEDIR/drive_c/TR3TLA
     src: $DISC
 - execute:
-    command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA
+    command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA;
 - merge:
     dst: $GAMEDIR/drive_c/TR3TLA/backup
     src: $GAMEDIR/drive_c/TR3TLA/tr3gold.exe
@@ -54,9 +53,6 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/TR3TLA/dgVoodoo.conf
     merge: false
-- merge:
-    dst: $GAMEDIR/drive_c/TR3TLA
-    src: tr3cfg
 - move:
     dst: $GAMEDIR/drive_c
     src: menu
@@ -89,9 +85,10 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - execute:
-    command: cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r 3Dfx Doc MS DIRECTX Script autorun*
-      data1* DSETUP* _* setup.* layout.bin os.dat tomb3.exe DATA.TAG lang.dat Setup.exe
-      SETUP.INI D3D9.dll D3D8.dll;
+    command: cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe 3Dfx Doc MS DIRECTX
+      Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat DATA.TAG lang.dat
+      Setup.exe SETUP.INI D3D9.dll D3D8.dll; ls -d */ | grep -i pix | xargs -I {}
+      -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv {} datag; mkdir savesg;
 wine:
   Desktop: true
   overrides:
