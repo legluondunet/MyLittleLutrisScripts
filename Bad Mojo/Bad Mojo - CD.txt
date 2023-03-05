@@ -1,0 +1,27 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Bad%20Mojo/badmjo_launcher.7z
+game:
+  exe: drive_c/BMCD/launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing Bad Mojo wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert Bad Mojo CD and press "Autodetection"
+    requires: badmojo.exe
+- merge:
+    dst: $GAMEDIR/drive_c/BMCD
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "BMCD"; cd BMCD; mkdir backup; ls
+      | grep -i badmojo.exe | xargs -I {} -t mv {} backup; ls | grep -i waveout.dll
+      | xargs -I {} -t mv {} backup; cd sound; find . -depth -type f -exec mv {} .
+      \;
+- extract:
+    dst: $GAMEDIR/drive_c/BMCD
+    file: patch
