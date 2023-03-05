@@ -7,6 +7,7 @@ if exist "c:\Tomb Raider 5" cd "c:\Tomb Raider 5"
 
 goto launcher
 
+
 :launcher
 cls
 echo.
@@ -44,8 +45,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.	TOMB RAIDER V - Chronicles - Setup
+echo.	TOMB RAIDER V - Chronicles
 echo.	------------------------------------------------
+echo.
+echo. 	Setup:
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
@@ -62,9 +65,9 @@ goto :launcher
 
 :gamepad
 cls
-start explorer "gamepad profiles"
-start explorer "gamepad profiles\tr5_gamepad_readme.html"
-goto launcher
+start explorer gamepad profiles
+start iexplore %CD%\gamepad profiles\tr5_gamepad_readme.html
+goto :launcher
 
 :exit
 exit
