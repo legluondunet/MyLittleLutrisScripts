@@ -34,4 +34,3 @@ installer:
 - chmodx: $GAMEDIR/install_drivers_s3.sh
 - execute:
     file: $GAMEDIR/install_drivers_s3.sh
-
