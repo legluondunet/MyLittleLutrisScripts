@@ -45,8 +45,10 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo. 	TOMB RAIDER III - Adventures of Lara Croft - Setup
+echo. 	TOMB RAIDER III - Adventures of Lara Croft
 echo.	------------------------------------------------
+echo.
+echo.	Setup:
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
 echo.	Output Settings 	- choose ONLY dgVoodoo
