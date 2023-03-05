@@ -44,12 +44,12 @@ echo.	------------------------------------------------
 echo.	TOMB RAIDER III - The Lost Artefact - Setup
 echo.	------------------------------------------------
 echo.
-echo.	Graphics Adapter	- select ONLY dgVoodoo
-echo.	Output Settings 	- select ONLY dgVoodoo
-echo.	Output Resolution	- select your native 
-echo.                     Desktop resolution
+echo.	Graphics Adapter 	- choose ONLY dgVoodoo
+echo.	Output Settings 	- choose ONLY dgVoodoo
+echo.	Resolution 		- choose your native 
+echo.				Desktop resolution
 echo.
-echo. You should not need to change others options
+echo.	You should not need to change others options.
 echo.
 echo.	------------------------------------------------
 echo.
