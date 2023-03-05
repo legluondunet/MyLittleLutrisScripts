@@ -48,10 +48,10 @@ echo.	------------------------------------------------
 echo.			TOMB RAIDER III - Setup
 echo.	------------------------------------------------
 echo.
-echo.	Graphics Adapter	- choose ONLY dgVoodoo
-echo.	Output Settings 	- choose ONLY dgVoodoo
-echo.	Output Resolution	- choose your native Desktop resolution
-echo.	You should not need to change others options
+echo.	Graphics Adapter - choose ONLY dgVoodoo
+echo.	Output Settings - choose ONLY dgVoodoo
+echo.	Resolution - choose your native Desktop resolution
+echo.	You should not need to change others options.
 echo.
 echo.	------------------------------------------------
 echo.
