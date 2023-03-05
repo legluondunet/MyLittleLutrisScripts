@@ -5,14 +5,14 @@ c:
 if exist "c:\GOG Games\Tomb Raider 4" cd "c:\GOG Games\Tomb Raider 4"
 if exist "c:\Tomb Raider 4" cd "c:\Tomb Raider 4"
 
-goto :launcher
+goto launcher
 
 :launcher
 cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.		TOMB RAIDER IV
+echo.	TOMB RAIDER IV - The Last Revelations
 echo.	------------------------------------------------
 echo.
 echo.	1) Tomb Raider IV
@@ -45,7 +45,7 @@ cls
 echo.
 echo.
 echo.	------------------------------------------------
-echo.		TOMB RAIDER IV - Setup
+echo.	TOMB RAIDER IV - The Last Revelations - Setup
 echo.	------------------------------------------------
 echo.
 echo.	Graphics Adapter	- choose ONLY dgVoodoo
