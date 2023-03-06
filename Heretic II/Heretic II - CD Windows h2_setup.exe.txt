@@ -22,7 +22,7 @@ installer:
 - task:
     arch: win64
     description: Preparing Heretic II Windows CD wineprefix...
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
@@ -88,12 +88,16 @@ installer:
         title0: Heretic II
         ver0: 0
         winver0: 0
+      window:
+        expert: 1
+        exportpath: C:\dxwnd\exports
+        showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/
+    dst: $GAMEDIR/drive_c/tmp
     src: maps
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/
+    dst: $GAMEDIR/drive_c/tmp
     src: patch107w
 - chmodx: scriptcase
 - execute:
@@ -151,7 +155,7 @@ installer:
     type: REG_DWORD
     value: '00000000'
 - move:
-    dst: $GAMEDIR/drive_c/
+    dst: $GAMEDIR/drive_c
     src: wpp
 - task:
     arch: win64
@@ -187,4 +191,3 @@ installer:
     value: 204 153 255
 wine:
   Desktop: true
-
