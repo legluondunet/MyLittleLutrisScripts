@@ -52,5 +52,4 @@ Thanks to the people who contribute to play this game in the best conditions on 
 -- You have to keep the CD mounted during gaming if you want to hear soundtrack
 - H2 controller support is insufficient. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
