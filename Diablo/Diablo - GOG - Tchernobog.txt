@@ -1,9 +1,8 @@
 custom-name: Diablo - GOG - Tchernobog
 files:
 - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.0e/Release0.2.0e.zip
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Diablo/Tchernobog_plus.7z
-- gog: N/A:Please select the gog installer for this game
+- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.2b/Release0.2.2b.zip
+- gogsetup: N/A:Please select the gog installer for this game
 game:
   arch: win64
   exe: drive_c/Diablo Tchernobog/Tchernobog.exe
@@ -20,16 +19,13 @@ installer:
     dst: $CACHE/innoextract
     file: inno
 - execute:
-    args: --extract $gog --output-dir "$CACHE/"
+    args: --extract $gogsetup --output-dir "$CACHE"
     file: $CACHE/innoextract/innoextract
 - extract:
-    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog
     file: tchernobog
-- extract:
-    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
-    file: patch
 - move:
-    dst: $GAMEDIR/drive_c/Diablo Tchernobog/
+    dst: $GAMEDIR/drive_c/Diablo Tchernobog
     src: $CACHE/DIABDAT.MPQ
 - task:
     arch: win64
@@ -57,4 +53,3 @@ installer:
     value: 242 59 13
 wine:
   Desktop: true
-
