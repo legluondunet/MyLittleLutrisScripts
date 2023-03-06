@@ -6,7 +6,7 @@
 - You could choose your preferred language, resolution, playing Diablo classic or Hellfire extension from settings menu.
 ### Credits:
 - DevilutionX project https://github.com/diasurgical/devilutionX
-- Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts"
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Diablo - GOG - Tchernobog
 ### Description:
@@ -17,7 +17,7 @@
 - To change video options (full screen, resolution...), during the game press "esc", "video options".
 ### Credits:
 - Tchernobog: https://mod.diablo.noktis.pl
-- Lutris script wrote and maintained by Legluondunet https://github.com/legluondunet/MyLittleLutrisScripts"
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Diablo - The Hell 2 mod
 ### Description:
