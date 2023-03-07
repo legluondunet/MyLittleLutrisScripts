@@ -10,7 +10,7 @@
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -25,7 +25,7 @@
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -43,7 +43,7 @@
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -64,7 +64,7 @@ During install please let all options by default. Thanks to the people who helpe
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
