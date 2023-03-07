@@ -10,7 +10,7 @@
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -25,7 +25,7 @@
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -46,7 +46,7 @@ During install please let all options by default. Thanks to the people who helpe
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -67,7 +67,7 @@ During install please let all options by default. Thanks to the people who helpe
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- This script uses "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -83,7 +83,7 @@ During install please let all options by default. Thanks to the people who helpe
 - Cinematics will not play correctly and game could be unstable if you use DXVK or Wine with fshack patch. Prefer using Wine vanilla or your Wine system version.
 - Running with Wine, this game could be a little unstable, it's advised to save regularly your party.
 ### Credits:
-- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641/
+- "Widescreen fix for Warcraft III" project: https://github.com/ENAleksey/RenderEdge_Widescreen and https://www.hiveworkshop.com/threads/renderedge-widescreen-fix.293641
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -99,5 +99,4 @@ Thanks to the people who helped us play this game in the best conditions on Linu
 - The game will ask you a valid key at first launch. You only need a Reign of Chaos CD Key, as blizzard now gifts everybody The Frozen Throne.
 - Directx 11 version: this game needs DXVK to launch. Verify you installed Vulkan libraries before to launch this installer script.
 - Known issue: you can not play multiplayer games on Internet, only Local LAN network games will be available. If it's a problem prefer playing Reforged version instead. 
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
