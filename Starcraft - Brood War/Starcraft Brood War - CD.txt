@@ -1,5 +1,5 @@
 files:
-- patch: https://web.archive.org/web/20140908015808/http://ftp.blizzard.com/pub/starcraft/patches/PC/SC-1161.exe
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Starcraft/SC-1161.7z
 installer:
 - insert-disc:
     requires: bw.ico
@@ -10,9 +10,13 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files/Starcraft"; find "/$DISC/"* -iname
       install.exe | xargs -I {} cp {} broodwar.mpq; chmod +rw broodwar.mpq;
+- extract:
+    dst: $CACHE
+    file: $patch
 - task:
-    description: Installing Starcraft Brood War update...
-    executable: $patch
+    args: /desktop=Starcraft,1024x780 $CACHE/SC-1161.exe
+    description: Installing Starcraft update...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
 requires: starcraft
-
