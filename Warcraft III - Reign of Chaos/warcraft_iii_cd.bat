@@ -29,7 +29,7 @@ echo.	------------------------------------------------
 echo.
 echo.
 
-choice /c1234 /s /N Your choice? [1-4]:
+choice /c123456 /s /N Your choice? [1-6]:
 
 if errorlevel 6 goto :exit
 if errorlevel 5 goto :update
