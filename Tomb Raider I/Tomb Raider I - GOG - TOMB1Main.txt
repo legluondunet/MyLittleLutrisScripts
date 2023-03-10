@@ -2,7 +2,7 @@ files:
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1main.bat
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
-- mod: https://github.com/LostArtefacts/Tomb1Main/releases/download/2.13.1/Tomb1Main-2.13.1.zip
+- mod: https://github.com/LostArtefacts/Tomb1Main/releases/download/2.13.2/Tomb1Main-2.13.2.zip
 - cat: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
 - audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
