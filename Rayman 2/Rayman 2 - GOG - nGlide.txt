@@ -1,4 +1,4 @@
-custom-name: Rayman 2 - GOG
+custom-name: Rayman 2 - GOG - nGlide
 files:
 - ngl:
     filename: nGlide210_setup.exe
