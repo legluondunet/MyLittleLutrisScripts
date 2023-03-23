@@ -1,8 +1,8 @@
-custom-name: Serious Sam - The First Encounter - GOG - SeriousSamClassic
+custom-name: Serious Sam - The First Encounter - GOG - SeriousSamClassic-VK
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account
-- engine: https://github.com/tx00100xt/SeriousSamClassic/releases/download/v1.10.4/SeriousSamClassic-1.10.4-lnx-amd64-bin.tar.xz
+- engine: https://github.com/tx00100xt/SeriousSamClassic-VK/releases/download/v1.10.4/SeriousSamClassicVk-1.10.4-lnx-glibc-2.36-amd64-bin.tar.xz
 game:
   exe: Bin/SeriousSam
 installer:
