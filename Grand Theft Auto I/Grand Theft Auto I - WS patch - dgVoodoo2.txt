@@ -1,0 +1,49 @@
+files:
+- gtasetup: N/A:Please select GTA installer available for download here https://gta.com.ua/rockstargames-classics-free-download.phtml
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Grand%20Theft%20Auto%20I/GTA1.WidescreenFix.zip
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO/Grand Theft
+    Auto.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+- extract:
+    dst: $CACHE
+    file: gtasetup
+- task:
+    args: /desktop=GTA1,1024x780 '$CACHE/SETUP.EXE'
+    description: Installing GTA...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- task:
+    app: mfc42
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    args: /desktop=GTA1,1024x780 '$GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand
+      Theft Auto/GTA Settings.exe'
+    description: Settings
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    src: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO/MS/x86/DDraw.dll
+wine:
+  Desktop: true
+  overrides:
+    ddraw: n,b
+    winmm: n,b
