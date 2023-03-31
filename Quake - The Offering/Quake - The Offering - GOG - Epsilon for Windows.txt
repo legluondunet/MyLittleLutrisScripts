@@ -92,5 +92,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 179 102
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 wine:
   Desktop: true
