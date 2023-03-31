@@ -1,53 +1,96 @@
-custom-name: Quake - The Offering - GOG - Epsilon for Linux
+custom-name: Quake - The Offering - GOG - Epsilon for Windows
 files:
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
     GOG account.
-- epsilonpack: N/A:Please select "Quake Epsilon Build v2.54" archive available  for
-    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/quake-epsilon-build-v254
-- mp1: N/A:Please select "Epsilon Mission Pack 1 Addon v2.54" archive available  for
-    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-1-addon-v254
-- mp2: N/A:Please select "Epsilon Mission Pack 2 Addon v2.54" archive available  for
-    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-2-addon-v254
-- mp3: N/A:Please select "Epsilon Mission Pack 3 Addon v2.54" archive available  for
-    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v254
+- epsilonpack: N/A:Please select "Quake Epsilon Build v2.56" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/quake-epsilon-build-v256
+- mp1: N/A:Please select "Epsilon Mission Pack 1 Addon v2.56" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-1-addon-v256
+- mp2: N/A:Please select "Epsilon Mission Pack 2 Addon v2.56" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-2-addon-v256
+- mp3: N/A:Please select "Epsilon Mission Pack 3 Addon v2.56" archive available  for
+    download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v256
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
-- bgi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_linux.sh
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bat
+- bmp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.bmp
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_windows.sh
 game:
-  args: quake.sh
+  arch: win64
+  args: c:\\quake.bat
+  exe: drive_c/windows/syswow64/wineconsole.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$GAMEDIR/tmp" --gog "$gogsetup"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR/drive_c/tmp
+    file: gogsetup
+    format: gog
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: epsilonpack
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     src: mp1
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     src: mp2
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     src: mp3
 - extract:
-    dst: $GAMEDIR/tmp/app
+    dst: $GAMEDIR/drive_c/tmp
     src: cdrtools
-- chmodx: script
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
-- chmodx: menu
 - move:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/drive_c
     src: menu
 - move:
-    dst: $GAMEDIR
-    src: bgi
-require-binaries: zenity
+    dst: $GAMEDIR/drive_c
+    src: bmp
+- task:
+    arch: win64
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\quake.bmp
+- task:
+    arch: win64
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
+- task:
+    arch: win64
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    arch: win64
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 179 102
+wine:
+  Desktop: true
