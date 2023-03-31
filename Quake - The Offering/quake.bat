@@ -22,7 +22,7 @@ echo.	--------------------------------------------------------------
 echo.
 echo.   Your choice? [1-5]: 
 choice /c12345 /s /N 	
-if errorlevel 5 goto :playlinux5
+if errorlevel 5 goto :exit
 if errorlevel 4 goto :playwin4
 if errorlevel 3 goto :playwin3
 if errorlevel 2 goto :playwin2
