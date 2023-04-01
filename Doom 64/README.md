@@ -11,13 +11,11 @@
 
 # Doom64 - Doom64EX
 ### Description:
-"Doom64" 
-using Doom64EX project https://github.com/svkaiser/Doom64EX
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
+"Doom64" using Doom64EX open source project
 ### Technical notes:
 - You will need to provide Nintendo Doom 64 rom file during install (uncompressed rom file with .n64 extension).
 ### Credits:
+- Doom64EX: https://github.com/svkaiser/Doom64EX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
