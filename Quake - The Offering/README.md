@@ -16,6 +16,7 @@
 "Quake - Offering" provided by GOG using Darkplaces open source project and Epsilon enhancement packs
 ### Technical notes:
 - Darkplaces compiled by legluondunet 1st april 2023, commit 17d3e4a, x64
+- Epsilon packs v2.56
 - 3 Mission Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Abyss of Pandemonium"
 - All needed original soundtracks
 ### Credits:
