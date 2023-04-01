@@ -11,18 +11,15 @@ files:
 - mp3: N/A:Please select "Epsilon Mission Pack 3 Addon v2.54" archive available  for
     download at https://www.moddb.com/mods/quake-epsilon-build/downloads/epsilon-mission-pack-3-addon-v254
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean_linux.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean.sh
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/darkplaces-sdl_linux.zip
 game:
-  args: quake.sh
+  exe: quake.sh
 installer:
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$GAMEDIR/tmp" --gog "$gogsetup"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR/tmp
+    file: gogsetup
 - extract:
     dst: $GAMEDIR/Epsilon
     file: epsilonpack
@@ -36,7 +33,10 @@ installer:
     dst: $GAMEDIR/Epsilon
     src: mp3
 - extract:
-    dst: $GAMEDIR/tmp/app
+    dst: $GAMEDIR/Epsilon
+    src: engine
+- extract:
+    dst: $GAMEDIR/tmp
     src: cdrtools
 - chmodx: script
 - execute:
