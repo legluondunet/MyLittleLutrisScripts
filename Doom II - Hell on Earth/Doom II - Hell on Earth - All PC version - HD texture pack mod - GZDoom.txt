@@ -19,8 +19,7 @@ installer:
     src: hdmod
 - execute:
     command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
-      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \; mkdir
-      -p "$GAMEDIR/saves";
+      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
 - merge:
     dst: $GAMEDIR/soundfonts
     src: $CACHE/GZDoom x64/soundfonts
@@ -41,5 +40,6 @@ installer:
     requires: doom2.wad
 - execute:
     command: ls "$DISC" | grep -i doom2.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/doom2.wad";
+      mkdir -p "$GAMEDIR/saves";
 zdoom:
   config: $GAMEDIR/gzdoom.ini
