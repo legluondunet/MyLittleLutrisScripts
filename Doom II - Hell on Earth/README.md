@@ -1,11 +1,8 @@
 # DOOM II - Brutal Doom mod - GZDoom
-
 ### Description:
-This script will facilitate you install of this game on Linux OS:
 "DOOM II"  all PC version using GZDoom Lutris runner with "Brutal Doom" mod.
 During install please let all options by default.
 Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
 ### Technical notes:
 - During install, you will need to provide:
 -- "DOOM2.WAD" file from "Doom II" PC game
@@ -16,20 +13,16 @@ https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Doom II - Hell on Earth - HD texture pack mod - GZDoom
-
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Doom II - Hell on Earth"  all PC version using GZDoom Lutris runner with "Doom HD texture pack" mod.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+"Doom II - Hell on Earth"  all PC version using GZDoom and "Doom HD texture pack" mod
 ### Technical notes:
 - During install, you will need to provide:
--- "DOOM2.WAD" file from "HERETIC" PC game
--- "Doom HD texture pack" mod archive available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- To play "Doom II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+-- "DOOM2.WAD" file from "DOOM II" PC game
+-- "Doom HD texture pack" mod available for download on moddb
+- To play "Doom II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+### Credits:
+- HD texture pack mod: https://www.moddb.com/mods/doom-hd1
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Doom II - Quake Champions mod - GZDoom
