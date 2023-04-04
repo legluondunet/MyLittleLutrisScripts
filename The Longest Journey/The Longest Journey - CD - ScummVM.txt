@@ -1,48 +1,42 @@
 custom-name: The Longest Journey - 4 CD - ScummVM
 files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
-- shaders: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/shaders_stark_scummvm.tar.xz
 game:
-  args: --filtering
   game_id: tlj
   path: $GAMEDIR
-  subtitles: true
 installer:
 - insert-disc:
     description: Please insert The Longest journey CD 1
     requires: game.exe
 - merge:
-    dst: $GAMEDIR/TLJCD
-    src: $DISC/
+    dst: $GAMEDIR
+    src: $DISC
 - execute:
-    command: cd $GAMEDIR/TLJCD; chmod -R +w *
+    command: chmod -R +w "$GAMEDIR/"*;
 - insert-disc:
     description: Please insert The Longest journey CD 2
     requires: slide2.avi
 - merge:
-    dst: $GAMEDIR/TLJCD
-    src: $DISC/
+    dst: $GAMEDIR
+    src: $DISC
 - execute:
-    command: $GAMEDIR/TLJCD; chmod -R +w *
+    command: chmod -R +w "$GAMEDIR/"*;
 - insert-disc:
     description: Please insert The Longest journey CD 3
     requires: slide3.avi
 - merge:
-    dst: $GAMEDIR/TLJCD
-    src: $DISC/
+    dst: $GAMEDIR
+    src: $DISC
 - execute:
-    command: cd $GAMEDIR/TLJCD; chmod -R +w *
+    command: chmod -R +w "$GAMEDIR/"*;
 - insert-disc:
     description: Please insert The Longest journey CD 4
     requires: slide4.avi
 - merge:
-    dst: $GAMEDIR/TLJCD
-    src: $DISC/
+    dst: $GAMEDIR
+    src: $DISC
 - execute:
-    command: cd $GAMEDIR/TLJCD; chmod -R +w *
-- extract:
-    dst: $GAMEDIR/TLJCD/engines
-    file: rvmengine
+    command: chmod -R +w "$GAMEDIR/"*;
 - input_menu:
     description: Do you want to use another language for menus and subtitles?
     id: LANG
@@ -59,3 +53,5 @@ installer:
     file: script
 scummvm:
   aspect: true
+  filtering: true
+  subtitles: true
