@@ -2,7 +2,7 @@
 ### Description:
 "The Longest Journey" first opus provided by GOG using ScummVM
 ### Technical notes:
-- Multilanguage: you will be able to choose language for menus and subtitles during install between spanish, italian, french and german.
+- Multilanguage: you will be able to choose language for menu and subtitles during install between spanish, italian, french and german.
 ### Credits:
 - Translation packs: Danixu86 (sp), LiefLayer (it), Legluondunet (fr and ge)
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
