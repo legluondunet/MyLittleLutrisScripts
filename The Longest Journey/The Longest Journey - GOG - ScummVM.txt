@@ -3,10 +3,8 @@ files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
 - gogsetup: N/A:Select the EXE downloaded from GOG
 game:
-  args: --filtering
   game_id: tlj
   path: $GAMEDIR
-  subtitles: true
 installer:
 - extract:
     dst: $GAMEDIR
@@ -28,3 +26,5 @@ installer:
     file: script
 scummvm:
   aspect: true
+  filtering: true
+  subtitles: true
