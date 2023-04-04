@@ -1,12 +1,9 @@
 custom-name: The Longest Journey - Steam - ScummVM
 files:
 - fonts: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/Fonts.tar.xz
-- shaders: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/shaders_stark_scummvm.tar.xz
 game:
-  args: --filtering
   game_id: tlj
   path: $GAMEDIR
-  subtitles: true
 installer:
 - insert-disc:
     description: Please browse to the The Long Journey Steam Edition game folder
@@ -17,8 +14,7 @@ installer:
 - extract:
     dst: $GAMEDIR/Fonts
     file: fonts
-- extract:
-    dst: $GAMEDIR/engines
-    file: shaders
 scummvm:
   aspect: true
+  filtering: true
+  subtitles: true
