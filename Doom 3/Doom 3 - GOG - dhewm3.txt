@@ -4,7 +4,6 @@ files:
 game:
   args: +set fs_configpath .
   exe: $GAMEDIR/dhewm3
-  work_dir: $GAMEDIR
 installer:
 - extract:
     dst: $GAMEDIR
