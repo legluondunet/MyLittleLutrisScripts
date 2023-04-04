@@ -46,7 +46,9 @@ installer:
       seta sys_lang "$INPUT_LANG"
 
       seta r_aspectRatio "$INPUT_RATIO"
-
+      
+      seta r_fullscreenDesktop "1"
+      
       '
     file: $GAMEDIR/base/dhewm.cfg
 - execute:
