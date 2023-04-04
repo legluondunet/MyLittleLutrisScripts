@@ -3,7 +3,7 @@ files:
 - doom3-engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/dhewm-master-x86_64.tar.xz
 game:
   args: +set fs_configpath .
-  exe: dhewm3
+  exe: $GAMEDIR/dhewm3
 installer:
 - insert-disc:
     description: Please browse folder where is located "Doom 3" Steam files. Autodetect
@@ -46,9 +46,7 @@ installer:
       seta sys_lang "$INPUT_LANG"
 
       seta r_aspectRatio "$INPUT_RATIO"
-      
-      seta r_fullscreenDesktop "1"
-      
+
       '
     file: $GAMEDIR/base/dhewm.cfg
 - execute:
