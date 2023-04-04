@@ -3,7 +3,8 @@ files:
 - gogsetup: N/A:Select the Windows installer downloaded from GOG
 game:
   args: +set fs_configpath .
-  exe: dhewm3
+  exe: $GAMEDIR/dhewm3
+  work_dir: $GAMEDIR
 installer:
 - extract:
     dst: $GAMEDIR
@@ -43,6 +44,8 @@ installer:
       seta sys_lang "$INPUT_LANG"
 
       seta r_aspectRatio "$INPUT_RATIO"
+
+      seta r_fullscreenDesktop "1"
 
       '
     file: $GAMEDIR/base/dhewm.cfg
