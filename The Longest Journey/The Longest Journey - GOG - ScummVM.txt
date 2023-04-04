@@ -11,10 +11,10 @@ installer:
     file: gogsetup
     format: gog
 - input_menu:
-    description: 'Choose your language for the menu and subtitles:'
+    description: 'Choose your language for menus and subtitles:'
     id: LANG
     options:
-    - keep: I prefer to keep default install language for menu and subtitles
+    - keep: I prefer to keep default install language for menus and subtitles
     - fr: French
     - it: Italian
     - sp: Spanish
