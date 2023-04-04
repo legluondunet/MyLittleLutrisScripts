@@ -1,9 +1,7 @@
 custom-name: The Longest Journey - GOG - ScummVM
 files:
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/clean.sh
 - gogsetup: N/A:Select the EXE downloaded from GOG
-- shaders: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Longest%20Journey/shaders_stark_scummvm.tar.xz
 game:
   args: --filtering
   game_id: tlj
@@ -11,16 +9,14 @@ game:
   subtitles: true
 installer:
 - extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: --extract $gogsetup --output-dir "$GAMEDIR"
-    file: $CACHE/innoextract/innoextract
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
 - input_menu:
-    description: 'Do you want to use another language for menus and subtitles:'
+    description: 'Choose your language for the menu and subtitles:'
     id: LANG
     options:
-    - keep: I prefer to keep default install language for menus and subtitles
+    - keep: I prefer to keep default install language for menu and subtitles
     - fr: French
     - it: Italian
     - sp: Spanish
@@ -30,8 +26,5 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
-- extract:
-    dst: $GAMEDIR/engines
-    file: shaders
 scummvm:
   aspect: true
