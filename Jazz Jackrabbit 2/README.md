@@ -1,22 +1,20 @@
 # Jazz Jackrabbit 2 - The Secret Files - GOG
 
 ### Description:
-Jazz Jackrabbit 2: The Secret Files provided by GOG
-
+"Jazz Jackrabbit 2: The Secret Files" provided by GOG using DxWnd open source project
 ### Technical notes:
 - will install Jazz Jackrabbit 2: The Secret Files  from GOG.
 - fullscreen with 4:3 aspect ratio using DxWnd.
 - some instability, but globally playable.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+### Credits:
+- DxWnd: https://sourceforge.net/projects/dxwnd
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Jazz Jackrabbit 2 - The Secret Files - GOG - J2R
-
 ### Description:
-Jazz Jackrabbit 2: The Secret Files provided by GOG, running with Open source Engine Jazz2 Resurrection https://github.com/deathkiller/jazz2
-
+"Jazz Jackrabbit 2: The Secret Files" provided by GOG using "Jazz2 Resurrection" open source project
 ### Technical notes:
-- will install Jazz Jackrabbit 2: The Secret Files  from GOG.
-- Jazz2 Resurrection Linux X64 v 1.4
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Jazz2 Resurrection Linux v 1.7 x64
+### Credits:
+- Jazz2 Resurrection: https://github.com/deathkiller/jazz2
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
