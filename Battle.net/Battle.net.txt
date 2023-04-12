@@ -1,0 +1,95 @@
+files:
+- bnsetup:
+    filename: Battle.net-Setup.exe
+    url: https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live
+game:
+  arch: win64
+  exe: drive_c/Battle.net-Setup.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating 64bit Wine prefix.
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    description: desktop background black color
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    app: arial win10
+    arch: win64
+    description: Installing Arial font...
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
+- write_file:
+    content: 'dxgi.nvapiHack = False
+
+      [Overwatch.exe]
+
+      dxvk.hud = compiler'
+    file: $GAMEDIR/dxvk.conf
+- write_json:
+    data:
+      Client:
+        GameLaunchWindowBehavior: '2'
+        GameSearch:
+          BackgroundSearch: 'true'
+        HardwareAcceleration: 'false'
+        Sound:
+          Enabled: 'false'
+        Streaming:
+          StreamingEnabled: 'false'
+    description: Writing a Battle.Net config file
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/Battle.net/Battle.net.config
+- write_config:
+    description: Enabling Borderless Windowed mode
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: WindowMode
+    section: Render.13
+    value: '"1"'
+- write_config:
+    description: Switching to WEBM format for saving Highlights
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: Type
+    section: MovieExport.1
+    value: '"1"'
+- write_config:
+    description: Disabling hardware acceleration for saving Highlights
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: UseHardware
+    section: MovieExport.1
+    value: '"0"'
+- write_file:
+    content: hasseennewcinematic=True
+    description: Adding a startup workaround for Hearthstone
+    file: $GAMEDIR/drive_c/users/$USER/Local Settings/AppData/Blizzard/Hearthstone/options.txt
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: bnsetup
+- task:
+    arch: win64
+    description: needed for Warcraft III Reforged
+    key: version
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\BlizzardBrowser.exe
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: win7
+system:
+  env:
+    DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
+    DXVK_STATE_CACHE_PATH: $GAMEDIR
+    STAGING_SHARED_MEMORY: 1
+    __GL_DXVK_OPTIMIZATIONS: 1
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+wine:
+  Desktop: true
+  version: lutris-GE-Proton7-43-x86_64
