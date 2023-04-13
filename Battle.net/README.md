@@ -1,6 +1,6 @@
 # Battle.net - Standard bis
 ### Description:
-This Lutris script is a fork of the "Standard" "Battle.net" Lutris script, it includes workarounds for Battle.net install and Battle.net games.
+This Lutris script is a fork of the "Battle.net - Standard" one, it includes workarounds for Battle.net install and Battle.net games
 ### Technical notes:
 **CONFIGURE AND INSTALL THE DEPENDENCIES FIRST**
 - Instructions for Vulkan support: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
