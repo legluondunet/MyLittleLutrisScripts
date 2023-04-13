@@ -1,0 +1,12 @@
+game:
+  args: run $FQDN
+  exe: /usr/bin/flatpak
+installer:
+- execute:
+    args: install flathub -y --noninteractive $FQDN
+    description: Installing with flatpak
+    disable_runtime: true
+    file: /usr/bin/flatpak
+require-binaries: flatpak
+variables:
+  FQDN: com.github.k4zmu2a.spacecadetpinball
