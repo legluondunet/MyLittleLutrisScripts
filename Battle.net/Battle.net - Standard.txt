@@ -1,9 +1,84 @@
+files:
+- bnsetup:
+    filename: Battle.net-Setup.exe
+    url: https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live
 game:
   arch: win64
-  args: --exec="launch W3"
   exe: drive_c/Program Files (x86)/Battle.net/Battle.net.exe
   prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Creating 64bit Wine prefix.
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    description: black color for Desktop background
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    args: /desktop=BattleNet,1024x780 $bnsetup
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults. Do not login, just close the window when install finished.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+- task:
+    app: arial win10
+    arch: win64
+    description: Installing Arial font...
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
+- write_file:
+    content: 'dxgi.nvapiHack = False
+
+      [Overwatch.exe]
+
+      dxvk.hud = compiler'
+    file: $GAMEDIR/dxvk.conf
+- write_json:
+    data:
+      Client:
+        GameLaunchWindowBehavior: '2'
+        GameSearch:
+          BackgroundSearch: 'true'
+        HardwareAcceleration: 'false'
+        Sound:
+          Enabled: 'false'
+        Streaming:
+          StreamingEnabled: 'false'
+    description: Writing a Battle.Net config file
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/Battle.net/Battle.net.config
+- write_config:
+    description: Enabling Borderless Windowed mode
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: WindowMode
+    section: Render.13
+    value: '"1"'
+- write_config:
+    description: Switching to WEBM format for saving Highlights
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: Type
+    section: MovieExport.1
+    value: '"1"'
+- write_config:
+    description: Disabling hardware acceleration for saving Highlights
+    file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+    key: UseHardware
+    section: MovieExport.1
+    value: '"0"'
+- write_file:
+    content: hasseennewcinematic=True
+    description: Adding a startup workaround for Hearthstone
+    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Blizzard/Hearthstone/options.txt
 - task:
     arch: win64
     description: needed for Warcraft III Reforged
@@ -13,14 +88,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: win7
-- task:
-    app: arial win10
-    arch: win64
-    description: Installing Arial font...
-    name: winetricks
-    prefix: $GAMEDIR
-    silent: true
-requires: blizzard-battlenet-standard
 system:
   env:
     DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
@@ -30,5 +97,4 @@ system:
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
 wine:
-  Desktop: true
   version: lutris-GE-Proton7-43-x86_64
