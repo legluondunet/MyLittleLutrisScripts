@@ -1,0 +1,34 @@
+game:
+  arch: win64
+  args: --exec="launch W3"
+  exe: drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: needed for Warcraft III Reforged
+    key: version
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\BlizzardBrowser.exe
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: win7
+- task:
+    app: arial win10
+    arch: win64
+    description: Installing Arial font...
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
+requires: blizzard-battlenet-standard
+system:
+  env:
+    DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
+    DXVK_STATE_CACHE_PATH: $GAMEDIR
+    STAGING_SHARED_MEMORY: 1
+    __GL_DXVK_OPTIMIZATIONS: 1
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+wine:
+  Desktop: true
+  version: lutris-GE-Proton7-43-x86_64
