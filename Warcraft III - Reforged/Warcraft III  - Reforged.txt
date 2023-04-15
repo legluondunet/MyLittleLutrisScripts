@@ -20,7 +20,7 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
     silent: true
-requires: blizzard-battlenet-standard-bis
+requires: blizzard-battlenet-standard
 system:
   env:
     DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
