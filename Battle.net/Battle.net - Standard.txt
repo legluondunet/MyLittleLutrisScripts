@@ -78,7 +78,7 @@ installer:
 - write_file:
     content: hasseennewcinematic=True
     description: Adding a startup workaround for Hearthstone
-    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Blizzard/Hearthstone/options.txt
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Blizzard/Hearthstone/options.txt
 - task:
     arch: win64
     description: needed for Warcraft III Reforged
@@ -88,6 +88,23 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: win7
+- task:
+    arch: win64
+    description: Enabling DXVA for Wine Staging
+    key: backend
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DXVA2
+    prefix: $GAMEDIR
+    value: va
+- task:
+    arch: win64
+    description: CMST is obsolete and could cause slowering
+    key: csmt
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+    prefix: $GAMEDIR
+    type: REG_DWORD
+    value: '00000000'
 system:
   env:
     DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
