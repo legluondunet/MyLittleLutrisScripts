@@ -1,0 +1,17 @@
+game:
+  arch: win64
+  args: --exec="launch WTCG"
+  exe: drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+  prefix: $GAMEDIR
+requires: blizzard-battlenet-standard
+system:
+  env:
+    DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
+    DXVK_STATE_CACHE_PATH: $GAMEDIR
+    STAGING_SHARED_MEMORY: 1
+    __GL_DXVK_OPTIMIZATIONS: 1
+    __GL_SHADER_DISK_CACHE: 1
+    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+wine:
+  Desktop: true
+  version: lutris-GE-Proton7-43-x86_64
