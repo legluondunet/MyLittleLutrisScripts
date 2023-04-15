@@ -1,6 +1,6 @@
-# Warcraft III - Reforged - Launcher only
+# Warcraft III - Reforged - Battle.net launcher
 ### Description:
-Launcher for "Warcraft III: Reforged"
+Battle.net launcher for "Warcraft III: Reforged"
 ### Technical notes:
 - Before to install this script, you have to install "Battle.net - Standard" script installer
 - You have battle.net installed and want an icon to launch directly Reforged from Lutris interface, this script is for you
