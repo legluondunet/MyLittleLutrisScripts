@@ -1,4 +1,4 @@
-# Warcraft III - Reforged - Standard
+# Warcraft III - Reforged - Launcher only
 ### Description:
 Launcher for "Warcraft III: Reforged"
 ### Technical notes:
