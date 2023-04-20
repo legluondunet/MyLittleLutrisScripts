@@ -73,15 +73,13 @@
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Tomb Raider I - GOG - TOMB1Main
+# Tomb Raider I - GOG - Tomb1Main
 ### Description:
-"Tomb Raider I" provided by GOG using TOMB1Main open source project
+"Tomb Raider I" provided by GOG using Tomb1Main open source project
 ### Technical notes:
-- Tomb1Main is still work in progress, use this script only for testing.
-- Unfinished Business extension included.
-- English audio only.
-- Gamepad natively supported.
+- Unfinished Business extension included
+- Gamepad natively supported
 ### Credits:
-- TOMB1Main: https://github.com/LostArtefacts/Tomb1Main
+- Tomb1Main: https://github.com/LostArtefacts/Tomb1Main
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
