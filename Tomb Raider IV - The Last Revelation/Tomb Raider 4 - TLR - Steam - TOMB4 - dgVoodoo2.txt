@@ -50,10 +50,10 @@ installer:
     dst: $GAMEDIR/drive_c/Tomb Raider 4/backup
     src: $GAMEDIR/drive_c/Tomb Raider 4/tomb4.exe
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
     file: mod
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    dst: $GAMEDIR/drive_c/Tomb Raider 4
     src: dll
 - copy:
     dst: $GAMEDIR/drive_c
