@@ -1,7 +1,7 @@
 custom-name: Tomb Raider III - Adventures of Lara Croft - Steam
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tomb3.zip
+- mod: https://github.com/Trxyebeep/tomb3/releases/download/V2.0.1/tomb3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
@@ -29,9 +29,12 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 3/backup
     src: $GAMEDIR/drive_c/Tomb Raider 3/tomb3.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Tomb Raider 3/Data
+    src: $GAMEDIR/drive_c/Tomb Raider 3/data
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 3
-    file: patch
+    file: mod
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 3
     file: wrapper
@@ -99,7 +102,7 @@ installer:
     type: REG_SZ
     value: 255 177 94
 - execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 3/"; rm -f -r 3Dfx Doc MS tr3gold.exe
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 3"; rm -f -r 3Dfx Doc MS tr3gold.exe
       config.txt D3D8.dll D3D9.dll;
 wine:
   Desktop: true
