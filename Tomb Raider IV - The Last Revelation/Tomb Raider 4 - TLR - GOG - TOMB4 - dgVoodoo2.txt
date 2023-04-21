@@ -49,7 +49,7 @@ installer:
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/tomb4.exe
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
-    src: mod
+    file: mod
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
     src: dll
