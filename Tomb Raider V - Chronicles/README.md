@@ -2,8 +2,8 @@
 ### Description:
 "Tomb Raider V: Chronicles" provided by GOG using TOMB5 open source project and dgVoodoo2
 ### Technical notes:
-- Press "p" to access main menu.
--TR5 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- Press "p" to access main menu
+-TR5 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
 ### Credits:
 - Tomb5: https://github.com/Trxyebeep/TOMB5
 - dgVoodoo2: http://www.dege.freeweb.hu
@@ -14,9 +14,9 @@
 ### Description:
 "Tomb Raider V: Chronicles" provided by Steam using TOMB5 open source project and dgVoodoo2
 ### Technical notes:
-- You have to install "Tomb Raider V" on Steam before to launch this script installer.
-- Press "p" to access main menu.
--TR5 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- You have to install "Tomb Raider V" on Steam before to launch this script installer
+- Press "p" to access main menu
+-TR5 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
 ### Credits:
 - Tomb5: https://github.com/Trxyebeep/TOMB5
 - dgVoodoo2: http://www.dege.freeweb.hu
