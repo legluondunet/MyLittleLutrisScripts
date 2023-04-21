@@ -6,7 +6,7 @@ files:
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bmp
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tomb5.zip
+- mod: https://github.com/Trxyebeep/TOMB5/releases/download/V3.2.0/exe.+.dll.zip
 game:
   arch: win64
   args: c:\\tr5c.bat
@@ -51,7 +51,7 @@ installer:
     src: $GAMEDIR/drive_c/Tomb Raider 5/PCTomb5.exe
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 5
-    src: patch
+    src: mod
 - copy:
     dst: $GAMEDIR/drive_c
     src: menu
