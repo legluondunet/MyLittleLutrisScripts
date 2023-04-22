@@ -1,0 +1,88 @@
+files:
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1main.bat
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
+- mod: https://github.com/LostArtefacts/Tomb1Main/releases/download/2.14/Tomb1Main-2.14.zip
+- cat: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
+- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
+- audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
+game:
+  args: c:\\tr1main.bat
+  exe: drive_c/windows/system32/wineconsole.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please select Tomb Raider 1 Steam folder install.
+    requires: GAME.GOG
+- merge:
+    dst: $GAMEDIR/drive_c/tmp
+    src: $DISC
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    src: cdrtools
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
+      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
+      echo $cd; ./7z x -y $cd;
+- merge:
+    dst: $GAMEDIR/drive_c/TOMB1Main/DATA
+    src: $GAMEDIR/drive_c/tmp/DATA
+- extract:
+    dst: $GAMEDIR/drive_c/TOMB1Main/DATA
+    file: cat
+- merge:
+    dst: $GAMEDIR/drive_c/TOMB1Main/FMV
+    src: $GAMEDIR/drive_c/tmp/FMV
+- extract:
+    dst: $GAMEDIR/drive_c/TOMB1Main
+    file: mod
+- merge:
+    dst: $GAMEDIR/drive_c/TOMB1Main/data
+    src: $GAMEDIR/drive_c/TOMB1Main/DATA
+- extract:
+    dst: $GAMEDIR/drive_c/TOMB1Main/music
+    file: audiotracks
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: menu
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: wpp
+- task:
+    key: wallpaper
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: c:\\tr1.bmp
+- task:
+    key: background
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    key: ActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 0 0 0
+- task:
+    key: GradientActiveTitle
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 255 179 102
+- execute:
+    command: cd "$GAMEDIR/drive_c" ; rm -f -r tmp TOMB1Main/DATA;
+wine:
+  Desktop: true
