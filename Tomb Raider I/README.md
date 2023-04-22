@@ -83,3 +83,15 @@
 - Tomb1Main: https://github.com/LostArtefacts/Tomb1Main
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# Tomb Raider I - Steam - Tomb1Main
+### Description:
+"Tomb Raider I" provided by Steam using Tomb1Main open source project
+### Technical notes:
+- You have to install "Tomb Raider 1" on Steam before to launch this script installer
+- Unfinished Business extension included
+- Gamepad natively supported
+### Credits:
+- Tomb1Main: https://github.com/LostArtefacts/Tomb1Main
+- other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
