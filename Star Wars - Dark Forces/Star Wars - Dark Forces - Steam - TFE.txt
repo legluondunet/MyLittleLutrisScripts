@@ -19,5 +19,6 @@ installer:
     data:
       Dark_Forces:
         sourcePath: $GAMEDIR/data
+      Graphics:
         widescreen: true
     file: /home/$USER/.local/share/TheForceEngine/settings.ini
