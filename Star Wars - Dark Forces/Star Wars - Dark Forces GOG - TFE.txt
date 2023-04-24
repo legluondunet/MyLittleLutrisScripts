@@ -1,0 +1,16 @@
+files:
+- gogsetup: N/A:Please select the GOG.com Linux installer
+- engine: 
+game:
+  exe: tfelnx
+installer:
+- extract:
+    dst: $CACHE
+    file: game
+    format: zip
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/data/noarch
+- extract:
+    dst: $GAMEDIR
+    file: engine
