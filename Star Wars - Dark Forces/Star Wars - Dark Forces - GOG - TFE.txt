@@ -3,6 +3,7 @@ files:
 - engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces/TFE.tar.xz
 game:
   exe: theforceengine
+  ld_library_path: $GAMEDIR/libs
 installer:
 - extract:
     dst: $CACHE
