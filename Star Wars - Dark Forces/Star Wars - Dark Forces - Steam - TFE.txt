@@ -1,0 +1,23 @@
+files:
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces/TFE.tar.xz
+game:
+  exe: theforceengine
+installer:
+- insert-disc:
+    description: Please select "Star Wars - Dark Forces" Steam folder install.
+    requires: DARK.EXE
+- merge:
+    dst: $GAMEDIR
+    src: $DISC
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/data/noarch
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- write_config:
+    data:
+      Dark_Forces:
+        sourcePath: $GAMEDIR/data
+        widescreen: true
+    file: /home/$USER/.local/share/TheForceEngine/settings.ini
