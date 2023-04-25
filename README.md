@@ -30,6 +30,7 @@ all scripts tested and should be compatible on
 
 - Ubuntu 22.04
 - Arch (Manjaro 22, Endeavior, Arcolinux...)
+- Fedora 38
 - OpenSUSE Tumbleweed
 
 and superior version.
