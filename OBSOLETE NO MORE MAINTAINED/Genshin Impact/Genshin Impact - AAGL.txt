@@ -1,0 +1,12 @@
+files:
+- engine: https://github.com/an-anime-team/an-anime-game-launcher/releases/download/3.5.2/anime-game-launcher
+game:
+  exe: anime-game-launcher
+installer:
+- chmodx: engine
+- merge:
+    dst: $GAMEDIR
+    src: engine
+- execute:
+    command: cd "$GAMEDIR"; mkdir "anime-game-launcher-files"; cd "/home/$USER/.local/share";
+      ln -sf "$GAMEDIR/anime-game-launcher-files" "anime-game-launcher";
