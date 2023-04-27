@@ -4,7 +4,7 @@ files:
     url: https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live
 game:
   arch: win64
-  exe: drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+  exe: drive_c/Battle.net-Setup.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -23,13 +23,9 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- task:
-    args: /desktop=BattleNet,1024x780 $bnsetup
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults. Do not login, just close the window when install finished.
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c
+    src: bnsetup
 - task:
     app: arial win10
     arch: win64
@@ -110,8 +106,18 @@ system:
     DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
     DXVK_STATE_CACHE_PATH: $GAMEDIR
     STAGING_SHARED_MEMORY: 1
-    __GL_DXVK_OPTIMIZATIONS: 1
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP: 1 
+    DXVK_HUD: compiler 
 wine:
+  battleye: false
+  d3d_extras: true
+  dxvk: true
+  dxvk_nvapi: false
+  eac: false
+  esync: true
+  fsr: false
   version: lutris-GE-Proton7-43-x86_64
+  vkd3d: true
+ 
