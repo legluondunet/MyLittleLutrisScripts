@@ -15,6 +15,5 @@
 ### Technical notes:
 - Multilanguage: choose your preferred language for interface and game texts between German, English, French, Italian, Swedish and Spanish
 ### Credits:
-- Dosbox: https://dosbox-staging.github.io/
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
