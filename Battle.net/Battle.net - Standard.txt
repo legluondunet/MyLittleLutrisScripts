@@ -92,24 +92,15 @@ installer:
     path: HKEY_CURRENT_USER\Software\Wine\DXVA2
     prefix: $GAMEDIR
     value: va
-- task:
-    arch: win64
-    description: CMST is obsolete and could cause slowering
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
 system:
   env:
     DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
+    DXVK_HUD: compiler
     DXVK_STATE_CACHE_PATH: $GAMEDIR
     STAGING_SHARED_MEMORY: 1
     __GL_SHADER_DISK_CACHE: 1
     __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP: 1 
-    DXVK_HUD: compiler 
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP: 1
 wine:
   battleye: false
   d3d_extras: true
@@ -118,6 +109,6 @@ wine:
   eac: false
   esync: true
   fsr: false
+  fsync: true
   version: lutris-GE-Proton7-43-x86_64
   vkd3d: true
- 
