@@ -2,10 +2,10 @@
 ### Description:
 "Spider-Man (2000) CD edition using dgVoodoo2
 ### Technical notes:
-- You need to let CD in your drive or the game will not launch.
-- This game is 4:3 ratio and 30 fps maximum.
-- This PC port has some unresolved bug: too loud ambient audio, audio crackles and some portions of the game can only be completed at 20 fps. 
-Read this page for more infos and workarounds: https://www.pcgamingwiki.com/wiki/Spider-Man_(2001)#Issues_unresolved.
+- You need to let CD in your drive or the game will not launch
+- This game is 4:3 ratio and 30 fps maximum
+- This PC port has some unresolved bug: - too loud ambient audio, audio crackles and some portions of the game can only be completed at 20 fps. Read this page for more infos and workarounds: https://www.pcgamingwiki.com/wiki/Spider-Man_(2001)#Issues_unresolved
+- This game supports gamepad but you will obtain a better gaming experience if you use a keymapper.You will find a AntimicroX profile in game folder
 ### Credits:
 - dgVoodoo2: http://dege.freeweb.hu
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
