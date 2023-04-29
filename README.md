@@ -29,7 +29,7 @@ Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes s
 all scripts tested and should be compatible on 
 
 - Ubuntu 22.04
-- Arch (Manjaro 22, Endeavior, Arcolinux...)
+- Arch (Manjaro 22, Endeavior...)
 - Fedora 38
 - OpenSUSE Tumbleweed
 
