@@ -66,7 +66,7 @@ installer:
     preselect: enUS
 - execute:
     command: cd "$GAMEDIR/drive_c"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
-      wget -O w3roc.exe "https://us.battle.net/download/getLegacy?product=WAR3&locale=$INPUT_LANG&os=WIN";
+      wget --no-check-certificate -O w3roc.exe "https://us.battle.net/download/getLegacy?product=WAR3&locale=$INPUT_LANG&os=WIN";
 - task:
     arch: win64
     key: background
