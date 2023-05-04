@@ -33,13 +33,6 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
     silent: true
-- write_file:
-    content: 'dxgi.nvapiHack = False
-
-      [Overwatch.exe]
-
-      dxvk.hud = compiler'
-    file: $GAMEDIR/dxvk.conf
 - write_json:
     data:
       Client:
@@ -47,6 +40,8 @@ installer:
         GameSearch:
           BackgroundSearch: 'true'
         HardwareAcceleration: 'false'
+        Install:
+          DownloadLimitNextPatchInBps: '0'
         Sound:
           Enabled: 'false'
         Streaming:
@@ -94,7 +89,6 @@ installer:
     value: va
 system:
   env:
-    DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
     DXVK_HUD: compiler
     DXVK_STATE_CACHE_PATH: $GAMEDIR
     STAGING_SHARED_MEMORY: 1
@@ -105,7 +99,7 @@ wine:
   battleye: false
   d3d_extras: true
   dxvk: true
-  dxvk_nvapi: false
+  dxvk_nvapi: true
   eac: false
   esync: true
   fsr: false
