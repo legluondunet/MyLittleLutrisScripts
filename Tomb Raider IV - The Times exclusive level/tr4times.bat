@@ -19,9 +19,8 @@ echo.	1) Tomb Raider IV - The Times exclusive level
 echo.	2) Bonus: play Tomb Raider Jigsaw
 echo.	3) Bonus: play Tomb Raider Clicker
 echo.	4) Setup dialog box
-echo.	5) Set ratio and FOV
-echo.	6) How to play TR4 with a gamepad
-echo.	7) Exit
+echo.	5) How to play TR4 with a gamepad
+echo.	6) Exit
 echo.
 echo.	------------------------------------------------
 echo.
@@ -30,10 +29,9 @@ echo.
 
 
 
-choice /c1234567 /s /N Your choice? [1-7]:
-if errorlevel 7 goto :exit
-if errorlevel 6 goto :gamepad
-if errorlevel 5 goto :patch
+choice /c123456 /s /N Your choice? [1-6]:
+if errorlevel 6 goto :exit
+if errorlevel 5 goto :gamepad
 if errorlevel 4 goto :setup
 if errorlevel 3 goto :clicker
 if errorlevel 2 goto :jigsaw
@@ -73,10 +71,6 @@ echo.
 echo.
 start tomb4.exe -setup
 pause
-goto :launcher
-
-:patch
-start "" TombRaider234_Patch.exe
 goto :launcher
 
 :gamepad
