@@ -1,4 +1,3 @@
-custom-name: Tomb Raider IV - The Times exclusive level
 files:
 - setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
@@ -7,8 +6,8 @@ files:
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bmp
-- setreg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level.reg
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/TombRaider234_Patch.zip
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb4.zip
+- dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
 game:
   args: c:\\tr4times.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -56,11 +55,6 @@ installer:
     include_processes: explorer.exe
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    args: setreg
-    executable: regedit
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level
@@ -70,6 +64,10 @@ installer:
       Raider Level
     src: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level/MS/x86
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
+      Raider Level
+    src: dll
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive
       Tomb Raider Level/"; rm -f -r 3Dfx Doc MS QuickGuide.html D3D8.dll D3D9.dll;
@@ -95,7 +93,7 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
       Raider Level
-    file: patch
+    file: mod
 - move:
     dst: $GAMEDIR/drive_c
     src: menu
