@@ -1,13 +1,13 @@
 files:
-- setup: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb_raider_4_times_bonus_level.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bmp
-- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tomb4.zip
+- mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/The.Times.Exclusive.zip
 - dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
+- bonus: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/Times_Games_Bonus.zip
 game:
   args: c:\\tr4times.bat
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -20,9 +20,6 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- extract:
-    dst: $CACHE
-    file: setup
 - task:
     arch: win64
     key: background
@@ -47,30 +44,24 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: 255 255 255
-- task:
-    args: /desktop=TombRaider4Times,1024x780 $CACHE/Setup.exe
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults but do not play the game when install will be finished.
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
+    file: mod
+- extract:
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
+    file: bonus
+- extract:
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
     file: wrapper
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level
-    src: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/MS/x86
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
+    src: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/MS/x86
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
     src: dll
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive
-      Tomb Raider Level/"; rm -f -r 3Dfx Doc MS QuickGuide.html D3D8.dll D3D9.dll;
+    command: cd "$GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level"; rm -f
+      -r 3Dfx Doc MS QuickGuide.html D3D8.dll D3D9.dll;
 - write_config:
     data:
       DirectX:
@@ -82,18 +73,8 @@ installer:
         CaptureMouse: false
         FullScreenMode: false
         ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/dgVoodoo.conf
     merge: false
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/backup
-    src: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/tomb4.exe
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level
-    file: mod
 - move:
     dst: $GAMEDIR/drive_c
     src: menu
@@ -101,16 +82,13 @@ installer:
     dst: $GAMEDIR/drive_c
     src: wpp
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/gamepad profiles
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
     src: gpreadme
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/gamepad profiles
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
     src: gpx360
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Core Design/The Times - Exclusive Tomb
-      Raider Level/gamepad profiles
+    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
     src: gpsteam
 - task:
     arch: win64
