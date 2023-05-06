@@ -6,7 +6,7 @@ files:
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
 - gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/tr4tlr.bmp
-- mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.1.0/tomb4.zip
+- mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/tomb4.zip
 - dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
 game:
   args: c:\\tr4tlr.bat
