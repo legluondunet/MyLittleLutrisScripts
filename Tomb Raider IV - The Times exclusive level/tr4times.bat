@@ -2,7 +2,7 @@
 color 0F
 
 c:
-cd "c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level"
+cd "c:\The Times - Exclusive Tomb Raider Level"
 
 goto launcher
 
@@ -74,8 +74,8 @@ pause
 goto :launcher
 
 :gamepad
-start explorer c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\
-start iexplore c:\Program Files (x86)\Core Design\The Times - Exclusive Tomb Raider Level\gamepad profiles\tr4_gamepad_readme.html
+start explorer c:\The Times - Exclusive Tomb Raider Level\gamepad profiles\
+start iexplore c:\The Times - Exclusive Tomb Raider Level\gamepad profiles\tr4_gamepad_readme.html
 goto launcher
 
 :exit
