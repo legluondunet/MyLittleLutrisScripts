@@ -2,7 +2,7 @@ custom-name: Tomb Raider III - Adventures of Lara Croft - GOG
 files:
 - gogsetup: N/A:Select the installer downloaded from GOG
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- mod: https://github.com/Trxyebeep/tomb3/releases/download/V2.0.1/tomb3.zip
+- mod: https://github.com/Trxyebeep/tomb3/releases/download/V2.0.2/tomb3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tr3aolc.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
