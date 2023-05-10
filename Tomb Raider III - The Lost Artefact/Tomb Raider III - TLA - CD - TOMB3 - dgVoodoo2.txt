@@ -1,7 +1,7 @@
 custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/tomb3.zip
+- mod: https://github.com/Trxyebeep/tomb3/releases/download/V2.0.2/tomb3.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bat
 - gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
 - gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
@@ -33,7 +33,7 @@ installer:
     src: $GAMEDIR/drive_c/TR3TLA/tr3gold.exe
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA
-    file: patch
+    file: mod
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA
     file: wrapper
@@ -85,11 +85,11 @@ installer:
     type: REG_SZ
     value: 0 0 0
 - execute:
-    command: cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe 3Dfx Doc MS DIRECTX
-      Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat DATA.TAG lang.dat
-      Setup.exe SETUP.INI D3D9.dll D3D8.dll; ls -d */ | grep -i pix | xargs -I {}
-      -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv {} datag; mv saves
-      savesg;
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe
+      3Dfx Doc MS DIRECTX Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat
+      DATA.TAG lang.dat Setup.exe SETUP.INI D3D9.dll D3D8.dll; ls -d */ | grep -i
+      pix | xargs -I {} -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv
+      {} datag; mv saves savesg;
 wine:
   Desktop: true
   overrides:
