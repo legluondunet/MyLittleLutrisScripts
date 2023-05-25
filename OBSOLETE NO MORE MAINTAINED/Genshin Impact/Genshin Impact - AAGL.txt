@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/an-anime-team/an-anime-game-launcher/releases/download/3.5.2/anime-game-launcher
+- engine: https://github.com/an-anime-team/an-anime-game-launcher/releases/download/3.7.0/anime-game-launcher
 game:
   exe: anime-game-launcher
 installer:
