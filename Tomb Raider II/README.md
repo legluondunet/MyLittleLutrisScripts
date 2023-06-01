@@ -1,10 +1,10 @@
 # Tomb Raider II - GOG - TR2Main
 ### Description:
-"Tomb Raider II" provided by GOG using TR2Main
+"Tomb Raider II" provided by GOG using TR2Main open source project
 ### Technical notes:
-- This script uses TR2Main: for stability and features, like PS1 inventory background.
-- Tomb Raider II Gold extension included.
-- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- This script uses TR2Main: for stability and features, like PS1 inventory background
+- Tomb Raider II Gold extension included
+- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
 ### Credits:
 - TR2Main by Arsunt: https://github.com/Arsunt/TR2Main
 - MainLibzplay: http://libzplay.sourceforge.net/WELCOME.html
@@ -13,12 +13,12 @@
 
 # Tomb Raider II - Steam + TR2Main
 ### Description:
-"Tomb Raider II" provided by Steam using TR2Main
+"Tomb Raider II" provided by Steam using TR2Main open source project
 ### Technical notes:
-- You have to install "Tomb Raider II" on Steam before to launch this script installer.
-- This script uses TR2Main: for stability and features, like PS1 inventory background.
-- Tomb Raider II Gold extension included.
-- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- You have to install "Tomb Raider II" on Steam before to launch this script installer
+- This script uses TR2Main: for stability and features, like PS1 inventory background
+- Tomb Raider II Gold extension included
+- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
 ### Credits:
 - TR2Main by Arsunt: https://github.com/Arsunt/TR2Main
 - MainLibzplay: http://libzplay.sourceforge.net/WELCOME.html
