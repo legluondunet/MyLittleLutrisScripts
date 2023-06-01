@@ -1,8 +1,7 @@
 custom-name: Tomb Raider II - GOG
 files:
-- tr2main: https://www.dropbox.com/s/qplzk22cmf9l6fi/20210920_TR2Main_developer_build.zip?dl=1
+- mod: https://www.dropbox.com/s/qplzk22cmf9l6fi/20210920_TR2Main_developer_build.zip?dl=1
 - ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gold.zip
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
@@ -23,26 +22,18 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE" "$gogsetup"
-    file: $CACHE/innoextract
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/data
-    src: $CACHE/app/data
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/fmv
-    src: $CACHE/app/fmv
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/music
-    src: $CACHE/app/music
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    file: gogsetup
+    formay: gog
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/data
     src: ext
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
-    file: tr2main
+    file: mod
+- move:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2/audio.bak
+    src: $GAMEDIR/drive_c/Tomb Raider 2/audio
 - task:
     key: InvBackgroundMode
     name: set_regedit
@@ -78,32 +69,33 @@ installer:
 - task:
     key: wallpaper
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
+    path: HKEY_CURRENT_USER\Control Panel\Desktop
     prefix: $GAMEDIR
     type: REG_SZ
     value: c:\\tr2.bmp
 - task:
     key: background
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    path: HKEY_CURRENT_USER\Control Panel\Colors
     prefix: $GAMEDIR
     type: REG_SZ
     value: 91 0 0
 - task:
     key: ActiveTitle
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    path: HKEY_CURRENT_USER\Control Panel\Colors
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
 - task:
     key: GradientActiveTitle
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
+    path: HKEY_CURRENT_USER\Control Panel\Colors
     prefix: $GAMEDIR
     type: REG_SZ
     value: 204 51 0
 wine:
   Desktop: true
   overrides:
+    ddraw: n,b
     winmm: n,b
