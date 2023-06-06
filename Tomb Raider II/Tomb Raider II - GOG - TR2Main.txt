@@ -1,14 +1,13 @@
 custom-name: Tomb Raider II - GOG
 files:
-- mod: https://www.dropbox.com/s/qplzk22cmf9l6fi/20210920_TR2Main_developer_build.zip?dl=1
-- ext: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/gold.zip
-- audiodll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/zplaymm.zip
+- mod: https://github.com/Arsunt/TR2Main/releases/download/v0.9.0/TR2Main_v0.9.0.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
 - gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
 - gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_steam.sccprofile
 - gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
 - gogsetup: N/A:Select the installer downloaded from GOG
+- audiodll: https://github.com/legluondunet/mlls-tools/raw/master/winmm/zplaymm.zip
 game:
   args: c:\\TR2M.BAT
   exe: drive_c/windows/syswow64/wineconsole.exe
@@ -26,11 +25,11 @@ installer:
     file: gogsetup
     formay: gog
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/data
-    src: ext
-- extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: mod
+- extract:
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    file: audiodll
 - move:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/audio.bak
     src: $GAMEDIR/drive_c/Tomb Raider 2/audio
@@ -48,9 +47,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000002'
-- extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
-    file: audiodll
 - move:
     dst: $GAMEDIR/drive_c
     src: menu
