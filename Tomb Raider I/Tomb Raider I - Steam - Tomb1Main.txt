@@ -27,9 +27,10 @@ installer:
     dst: $GAMEDIR/drive_c/tmp
     src: cdrtools
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
-      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
-      echo $cd; ./7z x -y $cd;
+    command: cd "$GAMEDIR/drive_c/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
+- extract:
+    dst: $GAMEDIR/drive_c/tmp/app
+    src: $GAMEDIR/drive_c/tmp/app/GAME-01.iso
 - merge:
     dst: $GAMEDIR/drive_c/TOMB1Main/DATA
     src: $GAMEDIR/drive_c/tmp/DATA

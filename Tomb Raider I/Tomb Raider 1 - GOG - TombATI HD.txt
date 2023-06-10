@@ -62,8 +62,9 @@ installer:
     src: cdrtools
 - execute:
     command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
-      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
-      ./7z x -y $cd;
+- extract:
+    dst: $CACHE/app
+    src: $CACHE/app/GAME-01.iso
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: $CACHE/app/DATA
