@@ -1,29 +1,23 @@
 custom-name: Diablo - GOG - DevilutionX for Linux
 files:
-- diablosetup: N/A:Select the EXE downloaded from GOG
-- dvltx: https://github.com/diasurgical/devilutionX/releases/download/1.4.1/devilutionx-linux-x86_64.appimage
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- dvltx: https://github.com/diasurgical/devilutionX/releases/download/1.5.0/devilutionx-linux-x86_64.appimage
 game:
   args: --save-dir . --config-dir .
   exe: $GAMEDIR/devilutionx-linux-x86_64.appimage
   prefix: $GAMEDIR
 installer:
-- copy:
-    dst: $GAMEDIR
-    src: dvltx
-- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
 - extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: --extract $diablosetup --output-dir $CACHE
-    file: $CACHE/innoextract/innoextract
+    dst: $CACHE
+    file: gogsetup
+    format: gog
 - merge:
     dst: $GAMEDIR
     src: $CACHE/hellfire
 - copy:
     dst: $GAMEDIR
     src: $CACHE/DIABDAT.MPQ
-- execute:
-    command: cd "$CACHE"; cp *.PDF "$GAMEDIR"; cd "$GAMEDIR"; rm -f -r *.dll language.inf
-      sierra.inf Standard.snp hellfire.exe;
+- copy:
+    dst: $GAMEDIR
+    src: dvltx
+- chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
