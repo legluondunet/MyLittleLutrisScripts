@@ -1,11 +1,11 @@
-# Diablo - GOG - Devilutionx for Linux
+# Diablo - GOG - devilutionX for Linux
 ### Description:
-"Diablo" provided by GOG using DevilutionX open source project 
+"Diablo" provided by GOG using devilutionX open source project 
 ### Technical notes:
-- DevilutionX Appimage 1.4.1 version from official Github.
-- You could choose your preferred language, resolution, playing Diablo classic or Hellfire extension from settings menu.
+- devilutionX Appimage 1.5.0 version from official Github
+- You could choose your preferred language, resolution, playing Diablo classic or Hellfire extension from settings menu
 ### Credits:
-- DevilutionX project https://github.com/diasurgical/devilutionX
+- devilutionX project https://github.com/diasurgical/devilutionX
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Diablo - GOG - Tchernobog
