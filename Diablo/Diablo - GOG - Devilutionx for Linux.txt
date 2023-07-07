@@ -21,3 +21,6 @@ installer:
     dst: $GAMEDIR
     src: dvltx
 - chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
+- execute:
+    command: cd "$CACHE"; cp *.PDF "$GAMEDIR"; cd "$GAMEDIR"; rm -f -r *.dll language.inf
+      sierra.inf Standard.snp hellfire.exe;
