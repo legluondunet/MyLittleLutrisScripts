@@ -1,4 +1,4 @@
-custom-name: OGS Mahjong Full
+custom-name: OGS Mahjong full edition
 files:
 - install: https://master.dl.sourceforge.net/project/osrpgcreation/Mahjong/1.1.0/ogs-mahjong-full-1.1.0-linux64.tar.lzma
 - installaddons: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/OGS%20Mahjong/OGS%20Mahjong_addons.zip
@@ -6,13 +6,8 @@ game:
   exe: mj
 installer:
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR
     src: install
 - extract:
     dst: $GAMEDIR
-    format: tar
-    src: $CACHE/ogs-mahjong-full-1.1.0-linux64.tar
-- extract:
-    dst: $GAMEDIR/
     src: installaddons
-
