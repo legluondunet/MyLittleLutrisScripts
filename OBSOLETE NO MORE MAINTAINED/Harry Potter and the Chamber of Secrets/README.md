@@ -1,4 +1,4 @@
-# Heart of Darkness CD + dgVoodoo2
+# Harry Potter and the Chamber of Secrets CD + dgVoodoo2
 
 ### Description:
 This script will facilitate install of this game on Linux OS:
@@ -9,7 +9,7 @@ Big thanks to the people who helped us play this game in the best conditions on 
 
 ### Technical notes:
 - You will need CD only during install
-- Known issues: 
+- Known issues:
 -- The mouse can get out of hand with most versions of WIne. Reason why this script will install and use Lutris Wine version 4.21
 -- HP2COS has insufficient controller support. You will find an Antimicrox profile for a x360 controller in the "gamepad profiles" folder
 - Please report issue concerning this script on my github page:
