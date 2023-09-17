@@ -22,15 +22,15 @@ CHOICE=$(zenity_base --list --radiolist  \
 echo "valeur de la variable CHOICE: " $CHOICE
     case "$CHOICE" in
         "$classic")
-            ./darkplaces-sdl
+            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx
             ;;
         "$scourge")
-            ./darkplaces-sdl -hipnotic
+            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -hipnotic
 	     ;;
         "$eternity")
-            ./darkplaces-sdl -rogue
+            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -rogue
 	     ;;	 
         "$abyss")
-            ./darkplaces-sdl -rogue -game abyss
+            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -rogue -game abyss
 	     ;;	         
     esac
