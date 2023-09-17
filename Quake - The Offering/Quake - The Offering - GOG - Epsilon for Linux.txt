@@ -13,13 +13,14 @@ files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake.sh
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/clean.sh
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/darkplaces-sdl_linux.zip
+- quakelibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/libs.tar.xz
 game:
   exe: quake.sh
 installer:
 - extract:
     dst: $GAMEDIR/tmp
     file: gogsetup
+    format: gog
 - extract:
     dst: $GAMEDIR/Epsilon
     file: epsilonpack
@@ -33,8 +34,8 @@ installer:
     dst: $GAMEDIR/Epsilon
     src: mp3
 - extract:
-    dst: $GAMEDIR/Epsilon
-    src: engine
+    dst: $GAMEDIR/Epsilon/libs
+    src: quakelibs
 - extract:
     dst: $GAMEDIR/tmp
     src: cdrtools
