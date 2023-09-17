@@ -25,12 +25,12 @@ echo "valeur de la variable CHOICE: " $CHOICE
             LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx
             ;;
         "$scourge")
-            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -hipnotic
+            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -hipnotic
 	     ;;
         "$eternity")
-            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -rogue
+            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -rogue
 	     ;;	 
         "$abyss")
-            LD_LIBRARY_PATH=libs ./darkplaces-linux-x86_64-glx -rogue -game abyss
+            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -rogue -game abyss
 	     ;;	         
     esac
