@@ -1,0 +1,19 @@
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
+game:
+  arch: win64
+  exe: drive_c/GOG Games/Quake Enhanced/Quake_Shipping_Playfab_GOG_x64.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Quake Enhanced
+    file: gogsetup
+    format: gog
