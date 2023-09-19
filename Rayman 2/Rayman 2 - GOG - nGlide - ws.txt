@@ -4,6 +4,7 @@ files:
     filename: nGlide210_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
 - gogsetup: N/A:Select the GOG setup exe
+- wspatch: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
 game:
   arch: win64
   exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
@@ -19,19 +20,12 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
     file: gogsetup
     format: gog
-- input_menu:
-    description: 'Please choose your screen ratio:'
-    id: RATIO
-    options:
-    - 16x9: 16/9
-    - 16x10: 16/10
-    preselect: 16x9
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; cd "$CACHE"; wget --no-check-certificate
-      "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/ws/Rayman2_$INPUT_RATIO.zip";
 - extract:
+    dst: $CACHE
+    src: wspatch
+- merge:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
-    src: $CACHE/Rayman2_$INPUT_RATIO.zip
+    src: $CACHE/16x9
 - task:
     args: /S
     description: NGlide installation
@@ -54,30 +48,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: '1'
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: EAXEnabled
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DirectSound\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - write_config:
     data:
       Rayman2:
@@ -89,5 +59,3 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3DfxSpl*
       glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* ;
-wine:
-  Desktop: true
