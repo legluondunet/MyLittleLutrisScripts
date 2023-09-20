@@ -5,6 +5,7 @@ files:
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
 - gogsetup: N/A:Select the GOG setup exe
 - wspatch: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
+- xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
 game:
   arch: win64
   exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
@@ -16,6 +17,10 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
+- task:
+    app: vcrun2019
+    name: winetricks
+    silent: true
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
     file: gogsetup
@@ -26,6 +31,9 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
     src: $CACHE/16x9
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    file: xidi
 - task:
     args: /S
     description: NGlide installation
@@ -59,3 +67,6 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3DfxSpl*
       glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* ;
+wine:
+  overrides:
+    dinput: n,b
