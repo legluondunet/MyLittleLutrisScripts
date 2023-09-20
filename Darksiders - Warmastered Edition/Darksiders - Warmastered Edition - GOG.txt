@@ -1,7 +1,6 @@
 custom-name: Darksiders - Warmastered Edition - GOG
 files:
 - mfplatdll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/mfplat.7z
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
 game:
@@ -17,15 +16,12 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
+    dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
+    file: gogsetup
+    format: gog
 - execute:
-    args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
-    file: $CACHE/innoextract
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games"; mv app "Darksiders Warmastered Edition"
-      ; cd "Darksiders Warmastered Edition"; rm -f -r __support GameuxInstallHelper.dll
-      gog* *.lnk Support.ico unins000.* webcache.zip ../tmp;
+    command: cd "$GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition"; mv app/*
+      . ;
 - task:
     app: mf
     name: winetricks
@@ -53,13 +49,3 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
     file: mfplatdll
 requires-binaries: cabextract
-system:
-  env:
-    __GL_SHADER_DISK_CACHE: 1
-    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-  pulse_latency: false
-wine:
-  Desktop: true
-  dxvk: true
-  esync: true
-
