@@ -1,4 +1,4 @@
-# Doom 3 - Resurrection Of Evil - Steam - dhewm3
+# Doom 3 - Resurrection Of Evil - Steam + dhewm3
 ### Description:
 "Doom 3 - Resurrection Of Evil" provided by Steam using dhewm3 open source project
 ### Technical notes:
@@ -10,7 +10,7 @@
 - dhewm3: https://github.com/dhewm/dhewm3
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Doom 3 - Resurrection Of Evil - GOG - dhewm3
+# Doom 3 - Resurrection Of Evil - GOG + dhewm3
 ### Description:
 "Doom 3 - Resurrection Of Evil" provided by GOG using dhewm3 open source project
 ### Technical notes:
