@@ -13,5 +13,8 @@ installer:
 - merge:
     dst: $GAMEDIR/d3xp
     src: $GAMEDIR/base/dhewm.cfg
+- execute:
+    command: cd "$GAMEDIR/d3xp"; rm -f -r zpak*; language=$(cat dhewm.cfg |grep sys_lang
+      | cut -d '"' -f2); echo $language; wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203%20-%20Resurrection%20Of%20Evil/lang/"$language"_zpak100.pk4"
+      -O zpak100.pk4;
 requires: doom-3-dhewm3-steam-data
-
