@@ -1,4 +1,4 @@
-# Doom 3 - dhewm3 - Steam data
+# Doom 3 - Steam data + dhewm3
 ### Description:
 "Doom 3" provided by Steam using dhewm3 open source project
 ### Technical notes:
@@ -12,7 +12,7 @@
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Doom 3 - dhewm3 - GOG
+# Doom 3 - GOG + dhewm3
 ### Description:
 "Doom 3" provided by GOG using dhewm3 open source project
 ### Technical notes:
