@@ -31,7 +31,6 @@ installer:
     - english: English
     - french: French
     - spanish: Spanish
-    - polish: Polish
     - italian: Italian
     preselect: english
 - write_file:
@@ -50,6 +49,6 @@ installer:
       '
     file: $GAMEDIR/base/dhewm.cfg
 - execute:
-    command: cd "$GAMEDIR/base"; rm -f -r zpak*; wget https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.001
+    command: cd "$GAMEDIR/base"; rm -f -r zpak*; wget --no-check-certificate https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.001
       https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203/lang/doom3_$INPUT_LANG.7z.002;
       7z e doom3_$INPUT_LANG.7z.001; rm -f -r doom3_$INPUT_LANG.7z.001 doom3_$INPUT_LANG.7z.002;
