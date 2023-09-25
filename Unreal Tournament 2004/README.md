@@ -1,5 +1,4 @@
 # Unreal Tournament - GOG - Windows
-
 ### Description:
 Play "Unreal Tournament 2004" provided by Steam on Linux!
 ### Technical notes:
