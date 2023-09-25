@@ -7,15 +7,13 @@ os=$3
 if [ $os = "Windows" ]
 then
 echo Windows
-mkdir -p "drive_c/GOG Games"
-mv "drive_c/Unreal Tournament 2004" "drive_c/GOG Games"
-cd "drive_c/GOG Games/Unreal Tournament 2004/System/"
+cd "drive_c/GOG Games/Unreal Tournament 2004"
 elif [ $os = "Linux" ]
 then
 echo Linux
-cd System
-ls -l
 fi
+
+cd System
 
 echo "la résolution actuelle est $width x $height"
 echo "modification de la configuration"
@@ -32,4 +30,4 @@ echo 3QHVC-DHA9K-A84RE-KYRT4 > cdkey
 
 cd ..
 
-rm -f -r __redist __support tmp goggame-1207658691.* app commonappdata
+#rm -f -r __redist __support tmp goggame-1207658691.* app commonappdata webcache.zip
