@@ -1,21 +1,15 @@
 files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/clean.sh
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - ut2004x: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004_linux.tar.xz
 - menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004.sh
 game:
   exe: $GAMEDIR/ut2004.sh
 installer:
 - extract:
-    dst: $CACHE
-    src: inno
-- execute:
-    args: -d "$GAMEDIR" -g $gogsetup
-    file: $CACHE/innoextract
-- merge:
     dst: $GAMEDIR
-    src: $GAMEDIR/__support/app
+    file: gogsetup
+    format: gog
 - extract:
     dst: $GAMEDIR
     src: ut2004x
@@ -27,5 +21,3 @@ installer:
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT Linux
     file: script
-wine:
-  Desktop: true
