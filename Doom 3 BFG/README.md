@@ -17,7 +17,7 @@ Play "Doom3 BFG" provided by Steam with RBDOOM-3-BFG open source project on Linu
 - RBDOOM-3-BFG: https://github.com/RobertBeckebans/RBDOOM-3-BFG
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Doom3 BFG - Flatpak - GOG + RBDOOM-3-BFG
+# Doom3 BFG - GOG + RBDOOM-3-BFG Flatpak
 ### Description:
 Play "Doom3 BFG" provided by GOG with RBDOOM-3-BFG open source project on Linux!
 ### Technical notes:
