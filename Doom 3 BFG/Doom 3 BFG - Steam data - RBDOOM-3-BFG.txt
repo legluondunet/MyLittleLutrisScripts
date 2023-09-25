@@ -1,0 +1,16 @@
+files:
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203%20BFG/RBDOOM-3-BFG.tar.xz
+game:
+  exe: $GAMEDIR/RBDoom3BFG
+installer:
+- insert-disc:
+    description: Please browse folder where is located "Doom 3 BFG" Steam files. Autodetect
+      will not work here, use "Browse" button.
+    requires: Doom3BFG.exe
+- merge:
+    dst: $GAMEDIR/base
+    src: $DISC/base
+- extract:
+    dst: $GAMEDIR
+    file: engine
+    type: txz
