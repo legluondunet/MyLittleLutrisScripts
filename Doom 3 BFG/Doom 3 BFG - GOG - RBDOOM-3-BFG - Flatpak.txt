@@ -1,0 +1,25 @@
+files:
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account.
+game:
+  args: run $FQDN
+  exe: /usr/bin/flatpak
+  gogid: 1135892318
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- execute:
+    command: rm -f -r "$HOME/.var/app/io.github.RobertBeckebans.RBDoom3BFG-GL/data/rbdoom3bfg";
+      mkdir -p "$HOME/.var/app/io.github.RobertBeckebans.RBDoom3BFG-GL/data/rbdoom3bfg";
+      mv "$GAMEDIR/app/base" "$HOME/.var/app/io.github.RobertBeckebans.RBDoom3BFG-GL/data/rbdoom3bfg"
+      ;
+- execute:
+    args: install flathub -y --noninteractive $FQDN
+    description: Installing with flatpak
+    disable_runtime: true
+    file: /usr/bin/flatpak
+require-binaries: flatpak
+variables:
+  FQDN: io.github.RobertBeckebans.RBDoom3BFG-GL
