@@ -20,10 +20,3 @@ Please follow this steps:
 2) update Geshin Impact to latest version (option 2) but do not launch it
 3) apply new patch
 To apply or revert patch, right-click on the game icon/banner and select "execute script" --> https://imgur.com/D4jDdPX
-
-# Genshin Impact - AAGL
-### Description:
-Play "Genshin Impact" on Linux using "An Anime Game Launcher" open source project
-### Technical notes:
-### Credits:
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
