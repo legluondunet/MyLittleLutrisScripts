@@ -4,9 +4,9 @@ game:
   exe: anime-game-launcher
 installer:
 - chmodx: engine
-- merge:
+- copy:
     dst: $GAMEDIR
     src: engine
-- execute:
-    command: cd "$GAMEDIR"; mkdir "anime-game-launcher-files"; cd "/home/$USER/.local/share";
-      ln -sf "$GAMEDIR/anime-game-launcher-files" "anime-game-launcher";
+system:
+  env:
+    LAUNCHER_FOLDER: $GAMEDIR
