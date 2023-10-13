@@ -1,0 +1,12 @@
+extends: jazz-jackrabbit-2-gog-the-secret-files
+files:
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  exe: $GAMEDIR/x64/jazz2_sdl2
+  gogid: 1597842603
+installer:
+- extract:
+    dst: $GAMEDIR/x64/Source
+    file: gogsetup
+    format: gog
