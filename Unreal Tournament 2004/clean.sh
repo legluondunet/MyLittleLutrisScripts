@@ -25,7 +25,7 @@ sed -i "s/WindowedViewportX.*/WindowedViewportX=$width/g" Default.ini
 sed -i "s/WindowedViewportY.*/WindowedViewportY=$height/g" Default.ini
 sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 #sed -i "s/UseVSync=False/UseVSync=True/g" Default.ini
-sed -e '$a\
+sed -i -e '$a\
 [IpDrv.MasterServerLink]\
 LANPort=11777\
 LANServerPort=10777\
