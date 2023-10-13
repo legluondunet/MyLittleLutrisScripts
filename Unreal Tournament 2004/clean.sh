@@ -12,6 +12,7 @@ elif [ $os = "Linux" ]
 then
 echo Linux
 cd System
+rm -f -r *.dll
 echo "Create cdkey file for Linux version"
 echo 3QHVC-DHA9K-A84RE-KYRT4 > cdkey
 fi
