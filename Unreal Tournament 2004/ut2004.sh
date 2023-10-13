@@ -26,7 +26,8 @@ echo "valeur de la variable CHOICE: " $CHOICE
 if zenity_base --question --text="	
 GOG provides UT2004 with a generic CDKey 
 3QHVC-DHA9K-A84RE-KYRT4
-that does not permit you to play in multiplayer mode on Internet.
+that does not permit you to play in multiplayer mode,
+you could be banned on most UT2004 servers.
 To play UT2004 in multiplayer mode, you will need to ask for your
 personal UT2004 CDKey to GOG support here:
 
