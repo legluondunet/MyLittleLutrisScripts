@@ -9,7 +9,7 @@
 - DxWnd: https://sourceforge.net/projects/dxwnd
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Jazz Jackrabbit 2 - GOG + J2R + The Secret Files
+# Jazz Jackrabbit 2 - GOG + J2R + Secret Files
 ### Description:
 "Jazz Jackrabbit 2: The Secret Files" provided by GOG using "Jazz2 Resurrection" open source project
 ### Technical notes:
