@@ -1,4 +1,4 @@
-extends: jazz-jackrabbit-2-gog-j2r-the-secret-files
+extends: jazz-jackrabbit-2-gog-j2r-secret-files
 files:
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
