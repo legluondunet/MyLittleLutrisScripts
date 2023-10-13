@@ -11,7 +11,7 @@ cd "drive_c/GOG Games/Unreal Tournament 2004/System/"
 elif [ $os = "Linux" ]
 then
 echo Linux
-cd system
+cd System
 echo "Create cdkey file for Linux version"
 echo 3QHVC-DHA9K-A84RE-KYRT4 > cdkey
 fi
