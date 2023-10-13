@@ -23,8 +23,8 @@ sed -i "s/FullscreenViewportX.*/FullscreenViewportX=$width/g" Default.ini
 sed -i "s/FullscreenViewportY.*/FullscreenViewportY=$height/g" Default.ini
 sed -i "s/WindowedViewportX.*/WindowedViewportX=$width/g" Default.ini
 sed -i "s/WindowedViewportY.*/WindowedViewportY=$height/g" Default.ini
+sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 #sed -i "s/UseVSync=False/UseVSync=True/g" Default.ini
-#sed -i "s/UseDefaultDriver=True/UseDefaultDriver=False/g" Default.ini
 
 cd ..
 
