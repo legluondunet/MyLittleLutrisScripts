@@ -7,9 +7,6 @@ installer:
     description: Installing Starcraft Brood War...
     executable: $DISC/setup.exe
     name: wineexec
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files/Starcraft"; find "/$DISC/"* -iname
-      install.exe | xargs -I {} cp {} broodwar.mpq; chmod +rw broodwar.mpq;
 - extract:
     dst: $CACHE
     file: $patch
@@ -19,4 +16,7 @@ installer:
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
-requires: starcraft
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft"; find "/$DISC/"*
+      -iname install.exe | xargs -I {} cp {} BroodWar.mpq; chmod +rw BroodWar.mpq;
+requires: starcraft-cd-cnc-draw
