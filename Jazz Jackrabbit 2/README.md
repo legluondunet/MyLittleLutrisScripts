@@ -1,10 +1,9 @@
-# Jazz Jackrabbit 2 - GOG - DxWnd - The Secret Files
+# Jazz Jackrabbit 2 - GOG - DxWnd + JJ2+
 ### Description:
-"Jazz Jackrabbit 2: The Secret Files" provided by GOG using DxWnd open source project
+"Jazz Jackrabbit 2: JJ2+" provided by GOG using DxWnd open source project
 ### Technical notes:
-- will install Jazz Jackrabbit 2: The Secret Files  from GOG.
-- fullscreen with 4:3 aspect ratio using DxWnd.
-- some instability, but globally playable.
+- tested with JJ2+ 5.12 GOG version, not compatible with others JJ2+ version
+- multiplayer functionnal
 ### Credits:
 - DxWnd: https://sourceforge.net/projects/dxwnd
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
