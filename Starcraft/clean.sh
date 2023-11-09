@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Depending on the CD edition, the game files are installed in the "c:\Program Files\Starcraft" or "c:\Program Files (x86)\Starcraft" directory. 
+# Depending on the CD edition, the Starcraft game files are installed in the "c:\Program Files\Starcraft" or "c:\Program Files (x86)\Starcraft" directory. 
 # Result; Lutris may not find the executable and this makes operations on the game directory complicated. 
 # Solution: create a symbolic link from the directory where the game was installed to the second possible installation directory.
 
@@ -24,7 +24,7 @@ if [ $cdpath ]
 then
 find $cdpath/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq
 echo $cdpath'/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq'
-chmod +rw StarCraft.mpq
+chmod +rw Starcraft.mpq
 fi
 
 #configure cnc-draw
