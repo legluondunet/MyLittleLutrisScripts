@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cdpath="$1"
-echo $cdpath
 
 if [ ! -d "drive_c/Program Files/Starcraft" ]
 then
