@@ -23,10 +23,8 @@ installer:
 - insert-disc:
     requires: help/star.htm
 - task:
-    args: /desktop=Starcraft,1024x780 "$DISC/setup.exe"
-    description: Installing Starcraft...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+    description: Installing Starcraft Brood War...
+    executable: $DISC/setup.exe
     name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/tmp
