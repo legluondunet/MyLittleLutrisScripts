@@ -16,7 +16,7 @@ ln -s "../Program Files/Starcraft" "Starcraft"
 echo 'ln -s "../Program Files/Starcraft" "Starcraft"'
 fi
 
-cd starcraft
+cd Starcraft
 
 # nocd workaround, copy install.exe file inside main game folder and rename it Starcraft.mpq
 cdpath="$1"
