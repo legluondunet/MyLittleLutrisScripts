@@ -23,7 +23,7 @@ cdpath="$1"
 if [ $cdpath ]
 then
 find $cdpath/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq
-echo $cdpath'/* -iname install.exe | xargs -I {} cp {} starcraft.mpq'
+echo $cdpath'/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq'
 chmod +rw StarCraft.mpq
 fi
 
