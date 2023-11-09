@@ -17,6 +17,6 @@ installer:
     include_processes: explorer.exe
     name: wineexec
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft"; find "/$DISC/"*
-      -iname install.exe | xargs -I {} cp {} BroodWar.mpq; chmod +rw BroodWar.mpq;
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft"; find "$DISC/"* -iname
+      install.exe | xargs -I {} cp {} BroodWar.mpq; chmod +rw BroodWar.mpq;
 requires: starcraft-cd-cnc-draw
