@@ -1,0 +1,23 @@
+files:
+- gogsetup: N/A:Select GOG installer.
+game:
+  args: --language=$INPUT_LANG
+  game_id: lol
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- extract:
+    dst: $GAMEDIR/tmp
+    file: $gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR
+    file: $GAMEDIR/tmp/GAME.DAT
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    preselect: en
