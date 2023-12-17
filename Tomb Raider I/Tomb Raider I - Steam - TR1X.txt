@@ -1,86 +1,46 @@
 files:
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1x.bat
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.0.5/TR1X-3.0.5-Windows.zip
-- cat: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
+- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.0.5/TR1X-3.0.5-Linux.zip
+- dlc: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
 - audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
 game:
-  args: c:\\tr1x.bat
-  exe: drive_c/windows/system32/wineconsole.exe
-  prefix: $GAMEDIR
+  exe: TR1X/TR1X
+  launch_configs:
+  - args: -gold
+    exe: $GAMEDIR/TR1X/TR1X
+    name: Tomb Raider 1 - Unfinished Business
 installer:
-- task:
-    arch: win64
-    description: Creating WINE prefix
-    install_gecko: true
-    install_mono: false
-    name: create_prefix
-    prefix: $GAMEDIR
 - insert-disc:
     description: Please select Tomb Raider 1 Steam folder install.
     requires: GAME.GOG
 - merge:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $GAMEDIR/tmp
     src: $DISC
 - extract:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $GAMEDIR/tmp
     src: cdrtools
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
-      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
-      echo $cd; ./7z x -y $cd;
+    command: cd "$GAMEDIR/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
+      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
+      ./7z x -y $cd;
 - merge:
-    dst: $GAMEDIR/drive_c/TOMB1Main/DATA
-    src: $GAMEDIR/drive_c/tmp/DATA
+    dst: $GAMEDIR/TR1X/DATA
+    src: $GAMEDIR/tmp/DATA
 - extract:
-    dst: $GAMEDIR/drive_c/TOMB1Main/DATA
-    file: cat
+    dst: $GAMEDIR/TR1X/DATA
+    file: dlc
 - merge:
-    dst: $GAMEDIR/drive_c/TOMB1Main/FMV
-    src: $GAMEDIR/drive_c/tmp/FMV
+    dst: $GAMEDIR/TR1X/FMV
+    src: $GAMEDIR/tmp/FMV
 - extract:
-    dst: $GAMEDIR/drive_c/TOMB1Main
+    dst: $GAMEDIR/TR1X
     file: mod
 - merge:
-    dst: $GAMEDIR/drive_c/TOMB1Main/data
-    src: $GAMEDIR/drive_c/TOMB1Main/DATA
+    dst: $GAMEDIR/TR1X/data
+    src: $GAMEDIR/TR1X/DATA
 - extract:
-    dst: $GAMEDIR/drive_c/TOMB1Main/music
+    dst: $GAMEDIR/TR1X/music
     file: audiotracks
-- merge:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- task:
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr1.bmp
-- task:
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
+- chmodx: $GAMEDIR/TR1X/TR1X
 - execute:
-    command: cd "$GAMEDIR/drive_c" ; rm -f -r tmp TOMB1Main/DATA;
+    command: cd "$GAMEDIR" ; rm -f -r tmp TR1X/DATA;
