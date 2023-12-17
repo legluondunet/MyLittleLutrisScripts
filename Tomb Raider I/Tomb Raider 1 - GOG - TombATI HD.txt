@@ -1,8 +1,8 @@
 custom-name: Tomb Raider I - GOG - TombATI HD
 files:
 - tombati:
-    filename: TombATI_v1.7.rar
-    url: http://download.glidos.net/TombATI/TombATI_v1.7.exe
+    filename: TombATI_v1.8.rar
+    url: http://download.glidos.net/TombATI/TombATI_v1.8.exe
 - hdtextures:
     filename: TombATI_HD_Textures_v1.0.rar
     url: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
