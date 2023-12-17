@@ -11,7 +11,7 @@ cls
 echo.
 echo.
 echo. ------------------------------------------------------
-echo.		TOMB RAIDER I + TOMB1Main
+echo.		TOMB RAIDER I + TR1X
 echo. ------------------------------------------------------
 echo.
 echo.	1) Play Tomb Raider I
@@ -29,12 +29,12 @@ if errorlevel 1 goto tr1
 
 :tr1
 cls
-start tomb1main.exe
+start tr1x.exe
 goto :launcher
 
 :tombub
 cls
-start tomb1main.exe -gold
+start tr1x.exe -gold
 goto :launcher
 
 :exit
