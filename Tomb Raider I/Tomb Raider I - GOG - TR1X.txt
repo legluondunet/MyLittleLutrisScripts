@@ -1,5 +1,5 @@
 files:
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1main.bat
+- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1x.bat
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
 - mod: https://github.com/LostArtefacts/TR1X/releases/download/3.0.5/TR1X-3.0.5-Windows.zip
@@ -7,7 +7,7 @@ files:
 - wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
 - audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
 game:
-  args: c:\\tr1main.bat
+  args: c:\\tr1x.bat
   exe: drive_c/windows/system32/wineconsole.exe
   prefix: $GAMEDIR
 installer:
