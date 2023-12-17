@@ -40,6 +40,6 @@ installer:
 - extract:
     dst: $GAMEDIR/TR1X/music
     file: audiotracks
-- chmodx: $GAMEDIR/TR1X
+- chmodx: $GAMEDIR/TR1X/TR1X
 - execute:
     command: cd "$GAMEDIR" ; rm -f -r tmp TR1X/DATA;
