@@ -13,7 +13,7 @@
 ### Description:
 "Jazz Jackrabbit 2: The Secret Files" provided by GOG using "Jazz2 Resurrection" open source project
 ### Technical notes:
-- Jazz2 Resurrection Linux v2.3.0 x64
+- Jazz2 Resurrection Linux v2.4.0 x64
 ### Credits:
 - Jazz2 Resurrection: https://github.com/deathkiller/jazz2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
