@@ -135,7 +135,6 @@ system:
   env:
     MESA_GL_VERSION_OVERRIDE: '3.3'
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
     winmm: n,b
