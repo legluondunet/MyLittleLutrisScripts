@@ -1,16 +1,14 @@
-# Harry Potter and the Chamber of Secrets CD + dgVoodoo2
-
+# Harry Potter and the Chamber of Secrets CD + dxwrapper + mods
 ### Description:
-This script will facilitate install of this game on Linux OS:
-"Harry Potter and the Chamber of Secrets" CD edition using Lutris Wine runner and dgVoodoo2 http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2.html
-During install please let all options by default.
-Big thanks to the people who helped us play this game in the best conditions on Linux.
-
-
+Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
 ### Technical notes:
-- You will need CD only during install
-- Known issues:
--- The mouse can get out of hand with most versions of WIne. Reason why this script will install and use Lutris Wine version 4.21
--- HP2COS has insufficient controller support. You will find an Antimicrox profile for a x360 controller in the "gamepad profiles" folder
-- Please report issue concerning this script on my github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+- You will need CD only one time during install
+- Replaced original buggy launcher by HarryPotter2-NeoLauncher open source project
+- Using different mods: DirectX 9 renderer, Widescreen menu mod
+- This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
+### Credits:
+- HarryPotter2-NeoLauncher: https://github.com/AsayuGit/HarryPotter2-NeoLauncher
+- DirectX 9 renderer: https://www.moddb.com/mods/directx-9-renderer-for-stock-hp2
+- Widescreen menu mod: https://www.gamepressure.com/download.asp?ID=80487
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
