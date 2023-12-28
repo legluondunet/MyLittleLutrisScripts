@@ -1,0 +1,79 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Prisoner%20of%20Azkaban/hp3_patch.tar.xz
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dxwrapper/dxwrapper.zip
+game:
+  exe: drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner of Azkaban(TM)/system/hppoa.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: hppoa.ico
+- task:
+    description: Installing Harry Potter and the Prisoner of Askaban ...
+    executable: $DISC/setup.exe
+    name: wineexec
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/EA GAMES"; if [ -d "Harry Potter
+      and the Prisoner of Azkaban(TM)" ]; then exit; else gamepath=$(find . -maxdepth
+      1 -type d -iname "*azkaban*"); gamepath=$(basename "$gamepath"); ln -s "$gamepath"
+      "Harry Potter and the Prisoner of Azkaban(TM)"; fi;
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/hppoa.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/hppoa.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system
+    file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/Stub/d3d8.dll
+- write_config:
+    data:
+      Compatibility:
+        D3d8to9: 1
+      d3d9:
+        EnableWindowMode: 1
+        FullscreenWindowMode: 1
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/dxwrapper.ini
+    merge: true
+- write_config:
+    data:
+      WinDrv.WindowsClient:
+        FullscreenViewportX: RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MenuViewportX: RESOLUTION_WIDTH
+        MenuViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 60.0
+        MinReinstateDetailFrameRate: 60.0
+        WindowedViewportX: RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.PlayerController:
+        DefaultFOV: 106.26
+        DesiredFOV: 106.26
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/defuser.ini
+    merge: true
+wine:
+  overrides:
+    d3d8: native, builtin
