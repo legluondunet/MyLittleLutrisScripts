@@ -38,7 +38,7 @@ installer:
     file: wrapper
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system/
+      of Azkaban(TM)/system
     src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/Stub/d3d8.dll
 - write_config:
