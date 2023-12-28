@@ -55,13 +55,13 @@ installer:
 - write_config:
     data:
       WinDrv.WindowsClient:
-        FullscreenViewportX: RESOLUTION_WIDTH
+        FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-        MenuViewportX: RESOLUTION_WIDTH
+        MenuViewportX: $RESOLUTION_WIDTH
         MenuViewportY: $RESOLUTION_HEIGHT
         MinDesiredFrameRate: 60.0
         MinReinstateDetailFrameRate: 60.0
-        WindowedViewportX: RESOLUTION_WIDTH
+        WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/Default.ini
