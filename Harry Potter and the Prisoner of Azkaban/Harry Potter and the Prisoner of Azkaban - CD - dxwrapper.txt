@@ -1,6 +1,6 @@
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Prisoner%20of%20Azkaban/hp3_patch.tar.xz
-- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dxwrapper/dxwrapper.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/d8vk/d8vk-v1.0.tar.gz
 game:
   exe: drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner of Azkaban(TM)/system/hppoa.exe
   prefix: $GAMEDIR
@@ -36,22 +36,6 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system
     file: wrapper
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system
-    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system/Stub/d3d8.dll
-- write_config:
-    data:
-      Compatibility:
-        D3d8to9: 1
-      d3d9:
-        EnableWindowMode: 1
-        FullscreenWindowMode: 1
-        LimitPerFrameFPS: 60
-    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system/dxwrapper.ini
-    merge: true
 - write_config:
     data:
       WinDrv.WindowsClient:
@@ -74,6 +58,13 @@ installer:
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/defuser.ini
     merge: true
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     d3d8: native, builtin
