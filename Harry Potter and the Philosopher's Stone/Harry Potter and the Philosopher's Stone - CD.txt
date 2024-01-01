@@ -46,3 +46,6 @@ installer:
         DesiredFOV: 106.26
     file: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/DefUser.ini
     merge: true
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
