@@ -1,0 +1,48 @@
+files:
+- mods: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Philosopher's%20Stone/hp1_mods.tar.xz
+game:
+  exe: drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HP.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: system/hp.ico
+- task:
+    description: Installing Harry Potter and the Philosopher's Stone...
+    executable: $DISC/AutoRun.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System
+    src: mods
+- write_config:
+    data:
+      Engine.Engine:
+        GameRenderDevice: D3D9Drv.D3D9RenderDevice
+      FirstRun:
+        FirstRun: 433
+      HPBase.baseConsole:
+        bDebugMode: false
+        bUseSystemFonts: false
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 60.0
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.PlayerPawn:
+        DefaultFOV: 106.26
+        DesiredFOV: 106.26
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/DefUser.ini
+    merge: true
