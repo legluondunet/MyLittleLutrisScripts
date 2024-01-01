@@ -8,6 +8,7 @@ installer:
 - extract:
     dst: $GAMEDIR
     file: gogsetup
+    format: gog
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
