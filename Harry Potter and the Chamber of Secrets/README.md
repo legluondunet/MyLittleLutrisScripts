@@ -5,7 +5,7 @@ Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
 - You will need CD only one time during install
 - Replaced original buggy launcher by HarryPotter2-NeoLauncher open source project
 - Using different mods: DirectX 9 renderer, Widescreen menu mod
-- Alt-Tab will crash the game. Workaround: use Gamescope
+- Alt-Tab could crash the game or cause game unstability. Workaround: use Gamescope
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
 ### Credits:
