@@ -1,4 +1,4 @@
-# Harry Potter and the Chamber of Secrets CD + dxwrapper + mods
+# Harry Potter and the Chamber of Secrets CD + widescreen mods
 ### Description:
 Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
 ### Technical notes:
