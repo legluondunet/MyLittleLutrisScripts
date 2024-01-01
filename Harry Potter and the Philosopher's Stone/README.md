@@ -4,6 +4,7 @@ Play "Harry Potter and the Philosopher's Stone" CD edition on Linux!
 ### Technical notes:
 - Game will be automagically set to use your native desktop resolution
 - Using different mods: DirectX 9 renderer, Widescreen menu mods
+- Alt-Tab could crash the game or cause game unstability. Workaround: use Gamescope
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
 ### Credits:
