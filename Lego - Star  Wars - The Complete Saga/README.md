@@ -1,6 +1,6 @@
 # Lego - Star  Wars - The Complete Saga - GOG
 ### Description:
-Play "Lego - Star Wars - The Complete Saga" provided by GOG on Linuxusing Linux!
+Play "Lego - Star Wars - The Complete Saga" provided by GOG on Linux!
 ### Technical notes:
 - This script installer will set the game to use your desktop resolution
 - refresh rate set to 60 hz to avoid bugs
