@@ -1,12 +1,3 @@
----
-author: Romain
-changed: "2019-07-09T12:06:49.249016511"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.4.2 (Linux)
-lang: fr-FR
----
-
 <u>**Gamepad profiles for RUNE**</u>
 
 **RUNE have natively bad support for gamepad, so you have to install a
