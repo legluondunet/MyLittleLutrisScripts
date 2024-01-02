@@ -1,0 +1,97 @@
+files:
+- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/RuneExtended.zip
+- mod2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/OpenAL32.tar.xz
+- gogsetup: N/A:Select the EXE downloaded from GOG
+game:
+  exe: drive_c/GOG Games/Rune Classic/System/Rune.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic
+    src: $GAMEDIR/drive_c/GOG Games/Rune Classic/__support/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/Maps
+    file: mod1
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Classic/Maps"; for file in * ; do
+      mv "$file" "${file//_CUT}"; done ;
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/System
+    file: mod2
+- input_menu:
+    description: Select your preferred language
+    id: lang
+    options:
+    - int: English
+    - frt: French
+    - itt: Italian
+    - det: german
+    - est: spanish
+    - rut: russian
+    preselect: int
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_lang
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 60.0
+        UseDirectDraw: true
+        UseJoystick: false
+        WindowedColorBits: 32
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_lang
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 60.0
+        UseDirectDraw: true
+        UseJoystick: false
+        WindowedColorBits: 32
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Rune.ini
+    merge: true
+- write_config:
+    data:
+      Engine.Input:
+        B: Look
+        H: TurnLeft
+        J: TurnRight
+        MouseWheelUp: null
+        Shift: null
+        V: ZTargetToggle
+      Engine.PlayerPawn:
+        DefaultFOV: 91.3
+        DesiredFOV: 91.3
+    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/DefUser.ini
+    merge: true
