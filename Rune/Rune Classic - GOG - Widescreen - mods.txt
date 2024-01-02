@@ -19,12 +19,12 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Classic
     src: $GAMEDIR/drive_c/GOG Games/Rune Classic/__support/app
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Classic/Maps"; for file in *CUT*
+      ; do mv "$file" "${file//_CUT}"; done ;
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/Maps
     file: mod1
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Rune Classic/Maps"; for file in * ; do
-      mv "$file" "${file//_CUT}"; done ;
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/System
     file: mod2
