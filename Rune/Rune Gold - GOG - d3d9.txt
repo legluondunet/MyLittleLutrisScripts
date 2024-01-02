@@ -1,0 +1,69 @@
+custom-name: RUNE Gold - GOG
+files:
+- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/rg_d3d9_renderer.zip
+- gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
+game:
+  exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
+    file: mod1
+- write_config:
+    data:
+      Engine.Engine:
+        GameRenderDevice: D3D9Drv.D3D9RenderDevice
+      Engine.GameEngine:
+        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
+          MasterServerPort=27900
+      FirstRun:
+        FirstRun: 107
+      IpServer.UdpServerUplink:
+        MasterServerAddress: master.333networks.com
+      UBrowserAll:
+        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
+      UWindow.WindowConsole:
+        ConsoleKey: 112
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        MinDesiredFrameRate: 60.0
+        UseDirectDraw: true
+        UseJoystick: false
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Default.ini
+    merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Rune.ini
+- write_config:
+    data:
+      Engine.Input:
+        B: Look
+        H: TurnLeft
+        J: TurnRight
+        MouseWheelUp: null
+        Shift: null
+        V: ZTargetToggle
+      Engine.PlayerPawn:
+        DefaultFOV: 91.3
+        DesiredFOV: 91.3
+    file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/DefUser.ini
+    merge: true
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
