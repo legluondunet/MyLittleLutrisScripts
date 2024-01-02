@@ -60,27 +60,9 @@ installer:
         WindowedColorBits: 32
     file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Default.ini
     merge: true
-- write_config:
-    data:
-      Engine.Engine:
-        Language: $INPUT_lang
-      Engine.GameEngine:
-        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
-          MasterServerPort=27900
-      IpServer.UdpServerUplink:
-        MasterServerAddress: master.333networks.com
-      UBrowserAll:
-        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
-      WinDrv.WindowsClient:
-        FullscreenColorBits: 32
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-        MinDesiredFrameRate: 60.0
-        UseDirectDraw: true
-        UseJoystick: false
-        WindowedColorBits: 32
-    file: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Rune.ini
-    merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Rune Classic/System/Rune.ini
 - write_config:
     data:
       Engine.Input:
