@@ -1,4 +1,4 @@
-# RUNE CLASSIC - GOG - widescreen - mods
+# RUNE Classic - GOG - widescreen - mods
 ### Description:
 Play "Rune Classic" GOG edition on Linux!
 ### Technical notes:
@@ -10,6 +10,21 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune/gamepad%2
 ### Credits:
 - ALAudio for Rune: https://www.oldunreal.com/phpBB3/viewtopic.php?t=453&sid=d7e40ee645e2730249831b17ebb008c8
 - Rune Extended - Mod For Missing Levels: https://www.moddb.com/games/rune/downloads/rune-extended-mod-for-missing-levels
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# RUNE Gold - GOG - widescreen - mods
+### Description:
+Play "Rune Gold" GOG edition on Linux!
+### Technical notes:
+- You need to download "Rune Gold" on your GOG games library page before to launch this script
+- mods: Direct3D9 Renderer v1.3 by Chris Dohnal
+- Multiplayer mode active using https://master.333networks.com
+- Press F1 key to show console
+- This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune/gamepad%20profiles
+### Credits:
+- Direct3D9 Renderer v1.3 by Chris Dohnal: http://www.cwdohnal.com/utglr/
+- Rune guides: https://playrune.com/
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # RUNE - CD - Linux 
@@ -30,16 +45,3 @@ Technical notes:
 Please report issue concerning this script on my github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
 
-# RUNE GOLD - GOG - Wine
-
-Description:
-This script will install "Rune Gold" GOG edition with support for modern screen resolution.
-During install please let all options by default.
-Thanks to the people who contributed to play this game in the best conditions.
-
-Technical notes:
-- Download "Rune Gold" version on your GOG games library page before to launch this script.
-- Multiplayer mode active using https://master.333networks.com 
-- Rune Gold has bad controller support. Instead I invite you to use a keymapper like Antimicro or sc-controller. You will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
