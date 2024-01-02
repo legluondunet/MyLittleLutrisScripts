@@ -1,4 +1,4 @@
-<u>'''Gamepad profiles for RUNE'''</u>
+'''Gamepad profiles for RUNE'''
 
 '''RUNE have natively bad support for gamepad, so you have to install a third party software.'''
 
@@ -16,7 +16,7 @@
 
 '''You will find gamepad profiles in your Lutris BGE wineprefix: c:\GOG Games\Rune Classic\gamepad profiles\'''
 
-<u>'''RUNE keyboard and gamepad mapping'''</u>
+'''RUNE keyboard and gamepad mapping'''
 
 {|
 | '''Action'''
