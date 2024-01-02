@@ -1,16 +1,15 @@
 <u>**Gamepad profiles for RUNE**</u>
 
-RUNE have natively bad support for gamepad, so you have to install a
-third party software.
+RUNE have natively bad support for gamepad, so you have to install a third party software.
 
 This software will attribute keyboard keys to your gamepad.
 
 Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
 your gamepad.
 
-x360 controller profile to use with antimicro --> rune_x360.gamecontroller.amgp
+x360 controller profile to use with AntiMicroX --> rune_x360.gamecontroller.amgp
 
-You can download Antimicro here: https://github.com/AntiMicro/antimicro
+You can download AntiMicroX here: [https://github.com/AntiMicro/antimicro](https://github.com/AntiMicroX/antimicrox/)
 
 Steam controller profile to use with sc-controller --> rune_steam.sccprofile
 
