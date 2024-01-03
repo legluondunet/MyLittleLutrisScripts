@@ -1,7 +1,9 @@
 #!/bin/bash
 
-lang=$1
+lang="$1"
 echo "la variable lang est égale à " $lang
+cache_path="$2"
+echo "la variable cache_path est égale à " $cahe_path
 
 if [ $lang == "int" ]; then 
 exit
