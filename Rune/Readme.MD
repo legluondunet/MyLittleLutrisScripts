@@ -4,7 +4,8 @@ Play "Rune Classic" GOG edition on Linux!
 ### Technical notes:
 - Game will be automagically set to use your native desktop resolution
 - mods: extended maps, better sound quality
-- Multiplayer mode active using https://master.333networks.com 
+- Multiplayer mode active using https://master.333networks.com
+- Press F1 key to show console
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune/gamepad%20profiles
 ### Credits:
