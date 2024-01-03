@@ -21,7 +21,7 @@ installer:
     src: $GAMEDIR/drive_c/GOG Games/Rune Classic/__support/app
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Rune Classic/Maps"; for file in *CUT*
-      ; do mv "$file" "${file//_CUT}"; done ;
+      ; do LD_LIBRARY_PATH=. mv "$file" "${file//_CUT}"; done ;
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Classic/Maps
     file: mod1
