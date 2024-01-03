@@ -2,6 +2,7 @@ custom-name: RUNE Gold - GOG
 files:
 - mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/rg_d3d9_renderer.zip
 - gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
+- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/run_lang_script.sh
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
   prefix: $GAMEDIR
@@ -19,10 +20,29 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
     file: mod1
+- input_menu:
+    description: Select your preferred language
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - itt: Italian
+    - det: german
+    - est: spanish
+    - rut: russian
+    preselect: int
+- chmodx: script1
+- execute:
+    args: $INPUT_LANG $CACHE
+    file: script1
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold
+    file: $CACHE/rune_lang_$INPUT_LANG.tar.xz
 - write_config:
     data:
       Engine.Engine:
         GameRenderDevice: D3D9Drv.D3D9RenderDevice
+        Language: $INPUT_LANG
       Engine.GameEngine:
         ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
           MasterServerPort=27900
