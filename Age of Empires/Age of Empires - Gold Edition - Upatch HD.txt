@@ -1,0 +1,48 @@
+files:
+- scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/findaoe.sh
+- patch: N/A:please download and select latest Upatch HD version from their official
+    homepage https://upatch-hd.weebly.com
+game:
+  exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires/gamex/Launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: aoex.ico
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: patch
+- chmodx: scriptinstall
+- execute:
+    args: $DISC
+    file: scriptinstall
+- task:
+    app: winxp
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    executable: $GAMEDIR/drive_c/tmp/aoeinstall.bat
+    name: wineexec
+- task:
+    app: icodecs
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: directplay
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    app: win7
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    executable: $GAMEDIR/drive_c/tmp/UPatch HD Setup.exe
+    name: wineexec
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
