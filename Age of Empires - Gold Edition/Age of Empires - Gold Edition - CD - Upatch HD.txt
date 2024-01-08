@@ -1,5 +1,5 @@
 files:
-- scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires/findaoe.sh
+- scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires%20-%20Gold%20Edition/findaoe.sh
 - patch: N/A:please download and select latest Upatch HD version from their official
     homepage https://upatch-hd.weebly.com
 game:
