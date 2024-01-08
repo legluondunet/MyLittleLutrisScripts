@@ -14,11 +14,12 @@ else
 echo "AOE setup file not found"
 exit
 fi
-mkdir drive_c/tmp
+cd drive_c/tmp
 
-cat > drive_c/tmp/aoeinstall.bat <<- EOF
+cat > aoeinstall.bat <<- EOF
 $cdpath/$setupfile
 exit
 EOF
 
+find . -type f -iname '*upatch*' -print0 | LD_LIBRARY_PATH=. xargs --null -I{} mv {} "UPatch HD Setup.exe"
 exit
