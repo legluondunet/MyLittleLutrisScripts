@@ -1,8 +1,7 @@
-custom-name: RUNE Gold - GOG
 files:
-- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/rg_d3d9_renderer.zip
+- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/rg_d3d9_renderer.zip
 - gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
-- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/run_lang_script.sh
+- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
   prefix: $GAMEDIR
