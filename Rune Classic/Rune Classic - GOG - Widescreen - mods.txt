@@ -1,6 +1,6 @@
 files:
-- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/RuneExtended.zip
-- mod2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune/OpenAL32.tar.xz
+- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Classic/RuneExtended.zip
+- mod2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Classic/OpenAL32.tar.xz
 - gogsetup: N/A:Select the EXE downloaded from GOG
 game:
   exe: drive_c/GOG Games/Rune Classic/System/Rune.exe
