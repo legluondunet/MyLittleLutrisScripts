@@ -8,7 +8,7 @@ Play "Rune Gold" GOG edition on Linux!
 - Multiplayer mode active using https://master.333networks.com
 - Press F1 key to show console
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
-https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune/gamepad%20profiles
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune%20Gold/gamepad%20profiles
 ### Credits:
 - Direct3D9 Renderer v1.3 by Chris Dohnal: http://www.cwdohnal.com/utglr/
 - Rune guides: https://playrune.com/
