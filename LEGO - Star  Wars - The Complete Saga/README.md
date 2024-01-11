@@ -1,4 +1,4 @@
-# Lego - Star  Wars - The Complete Saga - GOG
+# LE - Star  Wars - The Complete Saga - GOG
 ### Description:
 Play "Lego - Star Wars - The Complete Saga" provided by GOG on Linux!
 ### Technical notes:
