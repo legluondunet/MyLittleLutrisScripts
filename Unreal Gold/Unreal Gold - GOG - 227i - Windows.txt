@@ -52,16 +52,19 @@ installer:
         WindowedViewportY: $RESOLUTION_HEIGHT
     file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
     merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Unreal.ini
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/User.ini
 - write_config:
     data:
       Engine.PlayerPawn:
-        DefaultFOV: 106,4
-        DesiredFOV: 106,4
+        DefaultFOV: 106.4
+        DesiredFOV: 106.4
     file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/DefUser.ini
     merge: true
-move:
-  dst: $CACHE
-  src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Unreal.ini
 system:
   env:
     DXVK_FRAME_RATE: '60'
