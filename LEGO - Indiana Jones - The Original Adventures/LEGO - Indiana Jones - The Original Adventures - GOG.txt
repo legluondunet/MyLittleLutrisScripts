@@ -1,5 +1,5 @@
 files:
-- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20Indiana%20Jones%20-%20The%20Original%20Adventures/lswtcs_controller_cfg.tar.xz
+- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Indiana%20Jones%20-%20The%20Original%20Adventures/lijtoa_controller_cfg.tar.xz
 - gogsetup: N/A:Select the Windows setup file downloaded from your GOG account page.
 game:
   exe: drive_c/GOG Games/LEGO Indiana Jones - The Original Adventures/LEGOIndy.exe
@@ -27,3 +27,7 @@ installer:
 
       Vibration              1 '
     file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGOIndianaJones/pcconfig.txt
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
