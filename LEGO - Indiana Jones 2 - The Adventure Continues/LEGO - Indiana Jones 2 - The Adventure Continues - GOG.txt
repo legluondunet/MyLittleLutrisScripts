@@ -1,0 +1,39 @@
+files:
+- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Star%20%20Wars%20-%20The%20Complete%20Saga/lswtcs_controller_cfg.tar.xz
+- gogsetup: N/A:Select the Windows setup file downloaded from your GOG account page.
+game:
+  exe: drive_c/GOG Games/LEGO Indiana Jones - The Adventure Continues/LEGOIndy2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/LEGO Indiana Jones - The Adventure Continues
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/LEGO Indiana Jones - The Adventure Continues
+    file: controller_cfg
+- write_file:
+    content: 'ScreenWidth                 $RESOLUTION_WIDTH
+
+      ScreenHeight                $RESOLUTION_HEIGHT
+
+      AspectRatio                 3
+
+      ScreenRefreshRate      60
+
+      Vibration              1 '
+    file: "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/LucasArts/LEGO\xAE Indiana\
+      \ Jones\u2122 2  2/pcconfig.txt"
+- task:
+    app: xact
+    name: winetricks
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
