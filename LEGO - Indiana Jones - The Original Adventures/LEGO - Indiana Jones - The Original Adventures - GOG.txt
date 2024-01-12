@@ -25,8 +25,15 @@ installer:
 
       ScreenRefreshRate      60
 
+      VerticalSync                1
+
+      Widescreen                  3
+
       Vibration              1 '
     file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGOIndianaJones/pcconfig.txt
+- task:
+    app: xact
+    name: winetricks
 system:
   env:
     DXVK_FRAME_RATE: '60'
