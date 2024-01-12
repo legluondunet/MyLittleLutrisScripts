@@ -1,4 +1,4 @@
-# LEGO -Indiana Jones - The Original Adventures - GOG
+# LEGO - Indiana Jones - The Original Adventures - GOG
 ### Description:
 Play "LEGO - Indiana Jones - The Original Adventures"  provided by GOG on Linux!
 ### Technical notes:
