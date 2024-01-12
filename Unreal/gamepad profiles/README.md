@@ -1,30 +1,18 @@
 <u>**Gamepad profiles for Unreal Gold**</u>
 
-**Unreal Gold have natively bad support for gamepad, so you have to
-install a third party software.**
+Unreal Gold have natively bad support for gamepad, so you have to install a third party software.
+This software will attribute keyboard keys to your gamepad.
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
+your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+x360 controller profile to use with AntiMicroX --> unreal_x360.gamecontroller.amgp
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+You can download AntiMicroX here: https://github.com/AntiMicroX/antimicrox
 
-**x360 controller profile to use with antimicro -->
-unreal_x360.gamecontroller.amgp**
+Steam controller profile to use with sc-controller --> unreal_steam.sccprofile
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**Steam controller profile to use with sc-controller -->
-unreal_steam.sccprofile**
-
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your Lutris BGE wineprefix: c:\\GOG
-Games\\Unreal Gold\\gamepad profiles\\**
 
 <u>**Unreal Gold keyboard and gamepad mapping**</u>
 
