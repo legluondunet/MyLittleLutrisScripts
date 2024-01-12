@@ -1,9 +1,8 @@
 files:
-- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Star%20%20Wars%20-%20The%20Complete%20Saga/lswtcs_controller_cfg.tar.xz
-- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
-    account.
+- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Indiana%20Jones%20-%20The%20Original%20Adventures/lijtoa_controller_cfg.tar.xz
+- gogsetup: N/A:Select the Windows setup file downloaded from your GOG account page.
 game:
-  exe: drive_c/GOG Games/Lego - Star Wars - The Complete Saga/LEGOStarWarsSaga.exe
+  exe: drive_c/GOG Games/LEGO Indiana Jones - The Original Adventures/LEGOIndy.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,27 +12,28 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Lego - Star Wars - The Complete Saga
+    dst: $GAMEDIR/drive_c/GOG Games/LEGO Indiana Jones - The Original Adventures
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGO Star Wars - The
-      Complete Saga
+    dst: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGOIndianaJones
     file: controller_cfg
 - write_file:
-    content: 'ScreenWidth            $RESOLUTION_WIDTH
+    content: 'ScreenWidth                 $RESOLUTION_WIDTH
 
-      ScreenHeight          $RESOLUTION_HEIGHT
+      ScreenHeight                $RESOLUTION_HEIGHT
 
       ScreenRefreshRate      60
 
-      Widescreen             3
-
       VerticalSync                1
 
+      Widescreen                  3
+
       Vibration              1 '
-    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGO Star Wars - The
-      Complete Saga/pcconfig.txt
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGOIndianaJones/pcconfig.txt
+- task:
+    app: xact
+    name: winetricks
 system:
   env:
     DXVK_FRAME_RATE: '60'
