@@ -1,12 +1,9 @@
 # LEGO Indiana Jones - The Original Adventures - GOG
-
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"LEGO Indiana Jones - The Original Adventures"  provided by GOG using Wine Lutris runner.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play "LEGO - Indiana Jones - The Original Adventures"  provided by GOG on Linux!
 ### Technical notes:
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
-
+- This script installer will set the game to use your desktop resolution
+- refresh rate set to 60 hz to avoid bugs
+- mapping provided for X360, PS3 and PS4 controller
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
