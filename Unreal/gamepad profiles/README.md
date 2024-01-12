@@ -1,261 +1,242 @@
-     @page { size: 21cm 29.7cm; margin-left: 2cm; margin-right: 1cm; margin-top: 1cm; margin-bottom: 1cm } p { margin-bottom: 0.25cm; background: transparent; font-family: "Liberation Sans"; font-size: 10pt; line-height: 115%; background: transparent } td p { margin-bottom: 0.25cm; background: transparent; font-family: "Liberation Sans"; font-size: 10pt; line-height: 115%; background: transparent } a:link { color: #000080; so-language: zxx; text-decoration: underline } a:visited { color: #800000; so-language: zxx; text-decoration: underline }
+---
+author: Romain
+changed: "2019-12-21T19:41:12.065911901"
+created: "2019-05-09T09:02:48.919032913"
+generator: LibreOffice 6.2.8.2 (Linux)
+lang: fr-FR
+---
 
-**Gamepad profiles for Unreal Gold**
+<u>**Gamepad profiles for Unreal Gold**</u>
 
-**Unreal Gold have natively bad support for gamepad, so you have to install a third party software.**
+**Unreal Gold have natively bad support for gamepad, so you have to
+install a third party software.**
 
 **This software will attribute keyboard keys to your gamepad.**
 
-**Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.**
+**Depend your gamepad, choose appropriate app below, install it on your
+Linux distribution, import profile and start game, you can now play with
+your gamepad.**
 
-**x360 controller profile to use with antimicro --> unreal\_x360.gamecontroller.amgp**
+**x360 controller profile to use with antimicro -->
+unreal_x360.gamecontroller.amgp**
 
-**You can download Antimicro here: [https://github.com/AntiMicro/antimicro](https://github.com/AntiMicro/antimicro)**
+<span style="font-variant: normal"><span
+style="font-style: normal">**You can download Antimicro here:
+<https://github.com/AntiMicro/antimicro>**</span></span>
 
-**Steam controller profile to use with sc-controller --> unreal\_steam.sccprofile**
+**Steam controller profile to use with sc-controller -->
+unreal_steam.sccprofile**
 
-**You can download sc-controller here --> [https://github.com/kozec/sc-controller](https://github.com/kozec/sc-controller)**
+<span style="font-variant: normal"><span
+style="font-style: normal">**You can download sc-controller here -->
+<https://github.com/kozec/sc-controller>**</span></span>
 
-**You will find gamepad profiles in your Lutris BGE wineprefix: c:\\GOG Games\\Unreal Gold\\gamepad profiles\\**
+**You will find gamepad profiles in your Lutris BGE wineprefix: c:\\GOG
+Games\\Unreal Gold\\gamepad profiles\\**
 
-**Unreal Gold keyboard and gamepad mapping**
+<u>**Unreal Gold keyboard and gamepad mapping**</u>
 
-    
-
-**Action**
-
-**PC Key (qwerty)**
-
-**PC Key (azerty)**
-
-**Antimicro x360**
-
-**SC-Controller Steam Controller**
-
-**MOVES**
-
-**ARROW KEYS**
-
-**or WASD**
-
-**ARROW KEYS**
-
-**or ZQSD**
-
-**LEFT STICK**
-
-**LEFT STICK**
-
-**JUMP/UP**
-
-**SPACE**
+<table width="567" data-cellpadding="2" data-cellspacing="1" style="background: transparent">
+<tbody>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>Action</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>PC Key (qwerty)</strong></p></td>
+<td width="85" style="background: transparent"><p><strong><span style="background: transparent">PC Key (azerty)</span></strong></p></td>
+<td width="112" style="background: transparent"><p><strong>Antimicro x360</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>SC-Controller Steam Controller</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>MOVES</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>ARROW KEYS</strong></p>
+<p><strong>or WASD</strong></p></td>
+<td width="85" style="background: transparent"><p><strong><span style="background: transparent">ARROW KEYS</span></strong></p>
+<p><strong><span style="background: transparent">or ZQSD</span></strong></p></td>
+<td width="112" style="background: transparent"><p><strong>LEFT STICK</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>LEFT STICK</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>JUMP/UP</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>SPACE</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>A</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>A</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>DEFEND</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>MOUSE BUTTON RIGHT</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>B</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>B</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>ATTACK</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>MOUSE BUTTON LEFT</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>X</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>X</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>CROUCH/DOWN</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>C</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>Y</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>Y</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>STOW WEAPON</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>1</strong></p></td>
+<td width="85" style="background: transparent"><p><strong>&amp;</strong></p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT DPAD DOWN</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT DPAD DOWN</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>SELECT NEXT SWORD</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>2</strong></p></td>
+<td width="85" style="background: transparent"><p><strong>é</strong></p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT DPAD LEFT</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT DPAD LEFT</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>SELECT NEXT HAMMER</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>3</strong></p></td>
+<td width="85" style="background: transparent"><p><strong>«</strong></p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT DPAD UP</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT DPAD UP</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>SELECT NEXT AXE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>4</strong></p></td>
+<td width="85" style="background: transparent"><p>‘</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT DPAD RIGHT</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT DPAD RIGHT</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>TOGGLE TARGET STRAFE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>V</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>LEFT SHOULDER</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>LEFT SHOULDER</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>USE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>CTRL</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT SHOULDER</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT SHOULDER</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>MOUSE LOOK</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>B</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>LEFT TRIGGER</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>LEFT TRIGGER</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>unreal POWER</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>E</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT TRIGGER</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT TRIGGER</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>MENU/PAUSE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>ESC</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>SELECT</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>SELECT</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>CAMERA UP</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>DELETE</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT STICK UP</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT PAD UP</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>CAMERA DOWN</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>PAGE DOWN</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT STICK DOWN</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT PAD DOWN</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>CAMERA LEFT</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>H</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT STICK LEFT</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT PAD LEFT</strong></p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>CAMERA DOWN</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>J</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" style="background: transparent"><p><strong>RIGHT STICK RIGHT</strong></p></td>
+<td width="110" style="background: transparent"><p><strong>RIGHT PAD RIGHT</strong></p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>THROW WEAPON</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>Q</strong></p></td>
+<td width="85" style="background: transparent"><p><strong>A</strong></p></td>
+<td width="112" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="110" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>QUICK SAVE GAME</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>F5</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="110" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>QUICK LOAD GAME</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>F7</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="110" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+</tr>
+<tr class="odd" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>SEND MESSAGE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>T</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="110" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+</tr>
+<tr class="even" style="background: transparent">
+<td width="129" style="background: transparent"><p><strong>SEND TEAM MESSAGE</strong></p></td>
+<td width="103" style="background: transparent"><p><strong>R</strong></p></td>
+<td width="85" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="112" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+<td width="110" data-bgcolor="#c0c0c0" style="background: #c0c0c0"><p><br />
+</p></td>
+</tr>
+</tbody>
+</table>
 
   
-
-**A**
-
-**A**
-
-**DEFEND**
-
-**MOUSE BUTTON RIGHT**
-
   
-
-**B**
-
-**B**
-
-**ATTACK**
-
-**MOUSE BUTTON LEFT**
-
-  
-
-**X**
-
-**X**
-
-**CROUCH/DOWN**
-
-**C**
-
-  
-
-**Y**
-
-**Y**
-
-**STOW WEAPON**
-
-**1**
-
-**&**
-
-**RIGHT DPAD DOWN**
-
-**RIGHT DPAD DOWN**
-
-**SELECT NEXT SWORD**
-
-**2**
-
-**é**
-
-**RIGHT DPAD LEFT**
-
-**RIGHT DPAD LEFT**
-
-**SELECT NEXT HAMMER**
-
-**3**
-
-**«**
-
-**RIGHT DPAD UP**
-
-**RIGHT DPAD UP**
-
-**SELECT NEXT AXE**
-
-**4**
-
-‘
-
-**RIGHT DPAD RIGHT**
-
-**RIGHT DPAD RIGHT**
-
-**TOGGLE TARGET STRAFE**
-
-**V**
-
-  
-
-**LEFT SHOULDER**
-
-**LEFT SHOULDER**
-
-**USE**
-
-**CTRL**
-
-  
-
-**RIGHT SHOULDER**
-
-**RIGHT SHOULDER**
-
-**MOUSE LOOK**
-
-**B**
-
-  
-
-**LEFT TRIGGER**
-
-**LEFT TRIGGER**
-
-**unreal POWER**
-
-**E**
-
-  
-
-**RIGHT TRIGGER**
-
-**RIGHT TRIGGER**
-
-**MENU/PAUSE**
-
-**ESC**
-
-  
-
-**SELECT**
-
-**SELECT**
-
-**CAMERA UP**
-
-**DELETE**
-
-  
-
-**RIGHT STICK UP**
-
-**RIGHT PAD UP**
-
-**CAMERA DOWN**
-
-**PAGE DOWN**
-
-  
-
-**RIGHT STICK DOWN**
-
-**RIGHT PAD DOWN**
-
-**CAMERA LEFT**
-
-**H**
-
-  
-
-**RIGHT STICK LEFT**
-
-**RIGHT PAD LEFT**
-
-**CAMERA DOWN**
-
-**J**
-
-  
-
-**RIGHT STICK RIGHT**
-
-**RIGHT PAD RIGHT**
-
-**THROW WEAPON**
-
-**Q**
-
-**A**
-
-  
-
-  
-
-**QUICK SAVE GAME**
-
-**F5**
-
-  
-
-  
-
-  
-
-**QUICK LOAD GAME**
-
-**F7**
-
-  
-
-  
-
-  
-
-**SEND MESSAGE**
-
-**T**
-
-  
-
-  
-
-  
-
-**SEND TEAM MESSAGE**
-
-**R**
