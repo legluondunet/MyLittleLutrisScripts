@@ -30,3 +30,7 @@ installer:
       Vibration              1 '
     file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGO Star Wars - The
       Complete Saga/pcconfig.txt
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
