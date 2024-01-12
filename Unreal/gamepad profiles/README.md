@@ -1,4 +1,4 @@
-<u>**Gamepad profiles for Unreal Gold**</u>
+# **Gamepad profiles for Unreal Gold**
 
 Unreal Gold have natively bad support for gamepad, so you have to install a third party software.
 This software will attribute keyboard keys to your gamepad.
@@ -14,7 +14,7 @@ Steam controller profile to use with sc-controller --> unreal_steam.sccprofile
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
 
-<u>**Unreal Gold keyboard and gamepad mapping**</u>
+## **Unreal Gold keyboard and gamepad mapping**
 
 <table width="567" data-cellpadding="2" data-cellspacing="1" style="background: transparent">
 <tbody>
