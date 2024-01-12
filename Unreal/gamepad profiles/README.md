@@ -1,11 +1,3 @@
----
-author: Romain
-changed: "2019-12-21T19:41:12.065911901"
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.8.2 (Linux)
-lang: fr-FR
----
-
 <u>**Gamepad profiles for Unreal Gold**</u>
 
 **Unreal Gold have natively bad support for gamepad, so you have to
