@@ -1,5 +1,5 @@
 files:
-- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Star%20%20Wars%20-%20The%20Complete%20Saga/lswtcs_controller_cfg.tar.xz
+- controller_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/LEGO%20-%20Indiana%20Jones%202%20-%20The%20Adventure%20Continues/lij2tac_controller_cfg.tar.xz
 - gogsetup: N/A:Select the Windows setup file downloaded from your GOG account page.
 game:
   exe: drive_c/GOG Games/LEGO Indiana Jones - The Adventure Continues/LEGOIndy2.exe
@@ -25,7 +25,11 @@ installer:
 
       AspectRatio                 3
 
+
+
       ScreenRefreshRate      60
+
+      VerticalSync                1
 
       Vibration              1 '
     file: "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/LucasArts/LEGO\xAE Indiana\
