@@ -27,6 +27,10 @@ installer:
 
       ScreenRefreshRate      60
 
+      Widescreen             3
+
+      VerticalSync                1
+
       Vibration              1 '
     file: $GAMEDIR/drive_c/users/$USER/AppData/Local/LucasArts/LEGO Star Wars - The
       Complete Saga/pcconfig.txt
