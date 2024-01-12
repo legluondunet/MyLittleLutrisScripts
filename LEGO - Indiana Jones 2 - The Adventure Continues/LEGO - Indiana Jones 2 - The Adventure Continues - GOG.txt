@@ -16,7 +16,8 @@ installer:
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/LEGO Indiana Jones - The Adventure Continues
+    dst: "$GAMEDIR/$GAMEDIR/drive_c/users/$USER/AppData/Roaming/LucasArts/LEGO\xAE\
+      \ Indiana Jones\u2122 2"
     file: controller_cfg
 - write_file:
     content: 'ScreenWidth                 $RESOLUTION_WIDTH
@@ -33,7 +34,7 @@ installer:
 
       Vibration              1 '
     file: "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/LucasArts/LEGO\xAE Indiana\
-      \ Jones\u2122 2  2/pcconfig.txt"
+      \ Jones\u2122 2/pcconfig.txt"
 - task:
     app: xact
     name: winetricks
