@@ -38,6 +38,8 @@ installer:
     file: wrapper
 - write_config:
     data:
+      Engine.Console:
+        ConsoleKey: 45
       WinDrv.WindowsClient:
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
@@ -52,6 +54,9 @@ installer:
     merge: true
 - write_config:
     data:
+      Engine.Input:
+        1: set KWVersion bDebugEnabled True
+        2: set KWVersion bDebugEnabled False
       Engine.PlayerController:
         DefaultFOV: 106.26
         DesiredFOV: 106.26
