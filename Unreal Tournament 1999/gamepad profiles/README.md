@@ -1,47 +1,21 @@
----
-author: Romain
-changed: "2020-09-27T00:18:33.657292801"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.4.6.2 (Linux)
-lang: fr-FR
----
 
-<u>**Gamepad profiles for Unreal**</u> <u>**Tournament (1999)**</u>
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**Unreal** </span></span><span
-style="font-variant: normal"><span
-style="font-style: normal">**Tournament**</span></span><span
-style="font-variant: normal"><span style="font-style: normal"> **have
-natively bad support for gamepad, so you have to install a third party
-software.**</span></span>
+### Gamepad profiles for Unreal Tournament (1999)
 
-**This software will attribute keyboard keys to your gamepad.**
+This software will attribute keyboard keys to your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
+your gamepad.
 
-**x360 controller profile to use with antimicro -->
-unreal_tournament_x360.gamecontroller.amgp**
+x360 controller profile to use with antimicro --> unreal_tournament_x360.gamecontroller.amgp
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+You can download Antimicro here: https://github.com/AntiMicroX/antimicrox
 
-**Steam controller profile to use with sc-controller -->
-unreal_tournament_steam.sccprofile**
+Steam controller profile to use with sc-controller --> unreal_tournament_steam.sccprofile
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**You will find gamepad profiles in your Lutris BGE wineprefix:
-c:\\UnrealTournament\\gamepad profiles\\**
-
-<u>**Unreal**</u> <u>**Tournament**</u> <u>**keyboard and gamepad
-mapping**</u>
+## Unreal Tournament keyboard and gamepad mapping
 
 <table width="567" data-cellpadding="2" data-cellspacing="1" style="background: transparent">
 <tbody>
