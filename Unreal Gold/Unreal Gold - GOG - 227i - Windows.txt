@@ -34,7 +34,7 @@ installer:
 - write_config:
     data:
       Engine.Console:
-        GlobalConsoleKey: 8
+        GlobalConsoleKey: 112
       Engine.Engine:
         GameRenderDevice: D3D9Drv.D3D9RenderDevice
         Language: $INPUT_LANG
