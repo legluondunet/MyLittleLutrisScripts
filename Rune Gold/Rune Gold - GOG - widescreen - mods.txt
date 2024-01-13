@@ -52,7 +52,7 @@ installer:
       UBrowserAll:
         ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
       UWindow.WindowConsole:
-        ConsoleKey: 112
+        ConsoleKey: 8
       WinDrv.WindowsClient:
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
