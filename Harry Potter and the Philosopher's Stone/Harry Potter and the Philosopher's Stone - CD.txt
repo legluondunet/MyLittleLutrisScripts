@@ -29,7 +29,8 @@ installer:
         FirstRun: 433
       HPBase.baseConsole:
         bDebugMode: false
-        bUseSystemFonts: false
+      UWindow.WindowConsole:
+        ConsoleKey: 112
       WinDrv.WindowsClient:
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
