@@ -1,8 +1,8 @@
 files:
 - gogsetup: N/A:Select the EXE downloaded from GOG
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/unreal_patch_227i_MULTI5.zip
+- patch: https://www.dropbox.com/scl/fi/aa6vpin57hyd7f3ljo148/unreal-227j.7z?rlkey=odf7pkha5273lzqa340b57j9z&dl=1
 game:
-  exe: drive_c/GOG Games/Unreal Gold/System/Unreal.exe
+  exe: drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -33,6 +33,8 @@ installer:
     preselect: int
 - write_config:
     data:
+      Engine.Console:
+        GlobalConsoleKey: 8
       Engine.Engine:
         GameRenderDevice: D3D9Drv.D3D9RenderDevice
         Language: $INPUT_LANG
@@ -40,8 +42,6 @@ installer:
         FirstRun: 227
       UMenu.UMenuRootWindow:
         GUIScale: 2.0
-      UWindow.WindowConsole:
-        ConsoleKey: 112
       WinDrv.WindowsClient:
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
@@ -50,20 +50,21 @@ installer:
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Default.ini
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Default.ini
     merge: true
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/Unreal.ini
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Unreal.ini
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/User.ini
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/User.ini
 - write_config:
     data:
       Engine.PlayerPawn:
         DefaultFOV: 106.4
         DesiredFOV: 106.4
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System/DefUser.ini
+        MainFOV: 106.4
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/DefUser.ini
     merge: true
 system:
   env:
