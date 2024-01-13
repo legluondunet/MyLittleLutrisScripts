@@ -6,7 +6,7 @@ Play "Rune Gold" provided by GOG on Linux!
 - mods: Direct3D9 Renderer v1.3 by Chris Dohnal
 - Multilingual: you will be able to choose your preferred language for menus, subtitles and voices during installation between English (default), French, German, Italian, Spanish and Russian
 - Multiplayer mode active using https://master.333networks.com
-- Press F1 key to show console
+- type key backspace to show console
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Rune%20Gold/gamepad%20profiles
 ### Credits:
