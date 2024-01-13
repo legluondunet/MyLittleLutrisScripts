@@ -33,7 +33,7 @@ installer:
 - write_config:
     data:
       Engine.Console:
-        GlobalConsoleKey: 192
+        GlobalConsoleKey: 112
       Engine.Engine:
         GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
         Language: $INPUT_LANG
