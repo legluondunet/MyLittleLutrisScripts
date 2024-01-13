@@ -7,9 +7,9 @@ This software will attribute keyboard keys to your gamepad.
 Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
 your gamepad.
 
-x360 controller profile to use with antimicro --> unreal_tournament_x360.gamecontroller.amgp
+x360 controller profile to use with AntimicroX --> unreal_tournament_x360.gamecontroller.amgp
 
-You can download Antimicro here: https://github.com/AntiMicroX/antimicrox
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 
 Steam controller profile to use with sc-controller --> unreal_tournament_steam.sccprofile
 
