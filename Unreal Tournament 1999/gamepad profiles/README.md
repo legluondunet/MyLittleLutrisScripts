@@ -1,6 +1,4 @@
-
-
-### Gamepad profiles for Unreal Tournament (1999)
+## Gamepad profiles for Unreal Tournament (1999)
 
 This software will attribute keyboard keys to your gamepad.
 
@@ -15,7 +13,7 @@ Steam controller profile to use with sc-controller --> unreal_tournament_steam.s
 
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-## Unreal Tournament keyboard and gamepad mapping
+### Unreal Tournament keyboard and gamepad mapping
 
 <table width="567" data-cellpadding="2" data-cellspacing="1" style="background: transparent">
 <tbody>
