@@ -1,12 +1,10 @@
 files:
 - patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Windows.zip
 - patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2
-- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
-    account
 game:
-  exe: drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.exe
+  exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System64/ut-bin-amd64
+  - exe: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
     name: Unreal Tournament (1999) Linux native version
   prefix: $GAMEDIR
 installer:
@@ -16,16 +14,22 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert "Unreal Tournament (1999)" Windows CD and press autodetect
+    requires: system/UnrealTournament.exe
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
-    src: gogsetup
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
+    dst: $GAMEDIR/drive_c/UnrealTournament
     file: patch1
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
+    dst: $GAMEDIR/drive_c/UnrealTournament
     file: patch2
-- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System64/ut-bin-amd64
+- chmodx: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -59,14 +63,14 @@ installer:
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/Default.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System/Default.ini
     merge: true
 - write_config:
     data:
       Engine.Engine:
         DefaultFOV: 106.0
         DesiredFOV: 106.0
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/DefUser.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System/DefUser.ini
     merge: true
 - write_config:
     data:
@@ -92,21 +96,21 @@ installer:
         ConfiguredGUIScale: 2.0
       UWindow.WindowConsole:
         ConsoleKey: 112
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System64/Default.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System64/Default.ini
     merge: true
 - write_config:
     data:
       Engine.Engine:
         DefaultFOV: 106.0
         DesiredFOV: 106.0
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System64/DefUser.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System64/DefUser.ini
     merge: true
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.ini
+    src: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.ini
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System64"; cp Default.ini
-      UnrealTournament.ini; cp DefUser.ini User.ini;
+    command: cd "$GAMEDIR/drive_c/UnrealTournament/System64"; cp Default.ini UnrealTournament.ini;
+      cp DefUser.ini User.ini;
 system:
   env:
     DXVK_FRAME_RATE: '60'
