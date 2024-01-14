@@ -2,6 +2,7 @@
 ## Description:
 Play "Unreal tournament (1999)" provided by GOG on Linux!
 ## Technical notes:
+- You can choose to play the Windows (x64) or Linux (x64) versions
 - This script installer will automagically set the game to your desktop resolution with widescreen mode
 - OldUnreal Patch v469d
 - type key F1 to show console
