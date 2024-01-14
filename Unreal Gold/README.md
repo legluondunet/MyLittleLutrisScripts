@@ -9,7 +9,7 @@ Play "Unreal Gold" provided by GOG on Linux!
 - This game does not natively support controller. I wrote Antimicrox profiles, you can download them here: 
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Unreal/gamepad%20profiles
 ### Credits:
-- patch 227i: https://www.oldunreal.com
+- patch 227j: https://www.oldunreal.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
