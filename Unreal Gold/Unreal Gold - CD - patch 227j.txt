@@ -109,4 +109,4 @@ system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: ''
-  prefix_command: LD_LIBRARY_PATH=$GAMEDIR/drive_c/UnrealGold/lib64
+  prefix_command: LD_LIBRARY_PATH="$GAMEDIR/drive_c/UnrealGold/lib64"
