@@ -1,4 +1,4 @@
-# Enclave - GOG - DxWnd
+# Enclave - GOG - DxWrapper
 ### Description:
 Play "Enclave" provided by GOG on Linux!
 ### Technical notes:
