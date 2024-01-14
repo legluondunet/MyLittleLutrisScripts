@@ -96,14 +96,6 @@ installer:
         WindowedViewportY: $RESOLUTION_HEIGHT
     file: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
     merge: true
-- write_config:
-    data:
-      Engine.PlayerPawn:
-        DefaultFOV: 106.4
-        DesiredFOV: 106.4
-        MainFOV: 106.4
-    file: $GAMEDIR/drive_c/UnrealGold/System64/DefUser.ini
-    merge: true
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/UnrealGold/System64/Unreal.ini
