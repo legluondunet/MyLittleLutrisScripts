@@ -1,4 +1,4 @@
-### Gamepad profiles for Enclave
+## Gamepad profiles for Enclave
 
 Enclave have very weak support for gamepad on modern computer, you have to install a third party software.
 
@@ -15,7 +15,7 @@ Steam controller profile to use with sc-controller --> enclave_steam.sccprofile
 
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-## Enclave keyboard and gamepad mapping
+### Enclave keyboard and gamepad mapping
 
 <table width="751" data-cellpadding="2" data-cellspacing="0" style="background: transparent" data-border="2">
 <tbody>
