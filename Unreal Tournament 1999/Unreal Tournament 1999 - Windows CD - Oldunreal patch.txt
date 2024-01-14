@@ -1,9 +1,7 @@
 files:
-- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Windows.zip
-- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
-    account
+- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469c/OldUnreal-UTPatch469c-Windows.zip
 game:
-  exe: drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.exe
+  exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -12,11 +10,17 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert "Unreal Tournament (1999)" Windows CD and press autodetect
+    requires: system/UnrealTournament.exe
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
-    src: gogsetup
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
+    dst: $GAMEDIR/drive_c/UnrealTournament
     file: patch
 - input_menu:
     description: 'Choose your game''s language:'
@@ -51,18 +55,18 @@ installer:
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/Default.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System/Default.ini
     merge: true
 - write_config:
     data:
       Engine.Engine:
         DefaultFOV: 106.0
         DesiredFOV: 106.0
-    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/DefUser.ini
+    file: $GAMEDIR/drive_c/UnrealTournament/System/DefUser.ini
     merge: true
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.ini
+    src: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.ini
 system:
   env:
     DXVK_FRAME_RATE: '60'
