@@ -6,7 +6,7 @@ files:
 game:
   exe: drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+  - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.bin
     name: Unreal Linux native version
   prefix: $GAMEDIR
 installer:
@@ -24,15 +24,15 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
     src: $GAMEDIR/drive_c/GOG Games/app
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
-    src: linuxlibs
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/lib64
+    file: linuxlibs
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
-    src: patch1
+    file: patch1
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
-    src: patch2
-- chmodx: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold/Textures
+    file: patch2
+- chmodx: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.bin
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -108,4 +108,4 @@ system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: null
-  prefix_command: LD_LIBRARY_PATH=$GAMEDIR/drive_c/UnrealGold/lib64
+  prefix_command: LD_LIBRARY_PATH="$GAMEDIR/drive_c/GOG Games/Unreal Gold/lib64"
