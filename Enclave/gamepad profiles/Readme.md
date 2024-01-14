@@ -1,41 +1,21 @@
----
-author: Romain
-changed: "2019-06-02T14:12:04.303481432"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.3.2 (Linux)
-lang: fr-FR
----
+### Gamepad profiles for Enclave
 
-<u>**Gamepad profiles for Enclave**</u>
+Enclave have very weak support for gamepad on modern computer, you have to install a third party software.
 
-**Enclave have very weak support for gamepad on modern computer, you
-have to install a third party software.**
+This software will attribute keyboard keys to your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
+your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with AntimicroX --> enclave_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicro -->
-enclave_x360.gamecontroller.amgp**
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+Steam controller profile to use with sc-controller --> enclave_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-enclave_steam.sccprofile**
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your Lutris Enclave wineprefix:
-c:\\Enclave\\gamepad profiles\\**
-
-<u>**Enclave keyboard and gamepad mapping**</u>
+## Enclave keyboard and gamepad mapping
 
 <table width="751" data-cellpadding="2" data-cellspacing="0" style="background: transparent" data-border="2">
 <tbody>
