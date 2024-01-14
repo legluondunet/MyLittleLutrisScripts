@@ -1,0 +1,111 @@
+files:
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- patch1: https://www.dropbox.com/scl/fi/aa6vpin57hyd7f3ljo148/unreal-227j.7z?rlkey=odf7pkha5273lzqa340b57j9z&dl=1
+- patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/UPakFonts.tar.xz
+- linuxlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/unreal_gold_lib64.tar.xz
+game:
+  exe: drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+    name: Unreal Linux native version
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games
+    file: gogsetup
+    format: gog
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
+    src: $GAMEDIR/drive_c/GOG Games/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
+    src: linuxlibs
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
+    src: patch1
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Gold
+    src: patch2
+- chmodx: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
+- write_config:
+    data:
+      D3D9Drv.D3D9RenderDevice:
+        FrameRateLimit: 60
+      Engine.Console:
+        GlobalConsoleKey: 112
+      Engine.Engine:
+        GameRenderDevice: D3D9Drv.D3D9RenderDevice
+        Language: $INPUT_LANG
+      FirstRun:
+        FirstRun: 227
+      UMenu.UMenuRootWindow:
+        GUIScale: 2.0
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.PlayerPawn:
+        DefaultFOV: 106.4
+        DesiredFOV: 106.4
+        MainFOV: 106.4
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/DefUser.ini
+    merge: true
+- write_config:
+    data:
+      Engine.Console:
+        GlobalConsoleKey: 112
+      Engine.Engine:
+        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        Language: $INPUT_LANG
+      FirstRun:
+        FirstRun: 227
+      OpenGLDrv.OpenGLRenderDevice:
+        FrameRateLimit: 60
+      UMenu.UMenuRootWindow:
+        GUIScale: 2.0
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/DefaultLinux.ini
+    merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Unreal.ini
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.ini
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/User.ini
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  prefix_command: LD_LIBRARY_PATH=$GAMEDIR/drive_c/UnrealGold/lib64
