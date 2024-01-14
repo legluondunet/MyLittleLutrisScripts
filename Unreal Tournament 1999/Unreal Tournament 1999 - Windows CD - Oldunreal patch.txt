@@ -44,7 +44,7 @@ installer:
     data:
       Engine.Engine:
         AudioDevice: ALAudio.ALAudioSubsystem
-        GameRenderDevice: D3D9Drv.D3D9RenderDevice
+        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 469
