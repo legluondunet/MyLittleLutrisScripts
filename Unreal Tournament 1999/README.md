@@ -13,7 +13,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Unreal%20Tourn
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Unreal tournament (1999) - Windows CD - OldUnreal Patchs
+# Unreal tournament (1999) - Windows CD - OldUnreal Patch
 ## Description:
 Play "Unreal tournament (1999)" provided by GOG on Linux!
 ## Technical notes:
