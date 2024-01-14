@@ -2,7 +2,6 @@
 ### Description:
 Play "Enclave" provided by GOG on Linux!
 ### Technical notes:
-- You have to install Enclave in Steam before to launch this installer script
 - Enclave has bad controller support. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Enclave/gamepad%20profiles
 ### Credits:
@@ -17,5 +16,5 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Enclave/gamepa
 - Enclave has bad controller support. I wrote Antimicrox profiles, you can download them here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Enclave/gamepad%20profiles
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
+- DxWrapper: https://github.com/elishacloud/dxwrapper
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
