@@ -1,8 +1,9 @@
-custom-name: Unreal Tournament (1999) - Windows CD - OldUnreal Patchs
 files:
-- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Windows.zip
+- patch: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Windows.zip
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+    account
 game:
-  exe: drive_c/UnrealTournament/System/UnrealTournament.exe
+  exe: drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -11,67 +12,58 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    description: Please insert "Unreal Tournament (1999)" Windows CD and press autodetect
-    requires: system/UnrealTournament.exe
-- task:
-    args: /desktop=UnrealTournament,1024x780 $DISC/setup.exe
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/UnrealTournament
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
+    src: gogsetup
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY
     file: patch
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
 - write_config:
     data:
       Engine.Engine:
-        AudioDevice: Cluster.ClusterAudioSubsystem
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        AudioDevice: ALAudio.ALAudioSubsystem
+        GameRenderDevice: D3D9Drv.D3D9RenderDevice
+        Language: $INPUT_LANG
       FirstRun:
         FirstRun: 469
-      SDLDrv.SDLClient:
-        FullscreenColorBits: 32
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-        StartupFullscreen: true
-        UseRawHIDInput: true
+      UMenu.UMenuRootWindow:
+        AutoGUIScale: false
+        ConfiguredGUIScale: 2.0
+      UWindow.WindowConsole:
+        ConsoleKey: 112
       WinDrv.WindowsClient:
+        FrameRateLimit: 60.0
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
         StartupFullscreen: true
         UseRawHIDInput: true
-    file: $GAMEDIR/drive_c/UnrealTournament/System/Default.ini
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/Default.ini
+    merge: true
 - write_config:
     data:
       Engine.Engine:
-        AudioDevice: Cluster.ClusterAudioSubsystem
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
-      FirstRun:
-        FirstRun: 469
-      SDLDrv.SDLClient:
-        FullscreenColorBits: 32
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-        StartupFullscreen: true
-        UseRawHIDInput: true
-      WinDrv.WindowsClient:
-        FullscreenColorBits: 32
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-        StartupFullscreen: true
-        UseRawHIDInput: true
-    file: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.ini
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-wine:
-  Desktop: true
+        DefaultFOV: 106.0
+        DesiredFOV: 106.0
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/DefUser.ini
+    merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament GOTY/System/UnrealTournament.ini
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
