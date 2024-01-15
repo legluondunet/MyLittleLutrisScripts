@@ -2,7 +2,7 @@ files:
 - wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
 game:
   arch: win64
-  exe: drive_c/Enclave.exe
+  exe: drive_c/Enclave/Enclave.exe
   prefix: $GAMEDIR
 installer:
 - task:
