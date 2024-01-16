@@ -1,4 +1,3 @@
-custom-name: HERETIC II - Windows CD
 files:
 - patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
 - maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
@@ -20,15 +19,18 @@ installer:
 - task:
     arch: win64
     description: Preparing Heretic II Windows CD wineprefix...
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: Setup/Heretic.ico
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
-    src: $DISC/Setup/zip/h2.zip
+    requires: h2_setup.exe
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/h2_setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -81,12 +83,16 @@ installer:
         title0: Heretic II
         ver0: 0
         winver0: 0
+      window:
+        expert: 1
+        exportpath: C:\dxwnd\exports
+        showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/
+    dst: $GAMEDIR/drive_c/tmp
     src: maps
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/
+    dst: $GAMEDIR/drive_c/tmp
     src: patch107w
 - chmodx: scriptcase
 - execute:
@@ -99,6 +105,9 @@ installer:
 - execute:
     file: scriptconf
 - chmodx: scriptws
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: scriptws
 - input_menu:
     description: 'Please choose which language you would like to install this game:'
     id: LANG
@@ -113,9 +122,6 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: scriptlocal
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: scriptws
 - chmodx: scriptmusic
 - execute:
     args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music" 2 flac
