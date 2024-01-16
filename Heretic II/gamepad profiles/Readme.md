@@ -10,7 +10,7 @@ your gamepad.
 
 x360 controller profile to use with AntimicroX --> h2_x360.gamecontroller.amgp
 
-You can download AntimicroX here: ttps://github.com/AntiMicro/antimicrox
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 
 Steam controller profile to use with sc-controller --> h2_steam.sccprofile
 
