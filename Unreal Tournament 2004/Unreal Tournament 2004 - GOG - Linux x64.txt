@@ -1,0 +1,87 @@
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
+- linuxversion: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Tournament%202004/ut2004_linux.tar.xz
+game:
+  exe: Unreal Tournament 2004/System/ut2004-bin-linux-amd64
+installer:
+- extract:
+    dst: $GAMEDIR/Unreal Tournament 2004
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/Unreal Tournament 2004
+    src: $GAMEDIR/Unreal Tournament 2004/__support/app
+- merge:
+    dst: $GAMEDIR/Unreal Tournament 2004
+    src: $GAMEDIR/Unreal Tournament 2004/app
+- extract:
+    dst: $GAMEDIR/Unreal Tournament 2004
+    file: linuxversion
+- chmodx: $GAMEDIR/Unreal Tournament 2004/System/ut2004-bin-linux-amd64
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_LANG
+        RenderDevice: OpenGLDrv.OpenGLRenderDevice
+      FirstRun:
+        FirstRun: 3369
+      OpenGLDrv.OpenGLRenderDevice:
+        ReduceMouseLag: true
+      SDLDrv.SDLClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/Unreal Tournament 2004/System/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.PlayerController:
+        DefaultFOV: 106.2602
+        DesiredFOV: 106.2602
+        FOVAngle: 106.2602
+    file: $GAMEDIR/Unreal Tournament 2004/System/DefUser.ini
+- write_file:
+    content: 3QHVC-DHA9K-A84RE-KYRT4
+    file: $GAMEDIR/Unreal Tournament 2004/System/cdkey
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/Unreal Tournament 2004/System/User.ini
+- execute:
+    command: cd "$GAMEDIR/Unreal Tournament 2004/System"; sed -i -e s/ut2004master1.epicgames.com/ut2004master.333networks.com/g
+      -e s/ut2004master2.epicgames.com/ut2004master.errorist.eu/g Default.ini;
+system:
+  gamescope: null
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
