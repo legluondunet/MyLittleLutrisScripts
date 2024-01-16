@@ -1,0 +1,114 @@
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from GOG.
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
+game:
+  exe: drive_c/GOG Games/Unreal Tournament 2004/System/UT2004.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating wine prefix...
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/__support/app
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/app
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/Stub/d3d8.dll
+- write_config:
+    data:
+      Compatibility:
+        D3d8to9: 1
+      d3d9:
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/dxwrapper.ini
+- input_menu:
+    description: 'Choose your game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - frt: French
+    - det: German
+    - itt: Italian
+    - est: Spanish
+    preselect: int
+- write_config:
+    data:
+      D3DDrv.D3DRenderDevice:
+        ReduceMouseLag: true
+      Engine.Engine:
+        Language: $INPUT_LANG
+        RenderDevice: D3DDrv.D3DRenderDevice
+      FirstRun:
+        FirstRun: 3369
+      OpenGLDrv.OpenGLRenderDevice:
+        ReduceMouseLag: true
+      SDLDrv.SDLClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/Default.ini
+    merge: true
+- write_config:
+    data:
+      Engine.PlayerController:
+        DefaultFOV: 106.2602
+        DesiredFOV: 106.2602
+        FOVAngle: 106.2602
+    file: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/DefUser.ini
+- task:
+    arch: win64
+    key: CDKey
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Unreal Technology\Installed Apps\UT2004
+    type: REG_SZ
+    value: 3QHVC-DHA9K-A84RE-KYRT4
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System/User.ini
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Unreal Tournament 2004/System"; sed -i
+      -e s/ut2004master1.epicgames.com/ut2004master.333networks.com/g -e s/ut2004master2.epicgames.com/ut2004master.errorist.eu/g
+      Default.ini;
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+wine:
+  overrides:
+    d3d8: native
