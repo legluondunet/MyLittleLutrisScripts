@@ -1,10 +1,10 @@
 # Quake - Offering - GOG - Epsilon for Windows
 
 ### Description:
-"Quake - Offering" provided by GOG using Darkplaces open source project and Epsilon enhancement packs
+Play "Quake - Offering" provided by GOG on Linux!
 ### Technical notes:
-- Epsilon build and packs v2.56
-- 3 Mission Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Abyss of Pandemonium"
+- Epsilon packs v2.56 (Darkplaces + enhanced packs)
+- 3 Missions Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Abyss of Pandemonium"
 - All needed original soundtracks
 ### Credits:
 - Darkplaces: http://icculus.org/twilight/darkplaces and https://github.com/DarkPlacesEngine/darkplaces
@@ -13,11 +13,12 @@
 
 # Quake - Offering - GOG - Epsilon for Linux
 ### Description:
-"Quake - Offering" provided by GOG using Darkplaces open source project and Epsilon enhancement packs
+Play "Quake - Offering" provided by GOG on Linux!
 ### Technical notes:
-- Epsilon packs v2.56
-- 3 Mission Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Abyss of Pandemonium"
+- Epsilon packs v2.56 (Darkplaces + enhanced packs)
+- 3 Missions Packs: "Scourge of Armagon ", "Dissolution of Eternity" and "Abyss of Pandemonium"
 - All needed original soundtracks
+- You can not alt+tab. Workaround: use Gamescope
 ### Credits:
 - Darkplaces: http://icculus.org/twilight/darkplaces and https://github.com/DarkPlacesEngine/darkplaces
 - Epsilon build and packs: https://www.moddb.com/mods/quake-epsilon-build
