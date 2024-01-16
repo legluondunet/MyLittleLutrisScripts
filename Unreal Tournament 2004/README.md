@@ -15,10 +15,14 @@ Play "Unreal Tournament 2004" provided by GOG on Linux!
 ### Description:
 Play "Unreal Tournament 2004" provided by GOG on Linux!
 ### Technical notes:
-- Native Linux version
-- This game uses default GOG CDKey. But to play multiplayer games, you will need to ask for your personal CDKey to GOG here:
-http://www.gog.com/support/contact/technical_issues_with_games/unreal_tournament_2004_ece
-Choose the multiplayer key request option for problem type.
+- Native x64 Linux version
+- This script installer will automagically set the game to your desktop resolution with widescreen mode
+- press "~" key to show console
+- Multilingual: you will be able to choose your preferred language for menus, subtitles and voices during installation between English (default), French, German, Italian and Spanish
 - Play UT2004 online with 333networks masterserver
+- You can not alt+tab. Workaround: use Gamescope
+- Game could crash if you click on a web link
+- Use Mangohud or libstrangle to limit fps. For example: 
+MANGOHUD_CONFIG="fps_limit=60" mangohud --dlsym ./ut2004-bin-linux-amd64
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
