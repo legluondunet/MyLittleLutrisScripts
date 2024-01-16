@@ -1,40 +1,22 @@
----
-author: Romain
-changed: "2019-07-06T18:05:50.526580040"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.4.2 (Linux)
-lang: fr-FR
----
+## Gamepad profiles for Heretic II
 
-<u>**Gamepad profiles for Heretic II**</u>
+H2 has native support for controller but it is insufficient, you will obtain a better game experience with a third party software, a
+keymapper.
 
-**H2 has native support for controller but it is insufficient, you will
-obtain a better game experience with a third party software, a
-keymapper.**
+This software will attribute keyboard keys to your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
+your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with AntimicroX --> h2_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicro -->
-h2_x360.gamecontroller.amgp**
+You can download AntimicroX here: ttps://github.com/AntiMicro/antimicrox
 
-**You can download Antimicro here:
-https://github.com/AntiMicro/antimicro**
+Steam controller profile to use with sc-controller --> h2_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-h2_steam.sccprofile**
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**You can download sc-controller here -->
-https://github.com/kozec/sc-controller**
-
-**You will find gamepad profiles in your H2 wineprefix : c:\\Program
-Files (x86)\\Heretic II\\gamepad profiles\\**
-
-<u>**H2 keyboard and gamepad mapping**</u>
+###H2 keyboard and gamepad mapping
 
 <table width="510" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="1">
 <tbody>
