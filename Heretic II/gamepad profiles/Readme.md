@@ -16,7 +16,7 @@ Steam controller profile to use with sc-controller --> h2_steam.sccprofile
 
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-###H2 keyboard and gamepad mapping
+### H2 keyboard and gamepad mapping
 
 <table width="510" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="1">
 <tbody>
