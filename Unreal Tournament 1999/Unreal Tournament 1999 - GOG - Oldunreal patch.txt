@@ -38,9 +38,11 @@ installer:
     preselect: int
 - write_config:
     data:
+      D3D9Drv.D3D9RenderDevice:
+        FrameRateLimit: 60
       Engine.Engine:
         AudioDevice: ALAudio.ALAudioSubsystem
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        GameRenderDevice: D3D9Drv.D3D9RenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 469
@@ -48,7 +50,7 @@ installer:
         AutoGUIScale: false
         ConfiguredGUIScale: 2.0
       UWindow.WindowConsole:
-        ConsoleKey: 112
+        ConsoleKey: 192
       WinDrv.WindowsClient:
         FrameRateLimit: 60
         FullscreenColorBits: 32
