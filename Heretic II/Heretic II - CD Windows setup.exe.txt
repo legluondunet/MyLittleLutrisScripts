@@ -3,20 +3,18 @@ files:
 - patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
 - maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
 - dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bat
 - faq: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_gamepad_readme.html
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_x360.gamecontroller.amgp
-- gppsc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/gamepad%20profiles/h2_steam.sccprofile
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/heretic2.bmp
 - scriptcase: https://github.com/legluondunet/mlls-tools/raw/master/scripts/changecase.sh
 - scriptconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2defconf.sh
 - scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2ws.sh
 - scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 - scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
 game:
-  args: c:\\heretic2.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  args: /r:0
+  exe: drive_c/dxwnd/dxwnd.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/faq.html
+    name: Heretic II FAQ
   prefix: $GAMEDIR
 installer:
 - task:
@@ -27,15 +25,10 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
-    requires: h2_setup.exe
-- task:
-    args: /desktop=Heretic_II,1024x780 $DISC/h2_setup.exe
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
-    name: wineexec
-    prefix: $GAMEDIR
+    requires: Setup/Heretic.ico
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
+    src: $DISC/Setup/zip/h2.zip
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: dxwnd
@@ -54,7 +47,7 @@ installer:
         flag0: 673194017
         flagg0: 1207959552
         flagh0: 22
-        flagi0: 138444804
+        flagi0: 138412036
         flagj0: 4224
         flagk0: 65536
         flagl0: 0
@@ -106,9 +99,6 @@ installer:
 - execute:
     file: scriptconf
 - chmodx: scriptws
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: scriptws
 - input_menu:
     description: 'Please choose which language you would like to install this game:'
     id: LANG
@@ -123,68 +113,13 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: scriptlocal
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: scriptws
 - chmodx: scriptmusic
 - execute:
     args: HERETIC "$GAMEDIR/drive_c/Program Files (x86)/Heretic II/music" 2 flac
     file: scriptmusic
 - move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
     src: faq
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppreadme
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppx360
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/gamepad profiles
-    src: gppsc
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- move:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\heretic2.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 204 153 255
-wine:
-  Desktop: true
-
