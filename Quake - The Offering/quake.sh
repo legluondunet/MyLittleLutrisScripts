@@ -4,7 +4,7 @@ cd Epsilon
 
 
 zenity_base() {
-zenity "$@" --icon-name='lutris' --width="450" --height="250"  --title="Quake - The offering"
+zenity "$@" --icon-name='lutris' --width="500" --height="400"  --title="Quake - The offering"
 }
 
 classic="Play Quake Classic version"
@@ -22,15 +22,15 @@ CHOICE=$(zenity_base --list --radiolist  \
 echo "valeur de la variable CHOICE: " $CHOICE
     case "$CHOICE" in
         "$classic")
-            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx
+            ./darkplaces-linux-x86_64-sdl
             ;;
         "$scourge")
-            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -hipnotic
+            ./darkplaces-linux-x86_64-sdl -hipnotic
 	     ;;
         "$eternity")
-            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -rogue
+            ./darkplaces-linux-x86_64-sdl -rogue
 	     ;;	 
         "$abyss")
-            LD_LIBRARY_PATH=./libs ./darkplaces-linux-x86_64-glx -rogue -game abyss
+            ./darkplaces-linux-x86_64-sdl -rogue -game abyss
 	     ;;	         
     esac
