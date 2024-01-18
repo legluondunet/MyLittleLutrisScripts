@@ -15,7 +15,7 @@ installer:
 - insert-disc:
     requires: hppoa.ico
 - task:
-    description: Installing Harry Potter and the Prisoner of Askaban ...
+    description: Installing Harry Potter and the Prisoner of Azkaban ...
     executable: $DISC/setup.exe
     name: wineexec
 - execute:
