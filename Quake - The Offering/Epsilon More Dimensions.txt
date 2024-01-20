@@ -1,0 +1,28 @@
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
+- epsilonpack: N/A:Please download Epsilon More Dimensions mod from https://www.moddb.com/mods/quake-epsilon-build
+game:
+  args: -game ad
+  exe: $GAMEDIR/drive_c/Epsilon More Dimensions/quakespasm-spiked-win64.exe
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Epsilon More Dimensions
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/Epsilon More Dimensions
+    file: epsilonpack
+- execute:
+    command: cd "$GAMEDIR/drive_c/Epsilon More Dimensions"; sed -i -e "137,149s/^/#/"
+      -e '150i quality_level=U' linux_changegraphicsquality.sh;
+- chmodx: $GAMEDIR/drive_c/Epsilon More Dimensions/linux_changegraphicsquality.sh
+- execute:
+    file: $GAMEDIR/drive_c/Epsilon More Dimensions/linux_changegraphicsquality.sh
