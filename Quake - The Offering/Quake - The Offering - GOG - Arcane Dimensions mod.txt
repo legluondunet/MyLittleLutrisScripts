@@ -1,0 +1,31 @@
+files:
+- gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
+    GOG account.
+- epsilonpack: N/A:Please donwload Arcane Dimensions Epsilon mod from https://www.moddb.com/mods/arcane-dimensions
+game:
+  args: -game ad
+  exe: $GAMEDIR/drive_c/Arcane Dimensions Epsilon/darkplaces.exe
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Arcane Dimensions Epsilon
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/Arcane Dimensions Epsilon
+    file: epsilonpack
+- execute:
+    command: cd "$GAMEDIR/drive_c/Arcane Dimensions Epsilon"; sed -i -e "137,149s/^/#/"
+      -e '150i quality_level=U' linux_changegraphicsquality.sh;
+- chmodx: $GAMEDIR/drive_c/Arcane Dimensions Epsilon/linux_changegraphicsquality.sh
+- execute:
+    file: $GAMEDIR/drive_c/Arcane Dimensions Epsilon/linux_changegraphicsquality.sh
+- execute:
+    command: cd "$GAMEDIR/drive_c/Arcane Dimensions Epsilon"; printf '\n"vid_height"
+      "$RESOLUTION_HEIGHT"\n"vid_width" "$RESOLUTION_WIDTH"\n' >> ad/config.cfg
