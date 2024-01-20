@@ -43,6 +43,10 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
     src: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/__support/app
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
 wine:
   overrides:
     '*d3d9': n,b
