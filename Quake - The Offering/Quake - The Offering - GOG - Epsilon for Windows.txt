@@ -45,12 +45,12 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Epsilon/rogue/backup
     src: $GAMEDIR/drive_c/Epsilon/rogue/CONFIG.CFG
-- task:
-    executable: $GAMEDIR/drive_c/Epsilon/epsilon - change graphics quality.bat
-    name: wineexec
 - execute:
-    command: cd "$GAMEDIR/drive_c/Epsilon"; sed -i -e "9,22s/^/rem /" -e "\$s/^/rem
-      /" -e '25i SET Choice=U' "epsilon - change graphics quality.bat";
+    command: cd "$GAMEDIR/drive_c/Epsilon"; sed -i -e "204,216s/^/#/" -e '217i quality_level=U'
+      linux_changegraphicsquality.sh;
+- chmodx: $GAMEDIR/drive_c/Epsilon/linux_changegraphicsquality.sh
+- execute:
+    file: $GAMEDIR/drive_c/Epsilon/linux_changegraphicsquality.sh
 - execute:
     command: cd "$GAMEDIR/drive_c/Epsilon"; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
       "$RESOLUTION_WIDTH"\n' >> id1/config.cfg; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
