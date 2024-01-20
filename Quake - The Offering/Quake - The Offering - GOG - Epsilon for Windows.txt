@@ -5,51 +5,54 @@ files:
 - mp1: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/epsilon_mp1_addon_v2_56.zip
 - mp2: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/epsilon_mp2_addon_v2_56.zip
 - mp3: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/epsilon_mp3_addon_v2_56.zip
-- profiles: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/quake_config_default.zip
 game:
-  exe: Epsilon/darkplaces-linux-x86_64-sdl
+  exe: drive_c/Epsilon/darkplaces.exe
   launch_configs:
   - args: -hipnotic
-    exe: $GAMEDIR/Epsilon/darkplaces-linux-x86_64-sdl
+    exe: $GAMEDIR/drive_c/Epsilon/darkplaces.exe
     name: Mission Pack 1 - Scourge of Armagon
   - args: -rogue
-    exe: $GAMEDIR/Epsilon/darkplaces-linux-x86_64-sdl
+    exe: $GAMEDIR/drive_c/Epsilon/darkplaces.exe
     name: Mission Pack 2 - Dissolution of Eternity
   - args: -rogue -game abyss
-    exe: $GAMEDIR/Epsilon/darkplaces-linux-x86_64-sdl
+    exe: $GAMEDIR/drive_c/Epsilon/darkplaces.exe
     name: Mission Pack 3 - Abyss of Pandemonium
   prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: epsilonpack
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: mp1
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: mp2
 - extract:
-    dst: $GAMEDIR/Epsilon
+    dst: $GAMEDIR/drive_c/Epsilon
     file: mp3
 - move:
-    dst: $GAMEDIR/Epsilon/rogue/backup
-    src: $GAMEDIR/Epsilon/rogue/CONFIG.CFG
+    dst: $GAMEDIR/drive_c/Epsilon/rogue/backup
+    src: $GAMEDIR/drive_c/Epsilon/rogue/CONFIG.CFG
+- task:
+    executable: $GAMEDIR/drive_c/Epsilon/epsilon - change graphics quality.bat
+    name: wineexec
 - execute:
-    command: cd "$GAMEDIR/Epsilon"; sed -i -e "204,216s/^/#/" -e '217i quality_level=U'
-      linux_changegraphicsquality.sh;
-- chmodx: $GAMEDIR/Epsilon/linux_changegraphicsquality.sh
+    command: cd "$GAMEDIR/drive_c/Epsilon"; sed -i -e "9,22s/^/rem /" -e "\$s/^/rem
+      /" -e '25i SET Choice=U' "epsilon - change graphics quality.bat";
 - execute:
-    file: $GAMEDIR/Epsilon/linux_changegraphicsquality.sh
-- extract:
-    dst: $GAMEDIR/Epsilon/
-    file: profiles
-- execute:
-    command: cd "$GAMEDIR/Epsilon"; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
+    command: cd "$GAMEDIR/drive_c/Epsilon"; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
       "$RESOLUTION_WIDTH"\n' >> id1/config.cfg; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
       "$RESOLUTION_WIDTH"\n' >> hipnotic/config.cfg; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
       "$RESOLUTION_WIDTH"\n' >> rogue/config.cfg; printf '\n"vid_height" "$RESOLUTION_HEIGHT"\n"vid_width"
