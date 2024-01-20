@@ -1,0 +1,48 @@
+files:
+- gogsetup: N/A:Please select the GOG Windows setup exe file from your GOG account.
+- wds: https://raw.githubusercontent.com/legluondunet/MyLittleLutrisScripts/master/Prince%20of%20Persia%20-%20The%20Sands%20of%20time/pop.7z
+game:
+  exe: drive_c/GOG Games/Prince of Persia - The Sands of Time/PrinceOfPersia.EXE
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
+    file: gogsetup
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
+    file: wds
+- write_file:
+    content: '[MAIN]
+
+      Width = $RESOLUTION_WIDTH
+
+      Height = $RESOLUTION_HEIGHT
+
+
+      [HUD]
+
+      HUD_posX_auto = 1 // 0 - Off; 1 - On;
+
+      HUD_posX =  -0.148958 // -0.082450 - for 16x10 mode; -0.148958 for 16x9 mode;
+
+
+      [MISC]
+
+      cutscenes_black_borders = 0 //  0 - Off; 1 - On
+
+      Xbox_fov = 0 //  0 - Off; 1 - On
+
+      fov_multiplier = 1.0 // original value 1.0;'
+    file: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/pop.ini
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
+    src: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/__support/app
+wine:
+  overrides:
+    '*d3d9': n,b
