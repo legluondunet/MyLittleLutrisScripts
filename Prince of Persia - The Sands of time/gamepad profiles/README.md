@@ -1,41 +1,19 @@
----
-author: Romain
-changed: "2019-06-10T13:50:31.496787477"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.3.2 (Linux)
-lang: fr-FR
----
+## Gamepad profiles for Prince of Persia - The Sands of Time
 
-<u>**Gamepad profiles for Prince of Persia - The Sands of time**</u>
+POP - TSOT - GOG version support badly gamepad,so you have to install a third party software, a keymapper.
+This software will attribute keyboard keys to your gamepad.
 
-**POP - TSOT - GOG version support badly gamepad,so you have to install
-a third party software.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+x360 controller profile to use with AntimicroX --> pop-tsot_x360.gamecontroller.amgp
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 
-**x360 controller profile to use with antimicro -->
-pop-tsot_x360.gamecontroller.amgp**
+Steam controller profile to use with sc-controller --> pop-tsot_steam.sccprofile
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**Steam controller profile to use with sc-controller -->
-pop-tsot_steam.sccprofile**
-
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your Lutris BGE wineprefix: c:\\GOG
-Games\\Prince of Persia - The Sands of Time\\gamepad profiles\\**
-
-<u>**POP - TSOT keyboard and gamepad mapping**</u>
+### POP - TSOT keyboard and gamepad mapping
 
 <table width="510" data-cellpadding="2" data-cellspacing="0" style="background: transparent" data-border="1">
 <tbody>
