@@ -24,9 +24,9 @@ mv *.wav ../quake/rogue/sound/cdtracks
 
 # 2 - personnalisation de la  configuration
 cd ../quake
-sed -i -e s/\"vid_width\".*/\"vid_width\"\ \"$resX\"/ -e s/\"vid_height\".*/\"vid_height\"\ \"$resY\"/ id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
-sed -i '/\"bgmvolume\".*\"/d' id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
-sed -i '1 i\"bgmvolume\"\ \"0.550000\"' id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
+sed -i -e s/\"vid_width\".*/\"vid_width\"\ \"$resX\"/ -e s/\"vid_height\".*/\"vid_height\"\ \"$resY\"/ id1/config.cfg hipnotic/config.cfg rogue/config.cfg mg1/config.cfg dop/config.cfg honey/config.cfg
+sed -i '/\"bgmvolume\".*\"/d' id1/config.cfg hipnotic/config.cfg rogue/config.cfg mg1/config.cfg dop/config.cfg honey/config.cfg
+sed -i '1 i\"bgmvolume\"\ \"0.550000\"' id1/config.cfg hipnotic/config.cfg rogue/config.cfg mg1/config.cfg dop/config.cfg honey/config.cfg
 
 # 3 - fichiers d'Abyss
 cp rogue/config.cfg abyss
