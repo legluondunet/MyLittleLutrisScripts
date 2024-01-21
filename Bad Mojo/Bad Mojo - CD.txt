@@ -25,3 +25,7 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/BMCD
     file: patch
+system:
+  gamescope: false
+  gamescope_game_res: 640x480
+  gamescope_output_res: $RESOLUTION
