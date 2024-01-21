@@ -12,21 +12,21 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Beyond%20Good%
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Beyond Good and Evil - Ubisoft Connect + WS + audio fix
+## Beyond Good and Evil - Ubisoft Connect + WS + audio fix
 ### Description:
-"Beyond Good and Evil" provided by Ubisoft Connect with widescreen patch and audio fix
+Play "Beyond Good and Evil" provided by Ubisoft Connect on Linux!
 ### Technical notes:
-- ps2wide widescreen patch with no borders.
-- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps).
-- Gamepad natively supported by BGAE Ubisoft version.
-- Ubisoft Connect overlay disabled for more stability.
+- ps2wide widescreen patch with no borders
+- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
+- Gamepad natively supported by BGAE Ubisoft version
+- Ubisoft Connect overlay disabled for more stability
 ### Credits:
-- ps2wide widescreen patch http://ps2wide.net
+- ps2wide widescreen patch: http://ps2wide.net
 - dsound.dll: https://www.gog.com/forum/beyond_good_and_evil/cutscene_audiovideo_sync_fix
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Beyond Good and Evil - Windows Steam Standalone
+## Beyond Good and Evil - Windows Steam Standalone
 ### Description:
 "Beyond Good & Evil" provided by Steam with widescreen patch and audio fix
 ### Technical notes:
