@@ -1,15 +1,15 @@
-# Beyond Good & Evil - GOG + WS + audio fix
-
+## Beyond Good & Evil - GOG + WS + audio fix
 ### Description:
-"Beyond Good and Evil" with widescreen patch and audio fix
+Play "Beyond Good and Evil" provided by GOG on Linux!
 ### Technical notes:
-- ps2wide widescreen patch with no borders.
-- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps).
-- BGE Gog edition does not natively support controller, only Keyboard.  For a better gaming experience, you will find AntimicroX profiles for x360 and Steam Controller in the "gamepad profiles" folder.
+- ps2wide widescreen patch with no borders
+- Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
+- BGE GOG edition does not natively support controller, only Keyboard.  For a better gaming experience, you will find AntimicroX profiles here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Beyond%20Good%20and%20Evil/gamepad%20profiles
 ### Credits:
-- ps2wide widescreen patch http://ps2wide.net
+- ps2wide widescreen patch: http://ps2wide.net
 - dsound.dll: https://www.gog.com/forum/beyond_good_and_evil/cutscene_audiovideo_sync_fix
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Beyond Good and Evil - Ubisoft Connect + WS + audio fix
