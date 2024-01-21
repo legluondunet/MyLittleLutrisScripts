@@ -1,4 +1,3 @@
-custom-name: Bad Mojo Redux - GOG
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
@@ -13,21 +12,14 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: gogsetup
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Bad Mojo
+    file: gogsetup
+    format: gog
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Bad Mojo
+    src: $GAMEDIR/drive_c/GOG Games/app
 system:
-  gamescope: true
-wine:
-  Desktop: true
+  gamescope: false
+  gamescope_game_res: 640x480
+  gamescope_output_res: $RESOLUTION
