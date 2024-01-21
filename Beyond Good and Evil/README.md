@@ -28,17 +28,17 @@ Play "Beyond Good and Evil" provided by Ubisoft Connect on Linux!
 
 ## Beyond Good and Evil - Windows Steam Standalone
 ### Description:
-"Beyond Good & Evil" provided by Steam with widescreen patch and audio fix
+Play "Beyond Good & Evil" provided by Steam on Linux
 ### Technical notes:
-This game does not work correctly with Linux Steam + Steamplay.
-So I wrote this script that uses Windows Steam + others tweaks.
-- fixed access to SettingsApplication where you can change language.
-- Audio sync fix (dsound.dll + DXVK framerate set to 60 fps).
-- ENB Mod: widescreen with no border.
-- Steam is not fully usable, but it's not important, it's just installed to launch the game.
+- This game does not work correctly with Linux Steam + Steamplay.
+So I wrote this script that uses Windows Steam + others tweaks
+- fixed access to SettingsApplication where you can change language
+- Audio sync fix (dsound.dll + DXVK framerate set to 60 fps)
+- ENB Mod: widescreen with no border
+- Steam is not fully usable, but it's not important, it's just installed to launch the game
 ### Credits:
-- ENB Mod https://www.moddb.com/mods/bge-enb
+- ENB Mod: https://www.moddb.com/mods/bge-enb
 More info about this patchs:
 https://steamcommunity.com/sharedfiles/filedetails/?id=950083683
 - dsound.dll: https://www.gog.com/forum/beyond_good_and_evil/cutscene_audiovideo_sync_fix
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
