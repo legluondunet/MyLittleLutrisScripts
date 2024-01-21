@@ -2,7 +2,7 @@
 
 resX=$1
 resY=$2
-echo "resX est égal à "$resX" et resY est égal à "$Y"."
+echo "resX est égal à "$resX" et resY est égal à "$resY"."
 
 # 1 - extraction de la bande sonore à partir des cd originaux
 cd drive_c/tmp
@@ -28,9 +28,11 @@ mv *.wav ../quake/rogue/sound/cdtracks
 
 # 2 - personnalisation de la  configuration
 cd ../quake
-sed -e s/\"vid_width\".*/\"vid_width\"\ \"$resX\"/ -e s/\"vid_height\".*/\"vid_height\"\ \"$resY\"/ -e '/\"bgmvolume\"\ \"0.500000\"/d' -e '1 i\"bgmvolume\"\ \"0.550000\"' id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg;
+sed -i -e s/\"vid_width\".*/\"vid_width\"\ \"$resX\"/ -e s/\"vid_height\".*/\"vid_height\"\ \"$resY\"/ id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
+sed -i '/\"bgmvolume\".*\"/d' id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
+sed -i '1 i\"bgmvolume\"\ \"0.550000\"' id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
 
 # 3 - fichiers d'Abyss
 cp rogue/config.cfg abyss
-mv ../tmp/tmp/mod4/abyss/maps abyss
-mv ../tmp/tmp/mod4/abyss/sound abyss
+cp -r ../tmp/mod4/abyss/maps abyss
+cp -r ../tmp/mod4/abyss/sound abyss
