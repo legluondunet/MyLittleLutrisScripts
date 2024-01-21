@@ -1,14 +1,16 @@
-custom-name: Beyond Good & Evil - Ubisoft Connect
 files:
 - uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-- wds: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/bge_widescreen.zip
-- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/dsound.dll
+- wdpatch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/bge_widescreen.zip
+- wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/dsound.dll
 game:
   args: uplay://launch/232/0
   exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
   prefix: $GAMEDIR
 installer:
 - task:
+    arch: win64
+    install_gecko: true
+    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - write_file:
@@ -17,7 +19,7 @@ installer:
     file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
       Launcher/settings.yml
 - task:
-    app: arial d3dcompiler_47
+    app: arial
     name: winetricks
     prefix: $GAMEDIR
 - task:
@@ -28,31 +30,14 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
       Good and Evil
-    src: audio
-- task:
-    arch: win64
-    key: dsound
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
+    src: wrapper
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Beyond
       Good and Evil
-    src: wds
+    src: wdpatch
 - task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    args: /desktop=BGAE,1024x768 $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft
-      Game Launcher/UbisoftConnect.exe uplay://launch/232/0
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    args: uplay://launch/232/0uplay://launch/232/0
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
     name: wineexec
 - write_config:
     data:
@@ -65,7 +50,8 @@ installer:
 system:
   env:
     DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
 wine:
-  Desktop: true
   overrides:
+    dsound: n
     nvapi,nvapi64: disabled
