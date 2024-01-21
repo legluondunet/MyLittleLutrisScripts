@@ -1,6 +1,7 @@
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
+- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Bad%20Mojo%20Redux/BADMOJO.ini
 game:
   exe: drive_c/GOG Games/Bad Mojo/launcher.exe
   prefix: $GAMEDIR
@@ -13,12 +14,15 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Bad Mojo
+    dst: $GAMEDIR/drive_c/GOG Games
     file: gogsetup
     format: gog
 - move:
     dst: $GAMEDIR/drive_c/GOG Games/Bad Mojo
     src: $GAMEDIR/drive_c/GOG Games/app
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Bad Mojo
+    src: config
 system:
   gamescope: false
   gamescope_game_res: 640x480
