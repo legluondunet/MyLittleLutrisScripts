@@ -22,10 +22,6 @@ mkdir -p ../quake/rogue/sound/cdtracks
 ./bchunk ../quake/gamed.gog ../quake/gamed.cue track0 -w
 mv *.wav ../quake/rogue/sound/cdtracks
 
-#for dest in hipnotic rogue abyss
-#do cp id1/config.cfg $dest
-#done
-
 # 2 - personnalisation de la  configuration
 cd ../quake
 sed -i -e s/\"vid_width\".*/\"vid_width\"\ \"$resX\"/ -e s/\"vid_height\".*/\"vid_height\"\ \"$resY\"/ id1/config.cfg mg1/config.cfg dop/config.cfg hipnotic/config.cfg honey/config.cfg
