@@ -25,9 +25,9 @@ Play Quake mod "Epsilon Arcane Dimensions" on Linux!
 
 # Quake - The Offering - GOG + Epsilon More Dimensions
 ### Description:
-Play Quake mod "Epsilon Arcane Dimensions" on Linux!
+Play Quake mod "Epsilon More Dimensions" on Linux!
 ### Technical notes:
-- The script installer will ask you to provide "Epsilon Arcane Dimensions" archive during install
+- The script installer will ask you to provide "Epsilon More Dimensions" archive during install: https://www.moddb.com/mods/quake-epsilon-build
 ### Credits:
 - Epsilon More Dimensions: https://www.moddb.com/mods/quake-epsilon-build
 - Quakespasm-spiked: https://fte.triptohell.info/moodles/qss
