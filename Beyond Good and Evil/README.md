@@ -4,6 +4,7 @@ Play "Beyond Good and Evil" provided by GOG on Linux!
 ### Technical notes:
 - ps2wide widescreen patch with no borders
 - Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
+- This game may malfunction after using alt+tab, it is strongly recommended to use Gamescope
 - BGE GOG edition does not natively support controller, only Keyboard.  For a better gaming experience, you will find AntimicroX profiles here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Beyond%20Good%20and%20Evil/gamepad%20profiles
 ### Credits:
