@@ -16,8 +16,7 @@ installer:
 - write_file:
     content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
       \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
-    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
-      Launcher/settings.yml
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Ubisoft Game Launcher/settings.yaml
 - task:
     app: arial
     name: winetricks
