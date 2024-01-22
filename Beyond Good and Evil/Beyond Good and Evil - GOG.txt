@@ -24,7 +24,9 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil
     src: wrapper
 - task:
-    description: Please choose only your resolution, save and quit.
+    description: Please choose your desktop resolution, save and exit. If you your
+      desktop resolution is not in the list, choose the closest one then activate
+      Gamescope.
     executable: $GAMEDIR/drive_c/GOG Games/Beyond Good and Evil/SettingsApplication.exe
     name: wineexec
 - write_config:
