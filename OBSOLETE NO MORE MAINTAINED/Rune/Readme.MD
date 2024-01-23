@@ -6,7 +6,6 @@ Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - 1.08 HOV update
-- Multiplayer OK
 - Known issues:
   - no sound
   - mouse can not access some part of the screen in fullscreen
