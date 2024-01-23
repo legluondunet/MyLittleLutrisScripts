@@ -2,7 +2,6 @@
 
 Description:
 This script will install "Rune" Linux CD edition.
-Thanks to the people who contributed to play this game in the best conditions.
 
 Technical notes:
 - 1.08 HOV update
