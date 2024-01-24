@@ -33,7 +33,8 @@ Play "Beyond Good & Evil" provided by Steam on Linux
 ### Technical notes:
 - This game does not work correctly with Linux Steam + Steamplay.
 So I wrote this script that uses Windows Steam + others tweaks
-- fixed access to SettingsApplication where you can change language
+- Prior to launch the game, you have to set the resolution, when you launch game from Steam, choose settings
+- fixed access to SettingsApplication where you can choose resolution and language
 - Audio sync fix (dsound.dll + DXVK framerate set to 60 fps)
 - ENB Mod: widescreen with no border
 - Steam is not fully usable, but it's not important, it's just installed to launch the game
