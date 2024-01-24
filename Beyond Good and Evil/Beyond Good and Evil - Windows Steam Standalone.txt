@@ -3,7 +3,7 @@ files:
 - wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/dsound.dll
 - wdpatch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/BGAE%20Steam%20widescreen%20enb.zip
 game:
-  args: -no-browser steam://run/15130
+  args: -applaunch 15130
   exe: drive_c/Program Files (x86)/Steam/Steam.exe
   prefix: $GAMEDIR
 installer:
@@ -42,7 +42,7 @@ installer:
     path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Ubisoft\Beyond Good & Evil
     prefix: $GAMEDIR
     type: REG_SZ
-    value: C:\Program Files (x86)\Steam\steamapps\common\Beyond Good and Evil
+    value: C:\Program Files (x86)\Steam\steamapps\common\Beyond Good and
 system:
   env:
     DXVK_FRAME_RATE: '60'
