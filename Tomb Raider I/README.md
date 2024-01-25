@@ -74,12 +74,12 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 
 # Tomb Raider I - GOG - OpenLara
 ### Description:
-"Tomb Raider I" provided by GOG using OpenLara open source engine
+Play "Tomb Raider I" provided by GOG on Linux! using OpenLara open source engine
 ### Technical notes:
-- Openlara Github version c7fe8ec 10 february 2023.
-- OpenLara support for "Tomb Raider I" is still work in progress and incomplete. Use this script only for testing.
-- Multilingual menus and subtitles.
-- Gamepad natively supported.
+- Openlara Github version c7fe8ec 10 february 2023
+- OpenLara support for "Tomb Raider I" is still work in progress and incomplete. Use this script only for testing
+- Multilingual menus and subtitles
+- Gamepad natively supported
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - other sources: https://www.tombraiderforums.com
