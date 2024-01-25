@@ -10,13 +10,15 @@ Play "Tomb Raider I" provided by GOG on Linux!
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
+
 # Tomb Raider I - GOG - TombATI HD
 ### Description:
-"Tomb Raider I" provided by GOG using GLRage engine and HD textures pack
+Play "Tomb Raider I" provided by GOG on Linux! using GLRage engine and TombATI HD textures pack
 ### Technical notes:
-- Gold extension included.
-- Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
-- TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- Gold extension included
+- Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish
+- TR1 has insufficient controller support, you will find AntimicroX profiles I wrote here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%20I/gamepad%20profiles
 ### Credits:
 - GLRage: https://github.com/ata4/glrage
 - TombATI: http://www.glidos.net/tombati.html
