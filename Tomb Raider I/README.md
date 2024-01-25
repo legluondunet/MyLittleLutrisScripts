@@ -30,7 +30,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 ### Description:
 Play "Tomb Raider I" provided by Steam on Linux! using GLRage engine and TombATI HD textures pack
 ### Technical notes:
-- You have to install "Tomb Raider 1" on Steam before to launch this script installer
+- You have to install "Tomb Raider I" on Steam before to launch this script installer
 - Gold extension included
 - Multilanguage: during install, you could choose your preferred language for interface and audio cutscenes between English, French and German; only audio cutscenes translation for Japanese; only translated interface  for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish
 - TR1 has insufficient controller support, you will find AntimicroX profiles I wrote here:
