@@ -58,12 +58,13 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 
 # Tomb Raider I - CD - TombATI HD
 ### Description:
-"Tomb Raider I" CD edition using GLRage engine and HD textures pack
+Play "Tomb Raider I" CD edition on Linux! using GLRage engine and TombATI HD textures pack
 ### Technical notes:
-- You will need the CD only one time during install.
-- Gold extension included.
-- Multilanguage: available interface and audio cutscenes translations for English, French and German, only audio cutscenes translation for Japanese, only interface translation for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish.
-- TR1 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder.
+- You will need the CD only one time during install
+- Gold extension included
+- Multilanguage: available interface and audio cutscenes translations for English, French and German, only audio cutscenes translation for Japanese, only interface translation for Spanish, Finish, Hungarian, Indonesian, Italian, Dutch, Portuguese and Swedish
+- TR1 has insufficient controller support, you will find AntimicroX profiles I wrote here: 
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%20I/gamepad%20profiles
 ### Credits:
 - GLRage: https://github.com/ata4/glrage
 - TombATI: http://www.glidos.net/tombati.html
