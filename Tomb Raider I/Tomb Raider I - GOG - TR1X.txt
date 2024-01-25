@@ -1,7 +1,7 @@
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
-- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.0.5/TR1X-3.0.5-Linux.zip
+- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.1.1/TR1X-3.1.1-Linux.zip
 - dlc: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
 - audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
 game:
@@ -16,21 +16,21 @@ installer:
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/tmp
+    dst: $GAMEDIR/tmp/Tomb Raider 1
     src: cdrtools
 - execute:
-    command: cd "$GAMEDIR/tmp"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
-      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
-      ./7z x -y $cd;
+    command: cd "$GAMEDIR/tmp/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
+      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
+      echo $cd; ./7z x -y $cd;
 - merge:
     dst: $GAMEDIR/TR1X/DATA
-    src: $GAMEDIR/tmp/DATA
+    src: $GAMEDIR/tmp/Tomb Raider 1/DATA
 - extract:
     dst: $GAMEDIR/TR1X/DATA
     file: dlc
 - merge:
     dst: $GAMEDIR/TR1X/FMV
-    src: $GAMEDIR/tmp/FMV
+    src: $GAMEDIR/tmp/Tomb Raider 1/FMV
 - extract:
     dst: $GAMEDIR/TR1X
     file: mod
@@ -40,6 +40,6 @@ installer:
 - extract:
     dst: $GAMEDIR/TR1X/music
     file: audiotracks
-- chmodx: $GAMEDIR/TR1X/TR1X
+- chmodx: $GAMEDIR/TR1X
 - execute:
     command: cd "$GAMEDIR" ; rm -f -r tmp TR1X/DATA;
