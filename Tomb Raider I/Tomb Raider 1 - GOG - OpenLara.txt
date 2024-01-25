@@ -1,9 +1,7 @@
-custom-name: Tomb Raider I - GOG - OpenLara
 files:
 - tr1audio: https://github.com/Carlmundo/TombRaider-AutomatedFix/archive/master.zip
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean_openlara.sh
 - audiotools: https://github.com/legluondunet/mlls-tools/raw/master/audiotools/audiotools.tar.xz
 - lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/DELDATA.7z
@@ -14,13 +12,10 @@ game:
 installer:
 - extract:
     dst: $CACHE
-    file: inno
-- execute:
-    args: $gogsetup -d "$CACHE"
-    file: $CACHE/innoextract
+    file: gogsetup
 - merge:
     dst: $GAMEDIR
-    src: $CACHE/app
+    src: $CACHE/Tomb Raider 1
 - extract:
     dst: $CACHE
     src: tr1audio
@@ -42,4 +37,3 @@ installer:
 - extract:
     dst: $GAMEDIR/DELDATA
     src: lscreens
-
