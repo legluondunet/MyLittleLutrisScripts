@@ -1,43 +1,20 @@
----
-author: Romain
-changed: "2023-03-05T14:58:11.513358335"
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 7.5.0.3 (Linux)
-lang: fr-FR
----
+## Gamepad profiles for Tomb Raider 1-2
 
-<u>**Gamepad profiles for Tomb Raider 1-2**</u>
+TR1-2 have very weak support for gamepad on modern computer, you have to install a third party software.
 
-**TR1-2 have very weak support for gamepad on modern computer, you have
-to install a third party software.**
+This software will attribute keyboard keys to your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with AntimicroX --> tr1-2_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicro -->
-tr1-2_x360.gamecontroller.amgp**
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicroX
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download
-Antimicro**</span></span><span style="font-variant: normal"><span
-style="font-style: normal">**X**</span></span><span
-style="font-variant: normal"><span style="font-style: normal"> **here:**
-</span></span>[<span style="font-variant: normal"><span
-style="font-style: normal">**https://github.com/AntiMicroX/antimicroX**</span></span>](https://github.com/AntiMicroX/antimicroX)
+Steam controller profile to use with sc-controller --> tr-2_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-tr-2_steam.sccprofile**
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in TR1-2 game folder.**
-
-<u>**Tomb Raider 1-2 keyboard and gamepad mapping**</u>
+### Tomb Raider 1-2 keyboard and gamepad mapping
 
 <table width="751" data-cellpadding="2" data-cellspacing="0">
 <tbody>
