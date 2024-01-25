@@ -1,4 +1,3 @@
-custom-name: Tomb Raider I - GOG - TombATI HD
 files:
 - tombati:
     filename: TombATI_v1.8.rar
@@ -7,19 +6,17 @@ files:
     filename: TombATI_HD_Textures_v1.0.rar
     url: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
 - trpcx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/TITLEH.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bat
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - multilang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tombati_multi_lang/tombati_locale.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean.sh
 - gogsetup: N/A:Select the installer downloaded from GOG
 game:
-  args: c:\\tr1.bat
-  exe: drive_c/windows/system32/wineconsole.exe
+  exe: drive_c/TOMBATI/tombati.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/TOMBATI/tombub.exe
+    name: Tomb Raider I - Unfinished Business
+  - exe: $GAMEDIR/drive_c/TOMBATI/TombATIConfigure.exe
+    name: Configure TombATI HD textures
   prefix: $GAMEDIR
 installer:
 - task:
@@ -30,52 +27,35 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE/" "$gogsetup"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR/drive_c/tmp
+    file: gogsetup
+    format: gog
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI
     file: tombati
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/TR1HD
     file: hdtextures
-- move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppx360
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppsteam
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppreadme
 - task:
     app: vcrun2015
     name: winetricks
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/app
+    dst: $GAMEDIR/drive_c/tmp/Tomb Raider 1
     src: cdrtools
 - execute:
-    command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
-      if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
-      ./7z x -y $cd;
+    command: cd "$GAMEDIR/drive_c/tmp/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG
+      ;./bin2iso game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG;
+      fi; echo $cd; ./7z x -y $cd;
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
-    src: $CACHE/app/DATA
+    src: $GAMEDIR/drive_c/tmp/Tomb Raider 1/DATA
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/FMV
-    src: $CACHE/app/FMV
+    src: $GAMEDIR/drive_c/tmp/Tomb Raider 1/FMV
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
-- move:
-    dst: $GAMEDIR/drive_c
-    src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/patches/locale
     src: multilang
@@ -100,34 +80,9 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
-- task:
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr1.bmp
-- task:
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
 system:
   env:
     MESA_GL_VERSION_OVERRIDE: '3.3'
