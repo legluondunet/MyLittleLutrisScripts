@@ -10,6 +10,19 @@ Play "Tomb Raider I" provided by GOG on Linux! using TR1X open source project
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
+# Tomb Raider I - Steam - TR1X
+### Description:
+"Tomb Raider I" provided by Steam using TR1X open source project
+### Technical notes:
+- You have to install "Tomb Raider 1" on Steam before to launch this script installer
+- Unfinished Business extension included
+- Gamepad natively supported
+### Credits:
+- TR1X: https://github.com/LostArtefacts/TR1X
+- other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
 # Tomb Raider I - GOG - TombATI HD
 ### Description:
 Play "Tomb Raider I" provided by GOG on Linux! using GLRage engine and TombATI HD textures pack
@@ -84,17 +97,5 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 - Gamepad natively supported.
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
-- other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
-
-# Tomb Raider I - Steam - TR1X
-### Description:
-"Tomb Raider I" provided by Steam using TR1X open source project
-### Technical notes:
-- You have to install "Tomb Raider 1" on Steam before to launch this script installer
-- Unfinished Business extension included
-- Gamepad natively supported
-### Credits:
-- TR1X: https://github.com/LostArtefacts/TR1X
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
