@@ -1,26 +1,24 @@
-custom-name: Tomb Raider I - CD - TombATI HD
 files:
 - tombati:
-    filename: TombATI_v1.7.rar
-    url: http://download.glidos.net/TombATI/TombATI_v1.7.exe
+    filename: TombATI_v1.8.rar
+    url: http://download.glidos.net/TombATI/TombATI_v1.8.exe
 - hdtextures:
     filename: TombATI_HD_Textures_v1.0.rar
     url: http://download.glidos.net/TombATI/TombATI_HD_Textures_v1.0.exe
 - trpcx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/TITLEH.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bat
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tr1.bmp
 - multilang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/tombati_multi_lang/tombati_locale.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/clean.sh
 game:
-  arch: win64
-  args: c:\\tr1.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/TOMBATI/tombati.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/TOMBATI/tombub.exe
+    name: Tomb Raider I - Unfinished Business
+  - exe: $GAMEDIR/drive_c/TOMBATI/TombATIConfigure.exe
+    name: Configure TombATI HD textures
   prefix: $GAMEDIR
 installer:
 - task:
+    arch: win64
     description: Creating WINE prefix
     install_gecko: true
     install_mono: false
@@ -32,18 +30,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/TR1HD
     file: hdtextures
-- move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppx360
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppsteam
-- merge:
-    dst: $GAMEDIR/drive_c/TOMBATI/gamepad profiles
-    src: gppreadme
 - task:
     app: vcrun2015
     name: winetricks
@@ -61,9 +47,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
-- move:
-    dst: $GAMEDIR/drive_c
-    src: wpp
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/patches/locale
     src: multilang
@@ -88,43 +71,10 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr1.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 179 102
 system:
   env:
     MESA_GL_VERSION_OVERRIDE: '3.3'
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
     winmm: n,b
