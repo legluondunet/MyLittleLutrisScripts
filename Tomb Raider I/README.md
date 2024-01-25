@@ -1,3 +1,15 @@
+# Tomb Raider I - GOG - TR1X
+### Description:
+Play "Tomb Raider I" provided by GOG on Linux!
+### Technical notes:
+- using TR1X open source project
+- Unfinished Business extension included
+- Gamepad natively supported
+### Credits:
+- TR1X: https://github.com/LostArtefacts/TR1X
+- other sources: https://www.tombraiderforums.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
 # Tomb Raider I - GOG - TombATI HD
 ### Description:
 "Tomb Raider I" provided by GOG using GLRage engine and HD textures pack
@@ -70,17 +82,6 @@
 - Gamepad natively supported.
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
-- other sources: https://www.tombraiderforums.com
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
-
-# Tomb Raider I - GOG - TR1X
-### Description:
-"Tomb Raider I" provided by Steam using TR1X open source project
-### Technical notes:
-- Unfinished Business extension included
-- Gamepad natively supported
-### Credits:
-- TR1X: https://github.com/LostArtefacts/TR1X
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
