@@ -11,7 +11,7 @@ files:
 game:
   exe: drive_c/TOMBATI/tombati.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/TOMBATI/tombub.exe
+  - exe: $GAMEDIR/drive_c/TOMBATI/Tombub.exe
     name: Tomb Raider I - Unfinished Business
   - exe: $GAMEDIR/drive_c/TOMBATI/TombATIConfigure.exe
     name: Configure TombATI HD textures
