@@ -13,7 +13,7 @@ files:
 game:
   exe: drive_c/TOMBATI/tombati.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/TOMBATI/tombub.exe
+  - exe: $GAMEDIR/drive_c/TOMBATI/Tombub.exe
     name: Tomb Raider I - Unfinished Business
   - exe: $GAMEDIR/drive_c/TOMBATI/TombATIConfigure.exe
     name: Configure TombATI HD textures
@@ -27,7 +27,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $CACHE
     file: gogsetup
     format: gog
 - extract:
@@ -41,18 +41,18 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/tmp/Tomb Raider 1
+    dst: $CACHE/Tomb Raider 1
     src: cdrtools
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG
-      ;./bin2iso game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG;
-      fi; echo $cd; ./7z x -y $cd;
+    command: cd "$CACHE/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
+      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
+      echo $cd; ./7z x -y $cd;
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
-    src: $GAMEDIR/drive_c/tmp/Tomb Raider 1/DATA
+    src: $CACHE/Tomb Raider 1/DATA
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/FMV
-    src: $GAMEDIR/drive_c/tmp/Tomb Raider 1/FMV
+    src: $CACHE/Tomb Raider 1/FMV
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
@@ -80,9 +80,6 @@ installer:
 - execute:
     args: $INPUT_LANG
     file: script
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/tmp
 system:
   env:
     MESA_GL_VERSION_OVERRIDE: '3.3'
