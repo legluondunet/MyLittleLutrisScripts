@@ -42,7 +42,7 @@ Play "Tomb Raider II" provided by GOG on Linux! using OpenLara open source engin
 
 # Tomb Raider II - Steam + OpenLara
 ### Description:
-"Tomb Raider II" provided by Steam using OpenLara open source engine
+Play "Tomb Raider II" provided by Steam on Linux! using OpenLara open source engine
 ### Technical notes:
 - You have to install "Tomb Raider II" on Steam before to launch this script installer.
 - Openlara Github version c7fe8ec 10 february 2023.
