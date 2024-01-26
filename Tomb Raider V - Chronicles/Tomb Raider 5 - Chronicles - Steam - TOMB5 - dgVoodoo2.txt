@@ -1,16 +1,12 @@
-custom-name: Tomb Raider V - Chronicles - Steam
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bat
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/gamepad%20profiles/tr5_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20V%20-%20Chronicles/tr5c.bmp
 - mod: https://github.com/Trxyebeep/TOMB5/releases/download/V3.2.0/exe.+.dll.zip
 game:
-  arch: win64
-  args: c:\\tr5c.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/Tomb Raider 5/PCTomb5.exe
+  launch_configs:
+  - args: -setup
+    exe: $GAMEDIR/drive_c/Tomb Raider 5/PCTomb5.exe
+    name: TOMB RAIDER V - Setup dialog box
   prefix: $GAMEDIR
 installer:
 - task:
@@ -46,62 +42,9 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 5/dgVoodoo.conf
     merge: false
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 5/backup
-    src: $GAMEDIR/drive_c/Tomb Raider 5/PCTomb5.exe
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 5
     src: mod
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 5/gamepad profiles
-    src: gpreadme
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 5/gamepad profiles
-    src: gpx360
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 5/gamepad profiles
-    src: gpsteam
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr5c.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 68 103 145
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 5"; rm -f -r 3Dfx Doc MS D3D9.dll D3D8.dll;
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
