@@ -1,16 +1,13 @@
-custom-name: Tomb Raider IV - The Last Revelation - Steam
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/tr4tlr.bat
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/tr4tlr.bmp
 - mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/tomb4.zip
 - dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
 game:
-  args: c:\\tr4tlr.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/Tomb Raider 4/tomb4.exe
+  launch_configs:
+  - args: -setup
+    exe: $GAMEDIR/drive_c/Tomb Raider 4/tomb4.exe
+    name: TOMB RAIDER IV - Setup dialog box
   prefix: $GAMEDIR
 installer:
 - task:
@@ -46,65 +43,12 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 4/dgVoodoo.conf
     merge: false
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 4/backup
-    src: $GAMEDIR/drive_c/Tomb Raider 4/tomb4.exe
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 4
     file: mod
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 4
     src: dll
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
-    src: gpreadme
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
-    src: gpx360
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 4/gamepad profiles
-    src: gpsteam
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr4tlr.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 191 166 12
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 4"; rm -f -r 3Dfx MS Doc D3D9.dll D3D8.dll;
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
