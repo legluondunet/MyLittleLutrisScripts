@@ -1,15 +1,13 @@
-custom-name: Tomb Raider III - The Lost Artefact - CD
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - mod: https://github.com/Trxyebeep/tomb3/releases/download/V2.0.2/tomb3.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bat
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20Adventures%20of%20Lara%20Croft/gamepad%20profiles/tr3_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20III%20-%20The%20Lost%20Artefact/tr3tla.bmp
 game:
-  args: c:\\tr3tla.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  args: -gold
+  exe: drive_c/TR3TLA/tomb3.exe
+  launch_configs:
+  - args: -setup
+    exe: $GAMEDIR/drive_c/TR3TLA/tomb3.exe
+    name: Tomb Raider 3 - Setup dialog box
   prefix: $GAMEDIR
 installer:
 - task:
@@ -28,9 +26,6 @@ installer:
     src: $DISC
 - execute:
     command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA;
-- merge:
-    dst: $GAMEDIR/drive_c/TR3TLA/backup
-    src: $GAMEDIR/drive_c/TR3TLA/tr3gold.exe
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA
     file: mod
@@ -53,37 +48,6 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/TR3TLA/dgVoodoo.conf
     merge: false
-- move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
-    src: gpx360
-- merge:
-    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
-    src: gpsteam
-- merge:
-    dst: $GAMEDIR/drive_c/TR3TLA/gamepad profiles
-    src: gpreadme
-- move:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr3tla.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - execute:
     command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe
       3Dfx Doc MS DIRECTX Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat
@@ -91,6 +55,5 @@ installer:
       pix | xargs -I {} -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv
       {} datag; mv saves savesg;
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
