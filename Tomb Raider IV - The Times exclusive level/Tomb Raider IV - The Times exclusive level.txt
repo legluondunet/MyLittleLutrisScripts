@@ -1,16 +1,18 @@
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bat
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles/tr4_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/tr4times.bmp
 - mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/The.Times.Exclusive.zip
 - dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
 - bonus: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/Times_Games_Bonus.zip
 game:
-  args: c:\\tr4times.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/The Times - Exclusive Tomb Raider Level/tomb4.exe
+  launch_configs:
+  - args: -setup
+    exe: $GAMEDIR/drive_cThe Times - Exclusive Tomb Raider Level/tomb4.exe
+    name: TOMB RAIDER IV - Setup dialog box
+  - exe: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/Jigsaw.exe
+    name: TOMB RAIDER IV - Jigsaw
+  - exe: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/Clicker.exe
+    name: TOMB RAIDER IV - Clicker
   prefix: $GAMEDIR
 installer:
 - task:
@@ -20,30 +22,6 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 255 255
 - extract:
     dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
     file: mod
@@ -59,9 +37,6 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
     src: dll
-- execute:
-    command: cd "$GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level"; rm -f
-      -r 3Dfx Doc MS QuickGuide.html D3D8.dll D3D9.dll;
 - write_config:
     data:
       DirectX:
@@ -75,30 +50,6 @@ installer:
         ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/dgVoodoo.conf
     merge: false
-- move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- move:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
-    src: gpreadme
-- merge:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
-    src: gpx360
-- merge:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/gamepad profiles
-    src: gpsteam
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr4times.bmp
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
