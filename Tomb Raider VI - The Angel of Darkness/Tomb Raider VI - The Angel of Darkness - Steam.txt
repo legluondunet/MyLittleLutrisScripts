@@ -1,9 +1,4 @@
-custom-name: Tomb Raider VI - The Angel of Darkness - Steam
 files:
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/tr6.bmp
-- gpx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_x360.gamecontroller.amgp
-- gpsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_steam.sccprofile
-- gpreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20VI%20-%20The%20Angel%20of%20Darkness/gamepad%20profiles/tr6_gamepad_readme.html
 - codecs: https://github.com/legluondunet/mlls-tools/raw/master/LAVFilters/LAVFilters-0.77.1-x86.zip
 game:
   exe: drive_c/Tomb Raider 6/Launcher.exe
@@ -41,32 +36,12 @@ installer:
     value: 00000409
 - task:
     arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr6.bmp
-- task:
-    arch: win64
     key: background
     name: set_regedit
     path: HKEY_CURRENT_USER\Control Panel\Colors\
     prefix: $GAMEDIR
     type: REG_SZ
     value: 0 0 0
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles
-    src: gpreadme
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles
-    src: gpx360
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 6/gamepad profiles
-    src: gpsteam
 - task:
     app: devenum quartz_feb2010
     name: winetricks
@@ -77,5 +52,3 @@ installer:
 - task:
     executable: $GAMEDIR/drive_c/libavfilters/install_splitter.bat
     name: wineexec
-wine:
-  Desktop: true
