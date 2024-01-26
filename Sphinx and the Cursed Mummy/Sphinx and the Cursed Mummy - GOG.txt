@@ -1,7 +1,12 @@
 files:
 - gogsetup: N/A:Please select the GOG Windows setup file.
+- mod1: N/A:Please select mod avalaible here for download https://www.moddb.com/mods/sphinx-and-the-shadow-of-set/downloads
 game:
   exe: drive_c/GOG Games/Sphinx and the Cursed Mummy/SphinxD_GL.exe
+  launch_configs:
+  - args: -mod 1614156774
+    exe: $GAMEDIR/drive_c/GOG Games/Sphinx and the Cursed Mummy/SphinxD_GL.exe
+    name: Sphinx and the Shadow of Set mod
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,3 +18,6 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Sphinx and the Cursed Mummy
     file: gogsetup
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Sphinx and the Cursed Mummy
+    file: mod1
