@@ -1,4 +1,3 @@
-custom-name: Rayman 2 - GOG - nGlide
 files:
 - ngl:
     filename: nGlide210_setup.exe
@@ -7,7 +6,6 @@ files:
 - wspatch: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
 - xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
 game:
-  arch: win64
   exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
   prefix: $GAMEDIR
 installer:
@@ -39,21 +37,10 @@ installer:
     description: NGlide installation
     executable: $ngl
     name: wineexec
-    prefix: $GAMEDIR
 - task:
-    arch: win64
     key: Resolution
     name: set_regedit
     path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: '1'
-- task:
-    arch: win64
-    key: Vsync
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
-    prefix: $GAMEDIR
     type: REG_SZ
     value: '1'
 - write_config:
