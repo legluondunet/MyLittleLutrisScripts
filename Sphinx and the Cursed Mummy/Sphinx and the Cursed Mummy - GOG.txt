@@ -1,0 +1,15 @@
+files:
+- gogsetup: N/A:Please select the GOG Windows setup file.
+game:
+  exe: drive_c/GOG Games/Sphinx and the Cursed Mummy/SphinxD_GL.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Sphinx and the Cursed Mummy
+    file: gogsetup
