@@ -1,35 +1,18 @@
----
-author: Romain
-changed: "2023-03-05T14:54:35.084451206"
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 7.5.0.3 (Linux)
-lang: fr-FR
----
+### Gamepad profiles for Tomb Raider 4
 
-<u>**Gamepad profiles for Tomb Raider 4**</u>
+TR4 have very wek support for gamepad, you will obtain a better gaming experience if you use a keymapper.
 
-**TR4 have very wek support for gamepad, you will obtain a better gaming
-experience if you use a keymapper.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with antimicro --> tr4_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicro -->
-tr4_x360.gamecontroller.amgp**
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicroX
 
-**You can download AntimicroX here:
-<https://github.com/AntiMicroX/antimicroX>**
+Steam controller profile to use with sc-controller --> tr4_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-tr4_steam.sccprofile**
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**
-
-**You will find gamepad profiles in TR4 game folder.**
-
-**<u>TR4</u> <u>keyboard and gamepad mapping</u>**
+### TR4 keyboard and gamepad mapping
 
 <table width="751" data-cellpadding="2" data-cellspacing="0">
 <tbody>
