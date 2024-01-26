@@ -17,7 +17,7 @@ Play "Tomb Raider IV: The Last Revelation" provided by Steam on Linux! using TOM
 ### Technical notes:
 - You have to install "Tomb Raider IV" on Steam before to launch this script installer
 - Press "p" key to access main menu
-- "Tomb Raider IV: The Last Revelation" has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
+- "Tomb Raider IV: The Last Revelation" has insufficient controller support, you will find profiles for AntimicroX keymapper here: https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/gamepad%20profiles
 ### Credits:
 - Tomb4: https://github.com/Trxyebeep/TOMB4
 - dgVoodoo2: http://www.dege.freeweb.hu
