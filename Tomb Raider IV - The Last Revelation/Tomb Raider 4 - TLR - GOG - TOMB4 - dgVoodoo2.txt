@@ -1,18 +1,14 @@
 files:
+- gogsetup: N/A:Select the installer downloaded from GOG
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/The.Times.Exclusive.zip
+- mod: https://github.com/Trxyebeep/TOMB4/releases/download/V2.2.1/tomb4.zip
 - dll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Last%20Revelation/xaudio2_9.dll
-- bonus: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20IV%20-%20The%20Times%20exclusive%20level/Times_Games_Bonus.zip
 game:
-  exe: drive_c/The Times - Exclusive Tomb Raider Level/tomb4.exe
+  exe: drive_c/GOG Games/Tomb Raider 4/tomb4.exe
   launch_configs:
   - args: -setup
-    exe: $GAMEDIR/drive_cThe Times - Exclusive Tomb Raider Level/tomb4.exe
+    exe: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/tomb4.exe
     name: TOMB RAIDER IV - Setup dialog box
-  - exe: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/Jigsaw.exe
-    name: TOMB RAIDER IV - Jigsaw
-  - exe: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/Clicker.exe
-    name: TOMB RAIDER IV - Clicker
   prefix: $GAMEDIR
 installer:
 - task:
@@ -23,20 +19,18 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
-    file: mod
+    dst: $CACHE
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    src: $CACHE/Tomb Raider 4
 - extract:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
-    file: bonus
-- extract:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
     file: wrapper
-- merge:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
-    src: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/MS/x86
-- merge:
-    dst: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level
-    src: dll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/MS/x86
 - write_config:
     data:
       DirectX:
@@ -48,8 +42,14 @@ installer:
         CaptureMouse: false
         FullScreenMode: false
         ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/The Times - Exclusive Tomb Raider Level/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4/dgVoodoo.conf
     merge: false
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    file: mod
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 4
+    src: dll
 wine:
   overrides:
     ddraw: n,b
