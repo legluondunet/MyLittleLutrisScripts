@@ -46,13 +46,14 @@ cp TITLE.PNG TITLEUS.PNG
 cp MAIN.SFX ../../audio/2
 
 cd ../../audio/2
-	for file in *.ogg
-	do mv "$file" "${file/Track/track_}" && echo mv "$file" "${file/Track/track_}"
-	done
-
-cd ../../video/2
-	for file in *
-	do
-	mv -- "$file" "${file^^}"
+export LD_LIBRARY_PATH=""
+	for file in *.mp3
+	do filenumber="${#file}"
+		if [ $filenumber == 5 ]
+		then newfile="track_0$file"
+		else newfile="track_$file"	
+		fi
+	echo $newfile
+	ffmpeg -i $file -c:a libvorbis -q:a 4 "${newfile/%mp3/ogg}"
 	done
 fi
