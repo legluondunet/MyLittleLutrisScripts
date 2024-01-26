@@ -1,4 +1,3 @@
-custom-name: Tomb Raider II - Steam - OpenLara
 files:
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
 - lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/PIX.7z
