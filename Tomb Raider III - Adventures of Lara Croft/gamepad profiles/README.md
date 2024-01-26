@@ -1,39 +1,18 @@
----
-author: Romain
-changed: "2023-03-05T15:12:25.292385022"
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 7.5.0.3 (Linux)
-lang: fr-FR
----
+## Gamepad profiles for Tomb Raider 3
 
-<u>**Gamepad profiles for Tomb Raider 3**</u>
+TR3 have very weak support for gamepad, you will obtain a better gaming experience if you use a keymapper.
 
-**TR3 have very weak support for gamepad, you will obtain a better
-gaming experience if you use a keymapper.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with AntimicroX --> tr3_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicroX -->
-tr3_x360.gamecontroller.amgp**
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicroX
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download AntimicroX here:
-<https://github.com/AntiMicroX/antimicroX>**</span></span>
+Steam controller profile to use with sc-controller --> tr3_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-tr3_steam.sccprofile**
+ou can download sc-controller here --> https://github.com/kozec/sc-controller
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your TR3 game folder.**
-
-**<u>TR3</u> <u>keyboard and gamepad mapping</u>**
-
-  
+### TR3 keyboard and gamepad mapping
 
 <table width="751" data-cellpadding="2" data-cellspacing="0">
 <tbody>
