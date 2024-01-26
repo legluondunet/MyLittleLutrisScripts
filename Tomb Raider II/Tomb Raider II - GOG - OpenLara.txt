@@ -13,7 +13,7 @@ installer:
     format: gog
 - merge:
     dst: $GAMEDIR/level/2
-    src: $CACHE/Tomb Raider 2//data
+    src: $CACHE/Tomb Raider 2/data
 - merge:
     dst: $GAMEDIR/video/2
     src: $CACHE/Tomb Raider 2/fmv
