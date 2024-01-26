@@ -56,4 +56,5 @@ export LD_LIBRARY_PATH=""
 	echo $newfile
 	ffmpeg -i $file -c:a libvorbis -q:a 4 "${newfile/%mp3/ogg}"
 	done
+rm -f -r *.mp3
 fi
