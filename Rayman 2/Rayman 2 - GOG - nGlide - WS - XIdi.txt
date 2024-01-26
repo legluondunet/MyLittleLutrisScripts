@@ -57,3 +57,7 @@ installer:
 wine:
   overrides:
     dinput: n,b
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
