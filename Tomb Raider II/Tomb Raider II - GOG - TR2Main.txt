@@ -1,16 +1,16 @@
-custom-name: Tomb Raider II - GOG
 files:
 - mod: https://github.com/Arsunt/TR2Main/releases/download/v0.9.0/TR2Main_v0.9.0.zip
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2m.bat
-- gppx360: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_x360.gamecontroller.amgp
-- gppsteam: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_steam.sccprofile
-- gppreadme: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/gamepad%20profiles/tr1-2_gamepad_readme.html
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/tr2.bmp
 - gogsetup: N/A:Select the installer downloaded from GOG
 - audiodll: https://github.com/legluondunet/mlls-tools/raw/master/winmm/zplaymm.zip
 game:
-  args: c:\\TR2M.BAT
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/Tomb Raider 2/Tomb2.exe
+  launch_configs:
+  - args: -gold
+    exe: $GAMEDIR/drive_c/Tomb Raider 2/Tomb2.exe
+    name: Tomb Raider II - Golden Mask
+  - args: -setup
+    exe: $GAMEDIR/drive_c/Tomb Raider 2/Tomb2.exe
+    name: Setup dialog box
   prefix: $GAMEDIR
 installer:
 - task:
@@ -21,9 +21,12 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2
+    dst: $CACHE
     file: gogsetup
-    formay: gog
+    format: gog
+- move:
+    dst: $GAMEDIR/drive_c
+    src: $CACHE/Tomb Raider 2
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: mod
@@ -33,65 +36,11 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/audio.bak
     src: $GAMEDIR/drive_c/Tomb Raider 2/audio
-- task:
-    key: InvBackgroundMode
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000001'
-- task:
-    key: DetailLevel
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Core Design\Tomb Raider II\Game
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000002'
-- move:
-    dst: $GAMEDIR/drive_c
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
-    src: gppx360
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
-    src: gppsteam
-- merge:
-    dst: $GAMEDIR/drive_c/Tomb Raider 2/gamepad profiles
-    src: gppreadme
-- move:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- task:
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\tr2.bmp
-- task:
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 91 0 0
-- task:
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 204 51 0
+- execute:
+    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/music"; for file in *.mp3; do filenumber="${#file}";
+      if [ $filenumber == 5 ]; then newfile="Track0$file"; else newfile="Track$file";
+      fi; echo $newfile; mv $file $newfile ; done ;
 wine:
-  Desktop: true
   overrides:
     ddraw: n,b
     winmm: n,b
