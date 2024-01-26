@@ -27,12 +27,12 @@
 
 # Tomb Raider II - GOG + OpenLara
 ### Description:
-"Tomb Raider II" provided by GOG using OpenLara open source engine
+Play "Tomb Raider II" provided by GOG on Linux! using OpenLara open source engine
 ### Technical notes:
-- Openlara Github version c7fe8ec 10 february 2023.
-- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing.
-- Multilingual menus and subtitles.
-- Gamepad natively supported.
+- Openlara Github version c7fe8ec 10 february 2023
+- OpenLara support for "Tomb Raider II" is still work in progress and incomplete. Use this script only for testing
+- Multilingual menus and subtitles
+- Gamepad natively supported
 ### Credits:
 - OpenLara: https://github.com/XProger/OpenLara
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
