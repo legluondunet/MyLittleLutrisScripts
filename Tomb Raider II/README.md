@@ -15,12 +15,13 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 
 # Tomb Raider II - Steam + TR2Main
 ### Description:
-"Tomb Raider II" provided by Steam using TR2Main open source project
+Play "Tomb Raider II" provided by Steam on Linux! using TR2Main open source project
 ### Technical notes:
 - You have to install "Tomb Raider II" on Steam before to launch this script installer
 - This script uses TR2Main: for stability and features, like PS1 inventory background
 - Tomb Raider II Gold extension included
-- TR2 has insufficient controller support, I invite you to use a keymapper. You will find profiles for x360 (AntimicroX) and Steam Controller (sc-controller) in the "gamepad profiles" folder
+- TR2 has insufficient controller support, you will find AntimicroX profiles I wrote here: 
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%20I/gamepad%20profiles
 ### Credits:
 - TR2Main by Arsunt: https://github.com/Arsunt/TR2Main
 - MainLibzplay: http://libzplay.sourceforge.net/WELCOME.html
