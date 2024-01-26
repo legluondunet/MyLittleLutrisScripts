@@ -12,7 +12,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 
 # Tomb Raider III - Adventures of Lara Croft - Steam + TOMB3 + dgVoodoo2
 ### Description:
-Play "Tomb Raider III - Adventures of Lara Croft" provided by Steam on Linux! using TOMB3 open source project and 
+Play "Tomb Raider III - Adventures of Lara Croft" provided by Steam on Linux! using TOMB3 open source project and dgVoodoo2
 ### Technical notes:
 - You have to install "Tomb Raider III" on Steam before to launch this script installer
 - TR3 has insufficient controller support, you will find profiles for AntimicroX keymapper here:
