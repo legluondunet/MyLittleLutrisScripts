@@ -1,7 +1,5 @@
-custom-name: Tomb Raider II - GOG - OpenLara
 files:
 - opl: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20I/openlara.tar.xz
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - lscreens: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tomb%20Raider%20II/PIX.7z
 - gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
     GOG account
@@ -11,19 +9,17 @@ game:
 installer:
 - extract:
     dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$CACHE" "$gogsetup"
-    file: $CACHE/innoextract
+    file: gogsetup
+    format: gog
 - merge:
     dst: $GAMEDIR/level/2
-    src: $CACHE/app/data
+    src: $CACHE/Tomb Raider 2//data
 - merge:
     dst: $GAMEDIR/video/2
-    src: $CACHE/app/fmv
+    src: $CACHE/Tomb Raider 2/fmv
 - merge:
     dst: $GAMEDIR/audio/2
-    src: $CACHE/app/music
+    src: $CACHE/Tomb Raider 2/music
 - extract:
     dst: $GAMEDIR
     src: opl
