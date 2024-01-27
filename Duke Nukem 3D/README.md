@@ -6,7 +6,7 @@ Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 - EDuke32 revision r10548-842047589 - x64 - 27 january 2024
 - Alt-tab: press escape to obtain EDuke32 menu then alt-tab is available
 ### Credits:
-- Eduke32: project https://www.eduke32.com
+- Eduke32: https://www.eduke32.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
