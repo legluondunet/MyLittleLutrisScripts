@@ -1,4 +1,4 @@
-# Duke Nukem 3D - All PC versions - EDuke32
+# Duke Nukem 3D - DUKE3D.GRP + EDuke32
 ### Description:
 Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 ### Technical notes:
