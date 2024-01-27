@@ -38,11 +38,21 @@ installer:
     executable: $ngl
     name: wineexec
 - task:
+    arch: win64
+    key: Refresh
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: 60
+- task:
+    arch: win64
     key: Resolution
     name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2\
+    prefix: $GAMEDIR
     type: REG_SZ
-    value: '1'
+    value: 1
 - write_config:
     data:
       Rayman2:
@@ -54,10 +64,10 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3DfxSpl*
       glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* ;
-wine:
-  overrides:
-    dinput: n,b
 system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: null
+wine:
+  overrides:
+    dinput: n,b
