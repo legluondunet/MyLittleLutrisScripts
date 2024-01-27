@@ -1,16 +1,16 @@
-custom-name: Duke Nukem 3D - All PC versions - EDuke32
 files:
 - eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
 game:
   exe: $GAMEDIR/eduke32.sh
 installer:
 - insert-disc:
+    description: Use browse button to select path with DUKE3D.GRP file. Do not use
+      Autodetection button.
     requires: duke3d.grp
 - extract:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     format: txz
     src: eduke32
 - execute:
-    command: cd "$DISC" ; find * -iname "DUKE3D.GRP" -exec cp "{}" "$GAMEDIR/dn3d/all"
+    command: cd "$DISC" ; find * -iname "DUKE3D.GRP" -exec cp "{}" "$GAMEDIR/dn3d/main"
       \;
-
