@@ -15,7 +15,7 @@ Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 ### Description:
 Play more than "Duke Nukem 3D" hundred bonus levels
 ### Technical notes:
-- - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
+- Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
 ### Credits:
 - Big thanks to NightFright: https://forums.duke4.net/topic/7640-release-eduke32-addon-compilation
 - Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
