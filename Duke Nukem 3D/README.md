@@ -11,9 +11,9 @@ Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Duke Nukem 3D - Bonus levels for EDuke32
+# Duke Nukem 3D - EDuke32 + Bonus levels
 ### Description:
-Add more than hundred bonus levels for your "Duke Nukem 3D" install
+Play more than "Duke Nukem 3D" hundred bonus levels
 ### Technical notes:
 - - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
 ### Credits:
@@ -21,7 +21,7 @@ Add more than hundred bonus levels for your "Duke Nukem 3D" install
 - Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Duke Nukem 3D - HRP for EDuke32
+# Duke Nukem 3D - EDuke32 + HRP
 ### Description:
 Play "Duke Nukem 3D" with HD graphism, HD music, light effects and other enhancements
 ### Technical notes:
