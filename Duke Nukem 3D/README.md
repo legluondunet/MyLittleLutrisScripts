@@ -2,9 +2,9 @@
 ### Description:
 Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 ### Technical notes:
+- This installation script is compatible with DN3D demo, classic, Megaton and Atomic edition
 - During install, you will need to provide "DUKE3D.GRP" file
 - EDuke32 revision r10548-842047589 - x64 - 27 january 2024
-- This installation script is compatible with DN3D demo, classic, Megaton and Atomic edition
 - Alt-tab: press escape to obtain EDuke32 menu then alt-tab is available
 ### Credits:
 - Eduke32: https://www.eduke32.com
