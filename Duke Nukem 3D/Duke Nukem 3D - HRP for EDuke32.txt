@@ -1,4 +1,4 @@
-extends: duke-nukem-3d
+extends: duke-nukem-3d-eduke32
 files:
 - hrp1: http://www.duke4.org/files/nightfright/hrp/duke3d_hrp.zip
 - hrp2:
@@ -16,4 +16,3 @@ installer:
     key: Polymer
     section: Screen Setup
     value: '1'
-
