@@ -1,8 +1,8 @@
 files:
 - eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
 game:
-  args: -usecwd -cfg config.cfg  -j "grp" -j "grp/addons/dc" -j "grp/addons/nw" -j
-    "grp/addons/vacation" -grp "hrp/"*
+  args: -usecwd -cfg config.cfg  -usecwd -cfg config.cfg  -j "grp" -j "grp/addons/dc"
+    -j "grp/addons/nw" -j "grp/addons/vacation" -grp "hrp/duke3d_hrp.zip" -grp "hrp/hrpmusic.zip"
   exe: $GAMEDIR/eduke32
   ld_library_path: $GAMEDIR/libs
 installer:
