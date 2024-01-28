@@ -26,7 +26,7 @@ Play more than "Duke Nukem 3D" hundred bonus levels
 Play "Duke Nukem 3D" with HD graphism, HD music, light effects and other enhancements
 ### Technical notes:
 -  "Hi Resolution Pack" for EDuke32
-- - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
+- Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
 ### Credits:
 - Big thanks to the guys at Duke4.net: http://hrp.duke4.net and his community: https://forums.duke4.net
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
