@@ -23,3 +23,14 @@ Big thanks to people who gave their time to permit us playing this game in the b
 - Alt-tab: press escape to obtain EDuke32 menu then alt-tab is available
 - Please report issue concerning this script on my Github page:
 https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Duke Nukem 3D - Atomic Edition - GOG - DOSBox
+### Description:
+This script will facilitate you install of this game on Linux OS:
+"Duke Nukem 3D - Atomic Edition" provided by GOG using Lutris DOSBox runner.
+During install please let all options by default.
+Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
+### Technical notes:
+- Please report issue concerning this script on my Github page:
+https://github.com/legluondunet/MyLittleLutrisScripts/
