@@ -32,12 +32,12 @@ Play "Duke Nukem 3D" with HD graphism, HD music, light effects and other enhance
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Duke Nukem 3D - Atomic Edition - GOG - DOSBox
+# Duke Nukem 3D - EDuke32 - Savior of Babes mod
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Duke Nukem 3D - Atomic Edition" provided by GOG using Lutris DOSBox runner.
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
+Play "Duke Nukem 3D" with this awesome mod in HD
 ### Technical notes:
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- to know more and download "Duke Nukem 3D Savior of Babes": https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
+- This script installer will ask you to provide "DUKE3D.GRP" file from a full "Duke Nukem 3D" install
+### Credits:
+- Duke Nukem 3D Savior of Babes: https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
