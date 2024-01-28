@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
     GOG account.
-- epsilonpack: N/A:Please donwload Arcane Dimensions Epsilon mod from https://www.moddb.com/mods/arcane-dimensions
+- epsilonpack: N/A:Please download Arcane Dimensions Epsilon mod from https://www.moddb.com/mods/arcane-dimensions
 game:
   args: -game ad
   exe: $GAMEDIR/drive_c/Arcane Dimensions Epsilon/darkplaces.exe
