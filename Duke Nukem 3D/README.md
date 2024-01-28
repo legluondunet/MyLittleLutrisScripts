@@ -15,7 +15,7 @@ Play "Duke Nukem 3D" on Linux! using Eduke32 open source project
 ### Description:
 Add more than hundred bonus levels for your "Duke Nukem 3D" install
 ### Technical notes:
-- Before to install this script installer, you have to install "EDuke32"
+- - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
 ### Credits:
 - Big thanks to NightFright: https://forums.duke4.net/topic/7640-release-eduke32-addon-compilation
 - Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
@@ -23,16 +23,13 @@ Add more than hundred bonus levels for your "Duke Nukem 3D" install
 
 # Duke Nukem 3D - HRP for EDuke32
 ### Description:
-This script will install "Hi Resolution Pack" for EDuke32: HD graphism, HD music, light effects and other enhancements.
-Credits:
-Big thanks to the guys at Duke4.net:
-http://hrp.duke4.net/
-and his community:
-https://forums.duke4.net/
+Play "Duke Nukem 3D" with HD graphism, HD music, light effects and other enhancements
 ### Technical notes:
-- This script will not install "Duke Nukem 3D" nor EDuke32, it will only install Hi Resolution Packs provided by http://hrp.duke4.net/ and the "Duke Nukem 3D" community. So you have to install one of this scripts "Steam + EDuke32", "All versions + EDuke32" or "GOG + EDuke32" before this one.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+-  "Hi Resolution Pack" for EDuke32
+- - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
+### Credits:
+- Big thanks to the guys at Duke4.net: http://hrp.duke4.net and his community: https://forums.duke4.net
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Duke Nukem 3D - Atomic Edition - GOG - DOSBox
