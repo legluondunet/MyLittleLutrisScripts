@@ -36,7 +36,7 @@ Play "Duke Nukem 3D" with HD graphism, HD music, light effects and other enhance
 ### Description:
 Play "Duke Nukem 3D" with this awesome mod in HD
 ### Technical notes:
-- to know more and download "Duke Nukem 3D Savior of Babes": https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
+- to know more and download "Duke Nukem 3D - Savior of Babes" mod: https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
 - This script installer will ask you to provide "DUKE3D.GRP" file from a full "Duke Nukem 3D" install
 ### Credits:
 - Duke Nukem 3D Savior of Babes: https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
