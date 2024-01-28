@@ -1,19 +1,10 @@
-extends: duke-nukem-3d
+extends: duke-nukem-3d-eduke32
 files:
-- fngt:
-    filename: addons.7z
+- bonus1:
+    filename: nfaddons.7z
     url: https://www.dropbox.com/s/7n0uqk2gd1i6rxh/eduke32_addons314.exe?dl=1
-- dznii:
-    filename: dukezoneii.zip
-    url: https://www.dropbox.com/s/kwntvzyvpmsbj1b/dukezone2.zip?dl=1
 installer:
-- execute:
-    command: chmod -R +rw $GAMEDIR/dn3d/addons/
 - extract:
-    dst: $GAMEDIR/dn3d/addons/frightnight
+    dst: $GAMEDIR/grp/addons/frightnight
     format: 7z
-    src: fngt
-- extract:
-    dst: $GAMEDIR/dn3d/addons/frightnight/
-    src: dznii
-
+    src: bonus1
