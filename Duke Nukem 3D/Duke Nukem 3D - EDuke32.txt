@@ -1,7 +1,10 @@
 files:
 - eduke32: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Duke%20Nukem%203D/eduke32.tar.xz
 game:
-  exe: $GAMEDIR/eduke32.sh
+  args: -usecwd -cfg config.cfg  -j "grp" -j "grp/addons/dc" -j "grp/addons/nw" -j
+    "grp/addons/vacation"
+  exe: $GAMEDIR/eduke32
+  ld_library_path: $GAMEDIR/libs
 installer:
 - insert-disc:
     description: Use browse button to select path with DUKE3D.GRP file. Do not use
@@ -12,5 +15,6 @@ installer:
     format: txz
     src: eduke32
 - execute:
-    command: cd "$DISC" ; find * -iname "DUKE3D.GRP" -exec cp "{}" "$GAMEDIR/dn3d/main"
-      \;
+    command: cd "$DISC" ; find -maxdepth 1 -type f -iname "DUKE3D.GRP" -exec cp "{}"
+      "$GAMEDIR/grp" \; && find -maxdepth 1 -type d -iname "addons" -exec cp -r "{}"
+      "$GAMEDIR/grp" \;
