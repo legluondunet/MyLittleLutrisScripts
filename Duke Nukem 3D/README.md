@@ -17,8 +17,8 @@ Play more than "Duke Nukem 3D" hundred bonus levels
 ### Technical notes:
 - Before to install this script installer, you have to install script installer called "Duke Nukem 3D - EDuke32 version"
 ### Credits:
-- Big thanks to NightFright: https://forums.duke4.net/topic/7640-release-eduke32-addon-compilation
-- Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
+- "Duke Nukem 3D - Savior of Babes" mod: https://www.moddb.com/mods/duke-nukem-3d-savior-of-babes
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Duke Nukem 3D - EDuke32 + HRP
