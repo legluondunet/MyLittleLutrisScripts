@@ -1,8 +1,8 @@
-# Virtua Fighter PC - CD + DxWnd
+# Virtua Fighter PC - CD
 ### Description:
-Play "Virtua Fighter PC" CD edition on Linux! using DxWnd open source project
+Play "Virtua Fighter PC" CD edition on Linux!
 ### Technical notes:
-- This game needs Gamescope to run in fullscreen and maintain his framerate to 60 fps
+- using cnc-ddraw and cdaudio proxy open source projects
 - Controls:
 [Alt + F4]	Quit
 [F5]	Key configuration (Joystick, X360 compatible)
@@ -10,8 +10,6 @@ Play "Virtua Fighter PC" CD edition on Linux! using DxWnd open source project
 [F7]	Screen brightness, camera, and volume settings
 more in the readme file: c:\sega\readme.txt
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
-- GNU32 tools: http://gnuwin32.sourceforge.net
-- Mplayer: http://www.mplayerhq.hu/design7/news.html
-- SOX: http://sox.sourceforge.net
+- cnc-ddraw: https://github.com/FunkyFr3sh/cnc-ddraw
+- CDAudio proxy: https://sourceforge.net/projects/cdaudio-proxy
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
