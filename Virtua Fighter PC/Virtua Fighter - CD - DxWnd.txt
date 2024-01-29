@@ -1,4 +1,3 @@
-custom-name: Virtua Fighter PC - CD
 files:
 - dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_92_build.rar
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.7z
@@ -6,10 +5,10 @@ files:
 - gnusox: https://github.com/legluondunet/mlls-tools/raw/master/sox/sox-14.4.2-win32.zip
 - mp: https://github.com/legluondunet/mlls-tools/raw/master/mplayer/MPlayer-generic-r38135%252Bgb272d5b9b6.7z
 - gnugrep: https://github.com/legluondunet/mlls-tools/raw/master/grep/grep-2.5.4.zip
-- start: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.bat
 - conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.ini
 game:
-  exe: drive_c/vfpc.bat
+  args: /R:0
+  exe: drive_c/dxwnd/dxwnd.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -33,9 +32,6 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/SEGA/VFPC/backup
     src: $GAMEDIR/drive_c/SEGA/VFPC/vfpc.exe
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: start
 - copy:
     dst: $GAMEDIR/drive_c/SEGA/VFPC
     src: conf
@@ -117,16 +113,11 @@ installer:
     executable: $GAMEDIR/drive_c/tmp/soundtrack.bat
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/tmp
-wine:
-  Desktop: true
+system:
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION_WIDTHx$RESOLUTION_HEIGHT
+  gamescope_output_res: $RESOLUTION_WIDTHx$RESOLUTION_HEIGHT
