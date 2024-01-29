@@ -119,5 +119,5 @@ installer:
 system:
   gamescope: true
   gamescope_fps_limiter: '60'
-  gamescope_game_res: $RESOLUTION_WIDTHx$RESOLUTION_HEIGHT
-  gamescope_output_res: $RESOLUTION_WIDTHx$RESOLUTION_HEIGHT
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
