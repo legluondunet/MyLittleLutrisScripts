@@ -1,8 +1,8 @@
-# MLLS - Virtua Fighter PC - CD + DxWnd
-
+# Virtua Fighter PC - CD + DxWnd
 ### Description:
-"Virtua Fighter PC" CD edition using DxWnd
+Play "Virtua Fighter PC" CD edition on Linux! using DxWnd open source project
 ### Technical notes:
+- This game needs Gamescope to run in fullscreen and maintain his framerate to 60 fps
 - Controls:
 [Alt + F4]	Quit
 [F5]	Key configuration (Joystick, X360 compatible)
