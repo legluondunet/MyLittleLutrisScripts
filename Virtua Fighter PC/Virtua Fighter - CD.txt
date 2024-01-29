@@ -1,0 +1,63 @@
+files:
+- wrapper1: https://github.com/legluondunet/mlls-tools/raw/master/cnc-draw/cnc-ddraw.zip
+- wrapper2: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.7z
+- conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Virtua%20Fighter%20PC/vfpc.ini
+- script1: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
+game:
+  exe: drive_c/SEGA/VFPC/vfpc.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: ssp.exe
+- merge:
+    description: installing Virtua Fighters
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    src: $DISC/vfpc
+- merge:
+    description: installing Virtua Fighters
+    dst: $GAMEDIR/drive_c/SEGA
+    src: $DISC/doc/readme.txt
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw SEGA;
+- merge:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC/backup
+    src: $GAMEDIR/drive_c/SEGA/VFPC/vfpc.exe
+- copy:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    src: conf
+- extract:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    src: patch
+- chmodx: script1
+- execute:
+    args: SEGA_VF_PC $GAMEDIR/drive_c/SEGA/VFPC/music 2 flac
+    file: script1
+- extract:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    file: wrapper1
+- merge:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC/backup
+    src: $GAMEDIR/drive_c/SEGA/VFPC/ddraw.ini
+- write_config:
+    data:
+      ddraw:
+        maxfps: 60
+        maxgameticks: 30
+        renderer: direct3d9
+        singlecpu: false
+    file: $GAMEDIR/drive_c/SEGA/VFPC/ddraw.ini
+    mode: merge
+- extract:
+    dst: $GAMEDIR/drive_c/SEGA/VFPC
+    file: wrapper2
+wine:
+  overrides:
+    ddraw: n,b
+    winmm: n,b
