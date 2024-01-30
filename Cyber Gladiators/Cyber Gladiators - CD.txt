@@ -65,6 +65,7 @@ installer:
     data:
       target:
         cdvol0: 100
+        cmdline0: null
         codepage0: 0
         commitaddress0: 0
         commitlength0: 0
@@ -72,17 +73,15 @@ installer:
         country0: 0
         dflag0: 0
         dflagb0: 0
-        exepath: C:\SIERRA\CYBER
+        exepath: C:\SIERRA\CYBER\
         expert: 1
         fakecd0: c:\sierra\cybercd
-        fakecddrive0: 'D:'
         fakecdlabel0: CYBER
-        fakehddrive0: 'C:'
         filterid0: 0
         flag0: 673185825
-        flagg0: 1208029200
+        flagg0: 1073811472
         flagh0: 18
-        flagi0: -2011135996
+        flagi0: -2011168764
         flagj0: 135296
         flagk0: 65536
         flagl0: 0
@@ -112,16 +111,21 @@ installer:
         midivol0: 0
         minx0: 0
         miny0: 0
+        module0: null
         monitorid0: -1
+        msshims0: null
+        notes0: null
+        opengllib0: null
         path0: C:\SIERRA\CYBER\CYBER.EXE
         posx0: 50
         posy0: 50
+        registry0: null
         renderer0: 3
         scanline0: 0
         sizx0: 800
         sizy0: 600
         slowratio0: 1
-        startfolder0: C:\SIERRA\CYBER
+        startfolder0: C:\SIERRA\CYBER\
         swapeffect0: 0
         tflag0: 0
         title0: Cyber Gladiators
