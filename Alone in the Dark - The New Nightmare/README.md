@@ -1,9 +1,11 @@
 # Alone in the Dark - The New Nightmare - GOG
 
-Description:
-This script will install "Alone in the Dark: The New Nightmare" GOG edition with support for modern computer configuration. During install please let all options by default. This script uses DxWnd: https://sourceforge.net/projects/dxwnd/ Thanks to the people who helped us play this game in the best conditions.
-
-Technical notes:
-- AITD4 controller support is very insufficient. For a better gaming experience, you will find profiles for x360 and Steam Controller in the "gamepad profiles" folder.
-- Please report issue concerning this script on my github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+###Description:
+Play "Alone in the Dark: The New Nightmare" provided by GOG on Linux!
+### Technical notes:
+- Cutscenes may not play correctly, like a black screen and you can hear audio, depending the version of Wine. During my tests I obtained good results with recent Steam Proton 8.x version  or GE-Proton 8.25 to 8.29
+- Play this game in Gamescope to avoid unstability and cap framerate to 60 fps
+- Controller support is very lacking. For a better gaming experience, I advise you to use a keymapper, you will find the AntimicroX profiles here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare/gamepad%20profiles
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
