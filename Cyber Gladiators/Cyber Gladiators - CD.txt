@@ -1,7 +1,6 @@
-custom-name: Cyber Gladiators - CD
 files:
-- ngl: https://github.com/legluondunet/mlls-tools/raw/master/nGlide210_setup.exe
-- dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_92_build.rar
+- ngl: https://github.com/legluondunet/mlls-tools/raw/master/nGlide/nGlide210_setup.exe
+- dxwnd: https://github.com/legluondunet/mlls-tools/raw/master/dxwnd/v2_05_76_build.rar
 - config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.ini
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/soundtrack.bat
 - script2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Cyber%20Gladiators/cyber.bat
@@ -73,7 +72,7 @@ installer:
         country0: 0
         dflag0: 0
         dflagb0: 0
-        exepath: C:\SIERRA\CYBER\
+        exepath: C:\SIERRA\CYBER
         expert: 1
         fakecd0: c:\sierra\cybercd
         fakecddrive0: 'D:'
@@ -122,7 +121,7 @@ installer:
         sizx0: 800
         sizy0: 600
         slowratio0: 1
-        startfolder0: C:\SIERRA\CYBER\
+        startfolder0: C:\SIERRA\CYBER
         swapeffect0: 0
         tflag0: 0
         title0: Cyber Gladiators
@@ -134,12 +133,3 @@ installer:
         exportpath: C:\dxwnd\exports
         showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
-- task:
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-wine:
-  Desktop: true
