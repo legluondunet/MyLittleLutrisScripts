@@ -14,3 +14,8 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare
     file: gogsetup
     format: gog
+system:
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 640x480
+  gamescope_output_res: $RESOLUTION
