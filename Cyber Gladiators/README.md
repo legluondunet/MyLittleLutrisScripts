@@ -1,10 +1,10 @@
-# Cyber Gladiators - CD + DxWnd + NGlide
+# Cyber Gladiators
 ### Description:
-"Cyber Gladiators" CD edition using DxWnd and NGlide projects
+Play "Cyber Gladiators" CD edition on Linux!
 ### Technical notes:
-- You need the CD only one time during install.
-- This script uses DxWnd to obtain a stable gaming experience and NGlide to emulate a 3DFX.
-- Compatible x360 gamepad.
+- You will need the CD only one time during install
+- This script uses DxWnd to obtain a stable gaming experience and NGlide to emulate a 3DFX card
+- Compatible x360 gamepad
 ### Credits:
 - DxWnd: https://sourceforge.net/projects/dxwnd
 - NGlide: http://www.zeus-software.com
