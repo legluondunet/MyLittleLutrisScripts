@@ -14,6 +14,9 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare
     file: gogsetup
     format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare
+    src: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/app
 system:
   gamescope: true
   gamescope_fps_limiter: '60'
