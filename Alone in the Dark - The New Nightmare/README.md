@@ -1,6 +1,5 @@
 # Alone in the Dark - The New Nightmare - GOG
-
-###Description:
+### Description:
 Play "Alone in the Dark: The New Nightmare" provided by GOG on Linux!
 ### Technical notes:
 - Cutscenes may not play correctly, like a black screen and you can hear audio, depending the version of Wine. During my tests I obtained good results with recent Steam Proton 8.x version  or GE-Proton 8.25 to 8.29
