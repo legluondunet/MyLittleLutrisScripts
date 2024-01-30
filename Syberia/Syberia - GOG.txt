@@ -1,0 +1,49 @@
+files:
+- multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Syberia/syberia_multi5.zip
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  exe: drive_c/GOG Games/Syberia/Game.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Syberia
+    file: gogsetup
+    format: gog
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Syberia
+    src: $GAMEDIR/drive_c/GOG Games/Syberia/__support/userdocs/Syberia Saves
+- write_file:
+    content: 800 600 32 0 BaseCMO.cmo
+    file: $GAMEDIR/drive_c/GOG Games/Syberia/player.ini
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: multi5
+- input_menu:
+    description: 'Please choose language you prefer to display menus and subtitles:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - it: Italian
+    - sp: Spanish
+    - ge: German
+    preselect: en
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Syberia
+    src: $GAMEDIR/drive_c/tmp/$INPUT_LANG
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
+system:
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 800x600
+  gamescope_output_res: $RESOLUTION
+  gamescope_window_mode: -f
