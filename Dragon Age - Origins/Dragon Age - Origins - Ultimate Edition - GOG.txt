@@ -1,9 +1,8 @@
-custom-name: Dragon Age - Origins - Ultimate Edition - GOG
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
 - gogupdate: N/A:Please select the Windows patch exe file downloaded from your GOG
-    account called "Bonus DLC + hotfix".
+    account called "Bonus DLC + hotfix" https://www.gog.com/downloads/dragon_age_origins/en1patch2
 game:
   exe: drive_c/GOG Games/Dragon Age Origins/DAOriginsLauncher.exe
   prefix: $GAMEDIR
@@ -12,7 +11,7 @@ installer:
     arch: win64
     description: Preparing wineprefix...
     install_gecko: false
-    install_mono: false
+    install_mono: true
     name: create_prefix
     prefix: $GAMEDIR
 - task:
@@ -30,14 +29,3 @@ installer:
     executable: gogupdate
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-wine:
-  Desktop: true
-
