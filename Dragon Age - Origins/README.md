@@ -1,14 +1,7 @@
 # Dragon Age - Origins - Ultimate Edition - GOG
-
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Dragon Age - Origins - Ultimate Edition" provided by GOG.
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux platform.
-
+Play "Dragon Age - Origins - Ultimate Edition" provided by GOG on Linux!
 ### Technical notes:
-- You will need to download "Bonus DLC + hotfix" file from your GOG account before to launch this script.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
-
-
+- This script installer will ask you to provide "Dragon Age Origins - Bonus DLC + hotfix" file, you can download it from your GOG account here https://www.gog.com/downloads/dragon_age_origins/en1patch2
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
