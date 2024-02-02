@@ -11,7 +11,7 @@ installer:
     prefix: $GAMEDIR
 - insert-disc:
     description: Please insert CD 1 and press "autodetect"
-    requires: CDICON.ICO
+    requires: nav1.nmv
 - merge:
     dst: $GAMEDIR/drive_c/X-Files - The Game
     src: $DISC
@@ -50,7 +50,7 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
 - insert-disc:
-    description: Please insert CD 5 and press "autodetect"
+    description: Please insert CD 6 and press "autodetect"
     requires: nav6.nmv
 - merge:
     dst: $GAMEDIR/drive_c/X-Files - The Game
@@ -80,5 +80,6 @@ installer:
       qtw graphics setup.* data* _* autorun.* lang.dat os.dat layout.bin;
 system:
   gamescope: true
-wine:
-  Desktop: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 640x480
+  gamescope_output_res: 1920x1080
