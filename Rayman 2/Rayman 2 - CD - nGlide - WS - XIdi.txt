@@ -1,0 +1,109 @@
+files:
+- glide:
+    filename: nglide.exe
+    referer: www.zeus-software.com
+    url: http://www.zeus-software.com/downloads/nglide/d-1.html
+- patch1: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
+- xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
+game:
+  exe: drive_c/UbiSoft/Rayman2/Rayman2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing nGlide
+    executable: glide
+    name: wineexec
+    return_code: 256
+- task:
+    key: Aspect
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '0'
+- task:
+    key: Backend
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Gamma
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '5'
+- task:
+    key: Refresh
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '2'
+- task:
+    key: Resolution
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Splash
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Vsync
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '0'
+- insert-disc:
+    requires: Rayman2.exe
+- task:
+    description: Installing Rayman 2, don't change default settings.
+    executable: $DISC/setup.exe
+    name: wineexec
+    return_code: 256
+- copy:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/Data
+    src: $DISC/Data/Vignette.cnt
+- copy:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/Data/World/Levels
+    src: $DISC/Data/World/Levels/LEVELS0.DAT
+- execute:
+    args: u+w $GAMEDIR/drive_c/UbiSoft/Rayman2 -R
+    file: chmod
+- extract:
+    dst: $CACHE
+    file: patch1
+- merge:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
+    src: $CACHE/16x9
+- write_config:
+    data:
+      Rayman2:
+        GLI_Device: ''
+        GLI_Dll: Glide2
+        GLI_DllFile: GliVd1
+        GLI_Driver: ''
+        GLI_Mode: 1 - $RESOLUTION_WIDTH x $RESOLUTION_HEIGHT x 32
+    file: $GAMEDIR/drive_c/UbiSoft/Rayman2/ubi.ini
+- extract:
+    dst: $$GAMEDIR/drive_c/UbiSoft/Rayman2
+    file: xidi
+wine:
+  overrides:
+    dinput: n,b
