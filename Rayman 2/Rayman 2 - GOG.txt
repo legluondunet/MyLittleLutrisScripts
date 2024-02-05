@@ -1,0 +1,108 @@
+files:
+- wrapper:
+    filename: nGlide210_setup.exe
+    url: http://www.zeus-software.com/downloads/nglide/d-1.html
+- wrapper2: https://github.com/legluondunet/mlls-tools/raw/master/dsoal-GW1/dsoal-GW1_r420+gw1_rev1.zip
+- gogsetup: N/A:Select the GOG setup exe
+- patch1: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
+- patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/Rayman%202%20A3D%20ini.zip
+- xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
+game:
+  exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    install_gecko: false
+    install_mono: false
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing nGlide
+    executable: wrapper
+    name: wineexec
+    return_code: 256
+- task:
+    key: Aspect
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '0'
+- task:
+    key: Backend
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Gamma
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '5'
+- task:
+    key: Refresh
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '2'
+- task:
+    key: Resolution
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Splash
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    key: Vsync
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '0'
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $CACHE
+    src: patch1
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: $CACHE/16x9
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: patch2
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: wrapper2
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    file: xidi
+- write_config:
+    data:
+      Rayman2:
+        GLI_Dll: Glide2
+        GLI_DllFile: GliVd1
+        GLI_Mode: 1 - $RESOLUTION_WIDTH x $RESOLUTION_HEIGHT x 32
+        ParticuleRate: High
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 2/ubi.ini
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3DfxSpl*
+      glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* ;
+wine:
+  overrides:
+    dinput: n,b
+    dsound: n,b
