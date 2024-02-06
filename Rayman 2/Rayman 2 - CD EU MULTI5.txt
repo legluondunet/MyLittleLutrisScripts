@@ -1,9 +1,10 @@
 files:
-- glide:
-    filename: nglide.exe
-    referer: www.zeus-software.com
+- wrapper1:
+    filename: nGlide210_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
+- wrapper2: https://github.com/legluondunet/mlls-tools/raw/master/dsoal-GW1/dsoal-GW1_r420+gw1_rev1.zip
 - patch1: https://www.dropbox.com/scl/fi/3wg1feh5w81z4tvzjw3vx/Rayman-2-16x9-Widescreen-Fix.7z?rlkey=sklofj47h36ggtqffk0t3u6m8&dl=1
+- patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/Rayman%202%20A3D%20ini.zip
 - xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
 game:
   exe: drive_c/UbiSoft/Rayman2/Rayman2.exe
@@ -18,7 +19,7 @@ installer:
 - task:
     args: /S
     description: Installing nGlide
-    executable: glide
+    executable: wrapper1
     name: wineexec
     return_code: 256
 - task:
@@ -92,18 +93,38 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
     src: $CACHE/16x9
+- extract:
+    dst: $CACHE
+    file: patch2
+- merge:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/dll
+    src: $CACHE/DLL
+- extract:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
+    src: wrapper2
+- extract:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
+    file: xidi
 - write_config:
     data:
       Rayman2:
-        GLI_Device: ''
         GLI_Dll: Glide2
         GLI_DllFile: GliVd1
-        GLI_Driver: ''
         GLI_Mode: 1 - $RESOLUTION_WIDTH x $RESOLUTION_HEIGHT x 32
+        ParticuleRate: High
     file: $GAMEDIR/drive_c/UbiSoft/Rayman2/ubi.ini
-- extract:
-    dst: $$GAMEDIR/drive_c/UbiSoft/Rayman2
-    file: xidi
+- task:
+    key: EAXEnabled
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
+system:
+  gamescope: true
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     dinput: n,b
+    dsound: n,b
