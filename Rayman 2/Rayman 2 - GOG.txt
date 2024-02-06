@@ -1,5 +1,5 @@
 files:
-- wrapper:
+- wrapper1:
     filename: nGlide210_setup.exe
     url: http://www.zeus-software.com/downloads/nglide/d-1.html
 - wrapper2: https://github.com/legluondunet/mlls-tools/raw/master/dsoal-GW1/dsoal-GW1_r420+gw1_rev1.zip
@@ -20,7 +20,7 @@ installer:
 - task:
     args: /S
     description: Installing nGlide
-    executable: wrapper
+    executable: wrapper1
     name: wineexec
     return_code: 256
 - task:
