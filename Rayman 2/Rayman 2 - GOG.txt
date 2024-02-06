@@ -102,6 +102,13 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3DfxSpl*
       glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* ;
+- task:
+    key: EAXEnabled
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Wine\DirectSound
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: Y
 wine:
   overrides:
     dinput: n,b
