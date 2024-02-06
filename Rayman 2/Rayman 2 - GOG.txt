@@ -109,11 +109,11 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: Y
-wine:
-  overrides:
-    dinput: n,b
-    dsound: n,b
 system:
   gamescope: true
   gamescope_game_res: $RESOLUTION
   gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    dinput: n,b
+    dsound: n,b
