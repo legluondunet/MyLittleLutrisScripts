@@ -14,10 +14,12 @@ Play "Rayman 2" provided by GOG on Linux!
 - Xidi: https://github.com/samuelgr/Xidi
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Rayman 2 - GOG
+# Rayman 2 - CD EU MULTI5
 ### Description:
 Play "Rayman 2" provided by GOG on Linux!
 ### Technical notes:
+- This script installer is only compatible with CD EU MULTI5 version
+- You will need CD only one time during install
 - You have to wait less than 1 minute before the game starts. During this time, the screen may flash in black and white
 - 16/9 widescreen/fov patch included
 - ​Improved sounds and music with dsoal
