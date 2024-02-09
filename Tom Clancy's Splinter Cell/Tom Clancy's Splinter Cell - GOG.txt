@@ -1,7 +1,7 @@
-custom-name: Tom Clancy's Splinter Cell - GOG
 files:
-- scg: N/A:Please select the GOG installer
-- scws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/SplinterCell.WidescreenFix.zip
+- gogsetup: N/A:Please select the GOG installer
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/SplinterCell.WidescreenFix.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/run_lang_script.sh
 game:
   exe: drive_c/GOG Games/Splinter Cell/system/SplinterCell.exe
   prefix: $GAMEDIR
@@ -12,17 +12,44 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES
-    description: Installing...
-    executable: scg
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/
-    file: scws
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
+    file: patch
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - int: English
+    - fra: French
+    - ita: Italian
+    - deu: German
+    - esp: Spanish
+    preselect: int
+- chmodx: script
+- execute:
+    args: $INPUT_LANG $CACHE
+    file: script
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell
+    file: $CACHE/sc1_multi5_$INPUT_LANG.zip
+- write_config:
+    data:
+      Engine.Engine:
+        Language: $INPUT_LANG
+      WinDrv.WindowsClient:
+        StartupFullscreen: false
+    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/SplinterCell.ini
+    merge: true
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
 wine:
-  Desktop: true
   overrides:
+    d3d8: n,b
     msacm32: n,b
     msvfw32: n,b
