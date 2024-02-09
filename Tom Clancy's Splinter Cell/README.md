@@ -1,10 +1,11 @@
-# Tom Clancy's Splinter Cell - GOG + Widescreen patch
+# Tom Clancy's Splinter Cell - GOG
 ### Description:
-"Tom Clancy's Splinter Cell" provided by GOG with Widescreen patch.
+Play "Tom Clancy's Splinter Cell" provided by GOG on Linux!
 ### Technical notes:
-- widescreen patch
-- cinematics fullscreen
-- you can install other languages: https://www.gog.com/forum/splinter_cell_tom_clancys/toms_clancys_splinter_cell_multi5_intfraitadeuesp
+- Widescreen patch
+- During install, you could choose your preferred language between English (default), French, Italian, German and Spanish
+- "TCSC" GOG edition does not natively support controller, only Keyboard. For a better gaming experience, you will find AntimicroX profiles here:
+https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tom%20Clancy's%20Splinter%20Cell/gamepad%20profiles
 ### Credits:
-- This script uses "Splinter Cell Widescreen Fix" from ThirteenAG https://github.com/ThirteenAG/WidescreenFixesPack/releases/tag/sc.
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts.
+- "Splinter Cell Widescreen Fix": https://github.com/ThirteenAG/WidescreenFixesPack/releases/tag/sc
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
