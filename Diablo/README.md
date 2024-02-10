@@ -1,8 +1,8 @@
 # Diablo - GOG - devilutionX for Linux
 ### Description:
-"Diablo" provided by GOG using devilutionX open source project
+Play "Diablo" provided by GOG on Linux! using devilutionX open source project
 ### Technical notes:
-- devilutionX Appimage 1.5.0 version from official Github
+- devilutionX Appimage 1.5.2 version from official Github
 - You could choose your preferred language, resolution, playing Diablo classic or Hellfire extension from settings menu
 ### Credits:
 - devilutionX: https://github.com/diasurgical/devilutionX
