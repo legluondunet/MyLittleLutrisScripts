@@ -8,13 +8,13 @@ Play "Diablo" provided by GOG on Linux! using devilutionX open source project
 - devilutionX: https://github.com/diasurgical/devilutionX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Diablo - GOG - Tchernobog
+# Diablo - GOG - Tchernobog mod
 ### Description:
-"Diablo" provided by GOG using Tchernobog mod
+Play "Diablo" provided by GOG on Linux! using Tchernobog mod
 ### Technical notes:
-- Tchernobog v0.2.2b (new name of the Belzebub mod).
-- You can find online multiplayer games on their Discord server: https://discord.gg/82BaSAP
-- To change video options (full screen, resolution...), during the game press "esc", "video options".
+- Tchernobog v0.2.2c (new name of the Belzebub mod)
+- You will find online multiplayer games on their Discord server: https://discord.gg/82BaSAP
+- To change video options (fullscreen, resolution...), ingame press "esc", "video options"
 ### Credits:
 - Tchernobog: https://mod.diablo.noktis.pl
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
