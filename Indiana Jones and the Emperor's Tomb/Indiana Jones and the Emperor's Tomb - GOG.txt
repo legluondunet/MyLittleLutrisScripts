@@ -4,9 +4,10 @@ files:
     GOG account.
 - videos: N/A:Please select the IJET "Movies, Loading screens fix fullscreen(Resolution
     1280x960)" archive available for download at https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960/downloads/movies-loading-screens-fix-full-screen-1280x960
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/resolution_fix.sh
+- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bat
+- conf_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/vars.cfg.default
 game:
-  exe: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/bin/indy.exe
+  exe: drive_c/ijet.bat
   prefix: $GAMEDIR
 installer:
 - task:
@@ -27,10 +28,12 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy
     file: videos
     format: rar
-- chmodx: script
 - copy:
-    dst: $GAMEDIR
-    src: script
+    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy
+    src: conf_file
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: launcher
 - extract:
     dst: $CACHE
     format: txz
@@ -60,8 +63,6 @@ system:
   gamescope_fps_limiter: '60'
   gamescope_game_res: 1280x960
   gamescope_output_res: $RESOLUTION
-  prelaunch_command: $GAMEDIR/resolution_fix.sh
-  prelaunch_wait: true
 wine:
   overrides:
     msvcrt: n,b
