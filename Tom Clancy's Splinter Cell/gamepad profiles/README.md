@@ -1,8 +1,13 @@
----
-changed: "2024-02-11T11:15:28.600869054"
-created: "2024-02-08T22:03:41.612470300"
-generator: LibreOffice 7.6.4.1 (Linux)
----
+## Gamepad profile(s) for Tom Clancy's Splinter Cell
+
+This game does not support controller.
+But you can still play it with a controller using a keymapper software that will attribute keyboard keys to your gamepad.
+
+First install AntimicroX, this app should be available for install on your Linux distribution or donwload it from its official Github site: 
+https://github.com/AntiMicroX/antimicroX
+Then import profile available here and start game, you can now play with your gamepad.
+
+### Tom Clancy's Splinter Cell keyboard and gamepad mapping
 
 <table data-cellspacing="0" data-border="0">
 <colgroup>
