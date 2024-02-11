@@ -1,11 +1,8 @@
 # Tom Clancy's Splinter Cell controls
 
-This game does not support controller. But you can still play it with a
-controller using a tierce software, a keymapper, that will attribute
-keyboard keys to your gamepad.
+This game does not support controller. But you can still play it with a controller using a tierce software, a keymapper, that will attribute keyboard keys to your gamepad.
 
-You can install AntiMicroX from your official Linux distribution
-packages manager or from its official Github site:
+You can install AntiMicroX from your official Linux distribution packages manager or from its official Github site:
 https://github.com/AntiMicroX/antimicrox
 Then import profile and start game, you can now play with your gamepad.
 
