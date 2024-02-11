@@ -1,4 +1,4 @@
-# Indiana Jones and the Emperor's Tomb - GOG
+# Indiana Jones and the Emperor's Tomb - movies mod
 ### Description:
 Play "Indiana Jones and the Emperor's Tomb" provided by Gog on Linux!
 ### Technical notes:
