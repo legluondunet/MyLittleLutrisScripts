@@ -44,6 +44,13 @@ installer:
         StartupFullscreen: false
     file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/SplinterCell.ini
     merge: true
+- write_config:
+    data:
+      Engine.Input:
+        H: DPadLeft
+        J: DPadRight
+    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/SplinterCellUser.ini
+    merge: true
 system:
   env:
     DXVK_FRAME_RATE: '60'
