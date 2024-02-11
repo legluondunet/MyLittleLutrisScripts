@@ -2,7 +2,7 @@
 
 cd "drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy"
 {
-	echo 'fpsLimit=30'
+	echo 'fpsLimit=60'
 	echo 'notext=1'
 	echo 'pack=0'
 	echo 'title=0'
