@@ -1,11 +1,4 @@
----
-changed: "2024-02-11T12:08:19.694787256"
-created: "2024-02-11T12:03:22.143035138"
-generator: LibreOffice 7.6.4.1 (Linux)
-lang: fr-FR
----
-
-**Tom Clancy's Splinter Cell controls**
+# Tom Clancy's Splinter Cell controls
 
   
 
