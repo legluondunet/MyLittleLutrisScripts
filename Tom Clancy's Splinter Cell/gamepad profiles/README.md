@@ -1,284 +1,297 @@
-## Gamepad profile(s) for Tom Clancy's Splinter Cell
+---
+changed: "2024-02-11T12:08:19.694787256"
+created: "2024-02-11T12:03:22.143035138"
+generator: LibreOffice 7.6.4.1 (Linux)
+lang: fr-FR
+---
 
-This game does not support controller.
-But you can still play it with a controller using a keymapper software that will attribute keyboard keys to your gamepad.
+**Tom Clancy's Splinter Cell controls**
 
-First install AntimicroX, this app should be available for install on your Linux distribution or donwload it from its official Github site: 
+  
+
+This game does not support controller. But you can still play it with a
+controller using a tierce software, a keymapper, that will attribute
+keyboard keys to your gamepad.
+
+  
+
+You can install AntimicroX from your official Linux distribution
+packages manager or from its official Github site:
 https://github.com/AntiMicroX/antimicroX
-Then import profile available here and start game, you can now play with your gamepad.
 
-### Tom Clancy's Splinter Cell keyboard and gamepad mapping
+Then import profile and start game, you can now play with your gamepad.
 
-<table width="300" data-cellpadding="2" data-cellspacing="0">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+  
+
+<table width="480" data-cellpadding="2" data-cellspacing="0">
 <tbody>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><strong>Function</strong></td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><strong>Key</strong></td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><strong>Controller</strong></td>
+<td width="203" height="17" style="border: none; padding: 0cm"><p><strong>Function</strong></p></td>
+<td width="105" style="border: none; padding: 0cm"><p><strong>Key</strong></p></td>
+<td width="160" style="border: none; padding: 0cm"><p><strong>Controller</strong></p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Move forward</td>
-<td style="text-align: center;" data-valign="middle">Up Arrow / W</td>
-<td style="text-align: center;" data-valign="middle">LEFT STICK UP</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move forward</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Up Arrow / W</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>LEFT STICK UP</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Move backward</td>
-<td style="text-align: center;" data-valign="middle">Down Arrow / S</td>
-<td style="text-align: center;" data-valign="middle">LEFT STICK DOWN</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move backward</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Down Arrow / S</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>LEFT STICK DOWN</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Move left</td>
-<td style="text-align: center;" data-valign="middle">Left Arrow / A</td>
-<td style="text-align: center;" data-valign="middle">LEFT STICK LEFT</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move left</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Left Arrow / A</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>LEFT STICK LEFT</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Move right</td>
-<td style="text-align: center;" data-valign="middle">Right Arrow / D</td>
-<td style="text-align: center;" data-valign="middle">LEFT STICK RIGHT</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move right</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Right Arrow / D</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>LEFT STICK RIGHT</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Reload (weapon equipped)</td>
-<td style="text-align: center;" data-valign="middle">R</td>
-<td style="text-align: center;">LEFT STICK CLICK</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Reload (weapon equipped)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>R</p></td>
+<td width="160" data-valign="bottom" style="border: none; padding: 0cm"><p>LEFT STICK CLICK</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Interact<br />
-Noise (Diversion Camera)</td>
-<td style="text-align: center;" data-valign="middle">Space</td>
-<td style="text-align: center;" data-valign="middle">A</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Interact<br />
+Noise (Diversion Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Space</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>A</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="47" data-valign="middle">Crouch/roll<br />
-Bring legs up/down (hanging from a horizontal pipe)</td>
-<td style="text-align: center;" data-valign="middle">C</td>
-<td style="text-align: center;" data-valign="middle">B</td>
+<td width="203" height="43" style="border: none; padding: 0cm"><p>Crouch/roll<br />
+Bring legs up/down (hanging from a horizontal pipe)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>C</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>B</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Back to wall</td>
-<td style="text-align: center;" data-valign="middle">Q</td>
-<td style="text-align: center;" data-valign="middle">X</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Back to wall</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Q</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>X</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="47" data-valign="middle">Jump<br />
-Drop (hanging from a ledge/ladder/pipe/split jump)</td>
-<td style="text-align: center;" data-valign="middle">Shift</td>
-<td style="text-align: center;" data-valign="middle">Y</td>
+<td width="203" height="45" style="border: none; padding: 0cm"><p>Jump<br />
+Drop (hanging from a ledge/ladder/pipe/split jump)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Shift</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>Y</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="47" data-valign="middle">Increase movement speed<br />
+<td width="203" height="43" style="border: none; padding: 0cm"><p>Increase movement speed<br />
 Scope (SC-20K equipped)<br />
-Zoom in (Sticky Camera)</td>
-<td style="text-align: center;" data-valign="middle">Scroll Up</td>
-<td style="text-align: center;" data-valign="middle">DPAD UP</td>
+Zoom in (Sticky Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Scroll Up</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>DPAD UP</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Decrease movement speed<br />
-Zoom out (Sticky Camera)</td>
-<td style="text-align: center;" data-valign="middle">Scroll Down</td>
-<td style="text-align: center;" data-valign="middle">DPAD DOWN</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Decrease movement speed<br />
+Zoom out (Sticky Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Scroll Down</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>DPAD DOWN</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Night vision</td>
-<td style="text-align: center;" data-valign="middle">2 / Keypad 2</td>
-<td style="text-align: center;" data-valign="middle">DPAD LEFT</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Night vision</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>2 / Keypad 2</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>DPAD LEFT</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Inventory (hold)</td>
-<td style="text-align: center;" data-valign="middle">Ctrl</td>
-<td style="text-align: center;" data-valign="middle">DPAD RIGHT</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Inventory (hold)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Ctrl</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>DPAD RIGHT</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Pause menu/OPSAT</td>
-<td style="text-align: center;" data-valign="middle">Esc</td>
-<td style="text-align: center;" data-valign="middle">SELECT</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Pause menu/OPSAT</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Esc</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>SELECT</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="32" data-valign="middle">Interact<br />
-Noise (Diversion Camera)</td>
-<td style="text-align: center;" data-valign="middle">Enter</td>
-<td style="text-align: center;" data-valign="middle">START</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Interact<br />
+Noise (Diversion Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Enter</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>START</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="62" data-valign="middle">Takedown<br />
+<td width="203" height="73" style="border: none; padding: 0cm"><p>Takedown<br />
 Primary fire (weapon equipped)<br />
-Leave (Optic Cable/Sticky Camera/Diversion Camera)</td>
-<td style="text-align: center;" data-valign="middle">Left Click</td>
-<td style="text-align: center;" data-valign="middle">R1</td>
+Leave (Optic Cable/Sticky Camera/Diversion Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Left Click</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>R1</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Equip/unequip weapon</td>
-<td style="text-align: center;" data-valign="middle">E / Keypad 1</td>
-<td style="text-align: center;" data-valign="middle">R2</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Equip/unequip weapon</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>E / Keypad 1</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>R2</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="32" data-valign="middle">Secondary fire (SC-20K equipped)<br />
-Gas (Diversion Camera)</td>
-<td style="text-align: center;" data-valign="middle">Right Click</td>
-<td style="text-align: center;" data-valign="middle">L1</td>
+<td width="203" height="43" style="border: none; padding: 0cm"><p>Secondary fire (SC-20K equipped)<br />
+Gas (Diversion Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Right Click</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>L1</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Toggle rate of fire (SC-20K equipped)</td>
-<td style="text-align: center;" data-valign="middle">Z</td>
-<td style="text-align: center;" data-valign="middle">L2</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Toggle rate of fire (SC-20K equipped)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Z</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>L2</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Move camera</td>
-<td style="text-align: center;" data-valign="middle">Move Mouse</td>
-<td style="text-align: center;" data-valign="middle">RIGHT STICK</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move camera</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Move Mouse</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>RIGHT STICK</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Thermal vision</td>
-<td style="text-align: center;" data-valign="middle">3 / Keypad 3</td>
-<td style="text-align: center;" data-valign="middle">RIGHT STICK CLICK</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Thermal vision</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>3 / Keypad 3</p></td>
+<td width="160" style="border: none; padding: 0cm"><p>RIGHT STICK CLICK</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Developer console</td>
-<td style="text-align: center;" data-valign="middle">F2</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Developer console</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>F2</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Quick save</td>
-<td style="text-align: center;" data-valign="middle">F5</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Quick save</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>F5</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Quick load</td>
-<td style="text-align: center;" data-valign="middle">F8</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Quick load</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>F8</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Save screenshot</td>
-<td style="text-align: center;" data-valign="middle">F9</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Save screenshot</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>F9</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Pause game</td>
-<td style="text-align: center;" data-valign="middle">Pause</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Pause game</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Pause</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="105" style="border: none; padding: 0cm"><p><br />
+</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="32" data-valign="middle">Equip/unequip weapon (Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad 1</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Equip/unequip weapon (Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 1</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Move backward<br />
-Night vision (Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad 2</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="43" style="border: none; padding: 0cm"><p>Move backward<br />
+Night vision (Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 2</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="32" data-valign="middle">Thermal vision (Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad 3</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Thermal vision (Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 3</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Move left<br />
-Back to wall (Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad 4</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="43" style="border: none; padding: 0cm"><p>Move left<br />
+Back to wall (Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 4</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="17" data-valign="middle">Move right</td>
-<td style="text-align: center;" data-valign="middle">Keypad 6</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move right</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 6</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="17" data-valign="middle">Move forward</td>
-<td style="text-align: center;" data-valign="middle">Keypad 8</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="13" style="border: none; padding: 0cm"><p>Move forward</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 8</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="62" data-valign="middle">Crouch/roll (Num Lock enabled)<br />
-Bring legs up/down (hanging from a horizontal pipe with Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad 0</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="73" style="border: none; padding: 0cm"><p>Crouch/roll (Num Lock enabled)<br />
+Bring legs up/down (hanging from a horizontal pipe with Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad 0</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;" height="32" data-valign="middle">Reload (weapon equipped with Num Lock enabled)</td>
-<td style="text-align: center;" data-valign="middle">Keypad .</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Reload (weapon equipped with Num Lock enabled)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad .</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;" height="32" data-valign="middle">Interact<br />
-Noise (Diversion Camera)</td>
-<td style="text-align: center;" data-valign="middle">Keypad Enter</td>
-<td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
-</td>
+<td width="203" height="28" style="border: none; padding: 0cm"><p>Interact<br />
+Noise (Diversion Camera)</p></td>
+<td width="105" style="border: none; padding: 0cm"><p>Keypad Enter</p></td>
+<td width="160" style="border: none; padding: 0cm"><p><br />
+</p></td>
 </tr>
 </tbody>
 </table>
+
+  
+
+  
