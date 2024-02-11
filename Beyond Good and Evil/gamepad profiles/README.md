@@ -1,41 +1,18 @@
----
-author: Romain
-changed: "2019-06-10T13:57:03.409638478"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.3.2 (Linux)
-lang: fr-FR
----
+# Beyond Good and Evil controls
 
-<u>**Gamepad profiles for Beyond Good and Evil**</u>
+BGE Gog version does not support gamepad, only keyboard, so you have to install a third party software, a keymapper.
 
-**BGE Gog version does not support gamepad, only keyboard, so you have
-to install a third party software.**
+This software will attribute keyboard keys to your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+x360 controller profile to use with AntiMicroX --> bge_x360.gamecontroller.amgp
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+You can download AntiMicroX here: https://github.com/AntiMicroX/antimicrox
 
-**x360 controller profile to use with antimicro -->
-bge_x360.gamecontroller.amgp**
+Steam controller profile to use with sc-controller --> bge_steam.sccprofile
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**Steam controller profile to use with sc-controller -->
-bge_steam.sccprofile**
-
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your Lutris BGE wineprefix: c:\\GOG
-Games\\Beyond Good and Evil\\gamepad profiles\\**
-
-<u>**BGE keyboard and gamepad mapping**</u>
+## BGE keyboard and gamepad mapping
 
 <table width="510" data-cellpadding="0" data-cellspacing="1" style="background: transparent" data-border="1">
 <tbody>
