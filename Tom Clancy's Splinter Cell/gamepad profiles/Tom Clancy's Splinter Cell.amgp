@@ -19,6 +19,14 @@
     <sets>
         <set index="1">
             <stick index="1">
+                <stickbutton index="7">
+                    <slots>
+                        <slot>
+                            <code>0x1000012</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
                 <stickbutton index="1">
                     <slots>
                         <slot>
@@ -43,16 +51,16 @@
                         </slot>
                     </slots>
                 </stickbutton>
+            </stick>
+            <stick index="2">
                 <stickbutton index="7">
                     <slots>
                         <slot>
-                            <code>0x1000012</code>
-                            <mode>keyboard</mode>
+                            <code>3</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
-            </stick>
-            <stick index="2">
                 <stickbutton index="1">
                     <slots>
                         <slot>
@@ -77,14 +85,6 @@
                         </slot>
                     </slots>
                 </stickbutton>
-                <stickbutton index="7">
-                    <slots>
-                        <slot>
-                            <code>3</code>
-                            <mode>mousemovement</mode>
-                        </slot>
-                    </slots>
-                </stickbutton>
             </stick>
             <dpad index="1">
                 <dpadbutton index="1">
@@ -104,19 +104,19 @@
                         </slot>
                     </slots>
                 </dpadbutton>
-                <dpadbutton index="4">
-                    <slots>
-                        <slot>
-                            <code>5</code>
-                            <mode>mousebutton</mode>
-                        </slot>
-                    </slots>
-                </dpadbutton>
                 <dpadbutton index="8">
                     <slots>
                         <slot>
                             <code>0x1000021</code>
                             <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
+                <dpadbutton index="4">
+                    <slots>
+                        <slot>
+                            <code>5</code>
+                            <mode>mousebutton</mode>
                         </slot>
                     </slots>
                 </dpadbutton>
@@ -145,43 +145,27 @@
                     </slots>
                 </triggerbutton>
             </trigger>
-            <button index="16">
+            <button index="9">
                 <slots>
                     <slot>
-                        <code>1</code>
+                        <code>0x4a</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="10">
+                <slots>
+                    <slot>
+                        <code>3</code>
                         <mode>mousebutton</mode>
                     </slot>
                 </slots>
             </button>
-            <button index="1">
+            <button index="11">
                 <slots>
                     <slot>
-                        <code>0x20</code>
-                        <mode>keyboard</mode>
-                    </slot>
-                </slots>
-            </button>
-            <button index="2">
-                <slots>
-                    <slot>
-                        <code>0x43</code>
-                        <mode>keyboard</mode>
-                    </slot>
-                </slots>
-            </button>
-            <button index="3">
-                <slots>
-                    <slot>
-                        <code>0x51</code>
-                        <mode>keyboard</mode>
-                    </slot>
-                </slots>
-            </button>
-            <button index="4">
-                <slots>
-                    <slot>
-                        <code>0x1000020</code>
-                        <mode>keyboard</mode>
+                        <code>1</code>
+                        <mode>mousebutton</mode>
                     </slot>
                 </slots>
             </button>
@@ -217,27 +201,35 @@
                     </slot>
                 </slots>
             </button>
-            <button index="9">
+            <button index="1">
                 <slots>
                     <slot>
-                        <code>0x4a</code>
+                        <code>0x20</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
             </button>
-            <button index="10">
+            <button index="2">
                 <slots>
                     <slot>
-                        <code>1</code>
-                        <mode>mousebutton</mode>
+                        <code>0x43</code>
+                        <mode>keyboard</mode>
                     </slot>
                 </slots>
             </button>
-            <button index="11">
+            <button index="3">
                 <slots>
                     <slot>
-                        <code>1</code>
-                        <mode>mousebutton</mode>
+                        <code>0x51</code>
+                        <mode>keyboard</mode>
+                    </slot>
+                </slots>
+            </button>
+            <button index="4">
+                <slots>
+                    <slot>
+                        <code>0x1000020</code>
+                        <mode>keyboard</mode>
                     </slot>
                 </slots>
             </button>
