@@ -1,4 +1,4 @@
-# Gamepad profiles for Indiana Jones and The Emperor’s Tomb
+## Indiana Jones and The Emperor’s Tomb - Controls
 
 IJET have very bad support for gamepad on modern computer, you have to install a third party software, a keymapper.
 This software will attribute keyboard keys to your gamepad.
@@ -13,7 +13,7 @@ Steam controller profile to use with sc-controller --> ijet_steam.sccprofile
 
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-## IJET keyboard and gamepad mapping
+### IJET keyboard and gamepad mapping
 
 <table width="574" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="2">
 <tbody>
