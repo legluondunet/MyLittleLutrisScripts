@@ -9,6 +9,7 @@ packages manager or from its official Github site:
 https://github.com/AntiMicroX/antimicroX
 Then import profile and start game, you can now play with your gamepad.
 
+
 <table width="616" data-cellpadding="0" data-cellspacing="0" style="background: transparent">
 <tbody>
 <tr class="odd" style="background: transparent">
@@ -142,11 +143,7 @@ Gas (Diversion Camera)</p></td>
 <td width="216" style="border: none; padding: 0cm"><p>L2</p></td>
 </tr>
 <tr class="odd" style="background: transparent">
-<td width="242" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="159" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="216" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
+<td colspan="3" width="616" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
 </p></td>
 </tr>
 <tr class="even">
@@ -160,11 +157,7 @@ Gas (Diversion Camera)</p></td>
 <td width="216" style="border: none; padding: 0cm"><p>RIGHT STICK CLICK</p></td>
 </tr>
 <tr class="even" style="background: transparent">
-<td width="242" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="159" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="216" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
+<td colspan="3" width="616" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
 </p></td>
 </tr>
 <tr class="odd">
@@ -198,11 +191,7 @@ Gas (Diversion Camera)</p></td>
 </p></td>
 </tr>
 <tr class="even" style="background: transparent">
-<td width="242" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="159" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="216" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
+<td colspan="3" width="616" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
 </p></td>
 </tr>
 <tr class="odd">
