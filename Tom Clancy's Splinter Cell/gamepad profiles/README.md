@@ -9,7 +9,7 @@ Then import profile available here and start game, you can now play with your ga
 
 ### Tom Clancy's Splinter Cell keyboard and gamepad mapping
 
-<table width="751" data-cellpadding="2" data-cellspacing="0">
+<table width="600" data-cellpadding="2" data-cellspacing="0">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
