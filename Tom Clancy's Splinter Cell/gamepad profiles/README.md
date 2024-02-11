@@ -280,11 +280,5 @@ Noise (Diversion Camera)</td>
 <td style="text-align: center;" data-valign="middle" data-bgcolor="#B4C7DC"><br />
 </td>
 </tr>
-<tr class="even">
-<td style="text-align: left;" height="17" data-bgcolor="#B4C7DC"><br />
-</td>
-<td style="text-align: left;" data-bgcolor="#B4C7DC"><br />
-</td>
-</tr>
 </tbody>
 </table>
