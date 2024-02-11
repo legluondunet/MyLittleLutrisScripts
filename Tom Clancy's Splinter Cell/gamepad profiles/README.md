@@ -115,11 +115,7 @@ Noise (Diversion Camera)</p></td>
 <td width="216" style="border: none; padding: 0cm"><p>START</p></td>
 </tr>
 <tr class="even" style="background: transparent">
-<td width="242" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="159" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="216" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
+<td colspan="3" width="616" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
 </p></td>
 </tr>
 <tr class="odd">
