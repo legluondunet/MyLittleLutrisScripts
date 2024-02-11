@@ -1,4 +1,4 @@
-# Atlantis - The Lost Tales - GOG
+# Atlantis - The Lost Tales - + dgVoodoo2 + patchs
 ### Description:
 Play "Atlantis - The Lost Tales" provided by GOG on Linux!
 ### Technical notes:
