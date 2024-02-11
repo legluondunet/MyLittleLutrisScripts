@@ -68,12 +68,8 @@ Drop (hanging from a ledge/ladder/pipe/split jump)</p></td>
 <td width="159" style="border: none; padding: 0cm"><p>Shift</p></td>
 <td width="216" style="border: none; padding: 0cm"><p>Y</p></td>
 </tr>
-<tr class="even" style="background: transparent">
-<td width="242" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="159" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
-</p></td>
-<td width="216" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
+<tr class="odd" style="background: transparent">
+<td colspan="3" width="616" height="17" data-bgcolor="#e8f2a1" style="background: #e8f2a1; border: none; padding: 0cm"><p><br />
 </p></td>
 </tr>
 <tr class="odd" style="background: transparent">
