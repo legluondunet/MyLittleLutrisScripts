@@ -1,44 +1,19 @@
----
-author: Romain
-changed: "2019-06-02T14:38:53.842951652"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.3.2 (Linux)
-lang: fr-FR
----
+# Gamepad profiles for Indiana Jones and The Emperor’s Tomb
 
-<u>**Gamepad profiles for Indiana Jones and The Emperor’s Tomb**</u>
+IJET have very bad support for gamepad on modern computer, you have to install a third party software, a keymapper.
+This software will attribute keyboard keys to your gamepad.
 
-**IJET have very bad support for gamepad on modern computer, you have to
-install a third party software.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with your gamepad.
 
-**This software will attribute keyboard keys to your gamepad.**
+x360 controller profile to use with AntiMicroX --> ijet_x360.gamecontroller.amgp
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+You can download AntiMicroX here: https://github.com/AntiMicroX/antimicrox
 
-**x360 controller profile to use with antimicro -->
-ijet_x360.gamecontroller.amgp**
+Steam controller profile to use with sc-controller --> ijet_steam.sccprofile
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-<https://github.com/AntiMicro/antimicro>**</span></span>
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-**Steam controller profile to use with sc-controller -->
-ijet_steam.sccprofile**
-
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-<https://github.com/kozec/sc-controller>**</span></span>
-
-**You will find gamepad profiles in your Lutris IJET wineprefix: c:\\GOG
-Games\\Indiana Jones and the Emperor's Tomb\\gamepad profiles**
-
-  
-  
-
-<u>**IJET keyboard and gamepad mapping**</u>
+## IJET keyboard and gamepad mapping
 
 <table width="574" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="2">
 <tbody>
