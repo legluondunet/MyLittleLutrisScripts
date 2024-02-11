@@ -29,7 +29,7 @@ Play "Beyond Good and Evil" provided by Ubisoft Connect on Linux!
 
 ## Beyond Good and Evil - Windows Steam Standalone
 ### Description:
-Play "Beyond Good & Evil" provided by Steam on Linux
+Play "Beyond Good & Evil" provided by Steam on Linux!
 ### Technical notes:
 - This game does not work correctly with Linux Steam + Steamplay.
 So I wrote this script that uses Windows Steam + others tweaks
