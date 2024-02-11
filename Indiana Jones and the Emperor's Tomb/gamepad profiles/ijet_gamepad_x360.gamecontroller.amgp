@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gamecontroller configversion="18" appversion="2.15">
+<gamecontroller configversion="19" appversion="3.3.4">
     <!--The SDL name for a joystick is included for informational purposes only.-->
-    <sdlname>X360 Controller</sdlname>
-    <!--The GUID for a joystick is included for informational purposes only.-->
-    <guid>030000005e0400008e02000014010000</guid>
+    <sdlname>PS3 Controller</sdlname>
+    <!--The Unique ID for a joystick is included for informational purposes only.-->
+    <uniqueID>050000004c05000068020000008000001356616</uniqueID>
+    <stickAxisAssociation index="1" xAxis="1" yAxis="2"/>
+    <stickAxisAssociation index="2" xAxis="3" yAxis="4"/>
+    <vdpadButtonAssociations index="1">
+        <vdpadButtonAssociation axis="0" button="12" direction="1"/>
+        <vdpadButtonAssociation axis="0" button="13" direction="4"/>
+        <vdpadButtonAssociation axis="0" button="14" direction="8"/>
+        <vdpadButtonAssociation axis="0" button="15" direction="2"/>
+    </vdpadButtonAssociations>
     <names>
         <buttonname index="1">KEY SPACE</buttonname>
         <buttonname index="2">MOUSE BUTTON RIGHT</buttonname>
@@ -15,14 +23,24 @@
         <buttonname index="9">KEY E</buttonname>
         <buttonname index="10">KEY T</buttonname>
         <buttonname index="11">KEY ALT L</buttonname>
+        <controlstickname index="1">Stick 1</controlstickname>
+        <controlstickname index="2">Stick 2</controlstickname>
     </names>
     <sets>
         <set index="1">
             <stick index="1">
+                <stickbutton index="7">
+                    <slots>
+                        <slot>
+                            <code>0x41</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </stickbutton>
                 <stickbutton index="1">
                     <slots>
                         <slot>
-                            <code>0x5a</code>
+                            <code>0x57</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
@@ -43,16 +61,16 @@
                         </slot>
                     </slots>
                 </stickbutton>
+            </stick>
+            <stick index="2">
                 <stickbutton index="7">
                     <slots>
                         <slot>
-                            <code>0x51</code>
-                            <mode>keyboard</mode>
+                            <code>3</code>
+                            <mode>mousemovement</mode>
                         </slot>
                     </slots>
                 </stickbutton>
-            </stick>
-            <stick index="2">
                 <stickbutton index="1">
                     <slots>
                         <slot>
@@ -77,16 +95,17 @@
                         </slot>
                     </slots>
                 </stickbutton>
-                <stickbutton index="7">
-                    <slots>
-                        <slot>
-                            <code>3</code>
-                            <mode>mousemovement</mode>
-                        </slot>
-                    </slots>
-                </stickbutton>
             </stick>
             <dpad index="1">
+                <dpadbutton index="8">
+                    <actionname>INV PREVIOUS</actionname>
+                    <slots>
+                        <slot>
+                            <code>0x1000012</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </dpadbutton>
                 <dpadbutton index="1">
                     <actionname>INV OPEN</actionname>
                     <slots>
@@ -114,17 +133,10 @@
                         </slot>
                     </slots>
                 </dpadbutton>
-                <dpadbutton index="8">
-                    <actionname>INV PREVIOUS</actionname>
-                    <slots>
-                        <slot>
-                            <code>0x1000012</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                    </slots>
-                </dpadbutton>
             </dpad>
-            <trigger index="1">
+            <trigger index="5">
+                <deadZone>2000</deadZone>
+                <throttle>positivehalf</throttle>
                 <triggerbutton index="2">
                     <slots>
                         <slot>
@@ -134,7 +146,9 @@
                     </slots>
                 </triggerbutton>
             </trigger>
-            <trigger index="2">
+            <trigger index="6">
+                <deadZone>2000</deadZone>
+                <throttle>positivehalf</throttle>
                 <triggerbutton index="2">
                     <slots>
                         <slot>
@@ -172,11 +186,10 @@
                 </slots>
             </button>
             <button index="4">
-                <toggle>true</toggle>
                 <actionname>SOMER SAULT</actionname>
                 <slots>
                     <slot>
-                        <code>0x41</code>
+                        <code>0x51</code>
                         <mode>keyboard</mode>
                     </slot>
                 </slots>
