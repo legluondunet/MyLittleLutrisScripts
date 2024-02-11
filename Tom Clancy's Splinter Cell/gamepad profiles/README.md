@@ -4,9 +4,9 @@ This game does not support controller. But you can still play it with a
 controller using a tierce software, a keymapper, that will attribute
 keyboard keys to your gamepad.
 
-You can install AntimicroX from your official Linux distribution
+You can install AntiMicroX from your official Linux distribution
 packages manager or from its official Github site:
-https://github.com/AntiMicroX/antimicroX
+https://github.com/AntiMicroX/antimicrox
 Then import profile and start game, you can now play with your gamepad.
 
 
