@@ -16,7 +16,7 @@ Then import profile and start game, you can now play with your gamepad.
 
   
 
-<table width="480" data-cellpadding="2" data-cellspacing="0">
+<table width="800" data-cellpadding="2" data-cellspacing="0">
 <tbody>
 <tr class="odd">
 <td width="203" height="17" style="border: none; padding: 0cm"><p><strong>Function</strong></p></td>
