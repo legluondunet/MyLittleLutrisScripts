@@ -1,23 +1,15 @@
-custom-name: Caesar III - GOG - Julius
 files:
 - engine:
     filename: julius-linux.AppImage
     url: https://github.com/bvschaik/julius/releases/download/v1.7.0/julius-1.7.0-linux.AppImage
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 game:
   exe: julius-linux.AppImage
 installer:
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: gogsetup -d "$CACHE"
-    file: $CACHE/innoextract
-- merge:
     dst: $GAMEDIR
-    src: $CACHE/app
+    file: gogsetup
 - copy:
     dst: $GAMEDIR
     src: engine
