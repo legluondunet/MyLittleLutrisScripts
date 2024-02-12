@@ -12,11 +12,12 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES
-    description: Installing 8-Bit Hordes...
-    executable: gogsetup
-    name: wineexec
-    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/8-bit Hordes
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/8-bit Hordes
+    src: $GAMEDIR/drive_c/GOG Games/8-bit Hordes/app/GoG.1
 wine:
   dxvk: false
