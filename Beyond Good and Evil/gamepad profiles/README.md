@@ -1,6 +1,6 @@
 # Beyond Good and Evil controls
 
-BGE Gog version does not support gamepad, only keyboard, so you have to install a third party software, a keymapper.
+BGE GOG version does not support gamepad, only keyboard, so you have to install a third party software, a keymapper.
 
 This software will attribute keyboard keys to your gamepad.
 
