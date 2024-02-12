@@ -19,9 +19,9 @@ Play "Beyond Good and Evil" provided by Ubisoft Connect on Linux!
 ### Technical notes:
 - ps2wide widescreen patch with no borders
 - Fix audio sync (dsound.dll + DXVK framerate set to 60 fps)
+- This game may malfunction after using alt+tab, it is strongly recommended to use Gamescope
 - Gamepad natively supported by BGAE Ubisoft version
 - Ubisoft Connect overlay disabled for more stability
-- This game may malfunction after using alt+tab, it is strongly recommended to use Gamescope
 ### Credits:
 - ps2wide widescreen patch: http://ps2wide.net
 - dsound.dll: https://www.gog.com/forum/beyond_good_and_evil/cutscene_audiovideo_sync_fix
