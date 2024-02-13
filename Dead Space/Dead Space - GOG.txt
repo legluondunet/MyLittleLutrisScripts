@@ -1,9 +1,8 @@
-custom-name: Dead Space - GOG
 files:
-- gogsetup: N/A:Please select the game Windows install file, available for  download
-    from your GOG account page.
+- gogsetup: 'N/A: Select GOG''s setup .exe file.'
 game:
   exe: drive_c/GOG Games/Dead Space/Dead Space.exe
+  gogid: 1312818781
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,36 +12,46 @@ installer:
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    args: /SP- /SUPPRESSMSGBOXES
-    executable: gogsetup
-    name: wineexec
-    prefix: $GAMEDIR
-- task:
-    app: d3dcompiler_47 vcrun2005 win7
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games
+    file: gogsetup
+    format: gog
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Dead Space
+    src: $GAMEDIR/drive_c/GOG Games/game
 - write_file:
     content: 'Window.Width = $RESOLUTION_WIDTH
 
       Window.Height = $RESOLUTION_HEIGHT
 
       Window.Fullscreen = true'
-    file: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Electronic
-      Arts/Dead Space/settings.txt
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Electronic Arts/Dead Space/settings.txt
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en_US: English
+    - fr_FR: French
+    - de_DE: German
+    - it_IT: Italian
+    - es_ES: Spanish
+    preselect: en_US
 - task:
-    executable: $GAMEDIR/drive_c/GOG Games/Dead Space/language_setup.exe
-    name: wineexec
-wine:
-  Desktop: true
-  esync: true
-  version: lutris-5.7-11-x86_64
-
+    key: Locale
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Electronic Arts\Dead Space
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: $INPUT_LANG
+- execute:
+    command: lang="$INPUT_LANG"; lang=${lang::2} ; cd "$GAMEDIR/drive_c/GOG Games/Dead
+      Space/text_assets" ; ls; echo $INPUT_LANG $lang ; LD_LIBRARY_PATH=. cp "$lang/"*
+      . ;
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
