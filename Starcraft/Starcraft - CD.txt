@@ -1,5 +1,5 @@
 files:
-- dxwrapper: https://github.com/legluondunet/mlls-tools/raw/master/cnc-draw/cnc-ddraw.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/cnc-draw/cnc-ddraw.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Starcraft/SC-1161.7z
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Starcraft/clean.sh
 game:
@@ -8,27 +8,19 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: false
+    install_gecko: true
     install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
 - insert-disc:
     requires: help/star.htm
 - task:
-    description: Installing Starcraft Brood War...
+    description: Installing Starcraft...
     executable: $DISC/setup.exe
     name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/tmp
-    src: dxwrapper
+    src: wrapper
 - execute:
     args: $DISC
     file: script
@@ -36,10 +28,8 @@ installer:
     dst: $CACHE
     file: patch
 - task:
-    args: /desktop=Starcraft,1024x780 $CACHE/SC-1161.exe
     description: Installing Starcraft update...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+    executable: $CACHE/SC-1161.exe
     name: wineexec
 wine:
   overrides:
