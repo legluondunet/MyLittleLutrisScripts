@@ -1,6 +1,6 @@
-# Starcraft - CD + cnc-ddraw
+# Starcraft - CD
 ### Description:
-"Starcraft" CD edtion using cnc-draw
+Play "Starcraft" CD edtion on Linux! using cnc-draw
 ### Technical notes:
 - Do not launch Starcraft during install process
 - Game will be updated to 1.16.1
