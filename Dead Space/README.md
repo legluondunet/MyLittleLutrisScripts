@@ -1,13 +1,7 @@
 # Dead Space - GOG - Wine
-
 ### Description:
-This script will facilitate install of this game on Linux OS:
-"Dead Space" provided by GOG using Wine.
-During install, please let all options by default.
-Big thanks to the people who helped us play this game in the best conditions on Linux.
-
-### Technical notes:
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
-
+- multilingual: during installation, you can choose the language used for menus and subtitles between English (default), French, German, Italian and Spanish
+- This game does not support very well Alt+Tab. Workaround: use Gamescope
+- if you get graphics malfunctions, use a version of DXVK lower than 2, for example 1.9
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
