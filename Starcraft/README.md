@@ -1,4 +1,4 @@
-# Starcraft - CD
+# Starcraft - CD + cnc-draw
 ### Description:
 Play "Starcraft" CD edtion on Linux! using cnc-draw
 ### Technical notes:
