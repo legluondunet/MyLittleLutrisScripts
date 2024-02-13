@@ -11,12 +11,10 @@ installer:
     dst: $CACHE
     file: $patch
 - task:
-    args: /desktop=Starcraft,1024x780 $CACHE/SC-1161.exe
     description: Installing Starcraft update...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+    executable: $CACHE/SC-1161.exe
     name: wineexec
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft"; find "$DISC/"* -iname
       install.exe | xargs -I {} cp {} BroodWar.mpq; chmod +rw BroodWar.mpq;
-requires: starcraft-cd-cnc-draw
+requires: starcraft-cd-cncdraw
