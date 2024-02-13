@@ -1,4 +1,4 @@
-# Warcraft I - Orcs & Humans - GOG + Dosbox
+# Warcraft I - Orcs & Humans - GOG
 ### Description:
 Play "Warcraft I - Orcs & Humans" GOG edition on Linux!
 ### Technical notes:
