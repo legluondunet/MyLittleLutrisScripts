@@ -1,4 +1,4 @@
-# Dead Space - GOG - Wine
+# Dead Space - GOG
 ### Description:
 - multilingual: during installation, you can choose the language used for menus and subtitles between English (default), French, German, Italian and Spanish
 - This game does not support very well Alt+Tab. Workaround: use Gamescope
