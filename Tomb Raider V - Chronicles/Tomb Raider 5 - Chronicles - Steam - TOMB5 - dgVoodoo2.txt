@@ -32,19 +32,20 @@ installer:
 - write_config:
     data:
       DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
         dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 5/dgVoodoo.conf
     merge: false
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 5
     src: mod
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
