@@ -16,17 +16,12 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: gogsetup
     format: gog
-- move:
-    dst: $GAMEDIR/drive_c
-    src: $CACHE/Tomb Raider 2
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 2
     file: mod
@@ -36,10 +31,6 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Tomb Raider 2/audio.bak
     src: $GAMEDIR/drive_c/Tomb Raider 2/audio
-- execute:
-    command: cd "$GAMEDIR/drive_c/Tomb Raider 2/music"; for file in *.mp3; do filenumber="${#file}";
-      if [ $filenumber == 5 ]; then newfile="Track0$file"; else newfile="Track$file";
-      fi; echo $newfile; mv $file $newfile ; done ;
 - task:
     key: InvBackgroundMode
     name: set_regedit
@@ -54,6 +45,14 @@ installer:
     prefix: $GAMEDIR
     type: REG_DWORD
     value: '00000002'
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
