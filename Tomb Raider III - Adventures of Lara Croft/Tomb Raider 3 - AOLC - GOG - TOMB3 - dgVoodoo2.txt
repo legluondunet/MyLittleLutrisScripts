@@ -33,7 +33,7 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/DATA
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/Data
-- merge:
+- move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/Data
 - extract:
