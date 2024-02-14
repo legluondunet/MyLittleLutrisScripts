@@ -23,7 +23,7 @@ installer:
     dst: $GAMEDIR/drive_c/TR3TLA
     src: $DISC
 - execute:
-    command: cd $GAMEDIR/drive_c/; chmod -R +rw TR3TLA;
+    command: cd $GAMEDIR/drive_c; chmod -R +rw TR3TLA;
 - extract:
     dst: $GAMEDIR/drive_c/TR3TLA
     file: mod
@@ -40,11 +40,11 @@ installer:
     file: $GAMEDIR/drive_c/TR3TLA/dgVoodoo.conf
     merge: false
 - execute:
-    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/TR3TLA"; rm -f -r tr3gold.exe
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/TR3TLA"; ls -d */ | grep
+      -i pix | xargs -I {} -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t
+      mv {} datag; mv saves savesg; mv datag/Data/TOMBPC.DAT datag; rm -f -r tr3gold.exe
       3Dfx Doc MS DIRECTX Script autorun* data1* DSETUP* _* setup.* layout.bin os.dat
-      DATA.TAG lang.dat Setup.exe SETUP.INI D3D9.dll D3D8.dll; ls -d */ | grep -i
-      pix | xargs -I {} -t mv {} pixg; ls -d */ | grep -i data | xargs -I {} -t mv
-      {} datag; mv saves savesg;
+      DATA.TAG lang.dat Setup.exe SETUP.INI D3D9.dll D3D8.dll datag/Data;
 system:
   env:
     DXVK_FRAME_RATE: '60'
