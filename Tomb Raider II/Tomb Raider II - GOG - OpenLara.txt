@@ -13,13 +13,13 @@ installer:
     format: gog
 - merge:
     dst: $GAMEDIR/level/2
-    src: $CACHE/Tomb Raider 2/data
+    src: $CACHE/data
 - merge:
     dst: $GAMEDIR/video/2
-    src: $CACHE/Tomb Raider 2/fmv
+    src: $CACHE/fmv
 - merge:
     dst: $GAMEDIR/audio/2
-    src: $CACHE/Tomb Raider 2/music
+    src: $CACHE/music
 - extract:
     dst: $GAMEDIR
     src: opl
@@ -27,5 +27,4 @@ installer:
     dst: $GAMEDIR/PIX
     src: lscreens
 - execute:
-    args: GOG
     file: script
