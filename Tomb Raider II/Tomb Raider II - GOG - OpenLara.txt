@@ -28,3 +28,4 @@ installer:
     src: lscreens
 - execute:
     file: script
+    args: GOG
