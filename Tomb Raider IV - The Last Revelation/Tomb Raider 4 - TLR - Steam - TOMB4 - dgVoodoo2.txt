@@ -13,8 +13,6 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -33,14 +31,7 @@ installer:
 - write_config:
     data:
       DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
         dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/Tomb Raider 4/dgVoodoo.conf
     merge: false
 - extract:
@@ -49,6 +40,14 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Tomb Raider 4
     src: dll
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
