@@ -18,12 +18,9 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
     file: gogsetup
     format: gog
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
-    src: $CACHE/Tomb Raider 3
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3
     file: mod
