@@ -7,8 +7,6 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -35,14 +33,6 @@ installer:
     type: REG_DWORD
     value: 00000409
 - task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
     app: devenum quartz_feb2010
     name: winetricks
     silent: true
@@ -52,3 +42,11 @@ installer:
 - task:
     executable: $GAMEDIR/drive_c/libavfilters/install_splitter.bat
     name: wineexec
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
