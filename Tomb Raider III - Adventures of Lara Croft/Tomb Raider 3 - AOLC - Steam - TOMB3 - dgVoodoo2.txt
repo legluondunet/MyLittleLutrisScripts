@@ -27,14 +27,14 @@ installer:
     dst: $GAMEDIR/drive_c/Tomb Raider 3
     file: mod
 - move:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/DATA/TOMBPC.BAK
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/DATA/TOMBPC.DAT
+    dst: $GAMEDIR/drive_c/Tomb Raider 3/data/TOMBPC.BAK
+    src: $GAMEDIR/drive_c/Tomb Raider 3/data/TOMBPC.DAT
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/DATA
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/Data
+    dst: $GAMEDIR/drive_c/Tomb Raider 3/data
+    src: $GAMEDIR/drive_c/Tomb Raider 3/Data
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/Data
+    src: $GAMEDIR/drive_c/Tomb Raider 3/Data
 - extract:
     dst: $GAMEDIR/drive_c/Tomb Raider 3
     file: wrapper
@@ -45,7 +45,7 @@ installer:
     data:
       DirectX:
         dgVoodooWatermark: false
-    file: $GAMEDIR/drive_c/GOG Games/Tomb Raider 3/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Tomb Raider 3/dgVoodoo.conf
     merge: false
 system:
   env:
