@@ -1,5 +1,7 @@
 #!/bin/bash
 
+unset LD_LIBRARY_PATH
+
 ./bin2iso game.cue -c GAME.GOG
 ./bin2iso game.cue
 
@@ -14,6 +16,7 @@ echo $cd
 ./7z x -y $cd
 
 mkdir video
+
 mv FMV video/1
 
 #cd DATA
@@ -51,4 +54,3 @@ cd ../..
 
 find . -type f -iname "*.pdf" -o -iname "*.doc" -o -iname "*.docx" -o -iname "*.txt" | xargs -d '\n' mv -t INFO
 mv INFO docs
-
