@@ -22,8 +22,6 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -41,18 +39,18 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/Tomb Raider 1
+    dst: $CACHE
     src: cdrtools
 - execute:
-    command: cd "$CACHE/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
-      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
-      echo $cd; ./7z x -y $cd;
+    command: cd "$CACHE"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue; if [
+      -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd; ./7z
+      x -y $cd;
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
-    src: $CACHE/Tomb Raider 1/DATA
+    src: $CACHE/DATA
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/FMV
-    src: $CACHE/Tomb Raider 1/FMV
+    src: $CACHE/FMV
 - extract:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: trpcx
