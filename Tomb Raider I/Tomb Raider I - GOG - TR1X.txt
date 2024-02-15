@@ -12,7 +12,7 @@ game:
     name: Tomb Raider 1 - Unfinished Business
 installer:
 - extract:
-    dst: $GAMEDIR/tmp
+    dst: $GAMEDIR/tmp/Tomb Raider 1
     file: gogsetup
     format: gog
 - extract:
