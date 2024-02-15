@@ -11,11 +11,9 @@ game:
   exe: $GAMEDIR/OpenLara
 installer:
 - extract:
-    dst: $CACHE
-    file: gogsetup
-- merge:
     dst: $GAMEDIR
-    src: $CACHE/Tomb Raider 1
+    file: gogsetup
+    format: gog
 - extract:
     dst: $CACHE
     src: tr1audio
