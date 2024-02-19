@@ -1,0 +1,14 @@
+files:
+- doom2wad: N/A:Select a Doom 2 WAD file
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Wolfenstein3D/ZMC-BWV7.0_Final_Version.12.zip
+game:
+  files:
+  - $GAMEDIR/ZMC-BWV7.0.pk3
+  main_file: $GAMEDIR/DOOM2.WAD
+installer:
+- merge:
+    dst: $GAMEDIR
+    src: doom2wad
+- extract:
+    dst: $GAMEDIR
+    file: $mod
