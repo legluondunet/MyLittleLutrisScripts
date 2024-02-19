@@ -12,3 +12,25 @@ installer:
     description: Installing Battlefield 1942
     executable: file1
     name: wineexec
+- input_menu:
+    description: 'Choose the game''s language for menus:'
+    id: LANG
+    options:
+    - English: English
+    - French: French
+    - Italian: Italian
+    - Spanish: Spanish
+    - German: German
+    - Chinese: Chinese
+    - Korean: Korean
+    - Japanese: Japanese
+    preselect: English
+- task:
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\Battlefield 1942
+    type: REG_SZ
+    value: $INPUT_LANG
+- execute:
+    command: cd "$GAMEDIR//drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/Mods/bf1942/Settings/Profiles/Custom";
+      sed -i -e s/1024\ 768/$RESOLUTION_WIDTH\ $RESOLUTION_HEIGHT/ Video.con;
