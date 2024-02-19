@@ -1,7 +1,7 @@
 files:
 - file1: 'N/A: Select BattleField 1942 setup installer downloaded from https://archive.org/download/battlefield1942thecompletecollectionwindows10compatible'
 game:
-  exe: drive_c/Program Files (x86)/EA Games/Battlefield 1942/BF1942.exe
+  exe: drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/BF1942.exe
   prefix: $GAMEDIR
 installer:
 - task:
