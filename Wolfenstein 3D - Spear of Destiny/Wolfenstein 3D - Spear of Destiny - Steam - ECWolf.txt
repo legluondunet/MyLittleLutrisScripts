@@ -1,0 +1,13 @@
+files:
+- ecwolf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Wolfenstein%203D/ecwolf.tar.xz
+- gamedata: $STEAM:9000:base
+game:
+  exe: $GAMEDIR/ecwolf.sh
+installer:
+- merge:
+    dst: $GAMEDIR/wolf3d/all
+    src: gamedata
+- extract:
+    dst: $GAMEDIR
+    format: txz
+    src: ecwolf
