@@ -5,11 +5,12 @@ game:
   exe: $GAMEDIR/ecwolf.sh
 installer:
 - insert-disc:
+    description: Do not use "Autodetection", please use "Browse" to select your Wolfenstein 3D install
+      folder
     requires: vgadict.wl6
 - extract:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     format: txz
     src: ecwolf
 - execute:
     command: cd "$DISC"; find * -iname *.wl6 -exec cp {} "$GAMEDIR/wolf3d/all" \;
-
