@@ -1,6 +1,6 @@
 # Wolfenstein 3D - Steam - ECWolf
 ### Description:
-Play "Wolfenstein 3D" on Linux! using ECWolf open source project
+Play "Wolfenstein 3D" provided by Steam on Linux! using ECWolf open source project
 ### Technical notes:
 - This script installer will launch Steam to obtain game data
 - ECWolf 1.5.0pre - commit 2065d07 - 19 february 2024
