@@ -5,9 +5,12 @@ game:
   exe: $GAMEDIR/ecwolf.sh
 installer:
 - merge:
-    dst: $GAMEDIR/wolf3d/all
+    dst: $GAMEDIR/data
     src: gamedata
 - extract:
     dst: $GAMEDIR
     format: txz
     src: ecwolf
+- execute:
+    command: cd "$GAMEDIR"; sed -i -e s/800/$RESOLUTION_WIDTH/ -e s/600/$RESOLUTION_HEIGHT/
+      ecwolf.cfg ;
