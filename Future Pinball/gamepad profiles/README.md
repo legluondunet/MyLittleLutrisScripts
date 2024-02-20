@@ -1,39 +1,19 @@
----
-author: Romain
-changed: "2019-07-14T15:44:50.588831134"
-changedby: Romain
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 6.2.4.2 (Linux)
-lang: fr-FR
----
+# Future Pinball - COntrols
 
-<u>**Gamepad profiles for Future Pinball**</u>
+FP supports natively gamepad, but if you prefer like use triggers as flippers, you will find here two gamepad profiles.
 
-**FP supports natively gamepad, but if you prefer like use triggers as
-flippers, you will find here two gamepad profiles.**
+Depend your gamepad, choose appropriate app below, install it on your Linux distribution, import profile and start game, you can now play with
+your gamepad.
 
-**Depend your gamepad, choose appropriate app below, install it on your
-Linux distribution, import profile and start game, you can now play with
-your gamepad.**
+x360 controller profile to use with AntiMicroX --> fp_x360.gamecontroller.amgp
 
-**x360 controller profile to use with antimicro -->
-fp_x360.gamecontroller.amgp**
+You can download AntiMicroX here: https://github.com/AntiMicro/antimicro
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download Antimicro here:
-https://github.com/AntiMicro/antimicro**</span></span>
+Steam controller profile to use with sc-controller --> fp_steam.sccprofile
 
-**Steam controller profile to use with sc-controller -->
-fp_steam.sccprofile**
+You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You can download sc-controller here -->
-https://github.com/kozec/sc-controller**</span></span>
-
-**You will find gamepad profiles in your Lutris fp wineprefix:
-c:\\Future Pinball\\gamepad profiles\\**
-
-<u>**BGE keyboard and gamepad mapping**</u>
+## keyboard and gamepad mapping
 
 <table width="526" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="1">
 <tbody>
