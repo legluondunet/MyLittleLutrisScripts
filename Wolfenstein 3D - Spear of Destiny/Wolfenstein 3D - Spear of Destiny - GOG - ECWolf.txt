@@ -1,6 +1,7 @@
 files:
 - ecwolf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Wolfenstein%203D/ecwolf.tar.xz
 - gogsetup: N/A:Please select the setup exe file downloaded from your GOG account
+- mpacks: https://www.dropbox.com/scl/fi/mheihmmi8r3n71rnd1kdh/SOD-Mission-Packs.zip?rlkey=5upe75gwsbinfopqr6uqh5xsx&dl=1
 game:
   exe: $GAMEDIR/ecwolf.sh
 installer:
@@ -15,6 +16,9 @@ installer:
 - merge:
     dst: $GAMEDIR/data
     src: $CACHE/m1
+- extract:
+    dst: $GAMEDIR/data
+    file: mpacks
 - execute:
     command: cd "$GAMEDIR"; sed -i -e s/800/$RESOLUTION_WIDTH/ -e s/600/$RESOLUTION_HEIGHT/
       ecwolf.cfg ;
