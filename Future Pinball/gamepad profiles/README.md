@@ -1,4 +1,4 @@
-# Future Pinball - COntrols
+## Future Pinball - Controls
 
 FP supports natively gamepad, but if you prefer like use triggers as flippers, you will find here two gamepad profiles.
 
@@ -13,7 +13,7 @@ Steam controller profile to use with sc-controller --> fp_steam.sccprofile
 
 You can download sc-controller here --> https://github.com/kozec/sc-controller
 
-## keyboard and gamepad mapping
+### keyboard and gamepad mapping
 
 <table width="526" data-cellpadding="2" data-cellspacing="1" style="background: transparent" data-border="1">
 <tbody>
