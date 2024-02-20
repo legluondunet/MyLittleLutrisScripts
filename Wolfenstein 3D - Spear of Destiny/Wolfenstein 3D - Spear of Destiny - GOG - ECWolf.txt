@@ -9,9 +9,12 @@ installer:
     format: txz
     src: ecwolf
 - extract:
-    dst: $GAMEDIR/data
+    dst: $CACHE
     file: gogsetup
     format: gog
+- merge:
+    dst: $GAMEDIR/data
+    src: $CACHE/m1
 - execute:
     command: cd "$GAMEDIR"; sed -i -e s/800/$RESOLUTION_WIDTH/ -e s/600/$RESOLUTION_HEIGHT/
       ecwolf.cfg ;
