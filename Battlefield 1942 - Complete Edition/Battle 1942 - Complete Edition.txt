@@ -14,7 +14,7 @@ installer:
     executable: file1
     name: wineexec
 - copy:
-    dst: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/BF1942.bak
+    dst: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/backup
     src: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/BF1942.exe
 - extract:
     dst: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE
