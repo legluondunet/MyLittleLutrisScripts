@@ -1,4 +1,4 @@
-# Darksiders - Warmastered Edition - GOG
+# Darksiders - Warmastered Edition - GOG - MF
 ### Description:
 Play "Darksiders Warmastered Edition" provided by GOG on Linux!
 ### Technical notes:
