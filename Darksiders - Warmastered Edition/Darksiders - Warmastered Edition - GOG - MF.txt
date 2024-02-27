@@ -4,12 +4,11 @@ files:
     from your GOG account page.
 - launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/darksiders1.bat
 game:
-  arch: win32
   exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.bat
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win32
+    arch: win64
     description: Creating WINE prefix
     name: create_prefix
     prefix: $GAMEDIR
@@ -24,24 +23,28 @@ installer:
     app: mf
     name: winetricks
 - task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
     component: mediafoundation
     name: install_cab_component
 - task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
     component: mf_
     name: install_cab_component
 - task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
     component: mfreadwrite
     name: install_cab_component
 - task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
     component: wmadmod
     name: install_cab_component
 - task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
     component: wmvdecod
+    name: install_cab_component
+- task:
+    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
+    component: wmadmod
     name: install_cab_component
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
