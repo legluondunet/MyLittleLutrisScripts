@@ -1,18 +1,16 @@
-custom-name: Darksiders - Warmastered Edition - GOG
 files:
 - mfplatdll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/mfplat.7z
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
+- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/darksiders1.bat
 game:
   arch: win32
-  exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.exe
+  exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.bat
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win32
     description: Creating WINE prefix
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -48,4 +46,7 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
     file: mfplatdll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
+    src: launcher
 requires-binaries: cabextract
