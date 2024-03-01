@@ -9,8 +9,6 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - write_file:
