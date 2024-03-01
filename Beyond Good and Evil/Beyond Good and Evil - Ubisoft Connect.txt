@@ -33,7 +33,7 @@ installer:
       Good and Evil
     src: wdpatch
 - task:
-    args: uplay://launch/232/0uplay://launch/232/0
+    args: uplay://launch/232/0
     executable: $GAMEDIR/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
     name: wineexec
 - write_config:
