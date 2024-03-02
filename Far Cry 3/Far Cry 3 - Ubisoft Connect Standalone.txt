@@ -1,9 +1,5 @@
-custom-name: Far Cry 3 - Ubisoft Connect Standalone
 files:
-- ubisoftconnect: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-- fc3cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/farcry3.bmp
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/clean.sh
+- uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
 game:
   args: uplay://launch/46/0
   exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
@@ -13,13 +9,17 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- write_file:
+    content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
+      \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Ubisoft Game Launcher/settings.yaml
 - task:
-    app: corefonts d3dcompiler_47 faudio
+    app: arial
     name: winetricks
     prefix: $GAMEDIR
 - task:
     args: /S
-    executable: ubisoftconnect
+    executable: uplay
     name: wineexec
     prefix: $GAMEDIR
 - merge:
@@ -29,33 +29,9 @@ installer:
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- merge:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\farcry3.bmp
 system:
   env:
-    PULSE_LATENCY_MSEC: '90'
-    WINE_FORCE_LARGE_ADDRESS_AWARE: '1'
-wine:
-  Desktop: true
-  esync: true
-  overrides:
-    overlay: disabled
-    xaudio2_7: native,builtin
-
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
