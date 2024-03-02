@@ -8,7 +8,7 @@ echo "la variable cache_path est égale à " $cache_path
 cd "$cache_path"
 
 if [ $lang == "int" ]; then
-exit
+printf '\x50\x4b\x05\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' > sc1_multi5_int.zip
 elif [ $lang == "fra" ]; then
 wget --no-check-certificate -O sc1_multi5_fra.zip https://www.dropbox.com/scl/fi/2298jdgfv6bxg9ubbyw9t/sc1_multi5_fra.zip?rlkey=5js1llzofg34dw9y4k5oaka8k&dl=1
 elif [ $lang == "ita" ]; then
