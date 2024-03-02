@@ -8,8 +8,6 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -31,7 +29,7 @@ installer:
     preselect: int
 - chmodx: script
 - execute:
-    args: $INPUT_LANG $CACHE
+    args: $INPUT_LANG "$CACHE"
     file: script
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell
