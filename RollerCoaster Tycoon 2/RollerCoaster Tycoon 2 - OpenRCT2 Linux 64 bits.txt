@@ -1,29 +1,22 @@
-custom-name: RollerCoaster Tycoon 2 - GOG - Linux 64 bits
 files:
-- orct2lin1: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.3.1/OpenRCT2-0.3.1-linux-x86_64.tar.gz
-- orct2lin2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%202/OpenRCT2_x64_portable_addons_files.tar.xz
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- engine:
+    filename: OpenRCT2-linux-x86_64.AppImage
+    url: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.4.9/OpenRCT2-0.4.9-linux-x86_64.AppImage
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
 game:
-  exe: $GAMEDIR/OpenRCT2/OpenRCT2.sh
+  args: --rct2-data-path="RCT2" --rct1-data-path="../rollercoaster-tycoon-deluxe/drive_c/GOG
+    Games/RollerCoaster Tycoon Deluxe" --user-data-path=.
+  exe: $GAMEDIR/OpenRCT2-linux-x86_64.AppImage
 installer:
 - extract:
-    dst: $CACHE/
-    src: inno
-- execute:
-    args: -d "$CACHE" "$gogsetup"
-    file: $CACHE/innoextract
-- merge:
     dst: $GAMEDIR/RCT2
-    src: $CACHE/app
-- extract:
-    dst: $GAMEDIR/OpenRCT2
-    file: orct2lin1
-- extract:
-    dst: $GAMEDIR/OpenRCT2
-    file: orct2lin2
-- chmodx: $GAMEDIR/OpenRCT2/OpenRCT2.sh
+    file: gogsetup
+    format: gog
+- chmodx: $engine
+- copy:
+    dst: $GAMEDIR
+    src: $engine
 - write_config:
     data:
       general:
@@ -32,12 +25,5 @@ installer:
         fullscreen_mode: 1
         fullscreen_width: $RESOLUTION_WIDTH
         game_path: $GAMEDIR/RCT2
-        window_height: $RESOLUTION_HEIGHT
-        window_width: $RESOLUTION_WIDTH
-    file: $CACHE/config.ini
-- merge:
-    dst: $GAMEDIR/OpenRCT2/config/
-    src: $CACHE/config.ini
-- execute:
-    command: cd $GAMEDIR/RCT2/ ; rm -f -r __support/ gog* webcache.zip RCT2.EXE
-
+        window_scale: 1.25
+    file: $GAMEDIR/config.ini
