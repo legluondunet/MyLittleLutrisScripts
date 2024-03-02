@@ -3,9 +3,9 @@
 
 lang=$1
 echo "la variable lang est égale à " $lang
-cache_path=$2
-echo "la variable cache_path est égale à " $cache_path
-cd "$cache_path"
+game_path=$2
+echo "la variable actual_path est égale à " $game_path
+cd "$game_path"
 
 if [ $lang == "int" ]; then
 printf '\x50\x4b\x05\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' > sc1_multi5_int.zip
@@ -18,3 +18,5 @@ wget --no-check-certificate -O sc1_multi5_deu.zip https://www.dropbox.com/scl/fi
 elif [ $lang == "esp" ]; then
 wget --no-check-certificate -O sc1_multi5_esp.zip https://www.dropbox.com/scl/fi/jc2312t41r6vvg72u4ak4/sc1_multi5_esp.zip?rlkey=lsit4ludbyq46x36awenbtwsd&dl=1
 fi
+
+7z x sc1_multi5_$lang.zip
