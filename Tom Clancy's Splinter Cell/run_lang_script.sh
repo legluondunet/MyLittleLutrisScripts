@@ -3,7 +3,7 @@
 
 lang=$1
 echo "la variable lang est égale à " $lang
-game_path=$2
+game_path="$2"
 echo "la variable actual_path est égale à " $game_path
 cd "$game_path"
 
