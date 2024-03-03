@@ -1,4 +1,3 @@
 <GamerProfile>
-	<RenderProfile ResolutionX="0" ResolutionY="0" Quality="high" Fullscreen="1" Borderless="0" UseD3D11="1" VSync="1">
-	</RenderProfile>
+	<RenderProfile ResolutionX="1280" ResolutionY="720" Quality="high" Fullscreen="1">
 </GamerProfile>
