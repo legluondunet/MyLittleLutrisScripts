@@ -1,16 +1,23 @@
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- fc3cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
-- uplaycfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/settings.yml
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/farcry3.bat
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
 game:
-  exe: drive_c/farcry3.bat
+  args: -no-browser steam://run/220240
+  exe: drive_c/program files (x86)/steam/steam.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     description: Preparing wineprefix...
     name: create_prefix
+    prefix: $GAMEDIR
+- write_file:
+    content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
+      \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Ubisoft Game Launcher/settings.yaml
+- task:
+    app: arial
+    name: winetricks
     prefix: $GAMEDIR
 - task:
     args: /S
@@ -19,15 +26,13 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - merge:
-    dst: $GAMEDIR/drive_c/users/$USER/Local Settings/Application Data/Ubisoft Game
-      Launcher/
-    src: uplaycfg
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: fc3cfg
-- merge:
-    dst: $GAMEDIR/drive_c/
-    src: menu
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Far Cry 3
+    src: game_cfg
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp" ; sed -i -e 's/ResolutionX="0"/ResolutionX="$RESOLUTION_WIDTH"/g'
-      -e 's/ResolutionY="0"/ResolutionY="$RESOLUTION_HEIGHT"/g' GamerProfile.xml ;
+    command: cd "$GAMEDIR/drive_c/users/$USER/Documents/My Games/Far Cry 3"; sed -i
+      -e 's/ResolutionX="1280"/ResolutionX="$RESOLUTION_WIDTH"/g' -e 's/ResolutionY="720"/ResolutionY="$RESOLUTION_HEIGHT"/g'
+      GamerProfile.xml ;
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
