@@ -1,5 +1,6 @@
 files:
 - uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
 game:
   args: uplay://launch/46/0
   exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
@@ -23,15 +24,13 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: fc3cfg
-- chmodx: script
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Far Cry 3
+    src: game_cfg
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
+    command: cd "$GAMEDIR/drive_c/users/$USER/Documents/My Games/Far Cry 3";  sed
+      -i -e 's/ResolutionX="1280"/ResolutionX="$RESOLUTION_WIDTH"/g' -e 's/ResolutionY="720"/ResolutionY="$RESOLUTION_HEIGHT"/g'
+      GamerProfile.xml ;
 system:
   env:
-    DXVK_HUD: null
-  gamescope: true
-  gamescope_game_res: $RESOLUTION
-  gamescope_output_res: $RESOLUTION
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: full
