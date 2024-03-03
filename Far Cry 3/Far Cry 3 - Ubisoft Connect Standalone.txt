@@ -1,5 +1,5 @@
 files:
-- uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+- ubisetup: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
 - game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Far%20Cry%203/GamerProfile.xml
 game:
   args: uplay://launch/46/0
@@ -20,7 +20,7 @@ installer:
     prefix: $GAMEDIR
 - task:
     args: /S
-    executable: uplay
+    executable: ubisetup
     name: wineexec
     prefix: $GAMEDIR
 - merge:
@@ -33,4 +33,4 @@ installer:
 system:
   env:
     DXVK_FRAME_RATE: '60'
-    DXVK_HUD: full
+    DXVK_HUD: null
