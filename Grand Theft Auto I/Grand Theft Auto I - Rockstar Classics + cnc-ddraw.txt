@@ -1,0 +1,51 @@
+files:
+- gtasetup: N/A:Please select GTA installer available for download here https://gta.com.ua/rockstargames-classics-free-download.phtml
+- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/latest/download/cnc-ddraw.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Grand%20Theft%20Auto%20I/gta1_patch.zip
+game:
+  exe: drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO/GTA_Intro.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO/Settings.exe
+    name: Settings - Controls and Language
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+- extract:
+    dst: $CACHE
+    file: gtasetup
+- task:
+    description: Installing GTA...
+    executable: $CACHE/SETUP.EXE
+    name: wineexec
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    src: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/GTADATA
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    src: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/Music
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO
+    file: wrapper
+- task:
+    app: mfc42
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Choose your preferred language
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO/Settings.exe
+    name: wineexec
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/Grand Theft Auto/WINO";
+      sed -i s/renderer\=auto/renderer\=opengl/ s/maxgameticks\=0/maxgameticks\=30/
+      ddraw.ini; cd Music; for i in *.wav; do newi=$((${i//[Track.wav]}+1)); if [
+      "$newi" -le  9 ]; then mv $i Track0$newi.wav ; else mv $i Track$newi.wav ; fi;
+      done;
+wine:
+  overrides:
+    ddraw: n,b
+    winmm: n,b
