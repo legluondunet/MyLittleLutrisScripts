@@ -1,12 +1,10 @@
 # Grand Theft Auto - Vice City - Steam data - reVC
-
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Grand Theft Auto - Vice City" provided by Steam using reVC engine https://github.com/GTAmodding/re3/tree/miami
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
-
+Play "Grand Theft Auto - Vice City" provided by Steam on Linux! using reVC open source engine
 ### Technical notes:
+- You will need to download "Grand Theft Auto - Vice City" on Steam before to launch this script installer
 - reVC Github version commit a16fcd8, compiled 21 september 2021
 - You will need to install glfw-x11 or glfw-wayland libraries depending the video server protocol you use
-- Please report issue concerning this script on my Github page: https://github.com/legluondunet/MyLittleLutrisScripts
+### Credits:
+- reVC: https://github.com/GTAmodding/re3/tree/miami
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
