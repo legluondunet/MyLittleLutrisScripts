@@ -1,6 +1,6 @@
-# Grand Theft Auto I – Rockstar Classics + cnc-ddraw
+# Grand Theft Auto I – Rockstar Classics
 ### Description:
-Play "Grand Theft Auto" Rockstar Classics edition on Linux! using cnc-ddraw open source project
+Play "Grand Theft Auto" Rockstar Classics edition on Linux!
 ### Technical notes:
 - This script installer will need you download GTA from this site: https://gta.com.ua/rockstargames-classics-free-download.phtml
 - press alt+ enter to play in fullscreen / windowed mode
