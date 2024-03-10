@@ -1,0 +1,37 @@
+files:
+- gtasetup: N/A:Please select GTA Ready2Play archive available for download here https://gtaforums.com/topic/986492-grand-theft-auto-ready2play-full-game-windows-version
+game:
+  exe: drive_c/Ready2Play/WINO/GTA_Intro.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Ready2Play/WINO/GTA_London_Intro.exe
+    name: Mission pack 1 - GTA London 1969
+  - exe: $GAMEDIR/drive_c/Ready2Play/WINO/GTA_London_1961_Intro.exe
+    name: Mission pack 2 - GTA London 1961
+  - exe: $GAMEDIR/drive_c/Ready2Play/WINO/Settings.exe
+    name: Settings - Controls and Language
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+- extract:
+    dst: $CACHE
+    file: gtasetup
+- merge:
+    dst: $GAMEDIR/drive_c/Ready2Play/WINO
+    src: $CACHE/launcher/_Files
+- merge:
+    dst: $GAMEDIR/drive_c/Ready2Play/WINO/gtadata
+    src: $CACHE/Game/gtadata
+- task:
+    app: mfc42
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Choose your preferred language
+    executable: $GAMEDIR/drive_c/Ready2Play/WINO/Settings.exe
+    name: wineexec
+wine:
+  overrides:
+    ddraw: n,b
+    winmm: n,b
