@@ -1,12 +1,11 @@
-custom-name: Grand Theft Auto III - Steam data - re3
 files:
 - engine: https://lutris.nyc3.digitaloceanspaces.com/games/GTA/III/re3.tar.xz
 game:
   exe: re3
 installer:
 - insert-disc:
-    description: Please browse folder where is located "Grand Theft Auto - San Andreas"
-      Steam files. Autodetect will not work here, use "Browse" button.
+    description: Please browse folder where is located "Grand Theft Auto III" Steam
+      files. Autodetect will not work here, use "Browse" button.
     requires: gta3.exe
 - merge:
     dst: $GAMEDIR
@@ -32,4 +31,3 @@ installer:
       General:
         Language: $INPUT_LANG
     file: $GAMEDIR/re3.ini
-
