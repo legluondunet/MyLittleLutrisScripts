@@ -1,6 +1,6 @@
 # Screamer 2 - GOG - nGlide
 ### Description:
-Screamer 2 provided by GOG using nGlide
+Play "Screamer 2" provided by GOG on Linux! using nGlide
 ### Technical notes:
 - Screamer 2 with 3DFX rendering
 ### Credits:
