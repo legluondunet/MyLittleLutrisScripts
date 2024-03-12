@@ -1,4 +1,4 @@
-@echo on
+@echo off
 c:
 cd "%USERPROFILE%\Documents\Rockstar Games\L.A. Noire"
 dir
