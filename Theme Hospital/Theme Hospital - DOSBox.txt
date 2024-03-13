@@ -1,4 +1,3 @@
-custom-name: Theme Hospital - GOG - DOSBox
 files:
 - gogsetup: N/A:Please select the GOG.com Windows installer
 game:
@@ -9,6 +8,9 @@ installer:
     dst: $GAMEDIR
     file: gogsetup
     format: gog
+- merge:
+    dst: $GAMEDIR
+    src: $GAMEDIR/__support/save
 - merge:
     dst: $GAMEDIR/dosbox_conf
     src: $GAMEDIR/__support/app
