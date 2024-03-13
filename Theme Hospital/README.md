@@ -11,7 +11,7 @@
 
 # Theme Hospital - GOG - DOSBox
 ### Description:
-"Theme Hospital" provided by GOG using Dosbox
+Play "Theme Hospital" provided by GOG on Linux!
 ### Technical notes:
 - Multilanguage: choose your preferred language for interface and game texts between German, English, French, Italian, Swedish and Spanish
 ### Credits:
