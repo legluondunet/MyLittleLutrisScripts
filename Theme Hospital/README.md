@@ -1,4 +1,4 @@
-# Theme Hospital - GOG - CorsixTH fLATPAK
+# Theme Hospital - GOG - CorsixTH Flatpak
 ### Description:
 Play "Theme Hospital" provided by GOG on Linux! using "CorsixTH" open source engine
 ### Technical notes:
