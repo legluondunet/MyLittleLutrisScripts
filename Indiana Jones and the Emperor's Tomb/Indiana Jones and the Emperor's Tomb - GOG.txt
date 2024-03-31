@@ -13,8 +13,6 @@ installer:
 - task:
     arch: win64
     description: Creating Wine prefix
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -63,6 +61,7 @@ system:
   gamescope_fps_limiter: '60'
   gamescope_game_res: 1280x960
   gamescope_output_res: $RESOLUTION
+  gamescope_force_grab_cursor: true
 wine:
   overrides:
     msvcrt: n,b
