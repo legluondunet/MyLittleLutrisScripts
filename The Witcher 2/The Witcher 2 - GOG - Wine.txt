@@ -1,7 +1,4 @@
-custom-name: The Witcher 2 - GOG - Wine
 files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Witcher%202/clean.sh
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
 game:
@@ -12,19 +9,12 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$GAMEDIR/drive_c/GOG Games" "$gogsetup"
-    file: $CACHE/innoextract
-- task:
-    app: d3dcompiler_47 vcrun2010 dotnet40
-    name: winetricks
+    dst: $GAMEDIR/drive_c/GOG Games/The Witcher 2
+    file: gogsetup
+    format: gog
 - task:
     arch: win64
     key: InstallFolder
@@ -50,22 +40,8 @@ installer:
     type: REG_SZ
     value: GOG
 - task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- chmodx: script
-- execute:
-    file: script
+    app: vcrun2010
+    name: winetricks
 system:
-  env:
-    __GL_SHADER_DISK_CACHE: 1
-    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-wine:
-  Desktop: true
-  esync: true
-  version: lutris-5.7-11-x86_64
-
+  limit_cpu_count: '30'
+  single_cpu: true
