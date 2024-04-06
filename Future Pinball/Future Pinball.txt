@@ -38,11 +38,3 @@ installer:
     app: oleaut32 vcrun6 wsh57 dinput8
     name: winetricks
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
