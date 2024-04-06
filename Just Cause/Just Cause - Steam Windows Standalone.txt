@@ -1,0 +1,41 @@
+files:
+- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause/JustCause.WidescreenFix.zip
+game:
+  args: -no-browser steam://run/6880
+  exe: drive_c/Program Files (x86)/Steam/Steam.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing Steam...
+    executable: steamsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Just Cause
+    file: patch
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - 409: English
+    - 40c: French
+    - 407: German
+    - 410: Italian
+    - 40a: Spanish
+    preselect: 409
+- task:
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Eidos\Just Cause
+    type: REG_DWORD
+    value: $INPUT_LANG
+wine:
+  overrides:
+    dinput8: n,b
