@@ -1,10 +1,8 @@
-custom-name: Just Cause 2 - Windows Steam Standalone
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause%202/justcause2.bmp
 game:
-  exe: drive_c/justcause2.bat
+  args: -no-browser steam://run/8190
+  exe: drive_c/program files (x86)/steam/steam.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,34 +11,12 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
     args: /S
     description: Installing Steam...
     executable: steamsetup
     name: wineexec
     prefix: $GAMEDIR
 - task:
-    app: d3dcompiler_47 d3dx10_43 win7
+    app: d3dx10_43
     name: winetricks
     prefix: $GAMEDIR
-- merge:
-    dst: $GAMEDIR/drive_c/
-    src: menu
-- merge:
-    dst: $GAMEDIR/drive_c/
-    src: wpp
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\justcause2.bmp
