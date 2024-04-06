@@ -11,11 +11,7 @@ installer:
 - insert-disc:
     requires: Setup/Data/Binaries/Wolverine.exe
 - task:
-    args: /desktop=Wolverine,1024x780 $DISC/setup.exe
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+    executable: $DISC/setup.exe
     name: wineexec
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/
