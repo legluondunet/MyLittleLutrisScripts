@@ -1,19 +1,15 @@
-custom-name: Indiana Jones and the Fate of Atlantis - GOG
 files:
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Fate%20of%20Atlantis/indi4_multi5.zip
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- gog: N/A:Please select the game Windows setup exe file downloaded from GOG
+- setupfile: N/A:Please select the game Windows setup exe file downloaded from GOG
 game:
   args: --subtitles
-  game_id: atlantis
+  game_id: atlantis-fr
   path: $GAMEDIR
 installer:
 - extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: --extract $gog --output-dir "$GAMEDIR"
-    file: $CACHE/innoextract/innoextract
+    dst: $GAMEDIR
+    file: setupfile
+    format: gog
 - extract:
     dst: $GAMEDIR/lang
     src: multi5
@@ -21,7 +17,7 @@ installer:
     description: 'Please choose your preferred subtitles language:'
     id: LANG
     options:
-    - keep: I prefer to keep the default install language
+    - keep: English
     - fr: French
     - sp: Spanish
     - ge: German
