@@ -1,4 +1,4 @@
-# Just Cause – Steam Windows Standalone
+# Just Cause – Windows Steam Standalone
 ### Description:
 Play "Just Cause" provided by Steam on Linux!
 ### Technical notes:
