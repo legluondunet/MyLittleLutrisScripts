@@ -1,4 +1,4 @@
-# Indiana Jones and the Fate of Atlantis - GOG - ScummVM
+# Indiana Jones and the Fate of Atlantis - G O G Talkie MULTI5 version
 ### Description:
 Play "Indiana Jones and the Fate of Atlantis" provided by GOG on Linux!
 ### Technical notes:
