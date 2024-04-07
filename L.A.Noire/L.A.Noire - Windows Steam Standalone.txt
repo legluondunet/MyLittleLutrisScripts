@@ -4,7 +4,7 @@ files:
 - batch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/L.A.Noire/settings.bat
 game:
   args: -no-browser steam://run/110800
-  exe: drive_c/Program Files (x86)/Steam/Steam.exe
+  exe: drive_c/Program Files (x86)/Steam/steam.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/users/$USER/Documents/Rockstar Games/L.A. Noire/settings.bat
     name: Edit L.A. Noire config file
