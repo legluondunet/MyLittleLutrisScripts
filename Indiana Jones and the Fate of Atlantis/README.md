@@ -2,7 +2,7 @@
 ### Description:
 Play "Indiana Jones and the Fate of Atlantis" provided by GOG on Linux!
 ### Technical notes:
-- This script installer is ONLY compatible with setup file for Windows, provided by GOG, in English language. If you use others files, you will not obtain a "Talkie" version or the game will just not launch
+- This script installer is ONLY compatible with game setup file for Windows, provided by GOG, in English language. If you use others files, you will not obtain a "Talkie" version or the game will just not launch
 - Multilingual: you could choose your preferred subtitles language during install between English, French, Italian, Spanish and German. The voices will still stay in English
 ### Credits:
 - Translations:
