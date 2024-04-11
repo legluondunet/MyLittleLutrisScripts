@@ -1,9 +1,9 @@
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
-- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.1.1/TR1X-3.1.1-Linux.zip
-- dlc: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
-- audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
+- mod: https://github.com/LostArtefacts/TR1X/releases/download/4.0.1/TR1X.4.0.1-Linux.zip
+- dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
+- audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
   exe: TR1X/TR1X
   launch_configs:
