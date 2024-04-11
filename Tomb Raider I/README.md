@@ -14,7 +14,6 @@ Play "Tomb Raider I" provided by GOG on Linux! using TR1X open source project
 ### Description:
 Play "Tomb Raider I" provided by Steam on Linux! using TR1X open source project
 ### Technical notes:
-- You have to install "Tomb Raider I" on Steam before to launch this script installer
 - Unfinished Business extension included
 - Gamepad natively supported
 ### Credits:
