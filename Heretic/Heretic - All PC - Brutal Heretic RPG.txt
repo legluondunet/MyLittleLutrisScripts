@@ -2,11 +2,11 @@ files:
 - brutalmod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Heretic/BRUTAL_HERETIC_V6.rar
 game:
   files:
-  - 1 BRUTAL HERETIC/BrutalHereticRPG_V6.0.pk3
-  - 2 HD TEXTURES/heretic_gz.pk3
-  - 3 HD SOUNDTRACK/H20MUS.wad
-  - 4 COMBINE EPISODES/mk-episodic-ex[1.1.0].pk3
-  - 5 COOP RESURRECT (Coop Mode)/Resurrectupdate.pk3
+  - $GAMEDIR/1 BRUTAL HERETIC/BrutalHereticRPG_V6.0.pk3
+  - $GAMEDIR/2 HD TEXTURES/heretic_gz.pk3
+  - $GAMEDIR/3 HD SOUNDTRACK/H20MUS.wad
+  - $GAMEDIR/4 COMBINE EPISODES/mk-episodic-ex[1.1.0].pk3
+  - $GAMEDIR/5 COOP RESURRECT (Coop Mode)/Resurrectupdate.pk3
   main_file: $GAMEDIR/6 HERETIC WADS/heretic.wad
   savedir: $GAMEDIR/saves
 installer:
