@@ -71,6 +71,10 @@ system:
   env:
     DXVK_FRAME_RATE: 60
     DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
