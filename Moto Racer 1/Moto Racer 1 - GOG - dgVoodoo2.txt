@@ -1,34 +1,44 @@
 files:
-- gogsetup: N/A:Please select the GOG installer
-- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- wrapper1: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Moto%20Racer%201/mr1_update_322.zip
+- script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
+- dlc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Moto%20Racer%201/mr1_data_disk_1.zip
 game:
   args: -$INPUT_LANG -fullscreen -d3d -DoRealLock -OpaqueBlackLevel3 -TextureSquareOnly
     -CorrectRatioTextures -NoDither -TextureVideoMem268435456
-  exe: drive_c/GOG Games/Moto Racer/game.EXE
+  exe: drive_c/Program Files (x86)/MotoRacer/Moto.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert Moto Racer 1 CD and press "Autodetection"
+    requires: faq_fr.txt
 - task:
-    args: /SUPPRESSMSGBOXES /SILENT
     description: Installing...
-    executable: gogsetup
+    executable: $DISC/setup.exe
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer
-    file: wrapper
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
+    file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/data
+    file: dlc
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
+    file: wrapper1
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer/MS/x86/DDraw.dll
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
+    src: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer/MS/x86/D3DImm.dll
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
+    src: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/MS/x86/D3DImm.dll
 - move:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer/dgVoodoobak.conf
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer/dgVoodoo.conf
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/dgVoodoobak.conf
+    src: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/dgVoodoo.conf
 - write_config:
     data:
       DirectX:
@@ -37,9 +47,9 @@ installer:
         dgVoodooWatermark: false
       GeneralExt:
         DesktopBitDepth: 16
-    file: $GAMEDIR/drive_c/GOG Games/Moto Racer/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/dgVoodoo.conf
 - input_menu:
-    description: 'Choose the game''s language:'
+    description: 'Choose your preferred game''s language:'
     id: LANG
     options:
     - us: English
@@ -47,12 +57,16 @@ installer:
     - it: Italian
     - sw: Sweden
     - sp: Spanish
-    - gr: Deutch
+    - gr: German
     preselect: us
 - task:
     app: directplay
     name: winetricks
     silent: true
+- chmodx: script
+- execute:
+    args: MotoRacer "$GAMEDIR/drive_c/Program Files (x86)/MotoRacer" 3 wav
+    file: script
 system:
   env:
     DXVK_FRAME_RATE: 60
