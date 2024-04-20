@@ -53,6 +53,10 @@ installer:
     app: directplay
     name: winetricks
     silent: true
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
 wine:
   overrides:
     ddraw: n,b
