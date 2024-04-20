@@ -17,9 +17,6 @@ installer:
     executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer
-    src: $CACHE/app
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Moto Racer
     file: wrapper
