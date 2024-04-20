@@ -1,5 +1,5 @@
 files:
-- wrapper1: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Moto%20Racer%201/mr1_update_322.zip
 - script: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
 - dlc: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Moto%20Racer%201/mr1_data_disk_1.zip
@@ -29,7 +29,7 @@ installer:
     file: dlc
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
-    file: wrapper1
+    file: wrapper
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer
     src: $GAMEDIR/drive_c/Program Files (x86)/MotoRacer/MS/x86/DDraw.dll
