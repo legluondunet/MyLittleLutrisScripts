@@ -47,7 +47,7 @@ installer:
     - it: Italian
     - sw: Sweden
     - sp: Spanish
-    - gr: Deutch
+    - gr: German
     preselect: us
 - task:
     app: directplay
