@@ -1,0 +1,70 @@
+files:
+- gogsetup: N/A:Please select the GOG installer
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  args: -$INPUT_LANG -d3d
+  exe: drive_c/GOG Games/Moto Racer 2/moto.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SUPPRESSMSGBOXES /SILENT
+    description: Installing...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - us: English
+    - fr: "Fran\xE7ais"
+    - it: Italian
+    - sw: Sweden
+    - sp: Spanish
+    - gr: German
+    preselect: us
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
+    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
+    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/MS/x86/D3DImm.dll
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoobak.conf
+    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoo.conf
+- write_config:
+    data:
+      DirectX:
+        VRAM: 256
+        VideoCard: ati_radeon_8500
+        dgVoodooWatermark: false
+      GeneralExt:
+        DesktopBitDepth: 16
+    file: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoo.conf
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/GOG Games/Moto Racer 2/data";
+      mkdir backup; mv ../ddraw.dll *.avi backup; cd backup; for i in *.avi; do ffmpeg
+      -i $i -vcodec copy -acodec copy  ../$i ; done;
+- task:
+    app: directplay
+    name: winetricks
+    silent: true
+require-binaries: ffmpeg
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    ddraw: n,b
