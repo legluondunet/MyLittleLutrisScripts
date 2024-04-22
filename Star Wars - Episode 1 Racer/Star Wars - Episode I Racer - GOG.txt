@@ -1,8 +1,8 @@
 files:
 - gogsetup: N/A:Please select the GOG installer
-- wrapper1: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- wrapper2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
+- wrapper_audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
 - mod: https://github.com/JayFoxRox/swe1r-patcher/releases/download/v1.0/swe1r-patcher-v1_0.zip
+- conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
 game:
   exe: drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
   launch_configs:
@@ -24,28 +24,14 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    file: wrapper1
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/DDraw.dll
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/D3DImm.dll
-- move:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoobak.conf
-    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoo.conf
-- write_config:
-    data:
-      DirectX:
-        dgVoodooWatermark: false
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoo.conf
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    src: wrapper2
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current
+    file: conf_files
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     file: mod
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
+    src: wrapper_audio
 - task:
     app: directplay
     name: winetricks
