@@ -1,10 +1,16 @@
-custom-name: Star Wars - Episode I Racer - GOG
 files:
-- swr: N/A:Please select the GOG installer
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
+- gogsetup: N/A:Please select the GOG installer
+- wrapper1: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- wrapper2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
+- mod: https://github.com/JayFoxRox/swe1r-patcher/releases/download/v1.0/swe1r-patcher-v1_0.zip
 game:
   exe: drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
+  launch_configs:
+  - args: -v
+    exe: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
+    name: Set SWEP1R resolution
+  - exe: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/ipxconfig.exe
+    name: IPX Wrapper configuration
   prefix: $GAMEDIR
 installer:
 - task:
@@ -12,252 +18,49 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    args: /SP- /SUPPRESSMSGBOXES
+    args: --i-agree-to-all-licenses --noreadme --nooptions --noprompt
     description: Installing...
-    executable: swr
+    executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    file: dgv
+    file: wrapper1
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
     src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/MS/x86/D3DImm.dll
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; mv dgVoodoo.conf dgVoodoo_original.conf;
-      rm -f -r ddraw.dll;
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoobak.conf
+    src: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoo.conf
 - write_config:
     data:
       DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
         dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
     file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/dgVoodoo.conf
-- task:
-    arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
-    src: audio
+    src: wrapper2
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer
+    file: mod
 - task:
-    arch: win64
-    key: dsound
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- write_file:
-    content: '
-
-
-      ####### FORCEFEEDBACK SETTINGS
-
-
-
-      FORCEFEEDBACK               STRENGTH=3
-
-      FORCEFEEDBACK               AUTOCENTER=3
-
-      FORCEFEEDBACK               COLLISIONS=2
-
-      FORCEFEEDBACK               DAMAGE=2
-
-      FORCEFEEDBACK               TERRAIN=2
-
-      FORCEFEEDBACK               PODACTIONS=2
-
-      FORCEFEEDBACK               GFORCES=ON
-
-      FORCEFEEDBACK               ENGINERUMBLE=ON
-
-      FORCEFEEDBACK               ENABLED=TRUE
-
-
-      end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/force.cfg
-- write_file:
-    content: '
-
-      ####### JOYSTICK MAPPINGS
-
-
-      JOYSTICK                    BUTTON=HAT_UP               FUNCTION=CAMERA_CYCLE
-
-      JOYSTICK                    BUTTON=HAT_DOWN             FUNCTION=LOOK_BACK
-
-      JOYSTICK                    BUTTON=2                    FUNCTION=BRAKE
-
-      JOYSTICK                    BUTTON=1                    FUNCTION=THRUST
-
-      JOYSTICK                    BUTTON=3                    FUNCTION=BOOST
-
-      JOYSTICK                    BUTTON=HAT_RIGHT            FUNCTION=ROLL_RIGHT
-
-      JOYSTICK                    BUTTON=HAT_LEFT             FUNCTION=ROLL_LEFT
-
-      JOYSTICK                    BUTTON=4                    FUNCTION=REPAIR
-
-      JOYSTICK                    AXIS=X                      FUNCTION=TURN
-
-      JOYSTICK                    AXIS=Y                      FUNCTION=PITCH
-
-      JOYSTICK                    AXIS=Z                      FUNCTION=ANALOG_THROTTLE
-
-      JOYSTICK                    AXIS=Z                      FUNCTION=BRAKE              AXIS_RANGE=POSITIVE
-
-      JOYSTICK                    AXIS=RZ                     FUNCTION=ROLL_RIGHT         AXIS_RANGE=NEGATIVE
-
-      JOYSTICK                    AXIS=RX                     FUNCTION=ROLL_LEFT          AXIS_RANGE=POSITIVE
-
-
-      JOYSTICK                    AXIS=Y                      FLIP_AXIS
-
-      JOYSTICK                    AXIS=Z                      FLIP_AXIS
-
-      JOYSTICK                    ENABLED=TRUE
-
-
-
-      ####### MOUSE MAPPINGS
-
-
-      MOUSE                       BUTTON=4                    FUNCTION=LOOK_BACK
-
-      MOUSE                       BUTTON=2                    FUNCTION=BRAKE
-
-      MOUSE                       BUTTON=1                    FUNCTION=THRUST
-
-      MOUSE                       BUTTON=3                    FUNCTION=SLIDE
-
-      MOUSE                       AXIS=X                      FUNCTION=TURN
-
-      MOUSE                       AXIS=Y                      FUNCTION=PITCH
-
-      MOUSE                       AXIS=Z                      FUNCTION=ANALOG_THROTTLE
-
-
-      MOUSE                       AXIS=Y                      FLIP_AXIS
-
-      MOUSE                       ENABLED=FALSE
-
-
-
-      ####### KEYBOARD MAPPINGS
-
-
-      KEYBOARD                    KEY=~                       FUNCTION=CAMERA_CYCLE
-
-      KEYBOARD                    KEY=LEFT_CTRL               FUNCTION=CAMERA_CYCLE
-
-      KEYBOARD                    KEY=TAB                     FUNCTION=LOOK_BACK
-
-      KEYBOARD                    KEY=Q                       FUNCTION=LOOK_BACK
-
-      KEYBOARD                    KEY=S                       FUNCTION=BRAKE
-
-      KEYBOARD                    KEY=W                       FUNCTION=THRUST
-
-      KEYBOARD                    KEY=ENTER                   FUNCTION=THRUST
-
-      KEYBOARD                    KEY=LEFT_SHIFT              FUNCTION=BOOST
-
-      KEYBOARD                    KEY=SPACE                   FUNCTION=SLIDE
-
-      KEYBOARD                    KEY=A                       FUNCTION=ROLL_LEFT
-
-      KEYBOARD                    KEY=D                       FUNCTION=ROLL_RIGHT
-
-      KEYBOARD                    KEY=RIGHT_CTRL              FUNCTION=SPECIAL
-
-      KEYBOARD                    KEY=E                       FUNCTION=SPECIAL
-
-      KEYBOARD                    KEY=R                       FUNCTION=REPAIR
-
-      KEYBOARD                    KEY=LEFT_ARROW              FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=J                       FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=NUMPAD_4                FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=RIGHT_ARROW             FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=L                       FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=NUMPAD_6                FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=DOWN_ARROW              FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=K                       FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=NUMPAD_2                FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=UP_ARROW                FUNCTION=PITCH_DOWN
-
-      KEYBOARD                    KEY=I                       FUNCTION=PITCH_DOWN
-
-      KEYBOARD                    KEY=NUMPAD_8                FUNCTION=PITCH_DOWN
-
-
-
-      KEYBOARD                    ENABLED=TRUE
-
-
-      end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/current_control.map
-- write_file:
-    content: '
-
-
-      ####### VIDEO SETTINGS
-
-
-
-      VIDEO                       REFLECTIONS=ON
-
-      VIDEO                       ZEFFECTS=ON
-
-      VIDEO                       DYNAMIC_LIGHTING=ON
-
-      VIDEO                       VSYNC=ON
-
-      VIDEO                       LENSFLARE=ON
-
-      VIDEO                       ENGINEEXHAUST=ON
-
-      VIDEO                       TEXTURE_RES=3
-
-      VIDEO                       MODEL_DETAIL=3
-
-      VIDEO                       DRAWDISTANCE=3
-
-
-      end.'
-    file: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/data/config/current/video.cfg
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx Doc MS
-      gog* support.ico unins000.* webcache.zip website.exe *.lnk
+    app: directplay
+    name: winetricks
+    silent: true
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
-  Desktop: true
-
+  overrides:
+    ddraw: n,b
+    dinput: n,b
+    dsound: n,b
+    wsock32: n,b
