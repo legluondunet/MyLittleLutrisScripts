@@ -1,0 +1,29 @@
+files:
+- installer: N/A:Select the complete FF7 SYW setup exe
+- syw_update: N/A:Select FF7 SYW setup update exe
+game:
+  exe: drive_c/FF7_SYW_Unified/FF7_SYW_Unified.exe
+  launch_configs:
+  - args: direct
+    exe: $GAMEDIR/drive_c/FF7_SYW_Unified/FF7_SYW_Unified.exe
+    name: Launch directly the game (no config)
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: dotnet48
+    description: Installing Dotnet...
+    name: winetricks
+    silent: true
+- task:
+    description: "Running Setup, please wait\u2026"
+    executable: $installer
+    name: wineexec
+- task:
+    description: "Running update setup, please wait\u2026"
+    executable: syw_update
+    name: wineexec
