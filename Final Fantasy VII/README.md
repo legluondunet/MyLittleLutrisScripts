@@ -1,4 +1,4 @@
-# Final FAntasy VII - SYW Unified mod
+# Final Fantasy VII - SYW Unified mod
 ### Description:
 Play Final Fantasy VII on Linux!
 ### Technical notes:
