@@ -1,0 +1,43 @@
+files:
+- gogsetup: N/A:Select the Windows installer provided by GOG
+game:
+  exe: drive_c/GOG Games/Fallout/falloutw.exe
+  gogid: 1440148836
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - spanish: Spanish
+    preselect: english
+- write_config:
+    data:
+      preferences:
+        subtitles: 1
+      system:
+        language: $INPUT_LANG
+    file: $GAMEDIR/drive_c/GOG Games/Fallout/fallout.cfg
+    merge: true
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_force_grab_cursor: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 640x480
+  gamescope_output_res: 1920x1080
+wine:
+  overrides:
+    ddraw: n,b
