@@ -1,0 +1,35 @@
+files:
+- restoration: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v28/rpu_v28.exe
+- gogsetup: N/A:Select the gog setup exe
+game:
+  exe: drive_c/GOG Games/Fallout 2/FALLOUT2.EXE
+  gogid: 1440151285
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing Fallout 2
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    description: Installing Fallout 2 Restoration Project mod
+    executable: restoration
+    name: wineexec
+    prefix: $GAMEDIR
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_force_grab_cursor: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 640x480
+  gamescope_output_res: 1920x1080
+wine:
+  overrides:
+    ddraw.dll: n,b
