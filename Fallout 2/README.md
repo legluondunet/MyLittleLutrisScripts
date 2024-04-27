@@ -8,7 +8,7 @@ Play "Fallout 2" provided by GOG on Linux!
 - Fallout2_Restoration_Project : https://github.com/BGforgeNet/Fallout2_Restoration_Project
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Fallout 2 - GOG + 
+# Fallout 2 - GOG + Fallout1in2
 ### Description:
 Play "Fallout 1" with "Fallout 2" engine on Linux!
 ### Technical notes:
