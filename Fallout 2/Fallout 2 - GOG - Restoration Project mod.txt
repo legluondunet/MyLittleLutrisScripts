@@ -2,7 +2,7 @@ files:
 - restoration: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v28/rpu_v28.exe
 - gogsetup: N/A:Select the gog setup exe
 game:
-  exe: drive_c/GOG Games/Fallout 2/FALLOUT2.EXE
+  exe: drive_c/GOG Games/Fallout 2/fallout2.exe
   gogid: 1440151285
   prefix: $GAMEDIR
 installer:
@@ -56,11 +56,11 @@ installer:
     merge: true
 system:
   env:
-    DXVK_FRAME_RATE: 60
+    DXVK_FRAME_RATE: 0
     DXVK_HUD: null
   gamescope: true
   gamescope_force_grab_cursor: true
-  gamescope_fps_limiter: '60'
+  gamescope_fps_limiter: 0
   gamescope_game_res: $RESOLUTION
   gamescope_output_res: $RESOLUTION
 wine:
