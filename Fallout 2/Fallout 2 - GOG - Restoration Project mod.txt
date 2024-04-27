@@ -1,8 +1,8 @@
 files:
-- restoration: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v28/rpu_v28.exe
+- mod: https://github.com/rotators/Fo1in2/releases/latest/download/Fallout1in2.zip
 - gogsetup: N/A:Select the gog setup exe
 game:
-  exe: drive_c/GOG Games/Fallout 2/fallout2.exe
+  exe: drive_c/GOG Games/Fallout 2/Fallout1in2/Fallout2.exe
   gogid: 1440151285
   prefix: $GAMEDIR
 installer:
@@ -15,27 +15,48 @@ installer:
     executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
-- task:
-    arch: win64
-    description: Installing Fallout 2 Restoration Project mod. All you need to do
-      here is choosing your preferred game's language.
-    executable: restoration
-    name: wineexec
-    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2
+    file: mod
+- insert-disc:
+    description: Please select "Fallout 1" "master.dat" file, do not use "Automatic"
+    requires: master.dat
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2";
+      cp "$DISC/MASTER.DAT" .; chmod +x undat.sh; ./undat.sh MASTER.DAT;
+    description: Extracting Fallout 1 master.dat file, this could take a moment...
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - german: German
+    preselect: english
+- write_config:
+    data:
+      preferences:
+        subtitles: 1
+      system:
+        language: $INPUT_LANG
+    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/Fallout2.cfg
+    merge: true
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/backup
-    src: $GAMEDIR/drive_c/GOG Games/Fallout 2/ddraw.ini
+    dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/backup
+    src: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/ddraw.ini
 - write_config:
     data:
       Graphics:
         GraphicsHeight: $RESOLUTION_HEIGHT
         GraphicsWidth: $RESOLUTION_WIDTH
         Mode: 0
-    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/ddraw.ini
+      Main:
+        HiResMode: 0
+    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/ddraw.ini
     merge: true
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/backup
-    src: $GAMEDIR/drive_c/GOG Games/Fallout 2/f2_res.ini
+    dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/backup
+    src: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/f2_res.ini
 - write_config:
     data:
       INPUT:
@@ -46,13 +67,7 @@ installer:
         SCR_WIDTH: $RESOLUTION_WIDTH
         WINDOWED: 1
         WINDOWED_FULLSCREEN: 1
-    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/f2_res.ini
-    merge: true
-- write_config:
-    data:
-      preferences:
-        subtitles: 1
-    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/fallout2.cfg
+    file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/f2_res.ini
     merge: true
 system:
   env:
@@ -61,8 +76,8 @@ system:
   gamescope: true
   gamescope_force_grab_cursor: true
   gamescope_fps_limiter: 0
-  gamescope_game_res: $RESOLUTION
-  gamescope_output_res: $RESOLUTION
+  gamescope_game_res: 1920x1080
+  gamescope_output_res: 1920x1080
 wine:
   overrides:
     ddraw.dll: n,b
