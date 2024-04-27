@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Select the Windows installer provided by GOG
 game:
-  exe: drive_c/GOG Games/Fallout/falloutw.exe
+  exe: drive_c/GOG Games/Fallout/falloutwHR.exe
   gogid: 1440148836
   prefix: $GAMEDIR
 installer:
@@ -29,15 +29,31 @@ installer:
         language: $INPUT_LANG
     file: $GAMEDIR/drive_c/GOG Games/Fallout/fallout.cfg
     merge: true
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Fallout/backup
+    src: $GAMEDIR/drive_c/GOG Games/Fallout/f1_res.ini
+- write_config:
+    data:
+      INPUT:
+        ALT_MOUSE_INPUT: 1
+      MAIN:
+        SCALE_2X: 1
+        SCR_HEIGHT: $RESOLUTION_HEIGHT
+        SCR_WIDTH: $RESOLUTION_WIDTH
+        UAC_AWARE: 0
+        WINDOWED: 1
+        WINDOWED_FULLSCREEN: 1
+    file: $GAMEDIR/drive_c/GOG Games/Fallout/f1_res.ini
+    merge: true
 system:
   env:
-    DXVK_FRAME_RATE: 60
+    DXVK_FRAME_RATE: 0
     DXVK_HUD: null
   gamescope: true
   gamescope_force_grab_cursor: true
-  gamescope_fps_limiter: '60'
-  gamescope_game_res: 640x480
-  gamescope_output_res: 1920x1080
+  gamescope_fps_limiter: 0
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
