@@ -20,6 +20,7 @@ Play "Star Wars Episode I: Racer" CD edition on Linux!
 - Game configuration set to maximum video settings and controller mapping
 - Multiplayer fully functional on local LAN using Directplay and IPXWrapper
 ### Credits:
+- dgVoodoo2: http://dege.freeweb.hu/dgVoodoo2
 - swe1r-patcher: https://github.com/JayFoxRox/swe1r-patcher
 - IPXWrapper: https://github.com/solemnwarning/ipxwrapper
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
