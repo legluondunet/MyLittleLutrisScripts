@@ -1,22 +1,21 @@
-custom-name: Star Wars - Jedi Knight II - Jedi Outcast - GOG - JKMV
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/jk2mv.tar.bz2
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/jk2mv-linux-x86_64.7z
+- mod: https://www.dropbox.com/scl/fi/cdpx9qlias8oxt3n4ibud/Expanded_Menu_23.12.zip?rlkey=tkdogv6uno4qqz09v808k5ack&st=nxa4u3qk&dl=1
 game:
-  exe: bin/jk2mvmp
+  exe: jk2mvmp
 installer:
 - extract:
     dst: $CACHE
-    file: inno
-- execute:
-    args: gogsetup -d $CACHE
-    file: $CACHE/innoextract
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/base
+    src: $CACHE/GameData/base
 - extract:
     dst: $GAMEDIR
-    src: engine
-- merge:
-    dst: $GAMEDIR/share/jk2mv/base
-    src: $CACHE/app/GameData/base
-
+    file: engine
+- extract:
+    dst: $GAMEDIR/base
+    src: mod
