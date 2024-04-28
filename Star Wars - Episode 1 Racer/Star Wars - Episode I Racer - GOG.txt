@@ -5,12 +5,6 @@ files:
 - conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
 game:
   exe: drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
-  launch_configs:
-  - args: -v
-    exe: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/SWEP1RCR.EXE
-    name: Set SWEP1R resolution
-  - exe: $GAMEDIR/drive_c/GOG Games/STAR WARS Racer/ipxconfig.exe
-    name: IPX Wrapper configuration
   prefix: $GAMEDIR
 installer:
 - task:
