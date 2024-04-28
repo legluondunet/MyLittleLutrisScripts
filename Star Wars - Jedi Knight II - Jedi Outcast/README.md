@@ -11,16 +11,15 @@ Play "Star Wars - Jedi Knight II - Jedi Outcast" provided by GOG on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Star Wars - Jedi Knight II - Jedi Outcast - GOG - JK2MV
-
+# Star Wars - Jedi Knight II - Jedi Outcast - GOG + JK2MV + mods
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Star Wars - Jedi Knight II - Jedi Outcast" provided by GOG using Wine and JK2MV https://github.com/mvdevs/jk2mv
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play multiplayer games of "Star Wars - Jedi Knight II - Jedi Outcast" provided by GOG on Linux!
 ### Technical notes:
-- JK2MV compiled 17 january 2021 from git version 11a108e
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+- JK2MV git version 5ee5c00 compiled on 28 april 2024
+- Jedi Outcast Expanded Menu mod: numerous options like new animated main menu, ultra graphics quality, new music and sounds, multiples languages for menus, network options....
+- You have to set your resolution and preferred language at first launch
+### Credits:
+- JK2MV: https://github.com/mvdevs/jk2mv
+- Jedi Outcast Expanded Menu: https://www.moddb.com/mods/jedi-outcast-expanded-menu
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
