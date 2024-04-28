@@ -1,39 +1,22 @@
-custom-name: Star Wars - Jedi Knight II - Jedi Outcast - GOG - OpenJK
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page.
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/OpenJk.7z
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- modfx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20II%20-%20Jedi%20Outcast/mods/FXMOD.zip
+- engine: https://github.com/JACoders/OpenJK/releases/download/latest/OpenJO-linux-x86_64.tar.gz
+- mod: https://www.dropbox.com/scl/fi/cdpx9qlias8oxt3n4ibud/Expanded_Menu_23.12.zip?rlkey=tkdogv6uno4qqz09v808k5ack&st=nxa4u3qk&dl=1
 game:
-  args: +set fs_homepath . +set r_mode -2 +set r_noborder 1 +set r_centerWindow 1
-    +set s_kHz 44 +set cg_fovAspectAdjust 1 +set sp_language $INPUT_LANG
+  args: +set fs_homepath .
   exe: openjo_sp.x86_64
 installer:
 - extract:
     dst: $CACHE
-    file: inno
-- execute:
-    args: gogsetup -d $CACHE
-    file: $CACHE/innoextract
+    file: gogsetup
+    format: gog
 - extract:
     dst: $GAMEDIR
     src: engine
 - merge:
     dst: $GAMEDIR/base
-    src: $CACHE/app/GameData/base
-- input_menu:
-    description: 'Please choose your preferred game''s language for menu and subtitles:'
-    id: LANG
-    options:
-    - 0: English
-    - 1: French
-    - 2: German
-    preselect: 0
+    src: $CACHE/GameData/base
 - extract:
-    dst: $CACHE
-    src: modfx
-- merge:
     dst: $GAMEDIR/base
-    src: $CACHE/assets8_Fx.pk3
-
+    src: mod
