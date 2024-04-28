@@ -2,7 +2,7 @@ files:
 - wrapper_video: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - wrapper_audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
 - wrapper_ipx: https://github.com/solemnwarning/ipxwrapper/releases/download/ipxwrapper-0.7.0/ipxwrapper-0.7.0.zip
-- update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/SWEP1RCR_patch.zip
+- update: https://www.dropbox.com/scl/fi/cjcslo1zsmtx2ytujdmgb/SWEP1RCR_patch.zip?rlkey=s7xmdewqputjtfo8r13hkyb7l&st=2etl92a9&dl=1
 - conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
 - mod: https://github.com/JayFoxRox/swe1r-patcher/releases/download/v1.0/swe1r-patcher-v1_0.zip
 game:
@@ -25,14 +25,11 @@ installer:
     executable: $DISC/setup.exe
     name: wineexec
     prefix: $GAMEDIR
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/data
-    src: $DISC/gnome/data
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/anims
+    src: $DISC/gnome/data/anims
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/data/config/current
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current
     file: conf_files
 - extract:
     dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
@@ -97,6 +94,7 @@ installer:
       LLC\Star Wars: Episode I Racer\v1.0'
     type: REG_SZ
     value: C:\\Program Files\\LucasArts\\RACER
+require-binaries: ffmpeg
 system:
   env:
     DXVK_FRAME_RATE: 60
