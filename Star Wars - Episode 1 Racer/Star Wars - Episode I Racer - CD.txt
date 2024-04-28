@@ -94,7 +94,6 @@ installer:
       LLC\Star Wars: Episode I Racer\v1.0'
     type: REG_SZ
     value: C:\\Program Files\\LucasArts\\RACER
-require-binaries: ffmpeg
 system:
   env:
     DXVK_FRAME_RATE: 60
