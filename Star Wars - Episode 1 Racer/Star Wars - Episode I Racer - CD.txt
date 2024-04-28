@@ -1,270 +1,114 @@
-custom-name: Star Wars - Episode I Racer - CD
 files:
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
+- wrapper_video: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- wrapper_audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
+- wrapper_ipx: https://github.com/solemnwarning/ipxwrapper/releases/download/ipxwrapper-0.7.0/ipxwrapper-0.7.0.zip
+- update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/SWEP1RCR_patch.zip
+- conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
+- mod: https://github.com/JayFoxRox/swe1r-patcher/releases/download/v1.0/swe1r-patcher-v1_0.zip
 game:
-  exe: drive_c/Program Files/LucasArts/RACER/swep1rcr.exe
+  exe: drive_c/Program Files/LucasArts/RACER/SWEP1RCR.EXE
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)"; mkdir
+      -p "LucasArts/RACER";  cd "$GAMEDIR/drive_c/Program Files"; ln -s "../Program
+      Files (x86)/LucasArts" "LucasArts";
 - insert-disc:
     requires: racer.exe
 - task:
-    args: /desktop=SWE1Racer,1024x780 $DISC/setup.exe
     description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+      their defaults. Do not launch the game at the end of the install.
+    executable: $DISC/setup.exe
     name: wineexec
     prefix: $GAMEDIR
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/data
+    src: $DISC/gnome/data
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/data/config/current
+    file: conf_files
 - extract:
     dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    file: dgv
+    file: update
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: wrapper_video
 - copy:
     dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER//MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
     src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/MS/x86/D3DImm.dll
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files/LucasArts/RACER/"; mv dgVoodoo.conf
-      dgVoodoo_original.conf
+- move:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo_original.conf
+    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo.conf
 - write_config:
     data:
       DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
         dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
+      GeneralExt:
+        DesktopBitDepth: 32
     file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo.conf
-- task:
-    arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
 - copy:
     dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    src: audio
+    src: wrapper_audio
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: wrapper_ipx
 - task:
-    arch: win64
-    key: dsound
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
+    app: directplay
+    name: winetricks
+    silent: true
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: mod
 - task:
-    arch: win64
-    key: background
+    key: Analyze Path
     name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
     type: REG_SZ
-    value: 0 0 0
-- write_file:
-    content: '
-
-
-      ####### FORCEFEEDBACK SETTINGS
-
-
-
-      FORCEFEEDBACK               STRENGTH=3
-
-      FORCEFEEDBACK               AUTOCENTER=3
-
-      FORCEFEEDBACK               COLLISIONS=2
-
-      FORCEFEEDBACK               DAMAGE=2
-
-      FORCEFEEDBACK               TERRAIN=2
-
-      FORCEFEEDBACK               PODACTIONS=2
-
-      FORCEFEEDBACK               GFORCES=ON
-
-      FORCEFEEDBACK               ENGINERUMBLE=ON
-
-      FORCEFEEDBACK               ENABLED=TRUE
-
-
-      end.'
-    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/force.cfg
-- write_file:
-    content: '
-
-      ####### JOYSTICK MAPPINGS
-
-
-      JOYSTICK                    BUTTON=HAT_UP               FUNCTION=CAMERA_CYCLE
-
-      JOYSTICK                    BUTTON=HAT_DOWN             FUNCTION=LOOK_BACK
-
-      JOYSTICK                    BUTTON=2                    FUNCTION=BRAKE
-
-      JOYSTICK                    BUTTON=1                    FUNCTION=THRUST
-
-      JOYSTICK                    BUTTON=3                    FUNCTION=BOOST
-
-      JOYSTICK                    BUTTON=HAT_RIGHT            FUNCTION=ROLL_RIGHT
-
-      JOYSTICK                    BUTTON=HAT_LEFT             FUNCTION=ROLL_LEFT
-
-      JOYSTICK                    BUTTON=4                    FUNCTION=REPAIR
-
-      JOYSTICK                    AXIS=X                      FUNCTION=TURN
-
-      JOYSTICK                    AXIS=Y                      FUNCTION=PITCH
-
-      JOYSTICK                    AXIS=Z                      FUNCTION=ANALOG_THROTTLE
-
-      JOYSTICK                    AXIS=Z                      FUNCTION=BRAKE              AXIS_RANGE=POSITIVE
-
-      JOYSTICK                    AXIS=RZ                     FUNCTION=ROLL_RIGHT         AXIS_RANGE=NEGATIVE
-
-      JOYSTICK                    AXIS=RX                     FUNCTION=ROLL_LEFT          AXIS_RANGE=POSITIVE
-
-
-      JOYSTICK                    AXIS=Y                      FLIP_AXIS
-
-      JOYSTICK                    AXIS=Z                      FLIP_AXIS
-
-      JOYSTICK                    ENABLED=TRUE
-
-
-
-      ####### MOUSE MAPPINGS
-
-
-      MOUSE                       BUTTON=4                    FUNCTION=LOOK_BACK
-
-      MOUSE                       BUTTON=2                    FUNCTION=BRAKE
-
-      MOUSE                       BUTTON=1                    FUNCTION=THRUST
-
-      MOUSE                       BUTTON=3                    FUNCTION=SLIDE
-
-      MOUSE                       AXIS=X                      FUNCTION=TURN
-
-      MOUSE                       AXIS=Y                      FUNCTION=PITCH
-
-      MOUSE                       AXIS=Z                      FUNCTION=ANALOG_THROTTLE
-
-
-      MOUSE                       AXIS=Y                      FLIP_AXIS
-
-      MOUSE                       ENABLED=FALSE
-
-
-
-      ####### KEYBOARD MAPPINGS
-
-
-      KEYBOARD                    KEY=~                       FUNCTION=CAMERA_CYCLE
-
-      KEYBOARD                    KEY=LEFT_CTRL               FUNCTION=CAMERA_CYCLE
-
-      KEYBOARD                    KEY=TAB                     FUNCTION=LOOK_BACK
-
-      KEYBOARD                    KEY=Q                       FUNCTION=LOOK_BACK
-
-      KEYBOARD                    KEY=S                       FUNCTION=BRAKE
-
-      KEYBOARD                    KEY=W                       FUNCTION=THRUST
-
-      KEYBOARD                    KEY=ENTER                   FUNCTION=THRUST
-
-      KEYBOARD                    KEY=LEFT_SHIFT              FUNCTION=BOOST
-
-      KEYBOARD                    KEY=SPACE                   FUNCTION=SLIDE
-
-      KEYBOARD                    KEY=A                       FUNCTION=ROLL_LEFT
-
-      KEYBOARD                    KEY=D                       FUNCTION=ROLL_RIGHT
-
-      KEYBOARD                    KEY=RIGHT_CTRL              FUNCTION=SPECIAL
-
-      KEYBOARD                    KEY=E                       FUNCTION=SPECIAL
-
-      KEYBOARD                    KEY=R                       FUNCTION=REPAIR
-
-      KEYBOARD                    KEY=LEFT_ARROW              FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=J                       FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=NUMPAD_4                FUNCTION=TURN_LEFT
-
-      KEYBOARD                    KEY=RIGHT_ARROW             FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=L                       FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=NUMPAD_6                FUNCTION=TURN_RIGHT
-
-      KEYBOARD                    KEY=DOWN_ARROW              FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=K                       FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=NUMPAD_2                FUNCTION=PITCH_UP
-
-      KEYBOARD                    KEY=UP_ARROW                FUNCTION=PITCH_DOWN
-
-      KEYBOARD                    KEY=I                       FUNCTION=PITCH_DOWN
-
-      KEYBOARD                    KEY=NUMPAD_8                FUNCTION=PITCH_DOWN
-
-
-
-      KEYBOARD                    ENABLED=TRUE
-
-
-      end.'
-    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/current_control.map
-- write_file:
-    content: '
-
-
-      ####### VIDEO SETTINGS
-
-
-
-      VIDEO                       REFLECTIONS=ON
-
-      VIDEO                       ZEFFECTS=ON
-
-      VIDEO                       DYNAMIC_LIGHTING=ON
-
-      VIDEO                       VSYNC=ON
-
-      VIDEO                       LENSFLARE=ON
-
-      VIDEO                       ENGINEEXHAUST=ON
-
-      VIDEO                       TEXTURE_RES=3
-
-      VIDEO                       MODEL_DETAIL=3
-
-      VIDEO                       DRAWDISTANCE=3
-
-
-      end.'
-    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current/video.cfg
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/STAR WARS Racer/"; rm -f -r 3Dfx Doc
-      MS DeIsL1.isu register.exe *.lnk Website.exe
+    value: .\\SysCheck.exe
+- task:
+    key: CD Path
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: .
+- task:
+    key: Source Dir
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: C:\\Program Files\\LucasArts\\RACER
+- task:
+    key: Source Path
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: C:\\Program Files\\LucasArts\\RACER
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_force_grab_cursor: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 640x480
+  gamescope_output_res: $RESOLUTION
 wine:
-  Desktop: true
-
+  overrides:
+    ddraw: n,b
+    dinput: n,b
+    dsound: n,b
+    wsock32: n,b
