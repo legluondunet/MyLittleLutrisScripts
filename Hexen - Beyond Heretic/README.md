@@ -1,6 +1,6 @@
 # Hexen - Beyond Heretic - GZDoom - All PC + Brutal Hexen RPG mod
 ### Description:
-Play "HeXen" all PC version with "Brutal HEXEN RPG" mod. on Linux!
+Play "HeXen" all PC version with "Brutal HEXEN RPG" mod on Linux!
 ### Technical notes:
 - During install, you will need to provide "HEXEN.WAD" file from any "HeXen" PC game
 - To play "HeXen - Beyond Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
