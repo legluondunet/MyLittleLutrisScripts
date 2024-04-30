@@ -1,5 +1,5 @@
 files:
-- brutalmod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen/BRUTAL_HEXEN_v7.5.7z
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen/BRUTAL_HEXEN_v7.5.7z
 game:
   files:
   - $GAMEDIR/1 BRUTAL HEXEN/BrutalHexenRPG_V7.5.pk3
@@ -10,7 +10,7 @@ game:
 installer:
 - extract:
     dst: $GAMEDIR
-    file: brutalmod
+    file: mod
     format: 7z
 - insert-disc:
     description: Please browse folder where is located HEXEN.WAD file. "Autodetect"
