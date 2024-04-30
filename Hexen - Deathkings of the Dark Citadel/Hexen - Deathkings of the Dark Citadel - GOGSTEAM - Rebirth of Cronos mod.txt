@@ -16,4 +16,4 @@ installer:
       "$DISC/{}" "$GAMEDIR/hexdd.wad";
 requires: hexen-beyond-heretic-gogsteam-rebirth-of
 zdoom:
-  config: $GAMEDIR/BRUTAL HEXEN OPTIONS INI/HEXEN_NZ_OPTIONS.ini
+  config: $GAMEDIR/gzdoom.ini
