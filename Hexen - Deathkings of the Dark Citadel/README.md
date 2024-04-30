@@ -1,4 +1,4 @@
-# Hexen - Beyond Heretic - GZDoom - GOGSTEAM + Brutal Hexen RPG mod
+# Hexen - Deathkings of the Dark Citadel - GZDoom - GOGSTEAM + Brutal Hexen RPG mod
 ### Description:
 Play "Hexen - Deathkings of the Dark Citadel" GOG-STEAM version with "Brutal Hexen RPG" mod on Linux!
 ### Technical notes:
