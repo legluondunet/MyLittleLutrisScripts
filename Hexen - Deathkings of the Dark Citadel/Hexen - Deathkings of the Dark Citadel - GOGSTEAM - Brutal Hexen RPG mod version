@@ -1,1 +1,19 @@
-..
+game:
+  files:
+  - $GAMEDIR/1 BRUTAL HEXEN/BrutalHexenRPG_V7.5.pk3
+  - $GAMEDIR/2 HD TEXTURES/hexen_gz_v4.pk3
+  - $GAMEDIR/3 HEXEN64 MUSIC/3_HEXEN64.wad
+  - $GAMEDIR/3 HEXEN64 MUSIC/4 HEXEN WADS/hexdd.wad
+  main_file: $GAMEDIR/4 HEXEN WADS/hexen.wad
+  savedir: $GAMEDIR/saves
+installer:
+- insert-disc:
+    description: Please browse folder where is located HEXDD.WAD file. "Autodetect"
+      button will not work here, use "Browse" button.
+    requires: hexdd.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/4 HEXEN WADS/hexdd.wad";
+requires: hexen-beyond-heretic-gogsteam-brutal-hexe
+zdoom:
+  config: $GAMEDIR/BRUTAL HEXEN OPTIONS INI/HEXEN_NZ_OPTIONS.ini
