@@ -1,6 +1,7 @@
 files:
 - mod: N/A:Please select the Hexen - Rebirth of Cronos mod available for download
     at https://www.moddb.com/mods/hexen-rebirth-of-cronos-version-09/downloads/hexen-rebirth-of-cronos-v10
+- conf_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Hexen%20-%20Beyond%20Heretic/gzdoom.ini
 game:
   files:
   - $GAMEDIR/RoCMaps.wad
@@ -19,12 +20,8 @@ installer:
 - execute:
     command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexen.wad";
       mkdir "$GAMEDIR/saves";
-- write_file:
-    content: '[GlobalSettings]
-
-      freelook=true
-
-      '
-    file: $GAMEDIR/gzdoom.ini
+- copy:
+    dst: $GAMEDIR
+    src: conf_file
 zdoom:
   config: $GAMEDIR/gzdoom.ini
