@@ -8,7 +8,7 @@ Play "HeXen" all PC version with "Brutal HEXEN RPG" mod on Linux!
 - BRUTAL HEXEN RPG mod: https://nzdoom.net/showthread.php?tid=2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Hexen - Beyond Heretic - GZDoom - All PC + Brutal Hexen RPG mod
+# Hexen - Beyond Heretic - GZDoom - All PC + Rebirth of Cronos mod
 ### Description:
 Play "Hexen" all PC version with "Rebirth of Cronos mod" mod on Linux!
 ### Technical notes:
