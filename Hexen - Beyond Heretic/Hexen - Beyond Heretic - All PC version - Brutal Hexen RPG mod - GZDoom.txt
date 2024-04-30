@@ -1,25 +1,23 @@
 files:
-- brutalmod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen/BRUTAL_HEXEN_v7.5.rar
+- brutalmod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen/BRUTAL_HEXEN_v7.5.7z
 game:
   files:
   - $GAMEDIR/1 BRUTAL HEXEN/BrutalHexenRPG_V7.5.pk3
-  - $GAMEDIR/2 HD TEXTURES/hexen_gz.pk3
+  - $GAMEDIR/2 HD TEXTURES/hexen_gz_v4.pk3
   - $GAMEDIR/3 HEXEN64 MUSIC/3_HEXEN64.wad
   main_file: $GAMEDIR/4 HEXEN WADS/hexen.wad
   savedir: $GAMEDIR/saves
 installer:
 - extract:
     dst: $GAMEDIR
-    src: brutalmod
-- merge:
-    dst: $GAMEDIR
-    src: $GAMEDIR/Hexen
+    file: brutalmod
+    format: 7z
 - insert-disc:
     description: Please browse folder where is located HEXEN.WAD file. "Autodetect"
       button will not work here, use "Browse" button.
     requires: hexen.wad
 - execute:
-    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/4
-      HEXEN WADS/hexen.wad"; mkdir "$GAMEDIR/saves";
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i hexen.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/4 HEXEN WADS/hexen.wad"; mkdir "$GAMEDIR/saves";
 zdoom:
   config: $GAMEDIR/BRUTAL HEXEN OPTIONS INI/HEXEN_NZ_OPTIONS.ini
