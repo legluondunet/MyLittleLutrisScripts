@@ -1,0 +1,30 @@
+files:
+- mod: N/A:Please select the Hexen - Rebirth of Cronos mod available for download
+    at https://www.moddb.com/mods/hexen-rebirth-of-cronos-version-09/downloads/hexen-rebirth-of-cronos-v10
+game:
+  files:
+  - $GAMEDIR/RoCMaps.wad
+  - $GAMEDIR/RebirthofCronos_1.pk3
+  - $GAMEDIR/RebirthofCronos_2.pk3
+  main_file: $GAMEDIR/hexen.wad
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: mod
+- insert-disc:
+    description: Please browse folder where is located HEXEN.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: hexen.wad
+- execute:
+    command: ls "$DISC" | grep -i hexen.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/hexen.wad";
+      mkdir "$GAMEDIR/saves";
+- write_file:
+    content: '[GlobalSettings]
+
+      freelook=true
+
+      '
+    file: $GAMEDIR/gzdoom.ini
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
