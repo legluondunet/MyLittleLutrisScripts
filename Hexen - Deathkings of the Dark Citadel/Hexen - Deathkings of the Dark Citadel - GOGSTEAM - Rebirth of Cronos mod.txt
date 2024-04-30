@@ -4,7 +4,7 @@ game:
   - $GAMEDIR/RebirthofCronos_1.pk3
   - $GAMEDIR/RebirthofCronos_2.pk3
   - $GAMEDIR/hexdd.wad
-  main_file: $GAMEDIR/4 HEXEN WADS/hexen.wad
+  main_file: $GAMEDIR/hexen.wad
   savedir: $GAMEDIR/saves
 installer:
 - insert-disc:
