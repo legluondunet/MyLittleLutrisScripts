@@ -1,0 +1,19 @@
+game:
+  files:
+  - $GAMEDIR/RoCMaps.wad
+  - $GAMEDIR/RebirthofCronos_1.pk3
+  - $GAMEDIR/RebirthofCronos_2.pk3
+  - $GAMEDIR/hexdd.wad
+  main_file: $GAMEDIR/4 HEXEN WADS/hexen.wad
+  savedir: $GAMEDIR/saves
+installer:
+- insert-disc:
+    description: Please browse folder where is located HEXDD.WAD file. "Autodetect"
+      button will not work here, use "Browse" button.
+    requires: hexdd.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/hexdd.wad";
+requires: hexen-beyond-heretic-gogsteam-rebirth-of
+zdoom:
+  config: $GAMEDIR/BRUTAL HEXEN OPTIONS INI/HEXEN_NZ_OPTIONS.ini
