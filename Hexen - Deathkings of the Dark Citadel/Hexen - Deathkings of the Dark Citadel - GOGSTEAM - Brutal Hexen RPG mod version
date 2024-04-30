@@ -3,7 +3,7 @@ game:
   - $GAMEDIR/1 BRUTAL HEXEN/BrutalHexenRPG_V7.5.pk3
   - $GAMEDIR/2 HD TEXTURES/hexen_gz_v4.pk3
   - $GAMEDIR/3 HEXEN64 MUSIC/3_HEXEN64.wad
-  - $GAMEDIR/3 HEXEN64 MUSIC/4 HEXEN WADS/hexdd.wad
+  - $GAMEDIR/4 HEXEN WADS/hexdd.wad
   main_file: $GAMEDIR/4 HEXEN WADS/hexen.wad
   savedir: $GAMEDIR/saves
 installer:
