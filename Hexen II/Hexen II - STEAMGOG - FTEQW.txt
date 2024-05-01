@@ -1,0 +1,27 @@
+files:
+- engine: https://www.fteqw.org/dl/fteqw_linux64.zip
+- music: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen2/hexen2_music.7z
+game:
+  args: -nohome
+  exe: fteqw64
+installer:
+- insert-disc:
+    description: Please use Browse button to select Hexen II install folder where
+      pak0.pak and pak1.pak files are located, do not use autodetect button.
+    requires: pak0.pak
+- copy:
+    dst: $GAMEDIR/data1
+    src: $DISC
+- extract:
+    dst: $GAMEDIR
+    src: engine
+- extract:
+    dst: $GAMEDIR/data1/music
+    src: music
+- write_file:
+    content: 'musicvolume "0.5"
+
+      vid_conautoscale "3"
+
+      vid_renderer "vk"'
+    file: $GAMEDIR/data1/fte.cfg
