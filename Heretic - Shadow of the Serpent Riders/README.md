@@ -1,4 +1,4 @@
-# Heretic - Shadow of the Serpent Riders - GZDoom - STEAMGOG - Heretic RPG mod
+# Heretic - Shadow of the Serpent Riders - GZDoom - STEAMGOG - Brutal Heretic RPG mod
 ### Description:
 Play "Brutal Heretic RPG" mod on Linux!
 ### Technical notes:
