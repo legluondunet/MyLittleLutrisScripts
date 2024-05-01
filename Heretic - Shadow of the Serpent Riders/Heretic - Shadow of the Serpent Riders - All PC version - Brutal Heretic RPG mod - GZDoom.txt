@@ -1,37 +1,24 @@
-custom-name: HERETIC - Brutal Heretic RPG mod - GZDoom
 files:
-- brutalmod: N/A:Please select the Brutal Heretic RPG mod file available at https://nzdoom.net/showthread.php?tid=3
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Heretic/BRUTAL_HERETIC_V6.rar
 game:
   files:
-  - mods/BrutalHereticRPG_V5.0.pk3
-  - mods/H20MUS.wad
-  - mods/heretic_gz.pk3
-  main_file: $GAMEDIR/heretic.wad
+  - $GAMEDIR/1 BRUTAL HERETIC/BrutalHereticRPG_V6.0.pk3
+  - $GAMEDIR/2 HD TEXTURES/heretic_gz.pk3
+  - $GAMEDIR/3 HD SOUNDTRACK/H20MUS.wad
+  - $GAMEDIR/4 COMBINE EPISODES/mk-episodic-ex[1.1.0].pk3
+  - $GAMEDIR/5 COOP RESURRECT (Coop Mode)/Resurrectupdate.pk3
+  main_file: $GAMEDIR/6 HERETIC WADS/heretic.wad
   savedir: $GAMEDIR/saves
 installer:
 - extract:
-    dst: $CACHE
-    src: brutalmod
-- execute:
-    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
-      \) -exec cp {} "$GAMEDIR/mods" \;
+    dst: $GAMEDIR
+    src: mod
 - insert-disc:
-    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+    description: Please browse folder where is located your HERETIC.WAD file. Autodetect
       will not work here, use "Browse" button.
     requires: heretic.wad
 - execute:
-    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
-      mkdir "$GAMEDIR/saves";
-- write_file:
-    content: '[SoundfontSearch.Directories]
-
-      Path=soundfonts
-
-      [GlobalSettings]
-
-      freelook=true
-
-      '
-    file: $GAMEDIR/gzdoom.ini
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/6
+      HERETIC WADS/heretic.wad"; mkdir "$GAMEDIR/saves";
 zdoom:
-  config: $GAMEDIR/gzdoom.ini
+  config: $GAMEDIR/BRUTAL HERETIC OPTIONS INI/HERETIC_NZ_OPTIONS.ini
