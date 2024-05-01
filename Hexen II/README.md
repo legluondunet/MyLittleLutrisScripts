@@ -1,4 +1,4 @@
-# Hexen I - STEAMGOG - FTEQW
+# Hexen II - STEAMGOG - FTEQW
 ### Description:
 Play "Hexen II" provided by Steam or GOG on Linux!
 ### Technical notes:
