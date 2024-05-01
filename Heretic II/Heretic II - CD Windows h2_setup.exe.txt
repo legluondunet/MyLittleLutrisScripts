@@ -1,13 +1,14 @@
 files:
 - patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
 - maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
-- dxwnd: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
+- wrapper_video: https://freefr.dl.sourceforge.net/project/dxwnd/Latest%20build/v2_05_28_build.rar
 - faq: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/faq.html
 - scriptcase: https://github.com/legluondunet/mlls-tools/raw/master/scripts/changecase.sh
 - scriptconf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2defconf.sh
 - scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2ws.sh
 - scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 - scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
+- wrapper_audio: https://github.com/legluondunet/mlls-tools/raw/master/IndirectSOund/IndirectSound_0_20.zip
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -33,7 +34,7 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
-    file: dxwnd
+    file: wrapper_video
 - write_config:
     data:
       target:
@@ -92,6 +93,9 @@ installer:
     dst: $GAMEDIR/drive_c/tmp
     src: maps
 - extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
+    file: wrapper_audio
+- extract:
     dst: $GAMEDIR/drive_c/tmp
     src: patch107w
 - chmodx: scriptcase
@@ -129,3 +133,6 @@ installer:
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
     src: faq
+wine:
+  overrides:
+    dsound: n,b
