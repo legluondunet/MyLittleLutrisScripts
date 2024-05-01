@@ -1,4 +1,3 @@
-custom-name: HERETIC II - Windows CD
 files:
 - patch107w: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/patch107w.7z
 - maps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/updates/dm-maps.tar.xz
