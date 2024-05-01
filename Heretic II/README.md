@@ -14,7 +14,6 @@
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Heretic%20II/gamepad%20profiles
 ### Credits:
 - DxWnd: https://sourceforge.net/projects/dxwnd
-- IndirectSound: https://www.indirectsound.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
@@ -34,5 +33,4 @@ Play "Heretic II" Windows CD edition on Linux!
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Heretic%20II/gamepad%20profiles
 ### Credits:
 - DxWnd: https://sourceforge.net/projects/dxwnd
-- IndirectSound: https://www.indirectsound.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
