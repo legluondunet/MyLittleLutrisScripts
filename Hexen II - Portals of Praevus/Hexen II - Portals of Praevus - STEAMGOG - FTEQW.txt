@@ -1,9 +1,21 @@
-# Hexen I - STEAMGOG - FTEQW
-### Description:
-Play "Hexen II" provided by Steam or GOG on Linux!
-### Technical notes:
-- Using FTEQW engine
-- During installing, you will need to provide files from any "Hexen II" STEAM-GOG install
-### Credits:
-- FTEQW: https://www.fteqw.org
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+files:
+- dlc: https://www.dropbox.com/scl/fi/zwfkrvzhvesbqlyxb8d4v/Portals.zip?rlkey=qsc37xu98zoo7sitjer008fyo&st=h0vxjchf&dl=1
+- music: https://www.dropbox.com/scl/fi/b40nrake1628usvsmgpg6/portals-music.zip?rlkey=mm99kt2fy6vgp8i8v8thgg07x&st=hj1tjuw1&dl=1
+game:
+  args: -nohome -game portals
+  exe: fteqw64
+installer:
+- extract:
+    dst: $GAMEDIR/portals
+    file: dlc
+- extract:
+    dst: $GAMEDIR/portals
+    file: music
+- write_file:
+    content: 'musicvolume "0.5"
+
+      vid_conautoscale "3"
+
+      vid_renderer "vk"'
+    file: $GAMEDIR/portals/fte.cfg
+requires: hexen-ii-steamgog-fteqw
