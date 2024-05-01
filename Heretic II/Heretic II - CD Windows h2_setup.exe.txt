@@ -8,7 +8,7 @@ files:
 - scriptws: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2ws.sh
 - scriptlocal: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/h2local.sh
 - scriptmusic: https://github.com/legluondunet/mlls-tools/raw/master/scripts/audiotools.sh
-- wrapper_audio: https://github.com/legluondunet/mlls-tools/raw/master/IndirectSOund/IndirectSound_0_20.zip
+- wrapper_audio: https://github.com/legluondunet/mlls-tools/raw/master/Magic%20Dsound/dsound.dll
 game:
   args: /r:0
   exe: drive_c/dxwnd/dxwnd.exe
@@ -92,9 +92,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/tmp
     src: maps
-- extract:
+- copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
-    file: wrapper_audio
+    src: wrapper_audio
 - extract:
     dst: $GAMEDIR/drive_c/tmp
     src: patch107w
