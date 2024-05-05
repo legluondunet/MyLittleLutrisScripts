@@ -8,21 +8,13 @@ Play "Brutal Heretic RPG" mod on Linux!
 - Brutal Heretic RPG mod: https://nzdoom.net/showthread.php?tid=3
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# HERETIC - Neural texture pack mod - GZDoom
-
+# Heretic - Shadow of the Serpent Riders - Wine - STEAMGOG + Brutal + HD3D 
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Heretic - Shadow of the Serpent Riders"  all PC version using GZDoom Lutris runner with "Heretic Neural texture pack" mod.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play "HERETIC - Shadow of the Serpent Riders"  STEAM or GOG version on Linux!
 ### Technical notes:
-- During install, you will need to provide:
--- "HERETIC.WAD" file from "HERETIC" PC game
--- "Heretic Neural texture pack" mod available at https://www.moddb.com/addons/heretic-neural-texture-pack
+- Using Brutal Heretic RPG (V2) + HD Pack & 3D Models + Maps Redux
+- During install, you will need to provide "HERETIC.WAD" file from any Steam or GOG "HERETIC - Shadow of the Serpent Riders" install
 - To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
-
-
+### Credits:
+- Brutal Heretic RPG (V2) + HD Pack & 3D Models + Maps Redux: https://www.youtube.com/watch?v=4AHBS_ELOkI
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
