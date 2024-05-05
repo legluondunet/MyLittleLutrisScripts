@@ -1,36 +1,22 @@
-custom-name: HERETIC - Neural texture pack - GZDoom
 files:
-- hdmod: N/A:Please select the Heretic Neural texture pack available at https://www.moddb.com/addons/heretic-neural-texture-pack
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Heretic/Brutal%20Heretic%20RPG%20HD3D.7z
 game:
-  files:
-  - mods/heretic_gz.pk3
-  - mods/heretic_ds.pk3
-  main_file: $GAMEDIR/heretic.wad
-  savedir: $GAMEDIR/saves
+  exe: drive_c/Brutal Heretic RPG HD3D/Brutal Heretic RPG HD3D.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    src: hdmod
-- execute:
-    command: mkdir "$GAMEDIR/mods"; find "$CACHE" \( -iname "*.pk3" -o -iname "*.wad"
-      -o -iname "*.rtf" -o -iname "*.txt" \) -exec cp {} "$GAMEDIR/mods" \;
+    dst: $GAMEDIR/drive_c/Brutal Heretic RPG HD3D
+    file: mod
+    format: 7z
 - insert-disc:
     description: Please browse folder where is located HERETIC.WAD file. Autodetect
       will not work here, use "Browse" button.
     requires: heretic.wad
 - execute:
-    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/heretic.wad";
-      mkdir "$GAMEDIR/saves";
-- write_file:
-    content: '[SoundfontSearch.Directories]
-
-      Path=soundfonts
-
-      [GlobalSettings]
-
-      freelook=true
-
-      '
-    file: $GAMEDIR/gzdoom.ini
-zdoom:
-  config: $GAMEDIR/gzdoom.ini
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/drive_c/Brutal
+      Heretic RPG HD3D/Data";
