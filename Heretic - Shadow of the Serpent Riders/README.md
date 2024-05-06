@@ -1,8 +1,8 @@
-# Heretic - Shadow of the Serpent Riders - GZDoom - STEAMGOG - Brutal Heretic RPG mod
+# Heretic - Shadow of the Serpent Riders - GZDoom - Brutal Heretic RPG mod
 ### Description:
 Play "Brutal Heretic RPG" mod on Linux!
 ### Technical notes:
-- During install, you will need to provide "HERETIC.WAD" file from any Steam or GOG "HERETIC" install
+- During install, you will need to provide "HERETIC.WAD" file from any Steam or GOG "HERETIC - Shadow of the Serpent Riders" install
 - To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Brutal Heretic RPG mod: https://nzdoom.net/showthread.php?tid=3
