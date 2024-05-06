@@ -14,6 +14,6 @@ installer:
 - execute:
     command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp
       "$DISC/{}" "$GAMEDIR/4 HEXEN WADS/hexdd.wad";
-requires: hexen-beyond-heretic-brutal-hexen
+requires: hexen-beyond-heretic-brutal-hexen-rpg-mod
 zdoom:
   config: $GAMEDIR/BRUTAL HEXEN OPTIONS INI/HEXEN_NZ_OPTIONS.ini
