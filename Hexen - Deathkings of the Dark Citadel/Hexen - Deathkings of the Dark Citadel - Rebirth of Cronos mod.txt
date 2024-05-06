@@ -14,6 +14,6 @@ installer:
 - execute:
     command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i hexdd.wad | xargs -I {} cp
       "$DISC/{}" "$GAMEDIR/hexdd.wad";
-requires: hexen-beyond-heretic-gogsteam-rebirth-of
+requires: hexen-beyond-heretic-rebirth-of-cronos
 zdoom:
   config: $GAMEDIR/gzdoom.ini
