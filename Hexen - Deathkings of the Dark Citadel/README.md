@@ -11,9 +11,9 @@ Play "Hexen - Deathkings of the Dark Citadel" with "Brutal Hexen RPG" mod on Lin
 
 # Hexen - Deathkings of the Dark Citadel - GZDoom - Rebirth of Cronos mod
 ### Description:
-Play "Hexen - Deathkings of the Dark Citadel" GOG-STEAM version with "Rebirth of Cronos" mod on Linux!
+Play "Hexen - Deathkings of the Dark Citadel" with "Rebirth of Cronos" mod on Linux!
 ### Technical notes:
-- This script installer is dependent and complementary to "Hexen - Beyond Heretic" "GOGSTEAM + Rebirth of Cronos mod version"
+- This script installer is dependent and complementary to "Hexen - Beyond Heretic" "Rebirth of Cronos mod version"
 - During install, you will need to provide "HEXDD.WAD" file from any "Hexen - Deathkings of the Dark Citadel" GOG or Steam install
 ### Credits:
 - Brutal Hexen RPG mod: https://nzdoom.net/showthread.php?tid=2
