@@ -3,7 +3,7 @@
 Play "Hexen - Beyond Heretic" with "Brutal Hexen RPG" mod on Linux!
 ### Technical notes:
 - Brutal Hexen RPG mod: add RPG features to the gameplay and brutal graphics
-- During install, you will need to provide "HEXEN.WAD" file from any "Hexen - Beyond Heretic" GOG or STEAM install
+- During install, you will need to provide "HEXEN.WAD" file from any "Hexen - Beyond Heretic" GOG or Steam install
 - To play "Hexen - Beyond Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Brutal Hexen RPG mod: https://nzdoom.net/showthread.php?tid=2
