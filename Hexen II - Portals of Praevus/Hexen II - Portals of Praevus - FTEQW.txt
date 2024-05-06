@@ -18,4 +18,4 @@ installer:
 
       vid_renderer "vk"'
     file: $GAMEDIR/portals/fte.cfg
-requires: hexen-ii-steamgog-fteqw
+requires: hexen-ii-fteqw
