@@ -45,7 +45,7 @@ installer:
     dst: $CACHE/app
     src: $DISC
 - execute:
-    command: cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
+    command: unset LD_LIBRARY_PATH ; cd "$CACHE/app"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue;
       if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
       ./7z x -y $cd;
 - merge:
