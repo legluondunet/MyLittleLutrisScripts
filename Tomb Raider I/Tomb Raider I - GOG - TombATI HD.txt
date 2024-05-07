@@ -42,9 +42,9 @@ installer:
     dst: $CACHE
     src: cdrtools
 - execute:
-    command: cd "$CACHE"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso game.cue; if [
-      -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd; ./7z
-      x -y $cd;
+    command: unset LD_LIBRARY_PATH ; cd "$CACHE"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
+      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
+      echo $cd; ./7z x -y $cd;
 - merge:
     dst: $GAMEDIR/drive_c/TOMBATI/DATA
     src: $CACHE/DATA
