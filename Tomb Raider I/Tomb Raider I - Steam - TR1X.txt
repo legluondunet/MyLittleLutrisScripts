@@ -1,8 +1,9 @@
 files:
+- steamdata: $STEAM:224960:.
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- mod: https://github.com/LostArtefacts/TR1X/releases/download/3.0.5/TR1X-3.0.5-Linux.zip
-- dlc: https://tmp.sakuya.pl/tomb1main/unfinished_business.zip
-- audiotracks: https://tmp.sakuya.pl/tomb1main/music.zip
+- mod: https://github.com/LostArtefacts/TR1X/releases/download/4.0.1/TR1X.4.0.1-Linux.zip
+- dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
+- audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
   exe: TR1X/TR1X
   launch_configs:
@@ -10,12 +11,9 @@ game:
     exe: $GAMEDIR/TR1X/TR1X
     name: Tomb Raider 1 - Unfinished Business
 installer:
-- insert-disc:
-    description: Please select Tomb Raider 1 Steam folder install.
-    requires: GAME.GOG
 - merge:
     dst: $GAMEDIR/tmp
-    src: $DISC
+    src: steamdata
 - extract:
     dst: $GAMEDIR/tmp
     src: cdrtools
