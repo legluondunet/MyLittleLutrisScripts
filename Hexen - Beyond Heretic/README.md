@@ -1,6 +1,6 @@
 # Hexen - Beyond Heretic - GZDoom - Brutal Hexen RPG mod
 ### Description:
-Play "Hexen - Beyond Heretic" with "Brutal Hexen RPG" mod on Linux!
+Play "Brutal Hexen RPG" mod on Linux!
 ### Technical notes:
 - Brutal Hexen RPG mod: add RPG features to the gameplay and brutal graphics
 - During install, you will need to provide "HEXEN.WAD" file from any "Hexen - Beyond Heretic" GOG or Steam install
