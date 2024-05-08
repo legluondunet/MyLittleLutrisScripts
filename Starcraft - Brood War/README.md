@@ -1,4 +1,4 @@
-# Starcraft Brood War - CD + cnc-draw
+# Starcraft - Brood War - CD + cnc-draw
 ### Description:
 Play "Starcraft - Brood War" CD edtion on Linux! using cnc-draw
 ### Technical notes:
