@@ -1,4 +1,4 @@
-# Heretic - Shadow of the Serpent Riders - Brutal Heretic RPG mod - GZDoom
+# Brutal Heretic RPG mod - GZDoom
 ### Description:
 Play "Brutal Heretic RPG" mod on Linux!
 ### Technical notes:
@@ -8,7 +8,7 @@ Play "Brutal Heretic RPG" mod on Linux!
 - Brutal Heretic RPG mod: https://nzdoom.net/showthread.php?tid=3
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Heretic - Shadow of the Serpent Riders - Brutal Heretic RPG + HD3D mods - Wine
+# Brutal Heretic RPG + HD3D mods - Wine
 ### Description:
 Play "HERETIC - Shadow of the Serpent Riders" on Linux!
 ### Technical notes:
@@ -20,7 +20,7 @@ Play "HERETIC - Shadow of the Serpent Riders" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Heretic - Shadow of the Serpent Riders - Heretic Darkness - Wine
+# Heretic Darkness mod - Wine
 ### Description:
 Play "Heretic Darkness mod" on Linux!
 ### Technical notes:
