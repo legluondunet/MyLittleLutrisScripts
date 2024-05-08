@@ -1,0 +1,21 @@
+files:
+- mod: N/A:Please select Heretic Darkness mod available for download at https://www.moddb.com/mods/heretic-darkness
+game:
+  exe: drive_c/Heretic Darkness/+ Heretic Darkness +.bat
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Heretic Darkness
+    file: mod
+- insert-disc:
+    description: Please browse folder where is located HERETIC.WAD file. Autodetect
+      will not work here, use "Browse" button.
+    requires: heretic.wad
+- execute:
+    command: ls "$DISC" | grep -i heretic.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/drive_c/Heretic
+      Darkness";
