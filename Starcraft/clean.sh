@@ -4,6 +4,11 @@
 # Result; Lutris may not find the executable and this makes operations on the game directory complicated. 
 # Solution: create a symbolic link from the directory where the game was installed to the second possible installation directory.
 
+# unset Lutris LD_LIBRARY_PATH that can cause libraries incompatibility on some Linux distribution
+unset LD_LIBRARY_PATH
+
+# some Starcraft cd install files to c:\Program Files\Starcraft, others cd version to c:\Program Files (x86)\Starcraft
+# need to create an unique path for all different install to install update and cnc-draw
 if [ ! -d "drive_c/Program Files/Starcraft" ]
 then
 cd "drive_c/Program Files"
