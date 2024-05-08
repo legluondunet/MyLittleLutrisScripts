@@ -1,16 +1,17 @@
 # Brutal Heretic RPG mod - GZDoom
 ### Description:
-Play "Brutal Heretic RPG" mod on Linux!
+Play "Brutal Heretic RPG mod" on Linux!
 ### Technical notes:
+- Using Brutal Heretic RPG mod: more brutality, more blood and RPG features
 - During install, you will need to provide "HERETIC.WAD" file from any "HERETIC - Shadow of the Serpent Riders" GOG or Steam install
 - To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Brutal Heretic RPG mod: https://nzdoom.net/showthread.php?tid=3
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Brutal Heretic RPG + HD3D mods - Wine
+# Brutal Heretic RPG HD3D mod - Wine
 ### Description:
-Play "HERETIC - Shadow of the Serpent Riders" on Linux!
+Play "Brutal Heretic RPG HD3D mod" on Linux!
 ### Technical notes:
 - Using Brutal Heretic RPG (V2) + HD Pack & 3D Models + Maps Redux
 - During install, you will need to provide "HERETIC.WAD" file from any "HERETIC - Shadow of the Serpent Riders" GOG or Steam install
@@ -24,9 +25,8 @@ Play "HERETIC - Shadow of the Serpent Riders" on Linux!
 ### Description:
 Play "Heretic Darkness mod" on Linux!
 ### Technical notes:
-- Using Heretic Darkness mod: the aim of this project is to have a 3D version of the game
+- Using Heretic Darkness mod: the aim of this project is to have a 3D version of the game with Brutal RPG features and HD textures
 - During install, you will need to provide "HERETIC.WAD" file from any "HERETIC - Shadow of the Serpent Riders" GOG or Steam install
-- To play "Heretic" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Heretic Darkness mod: https://www.moddb.com/mods/heretic-darkness
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
