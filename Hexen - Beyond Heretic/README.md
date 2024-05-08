@@ -1,6 +1,6 @@
 # Hexen - Beyond Heretic - Brutal Hexen RPG mod - GZDoom
 ### Description:
-Play "Brutal Hexen RPG" mod on Linux!
+Play "Brutal Hexen RPG mod" on Linux!
 ### Technical notes:
 - Brutal Hexen RPG mod: add RPG features to the gameplay and brutal graphics
 - During install, you will need to provide "HEXEN.WAD" file from any "Hexen - Beyond Heretic" GOG or Steam install
@@ -11,7 +11,7 @@ Play "Brutal Hexen RPG" mod on Linux!
 
 # Hexen - Beyond Heretic - Rebirth of Cronos mod - GZDoom
 ### Description:
-Play awesome "Hexen - Rebirth of Cronos" mod on Linux!
+Play awesome "Hexen - Rebirth of Cronos mod" on Linux!
 ### Technical notes:
 - Rebirth of Cronos mod: Hexen magnified with 3D models and HD textures
 - During install, you will need to provide "HEXEN.WAD" file from any "Hexen - Beyond Heretic" GOG or Steam install
