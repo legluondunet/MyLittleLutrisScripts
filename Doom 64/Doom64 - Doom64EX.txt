@@ -1,21 +1,20 @@
-custom-name: Doom 64 - Doom64EX
 files:
-- d64ex: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%2064/Doom64EX_x64.7z
-- rom: N/A:Please select the Nintedo 64 Doom64 rom file (uncompressed rom file with
-    .n64 extension).
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%2064/rom2wad.sh
+- engine: https://github.com/atsb/Doom64EX-Plus/releases/download/4.0.0.0/doom64ex-plus-4.0.0.0-win64.zip
 game:
-  exe: $GAMEDIR/doom64ex
+  exe: drive_c/doom64ex-plus/DOOM64EX+.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR
-    src: d64ex
-- copy:
-    dst: $GAMEDIR
-    src: $rom
-- chmodx: $script
-- copy:
-    dst: $GAMEDIR
-    src: $script
+    dst: $GAMEDIR/drive_c/doom64ex-plus
+    src: engine
+- insert-disc:
+    description: Please browse folder where is located DOOM64.WAD file from DOOM64
+      GOG or Steam install. "Autodetect" button will not work here, use "Browse" button.
+    requires: doom64.wad
 - execute:
-    file: $GAMEDIR/rom2wad.sh
+    command: ls "$DISC" | grep -i doom64.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/drive_c/doom64ex-plus/doom64.wad";
