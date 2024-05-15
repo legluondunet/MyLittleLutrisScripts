@@ -1,5 +1,6 @@
 files:
 - engine: https://github.com/atsb/Doom64EX-Plus/releases/download/4.0.0.0/doom64ex-plus-4.0.0.0-win64.zip
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%2064/Doom64EX-Plus_config.zip
 game:
   exe: drive_c/doom64ex-plus/DOOM64EX+.exe
   prefix: $GAMEDIR
@@ -12,9 +13,15 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/doom64ex-plus
     src: engine
+- extract:
+    dst: $GAMEDIR/drive_c/doom64ex-plus
+    src: engine_cfg
 - insert-disc:
     description: Please browse folder where is located DOOM64.WAD file from DOOM64
       GOG or Steam install. "Autodetect" button will not work here, use "Browse" button.
     requires: doom64.wad
 - execute:
-    command: ls "$DISC" | grep -i doom64.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/drive_c/doom64ex-plus/doom64.wad";
+    command: unset LD_LIBRARY_PATH ; cd "$GAMEDIR/drive_c/doom64ex-plus"; ls "$DISC"
+      | grep -i doom64.wad | xargs -I {} cp "$DISC/{}" doom64.wad; sed -i -e s/seta\
+      \"v_width\".*/seta\ \"v_width\"\ \"$RESOLUTION_WIDTH.000000\"/ -e s/seta\ \"v_height\".*/seta\
+      \"v_height\"\ \"$RESOLUTION_HEIGHT.000000\"/ config.cfg
