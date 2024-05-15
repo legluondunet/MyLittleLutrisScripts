@@ -9,6 +9,17 @@ Play "DOOM 64 CE mod" on Linux
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
+# Doom64 - Doom 64 EX+
+### Description:
+Play "DOOM 64" on Linux
+### Technical notes:
+- Using "Doom 64 EX+" open source engine
+- During install, you will need to provide "doom64.wad" file from any "Doom 64" GOG or Steam install
+### Credits:
+- Doom 64 EX+: https://github.com/atsb/Doom64EX-Plus
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
 # Doom64 - "Brutal DOOM 64 Absolution TC REMAKE" - GZDoom
 ### Description:
 "Doom64" using GZDoom and "Brutal DOOM 64 Absolution TC REMAKE" mod
@@ -21,16 +32,6 @@ Play "DOOM 64 CE mod" on Linux
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Doom64 - Doom64EX
-### Description:
-"Doom64" using Doom64EX open source project
-### Technical notes:
-- You will need to provide Nintendo Doom 64 rom file during install (uncompressed rom file with .n64 extension).
-### Credits:
-- Doom64EX: https://github.com/svkaiser/Doom64EX
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
-
-
 # Doom64 - Retribution - GZDoom
 ### Description:
 "Doom64" using  GZDoom and "Doom 64 Retribution" mod
@@ -38,6 +39,7 @@ Play "DOOM 64 CE mod" on Linux
 - During install, you will need to provide:
 -- "doom2.wad" file from "Doom II" game
 -- "Doom 64 Retribution" mod
+
 ### Credits:
 - "Doom 64 Retribution" mod: https://www.moddb.com/mods/doom-64-retribution
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
