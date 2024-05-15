@@ -1,5 +1,5 @@
 files:
-- mod: N/A:Please select "DOOM 64 CE 3.9.1" mod archive https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-391-full-download
+- mod: N/A:Please select "Doom 64 CE 3.9.1" mod archive https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-391-full-download
 game:
   exe: drive_c/Doom64_CE/ClientLauncherG.exe
   prefix: $GAMEDIR
@@ -17,9 +17,10 @@ installer:
       GOG or Steam install. "Autodetect" button will not work here, use "Browse" button.
     requires: doom64.wad
 - execute:
-    command: ls "$DISC" | grep -i doom64.wad | xargs -I {} cp "$DISC/{}" "$GAMEDIR/drive_c/Doom64_CE/doom64.wad";
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom64.wad | xargs -I {}
+      cp "$DISC/{}" "$GAMEDIR/drive_c/Doom64_CE/doom64.wad";
 - task:
-    description: Doing something...
+    description: extracting doom64.wad...
     executable: $GAMEDIR/drive_c/Doom64_CE/doom64-install.bat
     name: wineexec
     working_dir: $GAMEDIR/drive_c/Doom64_CE
