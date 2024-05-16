@@ -1,0 +1,33 @@
+files:
+- mod: N/A:Please select Brutal Doom Black Edition mod archive available for download
+    at https://www.youtube.com/watch?v=9m65I6cUEUo
+game:
+  files:
+  - $GAMEDIR/addons/BDBE_v3.36.pk3
+  - $GAMEDIR/addons/BD_Black_Editionv3.35_WeaponSounds.pk3
+  - $GAMEDIR/addons/BD_Black_NeuralUpscale.pk3
+  - $GAMEDIR/addons/DoomHDTextures.pk3
+  - $GAMEDIR/addons/DHTP_normal.pk3
+  - $GAMEDIR/addons/LTP V6.8.pk3
+  - $GAMEDIR/addons/CatsVisorBASE1.10.3.pk3
+  - $GAMEDIR/addons/CatsVisorC1.10.3.pk3
+  - $GAMEDIR/addons/Universal Rain and Snow.pk3
+  - $GAMEDIR/addons/DoomMetalVol5.wad
+  - $GAMEDIR/enh_e1v1.7a.wad
+  main_file: $GAMEDIR/doom.wad
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR
+    src: mod
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom install,
+      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/doom.wad"; mkdir "$GAMEDIR/saves"; sed -i -e s/invertmouse\=.*/invertmouse\=false/
+      -e s/vid_maxfps\=.*/vid_maxfps\=60/ -e s/vid_preferbackend\=.*/vid_preferbackend\=1/
+      gzdoom_portable.ini;
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
