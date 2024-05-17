@@ -10,19 +10,13 @@ Play "Brutal Doom Black Edition mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM - GZDoom - HD texture pack mod
-
+# DOOM (1993) - DR4 mod - Wine
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Doom" all PC version using GZDoom Lutris runner with "Doom HD texture pack" mod.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play "Doom Remake 4 mod" on Linux!
 ### Technical notes:
-- During install you will need to provide:
--- "DOOM.WAD" file from "Doom" PC game
--- "Doom HD texture pack" mod archive available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- To play "Doom" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
+- Doom Remake 4 mod: DR4 is a compilation pack of various mods and assets which aims to bring Classic Doom into the modern era. It replaces all 2D sprites to the 3D models, adds new high resolution textures, shaders/materials and some other stuff
+- During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
+### Credits:
+- Doom Remake 4 mod: https://www.moddb.com/mods/doom-remake-4/downloads/dr4
+- Doom Metal Soundtrack Mod - Volume 4 High Quality: https://www.moddb.com/mods/brutal-doom/addons/doom-metal-soundtrack-mod-volume-4-high-quality
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
