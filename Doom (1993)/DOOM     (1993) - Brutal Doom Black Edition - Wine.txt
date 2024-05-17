@@ -1,0 +1,24 @@
+files:
+- mod: N/A:Please select Brutal Doom Black Edition mod archive available for download
+    at https://www.youtube.com/watch?v=9m65I6cUEUo
+game:
+  exe: drive_c/BDBE/Brutal Doom Black Edition - Enhanced Episode 1.bat
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/BDBE
+    src: mod
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom install,
+      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/BDBE"; ls "$DISC" | grep
+      -i doom.wad | xargs -I {} cp "$DISC/{}" doom.wad; sed -i -e s/invertmouse\=.*/invertmouse\=false/
+      -e s/vid_maxfps\=.*/vid_maxfps\=60/ -e s/vid_preferbackend\=.*/vid_preferbackend\=1/
+      gzdoom_portable.ini;
