@@ -4,7 +4,6 @@ Play "Brutal Doom Black Edition mod" on Linux!
 ### Technical notes:
 - Using Brutal Doom Black Edition mod: enhances the brilliant gameplay of Doom with graphics and sounds of a modern game and wraps it up with a dark atmosphere that will make you run in fear
 - During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
-- To play "Doom" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Doom Black Edition mod: https://www.youtube.com/watch?v=9m65I6cUEUo
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
