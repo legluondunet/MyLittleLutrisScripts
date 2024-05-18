@@ -25,4 +25,4 @@ installer:
     command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/DR4/"; ls "$DISC" | grep
       -i doom.wad | xargs -I {} cp "$DISC/{}" doom.wad; sed -i -e s/vid_enablevulkan.*/vid_enablevulkan\=1/
       -e s/vid_maxfps\=.*/vid_maxfps\=60/ -e s/snd_mididevice.*/snd_mididevice\=-5/
-      -e '/doom\.Autoload/a Path=$PROGDIR/res/DoomMetalVol4_HighQuality.wad' gzdoom.ini;
+      -e '/Global\.Autoload/a Path=$PROGDIR/res/DoomMetalVol4_HighQuality.wad' gzdoom.ini;
