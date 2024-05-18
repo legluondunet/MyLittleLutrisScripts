@@ -4,7 +4,7 @@ files:
 game:
   files:
   - mods/brutalv22test3.pk3
-  main_file: $GAMEDIR/doom.wad
+  main_file: $GAMEDIR/doom2.wad
   savedir: $GAMEDIR/saves
 installer:
 - extract:
