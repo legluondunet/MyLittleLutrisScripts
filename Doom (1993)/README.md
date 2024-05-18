@@ -33,17 +33,6 @@ Play "Brutal Doom mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM (1993) - D4T mod - GZDoom
-### Description:
-Play "Quake Champions - Doom edition mod"  on Linux!
-### Technical notes:
-- Quake Champions - Doom edition mod: is a mod that brings the weapons from the latest Quake game, into Doom, with delicious pixelated flavor. More than just weapons, it also brings the “Champions” mechanic -- different player classes, each one with unique status, speed, active and passive abilities
-- During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
-### Credits:
-- Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
-
-
 # DOOM (1993) - Quake Champions - Doom edition mod - GZDoom
 ### Description:
 Play "Doom4 - Death Foretold mod" on Linux!
@@ -53,4 +42,15 @@ Play "Doom4 - Death Foretold mod" on Linux!
 - To play "DOOM (1993)" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
 - Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# DOOM (1993) - D4T mod - GZDoom
+### Description:
+Play "Quake Champions - Doom edition mod"  on Linux!
+### Technical notes:
+- Quake Champions - Doom edition mod: is a mod that brings the weapons from the latest Quake game, into Doom, with delicious pixelated flavor. More than just weapons, it also brings the “Champions” mechanic -- different player classes, each one with unique status, speed, active and passive abilities
+- During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
+### Credits:
+- Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
