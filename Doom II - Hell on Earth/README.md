@@ -1,4 +1,4 @@
-# Doom II - Hell on Earth - Brutal Doom mod - GZDoom
+# Doom II - Brutal Doom mod - GZDoom
 ### Description:
 Play "Doom II - Hell on Earth" with "Brutal Doom mod" on Linux!
 ### Technical notes:
@@ -42,4 +42,15 @@ Play "Doom II" with "Quake Champions - Doom edition mod"  on Linux!
 - During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
 ### Credits:
 - Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# DOOM II - Brutal Doom Black Edition mod - GZDoom
+### Description:
+Play "Doom II" with "Brutal Doom Black Edition mod" on Linux!
+### Technical notes:
+- This script installer is complementary and dependent from "DOOM (1993) - Brutal Doom Black Edition mod version"
+- During install, you will need to provide "DOOM2.WAD" file from any "DOOM II" GOG or Steam install
+### Credits:
+- Doom Black Edition mod: https://www.youtube.com/watch?v=9m65I6cUEUo
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
