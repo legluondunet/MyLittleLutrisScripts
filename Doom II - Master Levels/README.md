@@ -1,16 +1,10 @@
-# DOOM - Master Levels - HD texture pack mod - GZDoom
-
+# Doom II - Master Levels for Doom II - HD texture pack mod - GZDoom
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Doom II - Master Levels" all PC version using GZDoom Lutris runner with "Doom HD texture pack" mod.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play "Master Levels for Doom II" on Linux!
 ### Technical notes:
-- During install, you will need to provide:
--- all WAD files from "Doom II - Master Levels" PC game
--- "Doom HD texture pack" mod archive available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- To play "Doom II - Master Levels" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
+- Using "Doom HD Texture pack" and "Master Levels Menu Interface" mods
+- During install, you will need to provide all WAD files from any "Master Levels for Doom II" GOG or Steam install
+### Credits:
+- Master Levels Menu Interface: https://www.doomworld.com/idgames/utils/frontends/zdmlmenu
+- Doom HD Texture pack: https://www.moddb.com/mods/doom-hd1
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
