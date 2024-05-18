@@ -33,7 +33,7 @@ Play "Brutal Doom mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM (1993) - Quake Champions - Doom edition mod - GZDoom
+# DOOM (1993) - D4T mod - GZDoom
 ### Description:
 Play "Quake Champions - Doom edition mod"  on Linux!
 ### Technical notes:
@@ -43,3 +43,14 @@ Play "Quake Champions - Doom edition mod"  on Linux!
 - Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
+
+# DOOM (1993) - Quake Champions - Doom edition mod - GZDoom
+### Description:
+Play "Doom4 - Death Foretold mod" on Linux!
+### Technical notes:
+- Doom4 - Death Foretold mod: mixing the movement speed of the old Doom, with the jumping tricks of the new DOOM, this mod is aimed to be a very fast paced experience, therefore it can be quite challenging
+- During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
+- To play "DOOM (1993)" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+### Credits:
+- Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
