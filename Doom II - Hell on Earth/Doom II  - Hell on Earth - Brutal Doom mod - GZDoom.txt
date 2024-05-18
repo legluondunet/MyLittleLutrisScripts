@@ -1,0 +1,24 @@
+files:
+- mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
+game:
+  files:
+  - mods/brutalv22test3.pk3
+  main_file: $GAMEDIR/doom.wad
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom II install,
+      we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom2.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/doom2.wad"; mkdir -p "$GAMEDIR/saves";
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
