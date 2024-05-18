@@ -1,0 +1,26 @@
+files:
+- mod: N/A:Please select Quake Champions - Doom edition mod archive available for
+    download at https://www.moddb.com/mods/quake-champions-doom-edition/downloads/qcde-v30-beta-installer
+game:
+  exe: drive_c/QCDE/Play QCDE Single Player.lnk
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/QCDE/Open QCDE Server Browser.lnk
+    name: Open QCDE Server Browser
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing Quake Champions - Doom edition mod...
+    executable: mod
+    name: wineexec
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom install,
+      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/QCDE/Q-Zandronum"; ls "$DISC"
+      | grep -i doom.wad | xargs -I {} cp "$DISC/{}" doom.wad;
