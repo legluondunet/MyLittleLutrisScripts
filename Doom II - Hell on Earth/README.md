@@ -32,3 +32,14 @@ Play "Doom II" with "Doom Remake 4 mod" on Linux!
 - Doom Remake 4 mod: https://www.moddb.com/mods/doom-remake-4/downloads/dr4
 - Doom Metal Soundtrack Mod - Volume 4 High Quality: https://www.moddb.com/mods/brutal-doom/addons/doom-metal-soundtrack-mod-volume-4-high-quality
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# DOOM II - Quake Champions - Doom edition mod - GZDoom
+### Description:
+Play "Doom II" with "Quake Champions - Doom edition mod"  on Linux!
+### Technical notes:
+- This script installer is complementary and dependent from "DOOM (1993) - QCDE mod version"
+- During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
+### Credits:
+- Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
