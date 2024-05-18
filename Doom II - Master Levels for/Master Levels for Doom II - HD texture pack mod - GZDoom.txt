@@ -1,6 +1,6 @@
 files:
 - mod: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- mlfd_menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/zdmlmenu.zip
+- mlfd_menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/ZDoomMasterLevelsMenu.zip
 - engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/mlfd_fix.zip
 game:
@@ -14,8 +14,7 @@ game:
   - $GAMEDIR/mods/NeuralUpscale2x_v0.95.pk3
   - $GAMEDIR/mods/R_Hud_Stuff_v1.pk3
   - $GAMEDIR/mods/zd_extra.pk3
-  - $GAMEDIR/ZDMLMENU.pk3
-  main_file: $GAMEDIR/doom2.wad
+  main_file: $GAMEDIR/ZDMASLEV.ipk3
   savedir: $GAMEDIR/saves
 installer:
 - extract:
