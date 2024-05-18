@@ -1,0 +1,12 @@
+game:
+  exe: drive_c/BDBE/Brutal Doom Black Edition - Enhanced Episode 1.bat
+  prefix: $GAMEDIR
+installer:
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom II install,
+      we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom2.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/BDE"; ls "$DISC" | grep -i
+      doom2.wad | xargs -I {} cp "$DISC/{}" doom2.wad;
+requires: doom-1993-brutal-doom-black-ed
