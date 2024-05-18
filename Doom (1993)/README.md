@@ -19,3 +19,13 @@ Play "Doom Remake 4 mod" on Linux!
 - Doom Remake 4 mod: https://www.moddb.com/mods/doom-remake-4/downloads/dr4
 - Doom Metal Soundtrack Mod - Volume 4 High Quality: https://www.moddb.com/mods/brutal-doom/addons/doom-metal-soundtrack-mod-volume-4-high-quality
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# DOOM (1993) - Vanilla - GZDoom
+### Description:
+Play "DOOM (1993)" on Linux!
+### Technical notes:
+- Without any mod, just play "DOOM (1993)" vanilla
+- During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
