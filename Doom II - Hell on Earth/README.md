@@ -19,3 +19,15 @@ Play "Quake Champions - Doom edition mod"  on Linux!
 ### Credits:
 - Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Doom II - Doom4 - Death Foretold mod - GZDoom
+### Description:
+Play "Doom4 - Death Foretold mod" on Linux!
+### Technical notes:
+- Doom4 - Death Foretold mod: mixing the movement speed of the old Doom, with the jumping tricks of the new DOOM, this mod is aimed to be a very fast paced experience, therefore it can be quite challenging
+- During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
+- To play "DOOM II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+### Credits:
+- Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
