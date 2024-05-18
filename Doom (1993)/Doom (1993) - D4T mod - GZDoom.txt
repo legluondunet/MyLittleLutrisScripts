@@ -1,24 +1,16 @@
-files:
-- mod: N/A:Please select D4T mod archive available for download at https://www.moddb.com/mods/death-foretold/downloads/death-foretold-d4t-25
-- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
 game:
   files:
   - mods/D4Tv2.5.pk3
-  main_file: $GAMEDIR/doom.wad
+  main_file: $GAMEDIR/doom2.wad
   savedir: $GAMEDIR/saves
 installer:
-- extract:
-    dst: $GAMEDIR/mods
-    file: mod
 - insert-disc:
-    description: Please browse folder where is located your GOG or Steam Doom I install,
-      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
-    requires: doom.wad
+    description: Please browse folder where is located your GOG or Steam Doom II install,
+      we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom2.wad
 - execute:
-    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom.wad"; mkdir -p "$GAMEDIR/saves";
-- extract:
-    dst: $GAMEDIR
-    file: engine_cfg
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/doom2.wad"; mkdir -p "$GAMEDIR/saves";
+requires: doom-1993-d4t-mod
 zdoom:
   config: $GAMEDIR/gzdoom.ini
