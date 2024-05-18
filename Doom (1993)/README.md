@@ -42,3 +42,4 @@ Play "Quake Champions - Doom edition mod"  on Linux!
 ### Credits:
 - Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
