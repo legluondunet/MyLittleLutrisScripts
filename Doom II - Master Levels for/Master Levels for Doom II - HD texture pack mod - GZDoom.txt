@@ -1,19 +1,21 @@
 files:
 - mod: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- mld_menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels/ZDoomMasterLevelsMenu.zip
+- mlfd_menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/zdmlmenu.zip
 - engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/mlfd_fix.zip
 game:
   files:
-  - master_levels_wads.pk3
-  - mods/brightmaps.pk3
-  - mods/DHTP-2019_11_17.pk3
-  - mods/HRRP.pk3
-  - mods/JFO_D2.pk3
-  - mods/lights.pk3
-  - mods/NeuralUpscale2x_v0.95.pk3
-  - mods/R_Hud_Stuff_v1.pk3
-  - mods/zd_extra.pk3
-  main_file: $GAMEDIR/ZDMASLEV.ipk3
+  - $GAMEDIR/master_levels_wads.pk3
+  - $GAMEDIR/mods/brightmaps.pk3
+  - $GAMEDIR/mods/DHTP-2019_11_17.pk3
+  - $GAMEDIR/mods/HRRP.pk3
+  - $GAMEDIR/mods/JFO_D2.pk3
+  - $GAMEDIR/mods/lights.pk3
+  - $GAMEDIR/mods/NeuralUpscale2x_v0.95.pk3
+  - $GAMEDIR/mods/R_Hud_Stuff_v1.pk3
+  - $GAMEDIR/mods/zd_extra.pk3
+  - $GAMEDIR/ZDMLMENU.pk3
+  main_file: $GAMEDIR/doom2.wad
   savedir: $GAMEDIR/saves
 installer:
 - extract:
@@ -24,7 +26,7 @@ installer:
     src: $CACHE/GZDoom x64/Mods
 - extract:
     dst: $GAMEDIR
-    src: mld_menu
+    src: mlfd_menu
 - insert-disc:
     description: Please browse folder where is located all Doom II Master Levels wad
       files. Autodetect will not work here, use "Browse" button.
@@ -36,10 +38,13 @@ installer:
     description: Please browse folder where is located "DOOM2.WAD" file. Autodetect
       will not work here, use "Browse" button.
     requires: doom2.wad
+- extract:
+    dst: $CACHE
+    file: patch
 - execute:
-    command: unset LD_LIBRARY_PATH; mkdir "$GAMEDIR/saves"; find "$DISC" -iname doom2.wad
-      -exec cp {} "$GAMEDIR" \; ; find maps/* | grep -i 'teeth.wad' | xargs -I {}
-      mv {} "$GAMEDIR/maps/teeth.wad.bak" ; 7z a master_levels_wads.pk3 maps;
+    command: unset LD_LIBRARY_PATH; cd $GAMEDIR; mkdir saves ; find "$DISC" -iname
+      doom2.wad -exec cp {} doom.wad \; ; cp -f $CACHE/TEETH* maps; 7z a master_levels_wads.pk3
+      maps;
 - move:
     dst: $CACHE
     src: $GAMEDIR/maps
