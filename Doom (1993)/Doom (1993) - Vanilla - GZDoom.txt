@@ -1,0 +1,18 @@
+files:
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
+game:
+  main_file: $GAMEDIR/doom.wad
+  savedir: $GAMEDIR/saves
+installer:
+- insert-disc:
+    description: Please browse folder where is located your GOG or Steam Doom install,
+      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom.wad | xargs -I {} cp
+      "$DISC/{}" "$GAMEDIR/doom.wad"; mkdir -p "$GAMEDIR/saves";
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom.ini
