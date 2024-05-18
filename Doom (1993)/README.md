@@ -21,11 +21,13 @@ Play "Doom Remake 4 mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM (1993) - Vanilla - GZDoom
+# DOOM (1993) - Brutal Doom mod - GZDoom
 ### Description:
-Play "DOOM (1993)" on Linux!
+Play "Brutal Doom mod" on Linux!
 ### Technical notes:
-- Without any mod, just play "DOOM (1993)" vanilla
+- Brutal Doom mod:  adds realistic gore, dismemberments, headshots, executions, lightning effects, particles, makes enemies smarter and harder, makes gun louder and beefier, and adds epic new boss battles
 - During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
+- To play "DOOM (1993)" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
 ### Credits:
+- Brutal Doom mod: https://www.moddb.com/mods/brutal-doom
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
