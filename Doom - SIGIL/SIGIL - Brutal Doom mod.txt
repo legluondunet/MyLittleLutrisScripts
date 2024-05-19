@@ -1,0 +1,30 @@
+files:
+- mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
+- wad: N/A:Please select the Sigil Wad archive available for download at https://www.romerogames.ie/si6il
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
+game:
+  files:
+  - mods/brutalv22test3.pk3
+  - $GAMEDIR/wads/SIGIL_v1_21.wad
+  main_file: $GAMEDIR/doom.wad
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+- extract:
+    dst: $CACHE
+    file: wad
+- insert-disc:
+    description: Please browse folder where is located DOOM.WAD file. Autodetect will
+      not work here, use "Browse" button.
+    requires: doom.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR" ; ls "$DISC" | grep -i doom.wad
+      | xargs -I {} cp "$DISC/{}" "doom.wad"; mkdir "saves" "wads" ; find "$CACHE"
+      -iname 'sigil*' -not -ipath '*macosx*' -type f | xargs -I {} cp "{}" wads ;
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
