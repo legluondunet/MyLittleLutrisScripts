@@ -1,16 +1,30 @@
+files:
+- mod: N/A:Please select D4T mod archive available for download at https://www.moddb.com/mods/death-foretold/downloads/death-foretold-d4t-25
+- engine: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-4-12-1-windows.zip
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Final%20Doom/final_doom_gzdoom_cfg.zip
 game:
-  files:
-  - mods/D4Tv2.5.pk3
-  main_file: $GAMEDIR/doom2.wad
-  savedir: $GAMEDIR/saves
+  exe: drive_c/D4T/gzdoom.exe
+  prefix: $GAMEDIR
 installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/D4T
+    file: engine
+- extract:
+    dst: $GAMEDIR/drive_c/D4T
+    file: engine_cfg
+- extract:
+    dst: $GAMEDIR/drive_c/D4T/mods
+    file: mod
 - insert-disc:
-    description: Please browse folder where is located your GOG or Steam Doom II install,
-      we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
-    requires: doom2.wad
+    description: Please browse folder where is located your GOG or Steam Doom I install,
+      we need DOOM.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: doom.wad
 - execute:
-    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom2.wad"; mkdir -p "$GAMEDIR/saves";
-requires: doom-1993-d4t-mod
-zdoom:
-  config: $GAMEDIR/gzdoom.ini
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/D4T"; ls "$DISC" | grep -i
+      doom.wad | xargs -I {} cp "$DISC/{}" doom.wad ; mkdir "$GAMEDIR/drive_c/D4T/saves"
+      ;
