@@ -7,6 +7,6 @@ installer:
       we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
     requires: doom2.wad
 - execute:
-    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom2.wad";
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/D4T" ; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
+      "$DISC/{}" "doom2.wad";
 requires: doom-1993-d4t-mod
