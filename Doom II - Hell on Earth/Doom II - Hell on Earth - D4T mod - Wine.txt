@@ -1,8 +1,6 @@
 game:
-  files:
-  - mods/D4Tv2.5.pk3
-  main_file: $GAMEDIR/doom2.wad
-  savedir: $GAMEDIR/saves
+  exe: drive_c/D4T/gzdoom.exe
+  prefix: $GAMEDIR
 installer:
 - insert-disc:
     description: Please browse folder where is located your GOG or Steam Doom II install,
@@ -10,7 +8,5 @@ installer:
     requires: doom2.wad
 - execute:
     command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom2.wad"; mkdir -p "$GAMEDIR/saves";
+      "$DISC/{}" "$GAMEDIR/doom2.wad"; 
 requires: doom-1993-d4t-mod
-zdoom:
-  config: $GAMEDIR/gzdoom.ini
