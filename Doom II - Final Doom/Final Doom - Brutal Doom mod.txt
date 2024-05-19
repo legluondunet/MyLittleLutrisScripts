@@ -1,7 +1,7 @@
 files:
 - mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
-- engine: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-4-12-1-windows.zip
-- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Final%20Doom/final_doom_gzdoom_cfg.zip
+- engine: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-windows.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-windows_cfg.zip
 game:
   exe: drive_c/Final Doom/gzdoom.exe
   prefix: $GAMEDIR
