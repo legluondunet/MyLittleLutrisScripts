@@ -45,7 +45,7 @@ Play "Doom II" with "Quake Champions - Doom edition mod"  on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM II - Brutal Doom Black Edition mod - GZDoom
+# DOOM II - Brutal Doom Black Edition mod - Wine
 ### Description:
 Play "Doom II" with "Brutal Doom Black Edition mod" on Linux!
 ### Technical notes:
