@@ -6,7 +6,7 @@ game:
   files:
   - mods/brutalv22test3.pk3
   - $GAMEDIR/wads/SIGIL_II_V1_0.WAD
-  main_file: $GAMEDIR/doom2.wad
+  main_file: $GAMEDIR/doom.wad
   savedir: $GAMEDIR/saves
 installer:
 - extract:
@@ -16,12 +16,12 @@ installer:
     dst: $CACHE
     file: wad
 - insert-disc:
-    description: Please browse folder where is located DOOM2.WAD file. Autodetect
-      will not work here, use "Browse" button.
-    requires: doom2.wad
+    description: Please browse folder where is located DOOM.WAD file. Autodetect will
+      not work here, use "Browse" button.
+    requires: doom.wad
 - execute:
-    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR" ; ls "$DISC" | grep -i doom2.wad
-      | xargs -I {} cp "$DISC/{}" "doom2.wad"; mkdir "saves" "wads" ; find "$CACHE"
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR" ; ls "$DISC" | grep -i doom.wad
+      | xargs -I {} cp "$DISC/{}" "doom.wad"; mkdir "saves" "wads" ; find "$CACHE"
       -iname 'sigil*' -not -ipath '*macosx*' -type f | xargs -I {} cp "{}" wads ;
 - extract:
     dst: $GAMEDIR
