@@ -8,5 +8,5 @@ installer:
     requires: doom2.wad
 - execute:
     command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom2.wad"; 
+      "$DISC/{}" "$GAMEDIR/doom2.wad";
 requires: doom-1993-d4t-mod
