@@ -15,8 +15,8 @@ installer:
       we need DOOM2.WAD file. Autodetect will not work here, use "Browse" button.
     requires: doom2.wad
 - execute:
-    command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
-      "$DISC/{}" "$GAMEDIR/doom2.wad"; mkdir -p "$GAMEDIR/saves";
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR" ; ls "$DISC" | grep -i doom2.wad | xargs -I {} cp
+      "$DISC/{}" "doom2.wad"; mkdir -p "saves";
 - extract:
     dst: $GAMEDIR
     file: engine_cfg
