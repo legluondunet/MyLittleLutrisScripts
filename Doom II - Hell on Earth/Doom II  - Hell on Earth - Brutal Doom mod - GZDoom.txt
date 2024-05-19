@@ -1,6 +1,6 @@
 files:
 - mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
-- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
 game:
   files:
   - mods/brutalv22test3.pk3
@@ -21,4 +21,4 @@ installer:
     dst: $GAMEDIR
     file: engine_cfg
 zdoom:
-  config: $GAMEDIR/gzdoom.ini
+  config: $GAMEDIR/gzdoom_portable.ini
