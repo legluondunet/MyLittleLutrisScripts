@@ -27,7 +27,7 @@ Play "Brutal Doom mod" on Linux!
 ### Technical notes:
 - Brutal Doom mod:  adds realistic gore, dismemberments, headshots, executions, lightning effects, particles, makes enemies smarter and harder, makes gun louder and beefier, and adds epic new boss battles
 - During install, you will need to provide "DOOM.WAD" file from any "DOOM (1993)" GOG or Steam install
-- To play "DOOM (1993)" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+- To play "DOOM (1993)" vanilla, just rename "mods" folder to anything else, "mods.bak" for example
 ### Credits:
 - Brutal Doom mod: https://www.moddb.com/mods/brutal-doom
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
