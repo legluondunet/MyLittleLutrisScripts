@@ -42,7 +42,7 @@ installer:
     file: patch
 - execute:
     command: unset LD_LIBRARY_PATH; cd $GAMEDIR; mkdir saves ; find "$DISC" -iname
-      doom2.wad -exec cp {} doom.wad \; ; cp -f "$CACHE/TEETH"* maps; 7z a master_levels_wads.pk3
+      doom2.wad -exec cp {} doom2.wad \; ; cp -f "$CACHE/TEETH"* maps; 7z a master_levels_wads.pk3
       maps;
 - move:
     dst: $CACHE
