@@ -1,0 +1,37 @@
+files:
+- mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
+- engine: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-4-12-1-windows.zip
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Final%20Doom/final_doom_gzdoom_cfg.zip
+game:
+  exe: drive_c/Final Doom/gzdoom.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Final Doom
+    file: engine
+- extract:
+    dst: $GAMEDIR/drive_c/Final Doom
+    file: engine_cfg
+- extract:
+    dst: $GAMEDIR/drive_c/Final Doom/mods
+    file: mod
+- insert-disc:
+    description: Please browse folder where is located your Final DOom GOG or Steam
+      install, we need PLUTONIA.WAD file. Autodetect will not work here, use "Browse"
+      button.
+    requires: plutonia.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Final Doom"; ls "$DISC" |
+      grep -i plutonia.wad | xargs -I {} cp "$DISC/{}" plutonia.wad;
+- insert-disc:
+    description: Please browse folder where is located your Final Doom GOG or Steam
+      install, we need TNT.WAD file. Autodetect will not work here, use "Browse" button.
+    requires: tnt.wad
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Final Doom"; ls "$DISC" |
+      grep -i tnt.wad | xargs -I {} cp "$DISC/{}" tnt.wad;
