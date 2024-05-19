@@ -1,0 +1,22 @@
+files:
+- steam-data: $STEAM:2280:base/DOOM.WAD
+- mod: https://lutris.net/files/games/zdoom/e1m8b.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
+game:
+  files:
+  - mods/e1m8b.wad
+  main_file: $GAMEDIR/doom.wad
+  savedir: $GAMEDIR/saves
+  warp: '8'
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+- copy:
+    dst: $GAMEDIR
+    src: steam-data
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
