@@ -1,4 +1,4 @@
-# DOOM (1993) - Brutal Doom Black Edition - GZDoom
+# DOOM (1993) - Brutal Doom Black Edition - Wine
 ### Description:
 Play "Brutal Doom Black Edition mod" on Linux!
 ### Technical notes:
@@ -33,7 +33,7 @@ Play "Brutal Doom mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# DOOM (1993) - Quake Champions - GZDoom
+# DOOM (1993) - Quake Champions - Wine
 ### Description:
 Play "Quake Champions - Doom edition mod"  on Linux!
 ### Technical notes:
