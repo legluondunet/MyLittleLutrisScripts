@@ -10,13 +10,13 @@ Play "Doom II - Hell on Earth" with "Brutal Doom mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Doom II - Doom4 - Death Foretold mod - GZDoom
+# Doom II - Doom4 - Death Foretold mod - Wine
 ### Description:
 Play "Doom4 - Death Foretold mod" on Linux!
 ### Technical notes:
-- Doom4 - Death Foretold mod: mixing the movement speed of the old Doom, with the jumping tricks of the new DOOM, this mod is aimed to be a very fast paced experience, therefore it can be quite challenging
+- This script installer is complementary and dependent from "DOOM (1993) - D4T mod version"
 - During install, you will need to provide "DOOM2.WAD" file from any "Doom II" GOG or Steam install
-- To play "DOOM II" vanilla, just clear all "PWAD files" list from Lutris "Game Options" tab
+- To play "DOOM II" vanilla, just rename "mods" folder to anything else, "mods.bak" for example
 ### Credits:
 - Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
