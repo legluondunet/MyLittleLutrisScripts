@@ -1,7 +1,7 @@
 files:
 - mod: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
 - mlfd_menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/ZDoomMasterLevelsMenu.zip
-- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20(1993)/gzdoom_cfg.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%20II%20-%20Master%20Levels%20for/mlfd_fix.zip
 game:
   files:
@@ -41,8 +41,8 @@ installer:
     dst: $CACHE
     file: patch
 - execute:
-    command: unset LD_LIBRARY_PATH; cd $GAMEDIR; mkdir saves ; find "$DISC" -iname
-      doom2.wad -exec cp {} doom2.wad \; ; cp -f "$CACHE/TEETH"* maps; 7z a master_levels_wads.pk3
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR" ; find "$DISC" -iname doom2.wad
+      -exec cp {} doom2.wad \; ; mkdir saves; cp -f "$CACHE/TEETH"* maps; 7z a master_levels_wads.pk3
       maps;
 - move:
     dst: $CACHE
@@ -52,4 +52,4 @@ installer:
     file: engine_cfg
 require-binaries: 7z
 zdoom:
-  config: $GAMEDIR/gzdoom.ini
+  config: $GAMEDIR/gzdoom_portable.ini
