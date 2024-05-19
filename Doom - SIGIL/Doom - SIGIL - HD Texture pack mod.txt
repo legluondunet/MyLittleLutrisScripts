@@ -1,6 +1,6 @@
 files:
 - mod: N/A:Please select the Doom HD texture pack available at https://www.moddb.com/mods/doom-hd1/downloads/gzdoom-x64-hd-texture-pack
-- wad: N/A:Please select the Sigil Wad available for download at https://www.romerogames.ie/si6il
+- wad: N/A:Please select the Sigil Wad archive available for download at https://www.romerogames.ie/si6il
 - engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
 game:
   files:
