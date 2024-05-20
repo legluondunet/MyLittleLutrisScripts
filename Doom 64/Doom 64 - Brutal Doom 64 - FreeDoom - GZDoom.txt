@@ -1,0 +1,22 @@
+files:
+- mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom-64/news/brutal-doom-64-v2666-unofficial
+- wad: https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
+game:
+  files:
+  - $GAMEDIR/mods/BD64game_v2.666.pk3
+  - $GAMEDIR/mods/BD64maps_v2.666.pk3
+  main_file: $GAMEDIR/wads/.
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+- extract:
+    dst: $GAMEDIR/wads
+    file: wad
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
