@@ -40,3 +40,13 @@ Play "FreeDoom" with "Doom4 - Death Foretold mod" " on Linux!
 ### Credits:
 - Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# FreeDoom - QCDE mod - GZDoom
+### Description:
+Play "FreeDoom" with "Quake Champions - Doom edition mod"  on Linux!
+### Technical notes:
+- Quake Champions - Doom edition mod: is a mod that brings the weapons from the latest Quake game, into Doom, with delicious pixelated flavor. More than just weapons, it also brings the “Champions” mechanic -- different player classes, each one with unique status, speed, active and passive abilities
+### Credits:
+- Quake Champions - Doom edition mod: https://www.moddb.com/mods/quake-champions-doom-edition
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
