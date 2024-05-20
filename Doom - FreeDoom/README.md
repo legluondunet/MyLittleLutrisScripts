@@ -29,3 +29,14 @@ Play "FreeDoom" with "Brutal Doom 64 mod" on Linux!
 - FreedDoom: https://freedoom.github.io
 - Brutal Doom 64 mod unofficial version: https://www.moddb.com/mods/brutal-doom-64/news/brutal-doom-64-v2666-unofficial
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# FreeDoom - D4T mod - GZDoom
+### Description:
+Play "FreeDoom" with "Doom4 - Death Foretold mod" " on Linux!
+### Technical notes:
+- Doom4 - Death Foretold mod: mixing the movement speed of the old Doom, with the jumping tricks of the new DOOM, this mod is aimed to be a very fast paced experience, therefore it can be quite challenging
+- This script installer is complementary and dependent from "FreeDoom Vanilla version"
+### Credits:
+- Doom4 - Death Foretold mod: https://www.moddb.com/mods/death-foretold
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
