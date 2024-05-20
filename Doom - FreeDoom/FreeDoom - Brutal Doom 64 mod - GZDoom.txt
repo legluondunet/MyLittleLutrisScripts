@@ -1,0 +1,15 @@
+files:
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Doom64/BD64_v2.666%20Beta.zip
+game:
+  files:
+  - $GAMEDIR/mods/BD64game_v2.666.pk3
+  - $GAMEDIR/mods/BD64maps_v2.666.pk3
+  main_file: $GAMEDIR/wads/.
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+requires: freedoom-vanilla
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
