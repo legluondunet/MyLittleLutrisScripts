@@ -1,0 +1,22 @@
+files:
+- mod: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Doom64/doom_64_retribution.zip
+- wad: https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
+game:
+  files:
+  - $GAMEDIR/mods/D64RTR[v1.5].WAD
+  - $GAMEDIR/mods/D64MUS.PK3
+  main_file: $GAMEDIR/wads/.
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+- extract:
+    dst: $GAMEDIR/wads
+    file: wad
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
