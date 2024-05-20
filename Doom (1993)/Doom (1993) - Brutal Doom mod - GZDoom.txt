@@ -1,5 +1,6 @@
 files:
 - mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
+- wad: https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip
 - engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
 game:
   files:
