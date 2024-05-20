@@ -1,0 +1,31 @@
+files:
+- lib: http://ftp.de.debian.org/debian/pool/main/q/qtmultimedia-opensource-src/libqt5multimedia5_5.11.3-2_amd64.deb
+- mod:
+    filename: QCDE.tar.gz
+    url: https://qzandronum.com/builds/download/qcde/Linux%20amd64/
+game:
+  args: -file 'wads/QCDE_Launcher.pk3' -config 'zandronum.ini'
+  exe: $GAMEDIR/Q-Zandronum/q-zandronum
+  launch_configs:
+  - args: --portable
+    exe: $GAMEDIR/Doomseeker/doomseeker
+    ld_library_path: /home/romain/Games/freedoom-QCDE/Doomseeker
+    name: Open QCDE Server Browser
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: mod
+- extract:
+    dst: $CACHE
+    file: lib
+- merge:
+    dst: $GAMEDIR/Doomseeker
+    src: $CACHE/lib/x86_64-linux-gnu
+- write_config:
+    data:
+      Doom.ConsoleVariables:
+        vid_cursor: null
+      GlobalSettings:
+        mouse_sensitivity: 2.5
+    file: $GAMEDIR/Q-Zandronum/zandronum.ini
+    merge: true
