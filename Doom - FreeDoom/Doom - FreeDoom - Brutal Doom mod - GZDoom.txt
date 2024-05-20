@@ -1,0 +1,20 @@
+files:
+- mod: N/A:Please select Brutal Doom mod archive available for download at https://www.moddb.com/mods/brutal-doom/downloads/brutal-doom-v22-beta-test-3
+- engine_cfg: https://github.com/legluondunet/mlls-tools/raw/master/GZDoom/gzdoom-linux_cfg.zip
+game:
+  files:
+  - $GAMEDIR/mods/brutalv22test3.pk3
+  main_file: $GAMEDIR/wads/.
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/wads
+    file: wad
+- extract:
+    dst: $GAMEDIR
+    file: engine_cfg
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
