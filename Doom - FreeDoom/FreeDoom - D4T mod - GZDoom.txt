@@ -1,0 +1,14 @@
+files:
+- mod: N/A:Please select D4T mod archive available for download at https://www.moddb.com/mods/death-foretold/downloads/death-foretold-d4t-25
+game:
+  files:
+  - $GAMEDIR/mods/D4Tv2.5.pk3
+  main_file: $GAMEDIR/wads/.
+  savedir: $GAMEDIR/saves
+installer:
+- extract:
+    dst: $GAMEDIR/mods
+    file: mod
+requires: freedoom-vanilla
+zdoom:
+  config: $GAMEDIR/gzdoom_portable.ini
