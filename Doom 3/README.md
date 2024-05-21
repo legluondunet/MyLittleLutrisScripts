@@ -1,9 +1,8 @@
 # Doom 3 - Steam data + dhewm3
 ### Description:
-"Doom 3" provided by Steam using dhewm3 open source project
+Play "Doom 3" provided by Steam on Linux!
 ### Technical notes:
-- You have to install "Doom 3" on Steam before to launch this Lutris script installer
-- dhewm3 compiled 3st april 2023 from Github commit 03fccc6 64 bits
+- Using dhewm3 open source project  (compiled 15 may 2025 from Github - commit 6daf1e9 - 64 bits)
 - During install you could choose:
   + language: english (default), french, spanish and italian
   + ratio: 16/9, 16/10 and 4/3
