@@ -14,9 +14,9 @@
 
 # Doom 3 - GOG + dhewm3
 ### Description:
-"Doom 3" provided by GOG using dhewm3 open source project
+Play "Doom 3" on Linux!
 ### Technical notes:
-- dhewm3 compiled 3st april 2023 from Github commit 03fccc6 64 bits
+- using dhewm3 engine
 - During install you could choose:
   + language: english (default), french, spanish and italian
   + ratio: 16/9, 16/10 and 4/3
