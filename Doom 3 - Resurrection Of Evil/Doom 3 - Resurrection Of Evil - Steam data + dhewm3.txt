@@ -1,15 +1,12 @@
-
+files:
+- steam-data: $STEAM:9070:d3xp
 game:
   args: +set fs_game d3xp +set fs_configpath .
   exe: dhewm3
 installer:
-- insert-disc:
-    description: Please browse folder where is located "Doom 3 - Resurrection of Evil"
-      Steam files. Autodetect will not work here, use "Browse" button.
-    requires: D3ROE.ico
 - merge:
     dst: $GAMEDIR/d3xp
-    src: $DISC
+    src: steam-data
 - merge:
     dst: $GAMEDIR/d3xp
     src: $GAMEDIR/base/dhewm.cfg
