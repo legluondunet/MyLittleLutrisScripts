@@ -1,18 +1,17 @@
 # Doom3 BFG - GOG + RBDOOM-3-BFG
 ### Description:
-Play "Doom3 BFG" provided by GOG with RBDOOM-3-BFG open source project on Linux!
+Play "Doom 3: BFG" provided by GOG on Linux!
 ### Technical notes:
-- RBDOOM-3-BFG compiled 25 september 2023 from Github commit a51833e 64 bits
+- Using RBDOOM-3-BFG engine (compiled 25 september 2023 from Github - commit a51833e - 64 bits)
 ### Credits:
 - RBDOOM-3-BFG: https://github.com/RobertBeckebans/RBDOOM-3-BFG
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Doom3 BFG - Steam data + RBDOOM-3-BFG
 ### Description:
-Play "Doom3 BFG" provided by Steam with RBDOOM-3-BFG open source project on Linux!
+Play "Doom3 BFG" provided by Steam on Linux!
 ### Technical notes:
-- You have first to install Doom3 BFG on Steam before to launch this Lutris script installer
-- RBDOOM-3-BFG compiled 25 september 2023 from Github commit a51833e 64 bits
+- Using RBDOOM-3-BFG engine (compiled 25 september 2023 from Github - commit a51833e - 64 bits)
 ### Credits:
 - RBDOOM-3-BFG: https://github.com/RobertBeckebans/RBDOOM-3-BFG
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
