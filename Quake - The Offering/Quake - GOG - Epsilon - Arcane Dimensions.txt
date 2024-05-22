@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
     GOG account.
-- epsilonpack: N/A:Please download Arcane Dimensions Epsilon mod from https://www.moddb.com/mods/arcane-dimensions
+- mod: N/A:Please download Arcane Dimensions Epsilon mod from https://www.moddb.com/mods/quake-epsilon-build/downloads/arcane-dimensions-epsilon-build-v112
 game:
   args: -game ad
   exe: $GAMEDIR/drive_c/Arcane Dimensions Epsilon/darkplaces.exe
@@ -9,8 +9,6 @@ installer:
 - task:
     arch: win64
     description: Creating Wine prefix
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -19,7 +17,7 @@ installer:
     format: gog
 - extract:
     dst: $GAMEDIR/drive_c/Arcane Dimensions Epsilon
-    file: epsilonpack
+    file: mod
 - execute:
     command: cd "$GAMEDIR/drive_c/Arcane Dimensions Epsilon"; sed -i -e "137,149s/^/#/"
       -e '150i quality_level=U' linux_changegraphicsquality.sh;
