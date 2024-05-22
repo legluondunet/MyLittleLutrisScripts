@@ -12,14 +12,15 @@ Play "Quake - The Offering" provided by GOG on Linux with HD textures!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Quake - The Offering - GOG + Epsilon Arcane Dimensions
+# Quake - GOG - Arcane Dimensions - Darplaces - Wine
 ### Description:
-Play Quake mod "Epsilon Arcane Dimensions" on Linux!
+Play "Quake" with "Arcane Dimensions mod" on Linux!
 ### Technical notes:
-- The script installer will ask you to provide "Epsilon Arcane Dimensions" archive during install: https://www.moddb.com/mods/arcane-dimensions
+- Using Darkplaces engine
+-  Arcane Dimensions mod: each map, or 'dimension', teleports the player to a very different area, with a very different vibe and overall 'feel'. Some dimensions are scifi, some ethereal, some dark and gothic. All are good. Tons of new enemies abound, ranging from variations on old favorites to new originals
 ### Credits:
-- Arcane Dimensions mod for Quake: https://www.moddb.com/mods/arcane-dimensions
-- Darkplaces: http://icculus.org/twilight/darkplaces and https://github.com/DarkPlacesEngine/darkplaces
+- Arcane Dimensions mod: https://www.moddb.com/mods/arcane-dimensions
+- Darkplaces: https://github.com/DarkPlacesEngine/darkplaces
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
