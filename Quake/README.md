@@ -24,12 +24,13 @@ Play "Quake" with "Arcane Dimensions mod" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Quake - The Offering - GOG + Epsilon More Dimensions
+# Quake - GOG - Epsilon More Dimensions - Darplaces - Wine
 ### Description:
-Play Quake mod "Epsilon More Dimensions" on Linux!
+Play Quake with "More Dimensions mod" on Linux!
 ### Technical notes:
-- The script installer will ask you to provide "Epsilon More Dimensions" archive during install: https://www.moddb.com/mods/quake-epsilon-build
+- Using Quakespasm-spiked engine
+- More Dimensions mod: is a HD compilation of levels running under Quakespasm-spiked including: (a) The levels from Arcane Dimensions 1.8 which were not present in 1.7 (b) The Forgotten Sepulcher, which was not present in the HD Epsilon release of Arcane Dimensions 1.7 and (c) Several third-party Arcane Dimensions levels which are not part of the official release. The latter includes Annihilith of Abhorration, Tomb of Fenrir, The Refinery and "The faults within" (a remake of quake's e3m2 "The Vaults of Zin") (d) 2-hour dark-ambient/metal/industrial soundtrack.
 ### Credits:
-- Epsilon More Dimensions: https://www.moddb.com/mods/quake-epsilon-build
-- Quakespasm-spiked: https://fte.triptohell.info/moodles/qss
+- Epsilon More Dimensions mod: https://www.moddb.com/mods/quake-epsilon-build
+- Quakespasm-Spiked: https://fte.triptohell.info/moodles/qss
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
