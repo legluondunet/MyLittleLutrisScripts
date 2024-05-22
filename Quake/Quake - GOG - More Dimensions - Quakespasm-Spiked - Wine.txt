@@ -24,3 +24,8 @@ installer:
 - chmodx: $GAMEDIR/drive_c/Epsilon More Dimensions/linux_changegraphicsquality.sh
 - execute:
     file: $GAMEDIR/drive_c/Epsilon More Dimensions/linux_changegraphicsquality.sh
+- execute:
+    command: cd "$GAMEDIR/drive_c/Epsilon More Dimensions/ad"; sed -i -e s/vid_width.*/vid_width\
+      \"$RESOLUTION_WIDTH\"/ -e s/vid_heigth.*/vid_heigth\ \"$RESOLUTION_HEIGHT\"/
+      -e s/vid_desktopfullscreen.*/vid_desktopfullscreen\ \"1\"/ -e s/vid_vsync.*/vid_vsync\
+      \"0\"/ config.cfg
