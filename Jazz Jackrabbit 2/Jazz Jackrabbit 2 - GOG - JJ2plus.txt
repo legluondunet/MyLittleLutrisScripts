@@ -1,8 +1,8 @@
 files:
 - gogsetup: N/A:Please select JJ2+ 5.12 Windows install file, available for  download
     from your GOG account page.
+- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/files/15412756/cnc-ddraw-JazzJackrabbit2.zip
 game:
-  args: -menu
   exe: drive_c/GOG Games/Jazz Jackrabbit 2/Jazz2.exe
   prefix: $GAMEDIR
 installer:
@@ -15,4 +15,30 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Jazz Jackrabbit 2
     file: gogsetup
     format: gog
-
+- task:
+    key: BPP
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Special Edition\1.24\VideoSize\
+    type: REG_BINARY
+    value: 10,00,00,00
+- task:
+    key: Width
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Special Edition\1.24\VideoSize\
+    type: REG_BINARY
+    value: 20,03,00,00
+- task:
+    key: Height
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Epic MegaGames\Jazz Jackrabbit 2 Special Edition\1.24\VideoSize\
+    type: REG_BINARY
+    value: c2,01,00,00
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Jazz Jackrabbit 2
+    file: wrapper
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Jazz Jackrabbit 2" ; sed -i '/\[Jazz2\]/a
+      maintas\=true' ddraw.ini ;
+wine:
+  overrides:
+    ddraw: n,b
