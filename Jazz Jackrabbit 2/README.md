@@ -1,4 +1,4 @@
-# Jazz Jackrabbit 2 - JJ2+ GOG - cnc-ddraw
+# Jazz Jackrabbit 2 - G O G + JJ2plus + cnc-ddraw
 ### Description:
 Play "Jazz Jackrabbit 2: JJ2+" provided by GOG on Linux
 ### Technical notes:
