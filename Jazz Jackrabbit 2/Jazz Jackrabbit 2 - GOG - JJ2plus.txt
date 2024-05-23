@@ -1,7 +1,6 @@
 files:
 - gogsetup: N/A:Please select JJ2+ 5.12 Windows install file, available for  download
     from your GOG account page.
-- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Jazz%20Jackrabbit%202/JJ2plus_config.tar.xz
 game:
   args: -menu
   exe: drive_c/GOG Games/Jazz Jackrabbit 2/Jazz2.exe
@@ -16,6 +15,4 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Jazz Jackrabbit 2
     file: gogsetup
     format: gog
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Jazz Jackrabbit 2
-    file: game_cfg
+
