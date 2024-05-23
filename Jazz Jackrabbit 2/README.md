@@ -1,12 +1,11 @@
-# Jazz Jackrabbit 2 - JJ2+ GOG + DxWnd
+# Jazz Jackrabbit 2 - JJ2+ GOG
 ### Description:
-"Jazz Jackrabbit 2: JJ2+" provided by GOG using DxWnd open source project
+Play "Jazz Jackrabbit 2: JJ2+" provided by GOG on Linux
 ### Technical notes:
 - only compatible with JJ2+ bonus installer provided by GOG
-- widescreen
+- widescreen mode: 800x450
 - multiplayer fully functional
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Jazz Jackrabbit 2 - GOG + J2R + Secret Files
