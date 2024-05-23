@@ -1,12 +1,13 @@
-# Jazz Jackrabbit 2 - JJ2+ GOG
+# Jazz Jackrabbit 2 - JJ2+ GOG - cnc-ddraw
 ### Description:
 Play "Jazz Jackrabbit 2: JJ2+" provided by GOG on Linux
 ### Technical notes:
-- only compatible with JJ2+ bonus installer provided by GOG
-- to play in widescreen mode, choose 800x450 resolution in game video options
-- multiplayer fully functional
+- Using cnc-ddraw open source project for better stability and graphics features
+- Only compatible with JJ2+ version 5.12 bonus install file provided by GOG
+- Widescreen enabled, multiplayer fully functional
 ### Credits:
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+- cnc-ddraw: https://github.com/FunkyFr3sh/cnc-ddraw
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScript
 
 # Jazz Jackrabbit 2 - GOG + J2R + Secret Files
 ### Description:
