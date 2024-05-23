@@ -1,10 +1,9 @@
-# Deus-EX - GOG - GDMX mod
+# 8-Bit Hordes - GOG
 ### Description:
-Play "Deus Ex" provided by GOG on Linux!
+Play "8-Bit Hordes" provided by GOG on Linux!
 ### Technical notes:
-- Using GMDX mod: GMDX is an award-winning large-scale modification for the 2000 PC classic Deus Ex. GMDX addresses the many flaws of the game, polishes it to a very high standard, and adds new layers of depth that one would have hoped to see in a sequel. GMDX is executed with the strict parameter of staying true to the original design principles that define Deus Ex, and seeks to improve all aspects of design excluding the plot and soundtrack. The cumulative result thus far is said to be, and aims to be the "definitive Deus Ex experience".
-- You will find translations patch for French, Italian, Spanish and German here: 
-https://steamcommunity.com/app/6910/discussions/0/648813728065615629/
+The GOG(Auto) script installer does not work on my computer, so I wrote my own script
+- disable DXVK or the game will crash
+- You can play multiplayer in local. To play multiplayer on Internet , you need to install this game in GOG GALAXY: https://lutris.net/games/gog-galaxy
 ### Credits:
-- GMDX mod: https://www.moddb.com/mods/gmdx
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
