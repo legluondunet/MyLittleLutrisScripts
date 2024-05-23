@@ -1,14 +1,14 @@
-# Quake - The Offering - GOG + HD textures
+# Quake - GOG + Quake Rivarez Edition mod
 ### Description:
-Play "Quake - The Offering" provided by GOG on Linux with HD textures!
+Play "Quake Rivarez Edition mod" on Linux!
 ### Technical notes:
 - "Quake Rivarez Edition" is a mod that will replace old Quake textures by HD ones using Darkplaces engine
 - 6 Missions included: "Scourge of Armagon ", "Dissolution of Eternity", "Abyss of Pandemonium", "Dimension of the Past", "Dimensions of the Machine" and "Honey"
 - Original Quake sound tracks extracted from GOG files during install
-- Nota: "Dimension of the Past" is not optimized and could lag
+- Nota: "Dimension of the Machine" is not optimized and could lag
 ### Credits:
-- Quake Rivarez Edition: https://www.moddb.com/mods/quake-rivarez-edition
-- Darkplaces: http://icculus.org/twilight/darkplaces and https://github.com/DarkPlacesEngine/darkplaces
+- Quake Rivarez Edition mod: https://www.moddb.com/mods/quake-rivarez-edition
+- Darkplaces: https://github.com/DarkPlacesEngine/darkplaces
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
