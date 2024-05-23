@@ -1,12 +1,12 @@
 files:
 - gogsetup: N/A:Please select the game's setup Windows exe file downloaded from your
     GOG account.
-- mod1: N/A:Please download Rivarez mod from https://www.moddb.com/mods/quake-rivarez-edition/downloads/quake-rivarez-edition-v101/Quake_Rivarez_Ed_v1.0.1.zip
+- mod1: N/A:Please download Rivarez mod from https://www.moddb.com/mods/quake-rivarez-edition/downloads/quake-rivarez-edition-v101
 - mod2: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/Quake_Offering_HD_legluondunet/AOP-The_Final_Mission_v2.0.rar
 - mod3: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/Quake_Offering_HD_legluondunet/Patch_For_Abyss_Of_Pandemonium_v2.0.rar
 - mod4: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/Quake_Offering_HD_legluondunet/epsilon_mp3_addon_v2_56.zip
 - mod5: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/quake/Quake_Offering_HD_legluondunet/X_jakub%20-%20Abyss%20of%20Pandemonium%20hd%20textures.pk3
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake%20-%20The%20Offering/q1_clean.sh
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Quake/q1_clean.sh
 - tools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/quake/darkplaces.exe
@@ -34,8 +34,6 @@ installer:
 - task:
     arch: win64
     description: Creating Wine prefix
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -64,3 +62,6 @@ installer:
 - execute:
     args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
     file: script
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/tmp
