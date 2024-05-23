@@ -1,0 +1,21 @@
+files:
+- gogsetup: N/A:Please select the Windows setup file downloaded from your GOG account.
+- mod: N/A:Please select GMDX setup file available for download at https://www.moddb.com/mods/gmdx/downloads/gmdxv90-release
+game:
+  exe: drive_c/GOG Games/Deus Ex GOTY/GMDXv9/Play_GMDX.lnk
+  gogid: 1207658995
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Deus Ex GOTY
+    file: gogsetup
+    format: gog
+- task:
+    description: Installing GMDX
+    executable: mod
+    name: wineexec
+    prefix: $GAMEDIR
