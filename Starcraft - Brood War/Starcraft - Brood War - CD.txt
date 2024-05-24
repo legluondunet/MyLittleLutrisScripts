@@ -15,7 +15,5 @@ installer:
     executable: $CACHE/SC-1161.exe
     name: wineexec
 - execute:
-    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft";
-      find "$DISC/"* -iname install.exe -not -ipath '*mindspr*' | xargs -I {} cp {}
-      BroodWar.mpq; chmod +rw BroodWar.mpq;
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft"; find "$DISC/"* -iname install.exe -type f -not -ipath '*mindspr*' | xargs -I {} cp "{}" BroodWar.mpq; chmod +rw BroodWar.mpq;
 requires: starcraft-cd-cnc-draw
