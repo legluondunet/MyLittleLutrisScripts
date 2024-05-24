@@ -9,16 +9,20 @@ unset LD_LIBRARY_PATH
 
 # some Starcraft cd install files to c:\Program Files\Starcraft, others cd version to c:\Program Files (x86)\Starcraft
 # need to create an unique path for all different install to install update and cnc-draw
-if [ ! -d "drive_c/Program Files/Starcraft" ]
+if [ -d "drive_c/Program Files (x86)/Starcraft" ] && [ ! -d "drive_c/Program Files/Starcraft" ]
 then
 cd "drive_c/Program Files"
 ln -s "../Program Files (x86)/Starcraft" "Starcraft"
 echo 'ln -s "../Program Files (x86)/Starcraft" "Starcraft"'
-elif [ ! -d "drive_c/Program Files (x86)/Starcraft" ]
+elif [ -d "drive_c/Program Files/Starcraft" ] && [ ! -d "drive_c/Program Files (x86)/Starcraft" ]
 then
 cd "drive_c/Program Files (x86)"
 ln -s "../Program Files/Starcraft" "Starcraft"
 echo 'ln -s "../Program Files/Starcraft" "Starcraft"'
+elif [ ! -d "drive_c/Program Files/Starcraft" ] && [ ! -d "drive_c/Program Files (x86)/Starcraft" ]
+then
+echo "can not find Starcraft install"
+exit
 fi
 
 cd Starcraft
@@ -27,8 +31,8 @@ cd Starcraft
 cdpath="$1"
 if [ $cdpath ]
 then
-find $cdpath/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq
-echo $cdpath'/* -iname install.exe | xargs -I {} cp {} Starcraft.mpq'
+find "$cdpath/"* -iname install.exe -type f -not -path *mindspr* | xargs -I {} cp {} Starcraft.mpq
+echo $cdpath'/"* -iname install.exe -type f -not -path *mindspr* | xargs -I {} cp {} Starcraft.mpq'
 chmod +rw Starcraft.mpq
 fi
 
