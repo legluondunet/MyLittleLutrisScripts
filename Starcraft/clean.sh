@@ -31,8 +31,8 @@ cd Starcraft
 cdpath="$1"
 if [ $cdpath ]
 then
-find "$cdpath/"* -iname install.exe -type f -not -path *mindspr* | xargs -I {} cp "{}" Starcraft.mpq
-echo $cdpath'/"* -iname install.exe -type f -not -path *mindspr* | xargs -I {} cp {} Starcraft.mpq'
+find "$cdpath/"* -iname install.exe -type f -not -ipath '*mindspr*' | xargs -I {} cp "{}" Starcraft.mpq
+echo $cdpath'/"* -iname install.exe -type f -not -ipath '*mindspr*' | xargs -I {} cp {} Starcraft.mpq'
 chmod +rw Starcraft.mpq
 fi
 
