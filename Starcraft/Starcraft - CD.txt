@@ -16,9 +16,6 @@ installer:
     description: Installing Starcraft...
     executable: $DISC/setup.exe
     name: wineexec
-- extract:
-    dst: $GAMEDIR/drive_c/tmp
-    src: wrapper
 - execute:
     args: $DISC
     file: script
@@ -29,6 +26,18 @@ installer:
     description: Installing Starcraft update...
     executable: $CACHE/SC-1161.exe
     name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Starcraft
+    src: wrapper
+- write_config:
+    data:
+      ddraw:
+        adjmouse: true
+        fullscreen: true
+        maintas: true
+        windowed: true
+    file: $GAMEDIR/drive_c/Program Files (x86)/Starcraft/ddraw.ini
+    merge: true
 wine:
   overrides:
     ddraw: n,b
