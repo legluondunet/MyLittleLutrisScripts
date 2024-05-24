@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Please select JJ2+ 5.12 Windows install file, available for  download
     from your GOG account page.
-- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/files/15412756/cnc-ddraw-JazzJackrabbit2.zip
+- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.5.0.0/cnc-ddraw.zip
 game:
   exe: drive_c/GOG Games/Jazz Jackrabbit 2/Jazz2.exe
   prefix: $GAMEDIR
