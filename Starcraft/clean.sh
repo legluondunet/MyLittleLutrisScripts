@@ -35,7 +35,3 @@ find "$cdpath/"* -iname install.exe -type f -not -ipath '*mindspr*' | xargs -I {
 echo $cdpath'/"* -iname install.exe -type f -not -ipath '*mindspr*' | xargs -I {} cp {} Starcraft.mpq'
 chmod +rw Starcraft.mpq
 fi
-
-#configure cnc-draw
-mv ../../tmp/* .
-sed -i -e 's/fullscreen=.*/fullscreen=true/' -e 's/windowed=.*/windowed=true/' -e 's/maintas=.*/maintas=true/' -e 's/adjmouse=.*/adjmouse=true/' ddraw.ini;
