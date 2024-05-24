@@ -1,5 +1,6 @@
 files:
-- gogsetup: N/A:Please select the GOG.com Linux installer
+- gogsetup: N/A:Please select the Linux installer file available for download on your
+    GOG account page
 - engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Dark%20Forces/TFE.tar.xz
 game:
   exe: theforceengine
@@ -21,4 +22,7 @@ installer:
         sourcePath: $GAMEDIR/data
       Graphics:
         widescreen: true
-    file: /home/$USER/.local/share/TheForceEngine/settings.ini
+    file: $GAMEDIR/settings.ini
+system:
+  env:
+    TFE_DATA_HOME: $GAMEDIR
