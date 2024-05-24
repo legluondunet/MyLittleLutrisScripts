@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page
-- mod: N/A:Please select GMDX setup file available for download at https://www.moddb.com/mods/jedi-knight-remastered/downloads/jedi-knight-remastered-30
+- mod: N/A:Please select Jedi Knight Remastered mod archive file available for download at https://www.moddb.com/mods/jedi-knight-remastered/downloads/jedi-knight-remastered-30
 game:
   exe: drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2/openjkdf2-64.exe
   prefix: $GAMEDIR
