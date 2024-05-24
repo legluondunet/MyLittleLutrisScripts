@@ -10,7 +10,7 @@ Big thanks to people who gave their time to permit us playing this game in the b
 https://github.com/legluondunet/MyLittleLutrisScripts/
 
 
-# Sam & Max - Hit the Road - any PC classic edtion - ScummVM
+# Sam & Max - Hit the Road - any PC classic edition - ScummVM
 
 ##### Description:
 This script will install any "Sam & Max - Hit the Road" PC classic edition for ScummVM.

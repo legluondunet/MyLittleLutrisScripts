@@ -19,7 +19,7 @@ Qui veut passer des heures, voir des journées entières à installer des vieux 
 Lorsque j'écris un script, voici mes lignes directrices:
 - minimum d'interaction avec le joueur, le jeu installé doit être de suite opérationnel sans réglages ni bidouilles supplémentaires.
 - inclures les dernières mises à jour et des patchs qui améliorent la jouabilité.
-- multilangage quand c'est possible.
+- multilangue quand c'est possible.
 - maintenir le script et l'améliorer si besoin.
 - le code doit rester simple à comprendre pour que d'autres néophytes puissent le réutiliser.
 
