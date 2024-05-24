@@ -1,89 +1,23 @@
-custom-name: Star Wars - Jedi Knight - Dark Forces II - GOG - Remastered mods
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page
-- mod:
-    filename: jk-df-ii_remastered_mod.zip
-    url: https://www.dropbox.com/s/w1ult33qb20uas9/jk-df-ii_remastered_mod.zip?dl=1
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Knight%20-%20Dark%20Forces%20II/clean.sh
+- mod: N/A:Please select GMDX setup file available for download at https://www.moddb.com/mods/jedi-knight-remastered/downloads/jedi-knight-remastered-30
 game:
-  exe: drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2/inject.exe
+  exe: drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2/openjkdf2-64.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: gogsetup -d "$GAMEDIR/drive_c/GOG Games"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Dark Forces 2
+    file: gogsetup
+    format: gog
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/app
+    dst: $CACHE
     src: mod
 - task:
-    arch: win64
-    key: winmm
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: 3DDeviceGUID
-    name: set_regedit
-    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company\JediKnight\v1.0\
-    prefix: $GAMEDIR
-    type: REG_BINARY
-    value: 34,12,00,00,34,12,34,12,fe,ef,fe,ef,fe,ef,fe,ef
-- task:
-    arch: win64
-    key: b3DAccel
-    name: set_regedit
-    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company\JediKnight\v1.0\
-    prefix: $GAMEDIR
-    type: REG_BINARY
-    value: 01,00,00,00
-- task:
-    arch: win64
-    key: displayDeviceGUID
-    name: set_regedit
-    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company\JediKnight\v1.0\
-    prefix: $GAMEDIR
-    type: REG_BINARY
-    value: 00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
-- task:
-    arch: win64
-    key: displayMode
-    name: set_regedit
-    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company\JediKnight\v1.0\
-    prefix: $GAMEDIR
-    type: REG_BINARY
-    value: 01,00,00,00
-- task:
-    arch: win64
-    key: viewSize
-    name: set_regedit
-    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company\JediKnight\v1.0\
-    prefix: $GAMEDIR
-    type: REG_BINARY
-    value: 09,00,00,00
-- chmodx: script
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
-
+    description: Installing Jedi Knight Remastered textures HD...
+    executable: $CACHE/JediKnightRemasteredv3.3.exe
+    name: wineexec
