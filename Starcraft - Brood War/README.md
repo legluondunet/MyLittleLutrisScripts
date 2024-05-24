@@ -1,6 +1,6 @@
 # Starcraft - Brood War - CD + cnc-draw
 ### Description:
-Play "Starcraft - Brood War" CD edtion on Linux! using cnc-draw
+Play "Starcraft - Brood War" CD edtion on Linux!
 ### Technical notes:
 - Before to launch this script installer, you have to install "Starcraft - CD + cnc-draw version" from https://lutris.net/games/starcraft
 - Do not launch "Starcraft Brood War" during install process
@@ -9,4 +9,3 @@ Play "Starcraft - Brood War" CD edtion on Linux! using cnc-draw
 ### Credits:
 - cnc-ddraw: https://github.com/FunkyFr3sh/cnc-ddraw
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
-
