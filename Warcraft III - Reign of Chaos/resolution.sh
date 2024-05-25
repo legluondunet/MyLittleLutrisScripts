@@ -18,6 +18,6 @@ cd "drive_c/Program Files (x86)/Warcraft III"
 if [ warcraft_iii_cd_utf8.reg ]
 then
 echo le fichier warcraft_iii_cd_utf8.reg est présent
-sed -i -e 's/"reswidth"\=dword\:.*/"reswidth"\=dword\:'$wb'/' -e 's/"resheight"\=dword\:.*/"resheight"\=dword\:'$hb'/' -e 's/"maxfps"\=dword\:.*/"maxfps"\=dword\:'3c'/' warcraft_iii_cd_utf8.reg
+sed -i -e 's/"reswidth"\=dword\:.*/"reswidth"\=dword\:'$wb'/' -e 's/"resheight"\=dword\:.*/"resheight"\=dword\:'$hb'/' warcraft_iii_cd_utf8.reg
 #iconv -f utf-8 -t utf16le warcraft_iii_cd_utf8.reg -o warcraft_iii_cd_utf16le.reg
 fi
