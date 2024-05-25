@@ -62,7 +62,6 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
     src: mod
-require-binaries: iconv
 system:
   env:
     MESA_LOADER_DRIVER_OVERRIDE: zink
