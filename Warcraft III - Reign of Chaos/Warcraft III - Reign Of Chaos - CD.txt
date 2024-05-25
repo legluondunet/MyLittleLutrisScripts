@@ -70,7 +70,7 @@ installer:
 system:
   env:
     MESA_LOADER_DRIVER_OVERRIDE: zink
-  gamescope: true
+  gamescope: false
   gamescope_fps_limiter: '60'
   gamescope_game_res: 1920x1080
   gamescope_output_res: 1920x1080
