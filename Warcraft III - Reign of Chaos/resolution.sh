@@ -2,7 +2,6 @@
 
 w=$1
 h=$2
-file=$3
 
 wb=$(echo 'obase=16;' $w | bc)
 hb=$(echo 'obase=16;' $h | bc)
@@ -15,19 +14,10 @@ hbf=$(printf "%08d\n" $hb)
 
 echo "importation de la résolution en hexadécimale dans la base de registre: " $wbf " x " $hbf
 
-cd drive_c/tmp/
-
-if [ $file == "warcraft_iii_cd_utf8.reg" ]; then
-echo "fichier reconnu: warcraft_iii_cd_utf8.reg"
-echo "la variable file: " $file
-sed -i -e 's/"reswidth"\=dword\:.*/"reswidth"\=dword\:'$wb'/' -e 's/"resheight"\=dword\:.*/"resheight"\=dword\:'$hb'/' $file
+cd "drive_c/Program Files (x86)/Warcraft III"
+if [ warcraft_iii_cd_utf8.reg ]
+then
+echo le fichier warcraft_iii_cd_utf8.reg est présent
+sed -i -e 's/"reswidth"\=dword\:.*/"reswidth"\=dword\:'$wb'/' -e 's/"resheight"\=dword\:.*/"resheight"\=dword\:'$hb'/' -e 's/"maxfps"\=dword\:.*/"maxfps"\=dword\:'3c'/' warcraft_iii_cd_utf8.reg
+#iconv -f utf-8 -t utf16le warcraft_iii_cd_utf8.reg -o warcraft_iii_cd_utf16le.reg
 fi
-
-if [ $file == "warcraft_iii_ptr_utf8.reg" ]; then
-echo "fichier reconnu: warcraft_iii_ptr_utf8.reg"
-echo "la variable file: " $file
-sed -i -e 's/"windowwidth"\=dword\:.*/"windowwidth"\=dword\:'$wbf'/' -e 's/"windowheight"\=dword\:.*/"windowheight"\=dword\:'$hbf'/' -e 's/"reswidth"\=dword\:.*/"reswidth"\=dword\:'$wbf'/' -e 's/"resheight"\=dword\:.*/"resheight"\=dword\:'$hbf'/' $file
-fi
-
-iconv -f utf-8 -t utf16le $file -o warcraft_iii.reg
-
