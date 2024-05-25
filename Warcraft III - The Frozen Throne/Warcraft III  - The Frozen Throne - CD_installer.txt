@@ -1,28 +1,13 @@
-extends: warcraft-iii-reign-of-chaos
+game:
+  args: -opengl -window
+  exe: drive_c/Program Files (x86)/Warcraft III/Frozen Throne.exe
+  prefix: $GAMEDIR
 installer:
 - insert-disc:
-    requires: installer.exe
+    requires: war3tft.ico
 - task:
-    arch: win64
-    key: UseXRandR
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: Y
-- task:
-    arch: win64
-    key: UseXVidMode
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\X11 Driver
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: N
-- task:
-    args: /desktop=WarcraftIII,1024x780 "$DISC/installer.exe"
     description: Installing Warcraft III - The Frozen Throne...
-    executable: $GAMEDIR/drive_c/windows/explorer.exe
-    include_processes: explorer.exe
+    executable: $DISC/installer.exe
     name: wineexec
 - input_menu:
     description: Please choose your CD native language in the list. Do not choose
@@ -44,10 +29,11 @@ installer:
     - Russian: Russian
     preselect: English
 - execute:
-    command: cd "$GAMEDIR/drive_c/"; cd tmp; wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$INPUT_LANG.exe;
+    command: cd "$CACHE"; wget http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$INPUT_LANG.exe;
 - task:
-    args: /desktop=WarcraftIIIupdate,1024x780 '$GAMEDIR/drive_c/tmp/War3TFT_127b_'$INPUT_LANG'.exe'
+    args: /desktop=WarcraftIIIupdate,640x480 '$CACHE/War3TFT_127b_'$INPUT_LANG'.exe'
     description: Updating Warcraft III to 1.27b...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
+requires: warcraft-iii-reign-of-chaos-cd-update-127b-ws
