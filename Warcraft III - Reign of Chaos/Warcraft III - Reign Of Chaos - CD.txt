@@ -1,10 +1,10 @@
 files:
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iii_cd_utf8.reg
 - mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/RenderEdge_Widescreen.mix
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/resolution.sh
+- reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iii_cd_utf8.reg
 game:
   args: -opengl -window
-  exe: drive_c/Program Files (x86)/Warcraft III/war3.exe
+  exe: drive_c/Program Files (x86)/Warcraft III/Warcraft III.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -41,32 +41,28 @@ installer:
     - Polski: Polski
     - Russian: Russian
     preselect: English
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
-    src: mod
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: regfile
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: script
-- chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp"; wget --no-check-certificate http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
+    command: cd "$CACHE"; wget --no-check-certificate http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$INPUT_LANG.exe;
 - task:
-    args: /desktop=WarcraftIIIupdate,640x480 '$GAMEDIR/drive_c/tmp/War3ROC_127b_'$INPUT_LANG'.exe'
+    args: /desktop=WarcraftIIIupdate,640x480 '$CACHE/War3ROC_127b_'$INPUT_LANG'.exe'
     description: Updating Warcraft III to 1.27b...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
     name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
+    src: reg_file
+- chmodx: script
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_cd_utf8.reg
-    file: $GAMEDIR/drive_c/tmp/resolution.sh
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 - task:
-    args: $GAMEDIR/drive_c/tmp/warcraft_iii_cd_utf8.reg
-    executable: regedit
-    name: wineexec
-    prefix: $GAMEDIR
+    filename: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/warcraft_iii_cd_utf8.reg
+    name: set_regedit_file
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
+    src: mod
+require-binaries: iconv
 system:
   env:
     MESA_LOADER_DRIVER_OVERRIDE: zink
