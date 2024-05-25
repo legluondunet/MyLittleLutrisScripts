@@ -23,10 +23,6 @@ installer:
     dst: $CACHE
     file: patch
 - task:
-    description: Installing Starcraft update...
-    executable: $CACHE/SC-1161.exe
-    name: wineexec
-- task:
     args: /desktop=StarCraftupdate,640x480 "$CACHE/SC-1161.exe"
     description: Updating Starcraft to 1.16.1...
     executable: $GAMEDIR/drive_c/windows/explorer.exe
