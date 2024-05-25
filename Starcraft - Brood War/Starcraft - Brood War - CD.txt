@@ -11,8 +11,10 @@ installer:
     dst: $CACHE
     file: $patch
 - task:
-    description: Installing Starcraft update...
-    executable: $CACHE/SC-1161.exe
+    args: /desktop=StarCraftupdate,640x480 "$CACHE/SC-1161.exe"
+    description: Updating Starcraft to 1.16.1...
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
     name: wineexec
 - execute:
     command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)/Starcraft";
