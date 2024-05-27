@@ -22,8 +22,7 @@ Play "Jazz Jackrabbit 2 - The Secret Files" provided by GOG on Linux!
 ### Description:
 Play "Jazz Jackrabbit 2: The Christmas Chronicles" provided by GOG on Linux!
 ### Technical notes:
-- using "Jazz2 Resurrection" open source project
-- This script installer is complementary to Jazz Jackrabbit "GOG + J2R + The Secret Files" one, it will only install the "The Christmas Chronicles" levels
+- This script installer is complementary and dependent to Jazz Jackrabbit 2 "GOG + J2R + The Secret Files" one, it will only install the "The Christmas Chronicles" levels
 ### Credits:
 - Jazz2 Resurrection: https://github.com/deathkiller/jazz2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
