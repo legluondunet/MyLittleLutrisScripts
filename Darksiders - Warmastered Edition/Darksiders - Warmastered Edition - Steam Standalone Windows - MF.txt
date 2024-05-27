@@ -1,0 +1,36 @@
+files:
+- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/darksiders1.bat
+- mfplatdll: https://gitlab.com/steevyp/mf-installcab_steamdeck/-/archive/main/mf-installcab_steamdeck-main.zip
+game:
+  exe: $GAMEDIR/drive_c/darksiders1.bat
+  launch_configs:
+  - exe: $GAMEDIR/repair.sh
+    name: Click here if Steam no more launch or video no more play
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing Steam...
+    executable: steamsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- copy:
+    dst: $GAMEDIR/drive_c
+    src: launcher
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: mfplatdll
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp" ; chmod +x install-mf-64.sh; WINEPREFIX="$GAMEDIR"
+      ./install-mf-64.sh ; cp -rf mfplat.dll ../windows/system32 ; cp ../../user.reg
+      ../../system.reg  . ;
+system:
+  env:
+    DXVK_FRAME_RATE: '60'
+    DXVK_HUD: null
