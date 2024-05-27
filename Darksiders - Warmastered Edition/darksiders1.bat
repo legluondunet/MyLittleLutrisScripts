@@ -8,14 +8,19 @@ reg add "HKLM\Software\\Classes\\CLSID\\{2EEB4ADF-4578-4D10-BCA7-BB955F56320A}\\
 
 if exist "c:\Program Files (x86)\Steam" (
 echo Version Steam
-cd "Program Files (x86)\Steam"
+
+rem cd "c:\tmp"
+rem copy /H /R /Y mfplat.dll "c:\windows\system32"
+rem copy /H /R /Y mfplat.dll "c:\windows\syswow64"
+
+cd "c:\Program Files (x86)\Steam"
 start steam.exe
 )
 
-if exist "GOG Games" (
+if exist "c:\GOG Games" (
 echo Version GOG
-cd "GOG Games\Darksiders Warmastered Edition"
-start darksiders1.exe
+cd "c:\GOG Games\Darksiders Warmastered Edition"
+start darksiders1.exe steam://462780
 )
 
 exit
