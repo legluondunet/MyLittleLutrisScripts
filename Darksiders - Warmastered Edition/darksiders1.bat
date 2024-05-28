@@ -1,8 +1,8 @@
 @echo on
 
 c:
-
-copy /Y  c:\tmp\mfplat.dll c:\windows\system32\mfplat.dll
+DEL /F /Q c:\windows\system32\mfplat.dll
+COPY /Y  c:\tmp\mfplat.dll c:\windows\system32
 rem copy /H /R /Y c:\tmp\mfplat.dll c:\windows\system32
 
 reg add "HKLM\SOftware\Classes\\CLSID\\{82D353DF-90BD-4382-8BC2-3F6192B76E34}\\InprocServer32" /ve /d "C:\\windows\\System32\\wmvdecod.dll" /f
