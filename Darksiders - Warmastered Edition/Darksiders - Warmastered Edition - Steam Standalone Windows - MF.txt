@@ -26,10 +26,13 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/tmp
     file: mfplatdll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Darksiders Warmastered
+      Edition
+    src: $GAMEDIR/drive_c/tmp/mfplat.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/tmp" ; chmod +x install-mf-64.sh; WINEPREFIX="$GAMEDIR"
-      ./install-mf-64.sh ; cp -rf mfplat.dll ../windows/system32 ; cp ../../user.reg
-      ../../system.reg  . ;
+      ./install-mf-64.sh ; cp ../../user.reg ../../system.reg  . ;
 system:
   env:
     DXVK_FRAME_RATE: '60'
