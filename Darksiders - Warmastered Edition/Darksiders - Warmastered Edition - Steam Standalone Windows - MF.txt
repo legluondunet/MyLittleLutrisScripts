@@ -4,9 +4,6 @@ files:
 - mfplatdll: https://gitlab.com/steevyp/mf-installcab_steamdeck/-/archive/main/mf-installcab_steamdeck-main.zip
 game:
   exe: $GAMEDIR/drive_c/darksiders1.bat
-  launch_configs:
-  - exe: $GAMEDIR/repair.sh
-    name: Click here if Steam no more launch or video no more play
   prefix: $GAMEDIR
 installer:
 - task:
@@ -30,10 +27,18 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Darksiders Warmastered
       Edition
     src: $GAMEDIR/drive_c/tmp/mfplat.dll
+- write_file:
+    content: '#!/bin/bash
+
+      WINEPREFIX="$GAMEDIR" "$GAMEDIR/drive_c/tmp/install-mf-64.sh"
+
+      cp "$GAMEDIR/drive_c/tmp/mfplat.dll" "$GAMEDIR/drive_c/windows/system32"'
+    file: $GAMEDIR/drive_c/tmp/reinstall-mf.sh
+- chmodx: $GAMEDIR/drive_c/tmp/reinstall-mf.sh
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp" ; chmod +x install-mf-64.sh; WINEPREFIX="$GAMEDIR"
-      ./install-mf-64.sh ; cp ../../user.reg ../../system.reg  . ;
+    file: $GAMEDIR/drive_c/tmp/reinstall-mf.sh
 system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: null
+  manual_command: $GAMEDIR/drive_c/tmp/reinstall-mf.sh
