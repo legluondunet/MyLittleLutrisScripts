@@ -11,3 +11,13 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Indiana%20Jone
 ### Credits:
 - IJET Movies/Loading screens fix (Full Screen 1024x768, 1280x960, 1440x1080) mod: https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Indiana Jones and the Emperor's Tomb - Steam Standalone Windows + dgV2
+### Description:
+Play "Indiana Jones and the Emperor's Tomb" provided by Steam on Linux!
+### Technical notes:
+- Using dgVoodoo2 to fix white lines and playing cinematics
+### Credits:
+- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
