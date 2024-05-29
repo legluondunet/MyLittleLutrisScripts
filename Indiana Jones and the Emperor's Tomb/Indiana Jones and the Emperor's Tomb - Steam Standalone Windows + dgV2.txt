@@ -1,0 +1,39 @@
+files:
+- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  args: -applaunch 560430
+  exe: $GAMEDIR/drive_c/Program Files (x86)/Steam/steam.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing Steam...
+    executable: steamsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Indiana Jones
+      and the Emperors Tomb/GameData/bin
+    src: $CACHE/MS/x86/D3D8.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Indiana Jones
+      and the Emperors Tomb/GameData/bin/dgVoodoo.conf
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+wine:
+  overrides:
+    d3d8: n,b
