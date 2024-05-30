@@ -17,7 +17,8 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Indiana%20Jone
 ### Description:
 Play "Indiana Jones and the Emperor's Tomb" provided by Steam on Linux!
 ### Technical notes:
-- Using dgVoodoo2 to fix white lines and playing cinematics
+- Using dgVoodoo2 to fix white lines and playing scaled cinematics
+- Using Gamescope is mandatory with this game because it does not support alt+tab causing the game to crash
 ### Credits:
 - dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
