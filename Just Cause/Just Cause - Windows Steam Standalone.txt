@@ -2,7 +2,7 @@ files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Just%20Cause/JustCause.WidescreenFix.zip
 game:
-  args: -no-browser steam://run/6880
+  args: -cef-disable-gpu-compositing steam://run/6880
   exe: drive_c/Program Files (x86)/Steam/steam.exe
   prefix: $GAMEDIR
 installer:
