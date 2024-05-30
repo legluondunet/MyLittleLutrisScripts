@@ -1,0 +1,11 @@
+files:
+- client: https://cdn.steamstatic.com/client/installer/SteamSetup.exe
+game:
+  args: -cef-disable-gpu-compositing
+  exe: $GAMEDIR/drive_c/Program Files (x86)/Steam/steam.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    executable: client
+    name: wineexec
+    prefix: $GAMEDIR
