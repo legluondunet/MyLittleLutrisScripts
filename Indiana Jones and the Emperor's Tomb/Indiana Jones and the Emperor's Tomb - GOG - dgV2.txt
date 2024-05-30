@@ -2,12 +2,10 @@ files:
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet_multi5.tar.xz
 - gogsetup: N/A:Please select the game setup Windows exe file downloaded from your
     GOG account.
-- videos: N/A:Please select the IJET "Movies, Loading screens fix fullscreen(Resolution
-    1280x960)" archive available for download at https://www.moddb.com/mods/moviesloading-screens-fix-full-screen-1280x960/downloads/movies-loading-screens-fix-full-screen-1280x960
-- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/ijet.bat
-- conf_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/vars.cfg.default
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- conf_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/vars.cfg
 game:
-  exe: drive_c/ijet.bat
+  exe: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/bin/indy.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -22,16 +20,9 @@ installer:
 - merge:
     dst: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy
     src: drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/__support/app/GameData/indy
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy
-    file: videos
-    format: rar
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy
     src: conf_file
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: launcher
 - extract:
     dst: $CACHE
     format: txz
@@ -49,19 +40,24 @@ installer:
     preselect: keep
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/indy";
-      sed -i -e s/res_width.*/res_width\=1280/ -e  s/res_height.*/res_height\=960/
-      vars.cfg; if [ $INPUT_LANG != "keep" ];  then echo "language choisi " $INPUT_LANG;
-      cp -f -r "$CACHE/"$INPUT_LANG/gameinfo . ; else echo "keep" ; fi;
-- task:
-    app: vcrun6
-    name: winetricks
-    prefix: $GAMEDIR
+      if [ $INPUT_LANG != "keep" ];  then echo "language choisi " $INPUT_LANG; cp
+      -f -r "$CACHE/"$INPUT_LANG/gameinfo . ; else echo "keep" ; fi;
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/bin
+    src: $CACHE/MS/x86/D3D8.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/GOG Games/Indiana Jones and the Emperor's Tomb/GameData/bin/dgVoodoo.conf
 system:
   gamescope: true
   gamescope_fps_limiter: '60'
   gamescope_game_res: 1280x960
   gamescope_output_res: $RESOLUTION
-  gamescope_force_grab_cursor: true
 wine:
   overrides:
-    msvcrt: n,b
+    d3d8: n,b
