@@ -1,8 +1,8 @@
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 game:
-  args: -no-browser steam://run/8190
-  exe: drive_c/program files (x86)/steam/steam.exe
+  args: -cef-disable-gpu-compositing steam://run/8190
+  exe: drive_c/Program Files (x86)/Steam/steam.exe
   prefix: $GAMEDIR
 installer:
 - task:
