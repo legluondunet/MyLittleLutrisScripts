@@ -13,7 +13,7 @@ if exist "c:\Program Files (x86)\Steam" (
 echo Version Steam
 
 cd "c:\Program Files (x86)\Steam"
-start steam.exe -applaunch 462780
+start steam.exe -cef-disable-gpu-compositing -applaunch 462780
 )
 
 if exist "c:\GOG Games" (
