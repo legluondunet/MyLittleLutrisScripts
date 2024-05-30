@@ -1,8 +1,9 @@
 files:
 - steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Emperor's%20Tomb/vars.cfg
 game:
-  args: -applaunch 560430
+  args: -applaunch 560430 -cef-disable-gpu-compositing
   exe: $GAMEDIR/drive_c/Program Files (x86)/Steam/steam.exe
   prefix: $GAMEDIR
 installer:
@@ -30,10 +31,17 @@ installer:
         dgVoodooWatermark: false
     file: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Indiana Jones
       and the Emperors Tomb/GameData/bin/dgVoodoo.conf
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Indiana Jones
+      and the Emperors Tomb/GameData/indy
+    src: game_cfg
 system:
   env:
     DXVK_FRAME_RATE: 60
     DXVK_HUD: null
+  gamescope: true
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 1280x960
 wine:
   overrides:
     d3d8: n,b
