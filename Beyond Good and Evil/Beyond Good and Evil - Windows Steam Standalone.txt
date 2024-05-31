@@ -3,7 +3,7 @@ files:
 - wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/dsound.dll
 - wdpatch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Beyond%20Good%20and%20Evil/BGAE%20Steam%20widescreen%20enb.zip
 game:
-  args: -applaunch 15130
+  args: -cef-disable-gpu-compositing -applaunch 15130
   exe: drive_c/Program Files (x86)/Steam/Steam.exe
   prefix: $GAMEDIR
 installer:
