@@ -1,0 +1,64 @@
+files:
+- steamsetup: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  args: -applaunch 32430 -cef-disable-gpu-compositing
+  exe: drive_c/Program Files (x86)/Steam/Steam.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /S
+    description: Installing Steam...
+    executable: steamsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Star Wars The
+      Force Unleashed
+    src: $CACHE/MS/x86/D3D9.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Star Wars The
+      Force Unleashed
+    src: $CACHE/dgVoodooCpl.exe
+- write_config:
+    data:
+      DirectX:
+        VRAM: 2048
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/Program Files (x86)/Steam/steamapps/common/Star Wars The
+      Force Unleashed/dgVoodoo.conf
+- input_menu:
+    description: 'Please choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - it: Italian
+    - es: Spanish
+    - pl: Polish
+    - ru: Russian
+    preselect: en
+- task:
+    arch: win64
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\aspyr\star wars the force unleashed\
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: $INPUT_LANG
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+wine:
+  overrides:
+    d3d9: n,b
