@@ -1,29 +1,29 @@
-custom-name: Star Wars - Jedi Academy - GOG - OpenJK
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page.
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Academy/OpenJk.7z
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Jedi%20Academy/swacademy.sh
+- engine: https://github.com/JACoders/OpenJK/releases/download/latest/OpenJK-linux-x86_64.tar.gz
 game:
-  exe: $GAMEDIR/swacademy.sh
+  args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1 +set
+    r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 1 +set
+    se_language $INPUT_LANG
+  exe: $GAMEDIR/openjk_sp.x86_64
+  launch_configs:
+  - args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1
+      +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles
+      1 +set se_language $INPUT_LANG
+    exe: $GAMEDIR/openjk.x86_64
+    name: Star Wars Academy - Multiplayer
 installer:
 - extract:
     dst: $CACHE
-    file: $inno
-- execute:
-    args: gogsetup -d $CACHE
-    file: $CACHE/innoextract
+    file: gogsetup
+    format: gog
 - extract:
     dst: $GAMEDIR
     src: engine
 - merge:
-    dst: $GAMEDIR/base
-    src: $CACHE/app/GameData/base
-- chmodx: menu
-- copy:
     dst: $GAMEDIR
-    src: menu
+    src: $CACHE/app/GameData
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
@@ -33,6 +33,3 @@ installer:
     - German: German
     - Spanish: Spanish
     preselect: English
-- execute:
-    command: cd $GAMEDIR; sed -i "s/se_language.*/se_language $INPUT_LANG/" swacademy.sh;
-
