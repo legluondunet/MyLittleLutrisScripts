@@ -1,0 +1,13 @@
+files:
+- gogsetup: N/A:Please select the "Sam & Max Hit the Road" GOG Windows setup file.
+game:
+  game_id: samnmax
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+scummvm:
+  aspect: true
+  fullscreen: true
