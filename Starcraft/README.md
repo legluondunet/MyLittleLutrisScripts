@@ -1,6 +1,6 @@
 # Starcraft - CD + cnc-draw
 ### Description:
-Play "Starcraft" CD edtion on Linux!
+Play "Starcraft" CD edition on Linux!
 ### Technical notes:
 - Using cnc-draw open-source project for better stability and graphic enhancements
 - Do not launch Starcraft during install process
