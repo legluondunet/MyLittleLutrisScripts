@@ -7,7 +7,7 @@ When I write a script, here are my guidelines:
 
 - minimum interaction with the player, the game installed must be immediately operational without additional settings or hacks.
 - include the latest updates and patches that improve gameplay.
-- multilanguage when possible.
+- multilingual when possible.
 - maintain the script and improve it if needed.
 - the code must remain simple to understand so that neophytes can reuse it.
 
@@ -19,7 +19,7 @@ Qui veut passer des heures, voir des journées entières à installer des vieux 
 Lorsque j'écris un script, voici mes lignes directrices:
 - minimum d'interaction avec le joueur, le jeu installé doit être de suite opérationnel sans réglages ni bidouilles supplémentaires.
 - inclures les dernières mises à jour et des patchs qui améliorent la jouabilité.
-- multilangage quand c'est possible.
+- multilangue quand c'est possible.
 - maintenir le script et l'améliorer si besoin.
 - le code doit rester simple à comprendre pour que d'autres néophytes puissent le réutiliser.
 
