@@ -1,24 +1,16 @@
 files:
 - gogsetup: N/A:Please select the GOG installer
 game:
-  exe: drive_c/GOG Games/Alone in the Dark - The New Nightmare/alone4.exe
+  exe: drive_c/GOG Games/Alone in the Dark - The New Nightmare/launch.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare
-    file: gogsetup
-    format: gog
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare
-    src: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/app
-system:
-  gamescope: true
-  gamescope_fps_limiter: '60'
-  gamescope_game_res: 640x480
-  gamescope_output_res: $RESOLUTION
+- task:
+    executable: gogsetup
+    name: wineexec
+- task:
+    app: ddr=gdi
+    name: winetricks
