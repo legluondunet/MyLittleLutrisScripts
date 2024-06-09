@@ -7,14 +7,18 @@ game:
     r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 1 +set
     se_language $INPUT_LANG
   exe: $GAMEDIR/ja_enhanced.x86_64
+  gogid: 1428935726
 installer:
 - extract:
     dst: $CACHE
     file: gogsetup
     format: gog
 - merge:
+    dst: $CACHE
+    src: $CACHE/app
+- merge:
     dst: $GAMEDIR
-    src: $CACHE/app/GameData
+    src: $CACHE/GameData
 - extract:
     dst: $CACHE
     src: engine
