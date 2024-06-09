@@ -22,8 +22,11 @@ installer:
     dst: $GAMEDIR
     src: engine
 - merge:
+    dst: $CACHE
+    src: $CACHE/app
+- merge:
     dst: $GAMEDIR
-    src: $CACHE/app/GameData
+    src: $CACHE/GameData
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
