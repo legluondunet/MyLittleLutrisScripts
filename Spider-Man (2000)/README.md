@@ -1,6 +1,6 @@
 # Spider-Man 2000 - CD
 ### Description:
-Play "Spider-Man (2000) CD edition on Linux!
+Play "Spider-Man (2000)" CD edition on Linux!
 ### Technical notes:
 - You will need the CD only one time during install
 - Alt+Tab will cause the game to crash. Workaround: use Gamescope
