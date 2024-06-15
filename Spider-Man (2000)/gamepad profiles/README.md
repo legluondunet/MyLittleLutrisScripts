@@ -1,12 +1,4 @@
----
-author: Romain
-changed: "2023-02-16T18:29:42.061141147"
-created: "2019-05-09T09:02:48.919032913"
-generator: LibreOffice 7.5.0.3 (Linux)
-lang: fr-FR
----
-
-<u>**Spider-Man 2000 – AntimicroX profile**</u>
+**Spider-Man 2000 – AntimicroX profile**
 
 **Spider-Man 2000 have support for gamepad, but you still need mouse and
 keyboard for menus or to assign action to DPAD/TRIGGER. So you will need
