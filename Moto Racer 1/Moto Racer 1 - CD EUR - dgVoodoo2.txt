@@ -65,7 +65,7 @@ installer:
     silent: true
 - chmodx: script
 - execute:
-    args: MotoRacer "$GAMEDIR/drive_c/Program Files (x86)/MotoRacer" 3 wav
+    args: moto "$GAMEDIR/drive_c/Program Files (x86)/MotoRacer" 3 wav
     file: script
 system:
   env:
