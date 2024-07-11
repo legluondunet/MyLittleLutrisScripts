@@ -8,8 +8,6 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -46,3 +44,10 @@ installer:
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/tmp
+- task:
+    key: DisableStartupV
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Microsoft Games\Age of
+      Empires Expansion\1.1
+    type: REG_DWORD
+    value: '00000000'
