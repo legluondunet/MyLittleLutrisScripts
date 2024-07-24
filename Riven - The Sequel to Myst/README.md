@@ -1,7 +1,7 @@
 # Riven - The Sequel to Myst - GOG - ScummVM
 
 ##### Description:
-Olay "Riven - The Sequel to Myst" on Linux!
+Play "Riven - The Sequel to Myst" on Linux!
 ##### Technical notes:
 - Multilanguage: you could choose your preferred game language during install between english (default), french, german, polish and spanish.
 ##### Credits:
