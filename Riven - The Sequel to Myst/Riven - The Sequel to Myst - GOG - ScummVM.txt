@@ -1,6 +1,4 @@
-custom-name: Riven - The Sequel to Myst - GOG - ScummVM
 files:
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 - gogsetup: N/A:Please select Windows setup exe file downloaded from your GOG account.
 game:
   args: --language=$INPUT_LANG --filtering
@@ -8,11 +6,8 @@ game:
   path: $GAMEDIR
 installer:
 - extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/"
-    file: $CACHE/innoextract/innoextract
+    dst: $GAMEDIR
+    file: gogsetup
 - input_menu:
     description: 'Choose your preferred game''s language:'
     id: LANG
@@ -29,4 +24,3 @@ installer:
 scummvm:
   aspect: true
   fullscreen: true
-
