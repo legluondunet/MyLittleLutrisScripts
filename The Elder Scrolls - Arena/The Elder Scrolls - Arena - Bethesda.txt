@@ -1,19 +1,15 @@
-custom-name: The Elder Scrolls - Arena - Bethesda
 files:
-- setup: https://cdnstatic.bethsoft.com/elderscrolls.com/assets/files/tes/extras/Arena106Setup.zip
-- dosboxconfig: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/The%20Elder%20Scrolls%20-%20Arena/dosbox_arena.conf
+- setupfile: https://cdnstatic.bethsoft.com/elderscrolls.com/assets/files/tes/extras/Arena106Setup.zip
 game:
-  main_file: dosbox_arena.conf
-  prefix: $GAMEDIR
+  main_file: $GAMEDIR/ARENA.BAT
 installer:
 - extract:
-    dst: $CACHE
-    file: setup
-- extract:
-    dst: $GAMEDIR/
-    file: $CACHE/Arena106.exe
-    format: rar
-- copy:
     dst: $GAMEDIR
-    src: dosboxconfig
-
+    file: setupfile
+- extract:
+    dst: $GAMEDIR
+    file: $GAMEDIR/Arena106.exe
+    format: rar
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/Arena106.exe
