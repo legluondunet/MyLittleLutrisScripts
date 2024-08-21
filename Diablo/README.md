@@ -25,7 +25,7 @@ Play "Diablo" provided by GOG on Linux! using Tchernobog mod
 ### Description:
 Play "Diablo" provided by GOG on Linux! using Belzebub mod
 ### Technical notes:
-- Belzebub final version 1045
+- Belzebub final version 1.045
 - To change video options (fullscreen, resolution...), ingame press "esc", "video options"
 ### Credits:
 - Belzebub mod: https://mod.diablo.noktis.pl
