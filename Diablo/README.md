@@ -13,7 +13,7 @@ Play "Diablo" provided by GOG on Linux! using devilutionX open source project
 ### Description:
 Play "Diablo" provided by GOG on Linux! using Tchernobog mod
 ### Technical notes:
-- Tchernobog v0.2.2c (new name of the Belzebub mod)
+- Tchernobog v0.2.2c
 - You will find online multiplayer games on their Discord server: https://discord.gg/82BaSAP
 - To change video options (fullscreen, resolution...), ingame press "esc", "video options"
 ### Credits:
