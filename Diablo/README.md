@@ -21,6 +21,17 @@ Play "Diablo" provided by GOG on Linux! using Tchernobog mod
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 
+# Diablo - GOG - Tchernobog mod
+### Description:
+Play "Diablo" provided by GOG on Linux! using Belzebub mod
+### Technical notes:
+- Belzebub final version 1045
+- To change video options (fullscreen, resolution...), ingame press "esc", "video options"
+### Credits:
+- Belzebub mod: https://mod.diablo.noktis.pl
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+
+
 # Diablo - CD + DxWrapper Diablo fix
 ### Description:
 Play "Diablo" CD edition on Linux!
