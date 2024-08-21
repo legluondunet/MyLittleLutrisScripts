@@ -1,0 +1,22 @@
+files:
+- gogsetup: N/A:Please select the gog installer for this game
+- mods: N/A:Please select Belzebub archive available for download at https://mod.diablo.noktis.pl/download
+game:
+  exe: drive_c/Diablo Belzebub/Belzebub.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/Diablo Belzebub
+    file: mods
+- copy:
+    dst: $GAMEDIR/drive_c/Diablo Belzebub
+    src: $CACHE/DIABDAT.MPQ
