@@ -64,7 +64,10 @@ installer:
     dst: $GAMEDIR/drive_c/X-Files - The Game
     src: $DISC
 - execute:
-    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game";
+    command: cd "$GAMEDIR/drive_c"; chmod -R +rw "X-Files - The Game"; cd "X-Files
+      - The Game"; find . -depth -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename
+      "$0"); d=$(dirname "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"'
+      ;
 - merge:
     dst: $GAMEDIR/drive_c/X-Files - The Game
     src: $GAMEDIR/drive_c/X-Files - The Game/medinst
