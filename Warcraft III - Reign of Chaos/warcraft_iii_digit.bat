@@ -1,10 +1,8 @@
 @echo off
-TITLE Warcraft III
-color 07
 
 c:
 cd "c:\Program Files (x86)\warcraft III"
-dir
+
 if not exist "c:\Program Files (x86)\warcraft III\war3.exe" goto :dlroc
 if not exist "c:\Program Files (x86)\warcraft III\warcraft iii.exe" goto :dlroc
 
