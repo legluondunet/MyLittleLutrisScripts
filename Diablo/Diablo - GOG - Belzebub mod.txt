@@ -1,6 +1,6 @@
 files:
 - gogsetup: N/A:Please select the gog installer for this game
-- mods: N/A:Please select Belzebub archive available for download at https://mod.diablo.noktis.pl/download
+- mods: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Diablo/Diablo_Belzebub_mod.zip
 game:
   exe: drive_c/Diablo Belzebub/Belzebub.exe
   prefix: $GAMEDIR
@@ -15,8 +15,30 @@ installer:
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/drive_c/Diablo Belzebub
+    dst: $CACHE
     file: mods
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - FRv3: French
+    - ITAv3: Italian
+    - BR-TP: Portugues/Brazilian
+    - CZ: Czech
+    - ESPv2: Spanish
+    - TR: Turkish
+    - PLv4: Polish
+    preselect: en
+- merge:
+    dst: $GAMEDIR/drive_c/Diablo Belzebub
+    src: $CACHE/Release1045
+- merge:
+    dst: $GAMEDIR/drive_c/Diablo Belzebub
+    src: $CACHE/Release1045$INPUT_LANG
 - copy:
     dst: $GAMEDIR/drive_c/Diablo Belzebub
     src: $CACHE/DIABDAT.MPQ
+- execute:
+    command: if [ "$INPUT_LANG" = "en" ]; then exit; fi; cd "$GAMEDIR/drive_c/Diablo
+      Belzebub"; mv Belzebub.exe Belzebub.bak ; mv Belzebub-* Belzebub.exe;
