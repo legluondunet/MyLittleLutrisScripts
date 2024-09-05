@@ -6,7 +6,7 @@ c:
 cd \
 
 if not exist "c:\program files (x86)\warcraft iii\warcraft iii.exe" goto :download
-if not exist "c:\program files (x86)\warcraft iii\w3.exe" goto :download
+if not exist "c:\program files (x86)\warcraft iii\war3.exe" goto :download
 start "" "c:\program files (x86)\warcraft iii\warcraft iii.exe" -opengl -window
 goto :exit
 
