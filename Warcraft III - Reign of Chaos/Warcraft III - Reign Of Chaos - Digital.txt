@@ -1,105 +1,71 @@
-custom-name: Warcraft III - CD
 files:
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iii_digit.bat
-- regfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iii_cd_utf8.reg
-- wppa: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iiia.bmp
-- wppb: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iiib.bmp
-- rew: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/RenderEdge_Widescreen.mix
+- reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/warcraft_iii_cd_utf8.reg
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/RenderEdge_Widescreen.mix
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Warcraft%20III%20-%20Reign%20of%20Chaos/resolution.sh
 game:
-  args: c:\\warcraft_iii_digit.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  args: -window -opengl
+  exe: drive_c/Program Files (x86)/Warcraft III/Warcraft III.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
     app: baekmuk arial lavfilters
     name: winetricks
     prefix: $GAMEDIR
-- copy:
-    dst: $GAMEDIR/drive_c/
-    src: menu
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wppa
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wppb
 - merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: rew
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: regfile
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: script
-- chmodx: $GAMEDIR/drive_c/tmp/resolution.sh
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
+    src: reg_file
+- chmodx: script
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT warcraft_iii_cd_utf8.reg
-    file: $GAMEDIR/drive_c/tmp/resolution.sh
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
+    file: script
 - task:
-    args: $GAMEDIR/drive_c/tmp/warcraft_iii_cd_utf8.reg
-    executable: regedit
-    name: wineexec
-    prefix: $GAMEDIR
+    filename: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/warcraft_iii_cd_utf8.reg
+    name: set_regedit_file
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III
+    src: mod
 - input_menu:
     description: 'Please choose Warcraft III language version you want to install:'
     id: LANG
     options:
-    - enUS: English
-    - frFR: French
-    - itIT: Italian
-    - deDE: German
-    - esES: Spanish
-    - jaJA: Japanese
-    - koKR: Korean
-    - plPL: Polish
-    - ruRU: Russian
-    - zhZN: Chinese (S)
-    - zhTW: Chinese (T)
-    preselect: enUS
+    - enUSEnglish: English
+    - frFRFrancais: French
+    - itITItaliano: Italian
+    - deDEDeutsch: German
+    - esESCastellano: Spanish
+    - jaJAJapanese: Japanese
+    - koKRKorean: Korean
+    - plPLPolski: Polish
+    - ruRURussian: Russian
+    - zhZNChinese_Simp: Chinese (S)
+    - zhTWChinese_Trad: Chinese (T)
+    preselect: enUSEnglish
 - execute:
-    command: cd "$GAMEDIR/drive_c"; cp warcraft_iiia.bmp warcraft_iii.bmp; cd tmp;
-      wget --no-check-certificate -O w3roc.exe "https://us.battle.net/download/getLegacy?product=WAR3&locale=$INPUT_LANG&os=WIN";
+    command: user_choice="$INPUT_LANG"; user_lang="${user_choice:4}"; user_locale="${user_choice:0:4}";  cd
+      "$GAMEDIR/drive_c/Program Files (x86)/Warcraft III/"; wget --no-check-certificate
+      -O w3roc_digital.exe "https://us.battle.net/download/getLegacy?product=WAR3&locale=$user_locale&os=WIN";
+      wget --no-check-certificate -O w3roc_update.exe http://ftp.blizzard.com/pub/war3x/patches/pc/War3ROC_127b_$user_lang.exe;
+      echo "les variables sont "$user_choice" "$user_locale" "$user_lang
 - task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+    description: Installing Warcraft III...Press OK and let the default options
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/w3roc_digital.exe
+    name: wineexec
+    return_code: 25856
 - task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 255 255 255
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\warcraft_iii.bmp
+    args: /desktop=WarcraftIIIupdate,640x480 '$GAMEDIR/drive_c/Program Files (x86)/Warcraft
+      III/w3roc_update.exe'
+    description: Updating Warcraft III to 1.27b...Close the Window once update finished.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+system:
+  gamescope: false
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 1920x1080
+  gamescope_output_res: 1920x1080
 wine:
-  Desktop: true
   dxvk: false
-  vkd3d: false
