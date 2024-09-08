@@ -1,0 +1,51 @@
+game:
+  args: -opengl -window
+  exe: drive_c/Program Files (x86)/Warcraft III/Frozen Throne.exe
+  prefix: $GAMEDIR
+installer:
+- input_menu:
+    description: Please choose the language of your already "Warcraft III - Reign
+      of Chaos" installed version in the list. Do not choose another language than
+      the one already installed or the update will not install and you will have to
+      reinstall all the game.
+    id: LANG
+    options:
+    - enUSEnglish: English
+    - frFRFrancais: French
+    - itITItaliano: Italian
+    - deDEDeutsch: German
+    - esESCastellano: Spanish
+    - jaJAJapanese: Japanese
+    - koKRKorean: Korean
+    - plPLPolski: Polish
+    - ruRURussian: Russian
+    - zhZNChinese_Simp: Chinese (S)
+    - zhTWChinese_Trad: Chinese (T)
+    preselect: enUSEnglish
+- execute:
+    command: user_choice="$INPUT_LANG"; user_lang="${user_choice:4}"; user_locale="${user_choice:0:4}";  cd
+      "$GAMEDIR/drive_c/Program Files (x86)/Warcraft III/"; wget --no-check-certificate
+      -O w3tft_digital.exe "https://us.battle.net/download/getLegacy?product=W3XP&locale=$user_locale&os=WIN";
+      wget --no-check-certificate -O w3tft_update.exe http://ftp.blizzard.com/pub/war3x/patches/pc/War3TFT_127b_$user_lang.exe;
+      echo "les variables sont "$user_choice" "$user_locale" "$user_lang
+- task:
+    description: Installing Warcraft III TFT...Press OK and let the default options
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Warcraft III/w3tft_digital.exe
+    name: wineexec
+    return_code: 25856
+- task:
+    args: /desktop=WarcraftIIIupdate,640x480 '$GAMEDIR/drive_c/Program Files (x86)/Warcraft
+      III/w3tft_update.exe'
+    description: Updating Warcraft III TFT to 1.27b...Close the Window once update
+      finished.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
+requires: warcraft-iii-reign-of-chaos-digital-127-ws
+system:
+  gamescope: false
+  gamescope_fps_limiter: '60'
+  gamescope_game_res: 1920x1080
+  gamescope_output_res: 1920x1080
+wine:
+  dxvk: false
