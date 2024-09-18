@@ -1,0 +1,42 @@
+files:
+- wrapper_g: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.8.0.0/cnc-ddraw.zip
+- patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Age_of_Empires_II/aoe2_aok_patch_2.0a.zip
+game:
+  exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/EMPIRES2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: directplay
+    description: Installing directplay for multiplayer support
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
+- insert-disc:
+    requires: aoesetup.exe
+- task:
+    executable: $DISC/aoesetup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+    return_code: 256
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
+    file: patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
+    file: wrapper_g
+- write_config:
+    data:
+      ddraw:
+        fullscreen: true
+        maintas: true
+        windowed: true
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/ddraw.ini
+    merge: true
+wine:
+  overrides:
+    ddraw: n,b
