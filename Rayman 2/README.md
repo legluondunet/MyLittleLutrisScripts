@@ -16,7 +16,7 @@ Play "Rayman 2" provided by GOG on Linux!
 ### Description:
 Play "Rayman 2" provided by GOG on Linux!
 ### Technical notes:
-- using Ray2Fix: including widescreen support, dgVoodoo2 for better graphic performance and stability, xidi for gamepad
+- Using Ray2Fix that provides dgVoodoo2 for better graphic performance and stability, widescreen support and xidi for modern gamepad support
 - This game does not support very well Alt+Tab. Workaround: use Gamescope
 ### Credits:
 - Ray2Fix: https://github.com/spitfirex86/Ray2Fix
