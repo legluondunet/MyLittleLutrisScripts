@@ -1,0 +1,53 @@
+files:
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.0/Ray2Fix_1.4.0.zip
+- gogsetup: N/A:Select the GOG setup exe
+game:
+  exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/GOG Games/Rayman 2/R2FixCfg.exe
+    name: Ray2Fix
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: mod
+- write_config:
+    data:
+      Ray2Fix:
+        HalfRefRate: 0
+        PatchWidescreen: 1
+        Tweaks: 0
+      Rayman2:
+        GLI_Device: Default
+        GLI_Dll: Ray2Fix
+        GLI_DllFile: GliFix
+        GLI_Driver: Default
+        GLI_Mode: 1 - $RESOLUTION_WIDTH x $RESOLUTION_HEIGHT x 16
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 2/ubi.ini
+- extract:
+    dst: $CACHE
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: $CACHE/3Dfx/x86/Glide2x.dll
+- execute:
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3Dfx* glide*
+      goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* DDraw.dll
+      D3DImm.dll ;
+system:
+  gamescope: true
+  gamescope_game_res: $RESOLUTION
+  gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    dinput: n,b
+    dinput8: n,b
