@@ -12,6 +12,16 @@ Play "Rayman 2" provided by GOG on Linux!
 - Xidi: https://github.com/samuelgr/Xidi
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
+# Rayman 2 - GOG + Ray2Fix
+### Description:
+Play "Rayman 2" provided by GOG on Linux!
+### Technical notes:
+- using Ray2Fix: including widescreen support, dgVoodoo2 for better graphic performance and stability, xidi for gamepad
+- This game does not support very well Alt+Tab. Workaround: use Gamescope
+### Credits:
+- Ray2Fix: https://github.com/spitfirex86/Ray2Fix
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
 # Rayman 2 - CD EU MULTI5
 ### Description:
 Play "Rayman 2" provided by GOG on Linux!
