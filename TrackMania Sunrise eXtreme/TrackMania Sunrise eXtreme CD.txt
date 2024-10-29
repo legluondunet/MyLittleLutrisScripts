@@ -1,0 +1,67 @@
+files:
+- game_dlc: N/A:Download Extreme Expansion from https://www.pcgamingwiki.com/wiki/TrackMania_Sunrise#Game_does_not_launch_on_Windows_8_and_above
+- game_upd: N/A:Download 1.5.1 Extreme update from from https://www.pcgamingwiki.com/wiki/TrackMania_Sunrise#Game_does_not_launch_on_Windows_8_and_above
+- game_patch: N/A:Download Patched game files from https://www.pcgamingwiki.com/wiki/TrackMania_Sunrise#Game_does_not_launch_on_Windows_8_and_above
+- game_options:
+    filename: Default.SystemConfig.Gbx
+    url: https://www.dropbox.com/scl/fi/wbpsjvpwbk1j6xyh36l42/Default.SystemConfig.Gbx?rlkey=23b2890q7chf9jgu2btutq2hc&st=7nna69iy&dl=1
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  exe: drive_c/Program Files (x86)/TrackMania Sunrise/TMSUNRISE.EXE
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/TrackMania Sunrise/TmSunriseLauncher.exe
+    name: Launcher (use it only to enter serial number or change your graphic resolution,
+      nothing else)
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: TmSunriseSetup.exe
+- task:
+    description: Installing base game, let the default options and do not launch game,
+      just quit install
+    executable: $DISC/TmSunriseSetup.exe
+    name: wineexec
+    return_code: 256
+- task:
+    description: Installing extreme expansion, do not launch game, just quit
+    executable: game_dlc
+    name: wineexec
+    prefix: $GAMEDIR
+    return_code: 256
+- extract:
+    dst: $CACHE
+    file: game_upd
+- task:
+    description: Installing 1.5.1 update, do not launch game, just quit
+    executable: $CACHE/tmsx_150_to_151_cd_setup.exe
+    name: wineexec
+    return_code: 256
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)"; chmod -R +w "TrackMania Sunrise";
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/TrackMania Sunrise
+    file: game_patch
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/TrackMania Sunrise
+    src: game_options
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/TrackMania Sunrise
+    src: $CACHE/MS/x86/D3D9.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/TrackMania Sunrise
+    src: $CACHE/dgVoodoo.conf
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)/TrackMania
+      Sunrise"; sed -i -e s/dgVoodooWatermark.*/dgVoodooWatermark=false/ dgVoodoo.conf;
+      mkdir backup; mv TmSunrise.exe tms.exe backup;
+wine:
+  overrides:
+    d3d9: n,b
