@@ -28,7 +28,7 @@ installer:
     file: patch
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
-    file: wrapper_g
+    file: wrapper
 - write_config:
     data:
       ddraw:
