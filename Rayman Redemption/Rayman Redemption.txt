@@ -1,0 +1,13 @@
+files:
+- game_zip: N/A:Select zip file from https://gamejolt.com/games/raymanredemption/340532
+game:
+  exe: $GAMEDIR/drive_c/Rayman Redemption/Rayman Redemption.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Rayman Redemption
+    file: game_zip
