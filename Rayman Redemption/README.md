@@ -1,6 +1,6 @@
 # Rayman Redemption
 ### Description:
-Play "Rayman Reedemption" on Linux!
+Play "Rayman Redemption" on Linux!
 ### Technical notes:
 ### Credits:
 - Rayman Redemption: https://gamejolt.com/games/raymanredemption/340532
