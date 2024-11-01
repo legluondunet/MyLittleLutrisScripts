@@ -1,0 +1,71 @@
+files:
+- gogsetup: N/A:Select the installer from GOG
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/BetterRayman3.zip
+game:
+  exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/Rayman3.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/BR3_Config.exe
+    name: BetterRayman3 configuration
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - English: English
+    - French: "Fran\xE7ais"
+    - German: Deutsch
+    - Italian: Italiano
+    - Spanish: "Espa\xF1ol"
+    preselect: English
+- task:
+    description: Installing...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
+    src: $CACHE/MS/x86/D3D8.dll
+- write_config:
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 3/dgVoodoo.conf
+    key: dgVoodooWatermark
+    section: DirectX
+    value: false
+- write_config:
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 3/dgVoodoo.conf
+    key: FPSLimit
+    section: GeneralExt
+    value: 60
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
+    file: mod
+- write_config:
+    data:
+      BetterRayman3:
+        OuterDeadZone: 20
+      Rayman3:
+        Adapter: 0
+        Camera_HorizontalAxis: 2
+        Camera_VerticalAxis: 5
+        Gli_Mode: 1 - $RESOLUTION x 32
+        Identifier: 00000000-0001-0000-0000-000000000000
+        Language: $INPUT_LANG
+        TexturesCompressed: 0
+        TexturesQuality: 32
+        TnL: 0
+        TriLinear: 0
+        VignettesFile: Vignette.cnt
+    file: $GAMEDIR/drive_c/windows/Ubisoft/ubi.ini
+wine:
+  overrides:
+    d3d8: n,b
+    dinput8: n,b
+    winmm: n,b
