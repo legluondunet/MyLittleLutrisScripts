@@ -34,6 +34,13 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
     src: $CACHE/x32/d3d8.dll
+- write_file:
+    content: 'd3d9.allowDirectBufferMapping = true
+
+      d3d9.maxFrameRate = 60
+
+      dxgi.maxFrameRate = 60'
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 3/dxvk.conf
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
     file: mod
@@ -50,13 +57,12 @@ installer:
         Language: $INPUT_LANG
         TexturesCompressed: 0
         TexturesQuality: 32
-        TnL: 0
-        TriLinear: 0
+        TnL: 1
+        TriLinear: 1
         VignettesFile: Vignette.cnt
     file: $GAMEDIR/drive_c/windows/Ubisoft/ubi.ini
 system:
   env:
-    DXVK_FRAME_RATE: '60'
     DXVK_HUD: null
 wine:
   overrides:
