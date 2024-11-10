@@ -1,7 +1,7 @@
 files:
-- mod: N/A:Please select "Doom 64 CE 3.9.1" mod archive https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-391-full-download
+- mod: N/A:Please select "Doom 64 CE 3.10.2" mod archive https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-3102-full-download
 game:
-  exe: drive_c/Doom64_CE/ClientLauncherG.exe
+  exe: drive_c/Doom64_CE/gzdoom.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -18,7 +18,8 @@ installer:
     requires: doom64.wad
 - execute:
     command: unset LD_LIBRARY_PATH; ls "$DISC" | grep -i doom64.wad | xargs -I {}
-      cp "$DISC/{}" "$GAMEDIR/drive_c/Doom64_CE/doom64.wad";
+      cp "$DISC/{}" "$GAMEDIR/drive_c/Doom64_CE/doom64.wad"; cd "$GAMEDIR/drive_c/Doom64_CE";
+      sed -i '/pause/d' doom64-install.bat ;
 - task:
     description: extracting doom64.wad...
     executable: $GAMEDIR/drive_c/Doom64_CE/doom64-install.bat
