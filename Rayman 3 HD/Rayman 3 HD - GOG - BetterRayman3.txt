@@ -26,6 +26,7 @@ installer:
 - task:
     description: Installing...
     executable: gogsetup
+    args: args: /SP- /NOCANCEL  /SUPPRESSMSGBOXES /VERYSILENT /NOGUI /DIR="C:\GOG Games\Rayman 3"
     name: wineexec
     prefix: $GAMEDIR
 - extract:
