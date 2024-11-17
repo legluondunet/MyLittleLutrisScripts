@@ -2,11 +2,16 @@ files:
 - gogsetup: N/A:Select the installer from GOG
 - wrapper: https://github.com/doitsujin/dxvk/releases/download/v2.4.1/dxvk-2.4.1.tar.gz
 - mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/BetterRayman3.zip
+- raycp:
+    filename: rayman-cp.exe
+    url: https://github.com/RayCarrot/Raycarrot.RCP.Metro/releases/download/14.1.0.6/Rayman.Control.Panel.exe
 game:
   exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/Rayman3.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/BR3_Config.exe
     name: BetterRayman3 configuration
+  - exe: $GAMEDIR/drive_c/tools/rayman-cp.exe
+    name: Rayman Control Panel
   prefix: $GAMEDIR
 installer:
 - task:
@@ -62,6 +67,14 @@ installer:
         TriLinear: 1
         VignettesFile: Vignette.cnt
     file: $GAMEDIR/drive_c/windows/Ubisoft/ubi.ini
+- task:
+    description: Installing  Rayman Control Panel requirements...
+    name: winetricks
+    app: dotnet472
+    silent: true
+- copy:
+  file: raycp
+  dst: $GAMEDIR/drive_c/tools/rayman-cp.exe
 system:
   env:
     DXVK_HUD: null
