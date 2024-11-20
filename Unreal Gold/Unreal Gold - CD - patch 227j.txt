@@ -3,9 +3,9 @@ files:
 - patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/UPakFonts.tar.xz
 - linuxlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/unreal_gold_lib64.tar.xz
 game:
-  exe: drive_c/UnrealGold/System64/Unreal.exe
+  exe: drive_c/Unreal/System64/Unreal.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+  - exe: $GAMEDIR/drive_c/Unreal/System64/UnrealLinux.bin
     name: Unreal Linux native version
   prefix: $GAMEDIR
 installer:
@@ -25,15 +25,15 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/UnrealGold/lib64
+    dst: $GAMEDIR/drive_c/Unreal/lib64
     file: linuxlibs
 - extract:
-    dst: $GAMEDIR/drive_c/UnrealGold
+    dst: $GAMEDIR/drive_c/Unreal
     file: patch1
 - extract:
-    dst: $GAMEDIR/drive_c/UnrealGold/Textures
+    dst: $GAMEDIR/drive_c/Unreal/Textures
     file: patch2
-- chmodx: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.bin
+- chmodx: $GAMEDIR/drive_c/Unreal/System64/UnrealLinux.bin
 - input_menu:
     description: 'Choose your game''s language:'
     id: LANG
@@ -64,7 +64,7 @@ installer:
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/UnrealGold/System64/Default.ini
+    file: $GAMEDIR/drive_c/Unreal/System64/Default.ini
     merge: true
 - write_config:
     data:
@@ -72,7 +72,7 @@ installer:
         DefaultFOV: 106.4
         DesiredFOV: 106.4
         MainFOV: 106.4
-    file: $GAMEDIR/drive_c/UnrealGold/System64/DefUser.ini
+    file: $GAMEDIR/drive_c/Unreal/System64/DefUser.ini
     merge: true
 - write_config:
     data:
@@ -94,19 +94,19 @@ installer:
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
         WindowedViewportY: $RESOLUTION_HEIGHT
-    file: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
+    file: $GAMEDIR/drive_c/Unreal/System64/DefaultLinux.ini
     merge: true
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/UnrealGold/System64/Unreal.ini
+    src: $GAMEDIR/drive_c/Unreal/System64/Unreal.ini
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.ini
+    src: $GAMEDIR/drive_c/Unreal/System64/UnrealLinux.ini
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c/UnrealGold/System64/User.ini
+    src: $GAMEDIR/drive_c/Unreal/System64/User.ini
 system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: ''
-  prefix_command: LD_LIBRARY_PATH="$GAMEDIR/drive_c/UnrealGold/lib64"
+  prefix_command: LD_LIBRARY_PATH="$GAMEDIR/drive_c/Unreal/lib64"
