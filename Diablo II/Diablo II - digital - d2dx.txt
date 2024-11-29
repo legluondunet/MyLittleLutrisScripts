@@ -2,7 +2,7 @@ files:
 - wrapper: https://github.com/bolrog/d2dx/releases/download/0.99.529/d2dx.zip
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Diablo%20II/D2Patch_114d.exe
 game:
-  args: -3dfx -dxnocompatmodefix
+  args: -3dfx -dxnocompatmodefix -dxnoclipcursor
   exe: drive_c/Program Files (x86)/Diablo II/Game.exe
   prefix: $GAMEDIR
 installer:
