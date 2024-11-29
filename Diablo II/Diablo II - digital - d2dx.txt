@@ -20,7 +20,6 @@ installer:
     - deDE: German
     - esES: Spanish
     - plPL: Polish
-    - ruRU: Russian
     preselect: enUS
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Diablo II/"; wget --no-check-certificate
