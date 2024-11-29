@@ -22,8 +22,9 @@ installer:
     - plPL: Polish
     preselect: enUS
 - execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Diablo II/"; wget --no-check-certificate
-      -O diablo2_digital_$INPUT_LANG.exe "https://www.battle.net/download/getLegacy?product=D2DV&locale=$INPUT_LANG&os=WIN";
+    command: mkdir "$GAMEDIR/drive_c/Program Files (x86)/Diablo II"; cd "$GAMEDIR/drive_c/Program
+      Files (x86)/Diablo II"; wget --no-check-certificate -O diablo2_digital_$INPUT_LANG.exe
+      "https://www.battle.net/download/getLegacy?product=D2DV&locale=$INPUT_LANG&os=WIN";
       echo "INPUT_LANG = $INPUT_LANG"
 - task:
     description: InstallingDiablo II...Press OK and let all the default options, do
@@ -32,7 +33,7 @@ installer:
     name: wineexec
 - task:
     args: /desktop=DiabloIIupdate,640x480 "$patch"
-    description: Updating Diablo II to 1.14d...DO not press OK once update finished,
+    description: Updating Diablo II to 1.14d...Do not press OK once update finished,
       close the window instead.
     executable: $GAMEDIR/drive_c/windows/explorer.exe
     include_processes: explorer.exe
