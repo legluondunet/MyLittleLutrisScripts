@@ -1,0 +1,20 @@
+extends: diablo-ii-digital-d2dx
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Diablo%20II%20-%20Lord%20of%20Destruction/LODPatch_114d.exe
+installer:
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Diablo II"; d2_locale=$(cat
+      locale.txt); wget --no-check-certificate -O diablo2_digital_lod.exe "https://downloader.battle.net/download/getLegacy?os=win&locale=$d2_locale&product=D2XP";
+      echo "d2_locale = $d2_locale";
+- task:
+    description: InstallingDiablo II...Press OK and let all the default options, do
+      not execute game at the end of install, just close the launcher
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Diablo II/diablo2_digital_lod.exe
+    name: wineexec
+- task:
+    args: /desktop=DiabloIIupdate,640x480 "$patch"
+    description: Updating Diablo II to 1.14d...DO not press OK once update finished,
+      close the window instead.
+    executable: $GAMEDIR/drive_c/windows/explorer.exe
+    include_processes: explorer.exe
+    name: wineexec
