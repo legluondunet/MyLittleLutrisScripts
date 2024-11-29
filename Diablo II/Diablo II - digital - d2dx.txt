@@ -23,13 +23,12 @@ installer:
     preselect: enUS
 - execute:
     command: mkdir "$GAMEDIR/drive_c/Program Files (x86)/Diablo II"; cd "$GAMEDIR/drive_c/Program
-      Files (x86)/Diablo II"; wget --no-check-certificate -O diablo2_digital_$INPUT_LANG.exe
-      "https://www.battle.net/download/getLegacy?product=D2DV&locale=$INPUT_LANG&os=WIN";
-      echo "INPUT_LANG = $INPUT_LANG"
+      Files (x86)/Diablo II"; wget --no-check-certificate -O diablo2_digital.exe "https://www.battle.net/download/getLegacy?product=D2DV&locale=$INPUT_LANG&os=WIN";
+      echo $INPUT_LANG > locale.txt;
 - task:
     description: InstallingDiablo II...Press OK and let all the default options, do
       not execute game at the end of install, just close the launcher
-    executable: $GAMEDIR/drive_c/Program Files (x86)/Diablo II/diablo2_digital_$INPUT_LANG.exe
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Diablo II/diablo2_digital.exe
     name: wineexec
 - task:
     args: /desktop=DiabloIIupdate,640x480 "$patch"
