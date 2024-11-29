@@ -1,4 +1,4 @@
-# Diablo II - Digital
+# Diablo II - Digital + d2dx
 ### Description:
 Play "Diablo II" digital edition on Linux!
 ### Technical notes:
