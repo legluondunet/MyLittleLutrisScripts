@@ -1,0 +1,22 @@
+files:
+- gogsetup: N/A:Select the installer downloaded from GOG
+- mod: https://github.com/LostArtefacts/TRX/releases/download/latest/TR2X-0.6-228-g97ac10f-Windows.zip
+game:
+  exe: $GAMEDIR/drive_c/TR2X/TR2X.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/TR2X/
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/TR2X
+    file: mod
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/TR2X/music"; for i in *.ogg;
+      do filename=$(basename $i .ogg); ffmpeg -i $i $filename.flac; done;
