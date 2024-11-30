@@ -1,7 +1,7 @@
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
-- mod: https://github.com/LostArtefacts/TR1X/releases/download/4.1.2/TR1X-4.1.2-Linux.zip
+- mod: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.6.1/TR1X-4.6.1-Linux.zip
 - dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
 - audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
