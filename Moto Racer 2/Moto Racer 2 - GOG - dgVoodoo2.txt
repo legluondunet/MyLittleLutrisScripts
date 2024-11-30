@@ -37,7 +37,7 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
     src: $CACHE/MS/x86/D3DImm.dll
 - copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoobak.conf
+    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
     src: $CACHE/dgVoodooCpl.exe
 - write_file:
     content: '[DirectX]
