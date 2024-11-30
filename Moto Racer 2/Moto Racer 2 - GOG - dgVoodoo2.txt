@@ -28,25 +28,30 @@ installer:
     - gr: German
     preselect: us
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
+    dst: $CACHE
     file: wrapper
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/MS/x86/DDraw.dll
+    src: $CACHE/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/MS/x86/D3DImm.dll
-- move:
+    src: $CACHE/MS/x86/D3DImm.dll
+- copy:
     dst: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoobak.conf
-    src: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoo.conf
-- write_config:
-    data:
-      DirectX:
-        VRAM: 256
-        VideoCard: ati_radeon_8500
-        dgVoodooWatermark: false
-      GeneralExt:
-        DesktopBitDepth: 16
+    src: $CACHE/dgVoodooCpl.exe
+- write_file:
+    content: '[DirectX]
+
+      VRAM=256
+
+      VideoCard=ati_radeon_8500
+
+      dgVoodooWatermark=False
+
+
+      [GeneralExt]
+
+      DesktopBitDepth=16 '
     file: $GAMEDIR/drive_c/GOG Games/Moto Racer 2/dgVoodoo.conf
 - execute:
     command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/GOG Games/Moto Racer 2/data";
