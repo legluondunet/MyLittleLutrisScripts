@@ -2,10 +2,11 @@
 ### Description:
 Play "Tomb Raider I" provided by GOG on Linux! using TR1X open source project
 ### Technical notes:
+- Using TR1X open source project
 - Unfinished Business extension included
 - Gamepad natively supported
 ### Credits:
-- TR1X: https://github.com/LostArtefacts/TR1X
+- TR1X: https://github.com/LostArtefacts/TRX
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
@@ -14,10 +15,11 @@ Play "Tomb Raider I" provided by GOG on Linux! using TR1X open source project
 ### Description:
 Play "Tomb Raider I" provided by Steam on Linux! using TR1X open source project
 ### Technical notes:
+- Using TR1X open source project
 - Unfinished Business extension included
 - Gamepad natively supported
 ### Credits:
-- TR1X: https://github.com/LostArtefacts/TR1X
+- TR1X: https://github.com/LostArtefacts/TRX
 - other sources: https://www.tombraiderforums.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
