@@ -1,0 +1,29 @@
+files:
+- gogsetup: N/A:Please select the GOG installer
+game:
+  config_file: $GAMEDIR/dosbox_conf/dosbox_sotc_single.conf
+  main_file: dosbox_conf/dosbox_sotc.conf
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- input_menu:
+    description: Please choose your preferred game's text language
+    id: LANG
+    options:
+    - 0: "Fran\xE7ais"
+    - 1: English
+    - 2: "Espa\xF1ol"
+    - 3: Deutsch
+    - 4: Italiano
+    preselect: 1
+- merge:
+    dst: $GAMEDIR/dosbox_conf
+    src: $GAMEDIR/__support/app
+- execute:
+    command: cd $GAMEDIR; for i in {0,1,2,3,4}; do sed -i -e 's/\x30\x0'$i'\x04\x03/\x30\x0'$INPUT_LANG'\x04\x03/g'
+      "INFOGRAM/SHADOW.CD/SHADO_CD.CFG"; sed -i -e 's/\x30\x0'$i'\x04\x03/\x30\x0'$INPUT_LANG'\x04\x03/g'
+      "CD/SHADO_CD.CFG"; done; cd dosbox_conf; sed -i 's/output=overlay/output=opengl/g'
+      dosbox_sotc.conf; sed -i 's/aspect=false/aspect=true/g' dosbox_sotc.conf;
