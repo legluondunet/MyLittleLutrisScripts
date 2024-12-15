@@ -1,28 +1,40 @@
 files:
-- uplay: https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+- setup: N/A:Select the Windows installer downloaded from GOG
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/rct_multi5_exe.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/resolang.sh
+- config: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/RollerCoaster%20Tycoon%20Deluxe/Game.cfg
 game:
-  args: uplay://launch/46/0
-  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
+  exe: drive_c/GOG Games/RollerCoaster Tycoon Deluxe/RCT.EXE
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
+    description: Preparing wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
-- write_file:
-    content: "overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled:\
-      \ false\n  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close"
-    file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Ubisoft Game Launcher/settings.yaml
 - task:
-    app: arial
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    args: /S
-    executable: uplay
+    args: /SP- /SUPPRESSMSGBOXES
+    description: Installing...
+    executable: setup
     name: wineexec
     prefix: $GAMEDIR
-system:
-  env:
-    DXVK_FRAME_RATE: 60
-    DXVK_HUD: null
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    src: patch
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - ge: German
+    - it: Italian
+    - sp: Spanish
+    preselect: en
+- chmodx: script
+- execute:
+    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT $INPUT_LANG
+    file: script
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/RollerCoaster Tycoon Deluxe/Data
+    src: config
