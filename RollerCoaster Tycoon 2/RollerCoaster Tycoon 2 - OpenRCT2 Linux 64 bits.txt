@@ -1,7 +1,7 @@
 files:
 - engine:
     filename: OpenRCT2-linux-x86_64.AppImage
-    url: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.4.9/OpenRCT2-0.4.9-linux-x86_64.AppImage
+    url: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.4.17/OpenRCT2-v0.4.17-linux-x86_64.AppImage
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
 game:
