@@ -13,20 +13,22 @@ installer:
     requires: speed.exe
 - task:
     description: Installing "Need for Speed - Most Wanted - Black Edition"...Do not
-      start the start at the end of install, just exit.
+      start the game at the end of install, just exit.
     executable: $DISC/AutoRun.exe
     name: wineexec
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/backup
-    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    dst: $CACHE
     file: patch
 - task:
     description: Updating "Need for Speed - Most Wanted - Black Edition"...
-    executable: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most
-      Wanted/nfsmwpatch1.3.exe
+    executable: $CACHE/nfsmwpatch1.3.exe
     name: wineexec
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    src: $CACHE/speed.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     file: mod
