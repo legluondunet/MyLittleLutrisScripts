@@ -1,0 +1,35 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfs_mw_be_update.zip
+- mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsmw/NFSMostWanted.WidescreenFix.zip
+game:
+  exe: drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: speed.exe
+- task:
+    description: Installing "Need for Speed - Most Wanted - Black Edition"...Do not
+      start the start at the end of install, just exit.
+    executable: $DISC/AutoRun.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    file: patch
+- task:
+    description: Updating "Need for Speed - Most Wanted - Black Edition"...
+    executable: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most
+      Wanted/nfsmwpatch1.3.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    file: mod
+wine:
+  overrides:
+    dinput8: n,b
