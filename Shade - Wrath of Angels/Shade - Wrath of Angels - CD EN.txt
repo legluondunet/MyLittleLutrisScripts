@@ -1,0 +1,38 @@
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/Shade_1.01_patch.zip
+game:
+  exe: drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: shade.ico
+- task:
+    executable: $DISC/autorun.exe
+    name: wineexec
+    return_code: 256
+- task:
+    app: d3dxof
+    name: winetricks
+    silent: true
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/MISCMATH.DLL
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/ENGINE_MMX.DLL
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/ENGINE.DLL
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/EAX.DLL
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
+    file: patch
