@@ -1,5 +1,5 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/Shade_1.01_patch.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/Shade_patch_1.01.zip
 game:
   exe: drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
   prefix: $GAMEDIR
@@ -9,6 +9,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
+    description: Please insert and mount CD, then click on Autodetect or Browse
     requires: shade.ico
 - task:
     executable: $DISC/autorun.exe
