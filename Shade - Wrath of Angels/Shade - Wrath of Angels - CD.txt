@@ -1,5 +1,5 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/Shade_patch_1.01.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/patchs/shade_patch_1.01.zip
 game:
   exe: drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
   prefix: $GAMEDIR
