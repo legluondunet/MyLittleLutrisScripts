@@ -1,7 +1,7 @@
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/patchs/shade_patch_1.01.zip
 game:
-  exe: drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
+  exe: drive_c/Program Files (x86)/CENEGA/Shade/shade.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -19,21 +19,28 @@ installer:
     app: d3dxof
     name: winetricks
     silent: true
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade"; find .  -depth
+      -type d -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"'; find .  -depth
+      -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"';
+    return_code: 31488
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
-    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/SHADE.EXE
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/shade.exe
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
-    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/MISCMATH.DLL
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/miscmath.dll
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
-    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/ENGINE_MMX.DLL
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/engine_mmx.dll
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
-    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/ENGINE.DLL
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/engine.dll
 - move:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup1
-    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/EAX.DLL
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/eax.dll
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
     file: patch
