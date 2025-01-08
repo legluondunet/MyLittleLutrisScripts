@@ -1,0 +1,60 @@
+extends: shade-wrath-of-angels-cd
+files:
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/patchs/shade_patch_1.2.zip
+installer:
+- input_menu:
+    description: What is the country edition of Shade - Wrath of Angels install you
+      want to update?
+    id: LANG
+    options:
+    - us: United States
+    - uk: England
+    - sp: Spain
+    preselect: us
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/backup
+- extract:
+    dst: $CACHE/data00
+    file: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/data00.res
+    format: zip
+- execute:
+    command: cd "$CACHE/data00"; find . -depth -type d -print0 | xargs -0n 1 bash
+      -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename "$0"|tr
+      "[A-Z]" "[a-z]"); mv -f "$s" "$d"'; find .  -depth -type f -print0 | xargs -0n
+      1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename
+      "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"';cd ..; echo $INPUT_LANG; wget --no-check-certificate
+      "https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Shade%20-%20Wrath%20of%20Angels/updates/shade_update_"$INPUT_LANG"_120.exe"
+      -O shade_update_120.exe;
+    description: Processing game files, pease wait...
+    return_code: 31488
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
+    src: $CACHE/data00
+- task:
+    executable: $CACHE/shade_update_120.exe
+    name: wineexec
+- extract:
+    dst: $CACHE/data01
+    file: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/data01.res
+    format: zip
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade"; rm -f -r *.DLL
+      SHADE.EXE; cd "$CACHE/data01"; find . -depth -type d -print0 | xargs -0n 1 bash
+      -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename "$0"|tr
+      "[A-Z]" "[a-z]"); mv -f "$s" "$d"'; find .  -depth -type f -print0 | xargs -0n
+      1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename
+      "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"';
+    return_code: 31488
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
+    src: $CACHE/data01
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
+    file: patch
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/data00.res
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade/data01.res
