@@ -9,8 +9,8 @@ installer:
     options:
     - us: United States
     - uk: England
-    - sp: Spain
     - de: Germany
+    - sp: Spain
     preselect: us
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/CENEGA/Shade
