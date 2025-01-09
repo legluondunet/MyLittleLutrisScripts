@@ -1,8 +1,6 @@
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
-- gogupdate: N/A:Please select the Windows patch exe file downloaded from your GOG
-    account called "Bonus DLC + hotfix" https://www.gog.com/downloads/dragon_age_origins/en1patch2
 game:
   exe: drive_c/GOG Games/Dragon Age Origins/DAOriginsLauncher.exe
   prefix: $GAMEDIR
@@ -22,8 +20,4 @@ installer:
 - task:
     app: physx
     name: winetricks
-    prefix: $GAMEDIR
-- task:
-    executable: gogupdate
-    name: wineexec
     prefix: $GAMEDIR
