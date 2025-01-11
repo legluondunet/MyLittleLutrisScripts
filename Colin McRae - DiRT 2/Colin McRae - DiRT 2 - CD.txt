@@ -1,0 +1,15 @@
+game:
+  exe: drive_c/Program Files (x86)/Codemasters/DiRT2/dirt2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: french/readme.gif
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/Autorun.exe
+    name: wineexec
