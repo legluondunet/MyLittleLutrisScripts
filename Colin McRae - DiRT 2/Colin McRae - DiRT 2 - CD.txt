@@ -1,3 +1,7 @@
+files:
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Colin%20McRae%20-%20DiRT%202/cmrd2_patch.zip
+- game_update: N/A:Please download and select Colin McRae - DiRT 2 1.1 update archive
+    from https://www.moddb.com/games/colin-mcrae-dirt-2/downloads/patch-1-1-9
 game:
   exe: drive_c/Program Files (x86)/Codemasters/DiRT2/dirt2.exe
   prefix: $GAMEDIR
@@ -8,8 +12,13 @@ installer:
     prefix: $GAMEDIR
 - insert-disc:
     requires: french/readme.gif
+- extract:
+    dst: $CACHE
+    file: game_update
 - task:
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults
-    executable: $DISC/Autorun.exe
+    description: Updating game to 1.1...
+    executable: $CACHE/dirt2_efigs_1_1.exe
     name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Codemasters/DiRT2
+    file: game_patch
