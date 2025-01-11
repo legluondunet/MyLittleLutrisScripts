@@ -32,5 +32,3 @@ all scripts tested and should be compatible on
 - Arch (Manjaro, Endeavior...)
 - Fedora
 - OpenSUSE Tumbleweed
-
-and superior version.
