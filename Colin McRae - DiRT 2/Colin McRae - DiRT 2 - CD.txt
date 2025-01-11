@@ -12,6 +12,11 @@ installer:
     prefix: $GAMEDIR
 - insert-disc:
     requires: french/readme.gif
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults
+    executable: $DISC/Autorun.exe
+    name: wineexec
 - extract:
     dst: $CACHE
     file: game_update
