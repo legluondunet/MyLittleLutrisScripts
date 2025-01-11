@@ -28,9 +28,9 @@ Vous pouvez ici déclarer un bug ou proposer une modification pour l'un de mes s
 ## Supported Linux distributions (>= GLIBC 2.7)
 all scripts tested and should be compatible on 
 
-- Ubuntu 22.04
-- Arch (Manjaro 22, Endeavior...)
-- Fedora 38
+- Ubuntu
+- Arch (Manjaro, Endeavior...)
+- Fedora
 - OpenSUSE Tumbleweed
 
 and superior version.
