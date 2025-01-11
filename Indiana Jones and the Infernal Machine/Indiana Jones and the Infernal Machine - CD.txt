@@ -1,1 +1,18 @@
-
+files:
+- installer: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Indiana%20Jones%20and%20the%20Infernal%20Machine/x64-Installer_by-replaying.zip
+game:
+  exe: drive_c/Games/Indiana Jones and the Infernal Machine/Jones3D.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: installer
+- task:
+    description: Installing game...please let all options to default
+    executable: $CACHE/Indiana Jones 5 Installer.exe
+    name: wineexec
