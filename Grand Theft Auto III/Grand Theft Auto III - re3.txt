@@ -35,4 +35,6 @@ installer:
     data:
       General:
         Language: $INPUT_LANG
+      Display:
+        Subtitles: 1
     file: $GAMEDIR/drive_c/GTAIII/re3.ini
