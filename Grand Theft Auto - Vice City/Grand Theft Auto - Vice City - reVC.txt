@@ -1,0 +1,40 @@
+files:
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Grand%20Theft%20Auto%20-%20Vice%20City/reVC_Release_win-amd64-librw_d3d9-oal.zip
+game:
+  exe: drive_c/GTAVC/reVC.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please browse folder where is located your "Grand Theft Auto III"
+      install. Autodetect will not work here, use "Browse" button.
+    requires: gta-vc.exe
+- merge:
+    dst: $GAMEDIR/drive_c/GTAVC
+    src: $DISC
+- extract:
+    dst: $GAMEDIR/drive_c/GTAVC
+    file: engine
+- input_menu:
+    description: 'Please choose your preferred game''s language for menu and subtitles:'
+    id: LANG
+    options:
+    - 0: English
+    - 1: French
+    - 2: German
+    - 3: Italian
+    - 4: Spanish
+    - 5: Polish
+    - 6: Russian
+    - 7: Japanese
+    preselect: 0
+- write_config:
+    data:
+      Display:
+        Subtitles: 1
+      General:
+        Language: $INPUT_LANG
+    file: $GAMEDIR/drive_c/GTAVC/reVC.ini
