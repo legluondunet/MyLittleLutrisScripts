@@ -5,6 +5,9 @@ files:
 - xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
 game:
   exe: drive_c/UbiSoft/Rayman2/Rayman2.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/UbiSoft/Rayman2/R2FixCfg.exe
+    name: Ray2Fix
   prefix: $GAMEDIR
 installer:
 - task:
