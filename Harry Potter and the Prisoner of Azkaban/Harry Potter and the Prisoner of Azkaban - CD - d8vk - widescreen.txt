@@ -21,8 +21,8 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/EA GAMES"; if [ -d "Harry Potter
       and the Prisoner of Azkaban(TM)" ]; then exit; else gamepath=$(find . -maxdepth
-      1 -type d -iname "*azkaban*"); gamepath=$(basename "$gamepath"); ln -s "$gamepath"
-      "Harry Potter and the Prisoner of Azkaban(TM)"; fi;
+      1 -type d -iname "*azkaban*" -or -iname "*askaban*"); gamepath=$(basename "$gamepath");
+      ln -s "$gamepath" "Harry Potter and the Prisoner of Azkaban(TM)"; fi;
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/hppoa.bak
