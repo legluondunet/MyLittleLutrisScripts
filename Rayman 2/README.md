@@ -1,4 +1,4 @@
-# Rayman 2 - GOG
+# Rayman 2 - GOG - Widescreen
 ### Description:
 Play "Rayman 2" provided by GOG on Linux!
 ### Technical notes:
