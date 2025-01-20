@@ -2,7 +2,6 @@ files:
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%202/rayman2_patch.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.0/Ray2Fix_1.4.0.zip
-- xidi: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%202/xidi_rayman_2.tar.xz
 game:
   exe: drive_c/UbiSoft/Rayman2/Rayman2.exe
   launch_configs:
@@ -42,9 +41,6 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
     src: $CACHE/3Dfx/x86/Glide2x.dll
-- extract:
-    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
-    file: xidi
 - merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/Dll
     src: $GAMEDIR/drive_c/UbiSoft/Rayman2/DLL
