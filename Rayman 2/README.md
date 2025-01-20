@@ -17,7 +17,7 @@ Play "Rayman 2" provided by GOG on Linux!
 Play "Rayman 2" provided by GOG on Linux!
 ### Technical notes:
 - Using Ray2Fix that provides dgVoodoo2 for better graphic performance and stability, widescreen support and xidi for modern gamepad support
-- This game does not support very well Alt+Tab. Workaround: use Gamescope
+- At first launch, the game will launch in windowed. Choose your preferred language, then in menu select Ray2Fix to change to enable fullscreen and Widescreen mode
 ### Credits:
 - Ray2Fix: https://github.com/spitfirex86/Ray2Fix
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
