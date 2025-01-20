@@ -19,7 +19,7 @@ installer:
     format: gog
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
-    src: mod
+    file: mod
 - write_config:
     data:
       Ray2Fix:
@@ -40,13 +40,9 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
     src: $CACHE/3Dfx/x86/Glide2x.dll
 - execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; rm -f -r __support 3Dfx* glide*
-      goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip Offset* DDraw.dll
-      D3DImm.dll ;
-system:
-  gamescope: true
-  gamescope_game_res: $RESOLUTION
-  gamescope_output_res: $RESOLUTION
+    command: cd "$GAMEDIR/drive_c/GOG Games/Rayman 2"; sed -i "s/FullscreenAttributes\
+      .*/FullscreenAttributes=fake/" dgVoodoo.conf; rm -f -r __support 3Dfx* D3DImm.dll
+      DDraw.dll glide* goggame* GXSetup.exe nglide_* nGlideEULA.txt webcache.zip ;
 wine:
   overrides:
     dinput: n,b
