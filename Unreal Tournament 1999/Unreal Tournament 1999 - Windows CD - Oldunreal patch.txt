@@ -1,6 +1,6 @@
 files:
-- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Windows.zip
-- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2
+- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc4/OldUnreal-UTPatch469e-Windows.zip
+- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc4/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2
 game:
   exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   launch_configs:
