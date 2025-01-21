@@ -1,0 +1,54 @@
+files:
+- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Grand%20Theft%20Auto%20III/SilentPatchIII.zip
+- mod2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Grand%20Theft%20Auto%20III/GTA3.WidescreenFix.zip
+- mod3: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Grand%20Theft%20Auto%20III/GInputIII.zip
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Grand%20Theft%20Auto%20III/gta3_update.zip
+game:
+  exe: drive_c/Program Files (x86)/Rockstar Games/GTAIII/gta3.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: setup.bmp
+- task:
+    app: winxp
+    description: Setting winver to xp
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    description: Installing Grand Theft Auto III...
+    executable: $DISC/Setup.exe
+    name: wineexec
+- task:
+    name: winekill
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Insert Disc 2
+    requires: Audio/yd_ph4.mp3
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/GTAIII/audio
+    src: $DISC/Audio
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/GTAIII
+    file: game_update
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/GTAIII
+    file: mod1
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/GTAIII
+    file: mod2
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Rockstar Games/GTAIII
+    file: mod3
+- task:
+    app: win10
+    description: Setting winver to win10
+    name: winetricks
+    prefix: $GAMEDIR
+wine:
+  overrides:
+    d3d8: n,b
