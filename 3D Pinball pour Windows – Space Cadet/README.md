@@ -9,8 +9,9 @@ Play "3D Pinball for Windows: Space Cadet" on Linux!
 
 # 3D Pinball for Windows – Space Cadet - SpaceCadetPinball - Flatpak
 ### Description:
-"3D Pinball for Windows: Space Cadet" using SpaceCadetPinball open source project
+Play "3D Pinball for Windows: Space Cadet" on Linux!
 ### Technical notes:
+- Using SpaceCadetPinball open source engine
 - Requires Flatpak to be installed on the system
 - Unofficial Flatpak Version
 ### Credits:
