@@ -1,0 +1,17 @@
+files:
+- game_engine: https://github.com/k4zmu2a/SpaceCadetPinball/releases/download/Release_2.1.0/SpaceCadetPinballx64Win.zip
+- game_data: https://www.dropbox.com/s/hjbsyr4ulbpmpcq/3D%20Pinball%20pour%20Windows%20%E2%80%93%20Space%20Cadet.zip?dl=1
+game:
+  exe: drive_c/SpaceCadetPinbal/SpaceCadetPinball.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/SpaceCadetPinbal
+    file: game_engine
+    format: zip
+- extract:
+    dst: $GAMEDIR/drive_c/SpaceCadetPinbal
+    src: game_data
