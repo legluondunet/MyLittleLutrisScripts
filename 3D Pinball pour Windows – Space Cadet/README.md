@@ -1,8 +1,8 @@
-# 3D Pinball for WIndows – Space Cadet - SpaceCadetPinball - Linux
+# 3D Pinball for WIndows – Space Cadet - SpaceCadetPinball - Wine
 ### Description:
-"3D Pinball for Windows: Space Cadet" using SpaceCadetPinball open source project
+Play "3D Pinball for Windows: Space Cadet" on Linux!
 ### Technical notes:
-- SpaceCadetPinball compiled from Git - commit e466bba - 13 april 2023
+- Using SpaceCadetPinball open source engine
 ### Credits:
 - SpaceCadetPinball: https://github.com/k4zmu2a/SpaceCadetPinball
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
