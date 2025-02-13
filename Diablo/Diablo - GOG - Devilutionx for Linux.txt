@@ -1,6 +1,6 @@
 files:
 - gogsetup: N/A:Select the EXE downloaded from GOG
-- port: https://github.com/diasurgical/devilutionX/releases/download/1.5.2/devilutionx-linux-x86_64.appimage
+- engine: https://github.com/diasurgical/devilutionX/releases/latest/download/devilutionx-linux-x86_64.appimage
 game:
   args: --save-dir . --config-dir .
   exe: $GAMEDIR/devilutionx-linux-x86_64.appimage
@@ -18,7 +18,7 @@ installer:
     src: $CACHE/DIABDAT.MPQ
 - copy:
     dst: $GAMEDIR
-    src: port
+    src: engine
 - chmodx: $GAMEDIR/devilutionx-linux-x86_64.appimage
 - execute:
     command: cd "$CACHE"; cp *.PDF "$GAMEDIR"; cd "$GAMEDIR"; rm -f -r *.dll language.inf
