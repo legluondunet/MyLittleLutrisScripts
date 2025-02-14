@@ -1,0 +1,17 @@
+files:
+- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-0.9/TR2X-0.9-Linux.zip
+- gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
+    GOG account
+game:
+  exe: $GAMEDIR/TR2X
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR
+    src: engine
+- execute:
+    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/music"; for i in *.ogg; do filename=$(basename
+      $i .ogg); ffmpeg -i $i $filename.flac; done;
