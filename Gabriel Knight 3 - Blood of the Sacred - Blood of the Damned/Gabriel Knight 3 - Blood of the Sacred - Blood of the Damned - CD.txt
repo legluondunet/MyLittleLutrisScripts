@@ -1,1 +1,16 @@
-
+files:
+- gk3_installer: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Gabriel%20Knight%203%20-%20Blood%20of%20the%20Sacred%20-%20Blood%20of%20the%20Damned/GK3Setup.zip
+game:
+  exe: drive_c/Sierra/Gabriel Knight 3/GK3.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c
+    file: gk3_installer
+- task:
+    executable: $GAMEDIR/drive_c/GK3Setup.exe
+    name: wineexec
