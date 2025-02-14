@@ -1,7 +1,7 @@
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from GOG
-- mod: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.6.1/TR1X-4.6.1-Linux.zip
+- mod: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.8/TR1X-4.8-Linux.zip
 - dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
 - audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
@@ -16,21 +16,21 @@ installer:
     file: gogsetup
     format: gog
 - extract:
-    dst: $GAMEDIR/tmp/Tomb Raider 1
+    dst: $GAMEDIR/tmp/Tomb Raider 1/Tomb Raider 1
     src: cdrtools
 - execute:
-    command: cd "$GAMEDIR/tmp/Tomb Raider 1"; ./bin2iso game.cue -c GAME.GOG ;./bin2iso
-      game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi;
-      echo $cd; ./7z x -y $cd;
+    command: cd "$GAMEDIR/tmp/Tomb Raider 1/Tomb Raider 1"; ./bin2iso game.cue -c
+      GAME.GOG ;./bin2iso game.cue; if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso;
+      else  cd=GAME.GOG; fi; echo $cd; ./7z x -y $cd;
 - merge:
     dst: $GAMEDIR/TR1X/DATA
-    src: $GAMEDIR/tmp/Tomb Raider 1/DATA
+    src: $GAMEDIR/tmp/Tomb Raider 1/Tomb Raider 1/DATA
 - extract:
     dst: $GAMEDIR/TR1X/DATA
     file: dlc
 - merge:
     dst: $GAMEDIR/TR1X/FMV
-    src: $GAMEDIR/tmp/Tomb Raider 1/FMV
+    src: $GAMEDIR/tmp/Tomb Raider 1/Tomb Raider 1/FMV
 - extract:
     dst: $GAMEDIR/TR1X
     file: mod
