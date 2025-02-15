@@ -2,6 +2,9 @@ files:
 - gk3_installer: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Gabriel%20Knight%203%20-%20Blood%20of%20the%20Sacred%20-%20Blood%20of%20the%20Damned/GK3Setup.zip
 game:
   exe: drive_c/Sierra/Gabriel Knight 3/GK3.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3/Configure GK3.exe
+    name: Configure Graphic Resolution
   prefix: $GAMEDIR
 installer:
 - task:
@@ -14,3 +17,43 @@ installer:
 - task:
     executable: $GAMEDIR/drive_c/GK3Setup.exe
     name: wineexec
+- task:
+    key: Gamma
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Hardware
+    type: REG_SZ
+    value: '2.579442'
+- task:
+    key: Surface Quality
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Hardware
+    type: REG_SZ
+    value: High
+- task:
+    key: Lod
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Hardware
+    type: REG_DWORD
+    value: 0000002e
+- task:
+    key: Camera Glide
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Engine
+    type: REG_DWORD
+    value: '00000001'
+- input_menu:
+    description: 'Please precise what is your CD language:'
+    id: LANG
+    options:
+    - E: English
+    - F: French
+    - I: Italian
+    - G: German
+    - S: Spanish
+    preselect: E
+- task:
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Sierra On-Line\Gabriel Knight 3\app
+    type: REG_SZ
+    value: $INPUT_LANG
