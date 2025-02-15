@@ -1,10 +1,13 @@
 files:
-- gk3_installer: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Gabriel%20Knight%203%20-%20Blood%20of%20the%20Sacred%20-%20Blood%20of%20the%20Damned/GK3Setup.zip
+- game_installer: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Gabriel%20Knight%203%20-%20Blood%20of%20the%20Sacred%20-%20Blood%20of%20the%20Damned/GK3Setup.zip
+- g_wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
 game:
   exe: drive_c/Sierra/Gabriel Knight 3/GK3.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3/Configure GK3.exe
     name: Configure Graphic Resolution
+  - exe: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3/GK3_Graphic_Novel.pdf
+    name: Graphic Novel
   prefix: $GAMEDIR
 installer:
 - task:
@@ -13,7 +16,7 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c
-    file: gk3_installer
+    file: game_installer
 - task:
     executable: $GAMEDIR/drive_c/GK3Setup.exe
     name: wineexec
@@ -34,13 +37,13 @@ installer:
     name: set_regedit
     path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Hardware
     type: REG_DWORD
-    value: 0000002e
+    value: '64'
 - task:
     key: Camera Glide
     name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine\Engine
+    path: HKEY_CURRENT_USER\Software\Sierra On-Line\Gabriel Knight 3\Engine
     type: REG_DWORD
-    value: '00000001'
+    value: '1'
 - input_menu:
     description: 'Please precise what is your CD language:'
     id: LANG
@@ -57,3 +60,20 @@ installer:
     path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Sierra On-Line\Gabriel Knight 3\app
     type: REG_SZ
     value: $INPUT_LANG
+- extract:
+    dst: $CACHE
+    file: g_wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3
+    src: $CACHE/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3
+    src: $CACHE/MS/x86/D3DImm.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/Sierra/Gabriel Knight 3/dgVoodoo.conf
+wine:
+  overrides:
+    ddraw: native, builtin
