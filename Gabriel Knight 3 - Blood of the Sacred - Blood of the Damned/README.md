@@ -7,4 +7,5 @@ Play "Gabriel Knight 3: Blood of the Sacred, Blood of the Damned" CD edition on 
 - This script installer should be compatible with English, French, Italian, German and Spanish CD. You will need to precise your language CD during install
 ### Credits:
 - New Gabriel Knight 3 installer: http://www.sierrahelp.com/Patches-Updates/NewSierraInstallers.html#GK3
+- dgVoodoo2: http://www.dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
