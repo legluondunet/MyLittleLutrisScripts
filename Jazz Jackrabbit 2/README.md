@@ -13,7 +13,7 @@ Play "Jazz Jackrabbit 2: JJ2+" provided by GOG on Linux!
 ### Description:
 Play "Jazz Jackrabbit 2 - The Secret Files" provided by GOG on Linux!
 ### Technical notes:
-- Using "Jazz2 Resurrection" open source project
+- Using "Jazz2 Resurrection" open source engine
 ### Credits:
 - Jazz2 Resurrection: https://github.com/deathkiller/jazz2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
