@@ -1,0 +1,31 @@
+files:
+- gogsetup: N/A:Please select the installer downloaded from GOG.
+- engine: https://github.com/dkfans/keeperfx/releases/download/v1.2.0/keeperfx_1_2_0_complete.7z
+game:
+  exe: $GAMEDIR/drive_c/KeeperFX/keeperfx.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/KeeperFX/launcher.exe
+    name: Configuration
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: $gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/KeeperFX
+    file: $engine
+    format: 7z
+- merge:
+    dst: $GAMEDIR/drive_c/KeeperFX/data
+    src: $CACHE/DATA
+- merge:
+    dst: $GAMEDIR/drive_c/KeeperFX/sound
+    src: $CACHE/SOUND
+- execute:
+    command: cd "$CACHE"; mv *.ogg "$GAMEDIR/drive_c/KeeperFX/music";
