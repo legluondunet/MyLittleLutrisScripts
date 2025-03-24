@@ -2,7 +2,8 @@
 ### Description:
 Play "Dungeon Keeper" provided by GOG on Linux!
 ### Technical notes:
-- using KeeperFX open source engine
+- Using KeeperFX open source engine
+- You can choose your preferred language during install between English, French, Italian, Spanish, Nederland, German, Polish, Swedish, Japan, Russian, Czech or Sermo Latinus
 ### Credits:
 - KeeperFX: https://github.com/dkfans/keeperfx
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
