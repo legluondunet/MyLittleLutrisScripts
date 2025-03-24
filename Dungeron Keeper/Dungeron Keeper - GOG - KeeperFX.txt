@@ -27,5 +27,23 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/KeeperFX/sound
     src: $CACHE/SOUND
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - ENG: English
+    - FRE: French
+    - ITA: Italian
+    - SPA: Spanish
+    - DUT: Nederland
+    - GER: German
+    - POL: Polish
+    - SWE: Swedish
+    - JAP: Japan
+    - RUS: Russian
+    - CZE: Czech
+    - LAT: Sermo Latinus
+    preselect: ENG
 - execute:
-    command: cd "$CACHE"; mv *.ogg "$GAMEDIR/drive_c/KeeperFX/music";
+    command: cd "$CACHE"; cp *.ogg "$GAMEDIR/drive_c/KeeperFX/music"; sed -i s/LANGUAGE=.*/LANGUAGE=$INPUT_LANG/
+      "$GAMEDIR/drive_c/KeeperFX/keeperfx.cfg";
