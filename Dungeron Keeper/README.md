@@ -1,4 +1,4 @@
-# Dungeron Keeper - GOG - KeeperFX
+# Dungeon Keeper - GOG - KeeperFX
 ### Description:
 Play "Dungeon Keeper" provided by GOG on Linux!
 ### Technical notes:
