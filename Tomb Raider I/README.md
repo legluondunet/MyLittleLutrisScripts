@@ -3,7 +3,7 @@
 Play "Tomb Raider I" provided by GOG on Linux!
 ### Technical notes:
 - Using TR1X open source engine
-- Unfinished Business extension included
+- "Unfinished Business" extension included
 ### Credits:
 - TR1X: https://github.com/LostArtefacts/TRX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
