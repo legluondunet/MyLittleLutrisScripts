@@ -42,4 +42,4 @@ installer:
     file: audiotracks
 - chmodx: $GAMEDIR/TR1X
 - execute:
-    command: cd "$GAMEDIR" ; rm -f -r TR1X/DATA;
+    command: cd "$GAMEDIR" ; rm -f -r tmp TR1X/DATA;
