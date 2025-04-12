@@ -1,8 +1,13 @@
 files:
-- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-0.9/TR2X-0.9-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/latest/TR2X-0.10-188-g9b073d6-Linux.zip
 - steam_data: $STEAM:225300:/
+- dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
 game:
   exe: $GAMEDIR/TR2X
+  launch_configs:
+  - args: -gold
+    exe: $GAMEDIR/TR2X
+    name: Tomb Raider 2 - The Golden Mask
 installer:
 - merge:
     dst: $GAMEDIR
@@ -10,3 +15,6 @@ installer:
 - extract:
     dst: $GAMEDIR
     src: engine
+- extract:
+    dst: $GAMEDIR/data
+    src: dlc
