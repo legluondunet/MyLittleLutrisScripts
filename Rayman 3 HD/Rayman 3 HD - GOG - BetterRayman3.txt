@@ -1,6 +1,5 @@
 files:
 - gogsetup: N/A:Select the installer from GOG
-- wrapper: https://github.com/doitsujin/dxvk/releases/download/v2.4.1/dxvk-2.4.1.tar.gz
 - mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/BetterRayman3.zip
 game:
   exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/Rayman3.exe
@@ -29,19 +28,6 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: wrapper
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
-    src: $CACHE/x32/d3d8.dll
-- write_file:
-    content: 'd3d9.allowDirectBufferMapping = true
-
-      d3d9.maxFrameRate = 60
-
-      dxgi.maxFrameRate = 60'
-    file: $GAMEDIR/drive_c/GOG Games/Rayman 3/dxvk.conf
-- extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
     file: mod
 - write_config:
@@ -66,6 +52,5 @@ system:
     DXVK_HUD: null
 wine:
   overrides:
-    d3d8: n,b
     dinput8: n,b
     winmm: n,b
