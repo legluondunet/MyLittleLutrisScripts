@@ -6,7 +6,7 @@ Play "Tomb Raider II" provided by GOG on Linux!
 - "The Golden Mask" extension included
 ### Credits:
 - TR2X: https://github.com/LostArtefacts/TRX
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider II - Steam + TR2X
@@ -17,7 +17,7 @@ Play "Tomb Raider II" provided by Steam on Linux!
 - "The Golden Mask" extension included
 ### Credits:
 - TR2X: https://github.com/LostArtefacts/TRX
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider II - GOG - TR2Main
