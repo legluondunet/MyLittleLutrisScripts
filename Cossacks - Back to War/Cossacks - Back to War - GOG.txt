@@ -1,0 +1,29 @@
+files:
+- goginstaller: N/A:Select the game's setup file
+- wrapper: https://github.com/user-attachments/files/16568804/cnc-ddraw_cossacks.zip
+- wrapper2: https://github.com/FunkyFr3sh/cnc-ddraw/releases/latest/download/proxy-dlls.zip
+game:
+  exe: drive_c/GOG Games/Cossacks - Back To War/Launch Cossacks - Back To War.lnk
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating wine prefix
+    name: create_prefix
+- task:
+    description: Running GOG installer
+    executable: goginstaller
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Cossacks - Back To War
+    file: wrapper
+- extract:
+    dst: $CACHE
+    file: wrapper2
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Cossacks - Back To War
+    src: $CACHE/Cossacks and American Conquest/dplayx.dll
+wine:
+  overrides:
+    ddraw: n,b
+    dplayx: n,b
