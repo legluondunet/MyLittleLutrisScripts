@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/LostArtefacts/TRX/releases/download/latest/TR2X-0.10-185-gf258d6d-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-1.0/TR2X-1.0-Linux.zip
 - gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
     GOG account
 - dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
@@ -8,7 +8,7 @@ game:
   launch_configs:
   - args: -gold
     exe: $GAMEDIR/TR2X/TR2X
-    name: Tomb Raider 2 - The Golden Mask
+    name: Tomb Raider II - The Golden Mask
 installer:
 - extract:
     dst: $GAMEDIR/tmp
@@ -33,5 +33,6 @@ installer:
     dst: $GAMEDIR/TR2X/music
     src: $GAMEDIR/tmp/music
 - chmodx: $GAMEDIR/TR2X/TR2X
-- execute:
-    command: cd "$GAMEDIR" ; rm -f -r tmp;
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/tmp
