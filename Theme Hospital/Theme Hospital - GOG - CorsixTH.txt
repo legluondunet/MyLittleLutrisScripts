@@ -2,6 +2,7 @@ files:
 - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
 - engine: https://github.com/CorsixTH/CorsixTH/releases/download/v0.68.0/CorsixTH-0.68-Windows-x64.zip
 - cfg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
+- th_music-rx: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
 game:
   exe: drive_c/CorsixTH/CorsixTH.exe
   prefix: $GAMEDIR
@@ -18,6 +19,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/CorsixTH
     file: engine
+- extract:
+    dst: $GAMEDIR/drive_c/CorsixTH/music
+    file: th_music-rx
 - merge:
     dst: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH
     src: cfg_file
@@ -38,6 +42,7 @@ installer:
     - es: Spanish
     preselect: en
 - execute:
-    command: sed -i -e "s=../app/=c:\\\TH=g" -e "s/width = .*/width = $RESOLUTION_WIDTH/g"
-      -e "s/height = .*/height = $RESOLUTION_HEIGHT/g" -e "s/.*language.*/language
-      = [[$INPUT_LANG]]/g" "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH/config.txt"
+    command: sed -i -e "s=../app/=c:\\\TH=g" -e "s/.*language.*/language = [[$INPUT_LANG]]/g"
+      -e "s/audio_music.*/audio_music = [[C:\\\CorsixTH\\\music]]/g" -e "s/width =
+      .*/width = $RESOLUTION_WIDTH/g" -e "s/height = .*/height = $RESOLUTION_HEIGHT/g"
+      "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH/config.txt"
