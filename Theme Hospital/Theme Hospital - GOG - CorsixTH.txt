@@ -1,0 +1,43 @@
+files:
+- gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
+- engine: https://github.com/CorsixTH/CorsixTH/releases/download/v0.68.0/CorsixTH-0.68-Windows-x64.zip
+- cfg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
+game:
+  exe: drive_c/CorsixTH/CorsixTH.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating 64bit Wine prefix.
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/TH
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/CorsixTH
+    file: engine
+- merge:
+    dst: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH
+    src: cfg_file
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - de: German
+    - da: Danish
+    - fi: Finnish
+    - en: English
+    - fr: French
+    - it: Italian
+    - pt: Portuguese
+    - br: Brazilian Portuguese
+    - sv: Swedish
+    - nb: Norwegian
+    - es: Spanish
+    preselect: en
+- execute:
+    command: sed -i -e "s=../app/=c:\\\TH=g" -e "s/width = .*/width = $RESOLUTION_WIDTH/g"
+      -e "s/height = .*/height = $RESOLUTION_HEIGHT/g" -e "s/.*language.*/language
+      = [[$INPUT_LANG]]/g" "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH/config.txt"
