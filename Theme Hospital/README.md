@@ -1,12 +1,12 @@
-# Theme Hospital - GOG - CorsixTH Flatpak
+# Theme Hospital - GOG - CorsixTH
 ### Description:
-Play "Theme Hospital" provided by GOG on Linux! using "CorsixTH" open source engine
+Play "Theme Hospital" provided by GOG on Linux!
 ### Technical notes:
-- You will need to give rights access CorsixTH to your filesystem using Flatseal app
+- Using "CorsixTH" open source engine
 - Multilanguage: choose your preferred language for interface and game texts between German, Danish, Finnish, English, French, Italian, Portuguese, Brazilian Portuguese, Swedish, Norwegian and Spanish
 ### Credits:
 - CorsixTH: https://github.com/CorsixTH/CorsixTH
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Theme Hospital - GOG - DOSBox
