@@ -1,5 +1,5 @@
 files:
-- patch: 
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoec_patch.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
   prefix: $GAMEDIR
@@ -11,4 +11,10 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
     return_code: 256
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1
+    file: patch
 requires: age-of-empires-ii-the-age-of-cd-patch-20a
