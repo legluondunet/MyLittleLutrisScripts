@@ -10,15 +10,10 @@ installer:
     description: Preparing wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    app: directplay
-    description: Installing directplay for multiplayer support
-    name: winetricks
-    prefix: $GAMEDIR
-    silent: true
 - insert-disc:
     requires: aoesetup.exe
 - task:
+    description: Installing Age of Empires II - The Age of Kings
     executable: $DISC/aoesetup.exe
     name: wineexec
     prefix: $GAMEDIR
@@ -29,6 +24,12 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
     file: wrapper
+- task:
+    app: directplay
+    description: Installing directplay for multiplayer support
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
 - write_config:
     data:
       ddraw:
