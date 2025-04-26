@@ -1,5 +1,9 @@
-# Pharaoh - CD
-### Description:Play "Pharaoh" CD edition on Linux!
+# Pharaoh - CD + cnc-ddraw
+### Description:
+Play "Pharaoh" CD edition on Linux!
 ### Technical notes:
+- using cnc-ddraw graphic wrapper for better graphic stability
+- Enhancement Pack 1.2 included
 ### Credits:
+- cnc-ddraw: https://github.com/FunkyFr3sh/cnc-ddraw
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
