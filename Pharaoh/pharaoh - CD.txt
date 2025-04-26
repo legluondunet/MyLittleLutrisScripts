@@ -19,7 +19,7 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - execute:
-    command: cd "$GAMEDIR/drive_c/SIERRA/Pharaoh"; chmod -R +w *;
+    command: cd "$GAMEDIR/drive_c/SIERRA" && chmod -R +w *;
 - extract:
     dst: $CACHE
     file: update
