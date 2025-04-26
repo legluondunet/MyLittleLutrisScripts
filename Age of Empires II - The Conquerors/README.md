@@ -1,4 +1,4 @@
-# Age of Empires II - The Conquerors - CD + patch 2.0a
+# Age of Empires II - The Conquerors - CD
 ### Description:
 Play "Age of Empires II - The Conquerors" CD edition on Linux!
 ### Technical notes:
