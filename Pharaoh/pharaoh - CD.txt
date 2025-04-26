@@ -1,6 +1,7 @@
 files:
 - update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Pharaoh/si_pharaoh_enhancepack_en.zip
 - wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v7.1.0.0/cnc-ddraw.zip
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Pharaoh/patch_pharaoh.zip
 game:
   exe: drive_c/SIERRA/Pharaoh/Pharaoh.exe
   prefix: $GAMEDIR
@@ -26,6 +27,12 @@ installer:
     executable: $CACHE/si_pharaoh_enhancepack_en.exe
     name: wineexec
     prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/SIERRA/Pharaoh/backup
+    src: $GAMEDIR/drive_c/SIERRA/Pharaoh/Pharaoh.exe
+- extract:
+    dst: $GAMEDIR/drive_c/SIERRA/Pharaoh
+    file: patch
 - extract:
     dst: $GAMEDIR/drive_c/SIERRA/Pharaoh
     file: wrapper
