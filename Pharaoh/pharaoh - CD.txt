@@ -1,1 +1,42 @@
-
+files:
+- update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Pharaoh/si_pharaoh_enhancepack_en.zip
+- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v7.1.0.0/cnc-ddraw.zip
+game:
+  exe: drive_c/SIERRA/Pharaoh/Pharaoh.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert Pharaoh CD
+    requires: pharaoh.ico
+- task:
+    description: Installing...
+    executable: $DISC/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/SIERRA/Pharaoh"; chmod -R +w *;
+- extract:
+    dst: $CACHE
+    file: update
+- task:
+    executable: $CACHE/si_pharaoh_enhancepack_en.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/SIERRA/Pharaoh
+    file: wrapper
+- write_config:
+    data:
+      ddraw:
+        fullscreen: true
+        maintas: true
+        windowed: true
+    file: $GAMEDIR/drive_c/SIERRA/Pharaoh/ddraw.ini
+    merge: true
+wine:
+  overrides:
+    ddraw: n,b
