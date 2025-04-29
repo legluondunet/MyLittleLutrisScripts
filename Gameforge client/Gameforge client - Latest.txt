@@ -1,67 +1,24 @@
 files:
-- setup:
-    filename: GameforgeInstaller.exe
-    url: https://install.gameforge.com/download?download_id=cac36db4-7097-4b36-b244-95a26c738f05
+- gf_client: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Gameforge/GameforgeClient_Update.exe
 game:
-  arch: win64
-  exe: drive_c/GameforgeInstaller.exe
+  exe: drive_c/Program Files (x86)/GameforgeClient/gfclient.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     description: Creating 64bit Wine prefix.
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
+    app: d3dx9 vcrun2022 arial win10
     arch: win64
-    description: black color for Desktop background
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    app: arial vcrun2015 win10
-    arch: win64
-    description: Install Arial font
+    description: Winetricks is installing some dependencies
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    arch: win64
-    description: Enabling DXVA for Wine Staging
-    key: backend
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DXVA2
-    prefix: $GAMEDIR
-    value: va
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: setup
+    args: /NOCANCEL /SILENT /DIR C:/Program Files (x86)/GameforgeClient
+    executable: gf_client
+    name: wineexec
 system:
   env:
-    DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
-    DXVK_HUD: compiler
-    DXVK_STATE_CACHE_PATH: $GAMEDIR
-    STAGING_SHARED_MEMORY: 1
-    __GL_SHADER_DISK_CACHE: 1
-    __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
-    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP: 1
-  exclude_processes: GameforgeInstaller.exe SparkWebHelper.exe gfservice.exe gfHelper.exe
-    xdelta3.exe vcredist_x86.exe
-wine:
-  battleye: false
-  d3d_extras: true
-  dxvk: true
-  dxvk_nvapi: false
-  eac: false
-  esync: true
-  fsr: false
-  fsync: true
-  overrides:
-    nvapi: disabled
-    nvapi64: disabled
-  version: lutris-GE-Proton7-43-x86_64
-  vkd3d: true
+    DXVK_HUD: null
