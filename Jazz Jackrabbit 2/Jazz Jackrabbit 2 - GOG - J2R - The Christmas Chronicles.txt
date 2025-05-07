@@ -3,10 +3,11 @@ files:
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
 game:
-  exe: $GAMEDIR/x64/jazz2_sdl2
+  exe: drive_c/j2r/x64/Jazz2.exe
   gogid: 1597842603
+  prefix: $GAMEDIR
 installer:
 - extract:
-    dst: $GAMEDIR/x64/Source
+    dst: $GAMEDIR/drive_c/j2r/x64/Source
     file: gogsetup
     format: gog
