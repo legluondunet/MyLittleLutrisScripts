@@ -1,0 +1,18 @@
+files:
+- gogsetup: N/A:Select the game setup EXE file downloaded from your GOG account
+- engine: https://github.com/smlu/OpenJones3D/releases/download/v0.3.0/oj3d-0.3.0.zip
+game:
+  exe: drive_c/OpenJones3D/Resource/Jones3D.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/OpenJones3D
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/OpenJones3D/Resource
+    file: engine
