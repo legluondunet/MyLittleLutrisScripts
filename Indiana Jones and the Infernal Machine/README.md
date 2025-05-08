@@ -7,6 +7,15 @@ Play "Indiana Jones and the Infernal Machine" CD edition on Linux!
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
+# Indiana Jones and the Infernal Machine - GOG + Dreamm
+### Description:
+Play "Indiana Jones and the Infernal Machine" provided by GOG on Linux!
+### Technical notes:
+- using Dreamm engine
+### Credits:
+- Dreamm: https://dreamm.aarongiles.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
 # Indiana Jones and the Infernal Machine - GOG + OpenJones3D
 ### Description:
 Play "Indiana Jones and the Infernal Machine" provided by GOG on Linux!
