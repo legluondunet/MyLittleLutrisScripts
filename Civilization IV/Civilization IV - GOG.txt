@@ -1,38 +1,29 @@
 files:
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
-- menu: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/c4ce.bat
-- wpp: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/c4ce.bmp
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/clean.sh
-- cfgfile: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Sid%20Meier's%20Civilization%20IV%20-%20The%20Complete%20Edition/CivilizationIV.ini
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Civilization%20IV/CivilizationIV.ini
 game:
-  arch: win64
-  args: c:\\c4ce.bat
-  exe: drive_c/windows/syswow64/wineconsole.exe
+  exe: drive_c/GOG Games/Civilization IV Complete/Civ4/Civilization4.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/GOG Games/Civilization IV Complete/Civ4/Beyond the Sword/Civ4BeyondSword.exe
+    name: Civilization IV - Beyond Sword
+  - exe: $GAMEDIR/drive_c/GOG Games/Civilization IV Complete/Civ4/Warlords/Civ4Warlords.exe
+    name: Civilization IV - Warlords
+  - exe: $GAMEDIR/drive_c/GOG Games/Civilization IV Complete/Civ4Colonization/Colonization.exe
+    name: Civilization IV - Colonization
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
-- extract:
-    dst: $CACHE/innoextract
-    file: inno
-- execute:
-    args: --extract --gog $gogsetup --output-dir "$GAMEDIR/drive_c/GOG Games"
-    file: $CACHE/innoextract/innoextract
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: wpp
-- copy:
-    dst: $GAMEDIR/drive_c
-    src: menu
 - task:
-    app: vcrun2003 msxml3 win7
-    arch: win64
+    description: Installing Civilization IV...
+    executable: $gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: msxml3 win10
     name: winetricks
     prefix: $GAMEDIR
 - input_menu:
@@ -45,61 +36,19 @@ installer:
     - 3: Italian
     - 4: Spanish
     preselect: 0
-- merge:
-    dst: $GAMEDIR/drive_c/tmp
-    src: cfgfile
-- chmodx: script
 - execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT $INPUT_LANG
-    file: script
-- task:
-    arch: win64
-    key: wallpaper
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Desktop\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: c:\\c4ce.bmp
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: ActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: InactiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: GradientActiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 225 10 10
-- task:
-    arch: win64
-    key: GradientInactiveTitle
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 225 10 10
-require-binaries: unrar
-wine:
-  Desktop: true
+    command: sed -i -e 's/ScreenWidth = 0/ScreenWidth = '$RESOLUTION_WIDTH'/g' -e
+      's/ScreenHeight = 0/ScreenHeight = '$$RESOLUTION_HEIGHT'/g' -e 's/Language =
+      0/Language = '$INPUT_LANG'/g' $game_cfg;
+- merge:
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Beyond the Sword
+    src: game_cfg
+- merge:
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Civ4
+    src: game_cfg
+- merge:
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Civ4Colonization
+    src: game_cfg
+- merge:
+    dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Warlords
+    src: game_cfg
