@@ -1,4 +1,4 @@
-# Star Wars - The Phantom Menace - CD
+# Star Wars - The Phantom Menace - CD + Dreamm
 ### Description:
 Play "Star Wars - The Phantom Menace" CD edition on Linux!
 ### Technical notes:
