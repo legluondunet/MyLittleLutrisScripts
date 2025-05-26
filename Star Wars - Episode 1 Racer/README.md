@@ -11,6 +11,16 @@ Play "Star Wars Episode I: Racer" provided by GOG on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
+# Star Wars Episode I - Racer - GOG +  Dreamm
+### Description:
+Play "Star Wars Episode I: Racer" provided by GOG on Linux!
+### Technical notes:
+- using Dreamm engine
+### Credits:
+- Dreamm: https://dreamm.aarongiles.com
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
 # Star Wars Episode I - Racer - CD
 ### Description:
 Play "Star Wars Episode I: Racer" CD edition on Linux!
