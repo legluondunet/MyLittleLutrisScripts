@@ -1,1 +1,22 @@
-
+files:
+- gogsetup: N/A:Select the game setup EXE file downloaded from your GOG account
+- engine: https://dreamm.aarongiles.com/releases/4.0/dreamm-4.0b7-win32-x64.zip
+game:
+  args: game
+  exe: drive_c/dreamm/dreamm.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/dreamm
+    file: engine
+- write_file:
+    content: ''
+    file: $GAMEDIR/drive_c/dreamm/config.json
+- extract:
+    dst: $GAMEDIR/drive_c/dreamm/game
+    file: gogsetup
+    format: gog
