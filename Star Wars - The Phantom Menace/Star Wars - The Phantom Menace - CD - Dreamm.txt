@@ -1,0 +1,34 @@
+files:
+- engine: https://dreamm.aarongiles.com/releases/4.0/dreamm-4.0b7-win32-x64.zip
+game:
+  args: game
+  exe: drive_c/dreamm/dreamm.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/dreamm
+    file: engine
+- write_file:
+    content: ''
+    file: $GAMEDIR/drive_c/dreamm/config.json
+- insert-disc:
+    requires: tpm.exe
+- execute:
+    command: cd "$GAMEDIR/drive_c"; find "$DISC" -maxdepth 2 -type d -iname gamedata
+      -exec cp -r {} gamedata \; ; chmod -R +w gamedata;
+- task:
+    args: -install "c:\\gamedata"
+    description: Installing Star Wars - Episode I - The Phantom Menace
+    executable: $GAMEDIR/drive_c/dreamm/dreamm.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/gamedata
+- execute:
+    command: cd "$GAMEDIR/drive_c/dreamm/install/lec-phantom"; find -maxdepth 1 -type
+      d -exec mv {} "$GAMEDIR/drive_c/dreamm/game" \;
