@@ -2,7 +2,7 @@
 ### Description:
 Play "Star Wars: Episode I – The Phantom Menace" CD edition on Linux!
 ### Technical notes:
-- using Dreamm engine
+- Using Dreamm engine
 ### Credits:
 - Dreamm: https://dreamm.aarongiles.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
