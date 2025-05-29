@@ -1,7 +1,10 @@
 files:
-- wrapper_video: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dxwnd/v2_06_09_build.rar
+- wrapper_video1: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dxwnd/v2_06_09_build.rar
+- wrapper_video2: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Star%20Wars%20-%20The%20Phantom%20Menace/sw1-tpm.reg
+- util1: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/idecomp/idecomp-28052025.zip
 game:
+  args: /R:1
   exe: drive_c/dxwnd/dxwnd.exe
   prefix: $GAMEDIR
 installer:
@@ -12,10 +15,17 @@ installer:
 - insert-disc:
     requires: tpm.exe
 - merge:
+    description: installing game files, could take time, please wait...
     dst: $GAMEDIR/drive_c/SW1-TMP
     src: $DISC
 - execute:
-    command: cd "$GAMEDIR/drive_c"; chmod -R +w SW1-TMP;
+    command: cd "$GAMEDIR/drive_c"; chmod -R +w SW1-TMP; find SW1-TMP/*  -depth -type
+      d -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ; find SW1-TMP/*
+      -depth -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0");
+      d=$(dirname "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ;
+    description: clean game files, could take time, please wait...
+    return_code: 31488
 - merge:
     dst: $GAMEDIR/drive_c/SW1-TMP
     src: $GAMEDIR/drive_c/SW1-TMP/gamedata/bin
@@ -24,7 +34,7 @@ installer:
     name: set_regedit_file
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
-    file: wrapper_video
+    file: wrapper_video1
 - write_config:
     data:
       target:
@@ -39,8 +49,8 @@ installer:
         dflagb0: 0
         filterid0: 0
         flag0: 673185825
-        flagg0: 1207959568
-        flagh0: 18
+        flagg0: 1073741840
+        flagh0: 65554
         flagi0: 138543108
         flagj0: 4224
         flagk0: 65536
@@ -97,3 +107,32 @@ installer:
         iconview: 1
         showhelp: false
     file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
+- extract:
+    dst: $CACHE
+    file: wrapper_video2
+- copy:
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $CACHE//MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $CACHE//MS/x86/D3DImm.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+      GeneralExt:
+        DesktopBitDepth: 32
+    file: $GAMEDIR/drive_c/SW1-TMP//dgVoodoo.conf
+- extract:
+    dst: $GAMEDIR/drive_c/SW1-TMP/gamedata/gobs
+    file: util1
+- execute:
+    command: cd "$GAMEDIR/drive_c/SW1-TMP/gamedata/gobs"; chmod +x idecomp.py; ./idecomp.py
+      -l big.z; ./idecomp.py big.z
+    description: extracting and installing game files, could take time, please wait...
+system:
+  exclude_processes: xalia.exe dxwnd.exe
+  reset_desktop: true
+wine:
+  overrides:
+    ddraw: n,b
