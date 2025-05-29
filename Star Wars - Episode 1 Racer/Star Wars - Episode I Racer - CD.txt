@@ -1,111 +1,138 @@
 files:
-- wrapper_video: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- wrapper_audio: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/dsound.dll
-- wrapper_ipx: https://github.com/solemnwarning/ipxwrapper/releases/download/ipxwrapper-0.7.0/ipxwrapper-0.7.0.zip
-- update: https://www.dropbox.com/scl/fi/cjcslo1zsmtx2ytujdmgb/SWEP1RCR_patch.zip?rlkey=s7xmdewqputjtfo8r13hkyb7l&st=2etl92a9&dl=1
-- conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
-- mod: https://github.com/JayFoxRox/swe1r-patcher/releases/download/v1.0/swe1r-patcher-v1_0.zip
+- wrapper_video1: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dxwnd/v2_06_09_build.rar
+- wrapper_video2: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Star%20Wars%20-%20The%20Phantom%20Menace/sw1-tpm.reg
+- util1: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/idecomp/idecomp-28052025.zip
 game:
-  exe: drive_c/Program Files/LucasArts/RACER/SWEP1RCR.EXE
+  args: /R:1
+  exe: drive_c/dxwnd/dxwnd.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- execute:
-    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/Program Files (x86)"; mkdir
-      -p "LucasArts/RACER";  cd "$GAMEDIR/drive_c/Program Files"; ln -s "../Program
-      Files (x86)/LucasArts" "LucasArts";
 - insert-disc:
-    requires: racer.exe
-- task:
-    description: Running setup of the game. Just proceed and keep all settings at
-      their defaults. Do not launch the game at the end of the install.
-    executable: $DISC/setup.exe
-    name: wineexec
-    prefix: $GAMEDIR
+    requires: tpm.exe
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/anims
-    src: $DISC/gnome/data/anims
+    description: installing game files, could take time, please wait...
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +w SW1-TMP; find SW1-TMP/*  -depth -type
+      d -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ; find SW1-TMP/*
+      -depth -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0");
+      d=$(dirname "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ;
+    description: clean game files, could take time, please wait...
+    return_code: 31488
+- merge:
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $GAMEDIR/drive_c/SW1-TMP/gamedata/bin
+- task:
+    filename: reg_file
+    name: set_regedit_file
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current
-    file: conf_files
+    dst: $GAMEDIR/drive_c/dxwnd
+    file: wrapper_video1
+- write_config:
+    data:
+      target:
+        cdvol0: 0
+        cmdline0: null
+        codepage0: 0
+        commitaddress0: 0
+        commitlength0: 0
+        coord0: 3
+        country0: 0
+        dflag0: 0
+        dflagb0: 0
+        filterid0: 0
+        flag0: 673185825
+        flagg0: 1073741840
+        flagh0: 65554
+        flagi0: 138543108
+        flagj0: 4224
+        flagk0: 65536
+        flagl0: 32768
+        flagm0: 33554432
+        flagn0: 17825796
+        flago0: 0
+        flagp0: 8192
+        flagq0: 0
+        flagr0: 128
+        flags0: 0
+        flagt0: 0
+        flagu0: 0
+        flagv0: -2147475456
+        flagw0: 1048576
+        flagx0: 0
+        flagy0: 0
+        gvol0: 0
+        icon0: null
+        initresh0: 600
+        initresw0: 800
+        initts0: 0
+        lang0: 0
+        launchpath0: C:\SW1-TMP\wmain.exe
+        maxddinterface0: 7
+        maxfps0: 0
+        midivol0: 0
+        module0: null
+        monitorid0: -1
+        msshims0: null
+        notes0: null
+        opengllib0: null
+        path0: C:\SW1-TMP\wmain.exe
+        posx0: 50
+        posy0: 50
+        registry0: null
+        renderer0: 3
+        scanline0: 0
+        sizx0: 800
+        sizy0: 600
+        slowratio0: 2
+        startfolder0: null
+        swapeffect0: 0
+        tflag0: 0
+        tflagb0: 0
+        title0: Star Wars - Episode I - The Phantom Menace
+        ver0: 0
+        wavevol0: 0
+        winver0: 0
+      window:
+        exepath: C:\SW1-TMP\
+        expert: 1
+        exportpath: C:\dxwnd\exports\
+        iconview: 1
+        showhelp: false
+    file: $GAMEDIR/drive_c/dxwnd/dxwnd.ini
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    file: update
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    file: wrapper_video
+    dst: $CACHE
+    file: wrapper_video2
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER//MS/x86/DDraw.dll
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $CACHE//MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/MS/x86/D3DImm.dll
-- move:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo_original.conf
-    src: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo.conf
+    dst: $GAMEDIR/drive_c/SW1-TMP
+    src: $CACHE//MS/x86/D3DImm.dll
 - write_config:
     data:
       DirectX:
         dgVoodooWatermark: false
       GeneralExt:
         DesktopBitDepth: 32
-    file: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/dgVoodoo.conf
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    src: wrapper_audio
+    file: $GAMEDIR/drive_c/SW1-TMP//dgVoodoo.conf
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    file: wrapper_ipx
-- task:
-    app: directplay
-    name: winetricks
-    silent: true
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
-    file: mod
-- task:
-    key: Analyze Path
-    name: set_regedit
-    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
-      LLC\Star Wars: Episode I Racer\v1.0'
-    type: REG_SZ
-    value: .\\SysCheck.exe
-- task:
-    key: CD Path
-    name: set_regedit
-    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
-      LLC\Star Wars: Episode I Racer\v1.0'
-    type: REG_SZ
-    value: .
-- task:
-    key: Source Dir
-    name: set_regedit
-    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
-      LLC\Star Wars: Episode I Racer\v1.0'
-    type: REG_SZ
-    value: C:\\Program Files\\LucasArts\\RACER
-- task:
-    key: Source Path
-    name: set_regedit
-    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
-      LLC\Star Wars: Episode I Racer\v1.0'
-    type: REG_SZ
-    value: C:\\Program Files\\LucasArts\\RACER
+    dst: $GAMEDIR/drive_c/SW1-TMP/gamedata/gobs
+    file: util1
+- execute:
+    command: cd "$GAMEDIR/drive_c/SW1-TMP/gamedata/gobs"; chmod +x idecomp.py; ./idecomp.py
+      -l big.z; ./idecomp.py big.z
+    description: extracting and installing game files, could take time, please wait...
 system:
-  env:
-    DXVK_FRAME_RATE: 60
-    DXVK_HUD: null
-  gamescope: true
-  gamescope_force_grab_cursor: true
-  gamescope_fps_limiter: '60'
-  gamescope_game_res: 640x480
-  gamescope_output_res: $RESOLUTION
+  exclude_processes: xalia.exe dxwnd.exe
+  reset_desktop: true
 wine:
   overrides:
     ddraw: n,b
-    dinput: n,b
-    dsound: n,b
-    wsock32: n,b
