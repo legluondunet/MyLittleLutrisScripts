@@ -1,6 +1,6 @@
-# Monopoly - Star Wars - CD + Dreamm
+Star Wars - Monopoly - CD + Dreamm
 ### Description:
-Play "Monopoly - Star Wars" CD edition on Linux!
+Play "Star Wars - Monopoly" CD edition on Linux!
 ### Technical notes:
 - Using Dreamm engine
 - You will need CD only one time during install
@@ -10,7 +10,7 @@ Play "Monopoly - Star Wars" CD edition on Linux!
 
 # Monopoly - Star Wars - CD + DxWnd
 ### Description:
-Play "Monopoly - Star Wars" CD edition on Linux!
+Play "Star Wars - Monopoly" CD edition on Linux!
 ### Technical notes:
 - You will need to keep the CD mounted for playing
 ### Credits:
