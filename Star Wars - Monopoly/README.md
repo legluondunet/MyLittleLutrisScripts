@@ -1,4 +1,4 @@
-Star Wars - Monopoly - CD + Dreamm
+# Star Wars - Monopoly - CD + Dreamm
 ### Description:
 Play "Star Wars - Monopoly" CD edition on Linux!
 ### Technical notes:
@@ -8,7 +8,7 @@ Play "Star Wars - Monopoly" CD edition on Linux!
 - Dreamm: https://dreamm.aarongiles.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Monopoly - Star Wars - CD + DxWnd
+# Star Wars - Monopoly - CD + DxWnd
 ### Description:
 Play "Star Wars - Monopoly" CD edition on Linux!
 ### Technical notes:
