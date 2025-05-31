@@ -11,7 +11,7 @@ game:
   - args: -firstrun
     exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
     name: Unreal Gold Windows first run
-  - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.ini
+  - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.ini
     name: Unreal Gold Linux config file
   prefix: $GAMEDIR
 installer:
