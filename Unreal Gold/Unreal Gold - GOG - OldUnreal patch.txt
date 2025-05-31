@@ -7,7 +7,7 @@ game:
   exe: drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/unreal-bin-amd64
-    name: Unreal Linux native version
+    name: Unreal Gold Linux native version
   - args: -firstrun
     exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.ini
     name: Unreal Gold Linux config file
