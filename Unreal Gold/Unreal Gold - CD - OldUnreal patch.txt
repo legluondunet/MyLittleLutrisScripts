@@ -1,3 +1,5 @@
+        AutoGUIScale: False
+
 files:
 - patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Linux.tar.bz2
 - patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Windows.zip
@@ -5,12 +7,14 @@ files:
 game:
   exe: drive_c/UnrealGold/System64/Unreal.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/UnrealGold/System64/unreal-bin-amd64
+  - exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/unreal-bin-amd64
     name: Unreal Gold Linux native version
   - args: -firstrun
-    exe: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.ini
+    exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/Unreal.exe
+    name: Unreal Gold Windows first run
+  - exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/UnrealLinux.ini
     name: Unreal Gold Linux config file
-  prefix: $GAMEDIR
+  prefix: /home/romain/Games2/unreal-gold
 installer:
 - task:
     arch: win64
@@ -51,13 +55,12 @@ installer:
       Engine.Console:
         GlobalConsoleKey: 112
       Engine.Engine:
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        GameRenderDevice: XOpenGLDrv.XOpenGLRenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
-      OpenGLDrv.OpenGLRenderDevice:
-        FrameRateLimit: 60
       WinDrv.WindowsClient:
+        FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
@@ -83,9 +86,8 @@ installer:
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
-      OpenGLDrv.OpenGLRenderDevice:
-        FrameRateLimit: 60
       SDL2Drv.SDL2Client:
+        FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
