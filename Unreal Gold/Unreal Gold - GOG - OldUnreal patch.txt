@@ -9,9 +9,11 @@ game:
   - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/unreal-bin-amd64
     name: Unreal Gold Linux native version
   - args: -firstrun
-    exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/UnrealLinux.ini
+    exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/System64/Unreal.exe
+    name: Unreal Gold Windows first run
+  - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.ini
     name: Unreal Gold Linux config file
-  prefix: $GAMEDIR
+  prefix: $GAMEDIR/drive_c/UnrealGold
 installer:
 - task:
     arch: win64
@@ -50,13 +52,12 @@ installer:
       Engine.Console:
         GlobalConsoleKey: 112
       Engine.Engine:
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        GameRenderDevice: XOpenGLDrv.XOpenGLRenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
-      OpenGLDrv.OpenGLRenderDevice:
-        FrameRateLimit: 60
       WinDrv.WindowsClient:
+        FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
@@ -82,9 +83,8 @@ installer:
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
-      OpenGLDrv.OpenGLRenderDevice:
-        FrameRateLimit: 60
       SDL2Drv.SDL2Client:
+        FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
