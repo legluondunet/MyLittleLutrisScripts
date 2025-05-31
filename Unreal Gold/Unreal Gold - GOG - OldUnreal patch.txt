@@ -13,7 +13,7 @@ game:
     name: Unreal Gold Windows first run
   - exe: $GAMEDIR/drive_c/GOG Games/Unreal Gold/UnrealLinux.ini
     name: Unreal Gold Linux config file
-  prefix: $GAMEDIR/drive_c/UnrealGold
+  prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
