@@ -1,5 +1,3 @@
-        AutoGUIScale: False
-
 files:
 - patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Linux.tar.bz2
 - patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Windows.zip
@@ -7,14 +5,14 @@ files:
 game:
   exe: drive_c/UnrealGold/System64/Unreal.exe
   launch_configs:
-  - exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/unreal-bin-amd64
+  - exe: $GAMEDIR/drive_c/UnrealGold/System64/unreal-bin-amd64
     name: Unreal Gold Linux native version
   - args: -firstrun
-    exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/Unreal.exe
+    exe: $GAMEDIR/drive_c/UnrealGold/System64/Unreal.exe
     name: Unreal Gold Windows first run
-  - exe: /home/romain/Games2/unreal-gold/drive_c/UnrealGold/System64/UnrealLinux.ini
+  - exe: $GAMEDIR/drive_c/UnrealGold/System64/UnrealLinux.ini
     name: Unreal Gold Linux config file
-  prefix: /home/romain/Games2/unreal-gold
+  prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
@@ -59,6 +57,9 @@ installer:
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
+      UMenu.UMenuRootWindow:
+        AutoGUIScale: false
+        ConfiguredGUIScale: 1.5
       WinDrv.WindowsClient:
         FrameRateLimit: 60
         FullscreenColorBits: 32
@@ -66,7 +67,7 @@ installer:
         FullscreenViewportY: $RESOLUTION_HEIGHT
         StartupFullscreen: false
         UseDesktopFullScreen: true
-        WindowedColorBits: 32
+        WindowedColorBits: null
     file: $GAMEDIR/drive_c/UnrealGold/System64/Default.ini
     merge: true
 - write_config:
