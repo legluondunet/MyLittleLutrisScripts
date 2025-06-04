@@ -1,0 +1,120 @@
+files:
+- wrapper_vid: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  exe: drive_c/Rayman M/RaymanM.exe
+  prefix: $GAMEDIR
+  working_dir: $GAMEDIR/drive_c/Rayman M
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Insert CD 1
+    requires: RaymanM.exe
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - English: English
+    - French: French
+    - German: German
+    - Spanish: Spanish
+    - Italian: Italian
+    - Swedish: Swedish
+    - Finnish: Finnish
+    - Norwegian: Norwegian
+    - Danish: Danish
+    - Polish: Polish
+    preselect: English
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/RaymanM.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/binkw32.dll
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/DX8_Detect_RM.ini
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/RaymanM.ico
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/RM_Setup_DX8.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $DISC/stlport_vc6.4.1.b6.dll
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/DX8_LOC
+    src: $DISC/DX8_LOC
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/FishBin
+    src: $DISC/FishBin
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/MenuBin
+    src: $DISC/MenuBin
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/TribeBin
+    src: $DISC/TribeBin
+- insert-disc:
+    description: Insert CD 2
+    requires: CD2.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/FishBin
+    src: $DISC/FishBin
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/MenuBin
+    src: $DISC/MenuBin
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/TribeBin
+    src: $DISC/TribeBin
+- merge:
+    dst: $GAMEDIR/drive_c/Rayman M/Videos
+    src: $DISC/Videos
+- write_config:
+    file: $GAMEDIR/drive_c/windows/UbiSoft/ubi.ini
+    key: Language
+    section: RAYMANM
+    value: $INPUT_LANG
+- write_config:
+    data:
+      RAYMANM:
+        Adapter: 0
+        Gli_Mode: 1 - 1280 x 960 x 32
+        Identifier: 0
+        Language: $INPUT_LANG
+        TexturesCompressed: 0
+        TexturesFile: Tex32.cnt
+        TnL: 1
+        TriLinear: 0
+        Video_AutoAdjustQuality: 1
+        Video_BPP: 32
+        Video_RealQuality: 0
+        Video_WantedQuality: 0
+        VignettesFile: Vignette.cnt
+        YamakasiVideo: 0
+        bUseThreadedAI: 1
+        iNumHWThreads: 2
+    file: $GAMEDIR/drive_c/windows/UbiSoft/ubi.ini
+- extract:
+    dst: $CACHE
+    file: wrapper_vid
+- copy:
+    dst: $GAMEDIR/drive_c/Rayman M
+    src: $CACHE/MS/x86/D3D8.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/Rayman M/dgVoodoo.conf
+system:
+  env:
+    DXVK_FRAME_RATE: 60
+    DXVK_HUD: null
+  gamescope: true
+  gamescope_game_res: 1280x960
+  gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    d3d8: n,b
