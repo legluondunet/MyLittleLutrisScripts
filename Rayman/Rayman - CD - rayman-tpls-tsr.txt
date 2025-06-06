@@ -1,37 +1,23 @@
 files:
 - mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1/rayman-tpls-tsr.zip
-- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman/rayman1_cfg.zip
+- cd_cue: N/A:Please select cue file from Rayman 1 CD image
+- cd_bin: N/A:Please select bin file from Rayman 1 CD image
+- dbx_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman/rayman1_dosbox.conf
 game:
-  main_file: $GAMEDIR/rayman_dosbox.conf
+  main_file: $GAMEDIR/rayman1_dosbox.conf
 installer:
-- insert-disc:
-    description: Searching for a folder with rayman.exe file
-    requires: rayman.exe
 - copy:
-    dst: $GAMEDIR/RAYMAN
-    src: $DISC
+    dst: $GAMEDIR
+    src: cd_cue
+- copy:
+    dst: $GAMEDIR
+    src: cd_bin
+- copy:
+    dst: $GAMEDIR
+    src: dbx_cfg
 - execute:
-    command: cd "$GAMEDIR"; chmod -R +w RAYMAN;
-- extract:
-    dst: $GAMEDIR/RAYMAN
-    file: game_cfg
+    command: cuefile=$(basename "$cd_cue"); echo "la valeur de cuefile est "$cuefile;
+      cd "$GAMEDIR" ; sed -i s/RAYMAN.cue/"$cuefile"/ rayman1_dosbox.conf;
 - extract:
     dst: $GAMEDIR
     src: mod
-- write_file:
-    content: '[autoexec]
-
-      @echo off
-
-      imgmount d "TPLSTSR4.cue" -t iso
-
-      mount c .
-
-      c:\
-
-      d:\TPLSTSR4.EXE
-
-      cd C:\RAYMAN
-
-      rayman.exe save=C:\RAYMAN '
-    file: $GAMEDIR/rayman_dosbox.conf
