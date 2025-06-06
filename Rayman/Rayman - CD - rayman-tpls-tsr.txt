@@ -1,5 +1,6 @@
 files:
 - mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1/rayman-tpls-tsr.zip
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman/rayman1_cfg.zip
 game:
   main_file: $GAMEDIR/rayman_dosbox.conf
 installer:
@@ -11,6 +12,9 @@ installer:
     src: $DISC
 - execute:
     command: cd "$GAMEDIR"; chmod -R +w RAYMAN;
+- extract:
+    dst: $GAMEDIR/RAYMAN
+    file: game_cfg
 - extract:
     dst: $GAMEDIR
     src: mod
