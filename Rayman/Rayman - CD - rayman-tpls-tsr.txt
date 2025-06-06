@@ -1,8 +1,33 @@
-# Rayman - CD + rayman-tpls-tsr
-### Description:
-Play "Rayman" CD edition on Linux!
-### Technical notes:
-- Using rayman-tpls-tsr: Per-Level Soundtrack functionality for the PC version of Rayman 1, multiple tracks per world, like on PS1 or Saturn, instead of repetitive medleys
-### Credits:
-- rayman-tpls-tsr: https://github.com/PluMGMK/rayman-tpls-tsr
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+files:
+- mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1/rayman-tpls-tsr.zip
+game:
+  main_file: $GAMEDIR/rayman_dosbox.conf
+installer:
+- insert-disc:
+    description: Searching for a folder with rayman.exe file
+    requires: rayman.exe
+- copy:
+    dst: $GAMEDIR/RAYMAN
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR"; chmod -R +w RAYMAN;
+- extract:
+    dst: $GAMEDIR
+    src: mod
+- write_file:
+    content: '[autoexec]
+
+      @echo off
+
+      imgmount d "TPLSTSR4.cue" -t iso
+
+      mount c .
+
+      c:\
+
+      d:\TPLSTSR4.EXE
+
+      cd C:\RAYMAN
+
+      rayman.exe save=C:\RAYMAN '
+    file: $GAMEDIR/rayman_dosbox.conf
