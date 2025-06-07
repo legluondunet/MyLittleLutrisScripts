@@ -1,27 +1,39 @@
-custom-name: Rayman Forever - GOG - DOSBox
 files:
-- audiofix: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%20Forever/rayman_forever_tracks_fixed.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rayman%20Forever/clean.sh
-- inno: http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz
-- gogsetup: N/A:Please select the Windows game setup file downloaded from your GOG
-    account.
+- gogsetup: N/A:Please select the GOG installer
+- dbx-cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%20Forever/Rayman_Forever_Dosbox.conf
+- patch: https://github.com/PluMGMK/ray1_unlocklang/releases/download/v0.2.0/ray1_unlocklang.exe
+- mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1.1/rayman-tpls-tsr.zip
 game:
-  config_file: $GAMEDIR/Dosbox/Rayman_Forever_dosbox.conf
-  main_file: $GAMEDIR/Dosbox/Rayman_Forever_single_dosbox.conf
+  config: $GAMEDIR/Rayman_Forever_Dosbox.conf
 installer:
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$GAMEDIR" "$gogsetup"
-    file: $CACHE/innoextract
-- merge:
-    dst: $GAMEDIR/Dosbox
-    src: $GAMEDIR/__support/app/
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
 - extract:
-    dst: $GAMEDIR/Music
-    src: audiofix
-- chmodx: script
+    dst: $GAMEDIR
+    src: mod
+- copy:
+    dst: $GAMEDIR
+    src: dbx-cfg
+- merge:
+    dst: $GAMEDIR/Rayman/backup
+    src: $GAMEDIR/Rayman/RAYMAN.EXE
+- task:
+    args: $GAMEDIR/Rayman/RAYMAN.EXE
+    executable: patch
+    name: wine.wineexec
+- merge:
+    dst: $GAMEDIR/Rayman/backup
+    src: $GAMEDIR/Rayman/RAYMAN.CFG
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - 0: English
+    - 1: French
+    - 2: German
+    preselect: 0
 - execute:
-    file: script
-
+    command: cd "$GAMEDIR/Rayman"; echo -ne \\x0$INPUT_LANG | dd conv=notrunc bs=1
+      count=1 of=RAYMAN.CFG;
