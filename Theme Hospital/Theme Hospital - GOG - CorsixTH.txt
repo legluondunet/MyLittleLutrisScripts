@@ -1,8 +1,8 @@
 files:
 - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
 - engine: https://github.com/CorsixTH/CorsixTH/releases/download/v0.68.0/CorsixTH-0.68-Windows-x64.zip
-- cfg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
-- th_music-rx: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
+- game_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
 game:
   exe: drive_c/CorsixTH/CorsixTH.exe
   prefix: $GAMEDIR
@@ -13,36 +13,31 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/TH
-    file: gogsetup
-    format: gog
-- extract:
     dst: $GAMEDIR/drive_c/CorsixTH
     file: engine
 - extract:
+    dst: $GAMEDIR/drive_c/CorsixTH/TH
+    file: gogsetup
+    format: gog
+- extract:
     dst: $GAMEDIR/drive_c/CorsixTH/music
-    file: th_music-rx
+    file: game_music
 - merge:
-    dst: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH
-    src: cfg_file
+    dst: $GAMEDIR/drive_c/CorsixTH
+    src: game_cfg
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
     options:
-    - de: German
-    - da: Danish
-    - fi: Finnish
     - en: English
     - fr: French
-    - it: Italian
-    - pt: Portuguese
-    - br: Brazilian Portuguese
-    - sv: Swedish
-    - nb: Norwegian
+    - de: German
     - es: Spanish
+    - it: Italian
+    - sv: Swedish
     preselect: en
 - execute:
-    command: sed -i -e "s=../app/=c:\\\TH=g" -e "s/.*language.*/language = [[$INPUT_LANG]]/g"
-      -e "s/audio_music.*/audio_music = [[C:\\\CorsixTH\\\music]]/g" -e "s/width =
-      .*/width = $RESOLUTION_WIDTH/g" -e "s/height = .*/height = $RESOLUTION_HEIGHT/g"
-      "$GAMEDIR/drive_c/users/$USER/AppData/Roaming/CorsixTH/config.txt"
+    command: cd "$GAMEDIR/drive_c/CorsixTH"; sed -i -e "s/theme_hospital_install.*/theme_hospital_install
+      = [[TH]]/g" -e "s/audio_music.*/audio_music = [[music]]/g" -e "s/.*language.*/language
+      = [[$INPUT_LANG]]/g" -e "s/width =.*/width = $RESOLUTION_WIDTH/g" -e "s/height
+      = .*/height = $RESOLUTION_HEIGHT/g" config.txt;
