@@ -3,8 +3,8 @@ files:
 - engine:
     filename: CorsixTH.AppImage
     url: https://github.com/CorsixTH/CorsixTH/releases/download/v0.68.0/CorsixTH-v0.68.0-x86_64.AppImage
-- th_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
-- th_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Theme%20Hospital/config.txt
+- game_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Theme%20Hospital/config.txt
 game:
   args: --config-file=$GAMEDIR/config.txt
   exe: $GAMEDIR/CorsixTH.AppImage
@@ -15,14 +15,14 @@ installer:
     src: engine
 - copy:
     dst: $GAMEDIR
-    src: th_cfg
+    src: game_cfg
 - extract:
     dst: $GAMEDIR/TH
     file: gogsetup
     format: gog
 - extract:
     dst: $GAMEDIR/music
-    file: th_music
+    file: game_music
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
