@@ -4,6 +4,7 @@ files:
 - game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
 - game_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
 game:
+  args: --config-file=c:\\corsixth\\config.txt
   exe: drive_c/CorsixTH/CorsixTH.exe
   prefix: $GAMEDIR
 installer:
@@ -40,4 +41,5 @@ installer:
     command: cd "$GAMEDIR/drive_c/CorsixTH"; sed -i -e "s/theme_hospital_install.*/theme_hospital_install
       = [[TH]]/g" -e "s/audio_music.*/audio_music = [[music]]/g" -e "s/.*language.*/language
       = [[$INPUT_LANG]]/g" -e "s/width =.*/width = $RESOLUTION_WIDTH/g" -e "s/height
-      = .*/height = $RESOLUTION_HEIGHT/g" config.txt;
+      = .*/height = $RESOLUTION_HEIGHT/g" -e "s/audio_frequency.*/audio_frequency
+      = 48000/g" -e "s/audio_buffer_size.*/audio_buffer_size = 4096/g" config.txt;
