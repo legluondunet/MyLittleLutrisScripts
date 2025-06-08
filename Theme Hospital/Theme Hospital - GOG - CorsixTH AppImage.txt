@@ -1,0 +1,42 @@
+files:
+- gogsetup: N/A:Please select the GOG installer
+- app:
+    filename: CorsixTH.AppImage
+    url: https://github.com/CorsixTH/CorsixTH/releases/download/v0.68.0/CorsixTH-v0.68.0-x86_64.AppImage
+- th_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
+- th_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Theme%20Hospital/config.txt
+game:
+  args: --config-file=$GAMEDIR/config.txt
+  exe: $GAMEDIR/CorsixTH.AppImage
+installer:
+- chmodx: app
+- copy:
+    dst: $GAMEDIR
+    src: app
+- copy:
+    dst: $GAMEDIR
+    src: th_cfg
+- extract:
+    dst: $GAMEDIR/TH
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/music
+    file: th_music
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - de: German
+    - es: Spanish
+    - it: Italian
+    - sv: Swedish
+    preselect: en
+- execute:
+    command: cd "$GAMEDIR"; mkdir CorsixTH.AppImage.home CorsixTH.AppImage.config;
+      sed -i -e "s/theme_hospital_install.*/theme_hospital_install = [[.\/TH]]/g"
+      -e "s/audio_music.*/audio_music = [[.\/music]]/g" -e "s/.*language.*/language
+      = [[$INPUT_LANG]]/g" -e "s/width =.*/width = $RESOLUTION_WIDTH/g" -e "s/height
+      = .*/height = $RESOLUTION_HEIGHT/g" config.txt
