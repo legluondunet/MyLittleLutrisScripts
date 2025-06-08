@@ -31,4 +31,4 @@ Play "Theme Hospital" provided by GOG on Linux!
 - Multilanguage: choose your preferred language for interface and game texts between German, English, French, Italian, Swedish and Spanish
 ### Credits:
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
-- 
+
