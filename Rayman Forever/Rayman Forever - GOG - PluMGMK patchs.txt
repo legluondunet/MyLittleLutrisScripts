@@ -1,16 +1,18 @@
 files:
 - gogsetup: N/A:Please select the GOG installer
-- dbx-cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%20Forever/Rayman_Forever_Dosbox.conf
+- dbx-cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%20Forever/rayman_forever_dosbox.conf
 - patch: https://github.com/PluMGMK/ray1_unlocklang/releases/download/v0.2.0/ray1_unlocklang.exe
 - mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1.1/rayman-tpls-tsr.zip
 game:
-  config: $GAMEDIR/Rayman_Forever_Dosbox.conf
+  main_file: $GAMEDIR/rayman_forever_dosbox.conf
 installer:
 - extract:
+    description: extracting Rayman game files
     dst: $GAMEDIR
     file: gogsetup
     format: gog
 - extract:
+    description: extracting Rayman game files
     dst: $GAMEDIR
     src: mod
 - copy:
@@ -21,6 +23,7 @@ installer:
     src: $GAMEDIR/Rayman/RAYMAN.EXE
 - task:
     args: $GAMEDIR/Rayman/RAYMAN.EXE
+    description: patch Rayman to accept multilingual
     executable: patch
     name: wine.wineexec
 - merge:
@@ -35,5 +38,7 @@ installer:
     - 2: German
     preselect: 0
 - execute:
-    command: cd "$GAMEDIR/Rayman"; echo -ne \\x0$INPUT_LANG | dd conv=notrunc bs=1
-      count=1 of=RAYMAN.CFG;
+    command: cd "$GAMEDIR"; echo -ne \\x0$INPUT_LANG | dd conv=notrunc bs=1 count=1
+      of=Rayman/RAYMAN.CFG; if [ "$INPUT_LANG" = "0" ]; then exit; elif [ "$INPUT_LANG"
+      = "1" ]; then lang=fr; elif [ "$INPUT_LANG" = "2" ]; then lang=al; fi; echo
+      $lang; sed -i "s/RAYKIT.EXE.*/RAYKIT.EXE ver="$lang"/" rayman_forever_dosbox.conf;
