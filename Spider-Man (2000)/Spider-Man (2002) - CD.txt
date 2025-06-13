@@ -1,5 +1,6 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/spider-man_2000_patch.zip
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.3.7700.25/dxwrapper.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/spider-man_2000_patch.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
   prefix: $GAMEDIR
@@ -11,7 +12,7 @@ installer:
 - insert-disc:
     requires: Setup/SpideyPC.ico
 - task:
-    description: Installing Spider-Man (2002)...
+    description: Installing Spider-Man (2000), during install let all options to default.
     executable: $DISC/Setup.exe
     name: wineexec
 - merge:
@@ -22,9 +23,37 @@ installer:
     src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
-    src: patch
+    file: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/Stub/ddraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/Stub/dsound.dll
+- write_config:
+    data:
+      Compatibility:
+        Dd7to9: 1
+        EnableDdrawWrapper: 1
+        EnableDsoundWrapper: 1
+      d3d9:
+        EnableWindowMode: 1
+        FullscreenWindowMode: 1
+        LimitPerFrameFPS: 30
+      dsound:
+        AudioClipDetection: 1
+        PrimaryBufferBits: 16
+        PrimaryBufferSamples: 44100
+    file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/dxwrapper.ini
 system:
   gamescope: true
   gamescope_fps_limiter: '30'
   gamescope_game_res: 1280x1024
   gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    ddraw: n,b
+    dsound: n,b
