@@ -3,6 +3,7 @@ files:
 - dbx-cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%20Forever/rayman_forever_dosbox.conf
 - patch: https://github.com/PluMGMK/ray1_unlocklang/releases/download/v0.2.0/ray1_unlocklang.exe
 - mod: https://github.com/PluMGMK/rayman-tpls-tsr/releases/download/v3.1.1/rayman-tpls-tsr.zip
+- vid_game: https://www.dropbox.com/scl/fi/u2dtyz50id79urkp073vw/RAYMAN.zip?rlkey=0cao4y3vjsaci6netinv355g9&st=0d3xmw9d&dl=1
 game:
   main_file: $GAMEDIR/rayman_forever_dosbox.conf
 installer:
@@ -29,6 +30,9 @@ installer:
 - merge:
     dst: $GAMEDIR/Rayman/backup
     src: $GAMEDIR/Rayman/RAYMAN.CFG
+- extract:
+    dst: $GAMEDIR/Rayman
+    file: vid_game
 - input_menu:
     description: 'Choose your preferred game''s language:'
     id: LANG
