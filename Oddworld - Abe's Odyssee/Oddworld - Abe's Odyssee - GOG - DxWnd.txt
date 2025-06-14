@@ -1,6 +1,7 @@
 files:
 - gogsetup: N/A:Select the EXE downloaded from GOG
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dxwnd/v2_06_09_build.rar
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Oddworld%20-%20Abe's%20Odyssee/abe2.ini
 game:
   args: /R:1
   exe: drive_c/dxwnd/dxwnd.exe
@@ -15,6 +16,9 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
     file: gogsetup
     format: gog
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
+    src: game_cfg
 - extract:
     dst: $GAMEDIR/drive_c/dxwnd
     file: wrapper
