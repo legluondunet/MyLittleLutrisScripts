@@ -1,0 +1,23 @@
+files:
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- engine: https://github.com/AliveTeam/alive_reversing/releases/download/github-v1.0.9/Windows64-Debug-relive-binaries.zip
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Oddworld%20-%20Abe's%20Odyssee/abe2.ini
+game:
+  exe: drive_c/GOG Games/Abe's Oddysee/relive.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
+    file: engine
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
+    src: game_cfg
