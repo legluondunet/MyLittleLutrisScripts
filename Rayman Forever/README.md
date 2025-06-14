@@ -3,7 +3,7 @@
 ### Description:
 Play "Rayman Forever" GOG edition on Linux!
 ### Technical notes:
-- Using PluMGMK patchs: PS1 soundtracks and possibility to choose language between English (default), French or German
+- Using PluMGMK patchs: PS1 soundtracks, cinematics and possibility to choose language between English (default), French or German
 ### Credits:
 - rayman-tpls-tsr: https://github.com/PluMGMK/rayman-tpls-tsr
 - ray1_unlocklang: https://github.com/PluMGMK/ray1_unlocklang
