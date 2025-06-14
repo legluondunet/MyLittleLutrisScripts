@@ -15,9 +15,9 @@ installer:
     dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
     file: gogsetup
     format: gog
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
-    file: engine
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
     src: game_cfg
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Abe's Oddysee
+    file: engine
