@@ -1,6 +1,6 @@
 files:
 - wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.3.7700.25/dxwrapper.zip
-- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Spider-Man%20(2000)/spider-man_2000_patch.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2001)/spider-man_2001_patch.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
   prefix: $GAMEDIR
