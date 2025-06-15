@@ -1,10 +1,3 @@
----
-author: Romain
-changed: '2023-02-16T22:46:53.735471869'
-created: '2019-05-09T09:02:48.919032913'
-generator: 'LibreOffice 7.5.0.3 (Linux)'
----
-
 **Spider-Man 2002 – AntimicroX profile**
 
 **Spider-Man 2002 have very weak support for gamepad, so you will need
