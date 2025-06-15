@@ -112,17 +112,17 @@ installer:
     file: wrapper_video2
 - copy:
     dst: $GAMEDIR/drive_c/SW1-TMP
-    src: $CACHE//MS/x86/DDraw.dll
+    src: $CACHE/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/SW1-TMP
-    src: $CACHE//MS/x86/D3DImm.dll
+    src: $CACHE/MS/x86/D3DImm.dll
 - write_config:
     data:
       DirectX:
         dgVoodooWatermark: false
       GeneralExt:
         DesktopBitDepth: 32
-    file: $GAMEDIR/drive_c/SW1-TMP//dgVoodoo.conf
+    file: $GAMEDIR/drive_c/SW1-TMP/dgVoodoo.conf
 - extract:
     dst: $GAMEDIR/drive_c/SW1-TMP/gamedata/gobs
     file: util1
