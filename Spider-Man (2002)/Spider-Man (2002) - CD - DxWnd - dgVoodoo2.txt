@@ -128,7 +128,7 @@ installer:
     data:
       DirectX:
         dgVoodooWatermark: false
-    file: $GAMEDIR/drive_c/SW1-TMP/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/dgVoodoo.conf
 system:
   exclude_processes: xalia.exe dxwnd.exe
   reset_desktop: true
