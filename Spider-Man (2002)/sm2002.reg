@@ -1,11 +1,5 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Activision\Spiderman The Movie]
-"CD"="E:"
-"InstallEXEPath"="C:\\Program Files (x86)\\Activision\\Spider-Man (tm) Movie\\Spiderman.exe"
-"InstallPath"="C:\\Program Files (x86)\\Activision\\Spider-Man (tm) Movie"
-"StartMenuLocation"="C:\\Documents and Settings\\legluondunet\\Menu Démarrer\\Programmes\\Activision"
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Activision\Spiderman The Movie]
 "CD"="E:"
 "InstallEXEPath"="C:\\Program Files (x86)\\Activision\\Spider-Man (tm) Movie\\Spiderman.exe"
