@@ -1,23 +1,16 @@
 **Spider-Man 2002 – AntimicroX profile**
 
-**Spider-Man 2002 have very weak support for gamepad, so you will need
-to install a third partuy software called keymapper. This software will
-attribute keyboard keys to your gamepad.**
+Spider-Man 2002 have very weak support for gamepad, so you will need
+to install a third party software called keymapper. This software will
+attribute keyboard keys to your gamepad.
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**You will find a gamepad profile file for
-AntimicroX in the game folder.**</span></span>
 
-<span style="font-variant: normal"><span
-style="font-style: normal">**Download AntimicroX**</span></span><span
-style="font-variant: normal"> </span><span
-style="font-variant: normal"><span style="font-style: normal">**here:
-<https://github.com/AntiMicroX/antimicrox> or install official package
-from your Linux distribution. Then open AntimicroX,**</span></span><span
-style="font-variant: normal"> </span><span
-style="font-variant: normal"><span style="font-style: normal">**import
-profile and start game, you can now play with your
-gamepad.**</span></span>
+
+**Download AntimicroX**
+
+here: https://github.com/AntiMicroX/antimicrox
+or install official package from your Linux distribution.
+Then open AntimicroX, import profile and start game, you can now play with your gamepad.
 
 **Spider-Man 2002 -** **keyboard and gamepad mapping**
 
