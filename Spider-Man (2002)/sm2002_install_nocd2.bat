@@ -1,5 +1,5 @@
 c:
-start "" c:\sm1\cd1\setup.exe
+start "" c:\tmp\cd1\setup.exe
 
 :search
 winedbg --command "info wnd" | find "Insert CD" 1>NUL 2>NUL
