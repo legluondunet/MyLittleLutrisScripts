@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-1.0/TR2X-1.0-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-1.2.1/TR2X-1.2.1-Linux.zip
 - steam_data: $STEAM:225300:/
 - dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
 game:
