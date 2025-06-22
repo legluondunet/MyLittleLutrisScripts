@@ -1,0 +1,13 @@
+files:
+- engine: https://github.com/HarbourMasters/SpaghettiKart/releases/download/Latest2/Spaghettify-Alfredo-Alfa-1-Linux-Old.zip
+- game_rom: N/A:Please provide Mario Kart 64 USA rom file in .z64 format SHA-1 579C48E211AE952530FFC8738709F078D5DD215E
+game:
+  exe: $GAMEDIR/spaghetti.appimage
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/spaghetti.appimage
+- merge:
+    dst: $GAMEDIR
+    src: game_rom
