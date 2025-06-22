@@ -1,7 +1,7 @@
 files:
 - steamdata: $STEAM:224960:.
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
-- mod: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.8/TR1X-4.8-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.12.2/TR1X-4.12.2-Linux.zip
 - dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
 - audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
@@ -32,7 +32,7 @@ installer:
     src: $GAMEDIR/tmp/FMV
 - extract:
     dst: $GAMEDIR/TR1X
-    file: mod
+    file: engine
 - merge:
     dst: $GAMEDIR/TR1X/data
     src: $GAMEDIR/TR1X/DATA
