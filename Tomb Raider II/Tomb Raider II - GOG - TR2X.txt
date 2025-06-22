@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-1.2/TR2X-1.2-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/tr2-1.2.1/TR2X-1.2.1-Linux.zip
 - gogsetup: N/A:Select the Windows installer file in exe format downloaded from your
     GOG account
 - dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
