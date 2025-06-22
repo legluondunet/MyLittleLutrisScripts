@@ -1,4 +1,4 @@
-# 3D Pinball for WIndows – Space Cadet - SpaceCadetPinball - Wine
+# 3D Pinball for Windows – Space Cadet - SpaceCadetPinball - Wine
 ### Description:
 Play "3D Pinball for Windows: Space Cadet" on Linux!
 ### Technical notes:
