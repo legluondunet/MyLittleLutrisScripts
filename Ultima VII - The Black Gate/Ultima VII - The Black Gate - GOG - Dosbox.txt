@@ -1,0 +1,15 @@
+files:
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  config_file: $GAMEDIR/dosboxULTIMA7.conf
+  main_file: $GAMEDIR/dosboxULTIMA7_single.conf
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR
+    src: $GAMEDIR/__support/app/
