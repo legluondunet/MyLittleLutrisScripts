@@ -7,10 +7,6 @@ game:
   args: -c exult.cfg --bg
   exe: exult
   gogid: 1207662623
-  launch_configs:
-  - args: -c exult.cfg --fov
-    exe: $GAMEDIR/exult
-    name: Ultima VII - The Black Gate - Forge of Virtue
   ld_library_path: libs
 installer:
 - extract:
