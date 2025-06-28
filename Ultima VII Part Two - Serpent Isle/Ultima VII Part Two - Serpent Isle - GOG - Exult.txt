@@ -1,0 +1,16 @@
+files:
+- gogsetup: N/A:Select the GOG installer
+game:
+  args: -c exult.cfg --si
+  exe: exult
+  launch_configs:
+  - args: -c exult.cfg --ss
+    exe: $GAMEDIR/exult
+    name: Ultima VII - Part Two - Serpent Isle
+  ld_library_path: libs
+installer:
+- extract:
+    dst: $GAMEDIR/games/serpentisle
+    file: gogsetup
+    format: gog
+requires: ultima-vii-the-black-gate-gog-exult
