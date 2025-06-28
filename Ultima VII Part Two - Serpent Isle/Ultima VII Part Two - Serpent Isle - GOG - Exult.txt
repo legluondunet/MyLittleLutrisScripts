@@ -3,10 +3,6 @@ files:
 game:
   args: -c exult.cfg --si
   exe: exult
-  launch_configs:
-  - args: -c exult.cfg --ss
-    exe: $GAMEDIR/exult
-    name: Ultima VII - Part Two - Serpent Isle
   ld_library_path: libs
 installer:
 - extract:
