@@ -1,0 +1,28 @@
+files:
+- gogsetup: N/A:Select the GOG installer
+- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Ultima%20VII%20-%20The%20Black%20Gate/exult.zip
+- engine_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Ultima%20VII%20-%20The%20Black%20Gate/exult.cfg
+- engine_audio: http://prdownloads.sourceforge.net/exult/exult_audio.zip
+game:
+  args: -c exult.cfg --bg
+  exe: exult
+  gogid: 1207662623
+  launch_configs:
+  - args: -c exult.cfg --fov
+    exe: $GAMEDIR/exult
+    name: Ultima VII - The Black Gate - Forge of Virtue
+  ld_library_path: libs
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- copy:
+    dst: $GAMEDIR
+    src: engine_cfg
+- extract:
+    dst: $GAMEDIR/games/blackgate
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR/data
+    file: engine_audio
