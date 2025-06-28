@@ -13,3 +13,5 @@ installer:
 - merge:
     dst: $GAMEDIR
     src: $GAMEDIR/__support/app/
+- execute:
+    command: cd "$GAMEDIR" ; sed -i s/\"\.\.\"/\"\.\"/  dosboxULTIMA7_single.conf
