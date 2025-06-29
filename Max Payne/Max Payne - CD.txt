@@ -1,0 +1,33 @@
+files:
+- patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Max%20Payne/max_payne_patch.zip
+- patch2: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/mp1/MaxPayne.WidescreenFix.zip
+game:
+  exe: drive_c/Program Files (x86)/Max Payne/MaxPayne.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert and mount Max Payne CD
+    requires: maxpayne.ico
+- task:
+    description: Installing Max Payne CD, please let all options to default
+    executable: $DISC/disk1/setup.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Max Payne/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Max Payne/MaxPayne.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Max Payne/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Max Payne/rlmfc.dll
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Max Payne
+    file: patch1
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Max Payne
+    file: patch2
+wine:
+  overrides:
+    d3d8: n,b
