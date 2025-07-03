@@ -1,0 +1,49 @@
+files:
+- wrapper_video: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  exe: drive_c/DrBrain4/drbrain4.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert The Time Warp of Dr. Brain CD and press autodetect.
+    requires: drbrain4.exe
+- merge:
+    dst: $GAMEDIR/drive_c/DrBrain4
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +w DrBrain4; find DrBrain4/*  -depth
+      -type d -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ; find DrBrain4/*
+      -depth -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0");
+      d=$(dirname "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ;
+    description: clean game files, could take time, please wait...
+    return_code: 31488
+- task:
+    key: SaveGameDir
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\SierraOnLine\The Time Warp of Dr.
+      Brain
+    type: REG_SZ
+    value: C:\\DrBrain4\\savegame
+- extract:
+    dst: $CACHE
+    file: wrapper_video
+- copy:
+    dst: $GAMEDIR/drive_c/DrBrain4
+    src: $CACHE/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/DrBrain4
+    src: $CACHE/MS/x86/D3DImm.dll
+- write_config:
+    data:
+      DirectX:
+        dgVoodooWatermark: false
+    file: $GAMEDIR/drive_c/DrBrain4/dgVoodoo.conf
+wine:
+  overrides:
+    ddraw: n,b
