@@ -1,0 +1,17 @@
+files:
+- os_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/windows/win31.7z
+game:
+  config_file: dosbox_win31x_cd.conf
+  main_file: dosbox_win31x_cd.conf
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: os_file
+- insert-disc:
+    requires: drbrain3.exe
+- merge:
+    dst: $GAMEDIR/C/game
+    src: $DISC
+- execute:
+    command: cd "$GAMEDIR" ; sed -i s/game.exe/drbrain3.exe/ dosbox_win31x_cd.conf
+      ; cd C ; chmod -R +w game; cd WINDOWS ; cp -f SYSTEM.INI.8 SYSTEM.INI;
