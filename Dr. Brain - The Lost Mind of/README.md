@@ -1,4 +1,4 @@
-# The Lost Mind of Dr. Brain - CD
+# The Lost Mind of Dr. Brain - CD - Win31
 ### Description:
 Play "The Lost Mind of Dr. Brain" CD edition for Windows 3.1 on Linux!
 ### Technical notes:
