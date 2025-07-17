@@ -1,0 +1,15 @@
+files:
+- engine: https://github.com/fgsfdsfgs/perfect_dark/releases/download/ci-dev-build/pd-x86_64-linux.tar.gz
+- rom_file: N/A:Please provide Perfect Dark rom file in .z64 format
+game:
+  args: --portable
+  exe: $GAMEDIR/pd-x86_64-linux/pd.x86_64
+installer:
+- extract:
+    dst: $GAMEDIR/pd-x86_64-linux
+    file: engine
+    format: tgz
+- chmodx: $GAMEDIR/pd-x86_64-linux/pd.x86_64
+- execute:
+    command: mkdir "$GAMEDIR/pd-x86_64-linux/data"; cp "$rom_file" "$GAMEDIR/pd-x86_64-linux/data/pd.ntsc-final.z64"
+      ;
