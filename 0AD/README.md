@@ -1,12 +1,8 @@
-# 0ad Alpha 25b version - Linux
+# 0 A.D. - AppImage
 
 ### Description:
-This script will facilitate install of this game on Linux OS:
-"0ad" from https://play0ad.com
-Big thanks to people who gave their time to permit us playing this game in the best conditions on Linux.
-
+Play "0 A.D." on Linux!
 ### Technical notes:
-- Packaged from snap
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
-
+### Credits:
+- Unofficial 0 A.D. AppImage: https://github.com/0ad-matters/0ad-appimage
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
