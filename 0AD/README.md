@@ -1,5 +1,4 @@
 # 0 A.D. - AppImage
-
 ### Description:
 Play "0 A.D." on Linux!
 ### Technical notes:
