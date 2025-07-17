@@ -1,9 +1,0 @@
-exe: 0ad.sh
-files:
-- game: https://lutris.nyc3.digitaloceanspaces.com/games/0ad/0ad_Alpha_0.25b.tar.xz
-installer:
-- extract:
-    dst: $GAMEDIR
-    file: game
-    format: txz
-- chmodx: $GAMEDIR/0ad.sh
