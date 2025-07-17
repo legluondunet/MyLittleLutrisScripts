@@ -11,10 +11,10 @@ Play "Doom 64 CE mod" on Linux
 
 # Doom 64 - Doom 64 EX+
 ### Description:
-Play "Doom 64" on Linux
+Play "Doom 64" on Linux!
 ### Technical notes:
 - Using "Doom 64 EX+" open source engine
-- During install, you will need to provide "doom64.wad" file from any "Doom 64" GOG or Steam install
+- During install, you will need to provide "DOOM64.WAD" and "DOOMSND.DLS" files from any "Doom 64" GOG or Steam install
 ### Credits:
 - Doom 64 EX+: https://github.com/atsb/Doom64EX-Plus
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
