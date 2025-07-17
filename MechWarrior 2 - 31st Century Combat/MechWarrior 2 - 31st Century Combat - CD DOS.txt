@@ -1,0 +1,18 @@
+files:
+- cue_file: https://archive.org/download/mechwarrior-2-31st-century-combat/MECH2_16B.CUE
+- bin_file: https://archive.org/download/mechwarrior-2-31st-century-combat/MECH2_16B.BIN
+- cfg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%202%20-%2031st%20Century%20Combat/dosbox.conf
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- merge:
+    dst: $GAMEDIR/CD
+    src: cue_file
+- merge:
+    dst: $GAMEDIR/CD
+    src: bin_file
+- merge:
+    dst: $GAMEDIR
+    src: cfg_file
+- execute:
+    command: cd "$GAMEDIR" ; mkdir C ;
