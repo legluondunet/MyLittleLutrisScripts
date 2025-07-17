@@ -1,0 +1,21 @@
+files:
+- engine:
+    filename: doom64-ex-plus-linux-x86_64.AppImage
+    url: https://github.com/atsb/Doom64EX-Plus/releases/download/4.2.0.0/doom64-ex-plus-4.2.0.0-linux-x86_64.AppImage
+game:
+  exe: $GAMEDIR/doom64-ex-plus-linux-x86_64.AppImage
+installer:
+- chmodx: engine
+- copy:
+    dst: $GAMEDIR
+    src: engine
+- extract:
+    dst: $GAMEDIR
+    src: engine_cfg
+- insert-disc:
+    description: Please browse folder where is located DOOM64.WAD file from DOOM64
+      GOG or Steam install. "Autodetect" button will not work here, use "Browse" button.
+    requires: doom64.wad
+- execute:
+    command: cd "$GAMEDIR"; find "$DISC" \( -iname "DOOM64.WAD" -o -iname "DOOMSND.DLS"
+      \) -exec cp -L {} . \; ; mkdir doom64-ex-plus-linux-x86_64.AppImage.home doom64-ex-plus-linux-x86_64.AppImage.config;
