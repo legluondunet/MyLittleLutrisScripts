@@ -1,5 +1,5 @@
 files:
-- patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Undercover/nfsu_patch.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Undercover/updates/Need-for-Speed-Undercover_patch_all_10117.zip
 game:
   exe: drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/nfs.exe
   prefix: $GAMEDIR
@@ -16,16 +16,29 @@ installer:
     executable: $DISC/setup.exe
     name: wineexec
     return_code: 256
+- input_menu:
+    description: 'Before to apply 1.0.1.17 update, I need to know what is your DVD
+      version:'
+    id: UPDATE
+    options:
+    - EN-ES_v10117-US: US DVD version (EN-ES)
+    - EN-ES-NL-SV-DA-FI-PL-RU-CS-HU_v10117-EU: European DVD version (EN-ES-NL-SV-DA-FI-PL-RU-CS-HU)
+    - FR-DE-IT_v10117: European DVD version (FR-DE-IT)
+    preselect: null
+- execute:
+    command: cd "$GAMEDIR/drive_c"; mkdir tmp; cd tmp; wget --no-check-certificate
+      "https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Undercover/updates/Need-for-Speed-Undercover_Patch_Win_"$INPUT_UPDATE".zip"
+      ;
 - extract:
     dst: $GAMEDIR/drive_c/tmp
-    src: patch1
+    file: $GAMEDIR/drive_c/tmp/Need-for-Speed-Undercover_Patch_Win_$INPUT_UPDATE.zip
 - task:
-    description: Installing "Need for Speed - Undercover" update v1.0.1.17
-    executable: $GAMEDIR/drive_c/tmp/NFSU_v1.0.1.17_frgeritalEU.exe
+    description: Installing "Need for Speed - Undercover" 1.0.1.17 update
+    executable: $GAMEDIR/drive_c/tmp/Need-for-Speed-Undercover_Patch_Win_$INPUT_UPDATE.exe
     name: wineexec
-- move:
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/nfs.exe
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover
-    src: $GAMEDIR/drive_c/tmp/nfs.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/
+    file: game_patch
