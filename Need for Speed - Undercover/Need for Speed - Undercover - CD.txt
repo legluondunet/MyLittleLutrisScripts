@@ -1,1 +1,31 @@
-
+files:
+- patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Undercover/nfsu_patch.zip
+game:
+  exe: drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/nfs.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: nfs_icon.ico
+- task:
+    description: Installing "Need for Speed - Undercover"...Let all options to default,
+      you can bypass EA account connection
+    executable: $DISC/setup.exe
+    name: wineexec
+    return_code: 256
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    src: patch1
+- task:
+    description: Installing "Need for Speed - Undercover" update v1.0.1.17
+    executable: $GAMEDIR/drive_c/tmp/NFSU_v1.0.1.17_frgeritalEU.exe
+    name: wineexec
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover/nfs.exe
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Need for Speed Undercover
+    src: $GAMEDIR/drive_c/tmp/nfs.exe
