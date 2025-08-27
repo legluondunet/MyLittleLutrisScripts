@@ -1,4 +1,4 @@
-# The Legend of Zelda - Link's Awakening DX - HD PC port
+## The Legend of Zelda - Link's Awakening DX - HD PC port
 ### Description:
 HD PC Port of Link's Awakening built with MonoGame
 ### Technical notes:
