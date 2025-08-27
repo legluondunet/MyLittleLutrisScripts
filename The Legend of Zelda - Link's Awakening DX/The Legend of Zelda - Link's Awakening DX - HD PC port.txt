@@ -1,0 +1,19 @@
+files:
+- zipFile: https://archive.org/download/links-awakening-dx-hd/Links%20Awakening%20DX%20HD%20v1.0.0.zip
+game:
+  exe: drive_c/ladxhd/Link's Awakening DX HD.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Setting up wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: dotnetdesktop6
+    name: winetricks
+    silent: true
+- extract:
+    dst: $GAMEDIR/drive_c/ladxhd
+    file: zipFile
+- execute:
+    command: cd "$GAMEDIR/drive_c/ladxhd" ; touch portable.txt;
