@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/Zelda64Recomp/Zelda64Recomp/releases/download/v1.2.0/Zelda64Recompiled-v1.2.0-Linux-X64.zip
+- engine: https://github.com/Zelda64Recomp/Zelda64Recomp/releases/download/v1.2.2/Zelda64Recompiled-v1.2.2-Linux-X64.zip
 - rom_file: N/A:Please provide The Legend of Zelda - Majora's Mask USA rom file in
     .z64 format SHA-1 d6133ace5afaa0882cf214cf88daba39e266c078
 - mod_hd: https://evilgames.eu/files/texture-packs/mm-reloaded-v11.0.1-rt64.rtz
