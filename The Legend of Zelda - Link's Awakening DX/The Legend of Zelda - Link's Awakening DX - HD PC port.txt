@@ -1,5 +1,5 @@
 files:
-- zipFile: https://archive.org/download/links-awakening-dx-hd/Links%20Awakening%20DX%20HD%20v1.0.0.zip
+- game: https://archive.org/download/links-awakening-dx-hd/Links%20Awakening%20DX%20HD%20v1.0.0.zip
 game:
   exe: drive_c/ladxhd/Link's Awakening DX HD.exe
   prefix: $GAMEDIR
@@ -14,6 +14,6 @@ installer:
     silent: true
 - extract:
     dst: $GAMEDIR/drive_c/ladxhd
-    file: zipFile
+    file: game
 - execute:
     command: cd "$GAMEDIR/drive_c/ladxhd" ; touch portable.txt;
