@@ -13,5 +13,5 @@ Latest update for  "The Legend of Zelda: Links Awakening DX HD - PC Port"
 ### Technical notes:
 - This script install is dependant from "The Legend of Zelda: Link's Awakening DX HD - PC Port" and will update it to more recent version
 ### Credits:
-- The Legend of Zelda: Links Awakening DX HD - PC Port updated: https://github.com/BigheadSMZ/Zelda-LA-DX-HD-Updated
+- The Legend of Zelda - Links Awakening DX HD - PC Port updated: https://github.com/BigheadSMZ/Zelda-LA-DX-HD-Updated
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
