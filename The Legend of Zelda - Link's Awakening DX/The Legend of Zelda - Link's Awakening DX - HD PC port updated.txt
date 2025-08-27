@@ -1,0 +1,13 @@
+extends: the-legend-of-zelda-links-awa-hd-pc-port
+files:
+- game_patch:
+    filename: LADXHD.Patcher.exe
+    url: https://github.com/BigheadSMZ/Zelda-LA-DX-HD-Updated/releases/download/v1.1.4/LADXHD.Patcher.v1.1.4.exe
+installer:
+- merge:
+    dst: $GAMEDIR/drive_c/ladxhd
+    src: game_patch
+- task:
+    executable: $GAMEDIR/drive_c/ladxhd/LADXHD.Patcher.exe
+    name: wineexec
+    prefix: $GAMEDIR
