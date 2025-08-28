@@ -1,0 +1,24 @@
+files:
+- game_patch: https://www.dropbox.com/scl/fi/q5jktp8rnczzmv13krtqc/NFSHP_1000_to_1050.zip?rlkey=jbtukhvckxqe19kcm0ewlbp8v&st=uwfbac6e&dl=1
+game:
+  exe: drive_c/Program Files (x86)/Electronic Arts/Need for Speed(TM) Hot Pursuit/Launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: launcher.exe
+- task:
+    description: Installing "Need for Speed - Undercover"...Let all options to default,
+      you can bypass EA account connection
+    executable: $DISC/autorun.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: game_patch
+- task:
+    description: Installing "Need for Speed - Undercover" 1.050 update
+    executable: $GAMEDIR/drive_c/tmp/NFSHP_1000_to_1050.exe
+    name: wineexec
