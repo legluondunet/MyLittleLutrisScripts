@@ -10,11 +10,11 @@ Play "Pharaoh" CD edition on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Pharaoh + Cleopatra - GOG + akhenaten
+# Pharaoh + Cleopatra - GOG + Akhenaten
 ### Description:
 Play "Pharaoh + Cleopatra" provided by GOG on Linux!
 ### Technical notes:
-- using Akhenaten open source engine
+- Using Akhenaten open source engine
 ### Credits:
 - Akhenaten: https://github.com/dalerank/Akhenaten
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
