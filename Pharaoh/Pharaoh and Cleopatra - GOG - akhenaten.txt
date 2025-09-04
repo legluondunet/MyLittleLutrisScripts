@@ -1,19 +1,15 @@
 files:
 - gogsetup: N/A:Select the game setup EXE file downloaded from your GOG account
-- engine: https://nightly.link/dalerank/Akhenaten/workflows/akhenaten_windows/master/windows_build.zip
+- engine: https://nightly.link/dalerank/Akhenaten/workflows/akhenaten_linux/master/linux_build.zip
 game:
   args: resources
-  exe: drive_c/Akhenaten/akhenaten.exe
-  prefix: $GAMEDIR
+  exe: $GAMEDIR/Akhenaten/akhenaten.linux
 installer:
-- task:
-    arch: win64
-    name: create_prefix
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/Akhenaten
-    file: engine
-- extract:
-    dst: $GAMEDIR/drive_c/Akhenaten/resources
+    dst: $GAMEDIR/Akhenaten/resources
     file: gogsetup
     format: gog
+- extract:
+    dst: $GAMEDIR/Akhenaten
+    file: engine
+- chmodx: $GAMEDIR/Akhenaten/akhenaten.linux
