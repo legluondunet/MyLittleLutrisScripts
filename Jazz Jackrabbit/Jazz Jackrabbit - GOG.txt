@@ -1,0 +1,15 @@
+files:
+- engine: https://github.com/AlisterT/openjazz/releases/download/continuous/openjazz-linux-glibc2.35-x86_64.zip
+- gogsetup: N/A:Please select the game Windows install file, available for  download
+    from your GOG account page.
+game:
+  exe: $GAMEDIR/jazz-jackrabbit/data/noarch/game/data/OpenJazz
+installer:
+- extract:
+    dst: $GAMEDIR/jazz-jackrabbit
+    file: gogsetup
+    format: zip
+- extract:
+    dst: $GAMEDIR/jazz-jackrabbit/data/noarch/game/data
+    file: engine
+- chmodx: $GAMEDIR/jazz-jackrabbit/data/noarch/game/data/OpenJazz
