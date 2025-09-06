@@ -17,3 +17,9 @@ installer:
     file: game
 - execute:
     command: cd "$GAMEDIR/drive_c/ladxhd" ; touch portable.txt;
+- task:
+    key: DisableHidraw
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\winebus
+    type: REG_DWORD
+    value: '00000001'
