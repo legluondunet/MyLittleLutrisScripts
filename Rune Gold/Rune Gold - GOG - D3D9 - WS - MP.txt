@@ -1,15 +1,14 @@
 files:
-- mod1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/rg_d3d9_renderer.zip
-- gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
-- script1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/rg_d3d9_renderer.zip
+- gogsetup: N/A:Select RUNE Gold setup exe file downloaded from your GOG games library
+    page or download it from https://www.gog.com/downloads/rune_classic/25813
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -18,7 +17,7 @@ installer:
     format: gog
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
-    file: mod1
+    file: mod
 - input_menu:
     description: Select your preferred language
     id: LANG
@@ -30,10 +29,10 @@ installer:
     - est: spanish
     - rut: russian
     preselect: int
-- chmodx: script1
+- chmodx: script
 - execute:
     args: $INPUT_LANG $CACHE
-    file: script1
+    file: script
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold
     file: $CACHE/rune_lang_$INPUT_LANG.tar.xz
@@ -45,6 +44,9 @@ installer:
       Engine.GameEngine:
         ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
           MasterServerPort=27900
+      Engine.Player:
+        ConfiguredInternetSpeed: 50000
+        ConfiguredLanSpeed: 50000
       FirstRun:
         FirstRun: 107
       IpServer.UdpServerUplink:
