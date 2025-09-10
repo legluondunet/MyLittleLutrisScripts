@@ -5,6 +5,7 @@ files:
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
 - game_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/Default.ini
 - fov_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/rune_gold_fov.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
   prefix: $GAMEDIR
@@ -76,7 +77,30 @@ installer:
         FullscreenViewportY: $RESOLUTION_HEIGHT
     file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Default.ini
     merge: true
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
+    src: $CACHE/MS/x86/D3D9.dll
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
+    src: $CACHE/dgVoodooCpl.exe
+- write_file:
+    content: '[DirectX]
+
+      VRAM=4096
+
+      VideoCard=internal3D
+
+      dgVoodooWatermark=False
+
+      Antialiasing=4x'
+    file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/dgVoodoo.conf
 system:
   env:
     DXVK_FRAME_RATE: '60'
     DXVK_HUD: null
+wine:
+  overrides:
+    d3d9: n,b
