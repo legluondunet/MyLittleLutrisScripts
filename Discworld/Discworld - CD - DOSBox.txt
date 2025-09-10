@@ -1,4 +1,3 @@
-custom-name: DiscWorld - CD - DOSBox
 files:
 - upd: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/DISC104_lgdn.zip
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_multi5.zip
@@ -16,15 +15,14 @@ installer:
     dst: $GAMEDIR/c
     src: upd
 - copy:
-    dst: $GAMEDIR/c/discwld.cd/
+    dst: $GAMEDIR/c/discwld.cd
     src: $DISC/discwld/dwu.exe
 - extract:
     dst: $GAMEDIR/c/lang
     src: multi5
 - copy:
-    dst: $GAMEDIR/cd/discwld/
+    dst: $GAMEDIR/cd/discwld
     src: $GAMEDIR/c/lang/english.txt
 - copy:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     src: dbxconf
-
