@@ -6,22 +6,19 @@ Play "Discworld" CD edition on Linux!
 - You will need the Discworld CD only one time during install
 - This script installer is compatible with US and European CD version
 - Press F1 for main menu (load, save, quit...)
-- Multilanguage: you will be able to choose game menus and subtitles language between English (default), Italian, French, Spanish and German, whatever the CD version you use
+- Multilanguage: during install you will be able to choose game menus and subtitles language between English (default), Italian, French, Spanish and German, whatever the CD version you use
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # DiscWorld - CD - ScummVM
 ### Description:
-This script will install "Discworld" CD edition for ScummVM.
-During install please let all options by default.
-This script uses remastered soundtracks from James Woodcock. Visit his site to find more adventure games quality soundtracks replacement for ScummVM: http://scummvm.jameswoodcock.co.uk/
-Thanks to the people who contributed to play this game in the best conditions on Linux platform.
+Play "Discworld" CD edition on Linux!
 ### Technical notes:
-- You will need the Discworld CD only one time during install.
-- This script is compatible with US and European CD version.
-- Press F1 for main menu (load, save, quit...).
-- Multilanguage: during install you will be able to choose your preferred menus and subtitles game language between English (default), Italian, French, Spanish and German, whatever the Discworld CD version you use.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
+- Included remastered soundtracks by James Woodcock
+- Press F1 for main menu (change menus and subtitles language, load, save, quit...)
+- You will need the Discworld CD only one time during install
+- This script is compatible with US and European CD version
+- Multilanguage: during install you will be able to choose game menus and subtitles language between English (default), Italian, French, Spanish and German, whatever the CD version you use
 ### Credits:
+- Discworld remastered soundtracks by James Woodcock: https://www.pixelrefresh.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
