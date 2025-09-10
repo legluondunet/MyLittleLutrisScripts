@@ -1,12 +1,10 @@
-custom-name: Discworld - CD - ScummVM
 files:
 - music: https://dl.dropboxusercontent.com/s/8kcnavvu4n848do/discworld_v2_1_ogg.zip
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Discworld/discworld_multi5.zip
 game:
-  args: --language=$INPUT_LANG
+  args: --language=$INPUT_LANG --subtitles
   game_id: dw
   path: $GAMEDIR
-  subtitles: true
 installer:
 - insert-disc:
     description: Please insert Discworld disc
@@ -15,7 +13,7 @@ installer:
     dst: $GAMEDIR
     src: $DISC/discwld
 - extract:
-    dst: $GAMEDIR/
+    dst: $GAMEDIR
     src: multi5
 - extract:
     dst: $GAMEDIR
@@ -30,6 +28,3 @@ installer:
     - it: Italian
     - de: German
     preselect: en
-scummvm:
-  fullscreen: true
-
