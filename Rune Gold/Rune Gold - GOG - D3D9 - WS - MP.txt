@@ -3,6 +3,8 @@ files:
 - gogsetup: N/A:Select RUNE Gold setup exe file downloaded from your GOG games library
     page or download it from https://www.gog.com/downloads/rune_classic/25813
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
+- game_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/Default.ini
+- fov_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/rune_gold_fov.zip
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
   prefix: $GAMEDIR
@@ -18,6 +20,26 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
     file: mod
+- extract:
+    dst: $CACHE
+    file: fov_files
+- input_menu:
+    description: Select your resolution ratio
+    id: RATIO
+    options:
+    - 169: 16/9
+    - 1610: 16/10
+    - 43: 4/3
+    preselect: 43
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/backup
+    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/DefUser.ini
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/backup
+    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/User.ini
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
+    src: $CACHE/$INPUT_RATIO
 - input_menu:
     description: Select your preferred language
     id: LANG
@@ -36,53 +58,23 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rune Gold
     file: $CACHE/rune_lang_$INPUT_LANG.tar.xz
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/backup
+    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Default.ini
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/backup
+    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Rune.ini
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Rune Gold/System
+    src: game_conf
 - write_config:
     data:
       Engine.Engine:
-        GameRenderDevice: D3D9Drv.D3D9RenderDevice
         Language: $INPUT_LANG
-      Engine.GameEngine:
-        ServerActors: IpServer.UdpServerUplink MasterServerAddress=master.333networks.com
-          MasterServerPort=27900
-      Engine.Player:
-        ConfiguredInternetSpeed: 50000
-        ConfiguredLanSpeed: 50000
-      FirstRun:
-        FirstRun: 107
-      IpServer.UdpServerUplink:
-        MasterServerAddress: master.333networks.com
-      UBrowserAll:
-        ListFactories[0]: UBrowser.UBrowserGSpyFact,MasterServerAddress=master.333networks.com,MasterServerTCPPort=28900,ServerRegion=0,GameName=rune
-      UWindow.WindowConsole:
-        ConsoleKey: 112
       WinDrv.WindowsClient:
-        FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-        MinDesiredFrameRate: 60.0
-        UseDirectDraw: true
-        UseJoystick: false
-        WindowedColorBits: 32
-        WindowedViewportX: $RESOLUTION_WIDTH
-        WindowedViewportY: $RESOLUTION_HEIGHT
     file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Default.ini
-    merge: true
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/Rune.ini
-- write_config:
-    data:
-      Engine.Input:
-        B: Look
-        H: TurnLeft
-        J: TurnRight
-        MouseWheelUp: null
-        Shift: null
-        V: ZTargetToggle
-      Engine.PlayerPawn:
-        DefaultFOV: 91.3
-        DesiredFOV: 91.3
-    file: $GAMEDIR/drive_c/GOG Games/Rune Gold/System/DefUser.ini
     merge: true
 system:
   env:
