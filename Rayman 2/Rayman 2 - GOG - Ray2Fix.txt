@@ -1,6 +1,6 @@
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.1/Ray2Fix_1.4.1.zip
+- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.1-01/Ray2Fix_1.4.1-01.zip
 - gogsetup: N/A:Select the GOG setup exe
 game:
   exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
@@ -24,17 +24,11 @@ installer:
     dst: $CACHE
     file: wrapper
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2/backup
-    src: $GAMEDIR/drive_c/GOG Games/Rayman 2/Glide2x.dll
-- merge:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
     src: $CACHE/3Dfx/x86/Glide2x.dll
 - merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2/backup
-    src: $GAMEDIR/drive_c/GOG Games/Rayman 2/dgVoodoo.conf
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2/backup
-    src: $GAMEDIR/drive_c/GOG Games/Rayman 2/ubi.ini
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 2
+    src: $CACHE/dgVoodooCpl.exe
 - write_config:
     data:
       Rayman2:
