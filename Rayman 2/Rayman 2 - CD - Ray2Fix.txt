@@ -17,7 +17,8 @@ installer:
     requires: Rayman2.exe
 - execute:
     command: mkdir -p "$GAMEDIR/drive_c/UbiSoft/Rayman2"; cd "$GAMEDIR/drive_c/UbiSoft/Rayman2";
-      find "$DISC/"* "."; chmod u+w -R "."; cp "Dll/SND_CPA_MMX.ini" "Dll/SND_CPA.ini";
+      cp -vR "$DISC/"* "."; chmod u+w -R "."; cp "Dll/SND_CPA_MMX.ini" "Dll/SND_CPA.ini";
+    return_code: 256
 - merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/backup
     src: $GAMEDIR/drive_c/UbiSoft/Rayman2/Rayman2.exe
@@ -31,20 +32,14 @@ installer:
     dst: $CACHE
     file: wrapper
 - merge:
-    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/backup
-    src: $GAMEDIR/drive_c/UbiSoft/Rayman2/Glide2x.dll
-- merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
     src: $CACHE/3Dfx/x86/Glide2x.dll
 - merge:
+    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2
+    src: $CACHE/dgVoodooCpl.exe
+- merge:
     dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/Dll
     src: $GAMEDIR/drive_c/UbiSoft/Rayman2/DLL
-- merge:
-    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/backup
-    src: $GAMEDIR/drive_c/UbiSoft/Rayman2/dgVoodoo.conf
-- merge:
-    dst: $GAMEDIR/drive_c/UbiSoft/Rayman2/backup
-    src: $GAMEDIR/drive_c/UbiSoft/Rayman2/ubi.ini
 - write_config:
     data:
       Rayman2:
@@ -80,6 +75,14 @@ installer:
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/UbiSoft/Rayman2/DLL
+- execute:
+    command: cd "$GAMEDIR/drive_c/UbiSoft/Rayman2"; rm -f -r Acrobat DIRECTX Drivers
+      InstData Pads "Tonic Trouble" Autorun.inf D3DImm.dll DDraw.dll DSETUP* GXSetup.exe
+      setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -f -r GRAPHICS2.DAT
+      MAP1.DAT ANIMS1.DAT MUSIC2.DAT MUSIC1.DAT SOUNDS0.DAT GRAPHICS0.DAT SOUNDS1.DAT
+      LEVELS1.DAT ANIMS0.DAT MAP2.DAT SOUNDS2.DAT TEXTURES2.DAT ANIMS2.DAT MENU2.DAT
+      MENU0.DAT MUSIC0.DAT TEXTURES0.DAT TEXTURES1.DAT LEVELS2.DAT MAP0.DAT MENU1.DAT
+      GRAPHICS1.DAT;
 wine:
   overrides:
     dinput: n,b
