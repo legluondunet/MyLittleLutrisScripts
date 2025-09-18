@@ -78,7 +78,7 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/UbiSoft/Rayman2"; rm -f -r Acrobat DIRECTX Drivers
       InstData Pads "Tonic Trouble" Autorun.inf D3DImm.dll DDraw.dll DSETUP* GXSetup.exe
-      setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -f -r GRAPHICS2.DAT
+      setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -r GRAPHICS2.DAT
       MAP1.DAT ANIMS1.DAT MUSIC2.DAT MUSIC1.DAT SOUNDS0.DAT GRAPHICS0.DAT SOUNDS1.DAT
       LEVELS1.DAT ANIMS0.DAT MAP2.DAT SOUNDS2.DAT TEXTURES2.DAT ANIMS2.DAT MENU2.DAT
       MENU0.DAT MUSIC0.DAT TEXTURES0.DAT TEXTURES1.DAT LEVELS2.DAT MAP0.DAT MENU1.DAT
