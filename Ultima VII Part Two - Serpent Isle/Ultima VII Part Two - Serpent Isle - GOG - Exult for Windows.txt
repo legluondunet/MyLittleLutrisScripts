@@ -1,0 +1,11 @@
+files:
+- gogsetup: N/A:Select the GOG installer
+game:
+  exe: drive_c/Program Files/Exult/Exult.exe
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR/drive_c/games/serpentisle
+    file: gogsetup
+    format: gog
+requires: ultima-vii-the-black-gate-gog-exult-for-windows
