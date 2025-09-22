@@ -9,4 +9,4 @@ installer:
     dst: $GAMEDIR/games/serpentisle
     file: gogsetup
     format: gog
-requires: ultima-vii-the-black-gate-gog-exult
+requires: ultima-vii-the-black-gate-gog-exult-for-linux
