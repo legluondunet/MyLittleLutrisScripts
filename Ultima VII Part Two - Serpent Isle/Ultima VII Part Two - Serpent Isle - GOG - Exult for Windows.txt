@@ -8,4 +8,7 @@ installer:
     dst: $GAMEDIR/drive_c/games/serpentisle
     file: gogsetup
     format: gog
-requires: ultima-vii-the-black-gate-gog-exult-for-windows
+- execute:
+    command: cd "$GAMEDIR/drive_c/users/$USER/AppData/Local/Exult/" ; sed -i 's|<path>serpentisle|<path>C:\\games\\serpentisle|'
+      exult.cfg ;
+requires: ultima-vii-the-black-gate-gog-exult-for-window
