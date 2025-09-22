@@ -1,0 +1,18 @@
+files:
+- gogsetup: N/A:Select the GOG installer
+- engine: https://github.com/exult/exult/releases/download/snapshot-v1.13.1.20250922/Exult.exe
+game:
+  exe: drive_c/Program Files/Exult/Exult.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/games/blackgate
+    file: gogsetup
+    format: gog
+- task:
+    executable: engine
+    name: wineexec
