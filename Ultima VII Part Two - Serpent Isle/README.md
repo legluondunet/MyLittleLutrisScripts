@@ -6,11 +6,11 @@ Play "Ultima VII Part Two - Serpent Isle" provided by GOG on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Ultima VII Part Two - Serpent Isle - GOG - Exult
+# Ultima VII Part Two - Serpent Isle - GOG - Exult for Linux
 ### Description:
 Play "Ultima VII Part Two - Serpent Isle" provided by GOG on Linux!
 ### Technical notes:
 - Using Exult open source engine
-- Before to install this script, you will need to install "Ultima VII - The Black Gate" "GOG + Exult version"
+- Before to install this script, you will need to install "Ultima VII - The Black Gate" "GOG + Exult for Linux version"
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
