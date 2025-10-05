@@ -39,7 +39,7 @@ installer:
 - execute:
     command: sed -i -e 's/ScreenWidth = 0/ScreenWidth = '$RESOLUTION_WIDTH'/g' -e
       's/ScreenHeight = 0/ScreenHeight = '$$RESOLUTION_HEIGHT'/g' -e 's/Language =
-      0/Language = '$INPUT_LANG'/g' $game_cfg;
+      0/Language = '$INPUT_LANG'/g' "$game_cfg";
 - merge:
     dst: $GAMEDIR/drive_c/users/$USER/Documents/My Games/Beyond the Sword
     src: game_cfg
