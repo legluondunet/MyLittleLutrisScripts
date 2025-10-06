@@ -1,8 +1,8 @@
 files:
-- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.2c/Release0.2.2c.zip
+- tchernobog: https://github.com/qndel/tchernobog_versions/releases/download/0.2.2f/Release0.2.2f.zip
 - gogsetup: N/A:Please select the gog installer for this game
 game:
-  exe: drive_c/Diablo Tchernobog/Tchernobog.exe
+  exe: drive_c/Diablo Tchernobog/Tchernobog0.2.2f.exe
   prefix: $GAMEDIR
 installer:
 - task:
