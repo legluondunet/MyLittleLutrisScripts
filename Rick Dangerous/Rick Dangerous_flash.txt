@@ -1,0 +1,8 @@
+files:
+- file_swf: http://rickdangerousflash.free.fr/rick1.swf
+game:
+  main_file: $GAMEDIR/rick1.swf
+installer:
+- move:
+    dst: $GAMEDIR
+    src: file_swf
