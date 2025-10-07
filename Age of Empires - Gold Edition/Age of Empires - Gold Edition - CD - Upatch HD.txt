@@ -2,6 +2,7 @@ files:
 - scriptinstall: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Age%20of%20Empires%20-%20Gold%20Edition/findaoe.sh
 - patch: N/A:please download and select latest Upatch HD version from their official
     homepage https://upatch-hd.weebly.com
+- codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires/gamex/Launcher.exe
   prefix: $GAMEDIR
@@ -24,12 +25,9 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - task:
+    description: installing Age of Empires GOLD Edition, once installed, close launcher
     executable: $GAMEDIR/drive_c/tmp/aoeinstall.bat
     name: wineexec
-- task:
-    app: icodecs
-    name: winetricks
-    prefix: $GAMEDIR
 - task:
     app: directplay
     name: winetricks
@@ -39,12 +37,20 @@ installer:
     name: winetricks
     prefix: $GAMEDIR
 - task:
+    args: /s
+    description: installing Upatch, once installed, close launcher
     executable: $GAMEDIR/drive_c/tmp/UPatch HD Setup.exe
+    name: wineexec
+- task:
+    args: /s
+    description: installing INDEO codecs to play cinematics
+    executable: codecs
     name: wineexec
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/tmp
 - task:
+    description: set this REGEDIT key to 1 to disable intro video
     key: DisableStartupV
     name: set_regedit
     path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Microsoft Games\Age of
