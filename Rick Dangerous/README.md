@@ -2,7 +2,7 @@
 ### Description:
 Play "Rick Dangerous enhanced" on Linux!
 ### Technical notes:
-PC version made by a fan 
+- PC version made by fans 
 ### Credits:
 - Rick Dangerous enhanced: https://rickdangerouslover.itch.io/rick-dangerous-enhanced-pcandroid
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
