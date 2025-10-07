@@ -29,15 +29,15 @@ installer:
     executable: $GAMEDIR/drive_c/tmp/aoeinstall.bat
     name: wineexec
 - task:
+    app: win10
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
     app: directplay
     name: winetricks
     prefix: $GAMEDIR
 - task:
-    app: win7
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    args: /s
+    args: /silent
     description: installing Upatch, once installed, close launcher
     executable: $GAMEDIR/drive_c/tmp/UPatch HD Setup.exe
     name: wineexec
