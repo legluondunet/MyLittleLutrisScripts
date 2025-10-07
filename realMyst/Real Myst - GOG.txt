@@ -1,8 +1,6 @@
-custom-name: realMyst - GOG
 files:
-- setup: N/A:Select the EXE downloaded from GOG
-- dgv: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_61.zip
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/realMyst/resolution.sh
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
 game:
   exe: drive_c/GOG Games/realMyst/RealMYST.exe
   prefix: $GAMEDIR
@@ -10,80 +8,19 @@ installer:
 - task:
     arch: win64
     description: Creating WINE prefix
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - task:
     args: /SUPPRESSMSGBOXES /SILENT
-    description: Installing...
-    executable: setup
+    description: Installing realMyst...let all options to default
+    executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/realMyst/
-    file: dgv
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/realMyst/
-    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/x86/DDraw.dll
-- copy:
-    dst: $GAMEDIR/drive_c/GOG Games/realMyst/
-    src: $GAMEDIR/drive_c/GOG Games/realMyst/MS/x86/D3DImm.dll
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/realMyst/"; mv dgVoodoo.conf dgVoodoo_original.conf
-- write_config:
-    data:
-      DirectX:
-        ForceVerticalSync: true
-        Resolution: max_qhd_isf
-        VRAM: 256
-        dgVoodooWatermark: false
-      General:
-        CaptureMouse: false
-        FullScreenMode: false
-        ScalingMode: stretched_ar
-    file: $GAMEDIR/drive_c/GOG Games/realMyst/dgVoodoo.conf
 - task:
-    arch: win64
-    key: ddraw
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\DllOverrides\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: native,builtin
-- task:
-    app: d3dcompiler_47
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    app: icodecs
-    name: winetricks
-    prefix: $GAMEDIR
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- execute:
-    command: cd "$GAMEDIR/drive_c/GOG Games/realMyst" ; rm -f -r 3Dfx* Doc MS ddraw.dll
-      webcache.zip glide* gog* Launch* nglide_* nGlideEULA.txt QuickGuide.html support.ico
-      unins000.* ;
-- chmodx: script
-- execute:
-    args: $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-    file: script
+    args: /s
+    description: installing INDEO codecs to play cinematics
+    executable: codecs
+    name: wineexec
 wine:
-  Desktop: true
-  dxvk: true
-
+  overrides:
+    ddraw: n,b
