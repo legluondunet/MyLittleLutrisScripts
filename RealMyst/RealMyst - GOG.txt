@@ -3,6 +3,9 @@ files:
 - codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
 game:
   exe: drive_c/GOG Games/realMyst/RealMYST.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/GOG Games/realMyst/realMYSTSetup
+    name: realMYST options
   prefix: $GAMEDIR
 installer:
 - task:
