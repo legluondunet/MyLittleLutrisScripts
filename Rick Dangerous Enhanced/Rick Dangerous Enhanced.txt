@@ -1,0 +1,14 @@
+files:
+- game_file: N/A:Please select game archive file downloaded from this page https://rickdangerouslover.itch.io/rick-dangerous-enhanced-pcandroid
+game:
+  exe: drive_c/Rick Dangerous enhanced/Rick Dangerous 1 Enhanced v1.01.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/Rick Dangerous enhanced
+    file: game_file
