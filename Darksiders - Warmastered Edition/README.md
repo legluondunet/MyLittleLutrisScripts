@@ -7,4 +7,4 @@ Play "Darksiders Warmastered Edition" provided by GOG on Linux!
 - Do not change the default Wine version used for this script installer or the fix will no more works
 ### Credits:
 - MF fix: https://gitlab.com/steevyp/mf-installcab_steamdeck/
-- - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
