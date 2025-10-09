@@ -14,3 +14,12 @@ Play "Rick Dangerous" on Linux!
 - Flash version from http://rickdangerousflash.free.fr
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Rick Dangerous - Amiga
+### Description:
+Play "Rick Dangerous" on Linux!
+### Technical notes:
+- Using Retroarch PUAE core
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
