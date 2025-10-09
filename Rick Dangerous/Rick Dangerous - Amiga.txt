@@ -1,0 +1,9 @@
+files:
+- rom_file: https://archive.org/download/commodore-amiga-games-adf-r/Rick%20Dangerous%20%281989%29%28Firebird%29%5Bcr%20QTX%5D.zip
+game:
+  core: puae
+  main_file: Rick Dangerous (1989)(Firebird)[cr QTX].adf
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: $rom_file
