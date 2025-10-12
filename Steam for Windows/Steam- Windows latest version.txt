@@ -6,6 +6,14 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
+    app: win10 corefonts
+    name: winetricks
+    silent: true
+- task:
+    args: /S
     executable: client
     name: wineexec
     prefix: $GAMEDIR
+    return_code: 512
+wine:
+  version: wine-10.16-staging-amd64-wow64-x86_64
