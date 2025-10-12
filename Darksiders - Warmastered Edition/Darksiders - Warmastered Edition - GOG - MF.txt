@@ -1,10 +1,9 @@
 files:
-- mfplatdll: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/mfplat.7z
+- mf_fix: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Darksiders%20-%20Warmastered%20Edition/mf-installcab_lgdn.zip
 - gogsetup: N/A:Please select the game Windows install file, available for  download
     from your GOG account page.
-- launcher: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Darksiders%20-%20Warmastered%20Edition/darksiders1.bat
 game:
-  exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.bat
+  exe: drive_c/GOG Games/Darksiders Warmastered Edition/darksiders1.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -19,37 +18,15 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition"; mv app/*
       . ;
-- task:
-    app: mf
-    name: winetricks
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: mediafoundation
-    name: install_cab_component
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: mf_
-    name: install_cab_component
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: mfreadwrite
-    name: install_cab_component
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: wmadmod
-    name: install_cab_component
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: wmvdecod
-    name: install_cab_component
-- task:
-    cabfile: $HOME/.cache/winetricks/win7sp1/windows6.1-KB976932-X64.exe
-    component: wmadmod
-    name: install_cab_component
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
-    file: mfplatdll
+    dst: $GAMEDIR/drive_c/tmp
+    file: mf_fix
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp"; x="$WINEBIN" ; x2="${x%%/bin/wine}" ; PROTON=$x2
+      WINEPREFIX="$GAMEDIR" ./install-mf-64.sh -proton ;
 - copy:
     dst: $GAMEDIR/drive_c/GOG Games/Darksiders Warmastered Edition
-    src: launcher
+    src: $GAMEDIR/drive_c/tmp/mfplat.dll
 requires-binaries: cabextract
+wine:
+  version: wine-ge-8-26-x86_64
