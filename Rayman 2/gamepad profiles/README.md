@@ -40,8 +40,8 @@ stick left + A / Cross: rise to the surface
 ### AntiMicroX:
 
 DPAD: Move Rayman in any direction
-Start --> confirm a selection
-BACK --> MENU
+Start: confirm a selection
+BACK: MENU
 Left Trigger: Think
 stick left: Look
 stick left + stick right: look in any direction
