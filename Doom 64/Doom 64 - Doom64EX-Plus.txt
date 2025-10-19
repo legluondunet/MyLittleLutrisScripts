@@ -1,18 +1,21 @@
 files:
-- engine:
-    filename: doom64-ex-plus-linux-x86_64.AppImage
-    url: https://github.com/atsb/Doom64EX-Plus/releases/download/OCTOBER-2025-PREVIEW/DOOM64-EX-Plus-Preview-October-Linux-x64_64.AppImage
+- engine: https://github.com/atsb/Doom64EX-Plus/releases/download/5.1.0.0/doom64ex-plus-5.1.0.0-win64.zip
 game:
-  exe: $GAMEDIR/doom64-ex-plus-linux-x86_64.AppImage
+  exe: drive_c/doom64ex-plus/DOOM64.exe
+  prefix: $GAMEDIR
 installer:
-- chmodx: engine
-- copy:
-    dst: $GAMEDIR
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/doom64ex-plus
     src: engine
 - insert-disc:
     description: Please browse folder where is located DOOM64.WAD file from DOOM64
       GOG or Steam install. "Autodetect" button will not work here, use "Browse" button.
     requires: doom64.wad
 - execute:
-    command: cd "$GAMEDIR"; find "$DISC" \( -iname "DOOM64.WAD" -o -iname "DOOMSND.DLS"
-      \) -exec cp -L {} . \; ; mkdir doom64-ex-plus-linux-x86_64.AppImage.home doom64-ex-plus-linux-x86_64.AppImage.config;
+    command: cd "$GAMEDIR/drive_c/doom64ex-plus"; find "$DISC" \( -iname "DOOM64.WAD"
+      -o -iname "DOOMSND.DLS" -o -iname "Doom64.kpf" \) -exec cp -L {} . \; ;
