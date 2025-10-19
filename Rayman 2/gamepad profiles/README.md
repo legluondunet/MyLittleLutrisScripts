@@ -6,7 +6,6 @@ J: display information on the screen
 
 W: turn camera to the right
 Q: turn camera to the left
-O: change camera angle
 End: Bring the camera behind Rayman
 ESC: access menu during the game
 Backspace: Cancel a selection
@@ -15,11 +14,11 @@ Enter: confirm a selection
 A: JUMP
 Space bar: SHOOT / next dialog
 Arrows: Move Rayman in any direction
-ctrl: target an object or an enemy and move sideways
+ctrl: center camera / target an object or an enemy and move sideways
 
 Swimming:
-arrows + Z: plonger
-arrows + A: remonter
+arrows + Z: dive
+arrows + A: rise to the surface
 
 ### Rayman 2 default gamepad mapping:
 
@@ -31,12 +30,12 @@ B / Circle: turn camera left
 X / Square: SHOOT / next dialog
 Y / Triangle: turn camera left
 
-R shoulder --> HUD
-L shoulder --> target an object or an enemy and move sideways
+R shoulder: HUD
+L shoulder: center camera / target an object or an enemy and move sideways
 
 Swimming:
-stick left + L shoulder: plonger
-stick left + A / Cross: remonter
+stick left + L shoulder: dive
+stick left + A / Cross: rise to the surface
 
 ### AntiMicroX:
 
