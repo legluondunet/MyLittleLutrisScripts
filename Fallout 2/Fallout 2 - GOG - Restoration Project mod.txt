@@ -1,5 +1,5 @@
 files:
-- restoration: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v2.4.33/rpu_v2.4.33.exe
+- restoration: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v2.4.34/rpu_v2.4.34.exe
 - gogsetup: N/A:Select the gog setup exe
 game:
   exe: drive_c/GOG Games/Fallout 2/fallout2.exe
