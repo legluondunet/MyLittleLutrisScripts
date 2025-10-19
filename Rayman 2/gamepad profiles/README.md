@@ -9,7 +9,7 @@ You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 
 ### Rayman keyboard and gamepad mapping
 
-# Default:
+### Default:
 
 stick left --> direction
 stick right --> LOOK mode / num pad 0
@@ -26,7 +26,7 @@ F1 --> Think
 F8: Capture
 
 
-# AntiMicroX:
+### AntiMicroX:
 
 Start --> RETURN / Valider
 BACK --> ESC / MENU
