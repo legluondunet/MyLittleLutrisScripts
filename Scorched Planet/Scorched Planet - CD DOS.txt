@@ -1,0 +1,18 @@
+files:
+- game_cd_files: https://archive.org/download/msdos_Scorched_Planet_1996/Scorched_Planet_1996.zip
+- cfg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Scorched%20Planet/dosbox.conf
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $CACHE
+    file: game_cd_files
+- merge:
+    dst: $GAMEDIR/CD
+    src: $CACHE/cd/Scorched.Planet-GP.cue
+- merge:
+    dst: $GAMEDIR/CD
+    src: $CACHE/cd/Scorched.Planet-GP.bin
+- merge:
+    dst: $GAMEDIR
+    src: cfg_file
