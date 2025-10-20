@@ -46,5 +46,6 @@ DPAD: Move Rayman in any direction
 Start: confirm a selection
 Back: MENU
 Left Trigger: Think
-stick left: Look
-stick left + stick right: look in all direction
+Right Trigger: Look
+Right Trigger + stick right: look in all direction
+: bring the camera behind Rayman
