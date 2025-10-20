@@ -48,4 +48,4 @@ Back: MENU
 Left Trigger: Think
 Right Trigger: Look
 Right Trigger + stick right: look in all direction
-: bring the camera behind Rayman
+right stick button: bring the camera behind Rayman
