@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/atsb/Doom64EX-Plus/releases/download/5.1.0.0/doom64ex-plus-5.1.0.0-win64.zip
+- engine: https://github.com/atsb/Doom64EX-Plus/releases/download/5.2.0.0/doom64ex-plus-5.2.0.0-win64.zip
 game:
   exe: drive_c/doom64ex-plus/DOOM64.exe
   prefix: $GAMEDIR
