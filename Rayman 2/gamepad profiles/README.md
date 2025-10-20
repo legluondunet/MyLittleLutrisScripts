@@ -6,7 +6,10 @@ J: display information on the screen
 
 W: turn camera to the right
 Q: turn camera to the left
-End: Bring the camera behind Rayman
+End: bring the camera behind Rayman
+NUM_PAD_0: Look
+NUM_PAD_0 + arrows: look in all directions
+
 ESC: access menu during the game
 Backspace: Cancel a selection
 Enter: confirm a selection
@@ -27,10 +30,10 @@ stick left: Move Rayman in any direction
 
 A / Cross: JUMP / Remonter 
 B / Circle: turn camera left
-X / Square: SHOOT / next dialog
+X / Square: SHOOT / next dialog / confirm a selection
 Y / Triangle: turn camera left
 
-R shoulder: HUD
+R shoulder: display information on the screen
 L shoulder: center camera / target an object or an enemy and move sideways
 
 Swimming:
@@ -41,7 +44,7 @@ stick left + A / Cross: rise to the surface
 
 DPAD: Move Rayman in any direction
 Start: confirm a selection
-BACK: MENU
+Back: MENU
 Left Trigger: Think
 stick left: Look
-stick left + stick right: look in any direction
+stick left + stick right: look in all direction
