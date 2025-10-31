@@ -2,10 +2,9 @@
 ### Description:
 Windows 98 on Linux!
 ### Technical notes:
-- Using Dosbox-Pure-Unleashed
+- Using Dosbox Pure Unleashed
 - Ready to use: drivers already installed
-- Press "ctrl+end" to release your mouse
-- Press "ctrl+page up" fullscreen/window mode
+- Press "ctrl+F12" to show Dosbox Pure Unleashed menu
 ### Credits:
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
