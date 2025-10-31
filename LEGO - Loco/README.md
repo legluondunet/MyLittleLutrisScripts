@@ -1,6 +1,6 @@
-# LEGO LOCO - CD + Windows 98
+# LEGO Loco - CD + Windows 98
 ### Description:
-Play "Lego Loco" on Linux!
+Play "LEGO Loco" on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
 - Once Windows 98 launched, go to "Computer", CD Drive and install the game
