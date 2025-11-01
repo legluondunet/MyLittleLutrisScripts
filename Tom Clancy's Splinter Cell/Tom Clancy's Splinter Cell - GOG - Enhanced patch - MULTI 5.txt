@@ -1,22 +1,19 @@
 files:
 - gogsetup: N/A:Please select the GOG installer
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/SplinterCell.WidescreenFix.zip
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/run_lang_script.sh
+- patch_esc: https://github.com/Joshhhuaaa/EnhancedSC/releases/download/v1.3a/Enhanced-SC-v1.3a-Linux.7z
 game:
-  exe: drive_c/GOG Games/Splinter Cell/system/SplinterCell.exe
+  exe: drive_c/GOG Games/Tom Clancys Splinter Cell/system/SplinterCell.exe
   prefix: $GAMEDIR
 installer:
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell
-    file: gogsetup
-    format: gog
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system
-    file: patch
+- task:
+    description: Installing game...
+    executable: $gogsetup
+    name: wineexec
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
@@ -32,23 +29,20 @@ installer:
     args: $INPUT_LANG "$CACHE"
     file: script
 - extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Splinter Cell
+    dst: $GAMEDIR/drive_c/GOG Games/Tom Clancys Splinter Cell
     file: $CACHE/sc1_multi5_$INPUT_LANG.zip
 - write_config:
     data:
       Engine.Engine:
         Language: $INPUT_LANG
-      WinDrv.WindowsClient:
-        StartupFullscreen: false
-    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/SplinterCell.ini
+    file: $GAMEDIR/drive_c/GOG Games/Tom Clancys Splinter Cell/system/SplinterCell.ini
     merge: true
-- write_config:
-    data:
-      Engine.Input:
-        H: DPadLeft
-        J: DPadRight
-    file: $GAMEDIR/drive_c/GOG Games/Splinter Cell/system/SplinterCellUser.ini
-    merge: true
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Tom Clancys Splinter Cell
+    file: patch_esc
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Tom Clancys Splinter Cell/system/D3D8.bak
+    src: $GAMEDIR/drive_c/GOG Games/Tom Clancys Splinter Cell/system/D3D8.dll
 system:
   env:
     DXVK_FRAME_RATE: '60'
@@ -56,5 +50,6 @@ system:
 wine:
   overrides:
     d3d8: n,b
+    dinput8: n,b
     msacm32: n,b
     msvfw32: n,b
