@@ -1,25 +1,35 @@
-custom-name: Tex Murphy - Under a Killing Moon - GOG
 files:
-- gamesetup: N/A:Please select the Windows setup exe file downloaded from your GOG
+- gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
 game:
   config_file: $GAMEDIR/dosboxTex3.conf
   main_file: $GAMEDIR/dosboxTex3_single.conf
   prefix: $GAMEDIR
 installer:
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: $gamesetup -d $CACHE
-    file: $CACHE/innoextract
-- merge:
     dst: $GAMEDIR
-    src: $CACHE/app
+    file: gogsetup
+    format: gog
 - merge:
     dst: $GAMEDIR
     src: $GAMEDIR/__support/app
-- execute:
-    command: cd "$GAMEDIR" ; rm -f -r  DOSBOX __support goggame-1207658767.* ;
+- write_file:
+    content: '[autoexec]
 
+      mount C "."
+
+      imgmount D "UAKM.GOG" -t iso
+
+      c:
+
+      TEX197.EXE
+
+      exit'
+    file: $GAMEDIR/dosboxTex3_single.conf
+- write-config:
+    data:
+      MIDI_CONFIG:
+        BoardNum: 1
+        IoAddr: '0x388'
+    file: $GAMEDIR/CONFIG.INI
+    merge: true
