@@ -1,8 +1,8 @@
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
+- mod_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Tex%20Murphy%20-%20Under%20a%20Killing%20Moon/TEX3MOD.7z
 game:
-  config_file: $GAMEDIR/dosboxTex3.conf
   main_file: $GAMEDIR/dosboxTex3_single.conf
   prefix: $GAMEDIR
 installer:
@@ -22,14 +22,19 @@ installer:
 
       c:
 
-      TEX197.EXE
+      TEX3MOD.EXE
 
       exit'
     file: $GAMEDIR/dosboxTex3_single.conf
 - write-config:
     data:
+      DIGI_CONFIG:
+        Int: 7
       MIDI_CONFIG:
         BoardNum: 1
         IoAddr: '0x388'
     file: $GAMEDIR/CONFIG.INI
     merge: true
+- extract:
+    dst: $GAMEDIR
+    file: mod_file
