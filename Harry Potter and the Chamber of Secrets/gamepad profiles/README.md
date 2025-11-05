@@ -1,65 +1,3 @@
-
-🚀 HTML to Markdown Converter
-
-High-performance conversion powered by Rust & WebAssembly
-GitHub
-📖 Docs
-📦 Crates.io
-📦 npm
-🐍 PyPI
-HTML Input
-<h1>Welcome to HTML to Markdown</h1>
-<p>This is a <strong>powerful</strong> and <em>fast</em> converter built with <a href="https://www.rust-lang.org/">Rust</a> and compiled to WebAssembly.</p>
-
-<h2>Features</h2>
-<ul>
-    <li>High-performance conversion</li>
-    <li>Supports complex HTML structures</li>
-    <li>Tables, lists, and more</li>
-    <li>Runs entirely in your browser</li>
-</ul>
-
-<h3>Code Example</h3>
-<pre><code>function hello() {
-    console.log("Hello, World!");
-}</code></pre>
-
-<blockquote>
-    <p>This converter handles blockquotes, images, and various HTML elements with ease.</p>
-</blockquote>
-
-<table>
-    <thead>
-        <tr>
-            <th>Feature</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Fast</td>
-            <td>✅</td>
-        </tr>
-        <tr>
-            <td>Reliable</td>
-            <td>✅</td>
-        </tr>
-    </tbody>
-</table>
-✓ Converted in 2.00ms
-Markdown Output
-
----
-meta-author: Romain
-meta-changed: "2020-12-19T22:42:35.631240757"
-meta-changedby: Romain
-meta-content-type: text/html; charset=utf-8
-meta-created: "2019-05-09T09:02:48.919032913"
-meta-generator: LibreOffice 6.4.6.2 (Linux)
----
-
-UBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 Gamepad
 profiles for Harry Potter 2 – Chamber of Secrets
 
@@ -109,3 +47,4 @@ keyboard and gamepad mapping:
 Built with ❤️ using Rust and WebAssembly
 
 ✓ WASM module loaded
+
