@@ -1,29 +1,13 @@
-Gamepad
-profiles for Harry Potter 2 – Chamber of Secrets
-
-  
-  
-
+# Harry Potter 2 – Chamber of Secrets - Controls
 
 HP2COS has native support for controller but it is insufficient, you will
 obtain a better game experience with a keymapper, a software that
 will attribute keyboard keys to your gamepad. 
 
-You
-will find x360 gamepad profile for Antimicrox in your Hp2cos
-wineprefix: c:\HP2COS\gamepad
-profiles\hp2cos_x360.gamecontroller.amgp
-
-You
-can download Antimicrox here:
+You can download Antimicrox here:
 https://github.com/AntiMicroX/antimicrox
 
-  
-  
-
-
-HP2COS
-keyboard and gamepad mapping:
+## HP2COS - keyboard and gamepad mapping:
 
 | **Action** | **PC  Key** | **Antimicrox  x360** |
 | --- | --- | --- |
@@ -40,11 +24,4 @@ keyboard and gamepad mapping:
 | CAMERA | MOUSE | RIGHT  STICK |
 | MOVE  LEFT | ARROW  LEFT |  |
 | MOVE  RIGHT | ARROW  RIGHT |  |
-
-  
-  
-
-Built with ❤️ using Rust and WebAssembly
-
-✓ WASM module loaded
 
