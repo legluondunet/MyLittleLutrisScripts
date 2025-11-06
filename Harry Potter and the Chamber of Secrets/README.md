@@ -11,3 +11,14 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Harry%20Potter
 - DxWrapper: https://github.com/elishacloud/dxwrapper
 - HP2 Wine fix by Federico Massena: https://fdossena.com/?p=hp2wine/i.md
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Harry Potter and the Chamber of Secrets CD + Metallicafan212 engine
+### Description:
+Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
+### Technical notes:
+- Using Metallicafan212 engine: directx11 renderer, widescreen, alt+tab stability, 64 bits executable, compatible with all HPCOS version/languages
+- During install you will need to provide  HPCOS  CD (mounted) and latest version of Metallicafan212’s Harry Potter 2 Editor and Engine executable
+### Credits:
+- Metallicafan212’s Harry Potter 2 Editor and Engine: https://discord.gg/th3K6Epnug
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
