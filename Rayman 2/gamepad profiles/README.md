@@ -21,6 +21,6 @@ You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
 | Jump | A | A / Cross |  |
 | Shoot / Next dialog / Confirm a selection | Space bar | X / Square |  |
 | Move Rayman in any direction | Arrows | stick left | DPAD |
-| Center camera / Target an object or an enemy and move sideways | ctrl | stick right / L shoulder |  |
+| Center camera / Target an object or an enemy and move sideways | CTRL | stick right / L shoulder |  |
 | Swimming - Dive | arrows + Z | stick left + L shoulder |  |
 | Swimming - Rise to the surface | arrows + A | stick left + A / Cross |  |
