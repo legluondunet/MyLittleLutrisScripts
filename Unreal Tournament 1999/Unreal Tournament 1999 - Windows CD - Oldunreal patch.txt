@@ -29,7 +29,7 @@ installer:
     file: patch2
 - chmodx: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
 - input_menu:
-    description: 'Choose your game''s language:'
+    description: 'Choose your CD game''s language:'
     id: LANG
     options:
     - int: English
@@ -113,6 +113,9 @@ installer:
         DesiredFOV: $INPUT_RATIO
     file: $GAMEDIR/drive_c/UnrealTournament/System64/DefUser.ini
     merge: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/UnrealTournament/System/User.ini
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.ini
