@@ -1,6 +1,6 @@
 files:
-- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc4/OldUnreal-UTPatch469e-Windows.zip
-- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc4/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2
+- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc10/OldUnreal-UTPatch469e-Windows-x86.zip
+- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc10/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2
 game:
   exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   launch_configs:
@@ -10,8 +10,6 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -40,11 +38,19 @@ installer:
     - itt: Italian
     - est: Spanish
     preselect: int
+- input_menu:
+    description: 'What is your screen ratio?:'
+    id: RATIO
+    options:
+    - 106: 16:9 like 1920x1080
+    - 100: 16:10 like 1920x1200
+    - 90: 4:3 for old screen format
+    preselect: 106
 - write_config:
     data:
       Engine.Engine:
         AudioDevice: ALAudio.ALAudioSubsystem
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        GameRenderDevice: ICBINDx11Drv.ICBINDx11RenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 469
@@ -54,11 +60,12 @@ installer:
       UWindow.WindowConsole:
         ConsoleKey: 112
       WinDrv.WindowsClient:
+        BorderlessWindow: true
         FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-        StartupFullscreen: true
+        StartupFullscreen: false
         UseRawHIDInput: true
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
@@ -67,9 +74,9 @@ installer:
     merge: true
 - write_config:
     data:
-      Engine.Engine:
-        DefaultFOV: 106.0
-        DesiredFOV: 106.0
+      Engine.PlayerPawn:
+        DefaultFOV: $INPUT_RATIO
+        DesiredFOV: $INPUT_RATIO
     file: $GAMEDIR/drive_c/UnrealTournament/System/DefUser.ini
     merge: true
 - write_config:
@@ -82,11 +89,12 @@ installer:
       FirstRun:
         FirstRun: 469
       SDLDrv.SDLClient:
+        BorderlessWindow: true
         FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
-        StartupFullscreen: true
+        StartupFullscreen: false
         UseRawHIDInput: true
         WindowedColorBits: 32
         WindowedViewportX: $RESOLUTION_WIDTH
@@ -100,9 +108,9 @@ installer:
     merge: true
 - write_config:
     data:
-      Engine.Engine:
-        DefaultFOV: 106.0
-        DesiredFOV: 106.0
+      Engine.PlayerPawn:
+        DefaultFOV: $INPUT_RATIO
+        DesiredFOV: $INPUT_RATIO
     file: $GAMEDIR/drive_c/UnrealTournament/System64/DefUser.ini
     merge: true
 - move:
