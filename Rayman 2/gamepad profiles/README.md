@@ -16,7 +16,6 @@
 | Jump | A | A / Cross |  |
 | SHOOT / next dialog / confirm a selection | Space bar | X / Square |  |
 | Move Rayman in any direction | Arrows | stick left | DPAD |
-| center camera / target an object or an enemy and move sideways | ctrl |  |  |
+| center camera / target an object or an enemy and move sideways | ctrl | stick right / L shoulder |  |
 | Swimming - Dive | arrows + Z | stick left + L shoulder |  |
 | Swimming - rise to the surface | arrows + A | stick left + A / Cross |  |
-| center camera / target an object or an enemy and move sideways |  | stick right / L shoulder |  |
