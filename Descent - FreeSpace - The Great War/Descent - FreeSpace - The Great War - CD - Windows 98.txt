@@ -1,0 +1,33 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows%2098/W98_SE_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd1:
+    filename: Descent - FreeSpace - The Great War (USA) (Disc 1).zip
+    url: https://archive.org/download/DescentFreeSpaceTheGreatWarUSA/Descent%20-%20FreeSpace%20-%20The%20Great%20War%20%28USA%29%20%28Disc%201%29.zip
+- game_cd2:
+    filename: Descent - FreeSpace - The Great War (USA) (Disc 2).zip
+    url: https://archive.org/download/DescentFreeSpaceTheGreatWarUSA/Descent%20-%20FreeSpace%20-%20The%20Great%20War%20%28USA%29%20%28Disc%202%29.zip
+- dbpu_save:
+    filename: Descent - FreeSpace - The Great War (USA) (Disc 2).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Descent%20-%20FreeSpace%20-%20The%20Great%20War/Descent%20-%20FreeSpace%20-%20The%20Great%20War%20(USA)%20(Disc%202).pure.zip
+game:
+  args: '"$GAMEDIR/CD/Descent - FreeSpace - The Great War (USA) (Disc 2).cue" "$GAMEDIR/CD/Descent
+    - FreeSpace - The Great War (USA) (Disc 1).cue"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR
+    file: os_img
+- extract:
+    dst: $GAMEDIR/CD
+    file: game_cd1
+- extract:
+    dst: $GAMEDIR/CD
+    file: game_cd2
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
