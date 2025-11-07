@@ -1,5 +1,10 @@
 ### Rayman 2 controls
 
+Rayman has native support for controller but it is insufficient, you will obtain a better game experience with a third party software, a keymapper.
+This software will attribute keyboard keys to your gamepad.
+
+You can download AntimicroX here: https://github.com/AntiMicroX/antimicrox
+
 | **Action** | **Keyboard** | **Controller  XBOX / PS** | **AntiMicroX** |
 | --- | --- | --- | --- |
 | Access to the knowledge of the world and call Murphy | F1 |  | Left Trigger |
