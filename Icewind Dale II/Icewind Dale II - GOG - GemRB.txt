@@ -1,0 +1,19 @@
+files:
+- gogsetup: N/A:Select the Windows installer downloaded from GOG
+- engine:
+    filename: gemrb-linux.AppImage
+    url: https://sourceforge.net/projects/gemrb/files/Releases//0.9.4/gemrb-linux-v0.9.4.AppImage
+game:
+  exe: gemrb-linux.AppImage
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: $gogsetup
+    format: gog
+- chmodx: $engine
+- copy:
+    dst: $GAMEDIR
+    src: $engine
+- merge:
+    dst: $GAMEDIR
+    src: $GAMEDIR/__support/app
