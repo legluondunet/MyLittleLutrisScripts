@@ -6,9 +6,9 @@ Play "MechWarrior 2 - 31st Century Combat" CD DOS edition on Linux!
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# MechWarrior 2 - 31st Century Combat - CD Titanium + Windows 98
+# MechWarrior 2 - 31st Century Combat - CD Titanium USA + Windows 98
 ### Description:
-Play "MechWarrior 2 - 31st Century Combat - Titanium" on Linux!
+Play "MechWarrior 2 - 31st Century Combat" CD Titanium USA edition on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
 - Once Windows 98 started, go to "My Computer", CD Drive and install the game
