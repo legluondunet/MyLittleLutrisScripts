@@ -1,6 +1,6 @@
-# MechWarrior 2 - Mercenaries - CD Titanium + Windows 98
+# MechWarrior 2 - Mercenaries - CD Titanium USA + Windows 98
 ### Description:
-Play "MechWarrior 2 - Mercenaries - Titanium" on Linux!
+Play "MechWarrior 2 - Mercenaries - Titanium" CD Titanium USA edition on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
 - Once Windows 98 started, go to "My Computer", CD Drive and install the game
