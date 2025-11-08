@@ -1,0 +1,28 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows%2098/W98_SE_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd_cue: https://archive.org/download/mech2_titanium_trilogy/MERCS_TT_3.cue
+- game_cd_iso: https://archive.org/download/mech2_titanium_trilogy/MERCS_TT_3.iso
+- dbpu_save:
+    filename: MERCS_TT_3.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%202%20-%20Mercenaries/MERCS_TT_3.pure.zip
+game:
+  args: '"$GAMEDIR/CD/MERCS_TT_3.cue"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR
+    file: os_img
+- copy:
+    dst: $GAMEDIR/CD
+    src: game_cd_cue
+- copy:
+    dst: $GAMEDIR/CD
+    src: game_cd_iso
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
