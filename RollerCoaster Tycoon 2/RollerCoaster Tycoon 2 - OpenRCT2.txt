@@ -22,8 +22,7 @@ installer:
       general:
         drawing_engine: OPENGL
         fullscreen_height: $RESOLUTION_HEIGHT
-        fullscreen_mode: 1
+        fullscreen_mode: 2
         fullscreen_width: $RESOLUTION_WIDTH
         game_path: $GAMEDIR/RCT2
-        window_scale: 1.25
     file: $GAMEDIR/config.ini
