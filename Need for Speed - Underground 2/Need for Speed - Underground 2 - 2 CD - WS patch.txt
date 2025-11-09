@@ -1,0 +1,70 @@
+files:
+- wspatch: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsu2/NFSUnderground2.WidescreenFix.zip
+- game_cd1: https://archive.org/download/nfsu2-2004-pcgame/NFSUG2_DISK1.iso
+- game_cd2: https://archive.org/download/nfsu2-2004-pcgame/NFSUG2_DISK2.iso
+game:
+  exe: drive_c/Need for Speed Underground 2/speed2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Creating Wine prefix, please stand by...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extracting installation data from disc, please stand by ...
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2
+    file: game_cd1
+- merge:
+    dst: $CACHE/compressed.zip
+    src: $GAMEDIR/drive_c/Need for Speed Underground 2/compressed.zip
+- extract:
+    description: Extracting installation data from disc, please stand by ...
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2
+    file: game_cd2
+- extract:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
+    file: $CACHE/compressed.zip
+- extract:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
+    file: $GAMEDIR/drive_c/Need for Speed Underground 2/compressed.zip
+- execute:
+    command: cd "$GAMEDIR/drive_c/Need for Speed Underground 2/tmp" ; for file in
+      *\\*; do target="${file//\\//}"; mkdir -p "${target%/*}"; mv -v "$file" "$target";
+      done;
+- merge:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2
+    src: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
+- merge:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2/backup
+    src: $GAMEDIR/drive_c/Need for Speed Underground 2/speed2.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2
+    src: $GAMEDIR/drive_c/Need for Speed Underground 2/Crack/speed2.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2
+    file: wspatch
+- input_menu:
+    description: Improve gamepad support by adding text to labels (widescreen patch
+      setting)
+    id: GAMEPAD
+    options:
+    - '0': None
+    - '1': XBox
+    - '2': PlayStation
+    preselect: '0'
+- write_config:
+    data:
+      MAIN:
+        ResX: $RESOLUTION_WIDTH
+        ResY: $RESOLUTION_HEIGHT
+        Scaling: 1
+      MISC:
+        ImproveGamepadSupport: $INPUT_GAMEPAD
+        WindowedMode: 1
+    file: $GAMEDIR/drive_c/Need for Speed Underground 2/scripts/NFSUnderground2.WidescreenFix.ini
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
+wine:
+  overrides:
+    dinput8: n,b
