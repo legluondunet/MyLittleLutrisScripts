@@ -3,7 +3,7 @@
 Play "Rune Gold" provided by GOG on Linux!
 ### Technical notes:
 - You can download "Rune Gold" from your GOG games library page
-- Enhanced graphic: Direct3D9 renderer
+- Enhanced graphic: Direct3D9 renderer + widescreen + adapted FOV
 - Multilingual: you will be able to choose your preferred language for menus, subtitles and voices during installation between English (default), French, German, Italian, Spanish and Russian
 - Multiplayer fully functionnal using 333networks masterserver project
 - Press F1 to show console
