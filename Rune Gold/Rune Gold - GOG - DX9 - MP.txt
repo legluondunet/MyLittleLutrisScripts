@@ -1,9 +1,9 @@
 files:
-- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/rg_d3d9_renderer.zip
 - gogsetup: N/A:Select RUNE Gold setup exe file downloaded from your GOG games library
     page or download it from https://www.gog.com/downloads/rune_classic/25813
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
 - game_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/Default.ini
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/rg_d3d9_renderer.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Rune%20Gold/run_lang_script.sh
 - fov_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rune%20Gold/rune_gold_fov.zip
 game:
   exe: drive_c/GOG Games/Rune Gold/System/Rune.exe
