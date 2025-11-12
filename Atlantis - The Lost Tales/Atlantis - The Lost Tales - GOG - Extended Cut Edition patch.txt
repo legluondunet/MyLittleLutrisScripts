@@ -1,0 +1,22 @@
+files:
+- gogsetup: N/A:Select the EXE downloaded from GOG
+- patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Atlantis_The_Lost_Tales/AtlantisExtendedCutUpdaterForGOG.exe
+game:
+  exe: drive_c/GOG Games/Atlantis - The Lost Tales/AtlantisExtendedCutUpdaterForGOG.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Running Setup, please wait...
+    executable: gogsetup
+    name: wineexec
+- copy:
+    dst: $GAMEDIR/drive_c/GOG Games/Atlantis - The Lost Tales
+    src: patch
+wine:
+  overrides:
+    ddraw: n,b
