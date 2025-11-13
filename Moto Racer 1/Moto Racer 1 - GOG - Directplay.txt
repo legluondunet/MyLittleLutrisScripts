@@ -1,0 +1,23 @@
+files:
+- gogsetup: N/A:Please select the GOG installer
+game:
+  exe: drive_c/GOG Games/Moto Racer/MotoRacer.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    args: /SUPPRESSMSGBOXES /SILENT
+    description: Installing...
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    app: directplay
+    name: winetricks
+    silent: true
+wine:
+  overrides:
+    winmm: n,b
