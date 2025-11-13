@@ -1,14 +1,11 @@
-# Moto Racer 1 - GOG - dgVoodoo2
+# Moto Racer 1 - GOG - DirectPlay
 ### Description:
 Play "Moto Racer 1" provided by GOG on Linux!
 ### Technical notes:
-- Using dgVoodoo2 for modern graphic hardware compatibility and bypass 16 bits color depth limitation
-- During install, you could choose your preferred language for menus between English (default), French, Italian, Sweden, Spanish and German
 - Multiplayer functional on LAN with Directplay TCP/IP. During my tests only MR1 CD install with 3.22 patch can be host. GOG version can only join
 - This game does not support very well "Alt+Tab". Workaround: use Gamescope
 - x360 gamepad natively supported
 ### Credits:
-- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 # Moto Racer 1 - CD - dgVoodoo2
