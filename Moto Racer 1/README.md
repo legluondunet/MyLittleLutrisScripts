@@ -1,4 +1,4 @@
-# Moto Racer 1 - GOG - DirectPlay
+# Moto Racer 1 - GOG - Directplay
 ### Description:
 Play "Moto Racer 1" provided by GOG on Linux!
 ### Technical notes:
