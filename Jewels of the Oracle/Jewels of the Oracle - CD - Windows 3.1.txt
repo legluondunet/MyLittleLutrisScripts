@@ -5,8 +5,8 @@ files:
     filename: joto.iso
     url: https://archive.org/download/Jewels_of_thje_Oracle_Discis_1995/Jewels%20of%20thje%20Oracle%20%28Discis%29%281995%29.ISO
 - dbpu_save:
-    filename: Descent - FreeSpace - The Great War (USA) (Disc 2).pure.zip
-    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Descent%20-%20FreeSpace%20-%20The%20Great%20War/Descent%20-%20FreeSpace%20-%20The%20Great%20War%20(USA)%20(Disc%202).pure.zip
+    filename: joto.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Jewels%20of%20the%20Oracle/joto.pure.zip
 game:
   args: '"$GAMEDIR/CD/joto.iso"'
   exe: $GAMEDIR/DOSBoxPure_x86_64
