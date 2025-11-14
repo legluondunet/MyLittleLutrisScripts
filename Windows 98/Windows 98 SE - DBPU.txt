@@ -1,5 +1,5 @@
 files:
-- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows%2098/W98_SE_DBP_2Go.7z
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_2Go.7z
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
 game:
   exe: $GAMEDIR/DOSBoxPure_x86_64
