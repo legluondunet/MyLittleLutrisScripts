@@ -7,8 +7,6 @@ game:
 installer:
 - task:
     arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -17,6 +15,13 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
     file: wds
+- input_menu:
+    description: Select your resolution ratio
+    id: RATIO
+    options:
+    - -0.148958: 16/9 like 1920x1080
+    - -0.08245: 16/10 like 1920x1200
+    preselect: -0.148958
 - write_file:
     content: '[MAIN]
 
@@ -29,20 +34,26 @@ installer:
 
       HUD_posX_auto = 1 // 0 - Off; 1 - On;
 
-      HUD_posX =  -0.148958 // -0.082450 - for 16x10 mode; -0.148958 for 16x9 mode;
+      HUD_posX = $INPUT_RATIO // -0.082450 - for 16x10 mode; -0.148958 for 16x9 mode;
 
 
       [MISC]
 
       cutscenes_black_borders = 0 //  0 - Off; 1 - On
 
-      Xbox_fov = 0 //  0 - Off; 1 - On
+      Xbox_fov = 1 //  0 - Off; 1 - On
 
       fov_multiplier = 1.0 // original value 1.0;'
     file: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/pop.ini
 - merge:
     dst: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time
     src: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/__support/app
+- write_config:
+    data:
+      CAPS:
+        InvertFogRange: 0
+    file: $GAMEDIR/drive_c/GOG Games/Prince of Persia - The Sands of Time/Hardware.ini
+    merge: true
 system:
   env:
     DXVK_FRAME_RATE: '60'
