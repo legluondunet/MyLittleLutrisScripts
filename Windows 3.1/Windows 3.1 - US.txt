@@ -1,0 +1,19 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_31/windows_3.1_dbp_2go.dosz
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save:
+    filename: Descent - FreeSpace - The Great War (USA) (Disc 2).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Descent%20-%20FreeSpace%20-%20The%20Great%20War/Descent%20-%20FreeSpace%20-%20The%20Great%20War%20(USA)%20(Disc%202).pure.zip
+game:
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- merge:
+    dst: $GAMEDIR/system
+    src: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
