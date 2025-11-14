@@ -10,3 +10,15 @@ Automatic install of "Windows 3.1" CD edition using DOSBox
 -- SB16 Audio drivers located at c:\drivers\sb16
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Windows 3.1 - US
+### Description:
+Windows 3.1 on Linux!
+### Technical notes:
+- Using Dosbox Pure Unleashed
+- Ready to use: drivers already installed
+- Press "CTRL+F12" to show Dosbox Pure Unleashed menu
+### Credits:
+- Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
