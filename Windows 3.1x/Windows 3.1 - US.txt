@@ -1,7 +1,7 @@
 files:
 - os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_31/windows_3.1_dbp_2go.dosz
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
-- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%203.1/DOSBox-pure.pure.zip
+- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%203.1x/DOSBox-pure.pure.zip
 game:
   exe: $GAMEDIR/DOSBoxPure_x86_64
   working_dir: $GAMEDIR
