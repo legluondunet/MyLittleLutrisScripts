@@ -12,7 +12,7 @@ installer:
     dst: $GAMEDIR
     file: dbpu_file
 - extract:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/system
     file: os_img
 - merge:
     dst: $GAMEDIR/CD
