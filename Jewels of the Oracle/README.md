@@ -12,8 +12,8 @@
 ### Description:
 Play "Jewels of the Oracle" CD edition on Linux!
 ### Technical notes:
-- Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
-- Once Windows 98 started, go to "My Computer", CD Drive and install the game
+- Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
+- Once Windows 95 started, go to "My Computer", CD Drive and install the game
 - Press "CTRL+F12" to show Dosbox Pure Unleashed menu
 - Once Windows 95 started, click on "My COmputer", CD Drive and install the game.
 If Quicktime does not work ingame, click on Windows Start menu, "Quicktime for Windows" group, "Reinstall Quicktime"
