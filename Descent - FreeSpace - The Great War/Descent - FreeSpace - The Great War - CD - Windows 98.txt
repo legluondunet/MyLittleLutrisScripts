@@ -21,7 +21,7 @@ installer:
     file: dbpu_file
 - extract:
     dst: $GAMEDIR
-    file: os_img
+    file: os_img/system
 - extract:
     dst: $GAMEDIR/CD
     file: game_cd1
