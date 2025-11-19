@@ -1,10 +1,22 @@
-# The Multimedia Bug Book - CD - Windows 95 OSR 2.5
-### Description:
-Play "The Multimedia Bug Book" on Linux!
-### Technical notes:
-- Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
-- Once Windows 95 started, go to "My Computer", CD Drive and install the game
-- Press "CTRL+F12" to show Dosbox Pure Unleashed menu
-### Credits:
-- Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
+- game_cd: https://archive.org/download/the-multimedia-bug-book/TheMultimediaBugBook.iso
+game:
+  args: $GAMEDIR/CD/TheMultimediaBugBook.iso
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    src: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
