@@ -1,7 +1,7 @@
 files:
 - os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
-- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
+- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/The%20Multimedia%20Bug%20Book/TheMultimediaBugBook.pure.zip
 - game_cd: https://archive.org/download/the-multimedia-bug-book/TheMultimediaBugBook.iso
 game:
   args: $GAMEDIR/CD/TheMultimediaBugBook.iso
