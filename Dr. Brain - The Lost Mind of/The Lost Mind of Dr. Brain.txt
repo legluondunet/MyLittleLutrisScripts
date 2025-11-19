@@ -1,5 +1,6 @@
 files:
 - os_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/windows/win31.7z
+- game_cd: https://archive.org/download/the-lost-mind-of-dr-brain-cd-rom-1995/DRBRAIN3IBM.ISO
 game:
   config_file: dosbox_win31x_cd.conf
   main_file: dosbox_win31x_cd.conf
@@ -7,11 +8,10 @@ installer:
 - extract:
     dst: $GAMEDIR
     file: os_file
-- insert-disc:
-    requires: drbrain3.exe
-- merge:
+- extract:
     dst: $GAMEDIR/C/game
-    src: $DISC
+    file: game_cd
+    format: iso
 - execute:
-    command: cd "$GAMEDIR" ; sed -i s/game.exe/drbrain3.exe/ dosbox_win31x_cd.conf
-      ; cd C ; chmod -R +w game; cd WINDOWS ; cp -f SYSTEM.INI.8 SYSTEM.INI;
+    command: cd "$GAMEDIR" ; sed -i '247 c\ win.com c:\\game\\DRBRAIN3.EXE' dosbox_win31x_cd.conf
+      ; cd C/WINDOWS ; cp -f SYSTEM.INI.8 SYSTEM.INI;
