@@ -8,14 +8,15 @@
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Jewels of the Oracle - CD + Windows 3.1
+# Jewels of the Oracle - CD + Windows 95
 ### Description:
 Play "Jewels of the Oracle" CD edition on Linux!
 ### Technical notes:
-- Using Dosbox Pure Unleashed with a ready to use Windows 3.1 install
-- Once Windows 3.1 started, go to "Main", "File Manager", click on CD Drive (D:\) and install the game.
-If Quicktime does not work ingame, in "Quicktime for Windows" group, click on "Reinstall Quicktime"
+- Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
+- Once Windows 98 started, go to "My Computer", CD Drive and install the game
 - Press "CTRL+F12" to show Dosbox Pure Unleashed menu
+- Once Windows 95 started, click on "My COmputer", CD Drive and install the game.
+If Quicktime does not work ingame, click on Windows Start menu, "Quicktime for Windows" group, "Reinstall Quicktime"
 ### Credits:
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
