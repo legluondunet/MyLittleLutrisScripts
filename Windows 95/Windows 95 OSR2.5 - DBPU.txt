@@ -1,0 +1,17 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.img.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
+game:
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR
+    file: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
