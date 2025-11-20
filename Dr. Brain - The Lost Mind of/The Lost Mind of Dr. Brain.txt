@@ -1,17 +1,22 @@
 files:
-- os_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/windows/win31.7z
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Dr.%20Brain%20-%20The%20Lost%20Mind%20of/DRBRAIN3IBM.pure.zip
 - game_cd: https://archive.org/download/the-lost-mind-of-dr-brain-cd-rom-1995/DRBRAIN3IBM.ISO
 game:
-  config_file: dosbox_win31x_cd.conf
-  main_file: dosbox_win31x_cd.conf
+  args: $GAMEDIR/CD/DRBRAIN3IBM.ISO
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
 installer:
 - extract:
     dst: $GAMEDIR
-    file: os_file
+    file: dbpu_file
 - extract:
-    dst: $GAMEDIR/C/game
-    file: game_cd
-    format: iso
-- execute:
-    command: cd "$GAMEDIR" ; sed -i '247 c\ win.com c:\\game\\DRBRAIN3.EXE' dosbox_win31x_cd.conf
-      ; cd C/WINDOWS ; cp -f SYSTEM.INI.8 SYSTEM.INI;
+    dst: $GAMEDIR/system
+    src: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
