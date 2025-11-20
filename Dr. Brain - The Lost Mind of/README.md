@@ -1,7 +1,11 @@
 # The Lost Mind of Dr. Brain - CD - Win3.1
 ### Description:
-Play "The Lost Mind of Dr. Brain" CD edition for Windows 3.1 on Linux!
+Play "The Lost Mind of Dr. Brain" CD edition on Linux!
 ### Technical notes:
-- Using Dosbox with a ready to use Windows 3.1 install
+- Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
+- Once Windows 95 started, go to "My Computer", CD Drive and install the game.
+Then set graphic color to 256 colors using monitor icon located in the bottom right corner
+- Press "CTRL+F12" to show Dosbox Pure Unleashed menu
 ### Credits:
-- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+- Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
