@@ -62,4 +62,4 @@ installer:
     merge: true
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed
-      - Porsche Unleashed" ; sed -i s/depth\ \=\ 16/depth\ \=\ 32/ fe_out.txt
+      - Porsche Unleashed/SaveData" ; mv 8Driver.sav 8Driver.sav.bak ;
