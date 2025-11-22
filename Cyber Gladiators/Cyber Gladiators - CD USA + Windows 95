@@ -1,0 +1,31 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd: https://archive.org/download/cyber-gladiators-usa/CyberGladiators%20%28USA%29.zip
+- dbpu_save:
+    filename: CyberGladiators (USA).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Cyber%20Gladiators/CyberGladiators%20(USA).pure.zip
+game:
+  args: '"$GAMEDIR/CD/CyberGladiators (USA).cue"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- extract:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- write_file:
+    content: ' {
+
+      "dosbox_pure_cpu_core" : "normal"
+
+      } '
+    file: $GAMEDIR/DOSBoxPure.cfg
