@@ -1,0 +1,12 @@
+files:
+- game_archive: https://archive.org/download/kirby-wacky-episode/Kirby%20-%20Wacky%20Episode.zip
+game:
+  exe: drive_c/SpaceCadetPinbal/Kirby Wacky Episode.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/SpaceCadetPinbal
+    file: game_archive
