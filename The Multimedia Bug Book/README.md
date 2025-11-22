@@ -1,4 +1,4 @@
-# The Multimedia Bug Book - CD - Windows 95 OSR 2.5
+# The Multimedia Bug Book - CD - Windows 95
 ### Description:
 Play "The Multimedia Bug Book" on Linux!
 ### Technical notes:
