@@ -1,0 +1,27 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save:
+    filename: 3D Ultra Pinball - The Lost Continent WIN-MAC (Sierra On-Line, Inc.)(1997).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
+- game_cd:
+    filename: 3D Ultra Pinball - The Lost Continent WIN-MAC (Sierra On-Line, Inc.)(1997).iso
+    url: https://archive.org/download/3-d-ultra-pinball-the-lost-continent-win-mac-sierra-on-line-inc.-1997/3D%20Ultra%20Pinball%20-%20The%20Lost%20Continent%20WIN-MAC%20%28Sierra%20On-Line%2C%20Inc.%29%281997%29.iso
+game:
+  args: '"$GAMEDIR/CD/3D Ultra Pinball - The Lost Continent WIN-MAC (Sierra On-Line,
+    Inc.)(1997).iso"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    src: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
