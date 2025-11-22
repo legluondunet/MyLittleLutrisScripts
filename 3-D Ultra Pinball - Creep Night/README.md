@@ -1,4 +1,4 @@
-#3-D Ultra Pinball - Creep Night - CD - Windows 95
+# 3-D Ultra Pinball - Creep Night - CD - Windows 95
 ### Description:
 Play "3-D Ultra Pinball - Creep Night" CD edition on Linux!
 ### Technical notes:
