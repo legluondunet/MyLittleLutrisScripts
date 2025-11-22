@@ -1,4 +1,4 @@
-# Mario Kart 64 - SpaghettiKart
+# Mario Kart 64 - SpaghettiKart nightly
 ### Description:
 Play "Mario Kart 64" natively on Linux!
 ### Technical notes:
