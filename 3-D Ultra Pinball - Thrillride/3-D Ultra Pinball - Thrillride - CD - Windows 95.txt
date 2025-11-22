@@ -1,7 +1,9 @@
 files:
 - os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
-- dbpu_save: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/The%20Multimedia%20Bug%20Book/TheMultimediaBugBook.pure.zip
+- dbpu_save:
+    filename: 3-D Ultra Pinball - Thrillride (USA).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/3-D%20Ultra%20Pinball%20-%20Thrillride/3-D%20Ultra%20Pinball%20-%20Thrillride%20(USA).pure.zip
 - game_cd: https://archive.org/download/3-d-ultra-pinball-thrillride-usa-alt/3-D%20Ultra%20Pinball%20-%20Thrillride%20%28USA%29.zip
 game:
   args: '"$GAMEDIR/CD/3-D Ultra Pinball - Thrillride (USA).cue"'
