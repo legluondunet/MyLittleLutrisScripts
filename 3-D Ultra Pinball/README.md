@@ -3,7 +3,9 @@
 Play "3-D Ultra Pinball" CD edition on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
-- Once Windows 95 started, go to "My Computer", CD Drive and install the game
+- Once Windows 95 started, go to "My Computer", CD Drive and install the game.
+When Sierra installer ask you to test your system, answer "No" or game install will fail, choose continue install without test.
+Then set graphic resolution to 800x600 using monitor icon located in the bottom right corner
 - Press "CTRL+F12" to show Dosbox Pure Unleashed menu
 ### Credits:
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
