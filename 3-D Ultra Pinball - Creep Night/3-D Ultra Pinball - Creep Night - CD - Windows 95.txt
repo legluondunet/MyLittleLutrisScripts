@@ -1,0 +1,26 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save:
+    filename: 3-D_Ultra_Pinball_Creep_Night_Sierra_1996.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/3-D%20Ultra%20Pinball%20-%20Thrillride/3-D%20Ultra%20Pinball%20-%20Thrillride%20(USA).pure.zip
+- game_cd:
+    filename: 3-D_Ultra_Pinball_Creep_Night_Sierra_1996.iso
+    url: https://archive.org/download/3-D_Ultra_Pinball_Creep_Night_Sierra_1996/3-D_Ultra_Pinball_Creep_Night_Sierra_1996.iso
+game:
+  args: '"$GAMEDIR/CD/3-D_Ultra_Pinball_Creep_Night_Sierra_1996.iso"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    src: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
