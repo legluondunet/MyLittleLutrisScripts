@@ -1,6 +1,6 @@
-# 3D Ultra Pinball - Thrillride - CD - Windows 95
+# 3-D Ultra Pinball - Thrillride - CD - Windows 95
 ### Description:
-Play "3D Ultra Pinball - Thrillride" CD edition on Linux!
+Play "3-D Ultra Pinball - Thrillride" CD edition on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
 - Once Windows 95 started, go to "My Computer", CD Drive and install the game
