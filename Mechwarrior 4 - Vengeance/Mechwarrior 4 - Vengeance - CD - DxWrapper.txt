@@ -48,9 +48,6 @@ installer:
     executable: $GAMEDIR/drive_c/tmp/CD/SETUP.EXE
     name: wineexec
     return_code: 256
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/backup
-    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     file: game_patch
