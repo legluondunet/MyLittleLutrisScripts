@@ -1,1 +1,76 @@
-
+files:
+- game_cd1: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%201%29.7z
+- game_cd2: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%202%29.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Vengeance/mw4_patch.zip
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.4.7900.25/dxwrapper.zip
+- tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
+game:
+  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract "MechWarrior 4 - Vengeance" CD1 archive
+    dst: $GAMEDIR/drive_c/tmp
+    file: game_cd1
+    format: 7z
+- extract:
+    description: extract "MechWarrior 4 - Vengeance" CD2 archive
+    dst: $GAMEDIR/drive_c/tmp
+    file: game_cd2
+    format: 7z
+- extract:
+    dst: $GAMEDIR/drive_c/tmp
+    file: tools
+    format: 7z
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp" ; ./bchunk  "MechWarrior 4 - Vengeance (USA,
+      Europe) (Disc 1).bin" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 1).cue"
+      "MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)"; ./bchunk  "MechWarrior 4
+      - Vengeance (USA, Europe) (Disc 2).bin" "MechWarrior 4 - Vengeance (USA, Europe)
+      (Disc 2).cue" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)"
+- extract:
+    description: extract "MechWarrior 4 - Vengeance" CD1 data
+    dst: $GAMEDIR/drive_c/tmp/CD
+    file: $GAMEDIR/drive_c/tmp/MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)01.iso
+    format: iso
+- extract:
+    description: extract "MechWarrior 4 - Vengeance" CD2 data
+    dst: $GAMEDIR/drive_c/tmp/CD
+    file: $GAMEDIR/drive_c/tmp/MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)01.iso
+    format: iso
+- task:
+    description: Installing "MechWarrior 4 - Vengeance", let all options to default,
+      do not launch game at the end of install
+    executable: $GAMEDIR/drive_c/tmp/CD/SETUP.EXE
+    name: wineexec
+    return_code: 256
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    file: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/Stub/ddraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/Stub/dinput.dll
+- write_config:
+    data:
+      Compatibility:
+        Dd7to9: 1
+        Dinputto8: 1
+        EnableDdrawWrapper: 1
+        EnableDinput8Wrapper: 1
+      d3d9:
+        LimitPerFrameFPS: 30
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dxwrapper.ini
+wine:
+  overrides:
+    ddraw: n,b
+    dinput: n,b
