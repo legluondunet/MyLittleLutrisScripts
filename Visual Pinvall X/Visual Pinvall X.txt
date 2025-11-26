@@ -1,0 +1,24 @@
+files:
+- prog_file: https://github.com/vpinball/vpinball/releases/download/v10.8.1-3788-2151290/VPinballX_BGFX-10.8.1-3788-2151290-linux-x64-Release.zip
+- prog_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Visual%20Pinvall%20X/config.ini
+- table: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Visual%20Pinvall%20X/JP's%20Space%20Cadet.7z
+game:
+  args: -EnableTrueFullscreen -ini "$GAMEDIR/config.ini" -play "$GAMEDIR/tables/JP's
+    Space Cadet/JP's Space Cadet v4.3.vpx"
+  exe: $GAMEDIR/VPinballX_BGFX
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE
+    format: zip
+    src: prog_file
+- extract:
+    dst: $GAMEDIR
+    format: tgz
+    src: $CACHE/VPinballX_BGFX-10.8.1-3788-2151290-linux-x64-Release.tar.gz
+- copy:
+    dst: $GAMEDIR
+    src: prog_conf
+- extract:
+    dst: $GAMEDIR/tables/JP's Space Cadet
+    src: table
