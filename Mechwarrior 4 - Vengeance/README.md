@@ -3,7 +3,7 @@
 Play "MechWarrior 4: Vengeance" CD edition on Linux!
 ### Technical notes:
 - Using dxwrapper for better graphic stability
-- known issues:
+- Known issues:
 1) mouse laggy on Roster menu, when you create profile screen
 2) game crashes when click on "Instant Action"
 ### Credits:
