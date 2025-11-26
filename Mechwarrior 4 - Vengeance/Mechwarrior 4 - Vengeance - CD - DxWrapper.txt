@@ -14,38 +14,38 @@ installer:
     prefix: $GAMEDIR
 - extract:
     description: extract "MechWarrior 4 - Vengeance" CD1 archive
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $CACHE
     file: game_cd1
     format: 7z
 - extract:
     description: extract "MechWarrior 4 - Vengeance" CD2 archive
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $CACHE
     file: game_cd2
     format: 7z
 - extract:
-    dst: $GAMEDIR/drive_c/tmp
+    dst: $CACHE
     file: tools
     format: 7z
 - execute:
-    command: cd "$GAMEDIR/drive_c/tmp" ; ./bchunk  "MechWarrior 4 - Vengeance (USA,
-      Europe) (Disc 1).bin" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 1).cue"
-      "MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)"; ./bchunk  "MechWarrior 4
-      - Vengeance (USA, Europe) (Disc 2).bin" "MechWarrior 4 - Vengeance (USA, Europe)
-      (Disc 2).cue" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)"
+    command: cd "$CACHE" ; ./bchunk  "MechWarrior 4 - Vengeance (USA, Europe) (Disc
+      1).bin" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 1).cue" "MechWarrior
+      4 - Vengeance (USA, Europe) (Disc 1)"; ./bchunk  "MechWarrior 4 - Vengeance
+      (USA, Europe) (Disc 2).bin" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2).cue"
+      "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)"
 - extract:
     description: extract "MechWarrior 4 - Vengeance" CD1 data
-    dst: $GAMEDIR/drive_c/tmp/CD
-    file: $GAMEDIR/drive_c/tmp/MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)01.iso
+    dst: $CACHE/CD
+    file: $CACHE/MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)01.iso
     format: iso
 - extract:
     description: extract "MechWarrior 4 - Vengeance" CD2 data
-    dst: $GAMEDIR/drive_c/tmp/CD
-    file: $GAMEDIR/drive_c/tmp/MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)01.iso
+    dst: $CACHE/CD
+    file: $CACHE/MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)01.iso
     format: iso
 - task:
     description: Installing "MechWarrior 4 - Vengeance", let all options to default,
       do not launch game at the end of install
-    executable: $GAMEDIR/drive_c/tmp/CD/SETUP.EXE
+    executable: $CACHE/CD/SETUP.EXE
     name: wineexec
     return_code: 256
 - extract:
