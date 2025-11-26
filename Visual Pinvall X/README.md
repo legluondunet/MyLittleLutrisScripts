@@ -1,4 +1,4 @@
-# Visual Pinvall X
+# Visual Pinball X
 ### Description:
 Play "Visual Pinball X" pinball tables on Linux!
 ### Technical notes:
