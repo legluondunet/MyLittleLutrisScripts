@@ -1,0 +1,91 @@
+files:
+- game_cd1: https://archive.org/download/NeedForSpeedUndergroundUSAEnFrDeEsItNlSvZhKo/Need%20for%20Speed%20-%20Underground%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CSv%2CZh%2CKo%29%20%28Disc%201%29.zip
+- game_cd2: https://archive.org/download/NeedForSpeedUndergroundUSAEnFrDeEsItNlSvZhKo/Need%20for%20Speed%20-%20Underground%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CSv%2CZh%2CKo%29%20%28Disc%202%29.zip
+- tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
+- game_reg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu.reg
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu_update_1.40us.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu_patch_140.zip
+- mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsu/NFSUnderground.WidescreenFix.zip
+game:
+  exe: drive_c/nfsu/Speed.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract "Need for Speed - Underground" CD1 archive
+    dst: $CACHE
+    file: game_cd1
+    format: zip
+- extract:
+    description: extract "Need for Speed - Underground" CD2 archive
+    dst: $CACHE
+    file: game_cd2
+    format: zip
+- extract:
+    dst: $CACHE
+    file: tools
+    format: 7z
+- execute:
+    command: cd "$CACHE" ; ./bchunk  "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 1).bin" "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 1).cue" "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 1)"; ./bchunk  "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 2).bin" "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 2).cue" "Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko)
+      (Disc 2)"
+- extract:
+    description: extract "Need for Speed - Underground" CD1 data
+    dst: $GAMEDIR/drive_c/nfsu
+    file: $CACHE/Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko) (Disc
+      1)01.iso
+    format: iso
+- extract:
+    description: extract "Need for Speed - Underground" CD2 data
+    dst: $GAMEDIR/drive_c/nfsu
+    file: $CACHE/Need for Speed - Underground (USA) (En,Fr,De,Es,It,Nl,Sv,Zh,Ko) (Disc
+      2)01.iso
+    format: iso
+- task:
+    filename: game_reg
+    name: set_regedit_file
+- extract:
+    dst: $CACHE
+    src: game_update
+- task:
+    executable: $CACHE/nfsu_us_patch_4.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/nfsu/backup
+    src: $GAMEDIR/drive_c/nfsu/Speed.exe
+- extract:
+    dst: $GAMEDIR/drive_c/nfsu
+    src: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/nfsu
+    src: mod
+- input_menu:
+    description: 'Choose your preferred language for game''s menus:'
+    id: LANG
+    options:
+    - English: English US
+    - Dutch: Dutch
+    - French: French
+    - German: German
+    - Italian: Italian
+    - Korean: Korean
+    - Spanish: Spanish
+    - Chinese: Chinese (Traditional)
+    - Swedish: Swedish
+    preselect: English
+- task:
+    key: Language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\Need For Speed Underground
+    type: REG_SZ
+    value: $INPUT_LANG
+wine:
+  overrides:
+    dinput8: n,b
