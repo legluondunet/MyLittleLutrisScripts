@@ -2,13 +2,13 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games]
 
-[HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\NFS Underground]
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\Need For Speed Underground]
 "3D Card"="D3D"
 "3D Device Description"="D3D"
 "CacheSize"="1350644736"
 "CD Drive"="D:\\\\"
 "D3D Device"=dword:00000000
-"DisplayName"="Need For Speed Underground"
+"DisplayName"="NFS Underground"
 "Group"="D3D"
 "Hardware Acceleration"=dword:00000001
 "Install Dir"="C:\\nfsu"
@@ -21,7 +21,7 @@ Windows Registry Editor Version 5.00
 "Thrash Resolution"="640x480"
 "Triple Buffer"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\NFS Underground\1.0]
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games\Need For Speed Underground\1.0]
 "DisplayName"="NFS Underground"
 "Language"=dword:00000002
 "LanguageName"="French"
