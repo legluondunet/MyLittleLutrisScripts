@@ -6,7 +6,7 @@ files:
     url: https://archive.org/download/Jewels_of_thje_Oracle_Discis_1995/Jewels%20of%20thje%20Oracle%20%28Discis%29%281995%29.ISO
 - dbpu_save:
     filename: joto.pure.zip
-    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Jewels%20of%20the%20Oracle/joto.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
 game:
   args: '"$GAMEDIR/CD/joto.iso"'
   exe: $GAMEDIR/DOSBoxPure_x86_64
