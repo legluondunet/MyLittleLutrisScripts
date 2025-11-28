@@ -1,4 +1,4 @@
-﻿Windows Registry Editor Version 5.00
+Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Wow6432Node\EA Games]
 
@@ -25,5 +25,4 @@
 "DisplayName"="NFS Underground"
 "Language"=dword:00000002
 "LanguageName"="French"
-
 
