@@ -1,0 +1,15 @@
+files:
+- os_arch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_31/Windows_3.1.7z
+- game_cd: https://archive.org/download/jewels-of-the-oracle-windows-3.x-95-disc-art/JEWELSCD.ISO
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: os_arch
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- execute:
+    command: cd "$GAMEDIR" ; sed -i '237i imgmount d "CD/JEWELSCD.ISO" -t iso' dosbox.conf
+      ;
