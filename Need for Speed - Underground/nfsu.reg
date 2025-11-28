@@ -13,8 +13,8 @@ Windows Registry Editor Version 5.00
 "Hardware Acceleration"=dword:00000001
 "Install Dir"="C:\\nfsu"
 "Installed From"="D:\\\\"
-"Language"="French"
-"Locale"="FR_FR"
+"Language"="English"
+"Locale"="EN_en"
 "Region"="Region_Europe"
 "SwapSize"="0"
 "Thrash Driver"="DX"
