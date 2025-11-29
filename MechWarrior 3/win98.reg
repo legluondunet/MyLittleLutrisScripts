@@ -1,0 +1,42 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion]
+"ProductName"="Microsoft Windows 98"
+"SubVersionNumber"=" A "
+"VersionNumber"="4.10.2222"
+
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion]
+"ProductName"="Microsoft Windows 98"
+"SubVersionNumber"=" A "
+"VersionNumber"="4.10.2222"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion]
+"CSDVersion"=-
+"CurrentBuild"=-
+"CurrentBuildNumber"=-
+"CurrentMajorVersionNumber"=-
+"CurrentMinorVersionNumber"=-
+"CurrentVersion"=-
+"ProductName"=-
+"UBR"=-
+
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion]
+"CSDVersion"=-
+"CurrentBuild"=-
+"CurrentBuildNumber"=-
+"CurrentMajorVersionNumber"=-
+"CurrentMinorVersionNumber"=-
+"CurrentVersion"=-
+"ProductName"=-
+"UBR"=-
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\ProductOptions]
+"ProductType"=-
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Windows]
+"CSDVersion"=-
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Session Manager\Environment]
+"OS"=-
+
+
