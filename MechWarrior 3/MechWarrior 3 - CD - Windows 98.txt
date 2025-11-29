@@ -1,0 +1,28 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd: https://archive.org/download/MechWarrior3USA/MechWarrior%203%20%28USA%29.zip
+- dbpu_save:
+    filename: MechWarrior 3 (USA).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/MechWarrior-3_Patch_Win_EN_Patch-12.zip
+game:
+  args: '"$GAMEDIR/CD/MechWarrior 3 (USA).cue"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- extract:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- extract:
+    dst: $GAMEDIR/files
+    src: game_update
