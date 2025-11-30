@@ -13,6 +13,7 @@ Play "MechWarrior 3" CD edition on Linux!
 ### Description:
 Play "MechWarrior 3" CD edition on Linux!
 ### Technical notes:
+- You will need to keep your CD or CD image mounted during playing
 - This game does not support Alt-Tab, you will loose mouse interaction. Workaround: use Gamescope
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
