@@ -1,0 +1,29 @@
+files:
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/MechWarrior-3_Patch_Win_EN_Patch-12.zip
+- reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/win98.reg
+game:
+  exe: drive_c/MicroProse/MechWarrior3/Mech3.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert MechWarrior 3
+    requires: mech3.ico
+- task:
+    filename: reg_file
+    name: set_regedit_file
+- task:
+    description: Installing MechWarrior 3...
+    executable: $DISC/Setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    src: game_update
+- task:
+    description: Installing MechWarrior 3 1.2 update...
+    executable: $CACHE/mw3v12.exe
+    name: wineexec
+    prefix: $GAMEDIR
