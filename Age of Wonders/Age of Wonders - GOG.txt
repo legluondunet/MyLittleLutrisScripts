@@ -1,0 +1,16 @@
+files:
+- aow: N/A:Select the Windows installer downloaded from GOG
+- codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
+game:
+  exe: drive_c/GOG Games/Age of Wonders/AoW.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    executable: aow
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    args: /s
+    description: installing INDEO codecs to play cinematics
+    executable: codecs
+    name: wineexec
