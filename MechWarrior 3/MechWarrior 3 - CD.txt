@@ -1,6 +1,9 @@
 files:
-- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/MechWarrior-3_Patch_Win_EN_Patch-12.zip
+- game_cd: https://archive.org/download/MechWarrior3USA/MechWarrior%203%20%28USA%29.zip
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/mw3_update_1.2.zip
 - reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/win98.reg
+- cd-tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
 game:
   exe: drive_c/MicroProse/MechWarrior3/Mech3.exe
   prefix: $GAMEDIR
@@ -8,22 +11,57 @@ installer:
 - task:
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    description: Please insert MechWarrior 3
-    requires: mech3.ico
+- extract:
+    description: extract "MechWarrior 3" archive
+    dst: $CACHE
+    format: zip
+    src: game_cd
+- extract:
+    dst: $CACHE
+    format: zip
+    src: cd-tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "MechWarrior 3 (USA).cue" ; ./bchunk -w "MechWarrior
+      3 (USA) (Track 2).bin" "MechWarrior 3 (USA).cue" "MechWarrior 3 (USA)" ; mv
+      "MechWarrior 3 (USA)03.wav" track02.wav ; ./bchunk -w "MechWarrior 3 (USA) (Track
+      3).bin" "MechWarrior 3 (USA).cue" "MechWarrior 3 (USA)" ;  mv "MechWarrior 3
+      (USA)03.wav" track03.wav ;
+- extract:
+    description: extract "MechWarrior 3" data
+    dst: $CACHE/CD
+    file: $CACHE/MechWarrior 3 (USA) (Track 1)-01.iso
+    format: iso
 - task:
     filename: reg_file
     name: set_regedit_file
 - task:
-    description: Installing MechWarrior 3...
-    executable: $DISC/Setup.exe
+    description: Installing "MechWarrior 3"...
+    executable: $CACHE/CD/Setup.exe
     name: wineexec
     prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3/backup
+    src: $GAMEDIR/drive_c/MicroProse/MechWarrior3/Mech3.exe
 - extract:
-    dst: $CACHE
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3
     src: game_update
-- task:
-    description: Installing MechWarrior 3 1.2 update...
-    executable: $CACHE/mw3v12.exe
-    name: wineexec
-    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3/video
+    src: $CACHE/CD/video
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3
+    src: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3/Music
+    src: $CACHE/track02.wav
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3/Music
+    src: $CACHE/track03.wav
+system:
+  gamescope: true
+  gamescope_fps_limiter: '30'
+  gamescope_game_res: 640x480
+  gamescope_output_res: $RESOLUTION
+wine:
+  overrides:
+    winmm: n,b
