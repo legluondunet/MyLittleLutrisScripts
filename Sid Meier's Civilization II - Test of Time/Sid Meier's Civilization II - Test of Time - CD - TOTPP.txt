@@ -25,7 +25,7 @@ installer:
     prefix: $GAMEDIR
 - merge:
     description: Copying game data from CD to folder install...
-    dst: $GAMEDIR/drive_c/Program Files/Microprose/Video
+    dst: $GAMEDIR/drive_c/Program Files/Microprose/Test of Time/Video
     src: $CACHE/CD/Civ2/Video
 - extract:
     description: Extracting game update...
