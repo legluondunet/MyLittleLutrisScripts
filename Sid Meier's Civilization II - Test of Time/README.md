@@ -1,4 +1,4 @@
-### Sid Meier's Civilization II - Test of Time - CD - 
+### Sid Meier's Civilization II - Test of Time - CD - TOTPP
 ## Description:
 Play "Sid Meier's Civilization II: Test of Time" CD edition on Linux!
 ## Technical notes:
