@@ -1,6 +1,8 @@
+files:
+- sub_file: https://downloads.scummvm.org/frs/extras/Blade%20Runner/Blade_Runner_Subtitles-v9.zip
 game:
   game_id: bladerunner
-  path: $GAMEDIR/Blade Runner/
+  path: $GAMEDIR/Blade Runner
   subtitles: true
 installer:
 - insert-disc:
@@ -72,3 +74,10 @@ installer:
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes4.dat
     src: $GAMEDIR/Blade Runner/cdframes.dat
+- extract:
+    dst: $GAMEDIR/Blade Runner
+    src: sub_file
+scummvm:
+  aspect: null
+  fullscreen: null
+  subtitles: true
