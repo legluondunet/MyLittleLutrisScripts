@@ -1,13 +1,16 @@
 files:
 - game_file:
     filename: 0ad-x86_64.AppImage
-    url: https://github.com/0ad-matters/0ad-appimage/releases/download/v0.27.0/0ad-0.27.0-x86_64.AppImage
+    url: https://github.com/0ad-matters/0ad-appimage/releases/download/v0.27.1/0ad-0.27.1-x86_64.AppImage
 game:
-  exe: $GAMEDIR/squashfs-root/AppRun
+  exe: $GAMEDIR/0ad-x86_64.AppImage
 installer:
-- copy:
+- chmodx: game_file
+- merge:
     dst: $GAMEDIR
     src: game_file
 - execute:
-    command: cd "$GAMEDIR"; mkdir 0ad-x86_64.AppImage.home 0ad-x86_64.AppImage.config;
-      ./0ad-x86_64.AppImage  --appimage-extract;
+    command: mkdir -p "$GAMEDIR/0ad-x86_64.AppImage.config" "$GAMEDIR/tmp"
+system:
+  env:
+    TMPDIR: $GAMEDIR/tmp
