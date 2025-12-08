@@ -1,4 +1,3 @@
-custom-name: Blade Runner - CD - ScummVM
 game:
   game_id: bladerunner
   path: $GAMEDIR/Blade Runner/
@@ -8,25 +7,25 @@ installer:
     description: Please insert Blade Runner CD 1
     requires: cd1/outtake1.mix
 - merge:
-    dst: $GAMEDIR/Blade Runner/
-    src: $DISC/cd1/
+    dst: $GAMEDIR/Blade Runner
+    src: $DISC/cd1
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/coreanim.dat
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/mode.mix
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/music.mix
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/sfx.mix
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/spchsfx.tlk
 - copy:
-    dst: $GAMEDIR/Blade Runner/
+    dst: $GAMEDIR/Blade Runner
     src: $DISC/base/startup.mix
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes1.dat
@@ -38,8 +37,8 @@ installer:
     description: Please insert Blade Runner CD 2
     requires: cd2/outtake2.mix
 - merge:
-    dst: $GAMEDIR/Blade Runner/
-    src: $DISC/cd2/
+    dst: $GAMEDIR/Blade Runner
+    src: $DISC/cd2
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes2.dat
     src: $GAMEDIR/Blade Runner/cdframes.dat
@@ -50,8 +49,8 @@ installer:
     description: Please insert Blade Runner CD 3
     requires: cd3/outtake3.mix
 - merge:
-    dst: $GAMEDIR/Blade Runner/
-    src: $DISC/cd3/
+    dst: $GAMEDIR/Blade Runner
+    src: $DISC/cd3
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes3.dat
     src: $GAMEDIR/Blade Runner/cdframes.dat
@@ -68,11 +67,8 @@ installer:
     description: Please insert Blade Runner CD 4
     requires: cd4/outtake4.mix
 - merge:
-    dst: $GAMEDIR/Blade Runner/
-    src: $DISC/cd4/
+    dst: $GAMEDIR/Blade Runner
+    src: $DISC/cd4
 - move:
     dst: $GAMEDIR/Blade Runner/cdframes4.dat
     src: $GAMEDIR/Blade Runner/cdframes.dat
-scummvm:
-  fullscreen: true
-
