@@ -1,4 +1,4 @@
-# Blade Runner - CD - ScummVM
+# Blade Runner - CD + subtitles - ScummVM
 ### Description:
 Play "Blade Runner" CD edition on Linux!
 ### Technical notes:
