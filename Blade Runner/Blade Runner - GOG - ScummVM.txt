@@ -1,25 +1,22 @@
-custom-name: Blade Runner - GOG - ScummVM
 files:
 - gogsetup: N/A:Please select the game Windows install file, available for  download
-    from your GOG account page.
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+    from your GOG account page
+- sub_file: https://downloads.scummvm.org/frs/extras/Blade%20Runner/Blade_Runner_Subtitles-v9.zip
 game:
   game_id: bladerunner
   path: $GAMEDIR
-  subtitles: true
 installer:
 - extract:
-    dst: $CACHE
-    file: inno
-- execute:
-    args: -d "$GAMEDIR" "$gogsetup"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
 - merge:
     dst: $GAMEDIR
-    src: $GAMEDIR/__support/app/
-- execute:
-    command: cd "$GAMEDIR"; rm -f -r rm -f -r tmp app ScummVM __redist commonappdata
-      goggame-1370811355.*;
+    src: $GAMEDIR/__support/app
+- extract:
+    dst: $GAMEDIR/Blade Runner
+    src: sub_file
 scummvm:
-  fullscreen: true
-
+  aspect: null
+  fullscreen: null
+  subtitles: true
