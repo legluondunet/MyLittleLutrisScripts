@@ -57,11 +57,13 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/MicroProse/MechWarrior3/Music
     src: $CACHE/track03.wav
+- task:
+    app: avifil32 directplay
+    name: winetricks
+    silent: true
 system:
   gamescope: true
   gamescope_fps_limiter: '30'
-  gamescope_game_res: 640x480
-  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     winmm: n,b
