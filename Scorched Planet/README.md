@@ -10,13 +10,13 @@ Play "Scorched Planet" CD Windows 3DFX edition on Linux!
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Scorched Planet - CD Matrox + 86Box
+# Scorched Planet - CD Matrox + 86Box + Win95
 ### Description:
 Play "Scorched Planet" CD Matrox edition on Linux!
 ### Technical notes:
-- Matrox provided a Scorched CD version in his Matrox Mystique card box that can run only with a Matrox card. 
-This version of this game has different textures than the other versions
-- Once you launched Windows 95 virtual machine, go to "My Computer", click on CD Drive and install game
+- Using 86Box with a ready to use Windows 95 install
+- Matrox provided a Scorched CD version in his Matrox Mystique card box that can run only with a Matrox card. This exclusive game's version has different textures
+- Once Windows 95 virtual machine launched, go to "My Computer", click on CD drive and install game
 - You will need a good hardware config or the game will not be playable
 ### Credits:
 - 86Box: https://github.com/86Box/86Box
