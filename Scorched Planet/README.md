@@ -8,3 +8,11 @@ Play "Scorched Planet" CD Windows edition on Linux!
 - DxWnd: https://sourceforge.net/projects/dxwnd
 - dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Scorched Planet - CD DOS
+### Description:
+Play "Scorched Planet" CD DOS version on Linux!
+### Technical notes:
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
