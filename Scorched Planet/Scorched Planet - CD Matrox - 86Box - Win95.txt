@@ -7,6 +7,7 @@ files:
 - os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_86Box_Matrox.7z
 game:
   exe: $GAMEDIR/86Box-Linux-x86_64-b8000.AppImage
+  args: -P "$GAMEDIR/Virtual Machines/Windows 95 Matrox Mystique"
 installer:
 - chmodx: emul_file1
 - copy:
