@@ -10,7 +10,7 @@ Play "Scorched Planet" CD Windows 3DFX edition on Linux!
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Scorched Planet - CD Matrox + 86Box + Win95
+# Scorched Planet - CD Matrox + 86Box + W95
 ### Description:
 Play "Scorched Planet" CD Matrox edition on Linux!
 ### Technical notes:
