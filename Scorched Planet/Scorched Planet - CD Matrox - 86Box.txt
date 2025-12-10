@@ -1,0 +1,31 @@
+files:
+- emul_file1: https://github.com/86Box/86Box/releases/download/v5.2/86Box-Linux-x86_64-b8000.AppImage
+- emul_file2: https://github.com/86Box/roms/archive/refs/tags/v6.0-pre1.zip
+- game_cd:
+    filename: Scorched Planet (1996)(Criterion)(M3)[OEM Matrox Mystique].iso
+    url: https://archive.org/download/Scorched_Planet_1996_Criterion_M3_OEM_Matrox_Mystique/Scorched%20Planet%20%281996%29%28Criterion%29%28M3%29%5BOEM%20Matrox%20Mystique%5D.iso
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_86Box_Matrox.7z
+game:
+  exe: $GAMEDIR/86Box-Linux-x86_64-b8000.AppImage
+installer:
+- chmodx: emul_file1
+- copy:
+    dst: $GAMEDIR
+    src: emul_file1
+- extract:
+    dst: $GAMEDIR/roms
+    file: emul_file2
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- extract:
+    dst: $GAMEDIR/Virtual Machines/Windows 95 Matrox Mystique
+    src: os_img
+- write_config:
+    data:
+      Floppy and CD-ROM drives:
+        cdrom_01_image_path: game_cd
+    file: $GAMEDIR/Virtual Machines/Windows 95 Matrox Mystique/86box.cfg
+    merge: true
+- execute:
+    command: cd "$GAMEDIR" ; touch 86box_global.cfg ;
