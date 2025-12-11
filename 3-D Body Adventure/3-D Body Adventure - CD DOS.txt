@@ -1,0 +1,16 @@
+files:
+- dbx_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/3-D%20Body%20Adventure/dosbox.conf
+- game_cd:
+    filename: 3-D Body Adventure (1994)(Knowledge Adventure).iso
+    url: https://archive.org/download/3D-body-adventure/3-D%20Body%20Adventure%20%281994%29%28Knowledge%20Adventure%29.iso
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- merge:
+    dst: $GAMEDIR
+    src: dbx_cfg
+- execute:
+    command: cd "$GAMEDIR"; mkdir C ;
