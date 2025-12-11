@@ -1,4 +1,4 @@
-# 3-D Body Adventure - CD
+# 3-D Body Adventure - CD DOS
 ### Description:
 Play "3-D Body Adventure" CD DOS edition on Linux!
 ### Technical notes:
