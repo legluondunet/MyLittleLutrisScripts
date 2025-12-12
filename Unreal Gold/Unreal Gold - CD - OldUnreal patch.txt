@@ -1,4 +1,5 @@
 files:
+- game_cd: https://archive.org/download/unreal-gold_202501/UnrealGold.ISO
 - patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Linux.tar.bz2
 - patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Windows.zip
 - linuxlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/unreal_gold_lib64.tar.xz
@@ -18,13 +19,13 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    description: Please insert "Unreal" Windows CD and press autodetect
-    requires: system/Unreal.exe
+- extract:
+    dst: $CACHE/CD
+    src: game_cd
 - task:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
-    executable: $DISC/setup.exe
+    executable: $CACHE/CD/SETUP.EXE
     name: wineexec
     prefix: $GAMEDIR
 - extract:
@@ -39,7 +40,7 @@ installer:
     dst: $GAMEDIR/drive_c/UnrealGold/lib64
     file: linuxlibs
 - input_menu:
-    description: 'Choose your game''s language:'
+    description: 'Choose your preferred game''s language for menus and subtitles:'
     id: LANG
     options:
     - int: English
@@ -57,14 +58,18 @@ installer:
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
+      UMenu.UMenuRootWindow:
+        AutoGUIScale: false
+        ConfiguredGUIScale: 1.5
       WinDrv.WindowsClient:
         FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
+        SkyBoxFogMode: FOGDETAIL_High
         StartupFullscreen: false
         UseDesktopFullScreen: true
-        WindowedColorBits: null
+        WindowedColorBits: 32
     file: $GAMEDIR/drive_c/UnrealGold/System64/Default.ini
     merge: true
 - write_config:
@@ -92,10 +97,10 @@ installer:
         StartupFullscreen: false
         UseDesktopFullScreen: true
         WindowedColorBits: 32
+      UMenu.UMenuRootWindow:
+        AutoGUIScale: false
+        ConfiguredGUIScale: 1.5
     file: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
     merge: true
 system:
-  env:
-    DXVK_FRAME_RATE: '60'
-    DXVK_HUD: ''
   prefix_command: LD_LIBRARY_PATH=$GAMEDIR/drive_c/UnrealGold/lib64
