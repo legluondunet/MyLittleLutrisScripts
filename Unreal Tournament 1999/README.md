@@ -1,6 +1,6 @@
-# Unreal tournament (1999) - Windows CD - OldUnreal Patch
+# Unreal tournament (1999) - GOTY CD - OldUnreal Patch
 ## Description:
-Play "Unreal tournament (1999)" Windows CD edition on Linux!
+Play "Unreal tournament (1999)" GOTY CD edition on Linux!
 ## Technical notes:
 - Using CD GOTY from archive.net
 - You can choose to play the Windows (x64) or Linux (x64) version
