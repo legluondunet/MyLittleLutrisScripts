@@ -1,6 +1,7 @@
 files:
-- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc10/OldUnreal-UTPatch469e-Windows-x86.zip
-- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e-rc10/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2
+- game_cd: https://archive.org/compress/ut-goty/formats=ISO%20IMAGE&file=/ut-goty.zip
+- patch1: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e/OldUnreal-UTPatch469e-Windows-x86.zip
+- patch2: https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2
 game:
   exe: drive_c/UnrealTournament/System/UnrealTournament.exe
   launch_configs:
@@ -12,13 +13,20 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    description: Please insert "Unreal Tournament (1999)" Windows CD and press autodetect
-    requires: system/UnrealTournament.exe
+- extract:
+    description: Extracting game CD archive...
+    dst: $CACHE
+    file: game_cd
+    format: zip
+- extract:
+    description: Extracting game CD data...
+    dst: $CACHE/CD
+    file: $CACHE/UT_GOTY_CD1.iso
+    format: iso
 - task:
     description: Running setup of the game. Just proceed and keep all settings at
       their defaults
-    executable: $DISC/setup.exe
+    executable: $CACHE/CD/Setup.exe
     name: wineexec
     prefix: $GAMEDIR
 - extract:
@@ -29,7 +37,7 @@ installer:
     file: patch2
 - chmodx: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
 - input_menu:
-    description: 'Choose your CD game''s language:'
+    description: 'Choose your preferred language for menus and subtitles:'
     id: LANG
     options:
     - int: English
@@ -122,7 +130,3 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/UnrealTournament/System64"; cp Default.ini UnrealTournament.ini;
       cp DefUser.ini User.ini;
-system:
-  env:
-    DXVK_FRAME_RATE: '60'
-    DXVK_HUD: null
