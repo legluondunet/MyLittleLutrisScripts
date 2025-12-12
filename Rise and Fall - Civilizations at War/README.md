@@ -1,4 +1,4 @@
-# 0 A.D. - AppImage
+# Rise and Fall - Civilizations at War - Portable
 ### Description:
 Play "Rise and Fall - Civilizations at War" on Linux!
 ### Technical notes:
