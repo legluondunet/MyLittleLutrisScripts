@@ -94,6 +94,7 @@ installer:
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
+        SkyBoxFogMode: FOGDETAIL_High
         StartupFullscreen: false
         UseDesktopFullScreen: true
         WindowedColorBits: 32
