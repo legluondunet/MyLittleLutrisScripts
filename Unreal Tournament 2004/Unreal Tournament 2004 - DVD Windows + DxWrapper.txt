@@ -1,0 +1,99 @@
+files:
+- game_dvd: https://archive.org/download/ut-2004-dvd/UT2004_DVD.ISO
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Unreal%20Tournament%202004/Unreal%20Tournament%202004%20Windows%20Patch%20(v3369).zip
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
+game:
+  exe: drive_c/UT2004/System/UT2004.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating wine prefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extracting DVD data...
+    dst: $CACHE
+    file: game_dvd
+    format: iso
+- task:
+    arch: win64
+    description: Installing game, choose your language and let all other options to
+      default...
+    executable: $CACHE/Setup.exe
+    name: wineexec
+- write_config:
+    data:
+      D3DDrv.D3DRenderDevice:
+        ReduceMouseLag: true
+      Engine.Engine:
+        RenderDevice: D3DDrv.D3DRenderDevice
+      FirstRun:
+        FirstRun: 3369
+      OpenGLDrv.OpenGLRenderDevice:
+        ReduceMouseLag: true
+      SDLDrv.SDLClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+      WinDrv.WindowsClient:
+        FullscreenColorBits: 32
+        FullscreenViewportX: $RESOLUTION_WIDTH
+        FullscreenViewportY: $RESOLUTION_HEIGHT
+        TextureDetailLightmap: Higher
+        TextureDetailPlayerSkin: Higher
+        TextureDetailRenderMap: Higher
+        TextureDetailTerrain: Higher
+        TextureDetailWeaponSkin: Higher
+        TextureDetailWorld: Higher
+        WindowedColorBits: 32
+        WindowedViewportX: $RESOLUTION_WIDTH
+        WindowedViewportY: $RESOLUTION_HEIGHT
+    file: $GAMEDIR/drive_c/UT2004/System/Default.ini
+    merge: true
+- execute:
+    command: cd "$GAMEDIR/drive_c/UT2004/System"; sed -i -e s/ut2004master1.epicgames.com/ut2004master.333networks.com/g
+      -e s/ut2004master2.epicgames.com/ut2004master.errorist.eu/g Default.ini;
+- write_config:
+    data:
+      Engine.PlayerController:
+        DefaultFOV: 106.2602
+        DesiredFOV: 106.2602
+        FOVAngle: 106.2602
+    file: $GAMEDIR/drive_c/UT2004/System/DefUser.ini
+- extract:
+    dst: $CACHE
+    file: game_update
+- task:
+    arch: win64
+    description: Installing ...
+    executable: $CACHE/ut2004-winpatch3369.exe
+    name: wineexec
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c//UT2004/System/UT2004.ini
+- extract:
+    dst: $GAMEDIR/drive_c/UT2004/System
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/UT2004/System
+    src: $GAMEDIR/drive_c/UT2004/System/Stub/d3d8.dll
+- write_config:
+    data:
+      Compatibility:
+        D3d8to9: 1
+      d3d9:
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/UT2004/System/dxwrapper.ini
+wine:
+  overrides:
+    d3d8: native
