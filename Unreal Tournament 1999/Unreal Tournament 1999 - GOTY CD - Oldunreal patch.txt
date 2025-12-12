@@ -8,7 +8,7 @@ game:
   - exe: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
     name: Unreal Tournament (1999) Linux native version
   - args: -firstrun
-    exe: UnrealTournament/System/UnrealTournament.exe
+    exe: $GAMEDIR/drive_c/UnrealTournament/System/UnrealTournament.exe
     name: Unreal Tournament (1999) Windows first run
   - exe: $GAMEDIR/drive_c/UnrealTournament/System64/UnrealTournament.ini
     name: Unreal Tournament (1999) Linux config file
