@@ -7,6 +7,11 @@ game:
   launch_configs:
   - exe: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
     name: Unreal Tournament (1999) Linux native version
+  - args: -firstrun
+    exe: UnrealTournament/System/UnrealTournament.exe
+    name: Unreal Tournament (1999) Windows first run
+  - exe: $GAMEDIR/drive_c/UnrealTournament/System64/UnrealTournament.ini
+    name: Unreal Tournament (1999) Linux config file
   prefix: $GAMEDIR
 installer:
 - task:
@@ -37,7 +42,7 @@ installer:
     file: patch2
 - chmodx: $GAMEDIR/drive_c/UnrealTournament/System64/ut-bin-amd64
 - input_menu:
-    description: 'Choose your preferred language for menus and subtitles:'
+    description: 'Choose your preferred game''s language for menus and subtitles:'
     id: LANG
     options:
     - int: English
@@ -64,7 +69,7 @@ installer:
         FirstRun: 469
       UMenu.UMenuRootWindow:
         AutoGUIScale: false
-        ConfiguredGUIScale: 2.0
+        ConfiguredGUIScale: 1.5
       UWindow.WindowConsole:
         ConsoleKey: 112
       WinDrv.WindowsClient:
@@ -109,7 +114,7 @@ installer:
         WindowedViewportY: $RESOLUTION_HEIGHT
       UMenu.UMenuRootWindow:
         AutoGUIScale: false
-        ConfiguredGUIScale: 2.0
+        ConfiguredGUIScale: 1.5
       UWindow.WindowConsole:
         ConsoleKey: 112
     file: $GAMEDIR/drive_c/UnrealTournament/System64/Default.ini
