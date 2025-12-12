@@ -1,0 +1,19 @@
+files:
+- game_setup: N/A:Please select the game archive. You can download it at https://www.moddb.com/games/rise-and-fall-civilizations-at-war/downloads/rise-and-fall-civilizations-at-war-2022-portable
+game:
+  exe: drive_c/RFCW/RiseAndFallCivilizationsAtWarPortable-XJDHDR.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/RFCW
+    file: game_setup
+    format: 7z
+- task:
+    app: d3dx9
+    name: winetricks
+    silent: true
