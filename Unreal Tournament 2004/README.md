@@ -11,5 +11,6 @@ Play "Unreal Tournament 2004" DVD Windows edition on Linux!
 - Type "preferences" in console to access advanced settings
 ### Credits:
 - Unreal Tournament 2004 DVD: https://archive.org/details/ut-2004-dvd
+- Megapack v3369: https://community.pcgamingwiki.com/files/file/166-unreal-tournament-2004-mega-pack-windows
 - DxWrapper: https://github.com/elishacloud/dxwrapper
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
