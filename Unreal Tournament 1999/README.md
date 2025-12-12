@@ -2,7 +2,7 @@
 ## Description:
 Play "Unreal tournament (1999)" GOTY CD edition on Linux!
 ## Technical notes:
-- Using CD GOTY from archive.net
+- Using CD GOTY from Internet Archive
 - You can choose to play the Windows (x64) or Linux (x64) version
 - This script installer will automagically set the game to your desktop resolution with widescreen mode
 - OldUnreal Patch v469e
