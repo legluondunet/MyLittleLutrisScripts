@@ -1,6 +1,6 @@
 files:
 - game_dvd: https://archive.org/download/ut-2004-dvd/UT2004_DVD.ISO
-- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Unreal%20Tournament%202004/Unreal%20Tournament%202004%20Windows%20Patch%20(v3369).zip
+- game_update: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/ut2004/ut2004megapack.7z
 - wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
 game:
   exe: drive_c/UT2004/System/UT2004.exe
@@ -18,9 +18,18 @@ installer:
     format: iso
 - task:
     arch: win64
-    description: Installing game, choose your language and let all other options to
-      default...
+    description: Installing game, when asking for a serial number, type 3QHVC-DHA9K-A84RE-KYRT4.
+      Then let all other options to default...
     executable: $CACHE/Setup.exe
+    name: wineexec
+- extract:
+    dst: $CACHE
+    file: game_update
+    format: 7z
+- task:
+    arch: win64
+    description: Installing Unreal Tournament 2004 Mega Pack and update v3369...
+    executable: $CACHE/ut2004megapack.exe
     name: wineexec
 - write_config:
     data:
@@ -70,14 +79,6 @@ installer:
         DesiredFOV: 106.2602
         FOVAngle: 106.2602
     file: $GAMEDIR/drive_c/UT2004/System/DefUser.ini
-- extract:
-    dst: $CACHE
-    file: game_update
-- task:
-    arch: win64
-    description: Installing ...
-    executable: $CACHE/ut2004-winpatch3369.exe
-    name: wineexec
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c//UT2004/System/UT2004.ini
