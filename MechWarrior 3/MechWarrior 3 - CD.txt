@@ -2,7 +2,7 @@ files:
 - game_cd: https://archive.org/download/MechWarrior3USA/MechWarrior%203%20%28USA%29.zip
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/mw3_update_1.2.zip
 - reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203/win98.reg
-- cd-tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
 game:
   exe: drive_c/MicroProse/MechWarrior3/Mech3.exe
@@ -19,7 +19,7 @@ installer:
 - extract:
     dst: $CACHE
     format: zip
-    src: cd-tools
+    src: cd_tools
 - execute:
     command: cd "$CACHE" ; ./bin2iso "MechWarrior 3 (USA).cue" ; ./bchunk -w "MechWarrior
       3 (USA) (Track 2).bin" "MechWarrior 3 (USA).cue" "MechWarrior 3 (USA)" ; mv
