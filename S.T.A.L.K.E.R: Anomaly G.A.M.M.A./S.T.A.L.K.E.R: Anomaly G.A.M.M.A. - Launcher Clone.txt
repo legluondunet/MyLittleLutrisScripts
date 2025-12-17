@@ -1,0 +1,21 @@
+files:
+- game_arch: N/A:Select Stalker Anomaly 153 archive downloaded from MODDB at https://www.moddb.com/mods/stalker-anomaly/downloads/stalker-anomaly-153
+- gamma_rc3: N/A:Select GAMMA RC3 archive downloaded from Stalker Gamma discord https://discord.com/invite/stalker-gamma
+- sgl_gui: https://github.com/FaithBeam/stalker-gamma-launcher-clone/releases/download/0.33.0/stalker-gamma-gui.0.33.0.zip
+game:
+  exe: drive_c/stalker-gamma-gui/stalker-gamma-gui.exe
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR/drive_c/stalker-gamma-gui/Anomaly-1.5.3-Full.2
+    src: game_arch
+- extract:
+    dst: $GAMEDIR/drive_c/stalker-gamma-gui/GAMMA RC3
+    src: gamma_rc3
+- extract:
+    dst: $GAMEDIR/drive_c/stalker-gamma-gui/GAMMA RC3/.Grok's Modpack Installer
+    src: sgl_gui
+- task:
+    app: d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx11_43 d3dx9 vcrun2022
+    name: winetricks
+    silent: true
