@@ -7,7 +7,7 @@ if [ $lang = "english" ] || [ ! -f "drive_c/Program Files (x86)/Heretic II/Heret
 exit
 else
 cd "drive_c/Program Files (x86)/Heretic II/Base"
-rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
+rm -f -r french-1.pak german-1.pak italian-1.pak spanish-1.pak Htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
 wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/"$lang"-1.pak.tar.xz"
 
 tar xfv $lang-1.pak.tar.xz
