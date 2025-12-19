@@ -5,8 +5,8 @@ files:
 game:
   exe: drive_c/Program Files (x86)/Heretic II/Heretic2.exe
   launch_configs:
-  - exe: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/Heretic2.exe
-    name: Heretic II change resolution
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/H2Resolution.exe
+    name: Heretic II - change game resolution by one not available in options
   prefix: $GAMEDIR
 installer:
 - task:
