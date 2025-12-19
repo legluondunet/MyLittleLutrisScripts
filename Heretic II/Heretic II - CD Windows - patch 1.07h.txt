@@ -1,0 +1,54 @@
+files:
+- game_cd: https://archive.org/download/heretic-ii_1998/HERETIC2.ISO
+- game_update: https://archive.org/download/ht2epv107h-release.7z/ht2epv107h-release.7z
+- script_lang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Heretic%20II/h2local.sh
+game:
+  exe: drive_c/Program Files (x86)/Heretic II/Heretic2.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/Heretic2.exe
+    name: Heretic II change resolution
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE/CD
+    file: game_cd
+    format: iso
+- task:
+    arch: win64
+    args: z:/$CACHE/CD/bin/H2_Setup.dbd
+    executable: $CACHE/CD/bin/demo32.EXE
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/Base
+    src: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/base
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Heretic II
+    file: game_update
+    format: 7z
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Program Files (x86)/Heretic II/base
+- input_menu:
+    description: 'Please choose which language you would like for menus, audio and
+      subtitles:'
+    id: LANG
+    options:
+    - english: English (Default)
+    - french: French
+    - german: German
+    - italian: Italian
+    - spanish: Spanish
+    preselect: english
+- chmodx: script_lang
+- execute:
+    args: $INPUT_LANG
+    file: script_lang
+wine:
+  overrides:
+    dsound: n,b
+    winmm: n,b
