@@ -3,9 +3,12 @@ files:
 - gamma_rc3: N/A:Select GAMMA RC3 archive downloaded from Stalker Gamma discord https://discord.com/invite/stalker-gamma
 - sgl_gui: https://github.com/FaithBeam/stalker-gamma-launcher-clone/releases/download/0.33.0/stalker-gamma-gui.0.33.0.zip
 game:
-  exe: drive_c/stalker-gamma-gui/stalker-gamma-gui.exe
+  exe: drive_c/stalker-gamma-gui/GAMMA RC3/.Grok's Modpack Installer/stalker-gamma-gui.exe
   prefix: $GAMEDIR
 installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/stalker-gamma-gui/Anomaly-1.5.3-Full.2
     src: game_arch
