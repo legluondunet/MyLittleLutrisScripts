@@ -1,9 +1,9 @@
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page.
-- engine: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Star_Wars_Jedi_Academy/JAEnhanced_v1.2_Linux.zip
+- engine: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Star_Wars_Jedi_Academy/JAEnhanced_v1.3-Linux-x86_64.zip
 game:
-  args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1 +set
+  args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 0 +set r_noborder 1 +set
     r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 1 +set
     se_language $INPUT_LANG
   exe: $GAMEDIR/ja_enhanced.x86_64
