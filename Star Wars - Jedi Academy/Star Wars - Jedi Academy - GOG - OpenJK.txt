@@ -1,32 +1,33 @@
 files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page.
-- engine: https://github.com/JACoders/OpenJK/releases/download/latest/OpenJK-linux-x86_64.tar.gz
+- engine: https://github.com/JACoders/OpenJK/releases/download/latest/OpenJK-windows-x86_64.zip
 game:
-  args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1 +set
+  args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 0 +set r_noborder 1 +set
     r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 1 +set
-    se_language $INPUT_LANG
-  exe: $GAMEDIR/openjk_sp.x86_64
+    com_maxfps "60" +set se_language $INPUT_LANG
+  exe: drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy/openjk_sp.x86_64.exe
   launch_configs:
-  - args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 1 +set r_noborder 1
+  - args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 0 +set r_noborder 1
       +set r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles
-      1 +set se_language $INPUT_LANG
-    exe: $GAMEDIR/openjk.x86_64
+      1 +set com_maxfps "60" +set se_language $INPUT_LANG
+    exe: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy/openjk.x86_64.exe
     name: Star Wars Academy - Multiplayer
+  prefix: $GAMEDIR
 installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
 - extract:
     dst: $CACHE
     file: gogsetup
     format: gog
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
+    src: $CACHE/app/GameData
 - extract:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
     src: engine
-- merge:
-    dst: $CACHE
-    src: $CACHE/app
-- merge:
-    dst: $GAMEDIR
-    src: $CACHE/GameData
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
