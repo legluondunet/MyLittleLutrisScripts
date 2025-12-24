@@ -1,14 +1,15 @@
-# Harry Potter and the Philosopher's Stone - CD + widescreen mods
+# Harry Potter and the Philosopher's Stone - CD EU + Harry Potter Settings
 ### Description:
-Play "Harry Potter and the Philosopher's Stone" CD edition on Linux!
+Play "Harry Potter and the Philosopher's Stone" CD EU edition on Linux!
 ### Technical notes:
-- Game will be automagically set to use your native desktop resolution
-- Using different mods: DirectX 9 renderer, Widescreen menu mods
-- Alt-Tab could crash the game or cause game unstability. Workaround: use Gamescope
+- EU CD version with English, French and German languages
+- Using dgVoodoo2 for better graphic rendering and stability
+- "Harry Potter Settings" tool included to change your resolution/widescreen/fov/debug mode
 - In debug mode, type F1 key to show console
-- This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
+- known issue: Alt-Tab could make the game unstable and volume to mute
+- This game does not natively support controller. You will find an Antimicrox profile here:
 https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
 ### Credits:
-- DirectX9 Renderer by Metallicafan212: https://archive.org/details/hp-1-ss-ibm-pc-direct-x-9-driver
-- Widescreen mods: https://www.youtube.com/watch?v=nTWawpfVgCI&list=PLIkBjPwB07CTqLWUmpo1Pel6p7Pc4RlOZ
+- Harry Potter Settings: https://github.com/r57zone/Harry-Potter-Settings
+- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
