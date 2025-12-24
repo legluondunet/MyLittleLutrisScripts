@@ -1,21 +1,23 @@
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Prisoner%20of%20Azkaban/hp3_patch.tar.xz
-- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/d8vk/d8vk-v1.0.tar.gz
+- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.0.9/Harry.Potter.Settings.1.0.9.Portable.zip
 game:
   exe: drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner of Azkaban(TM)/system/hppoa.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/Harry Potter Settings.exe
+    name: Harry Potter resolution settings
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     description: Preparing wineprefix...
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
     requires: hppoa.ico
 - task:
-    description: Installing Harry Potter and the Prisoner of Azkaban...
+    description: Installing Harry Potter and the Prisoner of Azkaban...Please let
+      all options to default. When ask for a serial, type 4QJJ-P92V-RJ8N-X97R-W3JZ
     executable: $DISC/setup.exe
     name: wineexec
 - execute:
@@ -23,32 +25,28 @@ installer:
       and the Prisoner of Azkaban(TM)" ]; then exit; else gamepath=$(find . -maxdepth
       1 -type d -iname "*azkaban*" -or -iname "*askaban*"); gamepath=$(basename "$gamepath");
       ln -s "$gamepath" "Harry Potter and the Prisoner of Azkaban(TM)"; fi;
-- move:
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system/hppoa.bak
+      of Azkaban(TM)/system/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/hppoa.exe
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system
     file: patch
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
-      of Azkaban(TM)/system
-    file: wrapper
 - write_config:
     data:
       Engine.Console:
         ConsoleKey: 45
       WinDrv.WindowsClient:
-        FullscreenViewportX: $RESOLUTION_WIDTH
-        FullscreenViewportY: $RESOLUTION_HEIGHT
-        MenuViewportX: $RESOLUTION_WIDTH
-        MenuViewportY: $RESOLUTION_HEIGHT
+        FullscreenViewportX: 1280
+        FullscreenViewportY: 960
+        MenuViewportX: 1280
+        MenuViewportY: 960
         MinDesiredFrameRate: 60.0
         MinReinstateDetailFrameRate: 60.0
-        WindowedViewportX: $RESOLUTION_WIDTH
-        WindowedViewportY: $RESOLUTION_HEIGHT
+        WindowedViewportX: 1280
+        WindowedViewportY: 960
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/Default.ini
     merge: true
@@ -57,19 +55,14 @@ installer:
       Engine.Input:
         1: set KWVersion bDebugEnabled True
         2: set KWVersion bDebugEnabled False
-      Engine.PlayerController:
-        DefaultFOV: 106.26
-        DesiredFOV: 106.26
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/defuser.ini
     merge: true
-system:
-  env:
-    DXVK_FRAME_RATE: '60'
-    DXVK_HUD: null
-  gamescope: true
-  gamescope_game_res: $RESOLUTION
-  gamescope_output_res: $RESOLUTION
-wine:
-  overrides:
-    d3d8: native, builtin
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system
+    src: game_res
+- write_file:
+    content: d3d9.maxFrameRate = 40
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
+      of Azkaban(TM)/system/dxvk.conf
