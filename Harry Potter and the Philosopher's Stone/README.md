@@ -1,4 +1,4 @@
-# Harry Potter and the Philosopher's Stone - CD EU + Harry Potter Settings
+# Harry Potter and the Philosopher's Stone - CD EU + dgVoodoo2
 ### Description:
 Play "Harry Potter and the Philosopher's Stone" CD EU edition on Linux!
 ### Technical notes:
