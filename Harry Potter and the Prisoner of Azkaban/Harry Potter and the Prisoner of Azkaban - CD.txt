@@ -63,6 +63,6 @@ installer:
       of Azkaban(TM)/system
     src: game_res
 - write_file:
-    content: d3d9.maxFrameRate = 40
+    content: d3d9.maxFrameRate = 60
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner
       of Azkaban(TM)/system/dxvk.conf
