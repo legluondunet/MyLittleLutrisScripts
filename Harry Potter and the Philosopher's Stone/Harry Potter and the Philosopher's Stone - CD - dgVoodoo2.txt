@@ -3,8 +3,14 @@ files:
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Philosopher's%20Stone/hp_ps_patch.7z
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.0.9/Harry.Potter.Settings.1.0.9.Portable.zip
+- game_mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Philosopher's%20Stone/hp_ps_wd_mod.7z
 game:
   exe: drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HP.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/Harry
+      Potter Settings.exe
+    name: Harry Potter resolution settings
   prefix: $GAMEDIR
 installer:
 - task:
@@ -61,9 +67,21 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HP.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HPMenu.u
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HPBase.u
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System
     src: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System
+    src: game_mod
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA Games/Harry Potter TM/System
+    src: game_res
 - extract:
     dst: $CACHE
     file: wrapper
