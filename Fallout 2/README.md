@@ -18,3 +18,15 @@ Play "Fallout 1" with "Fallout 2" engine on Linux!
 ### Credits:
 - Fallout 1 in 2: https://github.com/rotators/Fo1in2/tree/master/Fallout2/Fallout1in2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Fallout 2 - GOG + Unofficial Patch Updated
+### Description:
+Play "Fallout 2" provided by GOG on Linux!
+### Technical notes:
+- Using Fallout 2 Unofficial Patch Updated
+- Multilingual: you could choose during install for your preferred language for menus and subtitles between English (default), Czech, French, German, Hungarian, Italian, Polish, Portuguese, Russian and Spanish
+### Credits:
+- Fallout 2 Unofficial Patch, updated: https://github.com/BGforgeNet/Fallout2_Unofficial_Patch
+- Killap's Fallout 2 Unofficial Patch: http://killap.net
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
