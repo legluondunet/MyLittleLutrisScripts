@@ -1,6 +1,6 @@
 files:
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Harry%20Potter%20and%20the%20Prisoner%20of%20Azkaban/hp3_patch.tar.xz
-- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.0.9/Harry.Potter.Settings.1.0.9.Portable.zip
+- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.1/Harry.Potter.Settings.1.1.zip
 game:
   exe: drive_c/Program Files (x86)/EA GAMES/Harry Potter and the Prisoner of Azkaban(TM)/system/hppoa.exe
   launch_configs:
