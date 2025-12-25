@@ -2,7 +2,7 @@ files:
 - cd_arch: https://archive.org/download/Nova_HPatPS_EFG_World/Harry%20Potter%20and%20the%20Philosopher%27s%20Stone%20%28World%29%20%28En%2CFr%2CDe%29.7z
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.0.9/Harry.Potter.Settings.1.0.9.Portable.zip
+- game_res: https://github.com/r57zone/Harry-Potter-Settings/releases/download/1.1/Harry.Potter.Settings.1.1.zip
 - game_mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Philosopher's%20Stone/hp_ps_wd_mod.7z
 game:
   exe: drive_c/Program Files (x86)/EA Games/Harry Potter TM/System/HP.exe
