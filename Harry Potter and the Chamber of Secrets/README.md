@@ -1,14 +1,13 @@
-# Harry Potter and the Chamber of Secrets CD + DxWrapper + HP2 Wine fix
+# Harry Potter and the Chamber of Secrets CD + mods
 ### Description:
 Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
 ### Technical notes:
 - You will need CD only one time during install
-- Using "DxWrapper" and "HP2 Wine fix" for better graphic performance and stability
-- Resolution 1024x768, ratio 4:3, no mods, just the game in his vanilla flavour
-- This game does not natively support controller. I wrote Antimicrox profiles, you can download them here:
+- Using mods: "HP2 Wine fix" and "JaGoTu Menu fix" for better graphic performance, enhancements and stability
+- This game does not natively support controller. You will find an Antimicrox profile here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
 ### Credits:
-- DxWrapper: https://github.com/elishacloud/dxwrapper
+- JaGoTu Menu fix: https://hp-games.net/mods-cs-jagotuwidescreen-en
 - HP2 Wine fix by Federico Massena: https://fdossena.com/?p=hp2wine/i.md
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
