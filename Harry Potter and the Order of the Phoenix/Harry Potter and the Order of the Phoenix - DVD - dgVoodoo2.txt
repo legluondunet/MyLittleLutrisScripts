@@ -1,5 +1,5 @@
 files:
-- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Order%20of%20the%20%20%20%20%20Phoenix/hp5_tootp_patch.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Order%20of%20the%20Phoenix/hp5_tootp_patch.7z
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
 game:
   exe: drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the Order of the
