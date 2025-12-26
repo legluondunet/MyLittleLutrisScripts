@@ -1,0 +1,73 @@
+files:
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Order%20of%20the%20%20%20%20%20Phoenix/hp5_tootp_patch.7z
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  exe: drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the Order of the
+    Phoenix/hp.exe
+  prefix: $GAMEDIR
+installer:
+- insert-disc:
+    requires: ootp_icon.ico
+- task:
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing game, let all options to default and do not start the
+      game at the end of install. When asking for a serial, enter 3ACU-TYGC-DPC3-JA3V-CU5H
+    executable: $DISC/AutoRun.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts"; if [ -d "Harry
+      Potter and the Order of the Phoenix" ]; then exit; else gamepath=$(find . -maxdepth
+      1 -type d -iname "*Harry*"); gamepath=$(basename "$gamepath"); ln -s "$gamepath"
+      "Harry Potter and the Order of the Phoenix"; fi;
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix/hp.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix
+    file: game_patch
+- task:
+    key: OptionResolution
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Electronic Arts\Harry Potter and the Order of
+      the Phoenix\GameSettings
+    type: REG_DWORD
+    value: '00000004'
+- task:
+    key: OptionLOD
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Electronic Arts\Harry Potter and the Order of
+      the Phoenix\GameSettings
+    type: REG_DWORD
+    value: '00000002'
+- extract:
+    dst: $CACHE
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix
+    src: $CACHE/MS/x86/D3D9.dll
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix
+    src: $CACHE/MS/x86/D3DImm.dll
+- write_config:
+    data:
+      DirectX:
+        Filtering: 16
+        VRAM: 512
+        VideoCard: geforce_9800_gt
+        dgVoodooWatermark: false
+      GeneralExt:
+        FPSLimit: 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Order of the Phoenix/dgVoodoo.conf
+wine:
+  overrides:
+    d3d9: n,b
