@@ -7,5 +7,5 @@ Play "Harry Potter and the Half Blood Prince" DVD edition on Linux!
 1) The mouse becomes uncontrollable if you set fps above 59
 2) Game freezes if you ALT-TAB during cinematics
 ### Credits:
-- Chip-Biscuit wrapper: https://github.com/Chip-Biscuit/Harry-Potter-and-the-Order-of-the-Phoenix-PC-Fix
+- Chip-Biscuit wrapper: https://github.com/Chip-Biscuit/Harry-Potter-and-the-Half-Blood-Prince-PC-Fix
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
