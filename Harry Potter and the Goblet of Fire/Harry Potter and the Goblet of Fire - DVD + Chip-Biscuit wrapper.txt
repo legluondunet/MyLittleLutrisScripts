@@ -1,9 +1,14 @@
 files:
-- game_dvd: https://archive.org/download/harry-potter-and-the-goblet-of-fire-europe-fr-de-es-it-pt-pc-dvd-rom/Harry%20Potter%20and%20the%20Goblet%20of%20Fire%20%28Europe%29%20%5BFr%2C%20De%2C%20Es%2C%20It%2C%20Pt%5D%20%5BPC%20DVD-ROM%5D.zip
+- game_dvd: N/A:Please select DVD image in ISO format
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Goblet%20of%20Fire/hp_gof_patch.7z
+- wrapper: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Goblet%20of%20Fire/hp4fix.zip
 game:
   exe: drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the Goblet of
     Fire/gof_f.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Goblet of Fire/d3d9.ini
+    name: Advanced graphic options
   prefix: $GAMEDIR
 installer:
 - task:
@@ -11,13 +16,8 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: game_dvd
-    format: zip
-- extract:
     dst: $CACHE/CD
-    file: $CACHE/Harry Potter and the Goblet of Fire (Europe) [Fr, De, Es, It, Pt]
-      [PC DVD-ROM].iso
+    file: game_dvd
     format: iso
 - task:
     description: Installing game, let all options to default and do not start the
@@ -25,6 +25,7 @@ installer:
     executable: $CACHE/CD/AutoRun.exe
     name: wineexec
     prefix: $GAMEDIR
+    working_dir: $CACHE/CD
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts"; gamepath=$(find
       . -maxdepth 1 -type d -iname "*Harry*"); gamepath=$(basename "$gamepath"); ln
@@ -39,3 +40,10 @@ installer:
       Goblet of Fire
     file: game_patch
     format: 7z
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Goblet of Fire
+    file: wrapper
+wine:
+  overrides:
+    d3d9: n,b
