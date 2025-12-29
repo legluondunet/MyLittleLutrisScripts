@@ -1,0 +1,45 @@
+files:
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Harry%20Potter%20and%20the%20Deathly%20Hallows%20-%20Part%201/hp7_patch.exe.7z
+- wrapper: https://github.com/Chip-Biscuit/Harry-Potter-and-the-Deathly-Hallows-Part-1-PC-Fix/releases/download/hp7/hp7fixOriginalFOV.zip
+game:
+  exe: drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the Deathly Hallows
+    - Part 1/pc/hp7.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Deathly Hallows - Part 1/pc/d3d9.ini
+    name: Advanced graphic options
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    requires: hpdh1.ico
+- task:
+    description: Installing game, let all options to default and do not start the
+      game at the end of install. When asking for a serial, enter FXR9-DKRC-J1W5-90R5-1911
+    executable: $DISC/AutoRun.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts"; if [ -d "Harry
+      Potter and the Deathly Hallows - Part 1" ]; then exit; else gamepath=$(find
+      . -maxdepth 1 -type d -iname "*Harry*"); gamepath=$(basename "$gamepath"); ln
+      -s "$gamepath" "Harry Potter and the Deathly Hallows - Part 1"; fi;
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Deathly Hallows - Part 1/pc/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Deathly Hallows - Part 1/pc/hp7.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Deathly Hallows - Part 1/pc
+    file: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Harry Potter and the
+      Deathly Hallows - Part 1/pc
+    file: wrapper
+wine:
+  overrides:
+    d3d9: n,b
