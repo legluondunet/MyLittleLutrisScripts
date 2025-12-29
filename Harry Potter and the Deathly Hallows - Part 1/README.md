@@ -3,9 +3,8 @@
 Play "Harry Potter and the Deathly Hallows - Part 1" DVD edition on Linux!
 ### Technical notes:
 - Using Chip-Biscuit wrapper for better graphic rendering and stability
-- Known issues:
-1) The mouse could become uncontrollable if you set fps above 59
-2) Game freezes if you ALT-TAB during cinematics
+- Known issue:
+* Using ALT+TAB during cutscenes causes desynchronization
 ### Credits:
 - Chip-Biscuit wrapper: https://github.com/Chip-Biscuit/Harry-Potter-and-the-Deathly-Hallows-Part-1-PC-Fix
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
