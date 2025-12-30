@@ -6,10 +6,11 @@ Play "Zork Nemesis - The Forbidden Lands" CD edition on Linux!
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-## Zork Nemesis - The forbidden Lands - 3 CD DOS/WIN - ScummVM
+## Zork Nemesis - The forbidden Lands - 3 CD - DosBox
 ### Description:
 Play "Zork Nemesis - The Forbidden Lands" CD edition on Linux!
 ### Technical notes:
 - You will need the 3 CD only one time during install
+- When game will ask you to change CD, press "CTRL+F4" keys
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
