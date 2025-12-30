@@ -1,8 +1,5 @@
-custom-name: Zork Nemesis - The forbidden Lands - CD - ScummVM
-files:
-- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Zork%20Nemesis/clean.sh
 game:
-  game_id: znemesis
+  game_id: zvision:znemesis
   path: $GAMEDIR
   subtitles: true
 installer:
@@ -10,23 +7,33 @@ installer:
     description: Please insert disc 1
     requires: zsplash.exe
 - merge:
-    dst: $GAMEDIR/ZNCD1
+    dst: $CACHE/CD
     src: $DISC
+- execute:
+    command: cd "$CACHE" ; chmod -R +w "CD" ;
 - insert-disc:
     description: Please insert disc 2
     requires: zassets/conserv/vb3ea31c.avi
 - merge:
-    dst: $GAMEDIR/ZNCD2
+    dst: $CACHE/CD
     src: $DISC
+- execute:
+    command: cd "$CACHE" ; chmod -R +w "CD" ;
 - insert-disc:
     description: Please insert disc 3
     requires: zassets/asylum/ab4fa11c.avi
 - merge:
-    dst: $GAMEDIR/ZNCD3
+    dst: $CACHE/CD
     src: $DISC
-- chmodx: script
 - execute:
-    file: script
-scummvm:
-  fullscreen: true
-
+    command: cd "$CACHE" ; chmod -R +w "CD" ; find "CD"  -depth -type d -print0 |
+      xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename
+      "$0"|tr "[a-z]" "[A-Z]"); mv -f "$s" "$d"'; find .  -depth -type f -print0 |
+      xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename
+      "$0"|tr "[a-z" "[A-Z]"); mv -f "$s" "$d"';
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/CD/NEMESIS
+- merge:
+    dst: $GAMEDIR/ZASSETS
+    src: $CACHE/CD/ZASSETS
