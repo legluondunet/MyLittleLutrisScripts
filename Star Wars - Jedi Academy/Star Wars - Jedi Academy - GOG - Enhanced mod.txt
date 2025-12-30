@@ -2,6 +2,7 @@ files:
 - gogsetup: N/A:Please select the executable setup file available for download on
     your GOG account page.
 - engine: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Star_Wars_Jedi_Academy/JAEnhanced_v1.3-Windows-x86.zip
+- engine_plus: https://github.com/JAEnhanced/OpenJK/releases/download/v1.3/JAEnhanced_v1.3-OptionalAssets.zip
 game:
   args: +set fs_homepath . +set r_mode -2 +set r_fullscreen 0 +set r_noborder 1 +set
     r_centerWindow 1 +set s_kHz 44 +set cg_fovAspectAdjust 1 +set g_subtitles 1 +set
@@ -23,6 +24,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
     src: engine
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy/jaenhanced
+    src: engine_plus
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
