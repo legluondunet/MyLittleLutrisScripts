@@ -1,0 +1,20 @@
+files:
+- gogsetup: N/A:Select the gog setup offline installer
+- game_patch: N/A:Select the Unofficial patch downloaded from https://www.moddb.com/mods/vtmb-unofficial-patch/downloads
+game:
+  exe: drive_c/GOG Games/VtMB/Loader.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: 'Installing Vampire: The Masquerade - Bloodlines'
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    description: 'Installing the Unofficial Patch for Vampire: The Masquerade - Bloodlines'
+    executable: game_patch
+    name: wineexec
+    prefix: $GAMEDIR
