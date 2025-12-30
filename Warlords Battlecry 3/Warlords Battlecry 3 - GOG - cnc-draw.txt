@@ -1,0 +1,31 @@
+files:
+- gogsetup: N/A:Select the game's setup file
+- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v7.1.0.0/cnc-ddraw.zip
+game:
+  exe: drive_c/GOG Games/Warlords Battlecry 3/Battlecry III.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing Warlords Battlecry 3
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Warlords Battlecry 3
+    file: wrapper
+    format: zip
+- write_config:
+    data:
+      ddraw:
+        fullscreen: true
+        maintas: true
+        maxfps: 30
+        windowed: true
+    file: $GAMEDIR/drive_c/GOG Games/Warlords Battlecry 3/ddraw.ini
+    mode: merge
+wine:
+  overrides:
+    ddraw: n,b
