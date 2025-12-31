@@ -1,0 +1,49 @@
+files:
+- game_cd: https://archive.org/download/austin-powers-pinball/AustinPower.iso
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Austin%20Powers%20Pinball/Austin_Powers_Pinball_patch_10a.7z
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  exe: drive_c/Program Files (x86)/Austin Powers Pinball/appin.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Creating Wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    format: iso
+    src: game_cd
+- task:
+    description: Installing game...Do not launch game at the end of install.
+    executable: $CACHE/AustinPower.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    format: 7z
+    src: game_patch
+- task:
+    description: Updating game...You will find game location at "c:\Program Files
+      (x86)\Austin Powers Pinball"
+    executable: $CACHE/AustinPowersPinball10a.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    format: zip
+    src: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Austin Powers Pinball
+    src: $CACHE/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Austin Powers Pinball
+    src: $CACHE/MS/x86/D3DImm.dll
+- write_file:
+    content: '[DirectX]
+
+      dgVoodooWatermark=False '
+    file: $GAMEDIR/drive_c/Program Files (x86)/Austin Powers Pinball/dgVoodoo.conf
+wine:
+  overrides:
+    ddraw: n,b
