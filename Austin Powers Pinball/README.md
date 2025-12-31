@@ -1,4 +1,4 @@
-# Austin Powers Pinball - CD
+# Austin Powers Pinball - CD + dgVoodoo2
 ### Description:
 Play "Austin Powers Pinball" CD edition on Linux!
 ### Technical notes:
