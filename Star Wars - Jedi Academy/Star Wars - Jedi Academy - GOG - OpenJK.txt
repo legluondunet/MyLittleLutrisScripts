@@ -19,15 +19,15 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
+    src: engine
+- extract:
     dst: $CACHE
     file: gogsetup
     format: gog
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
-    src: $CACHE/app/GameData
-- extract:
-    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
-    src: engine
+- execute:
+    command: find "$CACHE" | grep -i .pk3 | xargs -I {} cp "{}" "$GAMEDIR/drive_c/GOG
+      Games/Star Wars Jedi Knight - Jedi Academy/base" ;
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
