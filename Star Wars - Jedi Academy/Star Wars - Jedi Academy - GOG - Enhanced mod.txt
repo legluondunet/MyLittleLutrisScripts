@@ -11,22 +11,21 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- extract:
-    dst: $CACHE
-    file: gogsetup
-    format: gog
-- merge:
-    dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
-    src: $CACHE/app/GameData
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy
     src: engine
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Star Wars Jedi Knight - Jedi Academy/jaenhanced
     src: engine_plus
+- extract:
+    dst: $CACHE
+    file: gogsetup
+    format: gog
+- execute:
+    command: find "$CACHE" | grep -i .pk3 | xargs -I {} cp "{}" "$GAMEDIR/drive_c/GOG
+      Games/Star Wars Jedi Knight - Jedi Academy/jaenhanced" ;
 - input_menu:
     description: 'Please choose your preferred game''s language for menu and subtitles:'
     id: LANG
