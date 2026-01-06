@@ -23,7 +23,7 @@ Then open AntimicroX, import profile and start game, you can now play with your 
 | **PAUSE**              | **ESC**             | **SELECT**                  |
 | **OK**                 | **RETURN**          | **START**                   |
 | **CURSOR**             | **MOUSE**           | **RIGHT STICK**             |
-| **PAUSE**              | **ESC**             | **SELECT**                  |
+
 
   
   
