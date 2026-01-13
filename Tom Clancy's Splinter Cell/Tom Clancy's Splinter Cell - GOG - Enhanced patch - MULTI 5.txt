@@ -1,6 +1,6 @@
 files:
 - gogsetup: N/A:Please select the GOG installer
-- game_patch: https://github.com/Joshhhuaaa/EnhancedSC/releases/download/v1.4/Enhanced-SC-v1.4-Linux.7z
+- game_patch: https://github.com/Joshhhuaaa/EnhancedSC/releases/download/v1.4a/Enhanced-SC-v1.4a-Linux.7z
 - script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Tom%20Clancy's%20Splinter%20Cell/run_lang_script.sh
 game:
   exe: drive_c/GOG Games/Tom Clancys Splinter Cell/system/SplinterCell.exe
