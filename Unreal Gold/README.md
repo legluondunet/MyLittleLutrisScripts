@@ -1,6 +1,6 @@
-# CD + OldUnreal patch
+# Unreal Gold - CD + OldUnreal patch
 ### Description:
-Play "Unreal" CD edition on Linux!
+Play "Unreal Gold" CD edition on Linux!
 ### Technical notes:
 - Using CD from Internet Archive with OldUnreal patch 227k_13
 - You can choose to play the Windows (x64) or Linux (x64) versions
