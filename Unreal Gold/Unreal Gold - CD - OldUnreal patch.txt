@@ -1,8 +1,7 @@
 files:
 - game_cd: https://archive.org/download/unreal-gold_202501/UnrealGold.ISO
-- patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Linux.tar.bz2
-- patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_12/OldUnreal-UnrealPatch227k-Windows.zip
-- linuxlibs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Unreal%20Gold/unreal_gold_lib64.tar.xz
+- patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_13/OldUnreal-UnrealPatch227k-Linux.tar.bz2
+- patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_13/OldUnreal-UnrealPatch227k-Windows.zip
 game:
   exe: drive_c/UnrealGold/System64/Unreal.exe
   launch_configs:
@@ -36,9 +35,6 @@ installer:
     dst: $GAMEDIR/drive_c/UnrealGold
     file: patch_win
     format: zip
-- extract:
-    dst: $GAMEDIR/drive_c/UnrealGold/lib64
-    file: linuxlibs
 - input_menu:
     description: 'Choose your preferred game''s language for menus and subtitles:'
     id: LANG
@@ -48,7 +44,21 @@ installer:
     - det: German
     - itt: Italian
     - est: Spanish
+    - ctt: Catalan
+    - nlt: Dutch
+    - plt: Polish
+    - ptt: Portuguese
+    - rut: Russian
     preselect: int
+- merge:
+    dst: $GAMEDIR/drive_c/UnrealGold/System64/backup
+    src: $GAMEDIR/drive_c/UnrealGold/System64/Default.ini
+- merge:
+    dst: $GAMEDIR/drive_c/UnrealGold/System64/backup
+    src: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
+- merge:
+    dst: $GAMEDIR/drive_c/UnrealGold/System64/backup
+    src: $GAMEDIR/drive_c/UnrealGold/System64/DefUser.ini
 - write_config:
     data:
       Engine.Console:
@@ -62,6 +72,7 @@ installer:
         AutoGUIScale: false
         ConfiguredGUIScale: 1.5
       WinDrv.WindowsClient:
+        Brightness: 0.3
         FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
@@ -70,6 +81,8 @@ installer:
         StartupFullscreen: false
         UseDesktopFullScreen: true
         WindowedColorBits: 32
+        WindowedViewportX: 1024
+        WindowedViewportY: 768
     file: $GAMEDIR/drive_c/UnrealGold/System64/Default.ini
     merge: true
 - write_config:
@@ -85,23 +98,24 @@ installer:
       Engine.Console:
         GlobalConsoleKey: 112
       Engine.Engine:
-        GameRenderDevice: OpenGLDrv.OpenGLRenderDevice
+        GameRenderDevice: XOpenGLDrv.XOpenGLRenderDevice
         Language: $INPUT_LANG
       FirstRun:
         FirstRun: 227
-      SDL2Drv.SDL2Client:
+      SDLDrv.SDLClient:
+        Brightness: 0.3
         FrameRateLimit: 60
         FullscreenColorBits: 32
         FullscreenViewportX: $RESOLUTION_WIDTH
         FullscreenViewportY: $RESOLUTION_HEIGHT
         SkyBoxFogMode: FOGDETAIL_High
         StartupFullscreen: false
-        UseDesktopFullScreen: true
+        UseDesktopResolution: true
         WindowedColorBits: 32
+        WindowedViewportX: 1024
+        WindowedViewportY: 768
       UMenu.UMenuRootWindow:
         AutoGUIScale: false
         ConfiguredGUIScale: 1.5
     file: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
     merge: true
-system:
-  prefix_command: LD_LIBRARY_PATH=$GAMEDIR/drive_c/UnrealGold/lib64
