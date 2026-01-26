@@ -1,6 +1,6 @@
 files:
 - steam-data: $STEAM:208200:base
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203%20BFG/RBDOOM-3-BFG.tar.xz
+- engine: http://131.153.65.162/files/Lutris/RBDOOM-3-BFG.tar.xz
 game:
   exe: $GAMEDIR/RBDoom3BFG
 installer:
