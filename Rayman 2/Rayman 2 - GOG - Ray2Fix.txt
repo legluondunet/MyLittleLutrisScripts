@@ -1,6 +1,6 @@
 files:
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.1-01/Ray2Fix_1.4.1-01.zip
+- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.2/Ray2Fix_1.4.2.zip
 - gogsetup: N/A:Select the GOG setup exe
 game:
   exe: drive_c/GOG Games/Rayman 2/Rayman2.exe
@@ -10,7 +10,6 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
