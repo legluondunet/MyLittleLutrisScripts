@@ -10,7 +10,6 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -72,11 +71,8 @@ installer:
         DitheringEffect: pure32bit
     file: $GAMEDIR/drive_c/UbiSoft/Rayman2/dgVoodoo.conf
     merge: false
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/UbiSoft/Rayman2/DLL
 - execute:
-    command: cd "$GAMEDIR/drive_c/UbiSoft/Rayman2"; rm -f -r Acrobat DIRECTX Drivers
+    command: cd "$GAMEDIR/drive_c/UbiSoft/Rayman2"; rm -f -r DLL Acrobat DIRECTX Drivers
       InstData Pads "Tonic Trouble" Autorun.inf D3DImm.dll DDraw.dll DSETUP* GXSetup.exe
       setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -r GRAPHICS2.DAT MAP1.DAT
       ANIMS1.DAT MUSIC2.DAT MUSIC1.DAT SOUNDS0.DAT GRAPHICS0.DAT SOUNDS1.DAT LEVELS1.DAT
