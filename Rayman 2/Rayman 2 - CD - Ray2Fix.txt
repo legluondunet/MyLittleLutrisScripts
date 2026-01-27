@@ -1,7 +1,7 @@
 files:
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%202/rayman2_patch.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.1-01/Ray2Fix_1.4.1-01.zip
+- mod: https://github.com/spitfirex86/Ray2Fix/releases/download/v1.4.2/Ray2Fix_1.4.2.zip
 game:
   exe: drive_c/UbiSoft/Rayman2/Rayman2.exe
   launch_configs:
@@ -78,11 +78,10 @@ installer:
 - execute:
     command: cd "$GAMEDIR/drive_c/UbiSoft/Rayman2"; rm -f -r Acrobat DIRECTX Drivers
       InstData Pads "Tonic Trouble" Autorun.inf D3DImm.dll DDraw.dll DSETUP* GXSetup.exe
-      setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -r GRAPHICS2.DAT
-      MAP1.DAT ANIMS1.DAT MUSIC2.DAT MUSIC1.DAT SOUNDS0.DAT GRAPHICS0.DAT SOUNDS1.DAT
-      LEVELS1.DAT ANIMS0.DAT MAP2.DAT SOUNDS2.DAT TEXTURES2.DAT ANIMS2.DAT MENU2.DAT
-      MENU0.DAT MUSIC0.DAT TEXTURES0.DAT TEXTURES1.DAT LEVELS2.DAT MAP0.DAT MENU1.DAT
-      GRAPHICS1.DAT;
+      setup.exe SetupUbi.exe ; cd "Data/World/Levels/"; rm -f -r GRAPHICS2.DAT MAP1.DAT
+      ANIMS1.DAT MUSIC2.DAT MUSIC1.DAT SOUNDS0.DAT GRAPHICS0.DAT SOUNDS1.DAT LEVELS1.DAT
+      ANIMS0.DAT MAP2.DAT SOUNDS2.DAT TEXTURES2.DAT ANIMS2.DAT MENU2.DAT MENU0.DAT
+      MUSIC0.DAT TEXTURES0.DAT TEXTURES1.DAT LEVELS2.DAT MAP0.DAT MENU1.DAT GRAPHICS1.DAT;
 wine:
   overrides:
     dinput: n,b
