@@ -1,0 +1,76 @@
+files:
+- game_cd: https://archive.org/download/aom-pc-redump/AOM-PC-REDUMP/Age%20of%20Mythology%20-%20Gold%20Edition%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.zip
+- game_patchs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20Of%20Mythology/aom_patch.zip
+- game_updates: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20Of%20Mythology/aom_aomx_updates.zip
+game:
+  exe: drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/aom.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/aomx.exe
+    name: The Titans expansion
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: msxml4 mfc42 win10
+    name: winetricks
+    silent: true
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: zip
+- extract:
+    description: Extracting Age of Mythology - Gold Edition DVD files, could take
+      a moment...
+    dst: $CACHE/AOMCD
+    file: $CACHE/Age of Mythology - Gold Edition (Europe) (En,Fr,De,Es,It).iso
+    format: iso
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - UK: English
+    - FR: French
+    - DE: German
+    - IT: Italian
+    - SP: Spanish
+    preselect: UK
+- task:
+    description: Installing Age of Mythology...Let all options to default, just click
+      next. When asking for a serial key, type XDWXF-2JCVG-VTX6T-6KYQ9-QDC4G . Do
+      not launch game when install will finish.
+    executable: $CACHE/AOMCD/AOM/$INPUT_LANG/SETUP.EXE
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_updates
+- task:
+    description: Updating Age of Mythology tpo 1.10 version...
+    executable: $CACHE/aom10to110.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/aom.exe
+- task:
+    description: Installing Age of Mythology...Let all options to default, just click
+      next. When asking for a serial key, type T2HB2-G4PK6-MQPDR-CTYPQ-64JK6 . Do
+      not launch game when install will finish.
+    executable: $CACHE/AOMCD/AOMX/$INPUT_LANG/SETUP.EXE
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    description: Updating Age of Mythology Titans to 1.03 version...
+    executable: $CACHE/aomx10to103.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology/aomx.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Mythology
+    file: game_patchs
+system:
+  gamescope: true
