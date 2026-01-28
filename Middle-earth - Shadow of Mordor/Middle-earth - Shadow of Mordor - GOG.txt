@@ -1,0 +1,30 @@
+files:
+- gogsetup: N/A:Select the game's setup file
+game:
+  exe: drive_c/GOG Games/Shadow of Mordor/x64/ShadowOfMordor.bat
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Installing game
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose your preferred game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - french: French
+    - italian: Italian
+    - german: German
+    - spanish: Spanish
+    - polish: Polish
+    - russian: Russian
+    preselect: english
+- write_file:
+    content: ShadowOfMordor.exe
+    file: $GAMEDIR/drive_c/GOG Games/Shadow of Mordor/x64/ShadowOfMordor.bat
+- execute:
+    command: if [[ "$INPUT_LANG" == "english" ]]; then exit; else cd "$GAMEDIR/drive_c/GOG
+      Games/Shadow of Mordor/x64" ;  echo "ShadowOfMordor.exe" -"$INPUT_LANG" > ShadowOfMordor.bat;
+      fi ;
