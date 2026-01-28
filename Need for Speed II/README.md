@@ -8,3 +8,4 @@ Play "Need for Speed II" CD edition on Linux!
 ### Credits:
 - NFSIISE: https://github.com/zaps166/NFSIISE
 - Need for Speed Most Wanted (2005) Widescreen Fix: https://github.com/ThirteenAG/WidescreenFixesPack/releases/tag/nfsmw
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
