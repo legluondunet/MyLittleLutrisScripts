@@ -1,8 +1,18 @@
-# Banjo-Kazooie - BanjoRecompiled
-### Description:
-Play "Banjo-Kazooie" on Linux!
-### Technical notes:
-- Using BanjoRecomp engine
-- you will need to provide Banjo-Kazooie N64 rom in .z64 format
-### Credits:
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+files:
+- engine: https://github.com/BanjoRecomp/BanjoRecomp/releases/download/v1.0.0/BanjoRecompiled-v1.0.0-Linux-X64.zip
+- mod_hd: https://evilgames.eu/files/texture-packs/bk-reloaded-v0.1.1-rt64.rtz
+game:
+  exe: $GAMEDIR/BanjoRecompiled
+installer:
+- extract:
+    dst: $CACHE
+    file: engine
+- extract:
+    dst: $GAMEDIR
+    file: $CACHE/BanjoRecompiled.tar.gz
+    format: tgz
+- merge:
+    dst: $GAMEDIR/mods
+    src: mod_hd
+- execute:
+    command: cd "$GAMEDIR" ; touch portable.txt ;
