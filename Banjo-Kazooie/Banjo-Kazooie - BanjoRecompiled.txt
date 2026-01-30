@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/BanjoRecomp/BanjoRecomp/releases/download/v1.0.0/BanjoRecompiled-v1.0.0-Linux-X64.zip
+- engine: https://github.com/BanjoRecomp/BanjoRecomp/releases/download/v1.0.1/BanjoRecompiled-v1.0.1-Linux-X64.zip
 - mod_hd: https://evilgames.eu/files/texture-packs/bk-reloaded-v0.1.1-rt64.rtz
 game:
   exe: $GAMEDIR/BanjoRecompiled
