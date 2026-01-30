@@ -1,4 +1,4 @@
-# Cyber Gladiators - CD USA + Windows 98
+# Cyber Gladiators - CD USA + Windows 95
 ### Description:
 Play "Cyber Gladiators" on Linux!
 ### Technical notes:
