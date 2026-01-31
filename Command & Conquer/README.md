@@ -1,6 +1,6 @@
-# Command & Conquer - CD  Windows 95
+# Command & Conquer - CD Gold + Windows 95
 ### Description:
-Play "Command & Conquer" on Linux!
+Play "Command & Conquer" CD Gold edition on Linux!
 ### Technical notes:
 - Using Dosbox Pure Unleashed with a ready to use Windows 95 OSR 2.5 install
 - Once Windows 95 started, go to "My Computer", CD Drive and install the game.
