@@ -1,0 +1,14 @@
+files:
+- engine: https://github.com/klorfmorf/Goemon64Recomp/releases/download/v0.2.0-dev/Goemon64Recompiled-AppImage-X64-Release.zip
+game:
+  exe: $GAMEDIR/Goemon64Recompiled-x86_64.AppImage
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+    format: zip
+- chmodx: $GAMEDIR/Goemon64Recompiled-x86_64.AppImage
+- execute:
+    command: cd "$GAMEDIR" ; mkdir Goemon64Recompiled-x86_64.AppImage.home Goemon64Recompiled-x86_64.AppImage.config
+      ; touch portable.txt ;
