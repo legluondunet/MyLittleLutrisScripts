@@ -2,7 +2,7 @@
 ### Description:
 Play "Enclave" provided by GOG on Linux!
 ### Technical notes:
-- Enclave has bad controller support. I wrote Antimicrox profiles, you can download them here:
+- Enclave has bad controller support. You can download a AntiMicroX profile here: 
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Enclave/gamepad%20profiles
 ### Credits:
 - DxWrapper: https://github.com/elishacloud/dxwrapper
