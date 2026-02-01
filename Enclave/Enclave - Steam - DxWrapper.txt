@@ -1,14 +1,10 @@
 files:
-- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.5.8100.25/dxwrapper.zip
 game:
-  arch: win64
   exe: drive_c/Enclave/Enclave.exe
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
-    install_gecko: true
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
@@ -59,10 +55,6 @@ installer:
     prefix: $GAMEDIR
     type: REG_SZ
     value: N
-system:
-  env:
-    DXVK_FRAME_RATE: '60'
-    DXVK_HUD: null
 wine:
   overrides:
     d3d8: native
