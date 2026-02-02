@@ -1,6 +1,6 @@
 files:
 - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
-- engine: https://github.com/CorsixTH/CorsixTH/releases/download/v0.69.1/CorsixTH-0.69.1-windows-x86_64.zip
+- engine: https://github.com/CorsixTH/CorsixTH/releases/download/v0.69.2/CorsixTH-0.69.2-windows-x86_64.zip
 - game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Theme%20Hospital/config.txt
 - game_music: https://www.dropbox.com/scl/fi/hkk96of5d1ph3qcu6uqln/Theme-Hospital-Remastered-Krytie2X4B-OGG.zip?rlkey=de3nzsw0gv16vusb87guiwzwm&st=s8bo1isd&dl=1#
 game:
