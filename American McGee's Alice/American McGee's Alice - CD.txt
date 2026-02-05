@@ -1,0 +1,17 @@
+files:
+- game_cd: https://archive.org/download/american-mcgees-alice_2000/Alice.iso
+game:
+  exe: drive_c/Program Files/EA Games/American McGee's Alice/alice.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- task:
+    executable: $CACHE/Setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
