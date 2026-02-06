@@ -1,0 +1,12 @@
+files:
+- librecoop: http://131.153.65.162/files/Lutris/dhewm3-librecoop.tar.xz
+game:
+    args: +set fs_configpath . +set fs_game librecoop
+    exe: $GAMEDIR/dhewm3
+    work_dir: $GAMEDIR
+    extends: doom-3
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: librecoop
+    type: txz
