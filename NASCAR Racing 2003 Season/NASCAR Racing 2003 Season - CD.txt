@@ -1,8 +1,10 @@
 files:
 - game_cd: https://archive.org/download/digitoxin_20251208_233441/CD/NASCAR%20Racing%202003%20Season%20%28USA%29.zip
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/NASCAR%20Racing%202003%20Season/nr2003_update.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/NASCAR%20Racing%202003%20Season/nr2003_patch.zip
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 game:
-  exe: drive_c/Program Files/EA Games/American McGee's Alice/alice.exe
+  exe: drive_c/Papyrus/NASCAR Racing 2003 Season/NR2003.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -25,7 +27,23 @@ installer:
     format: iso
 - task:
     description: Installing game, let all options to default. When asking for a key,
-      type RAB2-RAB2-RAB2-RAB2-8869
+      type RAB2-RAB2-RAB2-RAB2-8869 , do not register, do not update online
     executable: $CACHE/CD/autorun.exe
     name: wineexec
     prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_update
+    format: zip
+- task:
+    description: Installing update...
+    executable: $CACHE/NR2003 v1.2.0.1 Update.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season/backup
+    src: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season/NR2003.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season
+    file: game_patch
+    format: zip
