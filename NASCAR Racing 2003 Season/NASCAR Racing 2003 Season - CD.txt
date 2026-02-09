@@ -1,0 +1,31 @@
+files:
+- game_cd: https://archive.org/download/digitoxin_20251208_233441/CD/NASCAR%20Racing%202003%20Season%20%28USA%29.zip
+- cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
+game:
+  exe: drive_c/Program Files/EA Games/American McGee's Alice/alice.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: zip
+- extract:
+    dst: $CACHE
+    file: cdrtools
+    format: zip
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "NASCAR Racing 2003 Season (USA).bin" "NASCAR
+      Racing 2003 Season (USA).cue" "NASCAR Racing 2003 Season (USA)" ;
+- extract:
+    dst: $CACHE/CD
+    file: $CACHE/NASCAR Racing 2003 Season (USA)01.iso
+    format: iso
+- task:
+    description: Installing game, let all options to default. When asking for a key,
+      type RAB2-RAB2-RAB2-RAB2-8869
+    executable: $CACHE/CD/autorun.exe
+    name: wineexec
+    prefix: $GAMEDIR
