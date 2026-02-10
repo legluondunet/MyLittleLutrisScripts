@@ -1,23 +1,25 @@
 files:
-- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.3.7700.25/dxwrapper.zip
+- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.5.8100.25/dxwrapper.zip
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2001)/spider-man_2001_patch.zip
+- game_cd: https://archive.org/download/spider-man_20201224/Spider-Man.iso
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    requires: Setup/SpideyPC.ico
+- extract:
+    dst: $CACHE
+    format: iso
+    src: game_cd
 - task:
     description: Installing Spider-Man (2000), during install let all options to default.
-    executable: $DISC/Setup.exe
+    executable: $CACHE/Autorun.exe
     name: wineexec
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
-    src: $DISC/Setup/media.pkr
+    src: $CACHE/Setup/media.pkr
 - move:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.bak
     src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
@@ -30,30 +32,16 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
     src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/Stub/ddraw.dll
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
-    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/Stub/dsound.dll
 - write_config:
     data:
       Compatibility:
         Dd7to9: 1
-        EnableDdrawWrapper: 1
-        EnableDsoundWrapper: 1
       d3d9:
-        EnableWindowMode: 1
-        FullscreenWindowMode: 1
-        LimitPerFrameFPS: 30
-      dsound:
-        AudioClipDetection: 1
-        PrimaryBufferBits: 16
-        PrimaryBufferSamples: 44100
+        LimitPerFrameFPS: 29
     file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/dxwrapper.ini
 system:
   gamescope: true
-  gamescope_fps_limiter: '30'
-  gamescope_game_res: 1280x1024
-  gamescope_output_res: $RESOLUTION
+  gamescope_force_grab_cursor: true
 wine:
   overrides:
     ddraw: n,b
-    dsound: n,b
