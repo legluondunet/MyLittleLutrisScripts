@@ -9,7 +9,7 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - task:
-    app: dotnetdesktop6
+    app: dotnetdesktop6 dotnetdesktop8
     name: winetricks
     silent: true
 - extract:
