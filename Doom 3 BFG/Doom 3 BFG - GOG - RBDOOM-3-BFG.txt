@@ -1,7 +1,7 @@
 files:
 - gogsetup: N/A:Please select the Windows setup exe file downloaded from your GOG
     account.
-- engine: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203%20BFG/RBDOOM-3-BFG.tar.xz
+- engine: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Doom_3_BFG_Edition/RBDOOM-3-BFG.tar.xz
 game:
   exe: $GAMEDIR/RBDoom3BFG
   gogid: 1135892318
@@ -10,8 +10,6 @@ installer:
     dst: $GAMEDIR
     file: gogsetup
     format: gog
-- execute:
-    command: cd "$GAMEDIR"; mv app/base . ;
 - extract:
     dst: $GAMEDIR
     file: engine
