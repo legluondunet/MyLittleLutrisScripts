@@ -1,13 +1,16 @@
 files:
 - game_dvd: https://archive.org/download/ut-2004-dvd/UT2004_DVD.ISO
 - game_update: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/ut2004/ut2004megapack.7z
-- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.1.6900.22/dxwrapper.zip
+- game_patch_w: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-9/OldUnreal-UT2004Patch3374-Windows-60bd31b3.zip
+- game_patch_l: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-9/OldUnreal-UT2004Patch3374-Linux-60bd31b3.tar.bz2
 game:
   exe: drive_c/UT2004/System/UT2004.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/UT2004/System/UT2004-linux
+    name: Unreal Tournament 2004 - Linux
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     description: Creating wine prefix...
     name: create_prefix
     prefix: $GAMEDIR
@@ -17,9 +20,8 @@ installer:
     file: game_dvd
     format: iso
 - task:
-    arch: win64
-    description: Installing game, when asking for a serial number, type 3QHVC-DHA9K-A84RE-KYRT4.
-      Then let all other options to default...
+    description: Installing game, let all other options to default...when asking for
+      a serial number, type 3QHVC-DHA9K-A84RE-KYRT4
     executable: $CACHE/Setup.exe
     name: wineexec
 - extract:
@@ -27,16 +29,27 @@ installer:
     file: game_update
     format: 7z
 - task:
-    arch: win64
     description: Installing Unreal Tournament 2004 Mega Pack and update v3369...
     executable: $CACHE/ut2004megapack.exe
     name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/UT2004
+    file: game_patch_w
+    format: zip
+- extract:
+    dst: $GAMEDIR/drive_c/UT2004
+    file: game_patch_l
+    format: bz2
+- execute:
+    command: cd "$GAMEDIR/drive_c/UT2004/System"; cp UT2004 UT2004-linux ;
 - write_config:
     data:
       D3DDrv.D3DRenderDevice:
         ReduceMouseLag: true
       Engine.Engine:
         RenderDevice: D3DDrv.D3DRenderDevice
+      Engine.GameEngine:
+        MainMenuClass: GUI2K4.UT2K4MainMenuWS
       FirstRun:
         FirstRun: 3369
       OpenGLDrv.OpenGLRenderDevice:
@@ -81,20 +94,4 @@ installer:
     file: $GAMEDIR/drive_c/UT2004/System/DefUser.ini
 - move:
     dst: $CACHE
-    src: $GAMEDIR/drive_c//UT2004/System/UT2004.ini
-- extract:
-    dst: $GAMEDIR/drive_c/UT2004/System
-    file: wrapper
-- copy:
-    dst: $GAMEDIR/drive_c/UT2004/System
-    src: $GAMEDIR/drive_c/UT2004/System/Stub/d3d8.dll
-- write_config:
-    data:
-      Compatibility:
-        D3d8to9: 1
-      d3d9:
-        LimitPerFrameFPS: 60
-    file: $GAMEDIR/drive_c/UT2004/System/dxwrapper.ini
-wine:
-  overrides:
-    d3d8: native
+    src: $GAMEDIR/drive_c/UT2004/System/UT2004.ini
