@@ -3,7 +3,7 @@
 Play "Doom 3" on Linux!
 ### Technical notes:
 - Using dhewm3 open source project  (compiled 15 may 2025 from Github - commit 6daf1e9 - 64 bits)
-- You will need to provide game files from /base folder during install
+- You will need to provide files from an already DOOM 3 installed, files from /base folder
 - During install you could choose:
   + language: english (default), french, spanish and italian
   + ratio: 16/9, 16/10 and 4/3
