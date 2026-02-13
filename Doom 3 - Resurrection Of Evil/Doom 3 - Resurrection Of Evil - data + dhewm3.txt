@@ -1,12 +1,14 @@
-files:
-- steam-data: $STEAM:9070:d3xp
 game:
   args: +set fs_game d3xp +set fs_configpath .
   exe: dhewm3
 installer:
+- insert-disc:
+    description: Please browse folder where is located your Doom 3 install, we need
+      game files from \d3xp folder. Autodetect will not work here, use "Browse" button.
+    requires: zpak101.pk4
 - merge:
     dst: $GAMEDIR/d3xp
-    src: steam-data
+    src: $DISC
 - merge:
     dst: $GAMEDIR/d3xp
     src: $GAMEDIR/base/dhewm.cfg
@@ -14,4 +16,4 @@ installer:
     command: cd "$GAMEDIR/d3xp"; rm -f -r zpak*; language=$(cat dhewm.cfg |grep sys_lang
       | cut -d '"' -f2); echo $language; wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Doom%203%20-%20Resurrection%20Of%20Evil/lang/"$language"_zpak100.pk4"
       -O zpak100.pk4;
-requires: doom-3-steam-data-dhewm3
+requires: doom-3-data-dhewm3
