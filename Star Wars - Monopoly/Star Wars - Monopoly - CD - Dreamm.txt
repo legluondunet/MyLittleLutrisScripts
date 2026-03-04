@@ -1,34 +1,25 @@
 files:
-- engine: https://dreamm.aarongiles.com/releases/4.0/dreamm-4.0b7-win32-x64.zip
+- game_cd: https://archive.org/download/Nova_SWMonopoly_USA/Star%20Wars%20-%20Monopoly%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%29.7z
+- engine: https://dreamm.aarongiles.com/releases/dreamm-4.0-linux-x64.tgz
 game:
   args: game
-  exe: drive_c/dreamm/dreamm.exe
-  prefix: $GAMEDIR
+  exe: dreamm/dreamm
 installer:
-- task:
-    arch: win64
-    name: create_prefix
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/dreamm
+    dst: $GAMEDIR/dreamm
     file: engine
 - write_file:
     content: ''
-    file: $GAMEDIR/drive_c/dreamm/config.json
-- insert-disc:
-    requires: monopoly/monopoly
+    file: $GAMEDIR/dreamm/config.json
+- extract:
+    dst: $GAMEDIR/cd
+    format: 7z
+    src: game_cd
 - execute:
-    command: cd "$GAMEDIR/drive_c"; find "$DISC" -maxdepth 1 -type d -iname monopoly
-      -exec cp -r {} gamedata \; ; chmod -R +w gamedata;
-- task:
-    args: -install "c:\\gamedata"
+    args: -autoinstall "$GAMEDIR/cd"
     description: Installing game, please wait...
-    executable: $GAMEDIR/drive_c/dreamm/dreamm.exe
-    name: wineexec
-    prefix: $GAMEDIR
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/gamedata
+    disable_runtime: true
+    file: $GAMEDIR/dreamm/dreamm
 - execute:
-    command: cd "$GAMEDIR/drive_c/dreamm/install/has-swmonopoly"; find -maxdepth 1
-      -type d -exec mv {} "$GAMEDIR/drive_c/dreamm/game" \;
+    command: cd "$GAMEDIR/dreamm/install/has-swmonopoly"; find -maxdepth 1 -type d
+      -exec mv {} "$GAMEDIR/dreamm/game" \;
