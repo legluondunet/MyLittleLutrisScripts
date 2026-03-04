@@ -1,9 +1,9 @@
-# Star Wars - Monopoly - CD + Dreamm
+# Star Wars - Monopoly - CD EU + Dreamm
 ### Description:
-Play "Star Wars - Monopoly" CD edition on Linux!
+Play "Star Wars - Monopoly" CD EU edition on Linux!
 ### Technical notes:
-- Using Dreamm engine
-- You will need CD only one time during install
+- Using Dreamm engine, press F12 to change options
+- Languages available: English (default), French and German
 ### Credits:
 - Dreamm: https://dreamm.aarongiles.com
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
