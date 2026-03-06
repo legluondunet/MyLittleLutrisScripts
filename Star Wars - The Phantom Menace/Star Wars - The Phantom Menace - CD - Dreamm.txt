@@ -1,34 +1,25 @@
 files:
-- engine: https://dreamm.aarongiles.com/releases/4.0/dreamm-4.0b7-win32-x64.zip
+- game_cd: https://archive.org/download/StarWarsEpisodeIThePhantomMenaceUSAEurope/Star%20Wars%20-%20Episode%20I%20-%20The%20Phantom%20Menace%20%28USA%2C%20Europe%29.zip
+- engine: https://dreamm.aarongiles.com/releases/dreamm-4.0-linux-x64.tgz
 game:
-  args: game
-  exe: drive_c/dreamm/dreamm.exe
-  prefix: $GAMEDIR
+  args: $GAMEDIR/dreamm/game
+  exe: $GAMEDIR/dreamm/dreamm
 installer:
-- task:
-    arch: win64
-    name: create_prefix
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/dreamm
+    dst: $GAMEDIR/dreamm
     file: engine
 - write_file:
     content: ''
-    file: $GAMEDIR/drive_c/dreamm/config.json
-- insert-disc:
-    requires: tpm.exe
+    file: $GAMEDIR/dreamm/config.json
+- extract:
+    dst: $GAMEDIR/cd
+    format: zip
+    src: game_cd
 - execute:
-    command: cd "$GAMEDIR/drive_c"; find "$DISC" -maxdepth 2 -type d -iname gamedata
-      -exec cp -r {} gamedata \; ; chmod -R +w gamedata;
-- task:
-    args: -install "c:\\gamedata"
-    description: Installing Star Wars - Episode I - The Phantom Menace
-    executable: $GAMEDIR/drive_c/dreamm/dreamm.exe
-    name: wineexec
-    prefix: $GAMEDIR
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/gamedata
+    args: -autoinstall "$GAMEDIR/cd"
+    description: Installing game, please wait...
+    disable_runtime: true
+    file: $GAMEDIR/dreamm/dreamm
 - execute:
-    command: cd "$GAMEDIR/drive_c/dreamm/install/lec-phantom"; find -maxdepth 1 -type
-      d -exec mv {} "$GAMEDIR/drive_c/dreamm/game" \;
+    command: cd "$GAMEDIR/dreamm/install/lec-phantom"; find -maxdepth 1 -type d -exec
+      mv {} "$GAMEDIR/dreamm/game" \;
