@@ -1,7 +1,7 @@
 files:
 - game_cd: https://archive.org/download/unreal-gold_202501/UnrealGold.ISO
-- patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_13/OldUnreal-UnrealPatch227k-Linux.tar.bz2
-- patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_13/OldUnreal-UnrealPatch227k-Windows.zip
+- patch_lin: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_14/OldUnreal-UnrealPatch227k-Linux.tar.bz2
+- patch_win: https://github.com/OldUnreal/Unreal-testing/releases/download/v227k_14/OldUnreal-UnrealPatch227k-Windows.zip
 game:
   exe: drive_c/UnrealGold/System64/Unreal.exe
   launch_configs:
