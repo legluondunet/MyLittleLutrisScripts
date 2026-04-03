@@ -9,7 +9,7 @@ elif [ -d "drive_c/Program Files (x86)/Heretic II" ]; then cd "./drive_c/Program
 elif [ -d "drive_c/Heretic2R" ]; then cd "drive_c/Heretic2R/base"
 fi
 
-rm -f french-1.pak german-1.pak italian-1.pak spanish-1.pak Htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
+rm -f french-1.pak german-1.pak italian-1.pak spanish-1.pak Htic2-1.pak Gamemsg.txt Levelmsg.txt Menus.cfg
 
 wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/${lang}-1.pak.7z.001"
 wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/${lang}-1.pak.7z.002"
