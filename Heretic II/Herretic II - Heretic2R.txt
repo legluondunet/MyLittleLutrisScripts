@@ -5,7 +5,7 @@ files:
 game:
   exe: drive_c/Heretic2R/Heretic2R.exe
   launch_configs:
-  - arg: +set dedicated 1 +exec dedicated.cfg
+  - arg: +set dedicated 1
     exe: $GAMEDIR/Heretic2R/Heretic2R.exe
     name: Heretic II - dedicated server mode
   prefix: $GAMEDIR
