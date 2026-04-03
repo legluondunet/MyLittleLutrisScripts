@@ -11,7 +11,8 @@ fi
 
 rm -f french-1.pak german-1.pak italian-1.pak spanish-1.pak Htic2-1.pak gamemsg.txt levelmsg.txt menus.cfg
 
-wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/${lang}-1.pak.tar.xz"
-tar xfv "${lang}-1.pak.tar.xz"
+wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/${lang}-1.pak.7z.001"
+wget --no-check-certificate "https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Heretic%20II/lang/${lang}-1.pak.7z.002"
+7z x "${lang}-1.pak.7z.001"
 mv "${lang}-1.pak" "htic2-1.pak"
-rm -f "${lang}-1.pak.tar.xz"
+rm -f "${lang}-1.pak.7z.001" "${lang}-1.pak.7z.002"
