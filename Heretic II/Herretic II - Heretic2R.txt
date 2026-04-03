@@ -1,0 +1,45 @@
+files:
+- game_rip: https://archive.org/download/heretic2_cover-2350919043/Heretic%20II%20%28Patched%20Wide%20Screen%29.zip
+- game_engine: https://github.com/m-x-d/Heretic2R/releases/download/R4/Heretic2R_R4.zip
+- script_lang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Heretic%20II/h2local.sh
+game:
+  exe: drive_c/Heretic2R/Heretic2R.exe
+  launch_configs:
+  - arg: +set dedicated 1 +exec dedicated.cfg
+    exe: $GAMEDIR/Heretic2R/Heretic2R.exe
+    name: Heretic II - dedicated server mode
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Preparing wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_rip
+    format: zip
+- merge:
+    dst: $GAMEDIR/drive_c/Heretic2R/base
+    src: $CACHE/Heretic II/base
+- merge:
+    dst: $GAMEDIR/drive_c/Heretic2R/base/music
+    src: $CACHE/Heretic II/Music
+- input_menu:
+    description: 'Please choose which language you would like for menus, audio and
+      subtitles:'
+    id: LANG
+    options:
+    - english: English (Default)
+    - french: French
+    - german: German
+    - italian: Italian
+    - spanish: Spanish
+    preselect: english
+- chmodx: script_lang
+- execute:
+    args: $INPUT_LANG
+    file: script_lang
+- extract:
+    dst: $GAMEDIR/drive_c/Heretic2R
+    file: game_engine
+    format: zip
