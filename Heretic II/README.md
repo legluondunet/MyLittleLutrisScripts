@@ -10,7 +10,7 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Heretic%20II/g
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Heretic II - CDRIP + Heretic2R
+# Heretic II - Windows CDRIP + Heretic2R
 ### Description:
 Play "Heretic II" CDRIP edition on Linux!
 ### Technical notes:
