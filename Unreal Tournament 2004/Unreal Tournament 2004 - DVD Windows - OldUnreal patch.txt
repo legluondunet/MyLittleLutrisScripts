@@ -1,8 +1,8 @@
 files:
 - game_dvd: https://archive.org/download/ut-2004-dvd/UT2004_DVD.ISO
 - game_update: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/ut2004/ut2004megapack.7z
-- game_patch_w: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-9/OldUnreal-UT2004Patch3374-Windows-60bd31b3.zip
-- game_patch_l: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-9/OldUnreal-UT2004Patch3374-Linux-60bd31b3.tar.bz2
+- game_patch_w: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-17/OldUnreal-UT2004Patch3374-Windows-6369f34c.zip
+- game_patch_l: https://github.com/OldUnreal/UT2004Patches/releases/download/3374-preview-17/OldUnreal-UT2004Patch3374-Linux-6369f34c.tar.bz2
 game:
   exe: drive_c/UT2004/System/UT2004.exe
   launch_configs:
