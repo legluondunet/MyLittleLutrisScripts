@@ -4,6 +4,7 @@ Play "Need for Speed - Underground 2" 2 CD edition on Linux!
 ### Technical notes:
 - Using  ThirteenAG Widescreen fix
 - CD images are directly downloaded from archive.org
+- Update 1.2 included
 ### Credits:
 - ThirteenAG Widescreen fix: https://github.com/ThirteenAG/WidescreenFixesPack/releases/tag/nfsu2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
