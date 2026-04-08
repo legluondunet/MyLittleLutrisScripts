@@ -1,9 +1,11 @@
 files:
+- game_cd1: https://archive.org/download/nfsug-2-disk-1_20251007/NFSUG2_DISK1.iso
+- game_cd2: https://archive.org/download/nfsug-2-disk-1_20251007/NFSUG2_DISK2.iso
+- game_update: https://archive.org/download/nfsug-2-disk-1_20251007/nfsu2_v1.2_us.zip
+- game_patch: https://archive.org/download/nfsug-2-disk-1_20251007/No-CD%20Fix.zip
 - wspatch: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsu2/NFSUnderground2.WidescreenFix.zip
-- game_cd1: https://archive.org/download/nfsu2-2004-pcgame/NFSUG2_DISK1.iso
-- game_cd2: https://archive.org/download/nfsu2-2004-pcgame/NFSUG2_DISK2.iso
 game:
-  exe: drive_c/Need for Speed Underground 2/speed2.exe
+  exe: drive_c/Need for Speed Underground 2/SPEED2.EXE
   prefix: $GAMEDIR
 installer:
 - task:
@@ -34,12 +36,16 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Need for Speed Underground 2
     src: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
-- merge:
-    dst: $GAMEDIR/drive_c/Need for Speed Underground 2/backup
-    src: $GAMEDIR/drive_c/Need for Speed Underground 2/speed2.exe
-- merge:
+- extract:
+    dst: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp
+    file: game_update
+- task:
+    description: Installing update 1.2...
+    executable: $GAMEDIR/drive_c/Need for Speed Underground 2/tmp/nfsu2_v1.2_us.exe
+    name: wineexec
+- extract:
     dst: $GAMEDIR/drive_c/Need for Speed Underground 2
-    src: $GAMEDIR/drive_c/Need for Speed Underground 2/Crack/speed2.exe
+    file: game_patch
 - extract:
     dst: $GAMEDIR/drive_c/Need for Speed Underground 2
     file: wspatch
