@@ -1,4 +1,4 @@
-# 3-D Ultra Pinball - The Lost Continent - CD - Windows 95
+# Fallen Haven - CD - Windows 95
 ### Description:
 Play "Fallen Haven" CD edition on Linux!
 ### Technical notes:
