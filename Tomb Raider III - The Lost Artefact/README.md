@@ -10,7 +10,7 @@ Play "Tomb Raider III - The Lost Artefact" CD edition on Linux! using TOMB3 open
 
 # Tomb Raider III - The Lost Artefact - CD + TRX
 ### Description:
-Play "Tomb Raider III - The Lost Artefact" CD edition on Linux! using TOMB3 open source project and dgVoodoo2
+Play "Tomb Raider III - The Lost Artefact" CD edition on Linux!
 ### Technical notes:
 - Using TRX engine
 ### Credits:
