@@ -21,3 +21,12 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Tomb%20Raider%
 - TOMB3: https://github.com/Trxyebeep/tomb3
 - dgVoodoo2: http://www.dege.freeweb.hu
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# Tomb Raider III - Adventures of Lara Croft - Steam + TOMB3 + dgVoodoo2
+### Description:
+Play "Tomb Raider III - Adventures of Lara Croft" GOG edition on Linux!
+### Technical notes:
+- Using TRX engine
+### Credits:
+- TRX: https://github.com/LostArtefacts/TRX
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
