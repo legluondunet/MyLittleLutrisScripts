@@ -1,0 +1,19 @@
+files:
+- gogsetup: N/A:Select the installer downloaded from GOG
+- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.5/TRX-1.5-Linux-tr3.zip
+game:
+  exe: TRX/TRX
+installer:
+- extract:
+    dst: $GAMEDIR/TRX
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/TRX/data
+    src: $GAMEDIR/TRX/DATA
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/TRX/DATA
+- extract:
+    dst: $GAMEDIR/TRX
+    file: engine
