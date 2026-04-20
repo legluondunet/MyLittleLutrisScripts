@@ -7,7 +7,7 @@ files:
 - game_cd2:
     filename: MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA).zip
     url: https://archive.org/download/MechWarrior3PiratesMoonExpansionPackUSA/MechWarrior%203%20-%20Pirate%27s%20Moon%20%28Expansion%20Pack%29%20%28USA%29.zip
-- playlist: https://raw.githubusercontent.com/TaeruAlethea/MyLittleLutrisScripts/refs/heads/master/MechWarrior%203%20-%20Pirate's%20Moon/MW3PM-DiskPlaylist.m3u8
+- playlist: https://raw.githubusercontent.com/legluondunet/MyLittleLutrisScripts/refs/heads/master/MechWarrior%203%20-%20Pirate's%20Moon/MW3PM-DiskPlaylist.m3u8
 - dbpu_save:
     filename: MechWarrior 3 (USA).pure.zip
     url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
