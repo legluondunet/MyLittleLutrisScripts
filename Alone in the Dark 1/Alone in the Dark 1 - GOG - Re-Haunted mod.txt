@@ -1,0 +1,17 @@
+files:
+- gogsetup: N/A:Select the Windows offline installer downloaded from your GOG account
+- mod: https://github.com/spacefarergames/AloneInTheDarkReHaunted/releases/download/2.0.1.1504/AITD1_REHAUNTED_2.0.1.1504_Shipping.zip
+game:
+  exe: drive_c/GOG Games/Alone in the Dark/INDARK/Tatou.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    executable: gogsetup
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark//INDARK
+    file: mod
