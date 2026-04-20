@@ -1,11 +1,9 @@
-# Alone in the Dark- GOG
-
-Description:
-This script will install "Alone in the Dark" GOG edition for DOSBox.
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
-
-Technical notes:
-- Multilanguage: you can choose text language during install between english (default), french, german, spanish and italian.
-- Please report issue concerning this script on my Github page:
+### Alone in the Dark 1 - GOG
+## Description:
+Play "Alone in the Dark" GOG edition on Linux!
+## Technical notes:
+- Using Re-Haunted mod
 https://github.com/legluondunet/MyLittleLutrisScripts/
+## Credits:
+- Alone In The Dark - Re-Haunted: https://github.com/spacefarergames/AloneInTheDarkReHaunted
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
