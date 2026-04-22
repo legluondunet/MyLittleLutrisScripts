@@ -3,32 +3,33 @@ files:
 - wrapper_video2: https://github.com/legluondunet/mlls-tools/raw/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - reg_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Star%20Wars%20-%20The%20Phantom%20Menace/sw1-tpm.reg
 - util1: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/idecomp/idecomp-28052025.zip
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Star%20Wars%20-%20The%20Phantom%20Menace/tpmupd11.7z
 game:
   args: /R:1
   exe: drive_c/dxwnd/dxwnd.exe
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
     name: create_prefix
     prefix: $GAMEDIR
 - insert-disc:
     requires: tpm.exe
 - merge:
     description: installing game files, could take time, please wait...
-    dst: $GAMEDIR/drive_c/SW1-TMP
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace
     src: $DISC
 - execute:
-    command: cd "$GAMEDIR/drive_c"; chmod -R +w SW1-TMP; find SW1-TMP/*  -depth -type
-      d -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
-      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ; find SW1-TMP/*
-      -depth -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0");
-      d=$(dirname "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ;
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/LucasArts"; chmod -R +w "The
+      Phantom Menace"; find "The Phantom Menace"/*  -depth -type d -print0 | xargs
+      -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname "$0")/$(basename
+      "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ; find "The Phantom Menace"/* -depth
+      -type f -print0 | xargs -0n 1 bash -c 's=$(dirname "$0")/$(basename "$0"); d=$(dirname
+      "$0")/$(basename "$0"|tr "[A-Z]" "[a-z]"); mv -f "$s" "$d"' ;
     description: clean game files, could take time, please wait...
     return_code: 31488
 - merge:
-    dst: $GAMEDIR/drive_c/SW1-TMP
-    src: $GAMEDIR/drive_c/SW1-TMP/gamedata/bin
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace
+    src: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/gamedata/bin
 - task:
     filename: reg_file
     name: set_regedit_file
@@ -39,7 +40,6 @@ installer:
     data:
       target:
         cdvol0: 0
-        cmdline0: null
         codepage0: 0
         commitaddress0: 0
         commitlength0: 0
@@ -69,30 +69,23 @@ installer:
         flagx0: 0
         flagy0: 0
         gvol0: 0
-        icon0: null
         initresh0: 600
         initresw0: 800
         initts0: 0
         lang0: 0
-        launchpath0: C:\SW1-TMP\wmain.exe
+        launchpath0: C:\Program Files (x86)\LucasArts\The Phantom Menace\wmain.exe
         maxddinterface0: 7
         maxfps0: 0
         midivol0: 0
-        module0: null
         monitorid0: -1
-        msshims0: null
-        notes0: null
-        opengllib0: null
-        path0: C:\SW1-TMP\wmain.exe
+        path0: C:\Program Files (x86)\LucasArts\The Phantom Menace\wmain.exe
         posx0: 50
         posy0: 50
-        registry0: null
         renderer0: 3
         scanline0: 0
         sizx0: 800
         sizy0: 600
         slowratio0: 2
-        startfolder0: null
         swapeffect0: 0
         tflag0: 0
         tflagb0: 0
@@ -101,7 +94,7 @@ installer:
         wavevol0: 0
         winver0: 0
       window:
-        exepath: C:\SW1-TMP\
+        exepath: C:\Program Files (x86)\LucasArts\The Phantom Menace
         expert: 1
         exportpath: C:\dxwnd\exports\
         iconview: 1
@@ -111,25 +104,45 @@ installer:
     dst: $CACHE
     file: wrapper_video2
 - copy:
-    dst: $GAMEDIR/drive_c/SW1-TMP
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace
     src: $CACHE/MS/x86/DDraw.dll
 - copy:
-    dst: $GAMEDIR/drive_c/SW1-TMP
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace
     src: $CACHE/MS/x86/D3DImm.dll
 - write_config:
     data:
       DirectX:
+        VRAM: 128
+        VideoCard: geforce_ti_4800
         dgVoodooWatermark: false
       GeneralExt:
         DesktopBitDepth: 32
-    file: $GAMEDIR/drive_c/SW1-TMP/dgVoodoo.conf
+    file: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/dgVoodoo.conf
 - extract:
-    dst: $GAMEDIR/drive_c/SW1-TMP/gamedata/gobs
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/gamedata/gobs
     file: util1
 - execute:
-    command: cd "$GAMEDIR/drive_c/SW1-TMP/gamedata/gobs"; chmod +x idecomp.py; ./idecomp.py
-      -l big.z; ./idecomp.py big.z
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/gamedata/gobs";
+      chmod +x idecomp.py; ./idecomp.py -l big.z; ./idecomp.py big.z
     description: extracting and installing game files, could take time, please wait...
+- extract:
+    dst: $CACHE
+    src: game_update
+- task:
+    description: Update game to 1.1 version
+    executable: $CACHE/tpmupd11.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- write_config:
+    data:
+      Options:
+        GOPT0: 1
+        Resolution: $RESOLUTION
+        Sound 3D Driver: Dolby Surround
+        all_additive: 1
+        screen_height: 1280
+        screen_width: 1024
+    file: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/obi.ini
 system:
   exclude_processes: xalia.exe dxwnd.exe
   reset_desktop: true
