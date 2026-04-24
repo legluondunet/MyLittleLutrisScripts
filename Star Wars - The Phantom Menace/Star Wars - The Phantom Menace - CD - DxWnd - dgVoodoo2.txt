@@ -115,8 +115,6 @@ installer:
         VRAM: 128
         VideoCard: geforce_ti_4800
         dgVoodooWatermark: false
-      GeneralExt:
-        DesktopBitDepth: 32
     file: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/dgVoodoo.conf
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/gamedata/gobs
@@ -137,7 +135,6 @@ installer:
     data:
       Options:
         GOPT0: 1
-        Resolution: $RESOLUTION
         Sound 3D Driver: Dolby Surround
         all_additive: 1
         screen_height: 1280
