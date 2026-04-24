@@ -1,5 +1,5 @@
 files:
-- game_iso: https://archive.org/download/NFSMW_BlackEdition/Need%20For%20Speed%20Most%20Wanted%20Black%20Edition.iso
+- game_iso: https://archive.org/download/need-for-speed-most-wanted-black-edition_202604/Need%20For%20Speed%20Most%20Wanted%20Black%20Edition.iso
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfs_mw_be_update.zip
 - game_mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsmw/NFSMostWanted.WidescreenFix.zip
 game:
