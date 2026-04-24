@@ -1,7 +1,9 @@
 files:
 - game_iso: https://archive.org/download/need-for-speed-most-wanted-black-edition_202604/Need%20For%20Speed%20Most%20Wanted%20Black%20Edition.iso
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfs_mw_be_update.zip
+- game_reg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfsmw_be.reg
 - game_mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsmw/NFSMostWanted.WidescreenFix.zip
+- wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.6.8300.25/dx9.games.zip
 game:
   exe: drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
   prefix: $GAMEDIR
@@ -32,9 +34,29 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     src: $CACHE/speed.exe
+- task:
+    filename: game_reg
+    name: set_regedit_file
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     file: game_mod
+- write_config:
+    data:
+      MISC:
+        SkipIntro: 0
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/scripts/NFSMostWanted.WidescreenFix.ini
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    file: wrapper_vid
+- write_config:
+    data:
+      Compatibility:
+        D3d9to9Ex: 1
+      d3d9:
+        FullscreenWindowMode: 1
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/dxwrapper.ini
 wine:
   overrides:
+    ddraw: n,b
     dinput8: n,b
