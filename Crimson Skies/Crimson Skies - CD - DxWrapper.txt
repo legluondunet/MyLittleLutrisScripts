@@ -1,1 +1,38 @@
-
+files:
+- game_cd:
+    filename: Crimson Skies.iso
+    url: https://archive.org/download/crimson-skies_202204/Crimson%20Skies.iso
+- game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Crimson%20Skies/crmsk102.7z
+- vid_wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.6.8300.25/dx7.games.zip
+game:
+  exe: drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/crimson.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/CD
+    file: game_cd
+- task:
+    description: installing game...
+    executable: $GAMEDIR/drive_c/CD/setup.exe
+    name: wineexec
+- extract:
+    dst: $CACHE
+    file: game_update
+- task:
+    description: updating game...
+    executable: $CACHE/crmsk102.exe
+    name: wineexec
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
+    file: vid_wrapper
+- write_config:
+    data:
+      d3d9:
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/dxwrapper.ini
+wine:
+  overrides:
+    ddraw: n,b
