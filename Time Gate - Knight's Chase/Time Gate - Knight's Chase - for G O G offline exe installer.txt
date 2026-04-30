@@ -1,0 +1,16 @@
+files:
+- gogsetup: N/A:Please select the GOG offline installer for Windows
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Time%20Gate%20-%20Knight's%20Chase/HMISET.CFG
+game:
+  main_file: $GAMEDIR/dosbox_conf/dosbox_timegate_single.conf
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- merge:
+    dst: $GAMEDIR/dosbox_conf
+    src: $GAMEDIR/__support/app
+- merge:
+    dst: $GAMEDIR
+    src: game_cfg
