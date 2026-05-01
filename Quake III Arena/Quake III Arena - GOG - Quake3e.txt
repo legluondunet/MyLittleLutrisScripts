@@ -1,0 +1,14 @@
+files:
+- gogsetup: N/A:Select the Windows installer provided by GOG
+- engine: https://github.com/ec-/Quake3e/releases/download/latest/quake3e-linux-x86_64.zip
+game:
+  exe: quake3e-vulkan.x64
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: gogsetup
+    format: gog
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/quake3e-vulkan.x64
