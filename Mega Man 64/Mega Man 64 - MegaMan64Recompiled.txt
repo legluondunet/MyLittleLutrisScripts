@@ -1,0 +1,14 @@
+files:
+- engine: https://github.com/MegaMan64Recomp/MegaMan64Recompiled/releases/download/v0.9.1/MegaMan64Recompiled-v0.9.1-Linux-X64.zip
+game:
+  exe: $GAMEDIR/MegaMan64Recompiled
+installer:
+- extract:
+    dst: $CACHE
+    file: engine
+- extract:
+    dst: $GAMEDIR
+    file: $CACHE/MegaMan64Recompiled.tar.gz
+    format: tgz
+- execute:
+    command: cd "$GAMEDIR" ; touch portable.txt ;
