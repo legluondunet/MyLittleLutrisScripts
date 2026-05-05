@@ -1,15 +1,32 @@
+variables:
+  ntsc_r1: e03b088b6ac9e0080440efed07c1e40f
+  ntsc_r0: 7f4171b0c8d17815be37913f535e4e93
+  jpn: 538d2b75945eae069b29c46193e74790
+  pal: d9b5cd305d228424891ce38e71bc9213
 files:
 - engine: https://github.com/fgsfdsfgs/perfect_dark/releases/download/ci-dev-build/pd-x86_64-linux.tar.gz
 - rom_file: N/A:Please provide Perfect Dark rom file in .z64 format
 game:
   args: --portable
-  exe: $GAMEDIR/pd-x86_64-linux/pd.x86_64
+  exe: $GAMEDIR/pd-x86_64-linux/perfectdark
 installer:
 - extract:
     dst: $GAMEDIR/pd-x86_64-linux
     file: engine
     format: tgz
-- chmodx: $GAMEDIR/pd-x86_64-linux/pd.x86_64
 - execute:
-    command: mkdir "$GAMEDIR/pd-x86_64-linux/data"; cp "$rom_file" "$GAMEDIR/pd-x86_64-linux/data/pd.ntsc-final.z64"
-      ;
+    command: |
+      set -u
+      case $(md5sum "$rom_file" | cut -f1 -d' ') in
+        $ntsc_r1|$ntsc_r0) exe=pd.x86_64; z64=pd.ntsc-final.z64 ;;
+        $pal) exe=pd.pal.x86_64 ; z64=pd.pal-final.z64 ;;
+        $jpn) exe=pd.jpn.x86_64 ; z64=pd.jpn-final.z64 ;;
+        *) echo Invalid ROM! >&2 ; exit 6 ;;
+      esac
+      ln "$GAMEDIR/pd-x86_64-linux/$exe" "$GAMEDIR/pd-x86_64-linux/perfectdark"
+      mkdir -p "$GAMEDIR/pd-x86_64-linux/data"
+      cp "$rom_file" "$GAMEDIR/pd-x86_64-linux/data/$z64"
+- chmodx: $GAMEDIR/pd-x86_64-linux/perfectdark
+- chmodx: $GAMEDIR/pd-x86_64-linux/pd.ntsc-final.x86_64
+- chmodx: $GAMEDIR/pd-x86_64-linux/pd.pal-final.x86_64
+- chmodx: $GAMEDIR/pd-x86_64-linux/pd.jpn-final.x86_64
