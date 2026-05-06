@@ -2,6 +2,6 @@
 ### Description:
 Play "Anacapri - The Dream" DVD edition on Linux!
 ### Technical notes:
-- Game will not launch in fullscreen. You will need to use Gamescope to play this game in best conditions
+- If game will not launch in fullscreen, try this: use Gamescope with wine-ge-8-26
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
