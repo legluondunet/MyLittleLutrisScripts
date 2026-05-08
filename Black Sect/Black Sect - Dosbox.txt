@@ -1,0 +1,23 @@
+files:
+- game_files: https://archive.org/download/bsect/bsect.zip
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR/c/bsect
+    file: game_files
+- write_file:
+    content: '[autoexec]
+
+      @echo off
+
+      mount c c
+
+      c:
+
+      cd bsect
+
+      bs.bat
+
+      exit'
+    file: $GAMEDIR/dosbox.conf
