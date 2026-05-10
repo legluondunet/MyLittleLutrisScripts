@@ -1,0 +1,12 @@
+files:
+- engine: https://github.com/TwilitRealm/dusk/releases/download/v1.0.0/Dusk-v1.0.0-linux-x86_64.zip
+game:
+  exe: $GAMEDIR/Dusk-x86_64.AppImage
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- execute:
+    command: cd "$GAMEDIR" ; find . 'Dust*.AppImage' -type f -print -quit | xargs
+      -r -I{} mv -- "{}" "./Dusk-x86_64.AppImage";  mkdir -p "$GAMEDIR/Dusk-x86_64.AppImage.config" "$GAMEDIR/Dusk-x86_64.AppImage.home"
+- chmodx: $GAMEDIR/Dusk-x86_64.AppImage
