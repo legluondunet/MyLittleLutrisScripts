@@ -1,17 +1,29 @@
 files:
 - gogsetup: N/A:Select the Windows offline installer downloaded from your GOG account
-- mod: https://github.com/spacefarergames/AloneInTheDarkReHaunted/releases/download/2.0.1.1504/AITD1_REHAUNTED_2.0.1.1504_Win64_Shipping.zip
+- mod1: https://github.com/spacefarergames/AloneInTheDarkReHaunted/releases/download/2.3.0.0705/AITD_REHAUNTED_2.3.0.0705_Win64.zip
+- mod2: https://github.com/spacefarergames/AloneInTheDarkReHaunted/releases/download/2.3.0.0705/JACK_REHAUNTED_2.3.0.0705_Win64.zip
 game:
-  exe: drive_c/Re-Haunted/Tatou.exe
+  exe: drive_c/INDARK/Tatou.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/JACK/Tatou.exe
+    name: Jack in the Dark
   prefix: $GAMEDIR
 installer:
 - task:
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    executable: gogsetup
-    name: wineexec
-    prefix: $GAMEDIR
 - extract:
-    dst: $GAMEDIR/drive_c/Re-Haunted
-    file: mod
+    dst: $CACHE
+    file: $gogsetup
+- merge:
+    dst: $GAMEDIR/drive_c/INDARK
+    src: $CACHE/INDARK
+- extract:
+    dst: $GAMEDIR/drive_c/INDARK
+    file: mod1
+- merge:
+    dst: $GAMEDIR/drive_c/JACK
+    src: $CACHE/JACK
+- extract:
+    dst: $GAMEDIR/drive_c/JACK
+    file: mod2
