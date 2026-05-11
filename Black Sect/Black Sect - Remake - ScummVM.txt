@@ -1,0 +1,10 @@
+files:
+- game_files: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Black%20Sect/Black%20Sect%20Remake%20v10.7z
+game:
+  game_id: blacksect1
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: game_files
+    format: 7z
