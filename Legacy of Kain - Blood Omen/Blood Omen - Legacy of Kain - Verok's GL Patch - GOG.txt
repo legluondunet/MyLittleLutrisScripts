@@ -1,36 +1,34 @@
-custom-name: Blood Omen - Legacy of Kain - Verok's GL Patch
 files:
 - gogsetup: N/A:Select setup exe file downloaded from your GOG games library page.
-- lok1mod: N/A:Please select "Legacy of Kain - Blood Omen - Verok's GL Wrapper/Patch"
-    available for download at https://verokster.blogspot.com/2018/05/legacy-of-kain-blood-omen-gl-wrapper.html
-- inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+- lok1mod: https://archive.org/download/kaingl_1.74/v1.75/KainGL_1.75_MULTI11_FullPackage.7z
 game:
-  exe: $GAMEDIR/drive_c/GOG Games/Blood Omen/Kain.exe
+  exe: $GAMEDIR/drive_c/GOG Games/Blood Omen/KAIN.EXE
   prefix: $GAMEDIR
 installer:
 - task:
-    arch: win64
-    install_gecko: false
-    install_mono: false
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: $inno
-- execute:
-    args: -d "$GAMEDIR/drive_c/Blood Omen" "$gogsetup"
-    file: $CACHE/innoextract
+    dst: $GAMEDIR/drive_c/GOG Games/Blood Omen
+    file: $gogsetup
+    format: gog
 - extract:
-    dst: $GAMEDIR/drive_c/Blood Omen/patch
+    dst: $GAMEDIR/drive_c/GOG Games/Blood Omen/patch
     file: lok1mod
     format: 7z
 - execute:
-    command: cd "$GAMEDIR/drive_c"; mkdir "GOG Games"; mv "Blood Omen" "GOG Games";
-      cd "GOG Games/Blood Omen"; find "." -depth -exec sh -c 't=${0%/*}/$(printf %s
-      "${0##*/}" | tr "[:lower:]" "[:upper:]"); [ "$t" = "$0" ] || mv -i "$0" "$t"'
-      {} \;; cd "$GAMEDIR/drive_c/GOG Games/Blood Omen"; cp -R PATCH/* .; rm -f -r
-      APP COMMONAPPDATA PATCH __REDIST __SUPPORT TMP GOGGAME-1837805079.*; mkdir SAVED;
+    command: cd "$GAMEDIR/drive_c/GOG Games/Blood Omen" ; find . -depth -print0 |
+      while IFS= read -r -d '' item; do dir=$(dirname "$item"); base=$(basename "$item");
+      lower=$(printf '%s' "$base" | perl -CS -Mutf8 -ne 'print lc'); if [ "$base"
+      != "$lower" ]; then if [ -e "$dir/$lower" ]; then i=1; newname="${lower}_$i";
+      while [ -e "$dir/$newname" ]; do i=$((i+1)); newname="${lower}_$i"; done; mv
+      "$item" "$dir/$newname"; else mv "$item" "$dir/$lower"; fi; fi; done;
+- merge:
+    dst: $GAMEDIR/drive_c/GOG Games/Blood Omen
+    src: $GAMEDIR/drive_c/GOG Games/Blood Omen/patch
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/GOG Games/Blood Omen/patch
 wine:
-  Desktop: true
   overrides:
     ddraw.dll: n,b
