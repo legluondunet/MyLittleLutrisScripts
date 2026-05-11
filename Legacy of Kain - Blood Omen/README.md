@@ -4,17 +4,16 @@ Play "Blood Omen - Legacy of Kain" GOG edition on Linux!
 ### Technical notes:
 - Using Verok's GL Wrapper/Patch 1.75 version: graphic enhancements, multilingual: English, French, German, Japanese, Russian, Spanish and more...
 ### Credits:
+- Verok's GL Patch: https://web.archive.org/web/20220120040213/https://verokster.blogspot.com/2018/05/legacy-of-kain-blood-omen-gl-wrapper.html
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Blood Omen - Legacy of Kain - Verok's GL Wrapper/Patch - CD
-
+# Blood Omen - Legacy of Kain - CD - Verok's GL Patch
 ### Description:
-This script will facilitate you install of this game on Linux OS:
-"Blood Omen - Legacy of Kain"  CD edition using "Verok's GL Wrapper/Patch" and Wine.
-During install please let all options by default.
-Thanks to the people who helped us play this game in the best conditions on Linux platform.
-
+Play "Blood Omen - Legacy of Kain" CD edition on Linux!
 ### Technical notes:
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts
+- You will need to mount your game CD before to execute this script installer
+- Using Verok's GL Wrapper/Patch 1.75 version: graphic enhancements, multilingual: English, French, German, Japanese, Russian, Spanish and more...
+### Credits:
+- Verok's GL Patch: https://web.archive.org/web/20220120040213/https://verokster.blogspot.com/2018/05/legacy-of-kain-blood-omen-gl-wrapper.html
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
