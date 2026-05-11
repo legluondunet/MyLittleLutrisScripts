@@ -1,0 +1,34 @@
+files:
+- lok1mod: https://archive.org/download/kaingl_1.74/v1.75/KainGL_1.75_MULTI11_FullPackage.7z
+game:
+  exe: $GAMEDIR/drive_c/KAIN/kain.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- insert-disc:
+    description: Please insert Blood Omen - Legacy of Kain CD
+    requires: kain.exe
+- merge:
+    dst: $GAMEDIR/drive_c/KAIN
+    src: $DISC
+- extract:
+    dst: $GAMEDIR/drive_c/KAIN/patch
+    file: lok1mod
+- execute:
+    command: cd "$GAMEDIR/drive_c"; chmod -R +w KAIN ; cd KAIN ; find . -depth -print0
+      | while IFS= read -r -d '' item; do dir=$(dirname "$item"); base=$(basename
+      "$item"); lower=$(printf '%s' "$base" | perl -CS -Mutf8 -ne 'print lc'); if
+      [ "$base" != "$lower" ]; then if [ -e "$dir/$lower" ]; then i=1; newname="${lower}_$i";
+      while [ -e "$dir/$newname" ]; do i=$((i+1)); newname="${lower}_$i"; done; mv
+      "$item" "$dir/$newname"; else mv "$item" "$dir/$lower"; fi; fi; done;
+- merge:
+    dst: $GAMEDIR/drive_c/KAIN
+    src: $GAMEDIR/drive_c/KAIN/patch
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/KAIN/patch
+wine:
+  overrides:
+    ddraw.dll: n,b
