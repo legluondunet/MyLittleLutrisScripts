@@ -10,4 +10,4 @@ installer:
     src: engine
 - chmodx: $GAMEDIR/Dusklight-linux-x86_64.AppImage
 - execute:
-    command: ./Dusklight-linux-x86_64.AppImage --appimage-portable-home ;
+    command: cd "$GAMEDIR"; mkdir Dusklight-linux-x86_64.AppImage.home ;
