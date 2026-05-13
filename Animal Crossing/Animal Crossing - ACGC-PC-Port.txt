@@ -1,0 +1,16 @@
+files:
+- engine: https://github.com/flyngmt/ACGC-PC-Port/releases/download/v0.9.0.1-playtest/ACGC-PC-Port0.9.0.1.zip
+- rom_file: N/A:Select rom file
+game:
+  exe: drive_c/ACGC-PC-Port/AnimalCrossing.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/ACGC-PC-Port
+    file: engine
+- merge:
+    dst: $GAMEDIR/drive_c/ACGC-PC-Port/rom
+    src: rom_file
