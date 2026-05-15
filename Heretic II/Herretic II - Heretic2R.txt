@@ -1,6 +1,6 @@
 files:
 - game_rip: https://archive.org/download/heretic2_cover-2350919043/Heretic%20II%20%28Patched%20Wide%20Screen%29.zip
-- game_engine: https://github.com/m-x-d/Heretic2R/releases/download/R4/Heretic2R_R4.zip
+- game_engine: https://github.com/m-x-d/Heretic2R/releases/download/R5/Heretic2R_R5.zip
 - script_lang: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Heretic%20II/h2local.sh
 game:
   exe: drive_c/Heretic2R/Heretic2R.exe
