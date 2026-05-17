@@ -1,0 +1,9 @@
+files:
+- game_files: https://archive.org/download/msdos_Mortville_Manor_1988/Mortville_Manor_1988.zip
+game:
+  game_id: loom
+  path: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: game_files
