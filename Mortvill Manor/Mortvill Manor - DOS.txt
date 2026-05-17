@@ -1,0 +1,23 @@
+files:
+- game_files: https://archive.org/download/msdos_Mortville_Manor_1988/Mortville_Manor_1988.zip
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR/c/mm
+    file: game_files
+- write_file:
+    content: '[autoexec]
+
+      @echo off
+
+      mount c c
+
+      c:
+
+      cd mm
+
+      mort
+
+      exit'
+    file: $GAMEDIR/dosbox.conf
