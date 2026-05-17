@@ -1,9 +1,17 @@
 files:
 - game_files: https://archive.org/download/msdos_Mortville_Manor_1988/Mortville_Manor_1988.zip
 game:
-  game_id: loom
+  args: --language=$INPUT_LANG
+  game_id: mortevielle
   path: $GAMEDIR
 installer:
 - extract:
     dst: $GAMEDIR
     file: game_files
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    preselect: en
