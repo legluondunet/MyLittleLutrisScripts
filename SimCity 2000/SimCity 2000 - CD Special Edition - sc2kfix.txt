@@ -1,0 +1,30 @@
+files:
+- game_cd:
+    filename: SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO
+    url: https://archive.org/download/SimCity_2000_Special_Edition_Maxis_Inc._1996/SimCity%202000%20-%20Special%20Edition%20%28Maxis%2C%20Inc.%29%281996%29.ISO
+- mod: https://github.com/sc2kfix/sc2kfix/releases/download/r10/sc2kfix-r10.zip
+game:
+  arch: win64
+  exe: drive_c/Skraper/SkraperUI.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- merge:
+    dst: $GAMEDIR/drive_c/SC2K
+    src: $CACHE/WIN95/SC2K
+- merge:
+    dst: $GAMEDIR/drive_c/SC2K/MOVIES
+    src: $CACHE/DATA
+- extract:
+    dst: $GAMEDIR/drive_c/SC2K
+    file: mod
+wine:
+  overrides:
+    winmm: n,b
