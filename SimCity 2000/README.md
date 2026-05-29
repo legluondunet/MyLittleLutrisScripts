@@ -8,3 +8,12 @@ Play "SimCity 2000 Special Edition" on Linux!
 ### Credits:
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# SimCity 2000 Special Edition - CD - DOS
+### Description:
+Play "SimCity 2000 Special Edition" on Linux!
+### Technical notes:
+- DOS version
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
