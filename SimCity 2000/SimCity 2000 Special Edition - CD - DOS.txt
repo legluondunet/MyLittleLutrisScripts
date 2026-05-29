@@ -1,0 +1,48 @@
+files:
+- game_cd:
+    filename: SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO
+    url: https://archive.org/download/SimCity_2000_Special_Edition_Maxis_Inc._1996/SimCity%202000%20-%20Special%20Edition%20%28Maxis%2C%20Inc.%29%281996%29.ISO
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- copy:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- write_file:
+    content: '[autoexec]
+
+      @echo off
+
+      mount c C
+
+      imgmount d "CD/SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO" -t iso
+      -fs iso
+
+      if not exist "c:\SC2000" goto :install
+
+      :play
+
+      c:
+
+      cd SC2000
+
+      SC2VESA.BAT
+
+      goto :exit
+
+      :install
+
+      d:
+
+      cd dos
+
+      call install
+
+      goto :play
+
+      :exit
+
+      exit'
+    file: $GAMEDIR/dosbox.conf
+- execute:
+    command: cd "$GAMEDIR" ; mkdir C ;
