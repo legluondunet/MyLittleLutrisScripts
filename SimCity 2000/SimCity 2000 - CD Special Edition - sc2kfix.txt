@@ -3,9 +3,9 @@ files:
     filename: SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO
     url: https://archive.org/download/SimCity_2000_Special_Edition_Maxis_Inc._1996/SimCity%202000%20-%20Special%20Edition%20%28Maxis%2C%20Inc.%29%281996%29.ISO
 - mod: https://github.com/sc2kfix/sc2kfix/releases/download/r10/sc2kfix-r10.zip
+- music: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Sim%20City%202000/Sim%20City%202000%20soundtrack.7z
 game:
-  arch: win64
-  exe: drive_c/Skraper/SkraperUI.exe
+  exe: drive_c/SC2K/SIMCITY.EXE
   prefix: $GAMEDIR
 installer:
 - task:
@@ -25,6 +25,35 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/SC2K
     file: mod
+- extract:
+    dst: $GAMEDIR/drive_c/SC2K/SOUNDS
+    file: music
+- write_config:
+    data:
+      sc2kfix:
+        szSettingsMusicEngineOutput: mp3
+      sc2kfix.music.MP3:
+        10000: 01 - Downtown Dance (SimCity 2000 Theme Song).mp3
+        10001: 02 - Harbor Hymn.mp3
+        10002: 03 - Traffic Trouble.mp3
+        10003: 04 - Disaster Decision.mp3
+        10004: 05 - Serious Sims.mp3
+        10005: 06 - SimCity Segue.mp3
+        10006: 07 - Subway Song.mp3
+        10007: 08 - Virtual Village.mp3
+        10008: 09 - Railroad Rap.mp3
+        10009: 10 - City Shimmy.mp3
+        10010: 11 - Chinatown Concerto.mp3
+        10011: 12 - Repetition Rendition.mp3
+        10012: 13 - Newspaper Segue.mp3
+        10013: 14 - Mayor Mambo.mp3
+        10014: 15 - Bluesy Berg.mp3
+        10015: 16 - Traffic Trouble (Only section A).mp3
+        10016: 17 - City Shimmy (Only section B).mp3
+        10017: 18 - Unused (10017.MID).mp3
+        10018: 19 - SimCity Classic Theme.mp3
+    file: $GAMEDIR/drive_c/SC2K/sc2kfix.ini
+    merge: true
 wine:
   overrides:
     winmm: n,b
