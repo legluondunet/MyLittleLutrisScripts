@@ -1,4 +1,4 @@
-# SimCity 2000 Special Edition - CD - Windows 95
+# SimCity 2000 - CD Special Edition - Windows 95
 ### Description:
 Play "SimCity 2000 Special Edition" on Linux!
 ### Technical notes:
@@ -10,10 +10,20 @@ Play "SimCity 2000 Special Edition" on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# SimCity 2000 Special Edition - CD - DOS
+# SimCity 2000 - CD Special Edition - DOS
 ### Description:
 Play "SimCity 2000 Special Edition" on Linux!
 ### Technical notes:
 - DOS version
 ### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# SimCity 2000 - CD Special Edition + sc2kfix
+### Description:
+Play "SimCity 2000 Special Edition" on Linux!
+### Technical notes:
+- Using sc2kfix engine
+### Credits:
+- sc2kfix: https://github.com/sc2kfix/sc2kfix
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
