@@ -1,0 +1,52 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_4Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd_1:
+    filename: Diablo II Disc 1 - Install.iso
+    url: https://archive.org/download/diablo-ii-plus-expansion/Diablo%20II%20Disc%201%20-%20Install.iso
+- game_cd_2:
+    filename: Diablo II Disc 2 - Play.iso
+    url: https://archive.org/download/diablo-ii-plus-expansion/Diablo%20II%20Disc%202%20-%20Play.iso
+- game_cd_3:
+    filename: Diablo II Disc 3 - Cinematics.iso
+    url: https://archive.org/download/diablo-ii-plus-expansion/Diablo%20II%20Disc%203%20-%20Cinematics.iso
+- game_cd_dlc:
+    filename: Diablo 2 Lords of Destruction.iso
+    url: https://archive.org/download/diablo-ii-plus-expansion/Diablo%202%20Lords%20of%20Destruction.iso
+- game_cd_patchs:
+    filename: d2_patchs.iso
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Diablo%20II/d2_patchs.7z
+- dbpu_save:
+    filename: Diablo II Disc 1 - Install.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/W98_SE_DBP_4Go.pure.zip
+game:
+  args: '"$GAMEDIR/CD/Diablo II Disc 1 - Install.iso" "$GAMEDIR/CD/Diablo II Disc
+    2 - Play.iso" "$GAMEDIR/CD/Diablo II Disc 3 - Cinematics.iso" "$GAMEDIR/CD/Diablo
+    2 Lords of Destruction.iso" "$GAMEDIR/CD/d2_patchs.iso"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd_1
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd_2
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd_3
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd_dlc
+- extract:
+    dst: $GAMEDIR/CD
+    file: game_cd_patchs
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
