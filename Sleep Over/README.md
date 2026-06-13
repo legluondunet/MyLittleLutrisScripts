@@ -1,9 +1,8 @@
-# Sleep Over
-
+# Sleep Over - Internet archive
 ### Description:
-Support all archives available on the net.
-
+Play "Sleep Over" on Linux!
 ### Technical notes:
-Uses the Ren'Py SDK to run the game natively in Linux: https://www.renpy.org
-
-
+- Using Ren'Py engine to run the game natively in Linux
+### Credits:
+- Ren'Py engine: https://www.renpy.org
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
