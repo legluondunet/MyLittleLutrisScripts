@@ -1,18 +1,17 @@
 files:
-- file1: N/A:Please select the game archive
-- file2: https://www.renpy.org/dl/7.4.0/renpy-7.4.0-sdk.tar.bz2
+- game_file: https://archive.org/download/sleep-over_202606/sleep%20over.zip
+- game_sdk: https://www.renpy.org/dl/7.4.0/renpy-7.4.0-sdk.tar.bz2
 game:
   args: sleepover
   exe: renpy.sh
 installer:
 - extract:
     dst: $GAMEDIR
-    file: $file2
+    file: $game_sdk
 - chmodx: $GAMEDIR/renpy.sh
 - extract:
     dst: $GAMEDIR/tmp
-    file: $file1
+    file: $game_file
 - execute:
     command: cd "$GAMEDIR"; sleepodir=$(dirname "$(find tmp -type f |grep -i archive.rpa)");
       cp -r "$sleepodir" sleepover;
-
