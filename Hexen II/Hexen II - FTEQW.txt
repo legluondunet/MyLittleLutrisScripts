@@ -1,5 +1,5 @@
 files:
-- engine: https://www.fteqw.org/dl/fteqw_linux64.zip
+- engine: https://github.com/fte-team/fteqw/releases/download/2025-09-27/fteqw-linux64-c781d13.zip
 - music: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen2/hexen2_music.7z
 game:
   args: -nohome
