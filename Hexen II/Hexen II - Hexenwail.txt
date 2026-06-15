@@ -1,0 +1,27 @@
+files:
+- engine: https://github.com/hexenwail/hexenwail/releases/download/0.7.8-beta.r4/hexenwail-0.7.8-beta.r4-linux-x86_64.zip
+- game_libs: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Hexen%20II/hexenwail_lib.7z
+- music: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/hexen2/hexen2_music.7z
+game:
+  exe: $GAMEDIR/glhexen2
+  ld_library_path: $GAMEDIR/lib
+installer:
+- insert-disc:
+    description: Please use Browse button to select Hexen II install folder where
+      pak0.pak and pak1.pak files are located, do not use autodetect button.
+    requires: pak0.pak
+- merge:
+    dst: $GAMEDIR/data1
+    src: $DISC
+- extract:
+    dst: $CACHE
+    file: engine
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/linux-x86_64/bin/glhexen2
+- extract:
+    dst: $GAMEDIR/lib
+    file: game_libs
+- extract:
+    dst: $GAMEDIR/data1/music
+    src: music
