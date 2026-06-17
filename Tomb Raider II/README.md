@@ -11,7 +11,7 @@ Play "Tomb Raider II" provided by GOG on Linux!
 
 # Tomb Raider II - Steam + TR2X
 ### Description:
-Play "Tomb Raider II" provided by GOG on Linux!
+Play "Tomb Raider II" provided by Steam on Linux!
 ### Technical notes:
 - Using TRX open source engine
 - "The Golden Mask" extension included
