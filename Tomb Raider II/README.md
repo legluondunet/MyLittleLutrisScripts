@@ -1,22 +1,22 @@
-# Tomb Raider II - GOG + TR2X
+# Tomb Raider II - GOG + TRX
 ### Description:
 Play "Tomb Raider II" provided by GOG on Linux!
 ### Technical notes:
-- Using TR2X open source engine
+- Using TRX open source engine
 - "The Golden Mask" extension included
 ### Credits:
-- TR2X: https://github.com/LostArtefacts/TRX
+- TRX: https://github.com/LostArtefacts/TRX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
 # Tomb Raider II - Steam + TR2X
 ### Description:
-Play "Tomb Raider II" provided by Steam on Linux!
+Play "Tomb Raider II" provided by GOG on Linux!
 ### Technical notes:
-- Using TR2X open source engine
+- Using TRX open source engine
 - "The Golden Mask" extension included
 ### Credits:
-- TR2X: https://github.com/LostArtefacts/TRX
+- TRX: https://github.com/LostArtefacts/TRX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
