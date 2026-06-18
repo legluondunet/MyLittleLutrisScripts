@@ -21,6 +21,9 @@ installer:
 - merge:
     dst: $GAMEDIR/games/tr2/levels
     src: $GAMEDIR/tmp/data
+- move:
+    dst: $GAMEDIR/games/tr2
+    src: $GAMEDIR/games/tr2/levels/MAIN.SFX
 - merge:
     dst: $GAMEDIR/games/tr2/fmv
     src: $GAMEDIR/tmp/fmv
@@ -28,8 +31,11 @@ installer:
     dst: $GAMEDIR/games/tr2/music
     src: $GAMEDIR/tmp/music
 - extract:
-    dst: $GAMEDIR/games//tr2-gm/levels
+    dst: $GAMEDIR/games/tr2-gm/levels
     file: dlc
+- move:
+    dst: $GAMEDIR/games/tr2-gm
+    src: $GAMEDIR/games/tr2-gm/levels/main_gm.sfx
 - extract:
     dst: $GAMEDIR
     file: engine
