@@ -2,6 +2,31 @@ files:
 - game_cd: https://archive.org/download/TOMB3GOLDUSA/TOMB%203%20GOLD%20%28USA%29.zip
 - engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.5/TRX-1.5-Linux-tr3.zip
 game:
+  args: --mod tr3-la
+  exe: TRX
+installer:
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: zip
+- extract:
+    dst: $GAMEDIR/games/tr3-la
+    file: $CACHE/TR3 GOLD.iso
+    format: iso
+- move:
+    dst: $GAMEDIR/games/tr3-la/levels
+    src: $GAMEDIR/games/tr3-la/data
+- move:
+    dst: $GAMEDIR/games/tr3-la
+    src: $GAMEDIR/games/tr3-la/levels/MAIN.SFX
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/TRX
+files:
+- game_cd: https://archive.org/download/TOMB3GOLDUSA/TOMB%203%20GOLD%20%28USA%29.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.5/TRX-1.5-Linux-tr3.zip
+game:
   exe: TRX/TRX
 installer:
 - extract:
