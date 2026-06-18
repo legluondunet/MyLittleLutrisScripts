@@ -1,0 +1,20 @@
+files:
+- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.8.1/TRX-1.8.1-Linux.zip
+- steam_data: $STEAM:225320:/
+game:
+  args: --mod tr3
+  exe: TRX
+installer:
+- merge:
+    dst: $GAMEDIR/games/tr3
+    src: $steam_data
+- move:
+    dst: $GAMEDIR/games/tr3/levels
+    src: $GAMEDIR/games/tr3/data
+- move:
+    dst: $GAMEDIR/games/tr3
+    src: $GAMEDIR/games/tr3/levels/MAIN.SFX
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/TRX
