@@ -1,14 +1,14 @@
 files:
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 - gogsetup: N/A:Select the installer downloaded from your GOG account
-- engine: https://github.com/LostArtefacts/TRX/releases/download/tr1-4.13/TR1X-4.13-Linux.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.8.1/TRX-1.8.1-Linux.zip
 - dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
 - audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
-  exe: TR1X/TR1X
+  exe: TRX/TRX
   launch_configs:
   - args: -gold
-    exe: $GAMEDIR/TR1X/TR1X
+    exe: $GAMEDIR/TRX/TRX
     name: Tomb Raider 1 - Unfinished Business
 installer:
 - extract:
@@ -23,23 +23,23 @@ installer:
       if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
       ./7z x -y $cd;
 - merge:
-    dst: $GAMEDIR/TR1X/DATA
+    dst: $GAMEDIR/TRX/DATA
     src: $GAMEDIR/tmp/DATA
 - extract:
-    dst: $GAMEDIR/TR1X/DATA
+    dst: $GAMEDIR/TRX/DATA
     file: dlc
 - merge:
-    dst: $GAMEDIR/TR1X/FMV
+    dst: $GAMEDIR/TRX/FMV
     src: $GAMEDIR/tmp/FMV
 - extract:
-    dst: $GAMEDIR/TR1X
+    dst: $GAMEDIR/TRX
     file: engine
 - merge:
-    dst: $GAMEDIR/TR1X/data
-    src: $GAMEDIR/TR1X/DATA
+    dst: $GAMEDIR/TRX/data
+    src: $GAMEDIR/TRX/DATA
 - extract:
-    dst: $GAMEDIR/TR1X/music
+    dst: $GAMEDIR/TRX/music
     file: audiotracks
-- chmodx: $GAMEDIR/TR1X
+- chmodx: $GAMEDIR/TRX
 - execute:
-    command: cd "$GAMEDIR" ; rm -f -r tmp TR1X/DATA;
+    command: cd "$GAMEDIR" ; rm -f -r tmp TRX/DATA;
