@@ -5,10 +5,11 @@ files:
 - dlc: https://lostartefacts.dev/aux/tr1x/trub-music.zip
 - audiotracks: https://lostartefacts.dev/aux/tr1x/music.zip
 game:
-  exe: TRX/TRX
+  args: --mod tr1
+  exe: TRX
   launch_configs:
-  - args: -gold
-    exe: $GAMEDIR/TRX/TRX
+  - args: --mod tr1-ub
+    exe: $GAMEDIR/TRX
     name: Tomb Raider 1 - Unfinished Business
 installer:
 - merge:
@@ -22,23 +23,18 @@ installer:
       if [ -f "GAME-01.iso" ]; then cd=GAME-01.iso; else  cd=GAME.GOG; fi; echo $cd;
       ./7z x -y $cd;
 - merge:
-    dst: $GAMEDIR/TRX/DATA
+    dst: $GAMEDIR/games/tr1/levels
     src: $GAMEDIR/tmp/DATA
-- extract:
-    dst: $GAMEDIR/TRX/DATA
-    file: dlc
 - merge:
-    dst: $GAMEDIR/TRX/FMV
+    dst: $GAMEDIR/games/tr1/fmv
     src: $GAMEDIR/tmp/FMV
 - extract:
-    dst: $GAMEDIR/TRX
-    file: engine
-- merge:
-    dst: $GAMEDIR/TRX/data
-    src: $GAMEDIR/TRX/DATA
-- extract:
-    dst: $GAMEDIR/TRX/music
+    dst: $GAMEDIR/games/tr1/music
     file: audiotracks
-- chmodx: $GAMEDIR/TRX/TRX
-- execute:
-    command: cd "$GAMEDIR" ; rm -f -r tmp TRX/DATA;
+- extract:
+    dst: $GAMEDIR/games//tr1-ub/levels
+    file: dlc
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/TRX
