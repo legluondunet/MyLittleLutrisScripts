@@ -1,22 +1,22 @@
-# Tomb Raider I - GOG - TR1X
+# Tomb Raider I - GOG - TRX
 ### Description:
 Play "Tomb Raider I" provided by GOG on Linux!
 ### Technical notes:
-- Using TR1X open source engine
+- Using TRX open source engine
 - "Unfinished Business" extension included
 ### Credits:
-- TR1X: https://github.com/LostArtefacts/TRX
+- TRX: https://github.com/LostArtefacts/TRX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Tomb Raider I - Steam - TR1X
+# Tomb Raider I - Steam - TRX
 ### Description:
 Play "Tomb Raider I" provided by Steam on Linux!
 ### Technical notes:
-- Using TR1X open source engine
+- Using TRX open source engine
 - "Unfinished Business" extension included
 ### Credits:
-- TR1X: https://github.com/LostArtefacts/TRX
+- TRX: https://github.com/LostArtefacts/TRX
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
