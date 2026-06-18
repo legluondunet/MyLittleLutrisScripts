@@ -9,7 +9,7 @@ Play "Tomb Raider II" provided by GOG on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Tomb Raider II - Steam + TR2X
+# Tomb Raider II - Steam + TRX
 ### Description:
 Play "Tomb Raider II" provided by Steam on Linux!
 ### Technical notes:
