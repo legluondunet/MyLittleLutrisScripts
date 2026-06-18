@@ -3,18 +3,29 @@ files:
 - steam_data: $STEAM:225300:/
 - dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
 game:
-  exe: $GAMEDIR/TRX
+  args: --mod tr2
+  exe: TRX
   launch_configs:
-  - args: -gold
+  - args: --mod tr2-gm
     exe: $GAMEDIR/TRX
     name: Tomb Raider II - The Golden Mask
 installer:
 - merge:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/games/tr2
     src: $steam_data
+- move:
+    dst: $GAMEDIR/games/tr2/levels
+    src: $GAMEDIR/games/tr2/data
+- move:
+    dst: $GAMEDIR/games/tr2
+    src: $GAMEDIR/games/tr2/levels/MAIN.SFX
+- extract:
+    dst: $GAMEDIR/games/tr2-gm/levels
+    file: dlc
+- move:
+    dst: $GAMEDIR/games/tr2-gm
+    src: $GAMEDIR/games/tr2-gm/levels/main_gm.sfx
 - extract:
     dst: $GAMEDIR
-    src: engine
-- extract:
-    dst: $GAMEDIR/data
-    src: dlc
+    file: engine
+- chmodx: $GAMEDIR/TRX
