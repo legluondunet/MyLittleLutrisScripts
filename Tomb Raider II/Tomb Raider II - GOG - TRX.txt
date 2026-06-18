@@ -4,35 +4,33 @@ files:
     GOG account
 - dlc: https://lostartefacts.dev/aux/tr2x/trgm.zip
 game:
-  exe: $GAMEDIR/TRX/TRX
+  args: --mod tr2
+  exe: TRX
   launch_configs:
-  - args: -gold
-    exe: $GAMEDIR/TRX/TRX
+  - args: --mod tr2-gm
+    exe: $GAMEDIR/TRX
     name: Tomb Raider II - The Golden Mask
 installer:
 - extract:
     dst: $GAMEDIR/tmp
     file: gogsetup
     format: gog
-- extract:
-    dst: $GAMEDIR/tmp/data
-    src: dlc
-- extract:
-    dst: $GAMEDIR/TRX
-    src: engine
 - execute:
     command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/tmp/music"; for i in *.ogg; do filename=$(basename
       $i .ogg); ffmpeg -i $i $filename.flac; done; rm -f -r *.ogg;
 - merge:
-    dst: $GAMEDIR/TRX/data
+    dst: $GAMEDIR/games/tr2/levels
     src: $GAMEDIR/tmp/data
 - merge:
-    dst: $GAMEDIR/TRX/fmv
+    dst: $GAMEDIR/games/tr2/fmv
     src: $GAMEDIR/tmp/fmv
 - merge:
-    dst: $GAMEDIR/TRX/music
+    dst: $GAMEDIR/games/tr2/music
     src: $GAMEDIR/tmp/music
-- chmodx: $GAMEDIR/TRX/TRX
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/tmp
+- extract:
+    dst: $GAMEDIR/games//tr2-gm/levels
+    file: dlc
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/TRX
