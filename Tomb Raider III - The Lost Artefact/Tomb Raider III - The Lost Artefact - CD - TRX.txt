@@ -1,6 +1,6 @@
 files:
 - game_cd: https://archive.org/download/TOMB3GOLDUSA/TOMB%203%20GOLD%20%28USA%29.zip
-- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.5/TRX-1.5-Linux-tr3.zip
+- engine: https://github.com/LostArtefacts/TRX/releases/download/trx-1.8.1/TRX-1.8.1-Linux.zip
 game:
   args: --mod tr3-la
   exe: TRX
