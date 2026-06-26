@@ -1,0 +1,38 @@
+files:
+- game_cd1: https://archive.org/download/msdos_Last_Express_The_1997/Last_Express_The_1997.zip/lexpress%2Fcd%2FDISK1.iso
+- game_cd2: https://archive.org/download/msdos_Last_Express_The_1997/Last_Express_The_1997.zip/lexpress%2Fcd%2FDISK2.iso
+- game_cd3: https://archive.org/download/msdos_Last_Express_The_1997/Last_Express_The_1997.zip/lexpress%2Fcd%2FDISK3.iso
+- tool: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/Unshield/unshield.7z
+game:
+  game_id: lastexpress
+  path: $GAMEDIR
+  subtitles: true
+installer:
+- extract:
+    dst: $CACHE
+    file: game_cd1
+    format: iso
+- extract:
+    dst: $CACHE
+    file: game_cd2
+    format: iso
+- extract:
+    dst: $CACHE
+    file: game_cd3
+    format: iso
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/CD1.HPF
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/CD2.HPF
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/CD3.HPF
+- extract:
+    dst: $CACHE/WINDOWS
+    file: tool
+- execute:
+    command: cd "$CACHE/WINDOWS"; [ -f "DATA1.CAB" ] && ./unshield x DATA1.CAB ; cd
+      ../DATA ; [ -f "HD.HPF" ] && cp HD.HPF "$GAMEDIR" ;
+    return_code: 256
