@@ -1,4 +1,4 @@
-# Hardwood Pades - 2.1 Build 61 + Windows 95
+# Hardwood Pades - 1.1 Build 17 + Windows 95
 ### Description:
 Play "Hardwood Spades" on Linux!
 ### Technical notes:
