@@ -1,0 +1,21 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_file: https://archive.org/download/heartsb61/heartsb61.exe
+game:
+  args: $GAMEDIR/D
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- merge:
+    dst: $GAMEDIR/D
+    src: game_file
+- write_file:
+    content: O*WIN95_OSR25_DBP_2Go
+    file: $GAMEDIR/D/AUTOBOOT.DBP
