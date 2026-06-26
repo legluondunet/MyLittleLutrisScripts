@@ -1,0 +1,15 @@
+files:
+- game_file: https://d1246bl1ced66u.cloudfront.net/downloads/build630/InstallHardwoodSolitaireIV.exe
+game:
+  exe: drive_c/Program Files/Hardwood Solitaire IV/solitaire.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing game...
+    executable: game_file
+    name: wineexec
+    prefix: $GAMEDIR
