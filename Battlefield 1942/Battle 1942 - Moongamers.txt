@@ -1,8 +1,8 @@
 files:
-- file1: 'N/A: Select BattleField 1942 setup installer downloaded from https://archive.org/download/battlefield1942thecompletecollectionwindows10compatible'
+- file1: 'N/A: Select BattleField 1942 setup installer downloaded from https://steamcommunity.com/sharedfiles/filedetails/?id=2721068159'
 - patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Battlefield%201942%20-%20Complete%20Edition/bf1942_patch.tar.xz
 game:
-  exe: drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/BF1942.exe
+  exe: drive_c/EA Games/Battlefield 1942/BF1942.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -14,10 +14,10 @@ installer:
     executable: file1
     name: wineexec
 - copy:
-    dst: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/backup
-    src: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/BF1942.exe
+    dst: $GAMEDIR/drive_c/EA Games/Battlefield 1942/backup
+    src: $GAMEDIR/drive_c/EA Games/Battlefield 1942/BF1942.exe
 - extract:
-    dst: $GAMEDIR/drive_c/GAMES/BATTLEFIELD_1942_COMPLETE
+    dst: $GAMEDIR/drive_c/EA Games/Battlefield 1942
     file: patch
 - input_menu:
     description: 'Choose the game''s language for menus:'
@@ -39,5 +39,5 @@ installer:
     type: REG_SZ
     value: $INPUT_LANG
 - execute:
-    command: cd "$GAMEDIR//drive_c/GAMES/BATTLEFIELD_1942_COMPLETE/Mods/bf1942/Settings/Profiles/Custom";
+    command: cd "$GAMEDIR//drive_c/EA Games/Battlefield 1942/Mods/bf1942/Settings/Profiles/Custom";
       sed -i -e s/1024\ 768/$RESOLUTION_WIDTH\ $RESOLUTION_HEIGHT/ Video.con;
