@@ -1,6 +1,6 @@
 files:
 - file1: 'N/A: Select BattleField 1942 setup installer downloaded from https://steamcommunity.com/sharedfiles/filedetails/?id=2721068159'
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Battlefield%201942%20-%20Complete%20Edition/bf1942_patch.tar.xz
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Battlefield%201942/bf1942_patch.tar.xz
 game:
   exe: drive_c/EA Games/Battlefield 1942/BF1942.exe
   prefix: $GAMEDIR
