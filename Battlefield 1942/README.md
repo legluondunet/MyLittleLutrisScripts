@@ -2,7 +2,7 @@
 ### Description:
 Play "Battlefield 1942 - Complete Edition" on Linux!
 ### Technical notes:
-- Before to launch this script, you have to download "Battlefield 1942 complete edition" setup installer at https://archive.org/download/battlefield1942thecompletecollectionwindows10compatible
+- Before to launch this script, you have to download "Battlefield 1942" setup installer from Moongamer at https://steamcommunity.com/sharedfiles/filedetails/?id=2721068159
 - Multilingual: you will be able to choose your preferred language for the menus between English (default), French, Italian, Spanish, German, Chinese, Korean and Japanese
 - Game executable patched to enable connection to the new master server: master.bf1942.org
 ### Credits:
