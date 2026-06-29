@@ -1,0 +1,17 @@
+files:
+- os_arch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_31/Windows_3.1.7z
+- game_cd:
+    filename: Bad Mojo (1996)(Acclaim).iso
+    url: https://archive.org/download/Bad_Mojo_1996_Acclaim/Bad%20Mojo%20%281996%29%28Acclaim%29.iso
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: os_arch
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- execute:
+    command: cd "$GAMEDIR" ; sed -i '237i imgmount d "CD/Bad Mojo (1996)(Acclaim).iso"
+      -t iso' dosbox.conf ; cd C/WINDOWS ; cp -f SYSTEM.INI.256 SYSTEM.INI;
