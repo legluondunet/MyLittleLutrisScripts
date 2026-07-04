@@ -2,8 +2,9 @@ files:
 - game_cd: https://archive.org/download/Nova_MechWarrior3PM_USA/MechWarrior%203%20-%20Pirate%27s%20Moon%20%28Expansion%20Pack%29%20%28USA%29.7z
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203%20-%20Pirate's%20Moon/mw3pm_zipfixup.zip
 game:
-  exe: drive_c/MicroProse/MechWarrior 3 Pirate's Moon/mech3.exe
+  exe: drive_c/MicroProse/MechWarrior 3 Pirate's Moon/Mech3fixup.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -62,6 +63,9 @@ installer:
     executable: $GAMEDIR/drive_c/MW3 PM/Setup.exe
     name: wineexec
     prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon
+    file: patch
 - merge:
     dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon/Music
     src: $CACHE/track02.wav
