@@ -1,0 +1,178 @@
+files:
+- game_cd: https://archive.org/download/Nova_MechWarrior3PM_USA/MechWarrior%203%20-%20Pirate%27s%20Moon%20%28Expansion%20Pack%29%20%28USA%29.7z
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203%20-%20Pirate's%20Moon/mw3pm_zipfixup.zip
+game:
+  exe: drive_c/MicroProse/MechWarrior 3 Pirate's Moon/Mech3fixup.exefiles:
+- game_cd: https://archive.org/download/Nova_MechWarrior3PM_USA/MechWarrior%203%20-%20Pirate%27s%20Moon%20%28Expansion%20Pack%29%20%28USA%29.7z
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MechWarrior%203%20-%20Pirate's%20Moon/mw3pm_patch.zip
+game:
+  exe: drive_c/MicroProse/MechWarrior 3 Pirate's Moon/mech3.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract "MechWarrior 3 - Pirate's Moon" archive
+    dst: $CACHE
+    format: 7z
+    src: game_cd
+- extract:
+    dst: $CACHE
+    format: zip
+    src: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "MechWarrior 3 - Pirate's Moon (Expansion Pack)
+      (USA).cue" ; ./bchunk -w "MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA)
+      (Track 2).bin" "MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA).cue" "MechWarrior
+      3 - Pirate's Moon (Expansion Pack) (USA) (Track 2)" ; mv "MechWarrior 3 - Pirate's
+      Moon (Expansion Pack) (USA) (Track 2)02.wav" track02.wav ; cd "$GAMEDIR/drive_c"
+      ; mkdir "MW3"  "MW3 PM"; cd ../dosdevices ; ln -s "$GAMEDIR/drive_c/MW3" 'a:';
+      ln -s "$GAMEDIR/drive_c/MW3 PM" 'b:';
+- extract:
+    description: extract "MechWarrior 3 - Pirate's Moon" data
+    dst: $GAMEDIR/drive_c/MW3 PM
+    file: $CACHE/MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA) (Track 1)-01.iso
+    format: iso
+- write_file:
+    content: '[Startup]
+
+      AppName=Mech Warrior 3
+
+      FreeDiskSpace=527
+
+      EnableLangDlg=Y
+
+
+      [ISUPDATE]
+
+      UpdateURL=http://'
+    file: $GAMEDIR/drive_c/MW3/SETUP.INI
+- task:
+    key: 'a:'
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wine\Drives
+    type: REG_SZ
+    value: cdrom
+- task:
+    key: 'b:'
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wine\Drives
+    type: REG_SZ
+    value: cdrom
+- task:
+    description: Installing "MechWarrior 3 - Pirate's Moon"...
+    executable: $GAMEDIR/drive_c/MW3 PM/Setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon/backup
+    src: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon/mech3.exe
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon
+    file: patch
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon/Music
+    src: $CACHE/track02.wav
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon
+    src: wrapper
+- task:
+    app: avifil32 directplay
+    name: winetricks
+    silent: true
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/MW3
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/MW3 PM
+system:
+  gamescope: true
+  gamescope_fps_limiter: '30'
+wine:
+  overrides:
+    winmm: n,b
+
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract "MechWarrior 3 - Pirate's Moon" archive
+    dst: $CACHE
+    format: 7z
+    src: game_cd
+- extract:
+    dst: $CACHE
+    format: zip
+    src: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "MechWarrior 3 - Pirate's Moon (Expansion Pack)
+      (USA).cue" ; ./bchunk -w "MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA)
+      (Track 2).bin" "MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA).cue" "MechWarrior
+      3 - Pirate's Moon (Expansion Pack) (USA) (Track 2)" ; mv "MechWarrior 3 - Pirate's
+      Moon (Expansion Pack) (USA) (Track 2)02.wav" track02.wav ; cd "$GAMEDIR/drive_c"
+      ; mkdir "MW3"  "MW3 PM"; cd ../dosdevices ; ln -s "$GAMEDIR/drive_c/MW3" 'a:';
+      ln -s "$GAMEDIR/drive_c/MW3 PM" 'b:';
+- extract:
+    description: extract "MechWarrior 3 - Pirate's Moon" data
+    dst: $GAMEDIR/drive_c/MW3 PM
+    file: $CACHE/MechWarrior 3 - Pirate's Moon (Expansion Pack) (USA) (Track 1)-01.iso
+    format: iso
+- write_file:
+    content: '[Startup]
+
+      AppName=Mech Warrior 3
+
+      FreeDiskSpace=527
+
+      EnableLangDlg=Y
+
+
+      [ISUPDATE]
+
+      UpdateURL=http://'
+    file: $GAMEDIR/drive_c/MW3/SETUP.INI
+- task:
+    key: 'a:'
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wine\Drives
+    type: REG_SZ
+    value: cdrom
+- task:
+    key: 'b:'
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\Software\Wine\Drives
+    type: REG_SZ
+    value: cdrom
+- task:
+    description: Installing "MechWarrior 3 - Pirate's Moon"...
+    executable: $GAMEDIR/drive_c/MW3 PM/Setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon
+    file: patch
+- merge:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon/Music
+    src: $CACHE/track02.wav
+- extract:
+    dst: $GAMEDIR/drive_c/MicroProse/MechWarrior 3 Pirate's Moon
+    src: wrapper
+- task:
+    app: avifil32 directplay
+    name: winetricks
+    silent: true
+system:
+  gamescope: true
+  gamescope_fps_limiter: '30'
+  gamescope_game_res: 1280x720
+wine:
+  overrides:
+    winmm: n,b
