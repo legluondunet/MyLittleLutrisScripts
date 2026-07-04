@@ -9,7 +9,7 @@ Play "MechWarrior 3" CD edition on Linux!
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# MechWarrior 3 - CD
+# MechWarrior 3 - CD + ZipperFixup
 ### Description:
 Play "MechWarrior 3" CD edition on Linux!
 ### Technical notes:
