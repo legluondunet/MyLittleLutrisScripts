@@ -13,7 +13,9 @@ Play "MechWarrior 3" CD edition on Linux!
 ### Description:
 Play "MechWarrior 3" CD edition on Linux!
 ### Technical notes:
+- Update 1.2 and ZipperFixup patch included
 - Known issues: This game does not support Alt-Tab, you will loose mouse interaction. Workaround: use Gamescope
 ### Credits:
+- ZipperFixup: https://github.com/TerranMechworks/ZipperFixup
 - CDAudio proxy: https://sourceforge.net/projects/cdaudio-proxy
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
