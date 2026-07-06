@@ -31,7 +31,7 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
     src: script
 - task:
-    app: dmusic dmstyle dmime dmband
+    app: dmusic dmstyle dmime dmband dmscript
     name: winetricks
     silent: true
 - extract:
@@ -54,8 +54,9 @@ installer:
       FPSLimit=60'
     file: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/dgVoodoo.conf
 system:
-  prelaunch_command: $GAMEDIR/d/drive_c/Program Files (x86)/LEGO Media/LEGO Island
-    2/li2.sh
+  gamescope: false
+  prelaunch_command: '"$GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island
+    2/li2.sh"'
 wine:
   overrides:
     ddraw: n,b
