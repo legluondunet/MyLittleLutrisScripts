@@ -1,0 +1,25 @@
+files:
+- game_cd: https://archive.org/download/lego-islandi_202505/LEGO_ISLANDI.ISO
+- engine: https://github.com/isledecomp/isle-portable/releases/download/continuous/Isle_Portable-x86_64.AppImage
+game:
+  exe: $GAMEDIR/Isle_Portable-x86_64.AppImage
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR/CD
+    format: iso
+    src: game_cd
+- chmodx: engine
+- merge:
+    dst: $GAMEDIR
+    src: engine
+- execute:
+    command: cd "$GAMEDIR" ; mkdir Isle_Portable-x86_64.AppImage.config Isle_Portable-x86_64.AppImage.home
+      saves;
+- write_config:
+    data:
+      isle:
+        cdpath: $GAMEDIR/CD
+        diskpath: $GAMEDIR/CD/DATA/disk
+        savepath: $GAMEDIR/saves
+    file: $GAMEDIR/Isle_Portable-x86_64.AppImage.home/.local/share/isledecomp/isle/isle.ini
