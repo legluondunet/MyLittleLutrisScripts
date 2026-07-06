@@ -56,8 +56,8 @@ installer:
     file: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/dgVoodoo.conf
 system:
   gamescope: false
-  prelaunch_command: '"$GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island
-    2/li2.sh"'
+  prelaunch_command: '''$GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island
+    2/li2.sh'''
 wine:
   overrides:
     ddraw: n,b
