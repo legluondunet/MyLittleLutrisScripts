@@ -1,0 +1,61 @@
+files:
+- game_cd:
+    filename: Lego Island 2.iso
+    url: https://archive.org/download/lego-island-2/Lego%20Island%202.iso
+- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Lego%20Island%202/li2_patch.zip
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- script: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Lego%20Island%202/li2.sh
+game:
+  exe: drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/LEGO Island 2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- task:
+    executable: $CACHE/LEGO Island 2/Setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/LEGO Island
+      2.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
+    file: patch
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
+    src: script
+- task:
+    app: dmusic dmstyle dmime dmband
+    name: winetricks
+    silent: true
+- extract:
+    dst: $CACHE
+    format: zip
+    src: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
+    src: $CACHE/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
+    src: $CACHE/MS/x86/D3DImm.dll
+- write_file:
+    content: '[DirectX]
+
+      dgVoodooWatermark=False
+
+      [GeneralExt]
+
+      FPSLimit=60'
+    file: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2/dgVoodoo.conf
+system:
+  prelaunch_command: $GAMEDIR/d/drive_c/Program Files (x86)/LEGO Media/LEGO Island
+    2/li2.sh
+wine:
+  overrides:
+    ddraw: n,b
