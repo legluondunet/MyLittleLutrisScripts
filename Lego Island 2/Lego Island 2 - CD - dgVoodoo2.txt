@@ -27,6 +27,7 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
     file: patch
+- chmodx: script
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/LEGO Media/LEGO Island 2
     src: script
