@@ -1,18 +1,21 @@
-# SereneScreen Marine Aquarium 3 - Deluxe
-### Description:
-Enjoy this marvellous screensaver on Linux!
-### Technical notes:
-- keys:
--- right click or space: config options
--- B: turn bubbles sound on/off
--- F: Fullscreen/Windowed
--- S: Display statistics, framerate
--- ESC: exit
--- C: Displays the clock or calendar for 10 seconds. Pressing C repeatedly cycles through the visual elements
--- L: Show next image in the Logo playlist
-More infos in the manual
-- Known issues:
--- Bubbles audio cut
--- Music do not play
-### Credits:
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+files:
+- game_cd: https://archive.org/download/serene-screen-marine-aquarium-version-3-deluxe-screensaver-2009/Serene%20Screen%20Marine%20Aquarium%20Version%203%20Deluxe%20Screensaver%202009.iso
+game:
+  exe: drive_c/SMAQUARIUM/marineaquarium3.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extracting SereneScreen Marine Aquarium ISO...
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- extract:
+    description: Extracting SereneScreen Marine Aquarium ISO...
+    dst: $GAMEDIR/drive_c/SMAQUARIUM
+    file: $CACHE/Aquarium/Data1.cab
+    format: cab
+- execute:
+    command: cd "$GAMEDIR/drive_c/SMAQUARIUM" ; mv marineaquarium3.scr marineaquarium3.exe;
