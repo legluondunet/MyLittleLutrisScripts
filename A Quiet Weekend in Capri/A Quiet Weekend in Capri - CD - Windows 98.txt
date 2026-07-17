@@ -1,0 +1,36 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- dbpu_save:
+    filename: dev-capa.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
+- cd1_img_cue: https://archive.org/download/misteri_di_capri/A%20quiet%20weekend%20a%20Capri/dev-capa/dev-capa.cue
+- cd1_img_bin: https://archive.org/download/misteri_di_capri/A%20quiet%20weekend%20a%20Capri/dev-capa/dev-capa.bin
+- cd2_img_cue: https://archive.org/download/misteri_di_capri/A%20quiet%20weekend%20a%20Capri/dev-capb/dev-capb.cue
+- cd2_img_bin: https://archive.org/download/misteri_di_capri/A%20quiet%20weekend%20a%20Capri/dev-capb/dev-capb.bin
+game:
+  args: '"$GAMEDIR/CD/dev-capa.cue" "$GAMEDIR/CD/dev-capb.cue"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
+- merge:
+    dst: $GAMEDIR/CD
+    src: cd1_img_cue
+- merge:
+    dst: $GAMEDIR/CD
+    src: cd1_img_bin
+- merge:
+    dst: $GAMEDIR/CD
+    src: cd2_img_cue
+- merge:
+    dst: $GAMEDIR/CD
+    src: cd2_img_bin
