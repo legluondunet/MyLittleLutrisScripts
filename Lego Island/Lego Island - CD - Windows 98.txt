@@ -1,0 +1,24 @@
+files:
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_2Go.7z
+- dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
+- game_cd: https://archive.org/download/lego-islandi_202505/LEGO_ISLANDI.ISO
+- dbpu_save:
+    filename: LEGO_ISLANDI.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
+game:
+  args: '"$GAMEDIR/CD/LEGO_ISLANDI.ISO"'
+  exe: $GAMEDIR/DOSBoxPure_x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: dbpu_file
+- extract:
+    dst: $GAMEDIR/system
+    file: os_img
+- merge:
+    dst: $GAMEDIR/CD
+    src: game_cd
+- merge:
+    dst: $GAMEDIR/saves
+    src: dbpu_save
