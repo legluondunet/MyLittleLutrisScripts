@@ -12,7 +12,6 @@ Enjoy this marvellous screensaver on Linux!
 -- L: Show next image in the Logo playlist
 More infos in the manual
 - Known issues:
--- Bubbles audio cut
--- Music do not play
+-- Bubbles audio cut: see https://bugs.winehq.org/show_bug.cgi?id=60027
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
