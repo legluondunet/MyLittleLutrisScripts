@@ -18,4 +18,4 @@ installer:
     file: $CACHE/Aquarium/Data1.cab
     format: cab
 - execute:
-    command: cd "$GAMEDIR/drive_c/SMAQUARIUM" ; mv marineaquarium3.scr marineaquarium3.exe;
+    command: cd "$GAMEDIR/drive_c/SMAQUARIUM" ; cp marineaquarium3.scr marineaquarium3.exe;
