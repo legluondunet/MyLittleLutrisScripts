@@ -8,7 +8,7 @@ Play "Harry Potter and the Chamber of Secrets" CD edition on Linux!
 - This game does not natively support controller. You will find an Antimicrox profile here:
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets/gamepad%20profiles
 ### Credits:
-- D7VK: https://github.com/WinterSnowfall/d7vkv
+- D7VK: https://github.com/WinterSnowfall/d7vk
 - JaGoTu Menu fix: https://hp-games.net/mods-cs-jagotuwidescreen-en
 - HP2 Wine fix by Federico Massena: https://fdossena.com/?p=hp2wine/i.md
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
