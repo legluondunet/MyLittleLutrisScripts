@@ -30,5 +30,3 @@ installer:
 system:
   gamescope: true
   gamescope_game_res: 1024x768
-wine:
-  version: wine-ge-8-26-x86_64
