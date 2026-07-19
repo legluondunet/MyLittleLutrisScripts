@@ -7,4 +7,11 @@ Play "Scooby-Doo - Jinx at the Sphinx" CD edition on Linux!
 - Press "CTRL+F12" to show Dosbox Pure Unleashed menu
 ### Credits:
 - Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
-- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScriptsTEST
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# Scooby-Doo - Jinx at the Sphinx - CD
+### Description:
+Play "Scooby-Doo - Jinx at the Sphinx" CD edition on Linux!
+### Technical notes:
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
