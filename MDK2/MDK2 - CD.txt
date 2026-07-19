@@ -1,0 +1,42 @@
+files:
+- game_cd: https://archive.org/download/20230723_20230723_0858/MDK2%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/MDK2/mdk2_patch.zip
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+game:
+  exe: drive_c/Program Files (x86)/MDK2/mdk2Main.exe
+  prefix: $GAMEDIR
+installer:
+- extract:
+    dst: $CACHE
+    file: game_cd
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "MDK2 (USA) (En,Fr,De,Es,It).bin" "MDK2 (USA)
+      (En,Fr,De,Es,It).cue" "MDK2 (USA) (En,Fr,De,Es,It)" ;
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE/CD
+    file: $CACHE/MDK2 (USA) (En,Fr,De,Es,It)01.iso
+    format: iso
+- task:
+    description: Installing game, choose full install and let other options to default.
+    executable: $CACHE/CD/Autorun.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MDK2/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/MDK2/mdk2Main.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MDK2/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/MDK2/MDK2.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/MDK2
+    file: game_patch
+system:
+  env:
+    MANGOHUD_CONFIG: fps_limit=30
+    MESA_LOADER_DRIVER_OVERRIDE: zink
+  gamescope: true
+  gamescope_force_grab_cursor: true
+  gamescope_fps_limiter: '30'
