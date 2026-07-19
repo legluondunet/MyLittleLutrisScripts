@@ -1,0 +1,21 @@
+files:
+- game_cd: https://archive.org/download/jinx2001/Jinx.iso
+game:
+  exe: drive_c/scooby_jinx/Scooby.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- merge:
+    dst: $GAMEDIR/drive_c/scooby_jinx
+    src: $CACHE/Jinx
+- merge:
+    dst: $GAMEDIR/drive_c/scooby_jinx
+    src: $CACHE/Jinx
+- execute:
+    command: cd "$CACHE" ; cp *.AVI *.MMF "$GAMEDIR/drive_c/scooby_jinx" ;
