@@ -1,0 +1,27 @@
+files:
+- game_cd_cue: https://archive.org/download/battle-chess-collection/BATTLECHESS.cue
+- game_cd_bin: https://archive.org/download/battle-chess-collection/BATTLECHESS.bin
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- copy:
+    dst: $GAMEDIR/CD
+    src: game_cd_cue
+- copy:
+    dst: $GAMEDIR/CD
+    src: game_cd_bin
+- execute:
+    command: mkdir "$GAMEDIR/C" ;
+- write_file:
+    content: '[autoexec]
+
+      imgmount d "CD/BATTLECHESS.cue" -t iso -fs iso
+
+      mount c .
+
+      d:
+
+      call chess.bat
+
+      exit'
+    file: $GAMEDIR/dosbox.conf
