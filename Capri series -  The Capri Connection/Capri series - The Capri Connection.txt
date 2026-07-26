@@ -1,0 +1,45 @@
+files:
+- game_cd: https://archive.org/download/i-misteri-di-capri-2-the-capri-connnection/MISTERI_CAPRI_2.iso
+- mf_fix: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/mfplat/mf-installcab_lgdn.zip
+game:
+  exe: drive_c/Program Files (x86)/Adventure Productions/I Misteri di Capri 2 - The
+    Capri Connection/CapriNew.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Create wineprefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extractind DVD data
+    dst: $GAMEDIR/drive_c/CD
+    file: game_cd
+    format: iso
+- task:
+    description: Installing Game...Let all options to default.
+    executable: $GAMEDIR/drive_c/CD/setup.exe
+    name: wineexec
+- extract:
+    description: Extracting mfplat
+    dst: $GAMEDIR/drive_c/tmp
+    file: mf_fix
+- execute:
+    command: cd "$GAMEDIR/drive_c/tmp"; x="$WINEBIN" ; x2="${x%%/bin/wine}" ; PROTON=$x2
+      WINEPREFIX="$GAMEDIR" ./install-mf-64.sh ;
+    description: Installing mfplat
+- copy:
+    description: copy mfplat.dll
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Adventure Productions/I Misteri di Capri
+      2 - The Capri Connection
+    src: $GAMEDIR/drive_c/tmp/mfplat.dll
+- task:
+    app: vb6run winxp wmp11 directshow
+    description: Installing needed Microsoft components
+    name: winetricks
+    silent: true
+system:
+  gamescope: true
+  gamescope_force_grab_cursor: true
+  gamescope_game_res: 1024x768
+wine:
+  version: wine-11.14-staging-x86_64
