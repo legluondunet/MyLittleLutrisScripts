@@ -1,0 +1,14 @@
+files:
+- game_patch: https://archive.org/download/crocde/CrocLotGDEInstaller130.exe
+game:
+  exe: drive_c/Program Files/CrocLOTG/Croc64.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    description: Installing Definitive Edition patch...
+    executable: game_patch
+    name: wineexec
+    prefix: $GAMEDIR
