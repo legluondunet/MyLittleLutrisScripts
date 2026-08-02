@@ -15,7 +15,7 @@ installer:
     dst: $GAMEDIR/drive_c/CD
     file: game_cd
 - task:
-    description: Installing game...
+    description: Installing game...Do not launch game at the end of install.
     executable: $GAMEDIR/drive_c/CD/SETUP.EXE
     name: wineexec
     return_code: 256
