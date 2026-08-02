@@ -1,11 +1,8 @@
-# Mechwarrior 4 - Vengeance - CD - DxWrapper
+# Mechwarrior 4 - Vengeance - CD - dgVoodoo2
 ### Description:
 Play "MechWarrior 4: Vengeance" CD edition on Linux!
 ### Technical notes:
-- Using DxWrapper for better graphic stability
-- Known issues:
-1) mouse laggy on Roster menu, when you create profile screen
-2) game crashes when click on "Instant Action"
+- Using dgVoodoo2 for better graphic stability
 ### Credits:
-- DxWrapper: https://github.com/elishacloud/dxwrapper
+- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
