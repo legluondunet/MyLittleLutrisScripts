@@ -1,11 +1,12 @@
 files:
 - game_cd1: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%201%29.7z
 - game_cd2: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%202%29.7z
-- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Vengeance/mw4_patch.zip
-- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.4.7900.25/dxwrapper.zip
+- game_patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Mechwarrior%204%20-%20Vengeance/mw4_vengeance_patch.7z
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
 game:
-  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4.exe
+  exclude_processes: dplaysvr.exe
+  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4_v30_nocd.exe
   prefix: $GAMEDIR
 installer:
 - task:
@@ -49,28 +50,48 @@ installer:
     name: wineexec
     return_code: 256
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    dst: $CACHE
     file: game_patch
-- extract:
+    format: 7z
+- execute:
+    args: '''$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance'''
+    description: Applying "MechWarrior 4 - Vengeance" 3.0 patch
+    file: $CACHE/apply.sh
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: $CACHE/files
+- task:
+    app: quartz amstream directplay
+    name: winetricks
+    silent: true
+- extract:
+    dst: $CACHE
     file: wrapper
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
-    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/Stub/ddraw.dll
+    src: $CACHE/MS/x86/DDraw.dll
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
-    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/Stub/dinput.dll
-- write_config:
-    data:
-      Compatibility:
-        Dd7to9: 1
-        Dinputto8: 1
-        EnableDdrawWrapper: 1
-        EnableDinput8Wrapper: 1
-      d3d9:
-        LimitPerFrameFPS: 30
-    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dxwrapper.ini
+    src: $CACHE/MS/x86/D3DImm.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: $CACHE/dgVoodooCpl.exe
+- write_file:
+    content: '[GeneralExt]
+
+      FPSLimit=30
+
+      [DirectX]
+
+      dgVoodooWatermark=False'
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodoo.conf
+- task:
+    description: Configure game
+    executable: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfig.exe
+    name: wineexec
+system:
+  gamescope: true
+  gamescope_force_grab_cursor: true
 wine:
   overrides:
     ddraw: n,b
-    dinput: n,b
