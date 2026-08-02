@@ -65,6 +65,18 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: $CACHE/files
+- task:
+    key: uninstall
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Microsoft\Microsoft Games\Autoconfig
+    type: REG_SZ
+    value: 0
+- task:
+    key: uninstall
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Microsoft\Microsoft Games\MechWarrior Vengeance
+    type: REG_SZ
+    value: 0
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: game_conf
