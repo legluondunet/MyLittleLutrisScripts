@@ -15,9 +15,10 @@ installer:
     dst: $GAMEDIR/drive_c/CD
     file: game_cd
 - task:
-    description: installing game...
-    executable: $GAMEDIR/drive_c/CD/setup.exe
+    description: Installing game...
+    executable: $GAMEDIR/drive_c/CD/SETUP.EXE
     name: wineexec
+    return_code: 256
 - extract:
     dst: $CACHE
     file: game_update
@@ -33,6 +34,10 @@ installer:
       d3d9:
         LimitPerFrameFPS: 60
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/dxwrapper.ini
+- task:
+    app: amstream quartz
+    name: winetricks
+    silent: true
 wine:
   overrides:
     ddraw: n,b
