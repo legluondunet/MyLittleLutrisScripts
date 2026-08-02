@@ -2,11 +2,16 @@ files:
 - game_cd1: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%201%29.7z
 - game_cd2: https://archive.org/download/Nova_MechWarrior4VengeanceUSAEurope/MechWarrior%204%20-%20Vengeance%20%28USA%2C%20Europe%29%20%28Disc%202%29.7z
 - game_patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Mechwarrior%204%20-%20Vengeance/mw4_vengeance_patch.7z
+- game_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Vengeance/options.ini
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
 - tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
 game:
+  args: -noautoconfig
   exclude_processes: dplaysvr.exe
   exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4_v30_nocd.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfig.exe
+  name: Configure game graphic options
   prefix: $GAMEDIR
 installer:
 - task:
@@ -60,6 +65,9 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: $CACHE/files
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: game_conf
 - task:
     app: quartz amstream directplay
     name: winetricks
@@ -85,10 +93,6 @@ installer:
 
       dgVoodooWatermark=False'
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodoo.conf
-- task:
-    description: Configure game
-    executable: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfig.exe
-    name: wineexec
 system:
   gamescope: true
   gamescope_force_grab_cursor: true
