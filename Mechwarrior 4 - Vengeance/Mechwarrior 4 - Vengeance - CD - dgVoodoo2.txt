@@ -11,7 +11,7 @@ game:
   exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4_v30_nocd.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfig.exe
-  name: Configure game graphic options
+    name: Configure graphic options
   prefix: $GAMEDIR
 installer:
 - task:
