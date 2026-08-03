@@ -108,9 +108,6 @@ installer:
 
       dgVoodooWatermark=False'
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodoo.conf
-system:
-  gamescope: false
-  gamescope_force_grab_cursor: true
 wine:
   overrides:
     ddraw: n,b
