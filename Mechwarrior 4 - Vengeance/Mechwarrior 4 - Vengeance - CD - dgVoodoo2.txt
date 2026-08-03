@@ -65,6 +65,9 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: $CACHE/files
+- merge:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4.exe
 - task:
     key: uninstall
     name: set_regedit
