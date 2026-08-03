@@ -65,7 +65,7 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: $CACHE/files
-- merge:
+- move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4.exe
 - task:
@@ -109,7 +109,7 @@ installer:
       dgVoodooWatermark=False'
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodoo.conf
 system:
-  gamescope: true
+  gamescope: false
   gamescope_force_grab_cursor: true
 wine:
   overrides:
