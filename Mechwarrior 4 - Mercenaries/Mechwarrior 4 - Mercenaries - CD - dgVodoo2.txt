@@ -2,9 +2,11 @@ files:
 - game_cd1: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_01.iso
 - game_cd2: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_02.iso
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/mw4m_patch1.7z
+- game_options: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/options.ini
 game:
   args: -noautoconfig
-  exe: drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/MW4Mercs.exe
+  exe: drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/MW4Mercs_p1_nocd.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/autoconfig_MERCS.exe
     name: Configure graphic options
@@ -12,29 +14,47 @@ game:
 installer:
 - task:
     arch: win64
+    description: Creating Wine prefix...
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    description: extract "MechWarrior 4 - Mercenaries" CD1 archive
+    description: Extracting "MechWarrior 4 - Mercenaries" CD1 archive
     dst: $CACHE
     file: game_cd1
     format: iso
 - extract:
-    description: extract "MechWarrior 4 - Mercenaries" CD2 archive
+    description: Extracting "MechWarrior 4 - Mercenaries" CD2 archive
     dst: $CACHE
     file: game_cd2
     format: iso
 - task:
-    description: Installing "MechWarrior 4 - Vengeance", let all options to default,
+    description: Installing "MechWarrior 4 - Mercenaries", let all options to default,
       do not launch game at the end of install
     executable: $CACHE/SETUP.EXE
     name: wineexec
     return_code: 256
+- extract:
+    description: Patching game...
+    dst: $CACHE
+    file: game_patch
+    format: 7z
+- execute:
+    args: '''$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries'''
+    description: Applying "MechWarrior 4 - Mercenaries" patch 1
+    file: $CACHE/apply.sh
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
+    src: $CACHE/files
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
+    src: game_options
 - task:
     app: quartz amstream directplay
+    description: Installing dependencies with Winetricks...
     name: winetricks
     silent: true
 - extract:
+    description: Installing dgVoodoo2...
     dst: $CACHE
     file: wrapper
 - copy:
