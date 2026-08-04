@@ -2,7 +2,7 @@ files:
 - game_cd1: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_01.iso
 - game_cd2: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_02.iso
 - wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
-- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/mw4m_patch1.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/mw4m_1.0_patch.7z
 - game_options: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/options.ini
 game:
   args: -noautoconfig
@@ -34,17 +34,10 @@ installer:
     name: wineexec
     return_code: 256
 - extract:
-    description: Patching game...
-    dst: $CACHE
+    description: Installing nocd patch...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
     file: game_patch
     format: 7z
-- execute:
-    args: '''$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries'''
-    description: Applying "MechWarrior 4 - Mercenaries" patch 1
-    file: $CACHE/apply.sh
-- merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
-    src: $CACHE/files
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
     src: game_options
