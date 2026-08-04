@@ -1,0 +1,60 @@
+files:
+- game_cd1: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_01.iso
+- game_cd2: https://archive.org/download/mw-4-mercs-02_202103/MW4MERCS_02.iso
+- wrapper: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/dgVoodoo2/dgVoodoo2_79_3.zip
+game:
+  args: -noautoconfig
+  exe: drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/MW4Mercs.exe
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/autoconfig_MERCS.exe
+    name: Configure graphic options
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract "MechWarrior 4 - Mercenaries" CD1 archive
+    dst: $CACHE
+    file: game_cd1
+    format: iso
+- extract:
+    description: extract "MechWarrior 4 - Mercenaries" CD2 archive
+    dst: $CACHE
+    file: game_cd2
+    format: iso
+- task:
+    description: Installing "MechWarrior 4 - Vengeance", let all options to default,
+      do not launch game at the end of install
+    executable: $CACHE/SETUP.EXE
+    name: wineexec
+    return_code: 256
+- task:
+    app: quartz amstream directplay
+    name: winetricks
+    silent: true
+- extract:
+    dst: $CACHE
+    file: wrapper
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
+    src: $CACHE/MS/x86/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
+    src: $CACHE/MS/x86/D3DImm.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries
+    src: $CACHE/dgVoodooCpl.exe
+- write_file:
+    content: '[GeneralExt]
+
+      FPSLimit=30
+
+      [DirectX]
+
+      dgVoodooWatermark=False'
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/dgVoodoo.conf
+wine:
+  overrides:
+    ddraw: n,b
