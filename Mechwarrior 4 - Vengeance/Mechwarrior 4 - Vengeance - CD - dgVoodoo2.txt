@@ -15,20 +15,22 @@ game:
   prefix: $GAMEDIR
 installer:
 - task:
+    description: Creating Wine prefix...
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    description: extract "MechWarrior 4 - Vengeance" CD1 archive
+    description: Extracting "MechWarrior 4 - Vengeance" CD1 archive
     dst: $CACHE
     file: game_cd1
     format: 7z
 - extract:
-    description: extract "MechWarrior 4 - Vengeance" CD2 archive
+    description: Extracting "MechWarrior 4 - Vengeance" CD2 archive
     dst: $CACHE
     file: game_cd2
     format: 7z
 - extract:
+    description: Extracting CD tools...
     dst: $CACHE
     file: tools
     format: 7z
@@ -38,13 +40,14 @@ installer:
       4 - Vengeance (USA, Europe) (Disc 1)"; ./bchunk  "MechWarrior 4 - Vengeance
       (USA, Europe) (Disc 2).bin" "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2).cue"
       "MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)"
+    description: Converting "MechWarrior 4 - Vengeance" CD .cue/.bin files to .iso
 - extract:
-    description: extract "MechWarrior 4 - Vengeance" CD1 data
+    description: Extracting "MechWarrior 4 - Vengeance" CD1 data
     dst: $CACHE/CD
     file: $CACHE/MechWarrior 4 - Vengeance (USA, Europe) (Disc 1)01.iso
     format: iso
 - extract:
-    description: extract "MechWarrior 4 - Vengeance" CD2 data
+    description: Extracting "MechWarrior 4 - Vengeance" CD2 data
     dst: $CACHE/CD
     file: $CACHE/MechWarrior 4 - Vengeance (USA, Europe) (Disc 2)01.iso
     format: iso
@@ -55,12 +58,13 @@ installer:
     name: wineexec
     return_code: 256
 - extract:
+    description: Extracting patch 3.0...
     dst: $CACHE
     file: game_patch
     format: 7z
 - execute:
     args: '''$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance'''
-    description: Applying "MechWarrior 4 - Vengeance" 3.0 patch
+    description: Applying "MechWarrior 4 - Vengeance" 3.0 patch...
     file: $CACHE/apply.sh
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
@@ -84,10 +88,12 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: game_conf
 - task:
+    description: Installing dependencies with Winetricks...
     app: quartz amstream directplay
     name: winetricks
     silent: true
 - extract:
+    description: Installing dgVoodoo2...
     dst: $CACHE
     file: wrapper
 - copy:
