@@ -6,6 +6,7 @@ files:
 - game_options: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Mercenaries/options.ini
 game:
   args: -noautoconfig
+  exclude_processes: dplaysvr.exe
   exe: drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/MW4Mercs_pr1_nocd.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Mechwarrior Mercenaries/autoconfig_MERCS.exe
