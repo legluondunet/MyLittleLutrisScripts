@@ -1,0 +1,55 @@
+files:
+- game_cd: https://archive.org/download/Nova_MechWarrior4BKEUSA/MechWarrior%204%20-%20Black%20Knight%20Expansion%20%28USA%29.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Black%20Knight/mw4_bk_1.0_patch.7z
+- game_options: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Black%20Knight/optionsx.ini
+- tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
+game:
+  args: -noautoconfig
+  exclude_processes: dplaysvr.exe
+  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x/mw4x_crked.EXE
+  launch_configs:
+  - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfigx.exe
+    name: Configure graphic options
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating Wine prefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extracting "MechWarrior 4 - Black Knight" CD archive
+    dst: $CACHE
+    file: game_cd
+    format: 7z
+- extract:
+    description: Extracting CD tools...
+    dst: $CACHE
+    file: tools
+    format: 7z
+- execute:
+    command: cd "$CACHE" ; ./bchunk  "MechWarrior 4 - Black Knight Expansion (USA).bin"
+      "MechWarrior 4 - Black Knight Expansion (USA).cue" "MechWarrior 4 - Black Knight
+      Expansion (USA)";
+    description: Converting "MechWarrior 4 - Black Knight" CD .cue/.bin files to .iso
+- extract:
+    description: Extracting "MechWarrior 4 - Black Knight" CD data
+    dst: $CACHE/CD
+    file: $CACHE/MechWarrior 4 - Black Knight Expansion (USA)01.iso
+    format: iso
+- task:
+    description: Installing "MechWarrior 4 - Black Knight", let all options to default,
+      do not launch game at the end of install
+    executable: $CACHE/CD/SETUP.EXE
+    name: wineexec
+    return_code: 256
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
+    src: game_options
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
+    file: game_patch
+requires: mechwarrior-4-vengeance-cd-dgvoodoo2
+wine:
+  overrides:
+    ddraw: n,b
