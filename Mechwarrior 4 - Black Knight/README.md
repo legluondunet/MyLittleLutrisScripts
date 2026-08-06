@@ -4,6 +4,7 @@ Play "MechWarrior 4 - Black Knight" CD edition on Linux!
 ### Technical notes:
 - You will need to install "MechWarrior 4 - Vengeance" before to install this expansion
 - Using dgVoodoo2 for better graphic stability
+- Patch "Point Release 1" included
 - Known issue:
 -- After starting a multiplayer game, the game will not close properly; you will have to force it to close
 ### Credits:
