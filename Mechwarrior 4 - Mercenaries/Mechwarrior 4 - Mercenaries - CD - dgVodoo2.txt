@@ -40,7 +40,7 @@ installer:
     name: wineexec
     return_code: 256
 - extract:
-    description: Patching game...
+    description: Extracting "MechWarrior 4 - Black Knight" Point Release 1 patch...
     dst: $CACHE
     file: game_patch
     format: 7z
