@@ -2,10 +2,9 @@
 ### Description:
 Play "MechWarrior 4 - Mercenaries" CD edition on Linux!
 ### Technical notes:
-- You will need to install "MechWarrior 4 - Vengeance" before to install this expansion
 - Using dgVoodoo2 for better graphic stability
 - Patch "Point Release 1" included
-- Known issue:
+- Known issues:
 -- When you first launch the game, you will get the following error message: "Error outside main thread". Close all windows, then relaunch the game. This error message will no longer appear
 -- After starting a multiplayer game, the game will not close properly; you will have to force it to close
 ### Credits:
