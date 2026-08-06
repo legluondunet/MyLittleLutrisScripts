@@ -8,15 +8,15 @@ files:
 game:
   args: -noautoconfig
   exclude_processes: dplaysvr.exe
-  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4_v30_nocd.exe
+  exe: drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/MW4.exe
   launch_configs:
   - exe: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/autoconfig.exe
     name: Configure graphic options
   prefix: $GAMEDIR
 installer:
 - task:
-    description: Creating Wine prefix...
     arch: win64
+    description: Creating Wine prefix...
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
@@ -88,8 +88,8 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance
     src: game_conf
 - task:
-    description: Installing dependencies with Winetricks...
     app: quartz amstream directplay
+    description: Installing dependencies with Winetricks...
     name: winetricks
     silent: true
 - extract:
