@@ -49,6 +49,18 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
     file: game_patch
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/DDraw.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/D3DImm.dll
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodooCpl.exe
+- copy:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/mw4x
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/MechWarrior Vengeance/dgVoodoo.conf
 requires: mechwarrior-4-vengeance-cd-dgvoodoo2
 wine:
   overrides:
