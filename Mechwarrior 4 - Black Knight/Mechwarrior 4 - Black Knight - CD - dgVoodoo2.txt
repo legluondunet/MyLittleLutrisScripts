@@ -1,6 +1,6 @@
 files:
 - game_cd: https://archive.org/download/Nova_MechWarrior4BKEUSA/MechWarrior%204%20-%20Black%20Knight%20Expansion%20%28USA%29.7z
-- game_patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Mechwarrior%204%20-%20Black%20Knight/mw4_bk_pr1_patch.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Black%20Knight/mw4_bk_pr1_patch.7z
 - game_options: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Mechwarrior%204%20-%20Black%20Knight/optionsx.ini
 - tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
 game:
