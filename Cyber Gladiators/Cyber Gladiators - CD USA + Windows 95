@@ -4,7 +4,7 @@ files:
 - game_cd: https://archive.org/download/cyber-gladiators-usa/CyberGladiators%20%28USA%29.zip
 - dbpu_save:
     filename: CyberGladiators (USA).pure.zip
-    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Cyber%20Gladiators/CyberGladiators%20(USA).pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
 game:
   args: '"$GAMEDIR/CD/CyberGladiators (USA).cue"'
   exe: $GAMEDIR/DOSBoxPure_x86_64
