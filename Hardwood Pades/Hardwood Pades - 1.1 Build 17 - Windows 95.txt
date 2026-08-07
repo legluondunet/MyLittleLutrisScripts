@@ -17,5 +17,5 @@ installer:
     dst: $GAMEDIR/D
     src: game_file
 - write_file:
-    content: O*WIN95_OSR25_DBP_2Go
+    content: O*WIN95_OSR25_DBP_4Go
     file: $GAMEDIR/D/AUTOBOOT.DBP
