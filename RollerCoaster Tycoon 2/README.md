@@ -8,6 +8,7 @@ Play "RollerCoaster Tycoon 2" provided by GOG on Linux!
 - OpenRCT2: https://github.com/OpenRCT2/OpenRCT2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
+
 # RollerCoaster Tycoon 2 - CD - OpenRCT2
 ### Description:
 Play "RollerCoaster Tycoon 2" CD edition on Linux!
@@ -15,4 +16,16 @@ Play "RollerCoaster Tycoon 2" CD edition on Linux!
 - Using OpenRCT2 engine
 ### Credits:
 - OpenRCT2: https://github.com/OpenRCT2/OpenRCT2
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# RollerCoaster Tycoon 2 - CD + Windows 98
+### Description:
+Play "RollerCoaster Tycoon 2" CD edition on Linux!
+### Technical notes:
+- Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
+- Once Windows 98 started, go to "My Computer", CD Drive and install the game
+- Press "CTRL+F12" to show Dosbox Pure Unleashed menu
+### Credits:
+- Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
