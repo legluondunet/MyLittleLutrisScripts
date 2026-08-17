@@ -2,7 +2,7 @@ files:
 - game_cd:
     filename: SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO
     url: https://archive.org/download/SimCity_2000_Special_Edition_Maxis_Inc._1996/SimCity%202000%20-%20Special%20Edition%20%28Maxis%2C%20Inc.%29%281996%29.ISO
-- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/SimCity%202000/sc2kfix-dev.zip
+- mod: https://github.com/sc2kfix/sc2kfix/releases/download/r11/sc2kfix-r11.zip
 - music: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Sim%20City%202000/Sim%20City%202000%20soundtrack.7z
 game:
   exe: drive_c/SC2K/SIMCITY.EXE
