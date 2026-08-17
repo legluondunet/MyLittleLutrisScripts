@@ -1,5 +1,5 @@
 files:
-- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/W98_SE_DBP_4Go.7z
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/WIN98_SE_DBP.7z
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
 - game_cd_1:
     filename: Diablo II Disc 1 - Install.iso
@@ -18,7 +18,7 @@ files:
     url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Diablo%20II/d2_patchs.7z
 - dbpu_save:
     filename: Diablo II Disc 1 - Install.pure.zip
-    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/W98_SE_DBP_4Go.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
 game:
   args: '"$GAMEDIR/CD/Diablo II Disc 1 - Install.iso" "$GAMEDIR/CD/Diablo II Disc
     2 - Play.iso" "$GAMEDIR/CD/Diablo II Disc 3 - Cinematics.iso" "$GAMEDIR/CD/Diablo
