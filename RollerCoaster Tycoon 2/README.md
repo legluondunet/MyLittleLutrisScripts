@@ -7,3 +7,12 @@ Play "RollerCoaster Tycoon 2" provided by GOG on Linux!
 ### Credits:
 - OpenRCT2: https://github.com/OpenRCT2/OpenRCT2
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# RollerCoaster Tycoon 2 - CD - OpenRCT2
+### Description:
+Play "RollerCoaster Tycoon 2" CD edition on Linux!
+### Technical notes:
+- Using OpenRCT2 engine
+### Credits:
+- OpenRCT2: https://github.com/OpenRCT2/OpenRCT2
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
