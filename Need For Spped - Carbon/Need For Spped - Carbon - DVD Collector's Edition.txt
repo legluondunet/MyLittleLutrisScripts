@@ -1,0 +1,45 @@
+files:
+- game_dvd:
+    filename: Need for Speed Carbon Collector's Edition (USA) (Game Disc).iso
+    url: https://archive.org/download/need-for-speed-carbon-collectors-edition-usa-game-disc/Need%20for%20Speed%20Carbon%20Collector%27s%20Edition%20%28USA%29%20%28Game%20Disc%29.iso
+- game_update: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Need%20For%20Speed%20-%20Carbon/nfsc_patch1.4_europe.7z
+- game_mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsc/NFSCarbon.WidescreenFix.zip
+game:
+  exe: drive_c/Program Files (x86)/Electronic Arts/Need for Speed Carbon/NFSC.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Create wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extraction DVD game data...
+    dst: $CACHE
+    file: game_dvd
+    format: iso
+- task:
+    description: Installing "Need for Speed - Carbon - Collector's Edition"...Let
+      all options to default. When asking for a serial, type 3WBB-HGFK-4CCH-C5MD-XEXW.
+      Do not start the game at the end of install, just exit.
+    executable: $CACHE/AutoRun.exe
+    name: wineexec
+- extract:
+    dst: $CACHE
+    file: game_update
+- task:
+    description: Installing update 1.4, please wait...
+    executable: $CACHE/patch_1.2_1.3_1.4.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need for Speed Carbon/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need for Speed Carbon/NFSC.exe
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need for Speed Carbon
+    src: $CACHE/NFSC.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need for Speed Carbon
+    file: game_mod
+wine:
+  overrides:
+    dinput8: n,b
