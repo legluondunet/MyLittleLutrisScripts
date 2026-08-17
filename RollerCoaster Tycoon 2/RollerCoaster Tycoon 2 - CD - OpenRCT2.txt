@@ -1,0 +1,33 @@
+files:
+- game_cd: https://archive.org/download/rollercoastertycoon2rerelease/RCT2.iso
+- engine:
+    filename: OpenRCT2-linux-x86_64.AppImage
+    url: https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.5.4/OpenRCT2-v0.5.4-linux-x86_64.AppImage
+- tool: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/Unshield/unshield.7z
+game:
+  args: --user-data-path="$GAMEDIR/config"
+  exe: $GAMEDIR/OpenRCT2-linux-x86_64.AppImage
+installer:
+- extract:
+    dst: $GAMEDIR/CD
+    file: game_cd
+    format: iso
+- extract:
+    dst: $GAMEDIR/CD
+    file: tool
+    format: 7z
+- execute:
+    command: cd "$GAMEDIR/CD"; [ -f "data1.cab" ] && ./unshield x data1.cab ; cd ..
+      ;
+- merge:
+    dst: $GAMEDIR/CD
+    src: $GAMEDIR/CD/Minimum
+- chmodx: engine
+- copy:
+    dst: $GAMEDIR
+    src: engine
+- write_config:
+    file: $GAMEDIR/config/config.ini
+    key: game_path
+    section: general
+    value: $GAMEDIR/CD
