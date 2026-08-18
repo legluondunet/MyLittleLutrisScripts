@@ -1,13 +1,15 @@
-# RollerCoaster Tycoon 3 - Steam
+# RollerCoaster Tycoon 3 - Steam data
+### Description:
+Play "RollerCoaster Tycoon 3 - Platinum!" Steam edition on Linux!
+### Technical notes:
+- Lutris will copy game files from your Steam client
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-Description:
-This script will help you to play "RollerCoaster Tycoon 3" Steam edition with support for modern computer configuration.
-During install please let all options by default.
-Big thanks to people who gave their time to permit us playing this game in the best conditions.
-
-
-Technical notes:
-Known issues: no music or cinematics.
-- Please report issue concerning this script on my Github page:
-https://github.com/legluondunet/MyLittleLutrisScripts/
-
+# RollerCoaster Tycoon 3 - CD - Platinum!
+### Description:
+Play "RollerCoaster Tycoon 3 - Platinum!" CD edition on Linux!
+### Technical notes:
+- Game CD image will be downloaded directly from Internet Archives
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
