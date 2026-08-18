@@ -1,0 +1,30 @@
+files:
+- game_cd: https://archive.org/download/roller-coaster-tycoon-3-platinum-edition/Roller%20Coaster%20Tycoon%203%20Platinum%20Edition.iso
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/RollerCoaster%20Tycoon%203/rct3_patch.7z
+game:
+  exe: drive_c/Program Files (x86)/Atari/RollerCoaster Tycoon 3 Platinum/RCT3plus.exe
+  prefix: $GAMEDIR
+installer:
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- task:
+    description: Installing game, choose full install and let other options to default.
+    executable: $CACHE/Autorun.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Atari/RollerCoaster Tycoon 3 Platinum/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Atari/RollerCoaster Tycoon 3 Platinum/RCT3plus.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Atari/RollerCoaster Tycoon 3 Platinum
+    file: game_patch
+    format: 7z
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/Atari/RollerCoaster Tycoon 3 Platinum/dxvk.conf
+- task:
+    app: quartz
+    name: winetricks
+    silent: true
