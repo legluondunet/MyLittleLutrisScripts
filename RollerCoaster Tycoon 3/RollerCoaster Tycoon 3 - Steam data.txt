@@ -1,4 +1,5 @@
-custom-name: RollerCoaster Tycoon 3 - Steam
+files:
+- steamdata: $STEAM:2700:.
 game:
   exe: drive_c/RCT3/RCT3plus.exe
   prefix: $GAMEDIR
@@ -8,27 +9,9 @@ installer:
     description: Preparing wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    requires: rct3plus.exe
 - merge:
     dst: $GAMEDIR/drive_c/RCT3
-    src: $DISC
-- task:
-    arch: win64
-    key: csmt
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
-    prefix: $GAMEDIR
-    type: REG_DWORD
-    value: '00000000'
-- task:
-    arch: win64
-    key: background
-    name: set_regedit
-    path: HKEY_CURRENT_USER\Control Panel\Colors\
-    prefix: $GAMEDIR
-    type: REG_SZ
-    value: 0 0 0
+    src: steamdata
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
@@ -45,24 +28,12 @@ installer:
     - French: French
     preselect: English
 - write_file:
-    content: 'Resolution $RESOLUTION_WIDTH $RESOLUTION_HEIGHT
-
-      Language "$INPUT"'
-    file: $GAMEDIR/drive_c/Options.txt
+    content: Language "$INPUT_LANG"
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/Atari/RCT3/Options.txt
 - write_file:
-    content: 'c:
-
-      mkdir "C:\users\romain\Application Data\Atari\RCT3\"
-
-      move c:\Options.txt "%APPDATA%\Atari\RCT3\"'
-    file: $GAMEDIR/drive_c/config.bat
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/Atari/RCT3/dxvk.conf
 - task:
-    executable: $GAMEDIR/drive_c/config.bat
-    name: wineexec
-    prefix: $GAMEDIR
-- move:
-    dst: $CACHE
-    src: $GAMEDIR/drive_c/config.bat
-wine:
-  Desktop: true
-
+    app: quartz
+    name: winetricks
+    silent: true
