@@ -1,0 +1,24 @@
+files:
+- game_base: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/The%20Legend%20of%20Zelda%20-%20Link's%20Awakening%20DX/ladxhd_1.0.7z
+- game_update:
+    filename: LADXHD-Patcher-Lite-Linux-x64.7z
+    url: https://gitlab.com/bighead.0/ladxhd_updated/-/package_files/336017565/download
+game:
+  exe: $GAMEDIR/Launcher
+  launch_configs:
+  - exe: $GAMEDIR/Patcher-Lite
+    name: Update game
+  - exe: $GAMEDIR/Link's Awakening DX HD
+    name: Launch game
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: game_base
+    format: 7z
+- extract:
+    dst: $GAMEDIR
+    file: game_update
+    format: 7z
+- chmodx: $GAMEDIR/Patcher-Lite
+- execute:
+    file: $GAMEDIR/Patcher-Lite
