@@ -34,3 +34,17 @@ Play "Star Wars Episode I: Racer" CD edition on Linux!
 - swe1r-patcher: https://github.com/JayFoxRox/swe1r-patcher
 - IPXWrapper: https://github.com/solemnwarning/ipxwrapper
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Star Wars Episode I - Racer - CD + SW_RACER_RE mod
+### Description:
+Play "Star Wars Episode I: Racer" CD edition on Linux!
+### Technical notes:
+- Using SW_RACER_RE mod to play at higher resolutions, widescreen mode, allow upgraded podracers in multiplayer, disable player collisions in multiplayer...
+- Game configuration set to maximum video settings and controller mapping
+- Multiplayer fully functional on local LAN using Directplay and IPXWrapper
+- Game CD image will be downloaded directly from Internet Archives
+### Credits:
+- SW_RACER_RE: https://github.com/tim-tim707/SW_RACER_RE
+- IPXWrapper: https://github.com/solemnwarning/ipxwrapper
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
