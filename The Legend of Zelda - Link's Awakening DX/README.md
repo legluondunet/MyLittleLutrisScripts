@@ -1,4 +1,4 @@
-## The Legend of Zelda - Link's Awakening DX - Latest Linux
+## The Legend of Zelda - Link's Awakening DX - latest Linux
 ### Description:
 Play "The Legend of Zelda: Link's Awakening DX" on Linux!
 ### Technical notes:
