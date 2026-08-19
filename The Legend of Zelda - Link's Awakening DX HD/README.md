@@ -1,6 +1,6 @@
-## The Legend of Zelda - Link's Awakening DX - latest Linux
+## The Legend of Zelda - Link's Awakening DX HD - latest Linux
 ### Description:
-Play "The Legend of Zelda: Link's Awakening DX" HD PC remake on Linux!
+Play "The Legend of Zelda: Link's Awakening DX HD" on Linux!
 ### Technical notes:
 - Always install latest available version from official dev depot
 - You can install future game updates directly from Lutris
