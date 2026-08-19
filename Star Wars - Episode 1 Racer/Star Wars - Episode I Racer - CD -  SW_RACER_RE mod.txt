@@ -1,0 +1,76 @@
+files:
+- game_cd: https://archive.org/download/star_wars_racer_episode_1_1999/Star%20Wars%20Racer%20Episode%201.iso
+- game_update: https://www.dropbox.com/scl/fi/cjcslo1zsmtx2ytujdmgb/SWEP1RCR_patch.zip?rlkey=s7xmdewqputjtfo8r13hkyb7l&st=2etl92a9&dl=1
+- conf_files: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Star%20Wars%20-%20Episode%201%20Racer/swep1r_conf.zip
+- game_mod: https://github.com/tim-tim707/SW_RACER_RE/releases/download/v0.16/community_improvement_mod_v0_16.zip
+- wrapper_ipx: https://github.com/solemnwarning/ipxwrapper/releases/download/ipxwrapper-0.7.0/ipxwrapper-0.7.0.zip
+game:
+  exe: drive_c/Program Files/LucasArts/RACER/SWEP1RCR.EXE
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- task:
+    description: Running setup of the game. Just proceed and keep all settings at
+      their defaults. Do not launch the game at the end of the install.
+    executable: $CACHE/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/anims
+    src: $CACHE/gnome/data/anims
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER/DATA/config/current
+    file: conf_files
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: game_update
+- task:
+    app: directplay
+    name: winetricks
+    silent: true
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: game_mod
+- task:
+    key: Analyze Path
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: .\\SysCheck.exe
+- task:
+    key: CD Path
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: .
+- task:
+    key: Source Dir
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: C:\\Program Files\\LucasArts\\RACER
+- task:
+    key: Source Path
+    name: set_regedit
+    path: 'HKEY_LOCAL_MACHINE\Software\Wow6432Node\LucasArts Entertainment Company
+      LLC\Star Wars: Episode I Racer\v1.0'
+    type: REG_SZ
+    value: C:\\Program Files\\LucasArts\\RACER
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files/LucasArts/RACER
+    file: wrapper_ipx
+wine:
+  overrides:
+    dinput: n,b
+    wsock32: n,b
