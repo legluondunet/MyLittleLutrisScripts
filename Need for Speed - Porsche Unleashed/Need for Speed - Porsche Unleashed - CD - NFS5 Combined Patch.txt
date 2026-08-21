@@ -1,6 +1,7 @@
 files:
-- game_cd: https://archive.org/download/NeedForSpeed_Collection-Archive-LivBs/2000_05-NFS_PU/Game/NFS_Porsche_Unleashed_%28US%29_%5BISO%5D.zip
+- game_cd: https://archive.org/download/need-for-speed-porsche-unleashed-eu-multi/NFS_PU.iso
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Porsche%20Unleashed/NFS5-Combined-Patch-v1.1.zip
+- wrapper: https://github.com/WinterSnowfall/d7vk/releases/download/v2.1/d7vk-v2.1.zip
 game:
   exe: drive_c/Program Files (x86)/Electronic Arts/Need For Speed - Porsche Unleashed/nfs5.exe
   launch_configs:
@@ -14,13 +15,9 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE
-    file: game_cd
-    format: zip
-- extract:
     description: extracting ISO...
     dst: $CACHE/CD
-    file: $CACHE/NFS_PU.iso
+    file: game_cd
     format: iso
 - task:
     executable: $CACHE/CD/AutoRun.exe
@@ -56,10 +53,24 @@ installer:
     data:
       NFS5:
         Language: $INPUT_LANG
-        ThrashDriver: opengl3
+        ThrashDriver: dx7
     file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed - Porsche
       Unleashed/nfs5.ini
     merge: true
+- extract:
+    dst: $CACHE
+    file: wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed - Porsche
+      Unleashed
+    src: $CACHE/x32/ddraw.dll
 - execute:
     command: cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed
       - Porsche Unleashed/SaveData" ; mv 8Driver.sav 8Driver.sav.bak ;
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed - Porsche
+      Unleashed/dxvk.conf
+wine:
+  overrides:
+    ddraw: n,b
