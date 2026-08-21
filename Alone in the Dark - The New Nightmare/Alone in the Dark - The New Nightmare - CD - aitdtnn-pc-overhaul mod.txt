@@ -29,7 +29,9 @@ installer:
     name: wineexec
     prefix: $GAMEDIR
 - execute:
-    command: cd "$GAMEDIR" ; ln -sf "$GAMEDIR/drive_c/CD/" "r:";
+    command: cd "$GAMEDIR/dosdevices" ; ln -sf "$GAMEDIR/drive_c/CD/" "r:"; mkdir
+      - p "$GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/Save"
+      ;
 - write_file:
     content: alone4
     file: $GAMEDIR/drive_c/CD/.windows-label
