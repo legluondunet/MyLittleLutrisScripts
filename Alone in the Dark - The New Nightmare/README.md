@@ -7,3 +7,11 @@ Play "Alone in the Dark: The New Nightmare" provided by GOG on Linux!
 https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare/gamepad%20profiles
 ### Credits:
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+
+# Alone in the Dark - The New Nightmare - CD EN retail
+### Description:
+Play "Alone in the Dark: The New Nightmare" CD edition on Linux!
+### Technical notes:
+### Credits:
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
