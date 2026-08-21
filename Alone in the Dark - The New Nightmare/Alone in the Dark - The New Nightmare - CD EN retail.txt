@@ -1,0 +1,30 @@
+files:
+- game_cd1: https://archive.org/download/alone4cds/Alone4%20CD1.iso
+- game_cd2: https://archive.org/download/alone4cds/Alone4%20CD2.iso
+- game_cd3: https://archive.org/download/alone4cds/Alone4%20CD3.iso
+game:
+  exe: drive_c/Program Files (x86)/Infogrames/Alone in the Dark/launch.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/CD
+    file: game_cd1
+- extract:
+    dst: $GAMEDIR/drive_c/CD
+    file: game_cd2
+- extract:
+    dst: $GAMEDIR/drive_c/CD
+    file: game_cd3
+- task:
+    description: Installing game...
+    executable: $GAMEDIR/drive_c/CD/launch.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR" ; ln -sf "$GAMEDIR/drive_c/CD/" "r:";
+- write_file:
+    content: alone4
+    file: $GAMEDIR/drive_c/CD/.windows-label
