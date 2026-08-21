@@ -2,6 +2,8 @@ files:
 - game_cd1: https://archive.org/download/alone4cds/Alone4%20CD1.iso
 - game_cd2: https://archive.org/download/alone4cds/Alone4%20CD2.iso
 - game_cd3: https://archive.org/download/alone4cds/Alone4%20CD3.iso
+- game_cd4: https://archive.org/download/sega_dreamcast/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare%20%28Europe%29%20%28Disc%201%29.zip
+- game_mod: https://github.com/blackopsrepl/aitdtnn-pc-overhaul/releases/download/v0.3.0/Setup.exe
 game:
   exe: drive_c/Program Files (x86)/Infogrames/Alone in the Dark/launch.exe
   prefix: $GAMEDIR
@@ -18,6 +20,9 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/CD
     file: game_cd3
+- extract:
+    dst: $GAMEDIR/drive_c/CD_DREAMCAST
+    file: game_cd4
 - task:
     description: Installing game...
     executable: $GAMEDIR/drive_c/CD/launch.exe
@@ -28,3 +33,15 @@ installer:
 - write_file:
     content: alone4
     file: $GAMEDIR/drive_c/CD/.windows-label
+- task:
+    description: point to Dreamcast image located in "C:\CD_DREAMCAST" folder
+    executable: game_mod
+    name: wineexec
+    prefix: $GAMEDIR
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/CD_DREAMCAST
+wine:
+  overrides:
+    dinput8: n,b
+    winmm: n,b
