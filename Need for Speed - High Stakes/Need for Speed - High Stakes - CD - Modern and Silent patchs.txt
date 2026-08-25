@@ -1,7 +1,7 @@
 files:
 - game_cd: https://archive.org/download/1_20250313_202503/NFSHS.ISO
-- game_patch1: https://veg.by/files/nfs4/nfs4_modern_patch.7z
-- game_patch2: https://github.com/CookiePLMonster/SilentPatchNFS90s/releases/latest/download/SilentPatchNFS90s.zip
+- game_patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20High%20Stakes/nfs4_modern_patch.7z
+- game_patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20High%20Stakes/SilentPatchNFS90s.zip
 game:
   exe: drive_c/Program Files (x86)/Electronic Arts/Need For Speed High Stakes/nfs4.exe
   prefix: $GAMEDIR
@@ -33,5 +33,11 @@ installer:
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes
-    file: game_patch
-    format: 7z
+    file: game_patch1
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes
+    file: game_patch2
+wine:
+  overrides:
+    dinput: n,b
