@@ -1,0 +1,37 @@
+files:
+- game_cd: https://archive.org/download/1_20250313_202503/NFSHS.ISO
+- game_patch1: https://veg.by/files/nfs4/nfs4_modern_patch.7z
+- game_patch2: https://github.com/CookiePLMonster/SilentPatchNFS90s/releases/latest/download/SilentPatchNFS90s.zip
+game:
+  exe: drive_c/Program Files (x86)/Electronic Arts/Need For Speed High Stakes/nfs4.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    description: extract game ISO
+    dst: $CACHE
+    format: iso
+    src: game_cd
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes/DATA
+    src: $CACHE/DATA
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes/SAVEDATA
+    src: $CACHE/SAVEDATA
+- execute:
+    command: if [ -d "$GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For
+      Speed High Stakes" ] ; then cd "$GAMEDIR/drive_c/Program Files (x86)/Electronic
+      Arts/Need For Speed High Stakes" ; find . -depth -print0 | while IFS= read -r
+      -d '' f; do d=$(dirname "$f"); b=$(basename "$f"); n=$(printf '%s' "$b" | tr
+      '[:upper:]' '[:lower:]'); [ "$b" != "$n" ] && mv -n -- "$f" "$d/$n"; done ;
+      fi ;
+    return_code: 256
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes
+    file: game_patch
+    format: 7z
