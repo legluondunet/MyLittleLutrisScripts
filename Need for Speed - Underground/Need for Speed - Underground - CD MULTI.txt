@@ -1,6 +1,5 @@
 files:
-- game_cd1: https://archive.org/download/NeedForSpeedUndergroundUSAEnFrDeEsItNlSvZhKo/Need%20for%20Speed%20-%20Underground%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CSv%2CZh%2CKo%29%20%28Disc%201%29.zip
-- game_cd2: https://archive.org/download/NeedForSpeedUndergroundUSAEnFrDeEsItNlSvZhKo/Need%20for%20Speed%20-%20Underground%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CSv%2CZh%2CKo%29%20%28Disc%202%29.zip
+- game_cd: https://archive.org/download/need-for-speed-underground-usa-en-fr-de-es-it-nl-sv-zh-ko/Need%20for%20Speed%20-%20Underground%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CSv%2CZh%2CKo%29.7z
 - tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/bchunk.7z
 - game_reg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu.reg
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu_update_1.40us.zip
@@ -14,15 +13,10 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    description: extract "Need for Speed - Underground" CD1 archive
+    description: extract "Need for Speed - Underground" CDs
     dst: $CACHE
-    file: game_cd1
-    format: zip
-- extract:
-    description: extract "Need for Speed - Underground" CD2 archive
-    dst: $CACHE
-    file: game_cd2
-    format: zip
+    file: game_cd
+    format: 7z
 - extract:
     dst: $CACHE
     file: tools
