@@ -1,9 +1,10 @@
-# X-Files - The Game - CD
+# X-Files - The Game - CD + Windows 98
 ### Description:
 Play "The X-Files Game" 7 CD edition on Linux!
 ### Technical notes:
-- You will need CDs only one time during install
-- This game is capricious, it does not run with all Wine version. During my tests I obtained good results with Wine 8.0 vanilla and 8.1-staging
-- This game will launch in a window 640x480. Use Gamescope to play this game in fullscreen
+- Using Dosbox Pure Unleashed with a ready to use Windows 98 SE install
+- Once Windows 98 started, go to "My Computer", CD Drive and install the game. Then install directx8
+- Press "CTRL+F12" to show Dosbox Pure Unleashed menu
 ### Credits:
+- Dosbox Pure Unleashed: https://github.com/schellingb/dosbox-pure-unleashed
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
