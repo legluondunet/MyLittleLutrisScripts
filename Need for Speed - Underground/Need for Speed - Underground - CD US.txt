@@ -7,6 +7,7 @@ files:
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/nfsu_patch_140.zip
 - game_mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsu/NFSUnderground.WidescreenFix.zip
 - game_mod_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Underground/NFSUnderground.WidescreenFix.ini
+- game_mod2: https://github.com/CookiePLMonster/SilentPatchNFSUG/releases/download/BUILD-1/SilentPatchNFSUG.zip
 game:
   exe: drive_c/nfsu/Speed.exe
   prefix: $GAMEDIR
@@ -64,6 +65,13 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/nfsu
     src: game_mod_cfg
+- move:
+    dst: $GAMEDIR/drive_c/nfsu/winmm.dll
+    src: $GAMEDIR/drive_c/nfsu/dinput8.dll
+- extract:
+    dst: $GAMEDIR/drive_c/nfsu
+    src: game_mod2
 wine:
   overrides:
     dinput8: n,b
+    winmm: n,b
