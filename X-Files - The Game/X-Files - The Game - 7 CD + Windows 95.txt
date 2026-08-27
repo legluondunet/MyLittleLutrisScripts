@@ -1,11 +1,11 @@
 files:
-- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_98/WIN98_SE_DBP.7z
+- os_img: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Windows_95/WIN95_OSR25_DBP.7z
 - dbpu_file: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/DOSBox/dosbox-pure-unleashed.tar.xz
 - dbpu_save:
     filename: The_X_Files_Game_Win_ISO.pure.zip
-    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2098/DOSBox-pure.pure.zip
+    url: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Windows%2095/DOSBox-pure.pure.zip
 - game_cd:
-    filename: The_X_Files_Game_Win_ISO.pure.zip
+    filename: The_X_Files_Game_Win_ISO.zip
     url: https://archive.org/download/the-x-files-game-win-iso-en/The_X_Files_Game_Win_ISO_EN.zip
 game:
   args: '"$GAMEDIR/CD/The_X_Files_Game_Win_ISO.zip"'
