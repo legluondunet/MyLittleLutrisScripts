@@ -3,7 +3,8 @@
 Play "Need for Speed - Underground" CD US edition on Linux!
 ### Technical notes:
 - 1.4 patch update included
-- Using Need For Speed Underground ThirteenAG Widescreen Fix
+- Using Need For Speed Underground ThirteenAG Widescreen Fix and Silent patch
 ### Credits:
 - Need For Speed Underground Widescreen Fix: https://github.com/ThirteenAG/WidescreenFixesPack/releases/tag/nfsu
+- SilentPatch: https://github.com/CookiePLMonster/SilentPatchNFSUG
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
