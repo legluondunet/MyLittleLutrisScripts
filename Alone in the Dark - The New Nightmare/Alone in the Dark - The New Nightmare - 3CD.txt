@@ -1,0 +1,49 @@
+files:
+- game_cd1: https://archive.org/download/alone4cds/Alone4%20CD1.iso
+- game_cd2: https://archive.org/download/alone4cds/Alone4%20CD2.iso
+- game_cd3: https://archive.org/download/alone4cds/Alone4%20CD3.iso
+game:
+  exe: drive_c/Program Files (x86)/Infogrames/Alone in the Dark/alone4.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/AITDCD
+    file: game_cd1
+- extract:
+    dst: $GAMEDIR/drive_c/AITDCD
+    file: game_cd2
+- extract:
+    dst: $GAMEDIR/drive_c/AITDCD
+    file: game_cd3
+- task:
+    description: Installing game...
+    executable: $GAMEDIR/drive_c/AITDCD/SETUP.EXE
+    name: wineexec
+    prefix: $GAMEDIR
+- execute:
+    command: cd "$GAMEDIR/dosdevices" ; ln -sf "$GAMEDIR/drive_c/AITDCD" "r:"; mkdir
+      - p "$GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/Save"
+      ;
+- write_file:
+    content: Alone4
+    file: $GAMEDIR/drive_c/AITDCD/.windows-label
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/alone.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/alone4.exe
+- move:
+    dst: $GAMEDIR/drive_c/AITDCD/movies/spiral.bak
+    src: $GAMEDIR/drive_c/AITDCD/movies/spiral.bik
+- task:
+    key: High quality
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Spiral House\launch\Data
+    type: REG_DWORD
+    value: '1'
+- task:
+    description: Applying patch...
+    executable: $GAMEDIR/drive_c/AITDCD/Extras/Patch/patcher.exe
+    name: wineexec
+    prefix: $GAMEDIR
