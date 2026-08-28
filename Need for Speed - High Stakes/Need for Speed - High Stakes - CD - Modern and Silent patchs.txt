@@ -38,6 +38,3 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes
     file: game_patch2
-wine:
-  overrides:
-    dinput: n,b
