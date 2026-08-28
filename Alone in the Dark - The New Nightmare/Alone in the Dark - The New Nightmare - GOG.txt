@@ -11,6 +11,12 @@ installer:
 - task:
     executable: gogsetup
     name: wineexec
+- move:
+    dst: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/movies/spiral.bak
+    src: $GAMEDIR/drive_c/GOG Games/Alone in the Dark - The New Nightmare/movies/spiral.bik
 - task:
-    app: ddr=gdi
-    name: winetricks
+    key: High quality
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Spiral House\launch\Data
+    type: REG_DWORD
+    value: '1'
