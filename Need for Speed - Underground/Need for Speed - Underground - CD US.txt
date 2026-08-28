@@ -63,7 +63,7 @@ installer:
     dst: $GAMEDIR/drive_c/nfsu
     src: game_mod
 - merge:
-    dst: $GAMEDIR/drive_c/nfsu
+    dst: $GAMEDIR/drive_c/nfsu/scripts
     src: game_mod_cfg
 - move:
     dst: $GAMEDIR/drive_c/nfsu/winmm.dll
