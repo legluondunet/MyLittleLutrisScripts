@@ -2,7 +2,7 @@
 ### Description:
 Play "Need for Speed - High Stakes" CD edition on Linux!
 ### Technical notes:
-- Modern and Silent patchs included
+- Modern and Silent patches included
 - known issue: after "Alt-Tab", if the game screen is distorted, press "Alt+Enter" two times
 ### Credits:
 - NFS4 Modern patch: https://veg.by/en/projects/nfs4
