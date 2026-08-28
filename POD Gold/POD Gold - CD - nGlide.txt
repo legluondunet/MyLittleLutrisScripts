@@ -1,0 +1,83 @@
+files:
+- game_cd_cue: https://archive.org/download/POD20_201808/POD2_0.CUE
+- game_cd_bin: https://archive.org/download/POD20_201808/POD2_0.BIN
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/POD%20Gold/POD2.0_patch.7z
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/POD%20Gold/ubi.ini
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- ngl:
+    filename: nGlide210_setup.exe
+    url: http://www.zeus-software.com/downloads/nglide/d-1.html
+game:
+  exe: drive_c/POD2.0/WPOD3DFX.EXE
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- merge:
+    dst: $CACHE
+    src: game_cd_cue
+- merge:
+    dst: $CACHE
+    src: game_cd_bin
+- extract:
+    dst: $CACHE
+    format: zip
+    src: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "POD2_0.BIN" "POD2_0.CUE" "POD2_0" ; mv "POD2_002.wav"
+      Track02.wav ;
+- extract:
+    description: extract "POD Gold" ISO data...
+    dst: $GAMEDIR/drive_c/POD2.0
+    file: $CACHE/POD2_001.iso
+    format: iso
+- extract:
+    dst: $GAMEDIR/drive_c/POD2.0
+    file: game_patch
+- merge:
+    dst: $GAMEDIR/drive_c/POD2.0/UbiSoft
+    src: game_cfg
+- merge:
+    dst: $GAMEDIR/drive_c/POD2.0
+    src: $CACHE/Track02.wav
+- task:
+    args: /S
+    description: Installing NGlide...
+    executable: $ngl
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    arch: win64
+    key: Splash
+    name: set_regedit
+    path: HKEY_CURRENT_USER\Software\Zeus Software\nGlide2
+    prefix: $GAMEDIR
+    type: REG_SZ
+    value: '1'
+- task:
+    description: Installing INDEO codec, let all options to default...
+    executable: $GAMEDIR/drive_c/POD2.0/INSTALL/IVI_95NT.EXE
+    name: wineexec
+    prefix: $GAMEDIR
+- write_config:
+    data:
+      drivers32:
+        vidc.IV41: ir41_32.dll
+    file: $GAMEDIR/drive_c/windows/system.ini
+    merge: true
+- input_menu:
+    description: 'Choose your preferred game''s language for game menus:'
+    id: LANG
+    options:
+    - English: English (Default)
+    - French: French
+    - Italian: Italian
+    - Spanish: Spanish
+    - German: German
+    preselect: English
+- write_config:
+    data:
+      POD2_0:
+        Language: $INPUT_LANG
+    file: $GAMEDIR/drive_c/POD2.0/UbiSoft/ubi.ini
