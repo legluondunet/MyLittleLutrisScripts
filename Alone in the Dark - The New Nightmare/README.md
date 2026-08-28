@@ -9,11 +9,10 @@ https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Alone%20in%20t
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Alone in the Dark - The New Nightmare - CD - aitdtnn-pc-overhaul mod
+
+# Alone in the Dark - The New Nightmare - 3CD
 ### Description:
-Play "Alone in the Dark: The New Nightmare" CD edition on Linux!
+Play "Alone in the Dark: The New Nightmare" 3CD edition on Linux!
 ### Technical notes:
-- Using AITD:TNN PC Overhaul mod: add Dreamcast music ambience and other improvements to PC version
 ### Credits:
-- AITD:TNN PC Overhaul: https://github.com/blackopsrepl/aitdtnn-pc-overhaul
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
