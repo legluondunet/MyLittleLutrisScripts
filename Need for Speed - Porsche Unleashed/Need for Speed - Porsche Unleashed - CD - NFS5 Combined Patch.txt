@@ -12,14 +12,16 @@ game:
 installer:
 - task:
     arch: win64
+    description: Creating wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    description: extracting ISO...
+    description: Extracting CD ISO...
     dst: $CACHE/CD
     file: game_cd
     format: iso
 - task:
+    description: Click "Install" to install the game, let all options to default...
     executable: $CACHE/CD/AutoRun.exe
     name: wineexec
     prefix: $GAMEDIR
@@ -28,6 +30,7 @@ installer:
       Unleashed/FEData/Movies
     src: $CACHE/CD/FEData/Movies
 - extract:
+    description: Installing patch...
     dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed - Porsche
       Unleashed/patch
     file: game_patch
