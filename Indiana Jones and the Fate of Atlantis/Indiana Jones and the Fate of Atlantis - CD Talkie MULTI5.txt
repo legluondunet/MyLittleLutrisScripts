@@ -1,7 +1,6 @@
 files:
+- game_cd: https://archive.org/download/indiana-jones-and-the-fate-of-atlantis-1993-ms-dos-cd-rom/FATE.ISO
 - multi5: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/Indiana%20Jones%20and%20the%20Fate%20of%20Atlantis/indi4_multi5.zip
-- setupfile: N/A:Please select the game Windows setup exe file downloaded from your
-    GOG account - English version only
 - tool: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/patch/patch.zip
 game:
   args: --subtitles
@@ -9,9 +8,12 @@ game:
   path: $GAMEDIR
 installer:
 - extract:
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- merge:
     dst: $GAMEDIR
-    file: setupfile
-    format: gog
+    src: $CACHE/ATLANTIS
 - extract:
     dst: $GAMEDIR/lang
     src: multi5
@@ -32,7 +34,6 @@ installer:
     command: cd "$GAMEDIR"; cp __support/app/atlantis.ini . ; if [ "$INPUT_LANG" ==
       "keep" ]; then  exit ; fi ; echo "lang = $INPUT_LANG"; LD_LIBRARY_PATH=. ./patch
       < lang/$INPUT_LANG/ATLANTIS.000.patch ATLANTIS.000; LD_LIBRARY_PATH=. ./patch
-      < lang/$INPUT_LANG/ATLANTIS.001.patch ATLANTIS.001; rm -f -r app commonappdata
-      lang __redist scummvm __support tmp goggame-1207666293*
+      < lang/$INPUT_LANG/ATLANTIS.001.patch ATLANTIS.001;
 scummvm:
   aspect: true
