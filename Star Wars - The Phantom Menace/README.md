@@ -8,15 +8,12 @@ Play "Star Wars: Episode I – The Phantom Menace" CD edition on Linux!
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
 
-# Star Wars - The Phantom Menace - CD + DxWnd + dgVoodoo2
+# Star Wars - The Phantom Menace - CD + OpenPhantom mod
 ### Description:
 Play "Star Wars: Episode I – The Phantom Menace" CD edition on Linux!
 ### Technical notes:
-- You will need CD only one time during install
-- Update 1.1 included
-- This game have insufficient support for controllers. You will find a AntiMicroX profil for this game here: https://github.com/legluondunet/MyLittleLutrisScripts/tree/master/Star%20Wars%20-%20The%20Phantom%20Menace/Controls
+- Using OpenPhantom mod
+- When OpenPhantom will ask you for a game CD, you can use your own CD or you could find games files in C:\CD (US version)
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
-- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
-- idecomp: https://github.com/lephilousophe/idecomp
+- OpenPhantom: https://github.com/OpenPhantom/OpenPhantom
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
