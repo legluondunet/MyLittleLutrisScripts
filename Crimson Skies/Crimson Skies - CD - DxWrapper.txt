@@ -3,7 +3,7 @@ files:
     filename: Crimson Skies.iso
     url: https://archive.org/download/crimson-skies_202204/Crimson%20Skies.iso
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Crimson%20Skies/crmsk102.7z
-- vid_wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.6.8300.25/dx7.games.zip
+- vid_wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/crimson.exe
   prefix: $GAMEDIR
