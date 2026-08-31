@@ -1,0 +1,18 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\lucasarts entertainment company llc]
+
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\lucasarts entertainment company llc\The Phantom Menace]
+
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\lucasarts entertainment company llc\The Phantom Menace\v1.0]
+@=""
+"Analyze Path"="C:\\Program Files (x86)\\LucasArts\\The Phantom Menace\\SYSCHECK.EXE"
+"CD Path"="C:\\Program Files (x86)\\LucasArts\\The Phantom Menace"
+"Executable"="C:\\Program Files (x86)\\LucasArts\\The Phantom Menace\\WMAIN.EXE"
+"Install Path"="C:\\Program Files (x86)\\LucasArts\\The Phantom Menace"
+"InstallType"=dword:00000001
+"JoystickID"="1"
+"SoundCard"="TRUE"
+"Source Dir"=".\\"
+"Source Path"=".\\"
+
