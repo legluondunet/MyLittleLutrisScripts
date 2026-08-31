@@ -1,7 +1,6 @@
 files:
 - game_cd: https://archive.org/download/phantom-menace-pc-game/THEPHANTOMMENACE.ISO
-- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.1/OpenPhantom_Installer.exe
-- wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
+- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.2/OpenPhantom_Installer.exe
 game:
   exe: drive_c/Program Files (x86)/LucasArts/The Phantom Menace/WMAIN.EXE
   prefix: $GAMEDIR
@@ -19,25 +18,12 @@ installer:
     executable: game_mod
     name: wineexec
     prefix: $GAMEDIR
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace
-    src: wrapper_vid
-- write_config:
-    data:
-      Dd7to9:
-        DdrawEmulateSurface: 1
-        DdrawEnableByteAlignment: 1
-        DdrawUseShadowSurface: 1
-      d3d9:
-        AnisotropicFiltering: 16
-        DdrawEmulateSurface: 1
-        DepthBiasFactor: 16
-        ForceVsyncMode: 1
-        FullscreenWindowMode: 1
-        LimitPerFrameFPS: 60
-        bUseThreadedAI: 1
-    file: $GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace/dxwrapper.ini
-    merge: true
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace"
+      ; sed -i s/MenuKeepsResolution=.*/MenuKeepsResolution=0/ engine_fixes.ini ;
+- move:
+    dst: $CACHE
+    src: $GAMEDIR/drive_c/CD
 wine:
   overrides:
     ddraw: n,b
