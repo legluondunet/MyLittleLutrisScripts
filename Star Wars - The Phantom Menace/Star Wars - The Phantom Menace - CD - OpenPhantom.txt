@@ -1,6 +1,6 @@
 files:
 - game_cd: https://archive.org/download/phantom-menace-pc-game/THEPHANTOMMENACE.ISO
-- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.2/OpenPhantom_Installer.exe
+- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.3/OpenPhantom_Installer.exe
 game:
   exe: drive_c/Program Files (x86)/LucasArts/The Phantom Menace/WMAIN.EXE
   prefix: $GAMEDIR
