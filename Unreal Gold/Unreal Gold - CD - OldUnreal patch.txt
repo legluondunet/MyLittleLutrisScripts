@@ -119,3 +119,6 @@ installer:
         ConfiguredGUIScale: 1.5
     file: $GAMEDIR/drive_c/UnrealGold/System64/DefaultLinux.ini
     merge: true
+- execute:
+    command: if [ -d "$GAMEDIR/drive_c/UnrealGold/System" ]; then cd "$GAMEDIR/drive_c/UnrealGold/System"
+      ; rm -f -r *.int ; fi ;
