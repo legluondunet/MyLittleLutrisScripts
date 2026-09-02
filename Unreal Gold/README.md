@@ -2,7 +2,7 @@
 ### Description:
 Play "Unreal Gold" CD edition on Linux!
 ### Technical notes:
-- Using CD from Internet Archive with OldUnreal patch 227k_13
+- Using CD from Internet Archive with OldUnreal patch 227k_15
 - You can choose to play the Windows (x64) or Linux (x64) versions
 - This script installer will automagically set the game to your desktop resolution
 - Press F1 key to show console
