@@ -1,6 +1,6 @@
 files:
 - game_cd: https://archive.org/download/phantom-menace-pc-game/THEPHANTOMMENACE.ISO
-- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.3/OpenPhantom_Installer.exe
+- game_mod: https://github.com/OpenPhantom/OpenPhantom/releases/download/i1.4/OpenPhantom_Installer.exe
 game:
   exe: drive_c/Program Files (x86)/LucasArts/The Phantom Menace/WMAIN.EXE
   prefix: $GAMEDIR
@@ -18,9 +18,6 @@ installer:
     executable: game_mod
     name: wineexec
     prefix: $GAMEDIR
-- execute:
-    command: cd "$GAMEDIR/drive_c/Program Files (x86)/LucasArts/The Phantom Menace"
-      ; sed -i s/MenuKeepsResolution=.*/MenuKeepsResolution=0/ engine_fixes.ini ;
 - move:
     dst: $CACHE
     src: $GAMEDIR/drive_c/CD
