@@ -2,6 +2,7 @@ files:
 - game_file: https://archive.org/download/maupiti_island_eu_multi5.7z/maupiti_island_eu_multi5.7z
 game:
   config_file: $GAMEDIR/dosbox.conf
+  main_file: $GAMEDIR/dosbox.conf
 installer:
 - extract:
     dst: $CACHE
@@ -18,6 +19,9 @@ installer:
 - merge:
     dst: $GAMEDIR/C
     src: $CACHE/$INPUT_LANG
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/manuals
 - write_file:
     content: '[sdl]
 
