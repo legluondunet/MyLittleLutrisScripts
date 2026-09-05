@@ -20,7 +20,7 @@ installer:
     dst: $GAMEDIR/C
     src: $CACHE/$INPUT_LANG
 - merge:
-    dst: $GAMEDIR
+    dst: $GAMEDIR/C/manuals
     src: $CACHE/manuals
 - write_file:
     content: '[sdl]
