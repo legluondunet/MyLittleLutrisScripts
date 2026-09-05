@@ -1,0 +1,38 @@
+files:
+- game_file: https://archive.org/download/maupiti_island_eu_multi5.7z/maupiti_island_eu_multi5.7z
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $CACHE
+    file: game_file
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    - sp: Spanish
+    - ge: German
+    preselect: en
+- merge:
+    dst: $GAMEDIR/C
+    src: $CACHE/$INPUT_LANG
+- write_file:
+    content: '[sdl]
+
+      sensitivity: 400
+
+
+      [autoexec]
+
+      @echo off
+
+      mount c C
+
+      c:\
+
+      call maupiti.bat
+
+      exit'
+    file: $GAMEDIR/dosbox.conf
