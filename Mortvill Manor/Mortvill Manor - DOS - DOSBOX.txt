@@ -1,17 +1,37 @@
 files:
-- game_files: https://archive.org/download/msdos_Mortville_Manor_1988/Mortville_Manor_1988.zip
+- game_files: https://www.lankhor.net/jeux/jeu/jeu15-pc.zip
+- game_manual: https://www.lankhor.net/jeux/manuel/manuel15-1.pdf
 game:
   main_file: $GAMEDIR/dosbox.conf
 installer:
 - extract:
-    dst: $GAMEDIR/c/mm
+    dst: $CACHE
     file: game_files
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - fr: French
+    - de: German
+    preselect: fr
+- execute:
+    command: cd "$CACHE" ; python3 -c 'import sys,zipfile,pathlib,shutil; z=zipfile.ZipFile(sys.argv[1]);
+      d=pathlib.Path(sys.argv[2]); [(lambda n,i:(d/n).parent.mkdir(parents=True,exist_ok=True)
+      or shutil.copyfileobj(z.open(i),open(d/n,"wb")))(pathlib.Path(i.filename.replace("\\","/")),i)
+      for i in z.infolist() if not i.is_dir()]' $game_files .; mv "version 1" fr;
+      mv "version 4" de ;
+- merge:
+    dst: $GAMEDIR/C/mm
+    src: $CACHE/$INPUT_LANG
+- merge:
+    dst: $GAMEDIR/C/mm/manual
+    src: game_manual
 - write_file:
     content: '[autoexec]
 
       @echo off
 
-      mount c c
+      mount c C
 
       c:
 
