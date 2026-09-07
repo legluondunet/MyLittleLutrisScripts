@@ -1,6 +1,6 @@
 files:
 - gogsetup: N/A:Select the installer from GOG
-- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/BetterRayman3.zip
+- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/Better%20Rayman%203+.7z
 game:
   exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/Rayman3.exe
   launch_configs:
@@ -47,10 +47,8 @@ installer:
         TriLinear: 1
         VignettesFile: Vignette.cnt
     file: $GAMEDIR/drive_c/windows/Ubisoft/ubi.ini
-system:
-  env:
-    DXVK_HUD: null
 wine:
   overrides:
+    d3d8: n,b
     dinput8: n,b
     winmm: n,b
