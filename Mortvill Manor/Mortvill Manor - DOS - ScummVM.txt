@@ -1,17 +1,28 @@
 files:
-- game_files: https://archive.org/download/msdos_Mortville_Manor_1988/Mortville_Manor_1988.zip
+- game_files: https://www.lankhor.net/jeux/jeu/jeu15-pc.zip
+- game_manual: https://www.lankhor.net/jeux/manuel/manuel15-1.pdf
 game:
   args: --language=$INPUT_LANG
   game_id: mortevielle
   path: $GAMEDIR
 installer:
-- extract:
-    dst: $GAMEDIR
-    file: game_files
 - input_menu:
     description: 'Choose the game''s language:'
     id: LANG
     options:
     - en: English
     - fr: French
+    - de: German
     preselect: en
+- execute:
+    command: cd "$CACHE" ; python3 -c 'import sys,zipfile,pathlib,shutil; z=zipfile.ZipFile(sys.argv[1]);
+      d=pathlib.Path(sys.argv[2]); [(lambda n,i:(d/n).parent.mkdir(parents=True,exist_ok=True)
+      or shutil.copyfileobj(z.open(i),open(d/n,"wb")))(pathlib.Path(i.filename.replace("\\","/")),i)
+      for i in z.infolist() if not i.is_dir()]' $game_files .; mv "version 1" fr;
+      mv "version 4" de ; cp -r fr en ;
+- merge:
+    dst: $GAMEDIR
+    src: $CACHE/$INPUT_LANG
+- merge:
+    dst: $GAMEDIR/manual
+    src: game_manual
