@@ -2,6 +2,7 @@ files:
 - game_cd: https://archive.org/download/digitoxin_20251208_233441/CD/NASCAR%20Racing%202003%20Season%20%28USA%29.zip
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/NASCAR%20Racing%202003%20Season/nr2003_update.zip
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/NASCAR%20Racing%202003%20Season/nr2003_patch.zip
+- wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx9.games.zip
 - cdrtools: https://github.com/legluondunet/mlls-tools/raw/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Papyrus/NASCAR Racing 2003 Season/NR2003.exe
@@ -47,3 +48,13 @@ installer:
     dst: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season
     file: game_patch
     format: zip
+- extract:
+    dst: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season
+    file: wrapper_vid
+    format: zip
+- write_config:
+    data:
+      d3d9:
+        LimitPerFrameFPS: 60
+    file: $GAMEDIR/drive_c/Papyrus/NASCAR Racing 2003 Season/dxwrapper.ini
+    merge: true
