@@ -1,0 +1,18 @@
+files:
+- engine: https://github.com/HarbourMasters/Ghostship/releases/download/2.0.0/Mary-Celeste-Alfa-Linux.zip
+- rom_file: N/A:Select SM64 ROM (Must be in .z64 format)
+- game_tex: https://evilgames.eu/files/texture-packs/sm64-reloaded-v2.6.0-gs-o2r-hd.7z
+game:
+  exe: $GAMEDIR/ghostship.appimage
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- merge:
+    dst: $GAMEDIR
+    src: rom_file
+- chmodx: $GAMEDIR/ghostship.appimage
+- extract:
+    dst: $GAMEDIR/mods
+    file: game_tex
+- chmodx: $GAMEDIR/ghostship.appimage
