@@ -6,6 +6,24 @@ game:
   exe: drive_c/Program Files (x86)/Electronic Arts/Need For Speed High Stakes/nfs4.exe
   prefix: $GAMEDIR
 installer:
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - english: English
+    - german: German
+    - french: French
+    - spanish: Spanish
+    - italian: Italian
+    - swedish: Swedish
+    preselect: english
+- input_menu:
+    description: Skip opening video and EA Logo?
+    id: NOMOVIES
+    options:
+    - '0': 'No'
+    - '1': 'Yes'
+    preselect: '0'
 - task:
     name: create_prefix
     prefix: $GAMEDIR
@@ -38,3 +56,10 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes
     file: game_patch2
+- write_config:
+    data:
+      NFS4:
+        Language: $INPUT_LANG
+        NoMovies: $INPUT_NOMOVIES
+    file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes/nfs4.ini
