@@ -63,3 +63,6 @@ installer:
         NoMovies: $INPUT_NOMOVIES
     file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes/nfs4.ini
+wine:
+  overrides:
+    dinput: n,b
