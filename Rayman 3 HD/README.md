@@ -1,4 +1,4 @@
-# Rayman 3 HD - GOG - GOG + BetterRayman3 + Xidi
+# Rayman 3 HD - GOG - GOG - BetterRayman3
 ### Description:
 Play "Rayman 3 HD" provided by GOG on Linux!
 ### Technical notes:
