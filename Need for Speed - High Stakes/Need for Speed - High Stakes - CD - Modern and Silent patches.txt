@@ -1,5 +1,6 @@
 files:
 - game_cd: https://archive.org/download/1_20250313_202503/NFSHS.ISO
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20High%20Stakes/config.7z
 - game_patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20High%20Stakes/nfs4_modern_patch.7z
 - game_patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20High%20Stakes/SilentPatchNFS90s.zip
 game:
@@ -50,6 +51,10 @@ installer:
     return_code: 256
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
+      Stakes/savedata
+    file: game_cfg
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes
     file: game_patch1
 - extract:
@@ -63,6 +68,7 @@ installer:
         NoMovies: $INPUT_NOMOVIES
     file: $GAMEDIR/drive_c/Program Files (x86)/Electronic Arts/Need For Speed High
       Stakes/nfs4.ini
+    merge: true
 wine:
   overrides:
     dinput: n,b
