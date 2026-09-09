@@ -1,6 +1,7 @@
 files:
 - gogsetup: N/A:Select the installer from GOG
-- mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/Better%20Rayman%203+.7z
+- game_mod: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/BetterRayman3.zip
+- wrapper_vid: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Rayman%203%20HD/dxvk_09092026.7z
 game:
   exe: $GAMEDIR/drive_c/GOG Games/Rayman 3/Rayman3.exe
   launch_configs:
@@ -23,13 +24,13 @@ installer:
     - Spanish: "Espa\xF1ol"
     preselect: English
 - task:
-    description: Installing...
+    description: Installing game...
     executable: gogsetup
     name: wineexec
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
-    file: mod
+    file: game_mod
 - write_config:
     data:
       BetterRayman3:
@@ -47,6 +48,12 @@ installer:
         TriLinear: 1
         VignettesFile: Vignette.cnt
     file: $GAMEDIR/drive_c/windows/Ubisoft/ubi.ini
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/GOG Games/Rayman 3/dxvk.conf
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Rayman 3
+    file: wrapper_vid
 wine:
   overrides:
     d3d9: n,b
