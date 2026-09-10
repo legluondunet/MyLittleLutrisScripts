@@ -1,0 +1,13 @@
+files:
+- engine: https://github.com/kandowontu/starfox-enhanced/releases/download/v0.0.6.5/StarFoxEnhanced-0.0.6.5-linux-x64.zip
+- rom_file: N/A:Select SNES ROM (Must be in .sfc/.smc format)
+game:
+  exe: $GAMEDIR/StarFoxEnhanced-linux-x64/starfox_pc
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- merge:
+    dst: $GAMEDIR/StarFoxEnhanced-linux-x64
+    src: rom_file
+- chmodx: $GAMEDIR/StarFoxEnhanced-linux-x64/starfox_pc
