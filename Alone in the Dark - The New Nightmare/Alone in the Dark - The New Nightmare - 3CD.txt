@@ -25,7 +25,7 @@ installer:
     prefix: $GAMEDIR
 - execute:
     command: cd "$GAMEDIR/dosdevices" ; ln -sf "$GAMEDIR/drive_c/AITDCD" "r:"; mkdir
-      - p "$GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/Save"
+      -p "$GAMEDIR/drive_c/Program Files (x86)/Infogrames/Alone in the Dark/Save"
       ;
 - write_file:
     content: Alone4
