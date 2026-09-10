@@ -1,0 +1,17 @@
+files:
+- engine: https://github.com/999sian/tmc/releases/download/v0.9.1/tmc-multi-linux-x86_64-v0.9.1.tar.gz
+- rom_file: N/A:Select SM64 ROM (Must be in .gba format)
+game:
+  exe: $GAMEDIR/tmc_pc
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- merge:
+    dst: $GAMEDIR
+    src: rom_file
+- chmodx: $GAMEDIR/tmc_pc
+- execute:
+    command: cd "$GAMEDIR" ; f=$(find . -maxdepth 1 -type f -iname '*.gba' ! -iname
+      'baserom.gba' -print -quit); [ -n "$f" ] && [ ! -e baserom.gba ] && mv -- "$f"
+      baserom.gba ;
