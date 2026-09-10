@@ -3,7 +3,7 @@
 Play "Star Fox" PC port on Linux!
 ### Technical notes:
 - Using Star Fox Enhanced engine
-- Supported ROMs
+- Supported ROMs:
     Star Fox Japan: 1.0 / 1.1
     Star Fox USA: 1.0 / 1.1 / 1.2
     Starwing Europe: 1.0 / 1.1
