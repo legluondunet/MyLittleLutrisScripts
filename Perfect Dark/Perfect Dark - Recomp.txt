@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/DabDavis/perfect-dark-dabs-mod/releases/download/v3.2.1/pd-dabs-mod-x86_64-linux.tar.gz
+- engine: https://github.com/DabDavis/perfect-dark-dabs-mod/releases/download/v3.3.3/pd-dabs-mod-x86_64-linux.tar.gz
 - rom_file: N/A:Please provide Perfect Dark rom file in .z64 format
 - game_text: https://github.com/retro-foundry/Perfect-Dark-Plus-HD-Textures/releases/download/Beta_Release_V0.09/PD.PLUS.HD.TEXTURE.PACK.v0.09d.zip
 game:
