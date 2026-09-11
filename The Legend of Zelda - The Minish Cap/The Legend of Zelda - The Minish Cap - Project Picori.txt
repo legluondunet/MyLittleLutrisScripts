@@ -1,5 +1,5 @@
 files:
-- engine: https://github.com/999sian/tmc/releases/download/v0.9.1/tmc-multi-linux-x86_64-v0.9.1.tar.gz
+- engine: https://github.com/999sian/tmc/releases/download/v0.9.2/tmc-multi-linux-x86_64-v0.9.2.tar.gz
 - rom_file: N/A:Select SM64 ROM (Must be in .gba format)
 game:
   exe: $GAMEDIR/tmc_pc
