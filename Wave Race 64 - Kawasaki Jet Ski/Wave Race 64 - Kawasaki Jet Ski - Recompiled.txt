@@ -1,0 +1,18 @@
+files:
+- engine: https://github.com/elliotttate/wave-race-64-recomp/releases/download/v0.4.0-macos.3/WaveRace64Recomp-0.4.0-windows-x64.zip
+- rom_file: N/A:Select Wave Race 64 rom in .z64 format
+game:
+  args: '''Wave Race 64 - Kawasaki Jet Ski (USA).z64'''
+  exe: drive_c/WR64recompiled/WaveRace64Recomp.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/WR64recompiled
+    src: engine
+- execute:
+    command: cd "$GAMEDIR/drive_c/WR64recompiled" ; cp "$rom_file" "Wave Race 64 -
+      Kawasaki Jet Ski (USA).z64" ;
