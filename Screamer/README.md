@@ -1,6 +1,6 @@
-# Screamer - CD
+# Screamer - CD US
 ### Description:
-Play "Screamer" CD edition on Linux!
+Play "SCREAMER" CD US edition on Linux!
 ### Technical notes:
 - use your own CD image in .cue/.bin format or it will be downloaded directly from Internet Archives
 ### Credits:
