@@ -1,0 +1,44 @@
+files:
+- zipgame: N/A:select your rip game archive in zip format
+game:
+  exe: drive_c/Sega Rally/SEGARallyLauncher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Setting up wine prefix
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c
+    src: zipgame
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - English: English
+    - French: French
+    - German: German
+    - Spanish: Spanish
+    - Italian: Italian
+    preselect: English
+- task:
+    key: language
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Sega\SEGA Rally
+    type: REG_SZ
+    value: $INPUT_LANG
+- task:
+    key: installdir
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Sega\SEGA Rally
+    type: REG_SZ
+    value: C:\\Sega Rally\\
+- task:
+    key: sku
+    name: set_regedit
+    path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Sega\SEGA Rally
+    type: REG_SZ
+    value: Europe
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/Sega Rally/dxvk.conf
