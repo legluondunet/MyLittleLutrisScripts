@@ -1,8 +1,7 @@
-# Screamer 2 - GOG - nGlide
+# Screamer 2 - GOG - 3DFX patch
 ### Description:
-Play "Screamer 2" provided by GOG on Linux! using nGlide
+Play "Screamer 2" provided by GOG on Linux!
 ### Technical notes:
-- Screamer 2 with 3DFX rendering
+- You will be able to play this game using software rendering or 3DFX rendering
 ### Credits:
-- nGlide: https://www.zeus-software.com/downloads/nglide
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
