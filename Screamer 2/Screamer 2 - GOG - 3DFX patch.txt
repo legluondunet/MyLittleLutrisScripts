@@ -1,0 +1,23 @@
+files:
+- gogsetup: N/A:Please select the game Windows setup exe file downloaded from your
+    GOG account page
+- game_3dfx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer%202/screamer2_3dfx.7z
+- dbx_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer%202/dosbox.conf
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR/C/S2
+    file: gogsetup
+    format: gog
+- extract:
+    description: Extracting CD data...
+    dst: $GAMEDIR/C/S2
+    file: game_3dfx
+    format: 7z
+- merge:
+    dst: $GAMEDIR
+    src: dbx_conf
+- execute:
+    command: cd "$GAMEDIR/C/S2" ; mkdir ../../D ; mv GAME.DAT ../../D/SCREAM2.cue
+      ; mv GAME.GOG ../../D ;
