@@ -1,0 +1,61 @@
+files:
+- game_cd_1: https://archive.org/download/HundredSwordsEurope/Hundred%20Swords%20%28Europe%29%20%28Install%20Disc%29.zip
+- game_cd_2: https://archive.org/download/HundredSwordsEurope/Hundred%20Swords%20%28Europe%29%20%28Play%20Disc%29.zip
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Hundred%20Swords/hundred-swords_patch.zip
+game:
+  exe: drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS/H_SWORDS.exe
+  prefix: $GAMEDIR
+installer:
+- extract:
+    description: Extracting CD1...
+    dst: $CACHE
+    file: game_cd_1
+- extract:
+    description: Extracting C2...
+    dst: $CACHE
+    file: game_cd_2
+- extract:
+    description: Extracting CD tools...
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "Hundred Swords (Europe) (Install Disc).cue"
+      ; ./bin2iso "Hundred Swords (Europe) (Play Disc).cue" ;
+    description: Convert .cue/.bin cd images to iso...
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE/CD
+    file: $CACHE/Hundred Swords (Europe) (Install Disc)-01.iso
+    format: iso
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE/CD
+    file: $CACHE/Hundred Swords (Europe) (Play Disc)-01.iso
+    format: iso
+- task:
+    description: Installing game, choose full install and let other options to default.
+    executable: $CACHE/CD/Setup.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS/H_SWORDS.exe
+- extract:
+    description: Extracting graphic wrapper...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS
+    file: game_patch
+- extract:
+    description: Extracting graphic wrapper...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS
+    file: wrapper_vid
+- write_config:
+    data:
+      d3d9:
+        FullscreenWindowMode: 1
+        HideWindowFocusChanges: 1
+    file: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS/dxwrapper.ini
+    merge: true
+wine:
+  overrides:
+    ddraw: n,b
