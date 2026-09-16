@@ -1,0 +1,33 @@
+files:
+- game_files: https://archive.org/download/screamer-pc-redump/SCREAMER-PC-REDUMP/Screamer%20%28USA%29.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer/screamer_patch.7z
+- dbx_file: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer/dosbox.conf
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- extract:
+    dst: $GAMEDIR/D
+    file: game_files
+- extract:
+    dst: $CACHE
+    file: game_files
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "Screamer (USA).cue" ;
+- extract:
+    description: Extracting CD data...
+    dst: $GAMEDIR/C/SCREAMER
+    file: $CACHE/Screamer (USA) (Track 1)-01.iso
+    format: iso
+- merge:
+    dst: $GAMEDIR/C/SCREAMER
+    src: $GAMEDIR/C/SCREAMER/START0
+- extract:
+    dst: $GAMEDIR/C/SCREAMER
+    file: game_patch
+- merge:
+    dst: $GAMEDIR
+    src: dbx_file
