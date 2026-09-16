@@ -1,0 +1,43 @@
+files:
+- game_cd_cue:
+    filename: SCREAM2.cue
+    url: https://archive.org/download/msdos_Screamer_2_1996/Screamer_2_1996.zip/Screamr2%2Fcd%2FSCREAM2.cue
+- game_cd_bin:
+    filename: SCREAM2.bin
+    url: https://archive.org/download/msdos_Screamer_2_1996/Screamer_2_1996.zip/Screamr2%2Fcd%2FSCREAM2.bin
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- game_3dfx: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer%202/screamer2_3dfx.7z
+- dbx_conf: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Screamer%202/dosbox.conf
+game:
+  main_file: $GAMEDIR/dosbox.conf
+installer:
+- merge:
+    dst: $GAMEDIR/D
+    src: game_cd_cue
+- merge:
+    dst: $GAMEDIR/D
+    src: game_cd_bin
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "$game_cd_bin" "$game_cd_cue" "SCREAM2" ;
+- extract:
+    description: Extracting CD data...
+    dst: $GAMEDIR/C/S2
+    file: $CACHE/SCREAM201.iso
+    format: iso
+- extract:
+    description: Extracting CD data...
+    dst: $GAMEDIR/C/S2
+    file: game_3dfx
+    format: 7z
+- merge:
+    dst: $GAMEDIR/C/S2
+    src: $GAMEDIR/C/S2/DRV
+- merge:
+    dst: $GAMEDIR/C/S2
+    src: $GAMEDIR/C/S2/START0
+- merge:
+    dst: $GAMEDIR
+    src: dbx_conf
