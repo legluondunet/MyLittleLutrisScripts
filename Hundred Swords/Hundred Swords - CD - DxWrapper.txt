@@ -54,8 +54,14 @@ installer:
       d3d9:
         FullscreenWindowMode: 1
         HideWindowFocusChanges: 1
+    description: Configuring graphic wrapper...
     file: $GAMEDIR/drive_c/Program Files (x86)/SEGA/HUNDRED SWORDS/dxwrapper.ini
     merge: true
+- task:
+    app: directshow
+    description: Installing codecs...
+    name: winetricks
+    silent: true
 wine:
   overrides:
     ddraw: n,b
