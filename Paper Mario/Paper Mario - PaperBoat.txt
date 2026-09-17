@@ -1,0 +1,15 @@
+files:
+- engine: https://github.com/HarbourMasters/PaperBoat/releases/download/1.0.0/Paperboat-Mulberry-Alfa-Linux.zip
+- game_rom: N/A:Please provide Paper Mario USA rom file in .z64 format SHA1 Hash 3837f44cda784b466c9a2d99df70d77c322b97a0
+game:
+  exe: $GAMEDIR/Paperboat.AppImage
+installer:
+- extract:
+    dst: $GAMEDIR
+    file: engine
+- chmodx: $GAMEDIR/Paperboat.AppImage
+- merge:
+    dst: $GAMEDIR
+    src: game_rom
+- execute:
+    command: cd "$GAMEDIR" ; touch portable.txt ;
