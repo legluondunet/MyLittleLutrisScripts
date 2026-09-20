@@ -1,5 +1,6 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/X-Men%20Origins%20-%20Wolverine/wolv.zip
+- game_cd: https://archive.org/download/xmenoriginswolverineusaenfresit/X-Men%20Origins%20-%20Wolverine%20%28USA%29%20%28En%2CFr%2CEs%2CIt%29.iso
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/master/X-Men%20Origins%20-%20Wolverine/wolv.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/Wolverine.exe
   prefix: $GAMEDIR
@@ -8,14 +9,19 @@ installer:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    requires: Setup/Data/Binaries/Wolverine.exe
-- task:
-    executable: $DISC/setup.exe
-    name: wineexec
 - extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/
-    src: patch
+    dst: $CACHE
+    file: game_cd
+    format: iso
+- task:
+    executable: $CACHE/setup.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries/Wolverine.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/X-Men Origins - Wolverine(TM)/Binaries
+    src: game_patch
 - task:
     app: xact
     name: winetricks
