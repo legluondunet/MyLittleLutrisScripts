@@ -1,7 +1,7 @@
 files:
 - engine:
     filename: Dusklight-linux-x86_64.AppImage
-    url: https://github.com/TwilitRealm/dusklight/releases/download/v1.1.1/Dusklight-v1.1.1-linux-x86_64.AppImage
+    url: https://github.com/TwilitRealm/dusklight/releases/download/v2.0.1/Dusklight-v2.0.1-linux-x86_64.AppImage
 game:
   exe: $GAMEDIR/Dusklight-linux-x86_64.AppImage
 installer:
