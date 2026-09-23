@@ -3,24 +3,35 @@ files:
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfs_mw_be_update.zip
 - game_reg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/nfsmw_be.reg
 - game_mod: https://github.com/ThirteenAG/WidescreenFixesPack/releases/download/nfsmw/NFSMostWanted.WidescreenFix.zip
-- wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.6.8300.25/dx9.games.zip
+- game_cfg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Need%20for%20Speed%20-%20Most%20Wanted%20-%20Black%20Edition/Settings.ini
 game:
   exe: drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/speed.exe
   prefix: $GAMEDIR
 installer:
 - task:
+    description: Creating wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
-    dst: $CACHE/CD
+    description: Extracting DVD data...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     file: game_iso
     format: iso
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most
+      Wanted" ; for zip in *.zip; do dir="${zip%.zip}"; mkdir -p "$dir"; python3 -c
+      'import sys,zipfile,pathlib,shutil; z=zipfile.ZipFile(sys.argv[1]); d=pathlib.Path(sys.argv[2]);
+      [(lambda n,i:(d/n).parent.mkdir(parents=True,exist_ok=True) or shutil.copyfileobj(z.open(i),open(d/n,"wb")))(pathlib.Path(i.filename.replace("\\","/")),i)
+      for i in z.infolist() if not i.is_dir()]' "$zip" "$dir"; done ;
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/0compressed
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
+    src: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/1compressed
 - task:
-    description: Installing "Need for Speed - Most Wanted - Black Edition"...When
-      asking for a serial, type PL33-NKML-S49X-DR7W-6MY9. Do not start the game at
-      the end of install, just exit.
-    executable: $CACHE/CD/AutoRun.exe
-    name: wineexec
+    filename: game_reg
+    name: set_regedit_file
 - extract:
     dst: $CACHE
     file: game_patch
@@ -34,29 +45,53 @@ installer:
 - copy:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     src: $CACHE/speed.exe
-- task:
-    filename: game_reg
-    name: set_regedit_file
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
     file: game_mod
+- input_menu:
+    description: 'Choose your preferred language for game menu:'
+    id: LANG
+    options:
+    - English: English
+    - French: French
+    - German: German
+    - Spanish: Spanish
+    - Italian: Italian
+    - Danish: Danish
+    - Dutch: Dutch
+    - Finnish: Finnish
+    - Polish: Polish
+    - Russian: Russian
+    - Swedish: Swedish
+    preselect: English
+- input_menu:
+    description: Replaces keyboard icons with gamepad icons and assigns front-end
+      actions?
+    id: CTRL
+    options:
+    - 0: Ignore
+    - 1: Xbox icons
+    - 2: Playstation icons
+    preselect: 0
 - write_config:
     data:
+      LANGUAGE:
+        Language: $INPUT_LANG
       MISC:
+        CustomUserFilesDirectoryInGameDir: 1
+        ImproveGamepadSupport: $INPUT_CTRL
         SkipIntro: 0
+        WindowedMode: 0
+        WriteSettingsToFile: 1
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/scripts/NFSMostWanted.WidescreenFix.ini
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted
-    file: wrapper_vid
-- write_config:
-    data:
-      Compatibility:
-        D3d9to9Ex: 1
-      d3d9:
-        FullscreenWindowMode: 1
-        LimitPerFrameFPS: 60
-    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/dxwrapper.ini
+    merge: true
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/1/NFS
+      Most Wanted
+    src: game_cfg
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wante/dxvk.conf
 wine:
   overrides:
-    ddraw: n,b
     dinput8: n,b
