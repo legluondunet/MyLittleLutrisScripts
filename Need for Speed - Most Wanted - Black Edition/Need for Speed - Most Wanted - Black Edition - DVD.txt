@@ -91,7 +91,7 @@ installer:
     src: game_cfg
 - write_file:
     content: d3d9.maxFrameRate = 60
-    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wante/dxvk.conf
+    file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/dxvk.conf
 wine:
   overrides:
     dinput8: n,b
