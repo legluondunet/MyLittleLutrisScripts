@@ -92,6 +92,11 @@ installer:
 - write_file:
     content: d3d9.maxFrameRate = 60
     file: $GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed Most Wanted/dxvk.conf
+- execute:
+    command: if [ -d "$GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for Speed
+      Most Wanted" ] ; cd "$GAMEDIR/drive_c/Program Files (x86)/EA GAMES/Need for
+      Speed Most Wanted" ; rm -f -r 0compressed 0compressed.zip 1compressed 1compressed.zip
+      AutoRun* DirectX Patch ;
 wine:
   overrides:
     dinput8: n,b
