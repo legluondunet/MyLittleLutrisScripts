@@ -1,0 +1,35 @@
+files:
+- game_cd_install: https://archive.org/download/Sega_Rally_2_Championship_Win95_1999_Eng/SEGARally2Championship-Eng-InstallDisc.iso
+- game_cd_play_cue: https://archive.org/download/Sega_Rally_2_Championship_Win95_1999_Eng/SEGARally2Championship-Eng-PlayDisc.cue
+- game_cd_play_bin: https://archive.org/download/Sega_Rally_2_Championship_Win95_1999_Eng/SEGARally2Championship-Eng-PlayDisc.bin
+- game_mod: https://github.com/pairomaniac/sr2-patcher/releases/download/v0.7.0/sr2-patcher-v0.7.0-win.zip
+game:
+  exe: drive_c/sr2/SEGA RALLY 2.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: game_mod
+- merge:
+    dst: $CACHE
+    src: game_cd_play_cue
+- merge:
+    dst: $CACHE
+    src: game_cd_play_bin
+- task:
+    args: --install "$game_cd_install" "$GAMEDIR/drive_c/sr2" English
+    description: Extracting game CD files...
+    executable: $CACHE/sr2-patcher-0.7.0.exe
+    name: wineexec
+- task:
+    args: --patch "$GAMEDIR/drive_c/sr2"
+    description: Patching game...
+    executable: $CACHE/sr2-patcher-0.7.0.exe
+    name: wineexec
+- execute:
+    command: cd "$CACHE" ; "$WINEBIN" sr2-patcher-0.7.0.exe --rip "SEGARally2Championship-Eng-PlayDisc.cue"
+      "$GAMEDIR/drive_c/sr2"
