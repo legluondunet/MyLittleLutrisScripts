@@ -1,0 +1,32 @@
+files:
+- game_engine: https://github.com/snesrev/zelda3/releases/download/v0.3/zelda3_v0.3.zip
+- rom_file: N/A:Please select US SNES game rom in .sfc format
+- game_launcher: https://github.com/RadzPrower/Zelda-3-Launcher/releases/download/v1.3.6.0/Zelda_3_Launcher_v1.3.6.0.zip
+- game_shaders: https://github.com/snesrev/glsl-shaders/archive/refs/heads/master.zip
+- game_deps: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/The%20Legend%20of%20Zelda%20-%20A%20Link%20to%20the%20Past/zelda3_deps.7z
+game:
+  exe: drive_c/zelda3-launcher/Zelda 3 Launcher.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/zelda3-launcher
+    file: game_launcher
+- extract:
+    dst: $GAMEDIR/drive_c/zelda3-launcher/zelda3
+    file: game_engine
+- extract:
+    dst: $GAMEDIR/drive_c/zelda3-launcher/zelda3/glsl-shaders
+    file: game_shaders
+- extract:
+    dst: $GAMEDIR/drive_c/zelda3-launcher/zelda3/.git
+    file: game_deps
+- execute:
+    command: cd "$GAMEDIR/drive_c/zelda3-launcher/zelda3" ; cp "$rom_file" zelda3.sfc
+- task:
+    app: dotnetdesktop7
+    name: winetricks
+    silent: true
