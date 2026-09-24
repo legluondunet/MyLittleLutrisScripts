@@ -1,7 +1,8 @@
 files:
-- mod: N/A:Please select "Doom 64 CE 3.10.2" mod archive https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-3102-full-download
+- mod: N/A:Please select "Doom 64 CE 4.0.0" mod archive available for download at
+    https://www.moddb.com/mods/doom-ce/downloads/doom-64-ce-400-full-download
 game:
-  exe: drive_c/Doom64_CE/gzdoom.exe
+  exe: drive_c/Doom64_CE/uzdoom.exe
   prefix: $GAMEDIR
 installer:
 - task:
