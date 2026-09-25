@@ -1,4 +1,4 @@
-# The Legend of Zelda - Majora's Mask - Zelda64Recomp - HD pack
+# The Legend of Zelda - Majora's Mask - Zelda64Recomp + HD textures pack
 ### Description:
 Play "The Legend of Zelda - Majora's Mask" natively on Linux!
 ### Technical notes:
