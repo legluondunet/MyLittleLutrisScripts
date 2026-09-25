@@ -1,7 +1,7 @@
 files:
-- wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.5.8100.25/dxwrapper.zip
-- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2001)/spider-man_2001_patch.zip
 - game_cd: https://archive.org/download/spider-man_20201224/Spider-Man.iso
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2001)/spider-man_2001_patch.zip
+- game_wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
   prefix: $GAMEDIR
@@ -28,17 +28,14 @@ installer:
     file: game_patch
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
-    file: wrapper
-- copy:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
-    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/Stub/ddraw.dll
+    file: game_wrapper_vid
 - write_config:
     data:
-      Compatibility:
-        Dd7to9: 1
       d3d9:
         LimitPerFrameFPS: 29
+        FullscreenWindowMode: 1
     file: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man/dxwrapper.ini
+    merge: true
 system:
   gamescope: true
   gamescope_force_grab_cursor: true
