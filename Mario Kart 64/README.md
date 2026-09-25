@@ -8,13 +8,13 @@ Play "Mario Kart 64" natively on Linux!
 - SpaghettiKart: https://github.com/HarbourMasters/SpaghettiKart
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
 
-# Mario Kart 64 - MarioKart64Recomp - HD pack
+# Mario Kart 64 - MarioKart64Recomp - HD textures
 ### Description:
 Play "Mario Kart 64" natively on Linux!
 ### Technical notes:
-- Using MarioKart64Recomp open source engine and MK64 Reloaded HD pack
+- Using MarioKart64Recomp open source engine and MK64 Reloaded HD textures
 - During install, you will need to provide Mario Kart 64 USA rom file in .z64 format SHA-1 579C48E211AE952530FFC8738709F078D5DD215E
 ### Credits:
-- MarioKart64Recomp: https://github.com/sonicdcer/MarioKart64Recomp
-- MK64 Reloaded: https://github.com/GhostlyDark/mk64-reloaded
+- MarioKart64Recomp: https://gitlab.com/sonicdcer/MarioKart64Recomp
+- MK64 Reloaded: https://evilgames.eu/texture-packs/mk64-reloaded.htm
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
