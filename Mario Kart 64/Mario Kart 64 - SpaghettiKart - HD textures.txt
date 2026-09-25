@@ -1,15 +1,19 @@
 files:
-- engine: https://nightly.link/HarbourMasters/SpaghettiKart/workflows/main/main/spaghetti-linux-x64.zip?status=completed
+- game_engine: https://github.com/HarbourMasters/SpaghettiKart/releases/download/1.0.0/spaghetti-linux.zip
 - game_rom: N/A:Please provide Mario Kart 64 USA rom file in .z64 format SHA-1 579C48E211AE952530FFC8738709F078D5DD215E
+- game_mod: https://evilgames.eu/files/texture-packs/mk64-reloaded-v2026.04.03-sk-hd.o2r
 game:
   exe: $GAMEDIR/spaghetti.appimage
 installer:
 - extract:
     dst: $GAMEDIR
-    file: engine
+    file: game_engine
 - chmodx: $GAMEDIR/spaghetti.appimage
 - merge:
     dst: $GAMEDIR
     src: game_rom
+- merge:
+    dst: $GAMEDIR/mods
+    src: game_mod
 - execute:
     command: cd "$GAMEDIR" ; touch portable.txt ;
