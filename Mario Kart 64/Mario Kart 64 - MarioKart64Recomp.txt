@@ -1,19 +1,21 @@
 files:
-- engine: https://github.com/sonicdcer/MarioKart64Recomp/releases/download/0.0.9.MOD/MarioKart64Recompiled-v0.0.9-Linux-X64.zip
-- rom_file: N/A:Please provide Mario Kart 64 USA rom file in .z64 format SHA-1 579C48E211AE952530FFC8738709F078D5DD215E
-- mod_hd: https://github.com/GhostlyDark/MK64-Reloaded/releases/download/v2025.07.11/mk64-reloaded-v2025.07.11-rt64.rtz
+- game_engine:
+    filename: MarioKart64Recompiled-Linux-X64-Release.zip
+    url: https://gitlab.com/sonicdcer/MarioKart64Recomp/-/package_files/333135845/download
+- game_rom: N/A:Please provide Mario Kart 64 USA rom file in .z64 format SHA-1 579C48E211AE952530FFC8738709F078D5DD215E
+- game_mod: https://evilgames.eu/files/texture-packs/mk64-reloaded-v2026.04.03-rt64.rtz
 game:
   exe: $GAMEDIR/MarioKart64Recompiled
 installer:
 - extract:
     dst: $CACHE
-    file: engine
+    file: game_engine
 - extract:
     dst: $GAMEDIR
     file: $CACHE/MarioKart64Recompiled.tar.gz
     format: tgz
 - merge:
     dst: $GAMEDIR/mods
-    src: mod_hd
+    src: game_mod
 - execute:
-    command: cp "$rom_file" "$GAMEDIR/mk64.us.z64" ; touch portable.txt ;
+    command: cp "$game_rom" "$GAMEDIR/mk64.us.z64" ; touch portable.txt ;
