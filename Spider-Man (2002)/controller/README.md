@@ -3,8 +3,6 @@
 Spider-Man 2002 have very weak support for gamepad, so you will need to install a third party software called keymapper. 
 This software will attribute keyboard keys to your gamepad.
 
-You will find a gamepad profile file for AntimicroX in the game folder.
-
 Download AntimicroX here:
 https://github.com/AntiMicroX/antimicrox
 or install official package from your Linux distribution.
