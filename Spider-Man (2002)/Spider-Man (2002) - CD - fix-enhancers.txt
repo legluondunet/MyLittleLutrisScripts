@@ -8,6 +8,7 @@ files:
 - game_patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/stm_patch_v1.3.zip
 - game_fix: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/sm2002_fix.zip
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- game_wrapper_ctrl: https://github.com/elishacloud/dinputto8/releases/download/v1.1.100.0/dinput.dll
 game:
   exe: drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
   prefix: $GAMEDIR
@@ -70,6 +71,10 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
     src: $CACHE/$INPUT_RES
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    src: game_wrapper_ctrl
 wine:
   overrides:
-    ddraw: n,b
+    d3d8: n,b
+    dinput: n,b
