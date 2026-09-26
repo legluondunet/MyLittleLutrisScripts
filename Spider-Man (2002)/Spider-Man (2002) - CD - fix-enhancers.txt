@@ -1,0 +1,75 @@
+files:
+- game_cd1_cue: https://archive.org/download/spiderman-the-game-disc-2/STM_Disk1.cue
+- game_cd1_bin: https://archive.org/download/spiderman-the-game-disc-2/STM_Disk1.bin
+- game_cd2_cue: https://archive.org/download/spiderman-the-game-disc-2/STM_Disk2.cue
+- game_cd2_bin: https://archive.org/download/spiderman-the-game-disc-2/STM_Disk2.bin
+- game_reg: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/sm2002.reg
+- game_patch2: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/sm2002_patch.zip
+- game_patch1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/stm_patch_v1.3.zip
+- game_fix: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Spider-Man%20(2002)/sm2002_fix.zip
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+game:
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk "$game_cd1_bin" "$game_cd1_cue" "STM_Disk1" ;  ./bchunk
+      "$game_cd2_bin" "$game_cd2_cue" "STM_Disk2" ;
+- extract:
+    description: Extracting CD1 data...
+    dst: $CACHE/CD
+    file: $CACHE/STM_Disk101.iso
+    format: iso
+- extract:
+    description: Extracting CD2 data...
+    dst: $CACHE/CD
+    file: $CACHE/STM_Disk201.iso
+    format: iso
+- task:
+    args: /s /X Setup/Data/data/levels
+    description: Extracting more data from CD...
+    executable: $CACHE/CD/Setup.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    src: $CACHE/CD/Setup/Data
+- task:
+    filename: game_reg
+    name: set_regedit_file
+- extract:
+    dst: $CACHE
+    file: game_patch1
+- task:
+    args: /S
+    description: Installing  Spider-Man (2002) update 1.3...
+    executable: $CACHE/stm_patch_v1.3.exe
+    name: wineexec
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie/SpiderMan.exe
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    file: game_patch2
+- input_menu:
+    description: What is your screen resolution?
+    id: RES
+    options:
+    - 1080p: less or equal to 1920x1080 (HD screen, Steamdeck)
+    - 4K: greater than 1920x1080 (4K)
+    preselect: 1080p
+- extract:
+    dst: $CACHE
+    file: game_fix
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man (tm) Movie
+    src: $CACHE/$INPUT_RES
+wine:
+  overrides:
+    ddraw: n,b
