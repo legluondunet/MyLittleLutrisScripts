@@ -2,6 +2,7 @@
 ### Description:
 Play "Need for Speed - Porsche Unleashed" CD edition on Linux!
 ### Technical notes:
+- Game CD image will be directly downloaded from Internet Archives
 - NFS5 Combined Patch v1.1 included
 - If the game crashes when starting a race, change game graphic resolution color from 16 to 32
 ### Credits:
