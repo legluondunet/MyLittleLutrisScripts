@@ -1,0 +1,28 @@
+game:
+  exe: drive_c/derrick_game/DerrickEP1.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating WINE prefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- input_menu:
+    description: 'Choose the game''s language:'
+    id: LANG
+    options:
+    - en: English
+    - fr: French
+    preselect: en
+- execute:
+    command: cd "$CACHE" ; if [ "$INPUT_LANG" = "en" ]; then wget -O derrick_game.7z
+      --no-check-certificate 'https://archive.org/download/derrick-murder-in-the-flower-bed.-7z/Derrick%20-%20Murder%20in%20the%20Flower%20Bed.7z'
+      ;  elif [ "$INPUT_LANG" = "fr" ]; then wget -O derrick_game.7z --no-check-certificate
+      'https://archive.org/download/derrick-murder-in-the-flower-bed.-7z/Derrick%20-%20Meurtre%20dans%20un%20parterre%20de%20fleurs.7z'
+      ; fi ;
+- extract:
+    dst: $GAMEDIR/drive_c/derrick_game
+    file: $CACHE/derrick_game.7z
+system:
+  env:
+    MANGOHUD_CONFIG: fps_limit=30
