@@ -1,0 +1,47 @@
+files:
+- game_cd_cue:
+    filename: Project IGI.cue
+    url: https://archive.org/download/ProjectIGI-Game/Project%20IGI.cue
+- game_cd_bin:
+    filename: Project IGI.bin
+    url: https://archive.org/download/ProjectIGI-Game/Project%20IGI.bin
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Project%20IGI/project_igi_patch.7z
+- game_codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
+game:
+  exe: drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc/IGI.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    description: Create Wineprefix...
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    format: zip
+    src: cd_tools
+- execute:
+    command: cd "$CACHE" ; bchunk -w '$game_cd_bin' '$game_cd_cue'  "Project IGI"
+      ;
+- extract:
+    description: Extracting CD data...
+    dst: $CACHE/CD
+    file: $CACHE/Project IGI01.iso
+    format: iso
+- task:
+    description: Installing "Project IGI - I'm Going In"...Let all options to default.
+    executable: $CACHE/CD/setup.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- move:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc/IGI.bak
+    src: $GAMEDIR/drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc/IGI.exe
+- extract:
+    description: Extracting game path...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc
+    file: game_patch
+- task:
+    args: /S
+    description: Installing INDEO codecs...
+    executable: game_codecs
+    name: wineexec
