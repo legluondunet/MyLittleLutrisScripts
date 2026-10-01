@@ -27,3 +27,17 @@ Play "SimCity 2000 Special Edition" on Linux!
 ### Credits:
 - sc2kfix: https://github.com/sc2kfix/sc2kfix
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+# SimCity 2000 - CD Special Edition + sc2kfix
+### Description:
+Play "SimCity 2000" CD Special edition on Linux!
+### Technical notes:
+- Game image will be directly downloaded from Internet Archives
+- Using OpenSC2K open source project
+- Import assets from "CD/Win95" included folder
+### Credits:
+- OpenSC2K: https://github.com/nicholas-ochoa/OpenSC2K
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
+
+- sc2kfix: https://github.com/sc2kfix/sc2kfix
+- Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
