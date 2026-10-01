@@ -1,0 +1,12 @@
+files:
+- game_engine: https://github.com/open-goal/launcher/releases/download/v2.11.1/OpenGOAL-Launcher_2.11.1_amd64.AppImage
+game:
+  exe: $GAMEDIR/OpenGOAL-Launcher_amd64.AppImage
+installer:
+- chmodx: game_engine
+- copy:
+    dst: $GAMEDIR
+    src: game_engine
+- execute:
+    command: cd "$GAMEDIR" ; mv OpenGOAL-Launcher_[0-9]*_amd64.AppImage OpenGOAL-Launcher_amd64.AppImage;
+      mkdir OpenGOAL-Launcher_amd64.AppImage.home ;
