@@ -8,6 +8,7 @@ files:
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Project%20IGI/project_igi_patch.7z
 - game_codecs: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/INDEO/iv5play.exe
+- game_wrapper_vid: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
 game:
   exe: drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc/IGI.exe
   prefix: $GAMEDIR
@@ -41,7 +42,14 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc
     file: game_patch
 - task:
-    args: /S
+    args: /s
     description: Installing INDEO codecs...
     executable: game_codecs
     name: wineexec
+- extract:
+    description: Extracting game path...
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Eidos Interactive/I'm Going In/pc
+    file: game_wrapper_vid
+wine:
+  overrides:
+    ddraw: n,b
