@@ -1,0 +1,21 @@
+files:
+- game_engine: https://github.com/nicholas-ochoa/OpenSC2K/releases/download/v0.1.3/OpenSC2K-0.1.3-linux-x64.tar.gz
+- game_cd:
+    filename: SimCity 2000 - Special Edition (Maxis, Inc.)(1996).ISO
+    url: https://archive.org/download/SimCity_2000_Special_Edition_Maxis_Inc._1996/SimCity%202000%20-%20Special%20Edition%20%28Maxis%2C%20Inc.%29%281996%29.ISO
+game:
+  args: $GAMEDIR/CD
+  exe: $GAMEDIR/OpenSC2K.x86_64
+  working_dir: $GAMEDIR
+installer:
+- extract:
+    description: Extracting OpenSC2K...
+    dst: $GAMEDIR
+    file: game_engine
+- extract:
+    description: Extracting game CD data...
+    dst: $GAMEDIR/CD
+    file: game_cd
+    format: iso
+- execute:
+    command: mkdir "$GAMEDIR/data" ;
