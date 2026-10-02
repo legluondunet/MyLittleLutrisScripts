@@ -1,7 +1,6 @@
-
 files:
-- mod: https://github.com/rotators/Fo1in2/releases/latest/download/Fallout1in2.zip
-- gogsetup: N/A:Select the gog setup exe
+- game_mod: https://github.com/rotators/Fo1in2/releases/latest/download/Fallout1in2.zip
+- gogsetup: N/A:Select Fallout 2 setup exe file provided by GOG
 game:
   exe: drive_c/GOG Games/Fallout 2/Fallout1in2/Fallout2.exe
   gogid: 1440151285
@@ -18,13 +17,14 @@ installer:
     prefix: $GAMEDIR
 - extract:
     dst: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2
-    file: mod
+    file: game_mod
 - insert-disc:
-    description: Please select "Fallout 1" "master.dat" file, do not use "Automatic"
+    description: Please select the "master.dat" file located in the "Fallout 1" installation
+      directory. Do not click the "Automatic" button
     requires: master.dat
 - execute:
-    command: unset LD_LIBRARY_PATH; cd "$GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2";
-      cp "$DISC/MASTER.DAT" .; chmod +x undat.sh; ./undat.sh MASTER.DAT;
+    command: cd "$GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2"; cp "$DISC/MASTER.DAT"
+      .; chmod +x undat.sh; ./undat.sh MASTER.DAT;
     description: Extracting Fallout 1 master.dat file, this could take a moment...
 - input_menu:
     description: 'Choose the game''s language:'
@@ -50,9 +50,7 @@ installer:
       Graphics:
         GraphicsHeight: $RESOLUTION_HEIGHT
         GraphicsWidth: $RESOLUTION_WIDTH
-        Mode: 0
-      Main:
-        HiResMode: 0
+        Mode: 6
     file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/ddraw.ini
     merge: true
 - copy:
@@ -61,24 +59,18 @@ installer:
 - write_config:
     data:
       INPUT:
-        ALT_MOUSE_INPUT: 1
+        ALT_MOUSE_INPUT: 0
       MAIN:
+        GRAPHICS_MODE: 2
+        REFRESH_RATE: 60
         SCALE_2X: 1
         SCR_HEIGHT: $RESOLUTION_HEIGHT
         SCR_WIDTH: $RESOLUTION_WIDTH
-        WINDOWED: 1
-        WINDOWED_FULLSCREEN: 1
+        UAC_AWARE: 0
+        WINDOWED: 0
+        WINDOWED_FULLSCREEN: 0
     file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/f2_res.ini
     merge: true
-system:
-  env:
-    DXVK_FRAME_RATE: 0
-    DXVK_HUD: null
-  gamescope: true
-  gamescope_force_grab_cursor: true
-  gamescope_fps_limiter: 0
-  gamescope_game_res: 1920x1080
-  gamescope_output_res: 1920x1080
 wine:
   overrides:
-    ddraw.dll: n,b
+    ddraw: n,b
