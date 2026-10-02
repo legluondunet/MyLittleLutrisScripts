@@ -1,9 +1,9 @@
 files:
-- game_cd:
-    filename: Crimson Skies.iso
-    url: https://archive.org/download/crimson-skies_202204/Crimson%20Skies.iso
+- game_cd_cue: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.cue
+- game_cd_img: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.img
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Crimson%20Skies/crmsk102.7z
-- vid_wrapper: https://github.com/elishacloud/dxwrapper/releases/download/v1.8.8600.25/dx7.games.zip
+- vid_wrapper: https://github.com/WinterSnowfall/d7vk/releases/download/v2.3/d7vk-v2.3.zip
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/crimson.exe
   prefix: $GAMEDIR
@@ -12,8 +12,14 @@ installer:
     name: create_prefix
     prefix: $GAMEDIR
 - extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "$game_cd_img" "$game_cd_cue" "CRIMSON" ;
+- extract:
     dst: $GAMEDIR/drive_c/CD
-    file: game_cd
+    file: $CACHE/CRIMSON01.iso
+    format: iso
 - task:
     description: Installing game...Do not launch game at the end of install.
     executable: $GAMEDIR/drive_c/CD/SETUP.EXE
@@ -26,16 +32,19 @@ installer:
     description: updating game...
     executable: $CACHE/crmsk102.exe
     name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
+    src: $CACHE/crimson.exe
 - extract:
+    description: Installing d7vk...
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
     file: vid_wrapper
-- write_config:
-    data:
-      d3d9:
-        LimitPerFrameFPS: 60
-    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/dxwrapper.ini
+- write_file:
+    content: d3d9.maxFrameRate = 60
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/dxvk.conf
 - task:
     app: amstream quartz
+    description: Installing codecs...
     name: winetricks
     silent: true
 wine:
