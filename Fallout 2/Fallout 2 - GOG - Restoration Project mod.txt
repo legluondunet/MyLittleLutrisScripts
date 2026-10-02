@@ -55,4 +55,4 @@ installer:
     merge: true
 wine:
   overrides:
-    ddraw.dll: n,b
+    ddraw: n,b
