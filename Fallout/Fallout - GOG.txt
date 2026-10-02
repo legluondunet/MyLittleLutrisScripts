@@ -37,23 +37,16 @@ installer:
       INPUT:
         ALT_MOUSE_INPUT: 1
       MAIN:
+        GRAPHICS_MODE: 2
+        REFRESH_RATE: 60
         SCALE_2X: 1
         SCR_HEIGHT: $RESOLUTION_HEIGHT
         SCR_WIDTH: $RESOLUTION_WIDTH
         UAC_AWARE: 0
-        WINDOWED: 1
-        WINDOWED_FULLSCREEN: 1
+        WINDOWED: 0
+        WINDOWED_FULLSCREEN: 0
     file: $GAMEDIR/drive_c/GOG Games/Fallout/f1_res.ini
     merge: true
-system:
-  env:
-    DXVK_FRAME_RATE: 0
-    DXVK_HUD: null
-  gamescope: true
-  gamescope_force_grab_cursor: true
-  gamescope_fps_limiter: 0
-  gamescope_game_res: $RESOLUTION
-  gamescope_output_res: $RESOLUTION
 wine:
   overrides:
     ddraw: n,b
