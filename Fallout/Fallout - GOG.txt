@@ -35,7 +35,7 @@ installer:
 - write_config:
     data:
       INPUT:
-        ALT_MOUSE_INPUT: 1
+        ALT_MOUSE_INPUT: 0
       MAIN:
         GRAPHICS_MODE: 2
         REFRESH_RATE: 60
