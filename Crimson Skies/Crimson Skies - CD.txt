@@ -15,6 +15,9 @@ installer:
     dst: $GAMEDIR
     file: game_engine
 - extract:
-    dst: $GAMEDIR/CD
+    dst: $CACHE
     file: $CACHE/CRIMSON01.iso
     format: iso
+- merge:
+    dst: $GAMEDIR/GAME
+    src: $CACHE/GAME
