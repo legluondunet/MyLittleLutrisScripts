@@ -1,0 +1,20 @@
+files:
+- game_cd_cue: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.cue
+- game_cd_img: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.img
+- game_engine: https://github.com/Laeresh/CSVM/releases/download/v0.2.0/CSVM-v0.2.0-linux-x64.tar.gz
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
+game:
+  exe: $GAMEDIR/CSVM.x86_64
+installer:
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "$game_cd_img" "$game_cd_cue" "CRIMSON" ;
+- extract:
+    dst: $GAMEDIR
+    file: game_engine
+- extract:
+    dst: $GAMEDIR/CD
+    file: $CACHE/CRIMSON01.iso
+    format: iso
