@@ -2,7 +2,7 @@ files:
 - game_mod: https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/download/v2.4.34/rpu_v2.4.34.exe
 - gogsetup: N/A:Select the gog setup exe
 game:
-  exe: drive_c/Games/Fallout2/fallout2.exe
+  exe: drive_c/Games/Fallout2/fallout2HR.exe
   gogid: 1440151285
   prefix: $GAMEDIR
 installer:
@@ -29,7 +29,6 @@ installer:
       Graphics:
         GraphicsHeight: $RESOLUTION_HEIGHT
         GraphicsWidth: $RESOLUTION_WIDTH
-        Mode: 0
     file: $GAMEDIR/drive_c/Games/Fallout2/ddraw.ini
     merge: true
 - copy:
@@ -38,13 +37,13 @@ installer:
 - write_config:
     data:
       INPUT:
-        ALT_MOUSE_INPUT: 1
+        ALT_MOUSE_INPUT: 0
       MAIN:
+        REFRESH_RATE: 60
         SCALE_2X: 1
         SCR_HEIGHT: $RESOLUTION_HEIGHT
         SCR_WIDTH: $RESOLUTION_WIDTH
-        WINDOWED: 0
-        WINDOWED_FULLSCREEN: 1
+        UAC_AWARE: 0
     file: $GAMEDIR/drive_c/Games/Fallout2/f2_res.ini
     merge: true
 - write_config:
