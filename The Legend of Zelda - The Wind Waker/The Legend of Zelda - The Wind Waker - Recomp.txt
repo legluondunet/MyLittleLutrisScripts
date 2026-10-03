@@ -1,0 +1,17 @@
+files:
+- game_engine: https://github.com/elliotttate/Wind-Waker-Recomp/releases/download/v0.4.0/WindWakerRecomp-0.4.0-windows-x64.zip
+- game_rom: N/A:please provide Wind Maker rom US
+game:
+  exe: drive_c/wmrecomp/BlueWake.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/wmrecomp
+    file: game_engine
+- copy:
+    dst: $GAMEDIR/drive_c/wmrecomp
+    src: game_rom
