@@ -1,26 +1,28 @@
 files:
-- engine: https://github.com/DabDavis/perfect-dark-dabs-mod/releases/download/v3.3.3/pd-dabs-mod-x86_64-linux.tar.gz
-- rom_file: N/A:Please provide Perfect Dark rom file in .z64 format
-- game_text: https://github.com/retro-foundry/Perfect-Dark-Plus-HD-Textures/releases/download/Beta_Release_V0.09/PD.PLUS.HD.TEXTURE.PACK.v0.09d.zip
+- game_engine: https://github.com/DabDavis/perfect-dark-dabs-mod/releases/download/dabs-mod-dev/pd-dabs-mod-x86_64-linux.tar.gz
+- game_rom: N/A:Please provide Perfect Dark rom file in .z64 format
+- game_hdt: https://github.com/retro-foundry/Perfect-Dark-Plus-HD-Textures/releases/download/Beta_Release_V0.11/PD.Forever.Plus.HD.v0.10.zip
 game:
   args: --portable
   exe: $GAMEDIR/pd.x86_64
 installer:
 - extract:
     dst: $GAMEDIR
-    file: engine
+    file: game_engine
     format: tgz
 - extract:
     dst: $GAMEDIR/texture-packs
-    file: game_text
+    file: game_hdt
 - chmodx: $GAMEDIR/pd.x86_64
 - execute:
-    command: mkdir "$GAMEDIR/data"; cp "$rom_file" "$GAMEDIR/data/pd.ntsc-final.z64"
+    command: mkdir "$GAMEDIR/data"; cp "$game_rom" "$GAMEDIR/data/pd.ntsc-final.z64"
+      ; cd "$GAMEDIR/texture-packs" ; mv "PD Forever Plus HD"*/ "PD Forever Plus HD"
       ;
 - write_config:
     data:
       Mod:
-        TexturePack: PD Plus HD
+        LoadTextures: 1
+        TexturePack: PD Forever Plus HD
       Video:
         DefaultMaximize: 1
     file: $GAMEDIR/pd.ini
