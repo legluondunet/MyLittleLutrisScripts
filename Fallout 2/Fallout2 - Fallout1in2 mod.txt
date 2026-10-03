@@ -50,7 +50,6 @@ installer:
       Graphics:
         GraphicsHeight: $RESOLUTION_HEIGHT
         GraphicsWidth: $RESOLUTION_WIDTH
-        Mode: 6
     file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/ddraw.ini
     merge: true
 - copy:
@@ -61,14 +60,11 @@ installer:
       INPUT:
         ALT_MOUSE_INPUT: 0
       MAIN:
-        GRAPHICS_MODE: 2
         REFRESH_RATE: 60
         SCALE_2X: 1
         SCR_HEIGHT: $RESOLUTION_HEIGHT
         SCR_WIDTH: $RESOLUTION_WIDTH
         UAC_AWARE: 0
-        WINDOWED: 0
-        WINDOWED_FULLSCREEN: 0
     file: $GAMEDIR/drive_c/GOG Games/Fallout 2/Fallout1in2/f2_res.ini
     merge: true
 wine:
