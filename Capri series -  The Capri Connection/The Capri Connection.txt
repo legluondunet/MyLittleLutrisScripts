@@ -42,4 +42,4 @@ system:
   gamescope_force_grab_cursor: true
   gamescope_game_res: 1024x768
 wine:
-  version: wine-11.14-staging-x86_64
+  version: wine-staging-x86_64
