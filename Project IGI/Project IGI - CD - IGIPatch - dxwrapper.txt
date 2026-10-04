@@ -22,7 +22,7 @@ installer:
     format: zip
     src: cd_tools
 - execute:
-    command: cd "$CACHE" ; bchunk -w '$game_cd_bin' '$game_cd_cue'  "Project IGI"
+    command: cd "$CACHE" ; ./bchunk -w '$game_cd_bin' '$game_cd_cue'  "Project IGI"
       ;
 - extract:
     description: Extracting CD data...
