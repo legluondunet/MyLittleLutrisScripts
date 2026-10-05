@@ -1,20 +1,78 @@
 files:
-- patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoec_patch.zip
+- game_cd: https://archive.org/download/age-of-empires-ii-the-conquerors-expansion-usa/Age%20of%20Empires%20II%20-%20The%20Conquerors%20Expansion%20%28USA%29.zip
+- game_updt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoe_tc_updt_1.0c.7z
+- game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoec_patch.zip
+- wrapper_vid: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.9.0.0/cnc-ddraw.zip
+- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
   prefix: $GAMEDIR
 installer:
-- insert-disc:
-    requires: aocsetup.exe
+- extract:
+    dst: $CACHE
+    file: game_cd
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bin2iso "Age of Empires II - The Conquerors Expansion
+      (USA).cue" -t 01 ; ./bchunk -w "Age of Empires II - The Conquerors Expansion
+      (USA) (Track 2).bin" "Age of Empires II - The Conquerors Expansion (USA).cue"
+      "aoe2_tc" ; mv aoe2_tc02.wav Track02.wav ;
+- extract:
+    dst: $CACHE/CD
+    file: $CACHE/Age of Empires II - The Conquerors Expansion (USA) (Track 1)-01.iso
 - task:
-    executable: $DISC/aocsetup.exe
+    executable: $CACHE/CD/aocsetup.exe
     name: wineexec
     prefix: $GAMEDIR
     return_code: 256
 - merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/avi
+    src: $CACHE/CD/GAME/AVI
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/stream
+    src: $CACHE/CD/GAME/SOUND/STREAM
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/campaign
+    src: $CACHE/CD/GAME/SOUND/CAMPAIGN
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Campaign/Media
+    src: $CACHE/CD/GAME/CAMPAIGN/MEDIA
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/Music
+    src: $CACHE/Track02.wav
+- write_file:
+    content: 'track=1 type=d pos=0 len=4
+
+      track=2 type=w pos=4 len=1811'
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/Music/tracklen.nfo
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
 - extract:
+    dst: $CACHE
+    file: game_updt
+- task:
+    executable: $CACHE/Age2XPatch.exe
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1
-    file: patch
+    file: game_patch
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1
+    file: wrapper_vid
+- write_config:
+    data:
+      ddraw:
+        fullscreen: true
+        maintas: true
+        windowed: true
+    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II//age2_x1/ddraw.ini
+    merge: true
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1
+    file: wrapper_cd
 requires: age-of-empires-ii-the-age-of-cd-patch-20a
