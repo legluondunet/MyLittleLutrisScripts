@@ -31,14 +31,23 @@ installer:
     prefix: $GAMEDIR
     return_code: 256
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/AVI
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/avi
     src: $CACHE/CD/GAME/AVI
-- extract:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
-    file: game_patch
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/stream
+    src: $CACHE/CD/GAME/SOUND/STREAM
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/campaign
+    src: $CACHE/CD/GAME/SOUND/CAMPAIGN
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Campaign/Media
+    src: $CACHE/CD/GAME/CAMPAIGN/MEDIA
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Music
     src: $CACHE/Track02.wav
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
+    file: game_patch
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
     file: wrapper_vid
