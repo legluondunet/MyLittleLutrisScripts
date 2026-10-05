@@ -2,8 +2,9 @@
 ### Description:
 Play "Age of Empires II - The Conquerors" CD edition on Linux!
 ### Technical notes:
-- Choose the full install or you won't be able to see the cutscenes
-- Once installed, you can play the game without a CD, but the CD is required to play the background music
+- Game CD image will be directly downloaded from Internet Archives
+- Using cnc-draw and CDAudio proxy open source projects to play this game in good conditions  on modern computer/OS
 ### Credits:
 - cnc-draw: https://github.com/FunkyFr3sh/cnc-ddraw
+- CDAudio proxy: https://sourceforge.net/projects/cdaudio-proxy
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
