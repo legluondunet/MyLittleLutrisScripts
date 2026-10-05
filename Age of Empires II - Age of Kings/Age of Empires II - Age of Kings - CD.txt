@@ -34,10 +34,10 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/avi
     src: $CACHE/CD/GAME/AVI
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Sound/stream
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/stream
     src: $CACHE/CD/GAME/SOUND/STREAM
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Sound/campaign
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/campaign
     src: $CACHE/CD/GAME/SOUND/CAMPAIGN
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Campaign/Media
