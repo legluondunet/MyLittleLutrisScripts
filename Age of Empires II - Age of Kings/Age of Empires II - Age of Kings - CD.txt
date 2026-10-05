@@ -19,7 +19,7 @@ installer:
     file: cd_tools
 - execute:
     command: cd "$CACHE" ; ./bchunk -w "$game_cd_bin" "$game_cd_cue" "aoe2_aok" ;
-      ls -l ; mv aoe2_aok02.wav Track02.wav ;
+      mv aoe2_aok02.wav Track02.wav ;
 - extract:
     dst: $CACHE/CD
     file: $CACHE/aoe2_aok01.iso
@@ -34,10 +34,10 @@ installer:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/avi
     src: $CACHE/CD/GAME/AVI
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/stream
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Sound/stream
     src: $CACHE/CD/GAME/SOUND/STREAM
 - merge:
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/sound/campaign
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Sound/campaign
     src: $CACHE/CD/GAME/SOUND/CAMPAIGN
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Campaign/Media
