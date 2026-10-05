@@ -2,9 +2,10 @@
 ### Description:
 Play "Age of Empires II: The Age of Kings" CD edition on Linux!
 ### Technical notes:
+- Game CD image will be directly downloaded from Internet Archives
 - Patch 2.0a included
-- Choose the full install or you won't be able to see the cutscenes
-- Once installed, you can play the game without a CD, but the CD is required to play the background music
+- Using cnc-draw and CDAudio proxy open source projects to play this game in good conditions  on modern computer/OS
 ### Credits:
 - cnc-draw: https://github.com/FunkyFr3sh/cnc-ddraw
+- CDAudio proxy: https://sourceforge.net/projects/cdaudio-proxy
 - Lutris script maintained by legluondunet: https://github.com/legluondunet/MyLittleLutrisScripts
