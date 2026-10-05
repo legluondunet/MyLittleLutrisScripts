@@ -1,6 +1,10 @@
 files:
-- wrapper: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.9.0.0/cnc-ddraw.zip
-- patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Age_of_Empires_II/aoe2_aok_patch_2.0a.zip
+- game_cd_cue: https://archive.org/download/aoe2_20210130/IMAGE.cue
+- game_cd_bin: https://archive.org/download/aoe2_20210130/IMAGE.bin
+- game_patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Age_of_Empires_II/aoe2_aok_patch_2.0a.zip
+- wrapper_vid: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.9.0.0/cnc-ddraw.zip
+- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/EMPIRES2.exe
   prefix: $GAMEDIR
@@ -10,26 +14,34 @@ installer:
     description: Preparing wineprefix...
     name: create_prefix
     prefix: $GAMEDIR
-- insert-disc:
-    requires: aoesetup.exe
+- extract:
+    dst: $CACHE
+    file: cd_tools
+- execute:
+    command: cd "$CACHE" ; ./bchunk -w "$game_cd_bin" "$game_cd_cue" "aoe2_aok" ;
+      ls -l ; mv aoe2_aok02.wav Track02.wav ;
+- extract:
+    dst: $CACHE/CD
+    file: $CACHE/aoe2_aok01.iso
 - task:
-    description: Installing Age of Empires II - The Age of Kings
-    executable: $DISC/aoesetup.exe
+    description: Installing Age of Empires II - The Age of Kings, let all options
+      to default. Do not launch game at ending install, just exit window.
+    executable: $CACHE/CD/aoesetup.exe
     name: wineexec
     prefix: $GAMEDIR
     return_code: 256
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/AVI
+    src: $CACHE/CD/GAME/AVI
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
-    file: patch
+    file: game_patch
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/Music
+    src: $CACHE/Track02.wav
 - extract:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
-    file: wrapper
-- task:
-    app: directplay
-    description: Installing directplay for multiplayer support
-    name: winetricks
-    prefix: $GAMEDIR
-    silent: true
+    file: wrapper_vid
 - write_config:
     data:
       ddraw:
@@ -38,6 +50,16 @@ installer:
         windowed: true
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/ddraw.ini
     merge: true
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II
+    file: wrapper_cd
+- task:
+    app: directplay
+    description: Installing directplay for multiplayer support
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
 wine:
   overrides:
     ddraw: n,b
+    winmm: n,b
