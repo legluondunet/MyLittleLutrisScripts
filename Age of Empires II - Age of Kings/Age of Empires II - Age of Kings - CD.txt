@@ -3,7 +3,7 @@ files:
 - game_cd_bin: https://archive.org/download/aoe2_20210130/IMAGE.bin
 - game_patch: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/Age_of_Empires_II/aoe2_aok_patch_2.0a.zip
 - wrapper_vid: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.9.0.0/cnc-ddraw.zip
-- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/CDAudio%20proxy/cdaemu.7z
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/EMPIRES2.exe
