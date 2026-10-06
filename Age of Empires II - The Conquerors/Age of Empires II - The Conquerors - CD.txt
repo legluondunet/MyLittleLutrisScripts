@@ -46,7 +46,7 @@ installer:
 - write_file:
     content: 'track=1 type=d pos=0 len=4
 
-      track=2 type=w pos=4 len=1811'
+      track=2 type=w pos=4 len=1850'
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/Music/tracklen.nfo
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/backup
