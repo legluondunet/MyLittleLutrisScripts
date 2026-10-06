@@ -3,7 +3,7 @@ files:
 - game_updt: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoe_tc_updt_1.0c.7z
 - game_patch: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Age%20of%20Empires%20II%20-%20The%20Conquerors/aoec_patch.zip
 - wrapper_vid: https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v6.9.0.0/cnc-ddraw.zip
-- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/master/CDAudio%20proxy%20/cdaemu.v2.05.58_build.rar
+- wrapper_cd: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/CDAudio%20proxy/cdaemu.7z
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
@@ -43,11 +43,6 @@ installer:
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/Music
     src: $CACHE/Track02.wav
-- write_file:
-    content: 'track=1 type=d pos=0 len=4
-
-      track=2 type=w pos=4 len=1850'
-    file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/Music/tracklen.nfo
 - merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/backup
     src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Age of Empires II/age2_x1/age2_x1.exe
