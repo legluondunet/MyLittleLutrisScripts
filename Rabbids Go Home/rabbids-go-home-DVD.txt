@@ -1,0 +1,41 @@
+description: Before start installer, please insert disc on your computer.
+game_slug: rabbids-go-home
+gogslug: ''
+humblestoreid: ''
+installer_slug: rabbids-go-home-DVD
+name: Rabbids Go home
+notes: "For detailled instructuctions on required installer, See the following Github: https://github.com/DYCAMAX/rabbids-go-home-lutris"
+runner: wine
+script:
+  game:
+   arch: win32
+   exe: $GAMEDIR/drive_c/Program files/Ubisoft/Rabbids Go Home - DVD/Launcher.exe
+   prefix: $GAMEDIR
+  installer:
+  - task:
+     arch: win32
+     description: Creating WINE prefix...
+     install_gecko: false
+     install_mono: false
+     name: create_prefix
+     prefix: $GAMEDIR
+  - task:
+     app: fontsmooth=rgb
+     description: Installing winetricks dependencies...
+     name: winetricks
+     prefix: $GAMEDIR
+  - insert-disc:
+     description: Waiting for game installer...
+     message: Insert disc
+     requires: setup.exe
+  - task:
+      description: Installing Rabbids Go Home...
+      executable: $DISC/setup.exe
+      name: wineexec
+      prefix: $GAMEDIR
+  wine:
+    dxvk_version: v2.7.1
+slug: rabbids-go-home-DVD
+steamid: null
+version: Windows Version (DVD)
+year: 2010
