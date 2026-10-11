@@ -1,7 +1,7 @@
 files:
 - game_cd_cue: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.cue
 - game_cd_img: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.img
-- game_engine: https://github.com/Laeresh/CSVM/releases/download/v0.2.0/CSVM-v0.2.0-linux-x64.tar.gz
+- game_engine: https://github.com/Laeresh/CSVM/releases/download/v0.3.0/CSVM-v0.3.0-linux-x64.tar.gz
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
   exe: $GAMEDIR/CSVM.x86_64
@@ -18,6 +18,35 @@ installer:
     dst: $CACHE
     file: $CACHE/CRIMSON01.iso
     format: iso
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C1.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C1B.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C1B.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C2.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C2B.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C3.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C4.CAB
+- extract:
+    dst: $CACHE
+    file: $CACHE/GAME/ZBD/C3.CAB
+- merge:
+    dst: $CACHE/GAME/ZBD
+    src: $CACHE/zbd
+- execute:
+    command: cd "$CACHE/GAME/ZBD" ||  exit 1 ; rm -f -r *.CAB ;
 - merge:
     dst: $GAMEDIR/GAME
     src: $CACHE/GAME
