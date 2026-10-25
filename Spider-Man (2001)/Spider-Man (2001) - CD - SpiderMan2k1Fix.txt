@@ -1,0 +1,27 @@
+files:
+- game_cd: https://archive.org/download/spider-man_20201224/Spider-Man.iso
+- game_patch: https://github.com/legluondunet/SpiderMan2k1Fix/releases/download/v1.0.0/SpiderMan2k1Fix-1.0.0-Windows-x86.zip
+game:
+  exe: drive_c/Program Files (x86)/Activision/Spider-Man/SpideyPC.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $CACHE
+    format: iso
+    src: game_cd
+- task:
+    description: Installing Spider-Man (2000), during install let all options to default.
+    executable: $CACHE/Autorun.exe
+    name: wineexec
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    src: $CACHE/Setup/media.pkr
+- extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Activision/Spider-Man
+    file: game_patch
+wine:
+  overrides:
+    winmm: n,b
