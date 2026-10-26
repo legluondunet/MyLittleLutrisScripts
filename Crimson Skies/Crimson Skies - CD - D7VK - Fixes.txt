@@ -2,6 +2,8 @@ files:
 - game_cd_cue: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.cue
 - game_cd_img: https://archive.org/download/rootifera-crimson-skies-2000/CRIMSON.img
 - game_update: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Crimson%20Skies/crmsk102.7z
+- game_script_1: https://github.com/legluondunet/MyLittleLutrisScripts/raw/refs/heads/master/Crimson%20Skies/crimson_skies_resolution_patch.py
+- game_script_2: https://github.com/thehack904/CrimsonSkies-Wine-Fix/archive/refs/tags/v1.0.0.zip
 - vid_wrapper: https://github.com/WinterSnowfall/d7vk/releases/download/v2.3/d7vk-v2.3.zip
 - cd_tools: https://github.com/legluondunet/mlls-tools/raw/refs/heads/master/cdrtools/cdrtools.zip
 game:
@@ -33,12 +35,29 @@ installer:
     executable: $CACHE/crmsk102.exe
     name: wineexec
 - merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/CRIMSON.EXE
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/backup
+    src: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/GOSDATA/ASSETS/BINARIES/roffile.dll
+- merge:
     dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
     src: $CACHE/crimson.exe
 - extract:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/GOSDATA/ASSETS/BINARIES
+    file: game_script_2
+- execute:
+    command: cd "$GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies"
+      ; python3 "$game_script_1"  --exe crimson.exe --width $RESOLUTION_WIDTH --height
+      $RESOLUTION_HEIGHT ; cd GOSDATA/ASSETS/BINARIES ; python3 crimson-skies-rof-nul-guard.py
+      apply --dll 'roffile.dll' ;
+- extract:
     description: Installing d7vk...
-    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
+    dst: $CACHE
     file: vid_wrapper
+- merge:
+    dst: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies
+    src: $CACHE/x32
 - write_file:
     content: d3d9.maxFrameRate = 60
     file: $GAMEDIR/drive_c/Program Files (x86)/Microsoft Games/Crimson Skies/dxvk.conf
