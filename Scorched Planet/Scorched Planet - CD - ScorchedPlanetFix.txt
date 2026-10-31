@@ -1,0 +1,26 @@
+files:
+- game_installer: https://github.com/legluondunet/ScorchedPlanetFix/releases/download/v1.1.0/ScorchedPlanetFix-v1.1.0-Windows-x64.zip
+- game_cd: https://archive.org/download/Scorched_Planet_Criterion_Software_1996/Scorched%20Planet%20%28Criterion%20Software%29%281996%29.ISO
+- wrapper_vid:
+    filename: nGlide210_setup.exe
+    url: http://www.zeus-software.com/downloads/nglide/d-1.html
+game:
+  args: --launch
+  exe: drive_c/ScorchedPlanetFix/ScorchedPlanetFix.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/ScorchedPlanetFix
+    file: game_installer
+- extract:
+    dst: $GAMEDIR/drive_c/ScorchedPlanetFix
+    file: wrapper_vid
+- task:
+    args: game_cd
+    description: Installing game...
+    executable: $GAMEDIR/drive_c/ScorchedPlanetFix/ScorchedPlanetFix.exe
+    name: wineexec
+    prefix: $GAMEDIR
