@@ -1,14 +1,11 @@
-# Scorched Planet - CD Windows 3DFX
+# Scorched Planet - CD - ScorchedPlanetFix
 ### Description:
-Play "Scorched Planet" CD Windows 3DFX edition on Linux!
+Play "Scorched Planet" CD DOS version on Linux!
 ### Technical notes:
-- Using DxWnd and dgVoodoo2 for better graphic stability
-- Known issue: regularly crashing when launching a new game or load a save
+- Using ScorchedPlanetFix: a modern compatibility patch and installer
 ### Credits:
-- DxWnd: https://sourceforge.net/projects/dxwnd
-- dgVoodoo2: https://dege.freeweb.hu/dgVoodoo2
+- ScorchedPlanetFix: https://github.com/legluondunet/ScorchedPlanetFix
 - Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
-
 
 # Scorched Planet - CD Matrox + 86Box + W95
 ### Description:
