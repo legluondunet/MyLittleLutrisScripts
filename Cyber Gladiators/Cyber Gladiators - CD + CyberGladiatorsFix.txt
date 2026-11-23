@@ -1,0 +1,16 @@
+files:
+- game_cd: https://archive.org/download/cyber-gladiators-usa/CyberGladiators%20%28USA%29.zip
+- game_fix: https://github.com/legluondunet/CyberGladiatorsFix/releases/download/v2.0.0/CyberGladiatorsFix-v2.0.0-Windows-x64.zip
+game:
+  exe: drive_c/CyberGladiatorsFix/CyberGladiatorsFix.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    name: create_prefix
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/CyberGladiatorsFix
+    file: game_cd
+- extract:
+    dst: $GAMEDIR/drive_c/CyberGladiatorsFix
+    file: game_fix
