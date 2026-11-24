@@ -1,3 +1,12 @@
+# CyberGladiators - CD + CyberGladiatorsFix
+### Description:
+Play "CyberGladiators" on Linux!
+### Technical notes:
+- Using CyberGladiatorsFix: a modern installer and compatibility fix
+### Credits:
+- CyberGladiatorsFix: https://github.com/legluondunet/ScorchedPlanetFix
+- Lutris script maintained by legluondunet https://github.com/legluondunet/MyLittleLutrisScripts
+
 # CyberGladiators - CD + Windows 95
 ### Description:
 Play "CyberGladiators" on Linux!
